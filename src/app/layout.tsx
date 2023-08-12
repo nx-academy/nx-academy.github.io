@@ -1,11 +1,13 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Open_Sans({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "NX - Passez au niveau supérieur",
-  description: "Améliorez vos Compétences en Ingénierie Informatique avec des Cours Modernes et Complets.",
+  title:
+    "NX - Boostez votre carriere de developpeur avec des cours en ligne modernes.",
+  description:
+    "Améliorez vos compétences en ingénierie informatique avec des cours modernes et complets.",
 };
 
 export default function RootLayout({
