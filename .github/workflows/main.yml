@@ -1,9 +1,14 @@
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ['main']
+
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 
 jobs:
