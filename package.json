@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "nx-academy.github.io",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -10,7 +10,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.5.8",
+    "astro": "^4.5.8"
+  },
+  "devDependencies": {
     "@astrojs/check": "^0.5.9",
     "typescript": "^5.4.3"
   }
