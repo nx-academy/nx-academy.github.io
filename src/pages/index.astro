@@ -1,48 +1,19 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro"
 ---
 
-<html lang="FR-fr">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/images/icon-nx.png" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
+<BaseLayout>
+	<h1>NX Academy</h1>
+	<a href="/blog/bienvenue-v2">Bienvenue sur la V2</a>
+</BaseLayout>
 
-		<title>NX Academy - Cours en Ligne de Programmation, DevOps et IA - Apprenez et Évoluez</title>
-
-		<meta name="description" content="Élevez vos compétences avec des cours en ligne spécialisés en programmation, DevOps et IA. Accédez à des contenus interactifs de qualité, des tutoriels pratiques et des cheasheets. Le tout sans dépenser un euro." />
-
-	</head>
-	<body>
-		<h1>NX Academy</h1>
-		<a href="/blog/bienvenue-v2">Bienvenue sur la V2</a>
-	</body>
-</html>
 
 <style>
-	@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
-	@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
-
 	body {
 		align-items: center;
-		background-color: #151515;
-		color: #FFF;
 		display: flex;
 		flex-direction: column;
-		font-family: "Pixelify Sans", sans-serif;
 		justify-content: center;
 		min-height: 90vh;
-	}
-
-	a {
-		color: #FFF;
-		font-family: "Space Grotesk", sans-serif;
-		text-decoration: none;
-		transition: .4s;
-	}
-
-	a:hover {
-		color: #38946b;
 	}
 </style>
