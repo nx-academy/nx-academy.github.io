@@ -20,3 +20,7 @@ a {
 a:hover {
   color: #38946b;
 }
+
+p {
+  line-height: 25px;
+}
