@@ -17,13 +17,30 @@ Se reconvertir dans l'informatique n'était pas encore à la mode. Les choses on
 
 ## Le bon choix
 
-Il n'y a pas un jour où je regrette ce choix. 
+Il n'y a pas un jour où je regrette ce choix même s'il y a clairement eu des hauts et des bas. Cela dit, je n'ai jamais trouvé un métier aussi passionnant. On demande souvent quelles sont les qualités principales pour un développeur. Je peux en citer au moins deux. Aimer apprendre et aimer résoudre des problèmes.
+
+
+Pour moi, c'était clairement parfait. L'informatique, comme beaucoup d'autres sciences, est comme une gigantesque boite de Pandore. Certains s'y perdent et décrochent. D'autres sont litéralement aspirer par ça et ont dû mal à s'arrêter. Pendant longtemps, savoir poser des limites a été l'une des mes difficultés.
+
+
+En quelques années, j'ai occupé des postes de développeur, de lead développeur et de CTO. J'ai aussi mentoré des élèves et crée des cours sur [OpenClassrooms](https://openclassrooms.com/fr/). Il y a d'ailleurs fort à parier que ce soit mes cours qui vous ont amené ici.
 
 
 ## Reprendre des risques
 
+Au fil des années, j'ai appris de nombreux langages tels que le JavaScript/TypeScript, le Php, le Python, le Swift, le Rust, etc. J'ai travaillé dans différents contextes tels que des big techs (Datadog) mais aussi des PME (SensCritique) et des startups. J'ai contribué aussi bien à d'importants projets légacy qu'à des lancements de projets.
+
+
+Cela dit, je sentais que j'arrivais petit à petit au bout. L'informatique est toujours ma passion. Quand je m'ennuie, j'ouvre régulièrement mon ordinateur pour coder et apprendre de nouvelles choses. Mais une lassititude s'est petit à petit installée. Les projets sont petit à petit devenus ennuyeux et répétitifs. Je sentais que j'allais devoir reprendre des risques.
+
+
+NX a été cette prise de risques. Je me suis retrouvé à nouveau au chomâge (mais pas chez ma mère). NX m'a fait découvrir des aspects de la vie d'un projet que je n'avais jamais vraiment compris. Être porteur d'un projet et savoir insuffler une vision est quelque chose de difficile. Il faut aimer ne pas savoir où on va. Surtout au début.
+
 
 ## S'écouter
+
+
+qsd
 
 
 ---
