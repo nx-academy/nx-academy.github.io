@@ -37,10 +37,10 @@ Cela dit, je sentais que j'arrivais petit à petit au bout. L'informatique est t
 NX a été cette prise de risques. Je me suis retrouvé à nouveau au chomâge (mais pas chez ma mère). NX m'a fait découvrir des aspects de la vie d'un projet que je n'avais jamais vraiment compris. Être porteur d'un projet et savoir insuffler une vision est quelque chose de difficile. Il faut aimer ne pas savoir où on va. Surtout au début.
 
 
-## S'écouter
+<!-- ## S'écouter
 
 
-qsd
+ -->
 
 
 ---
