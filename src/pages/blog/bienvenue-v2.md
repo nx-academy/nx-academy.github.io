@@ -44,4 +44,6 @@ La plateforme sera gratuite. Vous n'aurez pas besoin de créer un compte. Je n'u
 
 ---
 
-Bienvenue sur la nouvelle version de NX Academy.
+Bienvenue sur la nouvelle version de <span style="font-family: 'Pixelify Sans', sans-serif;">NX Academy</span>.
+
+<span style="font-family: 'Pixelify Sans', sans-serif; font-size: 18px">Thomas</span>
