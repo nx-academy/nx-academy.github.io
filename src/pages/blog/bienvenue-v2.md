@@ -4,7 +4,7 @@ layout: ../../layouts/BlogPostLayout.astro
 
 # Bienvenue sur la V2
 
-![Un jardin au printemps, pixel art](/public/images/printemps-jardin.jpg)
+![Un jardin au printemps, pixel art](/images/printemps-jardin.jpg)
 
 
 ## Comme un parfum de printemps.
