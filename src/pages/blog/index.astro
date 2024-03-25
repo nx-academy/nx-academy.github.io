@@ -8,7 +8,48 @@ const allPosts = await Astro.glob('./posts/*.md')
     <hr>
     <ul>
         {
-            allPosts.map(post => <li><a href={post.url}>{post.frontmatter.title}</a></li>)
+            allPosts.map(post => (
+                <li>
+                    <img src={post.frontmatter.image.src} alt={post.frontmatter.image.alt} />
+                    <div>
+                        <h3>{post.frontmatter.title}</h3>
+                        <p>{post.frontmatter.description}</p>
+                        <a href={post.url}>Lire le billet</a>
+                    </div>
+                </li>
+            ))
         }
     </ul>
 </BlogPostLayout>
+
+<style>
+    ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    li {
+        align-items: flex-start;
+        display: flex;
+    }
+
+    h3,
+    p {
+        margin: 0;
+    }
+
+    p {
+        margin-bottom: 8px
+    }
+
+    img {
+        height: 100px;
+        margin-right: 24px
+        width: auto;
+    }
+
+    a {
+        margin-top: auto;
+        text-decoration: underline;
+    }
+</style>
