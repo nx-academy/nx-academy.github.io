@@ -1,0 +1,9 @@
+---
+import BlogPostLayout from "../../layouts/BlogPostLayout.astro"
+const allPosts = await Astro.glob('./*.md')
+---
+
+<BlogPostLayout>
+    <h1>Blog</h1>
+    <h2>Les derniers posts</h2>
+</BlogPostLayout>
