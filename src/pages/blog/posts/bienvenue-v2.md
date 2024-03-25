@@ -1,5 +1,11 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
+layout: ../../../layouts/BlogPostLayout.astro
+
+title: Bienvenue sur la V2
+author: Thomas
+image:  
+    src: "/images/printemps-jardin.jpg"
+    alt: "Un jardin au printemps, pixel art"
 ---
 
 # Bienvenue sur la V2

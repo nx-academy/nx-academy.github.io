@@ -1,9 +1,14 @@
 ---
 import BlogPostLayout from "../../layouts/BlogPostLayout.astro"
-const allPosts = await Astro.glob('./*.md')
+const allPosts = await Astro.glob('./posts/*.md')
 ---
 
 <BlogPostLayout>
     <h1>Blog</h1>
-    <h2>Les derniers posts</h2>
+    <hr>
+    <ul>
+        {
+            allPosts.map(post => <li><a href={post.url}>{post.frontmatter.title}</a></li>)
+        }
+    </ul>
 </BlogPostLayout>
