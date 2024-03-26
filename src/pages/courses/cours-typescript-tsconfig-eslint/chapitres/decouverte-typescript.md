@@ -6,6 +6,8 @@ layout: ../../../../layouts/BlogPostLayout.astro
 
 ## TypeScript, un superset du JavaScript
 
+![Un superhéros en haut d'un immeuble, pixel art](/images/superhero.webp)
+
 Le 1er octobre 2012, Microsoft annonce officiellement TypeScript par le biais d’Anders Hejlsberg. Pour la petite histoire, Anders Hejlsberg est un programmateur danois qui a notamment écrit le Turbo Pascal et le Delphi dans les années 80/90. Après plus de deux ans de développement en interne, Microsoft publie (on dit aussi release) la première version publique de TypeScript.
 
 Vous pouvez jeter un œil à l’[annonce officielle](https://web.archive.org/web/20121003001910/https://blogs.msdn.com/b/somasegar/archive/2012/10/01/typescript-javascript-development-at-application-scale.aspx). Vous n’avez pas forcément besoin de tout lire ou de tout regarder : la vidéo dure plus de 50 minutes et TypeScript a évolué depuis. Ce qui est important ici, c’est la vision derrière la création de TypeScript.
@@ -36,9 +38,13 @@ En octobre 2023, Microsoft a sorti un documentaire sur TypeScript. Vous pouvez l
 
 ## À quelle problématique TypeScript répond ?
 
+![Quelqu'un réflechissant sur un canapé](/images/homme-reflexion.webp)
+
 Si vous avez déjà suivi l’un des mes cours, les prochaines lignes ne devraient pas vous surprendre. Quand j’apprends à utiliser un nouvel outil, un nouveau framework ou un nouveau langage, je me pose régulièrement la question : **“à quelle problématique cet outil ou ce langage tente de répondre ?”**. Non seulement, cela accélère mon apprentissage mais cela me permet de contextualiser l’information et la connaissance.
 
 Si vous ne l’avez pas déjà fait, prenez le temps de vous poser la question avant d’aller plus loin. Profitez en pour vous boire un café ou un thé.
+
+<img src="/images/homme-cafe.webp" alt="Un homme buvant un café assit dans un fauteuil, pixel art" style="height: 300px; width: auto; object-fit: contain; display: block; margin-left: auto; margin-right: auto; margin-top: 36px; margin-bottom: 36px;" />
 
 Pendant longtemps, j’ai eu du mal à comprendre l’utilité de TypeScript.
 
@@ -96,6 +102,8 @@ Vous devriez avoir un message d’erreur de VsCode : `Type 'number' is not assig
 ---
 
 ## Quelles sont les limites de TypeScript ?
+
+![Des personnes faisant face à un mur, pixel art](/images/personnes-devant-mur.webp)
 
 Je vous ai déjà un peu parlé de cette notion de runtime un peu plus haut dans ce chapitre. C’est pour moi LA limitation principale à l’utilisation de TypeScript.
 
