@@ -114,3 +114,18 @@ C’est un écosystème vivant et vous pouvez facilement en faire partie !
 ## L’écosystème autour de TypeScript
 
 TypeScript est un langage open-source. Cela signifie que son code source est consultable par toutes et par tous sur Internet. [Voici le repository GitHub officiel de TypeScript](https://github.com/microsoft/TypeScript). Vous pouvez y jeter un œil si vous le souhaitez pour suivre la roadmap et connaître les prochaines versions. Cela dit, ce n’est pas forcément un repository sur lequel vous allez pouvoir contribuer facilement.
+
+**Si vous souhaitez contribuer dans le monde de l’open-source lié à TypeScript, je vous invite à regarder [le repository DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped)**. Ce projet a pour objectif de créer les fichiers de types pour chacune des librairies de l’écosystème JavaScript/TypeScript. Cela peut non seulement vous permettre de rentrer dans le monde de l’open-source via un projet “simple” mais aussi de monter en compétences niveau code et niveau TypeScript. Si le monde de l’open-source vous intéresse, Je vous invite aussi à regarder ce repo. Il recense des projets open-source sur lesquels vous pouvez contribuer 🙂.
+
+TypeScript a donc largement influencé l’écosystème JavaScript. **Aujourd’hui, la plupart des projets et des frameworks intègrent nativement le TypeScript**. Je vous invite par exemple à regarder du côté de Nest. Ce framework back-end pour NodeJS utilise aujourd’hui TypeScript par défaut. Pour info, je vous prépare un cours pour la rentrée 2023 dessus 🙂.
+
+---
+
+## Résumé
+
+- TypeScript est un langage développé par Microsoft au début des années 2010. Il y a bien eu quelques concurrents, Flow et CoffeeScript, mais TypeScript s’est imposé aujourd’hui comme un standard dans l’écosystème JavaScript.
+
+- TypeScript est un superset du JavaScript. Il permet d’ajouter des types au JavaScript et améliore ainsi la robustesse du code. Il permet d’augmenter la DX : le quotidien des programmeurs lorsqu’ils ou elles codent.
+
+- N’oubliez pas que le TypeScript n’est pas exécuté côté NodeJS ou navigateur : c’est toujours du JavaScript qui est exécuté. 
+
