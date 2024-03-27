@@ -1,5 +1,8 @@
 ---
 layout: ../../../../layouts/BlogPostLayout.astro
+
+title: Développez des applications avec TypeScript - Chapitre 2 - Découvrez le projet fil rouge
+description: Dans ce premier deuxième, découvrez le projet fil rouge du cours développez des application avec TypeScript. Clonez et installez le projet sur votre ordinateur (Mac et Windows).
 ---
 
 # Chapitre 2 - Prenez en main le projet fil rouge 

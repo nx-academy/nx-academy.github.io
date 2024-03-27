@@ -33,9 +33,9 @@ Il existe quelques “concurrents” à TypeScript, tels que Flow et CoffeeScrip
 
 En octobre 2022, Microsoft a publié un billet sur son blog pour fêter les dix ans du TypeScript. Pour être honnête, le blog post en lui-même n’est pas très intéressant mais vous pouvez y jeter un œil en diagonale 🙂. Je vous invite par contre à lire cet article : il donne un bon complément d’information sur l’histoire de TypeScript et ses étapes importantes.
 
-En octobre 2023, Microsoft a sorti un documentaire sur TypeScript. Vous pouvez le trouver ci-dessous !
+En octobre 2023, Microsoft a sorti un documentaire sur TypeScript. Vous pouvez le trouver ci-dessous !  
 
-[![Voir la vidéo](https://img.youtube.com/vi/U6s2pdxebSo/hqdefault.jpg)](https://www.youtube.com/embed/U6s2pdxebSo)
+<iframe src="https://www.youtube.com/embed/U6s2pdxebSo" style="width: 100%; height: 400px; border: none; margin-bottom: 36px;"></iframe>
 
 ---
 

@@ -7,7 +7,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   meta="Élevez vos compétences avec des cours en ligne spécialisés en programmation, DevOps et IA. Accédez à des contenus interactifs de qualité, des tutoriels pratiques et des cheasheets. Le tout sans dépenser un euro."
 >
   <h1>NX Academy</h1>
-  <a href="/blog/posts/bienvenue-v2">Bienvenue sur la V2</a>
+  <p>
+    Bienvenue sur la V2 : <a href="/blog/posts/bienvenue-v2">Lire le post</a>
+  </p>
+  <p>
+    Le premier chapitre du cours <strong>Développez des applications avec TypeScript</strong> <br /> est <a href="/cours/cours-typescript-tsconfig-eslint/chapitres/decouverte-typescript">disponible.</a>
+  </p>
 </BaseLayout>
 
 <style>
@@ -21,6 +26,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
   h1 {
     font-family: "Pixelify Sans", sans-serif;
+  }
+
+  p {
+    text-align: center;
   }
 
   a {
