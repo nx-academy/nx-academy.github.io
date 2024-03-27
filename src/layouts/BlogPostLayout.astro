@@ -14,7 +14,7 @@ const {
 } = Astro.props
 ---
 
-<BaseLayout title={title ? title : frontmatter.title} meta={meta ? meta : frontmatter.meta}>
+<BaseLayout title={title ? title : frontmatter.title} meta={meta ? meta : frontmatter.description}>
   <section>
     <a href="/">Revenir à l'accueil</a>
       <slot />
