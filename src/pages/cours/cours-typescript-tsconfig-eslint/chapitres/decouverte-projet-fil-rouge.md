@@ -21,12 +21,33 @@ Pour créer les données du projet, j’ai utilisé ChatGPT. Passez par cet outi
 
 Dans les deux prochaines sections, vous allez découvrir comment cloner et lancer le projet fil rouge sur MacOS puis sur Windows. Je prendrais aussi un peu de temps pour vous montrer le code généré par TypeScript.
 
+---
+
 
 ## Clonez le projet fil rouge sur MacOS
+
+
+![Quelqu'un travaillant devant son ordinateur avec un terminal ouvert, pixel art](/images/ordinateur-terminal-nuit.webp)
 
 [Voici le repository GitHub](https://github.com/nx-academy/Developpez-des-applications-avec-TypeScript) contenant le projet fil rouge du cours. Vous pouvez, si vous le souhaitez, suivre les étapes d’installation et lancer le projet de votre côté.
 
 N’hésitez pas ensuite à regarder le screencast pour aller plus loin.
 
+<iframe src="https://www.youtube.com/embed/QItLoCcIA1s" style="width: 100%; height: 400px;"></iframe>
+
 
 Le projet est maintenant installé sur votre ordinateur. Dès la prochaine partie, vous commencerez à mettre les mains dans le cambouis ! 
+
+---
+
+## Résumé
+
+![Un vendeur de journaux dans une grande ville, pixel art](/images/vendeur-journaux.webp)
+
+
+- Le projet fil rouge du cours est une application en ligne de commandes ou CLI. Ce CLI va vous permettre d’afficher dans votre console des développeurs et développeuses célèbres.
+
+- Le projet sera codé en TypeScript puis compilé et exécuté en JavaScript. Le code JavaScript sera contenu dans le dossier dist.
+
+- N’hésitez surtout pas à contribuer en ajoutant un ou une développeuse que 
+vous aimeriez retrouver dans cette liste. Cela vous permettra de commencer à contribuer en open-source. 
