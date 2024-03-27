@@ -16,6 +16,8 @@ Grâce au projet fil rouge, vous pourrez voir une liste de développeurs mais au
 
 Je vais profiter du screencast ci-dessous pour vous montrer le projet en action. À tout de suite !
 
+<iframe src="https://www.youtube.com/embed/QItLoCcIA1s" style="width: 100%; height: 400px; border: none;"></iframe>
+
 
 Pour créer les données du projet, j’ai utilisé ChatGPT. Passez par cet outil m’a fait économiser de nombreuses heures de travail fastidieuses et pas franchement intéressantes. Je vous invite [à lire le tuto que j’ai rédigé à cette occasion](https://blog.nx.academy/g%C3%A9n%C3%A9rez-un-jeu-de-donn%C3%A9es-avec-chatgpt-a82de55056e3). D’ailleurs, vous vous demandez peut-être si vous devez prendre le temps de vous former à cet outil. De mon point de vue, c’est quelque chose qui va devenir rapidement obligatoire. Avec les outils d’IA et de No Code, [le métier de développeur est actuellement en mutation](https://blog.nx.academy/d%C3%A9veloppeur-un-m%C3%A9tier-en-mutation-f1bd182e3e67). Ne voyez pas cela comme quelque chose de négatif mais apprenez plutôt à en tirer parti. Il y a tout un tas de tâches redondantes que vous allez pouvoir automatiser grâce à l’IA. Je vous prépare quelques cours à ce sujet 🙂.
 
@@ -33,10 +35,35 @@ Dans les deux prochaines sections, vous allez découvrir comment cloner et lance
 
 N’hésitez pas ensuite à regarder le screencast pour aller plus loin.
 
-<iframe src="https://www.youtube.com/embed/QItLoCcIA1s" style="width: 100%; height: 400px;"></iframe>
-
+<iframe src="https://www.youtube.com/embed/UhHHiytiTyc" style="width: 100%; height: 400px; border: none;"></iframe>
 
 Le projet est maintenant installé sur votre ordinateur. Dès la prochaine partie, vous commencerez à mettre les mains dans le cambouis ! 
+
+---
+
+## Clonez le projet fil rouge sur Windows
+
+![Quelqu'un travaillant devant son ordinateur avec un terminal ouvert, pixel art](/images/ordinateur-terminal-nuit.webp)
+
+[Voici le repository GitHub](https://github.com/nx-academy/Developpez-des-applications-avec-TypeScript) contenant le projet fil rouge du cours. Vous pouvez, si vous le souhaitez, suivre les étapes d’installation et lancer le projet de votre côté.
+
+N’hésitez pas ensuite à regarder le screencast pour aller plus loin.
+
+<iframe src="https://www.youtube.com/embed/3qZqBgmSo8A" style="width: 100%; height: 400px; border: none;"></iframe>
+
+Le projet est maintenant installé sur votre ordinateur. Dès la prochaine partie, vous commencerez à mettre les mains dans le cambouis ! 
+
+---
+
+## Contribuez !
+
+![Une salle de classe, pixel art](/images/salle-de-classe.webp)
+
+Il ne me reste plus qu’une chose à vous dire avant de passer à la partie dédiée à la configuration de TypeScript. Vous allez voir que les données que j’utilise pour le CLI ne comprennent que deux programmeuses et deux programmeurs. Il est possible que vous en connaissiez que vous aimeriez retrouver dans ce projet. Il est aussi possible que vous ayez envie de vous tater à l’open-source et que vous cherchiez un projet pour apprendre.
+
+Si c’est le cas, n’hésitez surtout pas à en ajouter via une Pull Request. Non seulement, ça sera un bon cas d’utilisation pour TypeScript, mais cela vous permettra aussi d’exprimer votre voix et qu’une partie de ce cours soit un peu à vous.
+
+Maintenant que les bases sont en place, il est temps de passer à la configuration de TypeScript et d’ESLint !
 
 ---
 
