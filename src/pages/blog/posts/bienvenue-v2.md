@@ -3,7 +3,7 @@ layout: ../../../layouts/BlogPostLayout.astro
 
 title: Bienvenue sur la V2
 author: Thomas
-description: NX Academy devient totalement gratuit et devient open source. Retour sur l'origine du projet et les raisons de ce changement.
+description: NX Academy devient totalement gratuit et open source. Retour sur l'origine du projet et les raisons de ce changement.
 image:  
     src: "/images/printemps-jardin.jpg"
     alt: "Un jardin au printemps, pixel art"

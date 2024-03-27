@@ -1,6 +1,13 @@
 ---
 import "../styles/normalize.css"
 import "../styles/global.css"
+
+interface Props {
+	title: string,
+	meta: string
+}
+
+const { title, meta } = Astro.props
 ---
 
 <html lang="FR-fr">
@@ -10,9 +17,9 @@ import "../styles/global.css"
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 
-		<title>NX Academy - Cours en Ligne de Programmation, DevOps et IA - Apprenez et Évoluez</title>
+		<title>NX Academy - {title}</title>
 
-		<meta name="description" content="Élevez vos compétences avec des cours en ligne spécialisés en programmation, DevOps et IA. Accédez à des contenus interactifs de qualité, des tutoriels pratiques et des cheasheets. Le tout sans dépenser un euro." />
+		<meta name="description" content={meta} />
 
 	</head>
 	<body>

@@ -1,5 +1,8 @@
 ---
 layout: ../../../../layouts/BlogPostLayout.astro
+
+title: Développez des applications avec TypeScript - Chapitre 1 - Découvrez TypeScript
+description: Dans ce premier chapitre, découvrez les raisons de la popularité avec TypeScript. Comprenez son évolution au travers du temps et le terme de DX.
 ---
 
 # Chapitre 1 - Découvrez TypeScript
