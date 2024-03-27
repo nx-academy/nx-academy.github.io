@@ -142,3 +142,6 @@ TypeScript a donc largement influencé l’écosystème JavaScript. **Aujourd’
 
 - N’oubliez pas que le TypeScript n’est pas exécuté côté NodeJS ou navigateur : c’est toujours du JavaScript qui est exécuté. 
 
+
+[Passez au prochain chapitre](/cours/cours-typescript-tsconfig-eslint/chapitres/decouverte-projet-fil-rouge)
+
