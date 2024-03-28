@@ -101,3 +101,18 @@ Jetez un œil au snippet de code ci-dessous.
 <br />
 
 Je vais vous présenter point par point ce que fait ce fichier dans le screencast ci-dessous. Vous pouvez prendre des notes si vous le souhaitez mais sachez que je vous ai préparé un résumé de ce que j’ai dit juste après.
+
+
+## Lancez des commandes spécifiques à TypeScript
+
+## Exercez-vous
+
+## Résumé
+
+- Le compilateur TypeScript s’installe grâce à Npm. Npm est un package manager Node.JS. C’est un outil qui vous permet d’installer et de mettre à jour les librairies facilement sur un projet.
+
+- Les `devDependencies` correspondent à des dépendances/librairies de développement. Autrement dit, ce sont des librairies que vous utiliserez uniquement quand vous programmez un projet et non quand il sera en production sur un serveur.
+
+- Le fichier `tsconfig.json` a pour objectif de compiler le code TypeScript en code JavaScript. C’est ici que vous allez préciser dans quelle version de TypeScript vous souhaitez exporter votre code.
+
+- N’oubliez pas que les `node_modules` correspondent aux librairies installées dans votre projet. Vous trouverez aussi à l’intérieur des exécutables dans le dossier `.bin`. 

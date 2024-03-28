@@ -83,4 +83,4 @@ Maintenant que les bases sont en place, il est temps de passer à la configurati
 vous aimeriez retrouver dans cette liste. Cela vous permettra de commencer à contribuer en open-source. 
 
 
-[Installez et configurez TypeScript](/cours/cours-typescript-tsconfig-eslint/chapitres/installation-et-configuration-typescript)
+[Passez au prochain chapitre](/cours/cours-typescript-tsconfig-eslint/chapitres/installation-et-configuration-typescript)
