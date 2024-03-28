@@ -102,10 +102,69 @@ Jetez un œil au snippet de code ci-dessous.
 
 Je vais vous présenter point par point ce que fait ce fichier dans le screencast ci-dessous. Vous pouvez prendre des notes si vous le souhaitez mais sachez que je vous ai préparé un résumé de ce que j’ai dit juste après.
 
+# VIDEO
+
+Si on résume :
+
+- Le fichier `tsconfig.json` plus haut comprend deux grands blocs : `compilerOptions`, dont le rôle est de gérer les règles de transcompilation de TypeScript vers JavaScript, et `files`, dont le rôle est de spécifier une liste de fichiers TypeScript qui vont être inclus dans le programme.
+
+- L’option `module` sert à préciser le système de modules que vous souhaitez avoir dans votre programme. Pour faire simple, côté TypeScript, vous utiliserez les mots clés `export` et `import` pour respectivement importer des bouts de code, des fonctions ou même des classes entre vos fichiers. C’est quelque chose qu’on verra ensemble dans la partie 3. Grâce à l’option `module`, vous pourrez donc spécifier les règles d’export. Vous pouvez d’or et déjà jeter un œil à cette partie de la documentation sur les modules.
+
+- L’option `noImplicitAny` vous aide à définir si vous autorisez les types `any` dans votre code. Nous reviendrons sur ce type bientôt mais sachez qu’un type `any` correspond à un type qui n’a pas de type défini. Autrement dit, cela peut être un nombre, une chaîne de caractères, etc. TypeScript est un langage fortement typé et utilisé un type `any` revient en quelque sorte à faire un anti-pattern. **C’est clairement quelque chose qu’on veut éviter**.
+
+- L’option `removeComments` supprime les commentaires de code quand le code TypeScript est transcompilé en JavaScript. Cela peut sembler contre intuitif mais souvenez-vous que vous n’avez pas à toucher au code JavaScript : vous codez en TypeScript désormais.
+
+- L’option `sourceMap` indique si vous souhaitez ou non générer un fichier de source. **Ce type de fichier vous aide principalement à déboguer du code**. Vous serez capable de voir de quel fichier TypeScript le code buggé provient. En vrai, c’est quelque chose de super utile !
+
+<br />
+
+Maintenant que vous avez pris en main le navigateur, il est temps de se lancer dans la compilation. Ça tombe bien, les prochains lignes sont dédiées à ça.
+
+Courage, vous n’êtes plus très loin de la fin de ce chapitre 🙂. 
+
 
 ## Lancez des commandes spécifiques à TypeScript
 
+Avant d’aller plus loin, je vais vous demander de créer deux fichiers.
+
+<br />
+
+Un fichier `tsconfig.json` : 
+
+```json
+{
+  "compilerOptions": {
+	"module": "CommonJS"
+  },
+  "files": [
+	"app.ts"
+  ]
+}
+```
+
+<br />
+
+
+Et un fichier `app.ts` :
+
+```typescript
+function sayHello() {
+  console.log("Hello!")
+}
+
+sayHello()
+```
+
+<br />
+
+Créez ces deux fichiers à la racine du projet. Vous ne devriez pas forcément avoir de difficultés à comprendre ce que font les deux fichiers. **Il ne vous reste maintenant plus qu’à lancer le transcompilateur TypeScript**. La bonne nouvelle, c’est qu’il est déjà installé sur votre projet. **Il se trouve dans le répertoire `node_modules`**.
+
 ## Exercez-vous
+
+Pour rappel, [voici la problématique](https://github.com/nx-academy/Developpez-des-applications-avec-TypeScript/issues/1) que nous essayons de résoudre dans ce chapitre.
+
+
+Le code source contenant la solution de cet exercice se trouve sur la branche _[partie-2/chapitre-1-fin](https://github.com/nx-academy/Developpez-des-applications-avec-TypeScript/tree/partie-2/chapitre-1-fin)_.
 
 ## Résumé
 
