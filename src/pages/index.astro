@@ -6,10 +6,10 @@ import "@fontsource/space-grotesk";
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/icon-nx.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>Découvrez TypeScript | NX Academy</title>
   </head>
   <body>
     <header>
@@ -17,12 +17,12 @@ import "@fontsource/space-grotesk";
     </header>
     <main>
       <section>
-        <h2>Decouvrez TypeScript</h2>
+        <h2>Découvrez TypeScript</h2>
         <article>
           <h3>TypeScript, un superset du JavaScript</h3>
 
           <img
-            src="/public/superhero.webp"
+            src="/superhero.webp"
             alt="Un superhéros en haut d'un immeuble, pixel art"
             title="Un superhéros en haut d'un immeuble, pixel art"
           />
@@ -46,11 +46,15 @@ import "@fontsource/space-grotesk";
             TypeScript.
           </p>
 
-          <br>
+          <br />
 
-          <img src="/public/typescript-homepage.png" alt="La page d'accueil du site web de TypeScript" title="La page d'accueil du site web de TypeScript">
+          <img
+            src="/typescript-homepage.png"
+            alt="La page d'accueil du site web de TypeScript"
+            title="La page d'accueil du site web de TypeScript"
+          />
 
-          <br>
+          <br />
 
           <p>
             <strong>
@@ -59,6 +63,42 @@ import "@fontsource/space-grotesk";
             </strong>. Sachez ici qu’on ne parle pas de “petites” applications
             mais d’importants projets avec plusieurs dizaines voire centaines de
             contributeurs.
+          </p>
+
+          <p>
+            Si on remet le tout en perspective, TypeScript est sorti quelques
+            années après NodeJS. NodeJS est sorti en 2009 et Express, le
+            framework le plus utilisé en NodeJS en 2010. On a eu donc au début
+            des années 2010 un essor du JavaScript. C’était le fameux JavaScript
+            everywhere. Le problème, c’est qu’à force de l’utiliser, de nombreux
+            ingénieurs, issus principalement d’autres langages de programmation
+            tels que le Java ou le C#, se sont aperçus des faiblesses du
+            JavaScript. Ici, on parle notamment du typage dynamique du
+            JavaScript et de type safety (le fait de pouvoir changer le type
+            d’une variable durant l’exécution d’un programme).
+          </p>
+        </article>
+
+        <hr />
+
+        <article>
+          <h3>À quelle problématique TypeScript répond ?</h3>
+
+          <img
+            src="/public/homme-reflexion.webp"
+            alt="Quelqu'un réfléchissant sur un canapé"
+            title="Quelqu'un réfléchissant sur un canapé"
+          />
+
+          <p>
+            Si vous avez déjà suivi l’un des mes cours, les prochaines lignes ne
+            devraient pas vous surprendre. Quand j’apprends à utiliser un nouvel
+            outil, un nouveau framework ou un nouveau langage, je me pose
+            régulièrement la question : <strong>
+              “à quelle problématique cet outil ou ce langage tente de répondre
+              ?”</strong
+            >. Non seulement, cela accélère mon apprentissage mais cela me
+            permet de contextualiser l’information et la connaissance.
           </p>
         </article>
       </section>
@@ -71,6 +111,8 @@ import "@fontsource/space-grotesk";
     background-color: #151515;
     color: #fff;
     font-family: "Space Grotesk", sans-serif;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 
   h1 {
@@ -90,7 +132,7 @@ import "@fontsource/space-grotesk";
   }
 
   p {
-    line-height: 1.5rem;
+    line-height: 28px;
   }
 
   a {
@@ -102,5 +144,10 @@ import "@fontsource/space-grotesk";
     &:hover {
       color: #4effa0bb;
     }
+  }
+
+  hr {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
   }
 </style>
