@@ -35,7 +35,9 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       </article>
 
       <article>
-        <h3 id="typescript-problematique">À quelle problématique TypeScript répond ?</h3>
+        <h3 id="typescript-problematique">
+          À quelle problématique TypeScript répond ?
+        </h3>
 
         <img
           src="/homme-reflexion.webp"
@@ -55,18 +57,20 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       </article>
     </div>
 
-    <aside>
-      <h2>Contenu du chapitre</h2>
-      <ul>
-        <li>TypeScript, un superset du JavaScript</li>
-        <li>
+    <div class="course-info">
+      <aside>
+        <h2>Contenu</h2>
+        <ul>
+          <li>TypeScript, un superset du JavaScript</li>
+          <li>
             <a href="#typescript-problematique">
-                TypeScript, c'est trop top moumou
+              TypeScript, c'est trop top moumou
             </a>
-        </li>
-        <li>Résumé</li>
-      </ul>
-    </aside>
+          </li>
+          <li>Résumé</li>
+        </ul>
+      </aside>
+    </div>
   </section>
 </BaseLayout>
 
@@ -78,6 +82,19 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
     margin-right: auto;
     display: flex;
     gap: 2rem;
+  }
+
+  .course-content {
+    width: 70%;
+  }
+
+  .course-info {
+    width: 30%;
+    position: relative;
+
+    aside {
+        position: fixed;
+    }
   }
 
   img {

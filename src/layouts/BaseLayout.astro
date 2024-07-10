@@ -16,6 +16,9 @@ import "@fontsource/space-grotesk";
       <h1>NX Academy</h1>
     </header>
     <slot />
+    <footer>
+      © <span>2024 NX Academy</span>
+    </footer>
   </body>
 </html>
 
@@ -38,5 +41,16 @@ import "@fontsource/space-grotesk";
   h1 {
     font-family: "Pixelify Sans", sans-serif;
     font-size: 1.5rem;
+  }
+
+  footer {
+    border-top: 1px solid #FFF;
+    text-align: center;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+
+    span {
+      font-family: "Pixelify Sans", sans-serif;
+    }
   }
 </style>
