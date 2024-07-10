@@ -6,6 +6,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   <main>
     <h1>NX Academy</h1>
     <p>Passez au niveau supérieur</p>
+    <a href="/blog/welcome-v2">Lire le mot de bienvenue</a>
   </main>
 </BaseLayout>
 
@@ -23,12 +24,28 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     font-family: "Pixelify Sans", sans-serif;
     font-size: 2.5rem;
     margin-top: 0;
-    margin-bottom: .5rem;
+    margin-bottom: 0;
   }
 
   p {
     font-size: 1.25rem;
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 2rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: #151515;
+    font-weight: 500;
+    transition: 0.4s color;
+    border: 1px solid #4effa0;
+    background-color: #4effa0;
+    padding: .5rem 1rem;
+    border-radius: 8px;
+    transition: .4s background-color;
+
+    &:hover {
+      background-color: #4effa0AA;
+    }
   }
 </style>
