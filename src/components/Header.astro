@@ -1,11 +1,11 @@
 <header>
-  <h1>NX Academy</h1>
   <nav>
     <ul>
+      <li class="brand-name">
+        <a href="/">NX Academy</a>
+      </li>
       <li>
-        <a href="/blog/welcome-v2">
-            Blog
-        </a>
+        <a href="/blog/welcome-v2"> Blog </a>
       </li>
     </ul>
   </nav>
@@ -17,17 +17,8 @@
     max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
     gap: 1.5rem;
-    align-items: baseline;
-    border-bottom: 1px solid #FFF;
-  }
-
-  h1 {
-    font-family: "Pixelify Sans", sans-serif;
-    font-size: 1.25rem;
-    margin-top: 0;
-    margin-bottom: 0;
+    border-bottom: 1px solid #fff;
   }
 
   ul {
@@ -36,15 +27,21 @@
     list-style-type: none;
     gap: 1rem;
     font-size: 1rem;
+    align-items: baseline;
+  }
+
+  .brand-name {
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 1.25rem;
   }
 
   a {
     text-decoration: none;
-    color: #FFF;
-    transition: .4s color;
+    color: #fff;
+    transition: 0.4s color;
 
     &:hover {
-        color: #4effa0bb;
+      color: #4effa0bb;
     }
   }
 </style>
