@@ -1,7 +1,66 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro"
+import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
 <BaseLayout>
+  <section>
     <h1>Bienvenue sur la V2</h1>
+
+    <img
+      src="/public/jardin-printemps.webp"
+      alt="Quelqu'un assis dans un jardin au printemps, pixel art"
+      title="Quelqu'un assis dans un jardin au printemps, pixel art"
+    />
+
+    <article>
+      <h2>Comme un parfum de printemps.</h2>
+
+      <p>
+        Il y a maintenant un an, je lançais la première version de NX. Je venais
+        de quitter une entreprise et je décidais de me lancer à temps plein dans
+        ce projet. Cela faisait bien un an que ça me trottait dans la tête. Je
+        guettais l’opportunité idéale. C’est un peu comme quand j’ai appris à
+        coder. C’était il y a maintenant 10 ans.
+      </p>
+
+      <p>
+        À l’époque, j’étais particulièrement frustré des jobs que j’occupais.
+        J’avais du mal à vivre et j’aspirais à autre chose. J’ai mûri le projet
+        en me formant le soir et à midi grâce à un site : teamtreehouse. Les
+        cours de cette plate-forme m’ont très vite séduit. À ce moment-là, il y
+        avait beaucoup moins de sites pour se former en programmation. Vous
+        aviez le choix entre Codecademy, freeCodeCamp et Codeschool.
+      </p>
+
+      <p>
+        Se reconvertir dans l’informatique n’était pas encore à la mode. Les
+        choses ont aujourd’hui bien changé. Depuis quelques années, les
+        formations en développement informatique ont poussé comme des
+        champignons. Une recherche sur Google suffit pour s’en rendre compte.
+        Quoi qu’il en soit, ça a été une sacrée prise de risque. J’ai dû revenir
+        vivre chez ma mère.
+      </p>
+    </article>
+  </section>
 </BaseLayout>
+
+<style>
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  section {
+    width: 90%;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
