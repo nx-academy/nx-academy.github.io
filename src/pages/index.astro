@@ -1,1 +1,34 @@
-<h1>foo</h1>
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <main>
+    <h1>NX Academy</h1>
+    <p>Passez au niveau supérieur</p>
+  </main>
+</BaseLayout>
+
+<style>
+  main {
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  h1 {
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: .5rem;
+  }
+
+  p {
+    font-size: 1.25rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+</style>

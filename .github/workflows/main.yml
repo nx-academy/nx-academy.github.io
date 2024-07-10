@@ -1,0 +1,36 @@
+name: Deploy NX Website to GH Pages
+
+on:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checking out
+        uses: actions/checkout@v4
+      - name: Setting up Node 20
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: "npm"
+      - name: Installing dependencies
+        run: npm ci
+      - name: Building project
+        run: npm run build
+      - name: Setting up Pages
+        uses: actions/configure-pages@v3
+      - name: Uploading artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: "./dist"
+      - name: Deploying to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1

@@ -1,4 +1,7 @@
 ---
+import "../styles/normalize.css"
+import "../styles/reset.css"
+
 import "@fontsource/pixelify-sans";
 import "@fontsource/space-grotesk";
 ---
@@ -6,28 +9,23 @@ import "@fontsource/space-grotesk";
 <html lang="FR-fr">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/icon-nx.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Découvrez TypeScript | NX Academy</title>
+
+    <link rel="icon" type="image/svg+xml" href="/icon-nx.png" />
+    
+    <title>Passez au niveau supérieur en programmation avec NX Academy</title>
+    <meta name="description" content="Suivez gratuitement des cours en ligne et améliorez vos compétences en programmation et devops.">
   </head>
   <body>
     <slot />
   </body>
 </html>
 
-<style is:global>
-  * {
-    box-sizing: border-box;
-  }
-</style>
-
 <style>
   body {
     background-color: #151515;
     color: #fff;
     font-family: "Space Grotesk", sans-serif;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
   }
 </style>
