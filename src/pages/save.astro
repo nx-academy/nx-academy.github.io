@@ -1,0 +1,153 @@
+---
+import "@fontsource/pixelify-sans";
+import "@fontsource/space-grotesk";
+---
+
+<html lang="FR-fr">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/icon-nx.png" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Découvrez TypeScript | NX Academy</title>
+  </head>
+  <body>
+    <header>
+      <h1>NX Academy</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Découvrez TypeScript</h2>
+        <article>
+          <h3>TypeScript, un superset du JavaScript</h3>
+
+          <img
+            src="/superhero.webp"
+            alt="Un superhéros en haut d'un immeuble, pixel art"
+            title="Un superhéros en haut d'un immeuble, pixel art"
+          />
+
+          <p>
+            Le 1er octobre 2012, Microsoft annonce officiellement TypeScript par
+            le biais d’Anders Hejlsberg. Pour la petite histoire, Anders
+            Hejlsberg est un programmateur danois qui a notamment écrit le Turbo
+            Pascal et le Delphi dans les années 80/90. Après plus de deux ans de
+            développement en interne, Microsoft publie (on dit aussi release) la
+            première version publique de TypeScript.
+          </p>
+
+          <p>
+            Vous pouvez jeter un œil <a
+              href="https://web.archive.org/web/20121003001910/https://blogs.msdn.com/b/somasegar/archive/2012/10/01/typescript-javascript-development-at-application-scale.aspx"
+              target="_blank">à l’annonce officielle</a
+            >. Vous n’avez pas forcément besoin de tout lire ou de tout regarder
+            : la vidéo dure plus de 50 minutes et TypeScript a évolué depuis. Ce
+            qui est important ici, c’est la vision derrière la création de
+            TypeScript.
+          </p>
+
+          <br />
+
+          <img
+            src="/typescript-homepage.png"
+            alt="La page d'accueil du site web de TypeScript"
+            title="La page d'accueil du site web de TypeScript"
+          />
+
+          <br />
+
+          <p>
+            <strong>
+              TypeScript a été conçu pour pallier à des “lacunes” du JavaScript,
+              notamment dans le développement et la maintenance d’applications
+            </strong>. Sachez ici qu’on ne parle pas de “petites” applications
+            mais d’importants projets avec plusieurs dizaines voire centaines de
+            contributeurs.
+          </p>
+
+          <p>
+            Si on remet le tout en perspective, TypeScript est sorti quelques
+            années après NodeJS. NodeJS est sorti en 2009 et Express, le
+            framework le plus utilisé en NodeJS en 2010. On a eu donc au début
+            des années 2010 un essor du JavaScript. C’était le fameux JavaScript
+            everywhere. Le problème, c’est qu’à force de l’utiliser, de nombreux
+            ingénieurs, issus principalement d’autres langages de programmation
+            tels que le Java ou le C#, se sont aperçus des faiblesses du
+            JavaScript. Ici, on parle notamment du typage dynamique du
+            JavaScript et de type safety (le fait de pouvoir changer le type
+            d’une variable durant l’exécution d’un programme).
+          </p>
+        </article>
+
+        <hr />
+
+        <article>
+          <h3>À quelle problématique TypeScript répond ?</h3>
+
+          <img
+            src="/public/homme-reflexion.webp"
+            alt="Quelqu'un réfléchissant sur un canapé"
+            title="Quelqu'un réfléchissant sur un canapé"
+          />
+
+          <p>
+            Si vous avez déjà suivi l’un des mes cours, les prochaines lignes ne
+            devraient pas vous surprendre. Quand j’apprends à utiliser un nouvel
+            outil, un nouveau framework ou un nouveau langage, je me pose
+            régulièrement la question : <strong>
+              “à quelle problématique cet outil ou ce langage tente de répondre
+              ?”</strong
+            >. Non seulement, cela accélère mon apprentissage mais cela me
+            permet de contextualiser l’information et la connaissance.
+          </p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
+
+<style>
+  body {
+    background-color: #151515;
+    color: #fff;
+    font-family: "Space Grotesk", sans-serif;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  h1 {
+    font-family: "Pixelify Sans", sans-serif;
+  }
+
+  section {
+    width: 90%;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  p {
+    line-height: 28px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #4effa0;
+    font-weight: 500;
+    transition: 0.4s color;
+
+    &:hover {
+      color: #4effa0bb;
+    }
+  }
+
+  hr {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+</style>
