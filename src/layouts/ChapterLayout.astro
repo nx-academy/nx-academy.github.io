@@ -1,0 +1,66 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout>
+  <div>
+    <Header />
+    <slot />
+    <Footer />
+  </div>
+</BaseLayout>
+
+<style is:global>
+  div {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  section {
+    width: 90%;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  img {
+    width: 100%;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+  }
+
+  hr {
+    color: #fff;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: #4effa0;
+    font-weight: 500;
+    transition: 0.4s color;
+
+    &:hover {
+      color: #4effa0bb;
+    }
+  }
+</style>

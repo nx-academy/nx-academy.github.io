@@ -4,58 +4,70 @@ import ContentLayout from "../../layouts/ContentLayout.astro";
 
 <ContentLayout>
   <section>
-    
-      <h1>Découvrez TypeScript</h1>
-      <article>
-        <h2 id="typescript-superset">TypeScript, un superset du JavaScript</h2>
+    <h1>Découvrez TypeScript</h1>
+    <article>
+      <h2>TypeScript, un superset du JavaScript</h2>
 
-        <img
-          src="/superhero.webp"
-          alt="Un superhéros en haut d'un immeuble, pixel art"
-          title="Un superhéros en haut d'un immeuble, pixel art"
-        />
+      <img
+        src="/superhero.webp"
+        alt="Un superhéros en haut d'un immeuble, pixel art"
+        title="Un superhéros en haut d'un immeuble, pixel art"
+      />
 
-        <p>
-          Le 1er octobre 2012, Microsoft annonce officiellement TypeScript par
-          le biais d’Anders Hejlsberg. Pour la petite histoire, Anders Hejlsberg
-          est un programmateur danois qui a notamment écrit le Turbo Pascal et
-          le Delphi dans les années 80/90. Après plus de deux ans de
-          développement en interne, Microsoft publie (on dit aussi release) la
-          première version publique de TypeScript.
-        </p>
+      <p>
+        Le 1er octobre 2012, Microsoft annonce officiellement TypeScript par le
+        biais d’Anders Hejlsberg. Pour la petite histoire, Anders Hejlsberg est
+        un programmateur danois qui a notamment écrit le Turbo Pascal et le
+        Delphi dans les années 80/90. Après plus de deux ans de développement en
+        interne, Microsoft publie (on dit aussi release) la première version
+        publique de TypeScript.
+      </p>
 
-        <p>
-          Vous pouvez jeter un œil <a
-            href="https://web.archive.org/web/20121003001910/https://blogs.msdn.com/b/somasegar/archive/2012/10/01/typescript-javascript-development-at-application-scale.aspx"
-            target="_blank">à l’annonce officielle</a
-          >. Vous n’avez pas forcément besoin de tout lire ou de tout regarder :
-          la vidéo dure plus de 50 minutes et TypeScript a évolué depuis. Ce qui
-          est important ici, c’est la vision derrière la création de TypeScript.
-        </p>
-      </article>
+      <p>
+        Vous pouvez jeter un œil <a
+          href="https://web.archive.org/web/20121003001910/https://blogs.msdn.com/b/somasegar/archive/2012/10/01/typescript-javascript-development-at-application-scale.aspx"
+          target="_blank">à l’annonce officielle</a
+        >. Vous n’avez pas forcément besoin de tout lire ou de tout regarder :
+        la vidéo dure plus de 50 minutes et TypeScript a évolué depuis. Ce qui
+        est important ici, c’est la vision derrière la création de TypeScript.
+      </p>
+    </article>
 
-      <article>
-        <h2 id="typescript-problematique">
-          À quelle problématique TypeScript répond ?
-        </h2>
+    <hr />
 
-        <img
-          src="/homme-reflexion.webp"
-          alt="Quelqu'un réfléchissant sur un canapé"
-          title="Quelqu'un réfléchissant sur un canapé"
-        />
+    <article>
+      <h2>
+        À quelle problématique TypeScript répond ?
+      </h2>
 
-        <p>
-          Si vous avez déjà suivi l’un des mes cours, les prochaines lignes ne
-          devraient pas vous surprendre. Quand j’apprends à utiliser un nouvel
-          outil, un nouveau framework ou un nouveau langage, je me pose
-          régulièrement la question : <strong>
-            “à quelle problématique cet outil ou ce langage tente de répondre ?”</strong
-          >. Non seulement, cela accélère mon apprentissage mais cela me permet
-          de contextualiser l’information et la connaissance.
-        </p>
-      </article>
-    
+      <img
+        src="/homme-reflexion.webp"
+        alt="Quelqu'un réfléchissant sur un canapé, pixel art"
+        title="Quelqu'un réfléchissant sur un canapé"
+      />
+    </article>
+
+    <hr>
+
+    <article>
+      <h2>
+        Quelles sont les limites de TypeScript ?
+      </h2>
+    </article>
+
+    <article>
+      <h2>
+        L’écosystème autour de TypeScript
+      </h2>
+    </article>
+
+    <article>
+      <h2>
+        Résumé
+      </h2>
+    </article>
+
+  </section>
 </ContentLayout>
 
 <style>
@@ -66,14 +78,31 @@ import ContentLayout from "../../layouts/ContentLayout.astro";
     margin-right: auto;
   }
 
+  h1 {
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
   img {
     width: 100%;
+    margin-bottom: 1rem;
     border-radius: 8px;
   }
 
   p {
-    font-size: 1.225rem;
-    line-height: 28px;
+    margin-bottom: 1.5rem;
+  }
+
+  hr {
+    color: #fff;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
   }
 
   a {
