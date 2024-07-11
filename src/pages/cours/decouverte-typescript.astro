@@ -4,7 +4,7 @@ import ContentLayout from "../../layouts/ContentLayout.astro";
 
 <ContentLayout>
   <section>
-    <div class="course-content">
+    
       <h1>Découvrez TypeScript</h1>
       <article>
         <h2 id="typescript-superset">TypeScript, un superset du JavaScript</h2>
@@ -55,46 +55,15 @@ import ContentLayout from "../../layouts/ContentLayout.astro";
           de contextualiser l’information et la connaissance.
         </p>
       </article>
-    </div>
-
-    <div class="course-info">
-      <aside>
-        <h2>Contenu</h2>
-        <ul>
-          <li>TypeScript, un superset du JavaScript</li>
-          <li>
-            <a href="#typescript-problematique">
-              TypeScript, c'est trop top moumou
-            </a>
-          </li>
-          <li>Résumé</li>
-        </ul>
-      </aside>
-    </div>
-  </section>
+    
 </ContentLayout>
 
 <style>
   section {
     width: 90%;
-    max-width: 1100px;
+    max-width: 680px;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
-    gap: 2rem;
-  }
-
-  .course-content {
-    width: 70%;
-  }
-
-  .course-info {
-    width: 30%;
-    position: relative;
-
-    aside {
-        position: fixed;
-    }
   }
 
   img {
@@ -103,6 +72,7 @@ import ContentLayout from "../../layouts/ContentLayout.astro";
   }
 
   p {
+    font-size: 1.225rem;
     line-height: 28px;
   }
 
