@@ -21,6 +21,20 @@ Vous n’avez pas forcément besoin de tout lire ou de tout regarder : la vidéo
 
 ![Quelqu'un réfléchissant sur un canapé, pixel art](/homme-reflexion.webp "Quelqu'un réfléchissant sur un canapé, pixel art")
 
+Regardez l’exemple de code ci-dessous. 
+
+```typescript
+function makeSum(a: number, b?: number): number | void {
+  if (b) {
+    return a + b
+  }
+
+  return
+}
+```
+
+d
+
 ---
 
 ## Quelles sont les limites de TypeScript ?
