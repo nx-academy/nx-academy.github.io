@@ -1,8 +1,20 @@
 ---
+import theme from "../config/theme"
+
 import BaseLayout from "./BaseLayout.astro";
 
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Button from "../components/Button.astro"
+
+const {
+  colors: {
+    black,
+    neonGreen,
+    neonGreenLight,
+    white
+  }
+} = theme
 ---
 
 <BaseLayout>
@@ -10,14 +22,14 @@ import Footer from "../components/Footer.astro";
     <Header />
     <slot />
     <div class="links-wrapper">
-      <a class="back-button" href="#">Revenir au chapitre précédent</a>
-      <a class="next-button" href="#">Passer au chapitre suivant</a>
+      <Button label="Revenir au chapitre précédent" href="#" type="secondary" />
+      <Button label="Passer au chapitre suivant" href="#" type="primary" />
     </div>
     <Footer />
   </div>
 </BaseLayout>
 
-<style is:global>
+<style is:global define:vars={{ black, neonGreen, neonGreenLight, white }}>
   div {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
@@ -53,19 +65,19 @@ import Footer from "../components/Footer.astro";
   }
 
   hr {
-    color: #fff;
+    color: #fefefe;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
   }
 
   a {
     text-decoration: none;
-    color: #4effa0;
+    color: var(--neonGreen);
     font-weight: 500;
     transition: 0.4s color;
 
     &:hover {
-      color: #4effa0bb;
+      color: var(--neonGreenLight);
     }
   }
 
@@ -74,21 +86,10 @@ import Footer from "../components/Footer.astro";
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    flex-direction: column;
 
-    a {
-      text-decoration: none;
-      color: #151515;
-      font-weight: 500;
-      transition: 0.4s color;
-      border: 1px solid #4effa0;
-      background-color: #4effa0;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      transition: 0.4s background-color;
-
-      &:hover {
-        background-color: #4effa0aa;
-      }
+    @media screen and (min-width: 48rem) {
+      flex-direction: row;
     }
   }
 </style>
