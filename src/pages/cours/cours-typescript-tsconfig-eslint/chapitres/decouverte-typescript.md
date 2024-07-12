@@ -6,6 +6,8 @@ layout: ../../../../layouts/ChapterLayout.astro
 
 # Découvrez TypeScript
 
+<article>
+
 ## TypeScript, un superset du JavaScript
 
 ![Un superhéros en haut d'un immeuble, pixel art](/superhero.webp "Un superhéros en haut d'un immeuble, pixel art")
@@ -14,6 +16,8 @@ Le 1er octobre 2012, Microsoft annonce officiellement TypeScript par le biais d�
 
 Vous pouvez jeter un œil <a href="https://web.archive.org/web/20121003001910/https://blogs.msdn.com/b/somasegar/archive/2012/10/01/typescript-javascript-development-at-application-scale.aspx" target="_blank">à l’annonce officielle</a>.
 Vous n’avez pas forcément besoin de tout lire ou de tout regarder : la vidéo dure plus de 50 minutes et TypeScript a évolué depuis. Ce qui est important ici, c’est la vision derrière la création de TypeScript.
+
+</article>
 
 ---
 
@@ -49,3 +53,4 @@ d
 ## Résumé
 
 </section>
+
