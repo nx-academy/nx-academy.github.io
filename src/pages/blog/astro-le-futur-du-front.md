@@ -4,6 +4,13 @@ layout: ../../layouts/ContentLayout.astro
 
 # Astro JS, le futur du développement front ?
 
+## Introduction
+
+- Si vous avez trainé un peu sur LinkedIn ou sur la toile dernièrément, vous avez certainement entendu parler d'Astro. 
+- Astro est un framework front. Vous écrivez du HTML, du CSS et du JavaScript et une partie est directement compilée en pure HTML et CSS.
+- Frontend Masters a sorti un cours dessus cette année. Le cours n'est pas parfait, dans le sens où ça n'est qu'une introduction, mais il pose des bases solides pour aller plus loin.
+- J'ai commencé à l'utiliser sur plusieurs de mes projets. Je ne pense pas être un expert dessus mais je commence quand même à avoir une bonne idée de son utilité.
+
 ## Comprendre le "why" (pourquoi Astro est-il aussi intéressant ?)
 
 ### Moins de JavaScript côté Runtime
