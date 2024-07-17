@@ -1,0 +1,77 @@
+---
+import theme from "../config/theme"
+
+import BaseLayout from "./BaseLayout.astro";
+
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const {
+    colors: {
+        neonGreen,
+        neonGreenLight,
+        black
+    }
+} = theme
+---
+
+<BaseLayout>
+  <div>
+    <Header />
+    <slot />
+    <Footer />
+  </div>
+</BaseLayout>
+
+<style>
+  div {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+</style>
+
+<style is:global define:vars={{ neonGreen, neonGreenLight, black }}>
+  img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+
+  article {
+    max-inline-size: 66ch;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--neonGreen);
+    font-weight: 500;
+    transition: 0.4s color;
+
+    &:hover {
+      color: var(--neonGreenLight);
+    }
+  }
+
+  code {
+    background-color: var(--neonGreen);
+    padding: .25rem;
+    color: var(--black);
+  }
+</style>
