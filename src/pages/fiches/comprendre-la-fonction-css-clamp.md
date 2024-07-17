@@ -37,11 +37,16 @@ h1 {
 }
 ```
 
+Si on prend le temps de revenir sur le code ci-dessus,
+
 - La taille mininal sera d'1rem, autrement dit, 16 pixels.
 - La taille idéale sera de 2.5vw, soit 2.5% de la largeur de la fenêtre.
 - La taille maximale sera de 2rem.
 
 
+La fonction `clamp` nous permet ainsi de gérer plus facilement la partie responsive de nos polices. Ce qui aurait demandé avant plusieurs lignes de CSS et l'utilisation de media queries est maintenant réalisable en une seule ligne. L'autre bonne nouvelle, c'est que cette fonction [est en grande partie supportée](https://caniuse.com/css-math-functions) par nos différents navigateurs.
+
+Sachez que les cas d'utilisation ne se résument pas uniquement à la gestion de la taille des polices. Vous pouvez aussi le faire sur les marges intérieures et/ou extérieures mais aussi sur les largeurs des éléments. Vous allez maintenant découvrir quelques exemples.
 
 
 ## Utilisation | Exemples d'utilisation de la propriété clamp
