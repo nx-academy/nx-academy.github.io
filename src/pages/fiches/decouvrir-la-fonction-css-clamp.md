@@ -20,8 +20,10 @@ Au cours de ce projet, je me suis intéressé à la gestion responsive des taill
 
 En parcourant les ressources fournies, je suis tombé [sur une excellente ressource de web.dev](https://web.dev/learn/design/typography). Elle mentionnait la fonction CSS `clamp()`. Pour être parfaitement honnête, je ne connaissais pas cette fonction. J'ai découvert une fonction CSS particulièrement pratique et puissante. L'objectif de cette fiche technique est de vous donner toutes les armes pour être capable de l'intégrer facilement dans vos projets !
 
+Pour votre information, 1rem sera égal à 16 pixels.
 
-## Un outil idéal pour la gestion responsive des polices
+
+## Pourquoi la fonction clamp est-elle utile ?
 
 Selon le [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp), 
 
@@ -50,7 +52,7 @@ La fonction `clamp` peut être utiliser pour gérer plus facilement la partie re
 Sachez que les cas d'utilisation ne se résument pas uniquement à la gestion de la taille des polices. Vous pouvez aussi le faire sur les marges intérieures et/ou extérieures mais aussi sur les largeurs des éléments. On va maintenant s'intéresser à quelques exemples pratiques.
 
 
-## Utilisation | Exemples d'utilisation de la propriété clamp
+## Comment utiliser la fonction clamp ?
 
 Comme je vous le disais en introduction, j'ai utilisé en premier lieu la fonction `clamp` avec la propriété `font-size`. Je devais styliser une balise `h1`. Elle devait faire au minimum 40 pixels et au maximum 64. Pour des soucis d'accessibilité, j'utilise les `rem` comme unité de valeur.
 
@@ -58,16 +60,49 @@ Mon code CSS ressemblait à quelque chose comme ça :
 
 ```css
 h1 {
-  font-size: 2.5rem;
+  font-size: 2.5rem; /* = 40 pixels */
 
   @media screen and (min-width: 90rem) {
-    font-size: 4rem;
+    font-size: 4rem; /* = 64 pixels */
   }
 }
 ```
 
-- Avec des font sizes
-- Avec des line height ?
+Le problème principal de ce code, en dehors de son côté "verbeux", est qu'il n'est pas totalement responsive. En effet, en-dessous de 90 rem (1440 pixels), la police reste de 40 pixels. C'est ok pour les téléphones portables mais ça peut être un problème pour les ordinateurs portables et les tablettes. C'est là que la fonction `clamp` rentre en jeu.
+
+
+```css
+h1 {
+  font-size: clamp(2.5rem, 1.9718rem + 2.2535vw, 4rem);
+}
+```
+
+Dans cet exemple, les valeurs minimal et maximal sont de 40 et 64 pixels. Jusque ici, rien de nouveau.
+
+La valeur idéale, par contre, est dynamique. Elle comprend une valeur fixe, `1.9818rem` et une valeur relative `2.2535vw`. Cette combinaison permet d'ajuster la taille de la police de manière plus précise en fonction de la largeur de la fenêtre.
+
+- Sur un écran de 768 pixels, la valeur idéale sera de 48.84768 pixels. 
+- Sur un écran de 1024 pixels, la valeur idéale sera de 54.6144 pixels.
+
+Pour les deux exemples ci-dessus, on utilisera la valeur idéal et non les valeurs minimale et maximal puisque la valeur idéale sera située entre les deux.
+
+
+Sachez que la fonction `clamp` n'est pas limitée à la propriété `font-size`.
+
+```css
+/* Ici, un exemple avec la propriété line-height */
+h1 {
+  line-height: clamp(2.25rem, 2.0739rem + 0.7512vw, 2.75rem);
+}
+
+/* Et ici avec une propriété margin */
+.container {
+  margin: clamp(1rem, 1.574rem + 2.5vw, 3rem);
+}
+```
+
+## Comment calculer la valeur idéale ?
+
 
 
 ## Ressources | Allez plus loin
