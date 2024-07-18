@@ -1,9 +1,21 @@
 ---
+interface Props {
+  title?: string
+}
+
 import "../styles/normalize.css"
 import "../styles/reset.css"
 
 import "@fontsource/pixelify-sans";
 import "@fontsource/space-grotesk";
+
+let { title } = Astro.props
+
+title = title ? `${title} - NX Academy` : "Passez au niveau supérieur en programmation avec NX Academy"
+
+console.log("====")
+console.log(title)
+console.log("====")
 ---
 
 <html lang="FR-fr">
@@ -14,7 +26,7 @@ import "@fontsource/space-grotesk";
 
     <link rel="icon" type="image/svg+xml" href="/icon-nx.png" />
     
-    <title>Passez au niveau supérieur en programmation avec NX Academy</title>
+    <title>{title}</title>
     <meta name="description" content="Suivez gratuitement des cours en ligne et améliorez vos compétences en programmation et devops.">
   </head>
   <body>

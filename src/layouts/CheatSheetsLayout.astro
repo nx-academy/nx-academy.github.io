@@ -1,4 +1,10 @@
 ---
+interface Props {
+  frontmatter: {
+    title: string
+  }
+}
+
 import theme from "../config/theme"
 
 import BaseLayout from "./BaseLayout.astro";
@@ -13,9 +19,15 @@ const {
         black
     }
 } = theme
+
+const {
+  frontmatter: {
+    title
+  }
+} = Astro.props
 ---
 
-<BaseLayout>
+<BaseLayout title={title}>
   <div>
     <Header />
     <slot />
