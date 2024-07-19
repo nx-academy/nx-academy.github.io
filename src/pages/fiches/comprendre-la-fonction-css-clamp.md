@@ -1,13 +1,13 @@
 ---
 layout: ../../layouts/CheatSheetsLayout.astro
 
-title: Découvrir la propriété CSS Clamp
+title: Comprendre la propriété CSS Clamp
 description: sd
 ---
 
 <article>
 
-# Découvrir la fonction CSS Clamp
+# Comprendre la fonction CSS Clamp
 
 ![Quelqu'un mesurant un salon avec un mètre, pixel art](/homme-mesure-salon.webp)
 
@@ -20,7 +20,7 @@ Au cours de ce projet, je me suis intéressé à la gestion responsive des taill
 
 En parcourant les ressources fournies, je suis tombé [sur une excellente ressource de web.dev](https://web.dev/learn/design/typography). Elle mentionnait la fonction CSS `clamp()`. Pour être parfaitement honnête, je ne connaissais pas cette fonction. J'ai découvert une fonction CSS particulièrement pratique et puissante. L'objectif de cette fiche technique est de vous donner toutes les armes pour être capable de l'intégrer facilement dans vos projets !
 
-Pour votre information, 1 rem sera égal à 16 pixels.
+Pour votre information, **1 rem sera égal à 16 pixels**.
 
 ## Pourquoi la fonction clamp est-elle utile ?
 
