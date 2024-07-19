@@ -9,7 +9,7 @@ description: sd
 
 # Découvrir la propriété CSS box sizing
 
-**Image de description de l'article**
+![Un enfant rangeant ses jouets dans un carton dans sa chambre, pixel art](/enfant-rangeant-jouets.webp)
 
 ## Problématique | Situation personnelle
 
@@ -24,6 +24,11 @@ description: sd
 - A quoi sert cette propriété ?
 - Pourquoi utilise-t-on souvent `box-sizing: border-box` ?
 
+```css
+* {
+  box-sizing: border-box;
+}
+```
 
 ## Utilisation | Exemples avec des cas d'usage
 
@@ -31,10 +36,24 @@ description: sd
 - Vérifier s'il n'en existe pas d'autres.
 - Préciser que c'est comme se brosser les dents, c'est une bonne pratique de le faire si on veut éviter les carries.
 
+La solution de Paul Irish : 
+
+```css
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+```
+
 ## Ressources | Allez plus loin
 
-- Les deux articles de TeamTreehouse
-- Un article de la cascade ou d'alsa creation
-- Un article du MDN
+- [* { Box-sizing: Border-box } FTW](https://www.paulirish.com/2012/box-sizing-border-box-ftw/)
+- [La propriété CSS box-sizing - MDN](https://developer.mozilla.org/fr/docs/Web/CSS/box-sizing)
+- [Box-Sizing: The Secret to Simple CSS Layouts](https://blog.teamtreehouse.com/box-sizing-secret-simple-css-layouts)
+- [Take Control of the Box Model with box-sizing](https://blog.teamtreehouse.com/take-control-of-the-box-model-with-box-sizing)
+- [La propriété CSS box-sizing - Pierre Giraud](https://www.pierre-giraud.com/html-css-apprendre-coder-cours/box-sizing/)
 
 </article>
