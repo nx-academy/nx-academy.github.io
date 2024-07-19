@@ -37,6 +37,23 @@ Attention, je ne dis pas qu'elle va littéralement transformer vos intégrations
 - Vérifier s'il n'en existe pas d'autres.
 - Préciser que c'est comme se brosser les dents, c'est une bonne pratique de le faire si on veut éviter les carries.
 
+
+
+## Comment l'utiliser ?
+
+
+Le code que vous verez le plus souvent
+
+```css
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+```
+
+
 La solution de Paul Irish : 
 
 ```css
