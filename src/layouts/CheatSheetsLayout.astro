@@ -2,6 +2,7 @@
 interface Props {
   frontmatter: {
     title: string
+    description: string
   }
 }
 
@@ -22,12 +23,13 @@ const {
 
 const {
   frontmatter: {
-    title
+    title,
+    description
   }
 } = Astro.props
 ---
 
-<BaseLayout title={title}>
+<BaseLayout title={title} description={description}>
   <div>
     <Header />
     <slot />

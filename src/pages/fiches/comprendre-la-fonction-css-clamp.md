@@ -1,8 +1,8 @@
 ---
 layout: ../../layouts/CheatSheetsLayout.astro
 
-title: Comprendre la propriété CSS Clamp
-description: sd
+title: Comprendre la fonction CSS Clamp
+description: Apprenez à utiliser la fonction CSS Clamp et rendez facilement les tailles de vos polices responsives.
 ---
 
 <article>
@@ -10,9 +10,6 @@ description: sd
 # Comprendre la fonction CSS Clamp
 
 ![Quelqu'un mesurant un salon avec un mètre, pixel art](/homme-mesure-salon.webp)
-
-<!-- ## Problématique | Situation personnelle -->
-<!-- ## A la recherche des tailles de police responsive. -->
 
 J'ai récemment travaillé sur un projet [dans le cadre du parcours "Building Responsive Layouts"](https://www.frontendmentor.io/learning-paths/building-responsive-layouts--z1qCXVqkD) de Frontend Mentor. Comme tous les parcours de Frontend Mentor, celui-ci inclut des projets pratiques et des articles techniques. Chaque parcours vous fait travailler un aspect très précis du front-end, par exemple, l'accessibilité web ou le responsive web design.
 
