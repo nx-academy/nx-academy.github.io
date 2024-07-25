@@ -1,5 +1,26 @@
 # NX Academy Source code
 
+## Welcome to NX Academy 👋!
+
+You are about to read the documentation for the 
+
+Here are the main information you need to remember:
+- NX Academy uses Astro.
+- We try to avoid using as much as possible JavaScript on the client side.
+- We don't use a CSS framework. We rely instead on Vanilla CSS.
+- We try to be as accessible as possible.
+- Appart from this README, all the content is written in French.
+
+
+## How to run this project on your computer?
+
+### Prerequisites
+
+
+###
+
+## Contributing?
+
 ```sh
 npm create astro@latest -- --template minimal
 ```
