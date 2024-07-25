@@ -22,7 +22,10 @@ const {
     <img src={imgSrc} alt={imgAlt}>
     <p class="title">{title}</p>
     <p class="description">{description}</p>
-    <Button label="Lire la fiche" type="primary" href={href} />
+    <span class="link">
+        <Button label="Lire la fiche" type="primary" href={href} />
+    </span>
+    
 </div>
 
 <style>
@@ -56,7 +59,11 @@ const {
         grid-area: description;
     }
 
-    a {
+    .link {
         grid-area: link;
+    }
+
+    .link :global(a) {
+        width: 100%;
     }
 </style>
