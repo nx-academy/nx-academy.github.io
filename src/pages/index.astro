@@ -6,7 +6,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   <main>
     <h1>NX Academy</h1>
     <p>Passez au niveau supérieur</p>
-    <a href="/blog/welcome-v2">Lire le mot de bienvenue</a>
+    <div class="buttons-wrapper">
+      <a class="btn-secondary" href="https://github.com/nx-academy/nx-academy.github.io" target="_blank">Suivre le projet sur GitHub</a>
+      <a class="btn-primary" href="/blog/welcome-v2">Lire le mot de bienvenue</a>
+    </div>
   </main>
 </BaseLayout>
 
@@ -35,7 +38,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     color: #BABABA;
   }
 
-  a {
+  .btn-primary {
     text-decoration: none;
     color: #151515;
     font-weight: 500;
@@ -48,6 +51,32 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
     &:hover {
       background-color: #4effa0AA;
+    }
+  }
+
+  .btn-secondary {
+    text-decoration: none;
+    color: #151515;
+    font-weight: 500;
+    transition: 0.4s color;
+    border: 1px solid #B0BEC5;
+    background-color: #B0BEC5;
+    padding: .5rem 1rem;
+    border-radius: 8px;
+    transition: .4s background-color;
+
+    &:hover {
+      background-color: #B0BEC5AA;
+    }
+  }
+
+  .buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    @media screen and (min-width: 48rem) {
+      flex-direction: row;
     }
   }
 </style>
