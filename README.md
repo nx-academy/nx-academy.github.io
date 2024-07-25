@@ -2,15 +2,15 @@
 
 ## Welcome to NX Academy 👋!
 
-You are about to read the documentation for the NX Academy Website. We thank you for taking the time to do it.
+Thank you for taking the time to read the documentation for the NX Academy Website. 
 
-Here are the main information you need to remember:
+Here are the key points you need to remember:
 - NX Academy uses [Astro JS](https://astro.build/).
-- We try to avoid using as much as possible JavaScript on the client side.
-- We don't use a CSS framework. We rely instead on Vanilla CSS.
-- We try to be as accessible as possible.
-- Appart from this README, all the content is written in French.
-- At the moment we are working on creating good and interesting cheatsheets. We call them in French "Fiches techniques".
+- We strive to minimize JavaScript usage on the client side.
+- We do not use a CSS framework and instead rely on Vanilla CSS.
+- We aim to be as accessible as possible.
+- Apart from this README, all content is written in French.
+- We are currently working on creating valuable cheatsheets, which we refer to in French as "Fiches techniques."
 
 
 ## How to Run this Project on your Computer?
@@ -57,9 +57,9 @@ There's nothing special about `src/components/`, but that's where we like to put
 
 Any static assets, like images, can be placed in the `public/` directory.
 
-Layouts serve as wrapper for page content. They help keeping your base code DRY.
+Layouts serve as wrappers for page content, helping to keep your base code [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself).
 
 
 ## Contributing?
 
-At the moment, we don't accept external contributors. We are a small team dedicated to find a good balance together. Once we have found this balance, we'll open external contribution.
+Currently, we do not accept external contributors. We are a small team working to find the right balance. Once we achieve this balance, we will open up for external contributions.
