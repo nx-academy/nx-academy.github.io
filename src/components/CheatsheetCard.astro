@@ -1,12 +1,28 @@
 ---
+interface Props {
+    description: string
+    href: string
+    imgAlt: string
+    imgSrc: string
+    title: string
+}
+
 import Button from "./Button.astro"
+
+const {
+    description,
+    href,
+    imgAlt,
+    imgSrc,
+    title
+} = Astro.props
 ---
 
 <div>
-    <img src="/public/enfant-rangeant-jouets.webp" alt="">
-    <p class="title">Comprendre la fonction CSS Clamp</p>
-    <p class="description">Apprenez à utiliser la fonction CSS Clamp et rendez facilement les tailles de vos polices responsives.</p>
-    <Button label="Lire la fiche" type="primary" href="#" />
+    <img src={imgSrc} alt={imgAlt}>
+    <p class="title">{title}</p>
+    <p class="description">{description}</p>
+    <Button label="Lire la fiche" type="primary" href={href} />
 </div>
 
 <style>
