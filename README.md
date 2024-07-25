@@ -1,15 +1,16 @@
-# NX Academy Source code
+# NX Academy Website - Source code
 
 ## Welcome to NX Academy 👋!
 
-You are about to read the documentation for the 
+You are about to read the documentation for the NX Academy Website. We thank you for taking the time to do it.
 
 Here are the main information you need to remember:
-- NX Academy uses Astro JS.
+- NX Academy uses [Astro JS](https://astro.build/).
 - We try to avoid using as much as possible JavaScript on the client side.
 - We don't use a CSS framework. We rely instead on Vanilla CSS.
 - We try to be as accessible as possible.
 - Appart from this README, all the content is written in French.
+- At the moment we are working on creating good and interesting cheatsheets. We call them in French "Fiches techniques".
 
 
 ## How to Run this Project on your Computer?
@@ -43,6 +44,10 @@ Inside of your Astro project, you'll see the following folders and files:
 ├── src/
 │   └── pages/
 │       └── index.astro
+│   └── components/
+│       └── Header.astro
+│   └── layouts/
+│       └── CheatSheetsLayout.astro
 └── package.json
 ```
 
@@ -52,5 +57,9 @@ There's nothing special about `src/components/`, but that's where we like to put
 
 Any static assets, like images, can be placed in the `public/` directory.
 
+Layouts serve as wrapper for page content. They help keeping your base code DRY.
+
 
 ## Contributing?
+
+At the moment, we don't accept external contributors. We are a small team dedicated to find a good balance together. Once we have found this balance, we'll open external contribution.
