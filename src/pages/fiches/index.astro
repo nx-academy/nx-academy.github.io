@@ -21,7 +21,10 @@ const description = "Une fiche technique est un guide de référence pratique au
             </p>
             <p>Les fiches techniques sont particulièrement utiles pour expliquer un concept rapidement et simplement. Elles concernent aussi bien le HTML, CSS et JavaScript que le DevOps.</p>
 
-            <div>
+            <div class="cards-wrapper">
+                <CheatsheetCard />
+                <CheatsheetCard />
+                <CheatsheetCard />
                 <CheatsheetCard />
             </div>
         </section>
@@ -41,5 +44,20 @@ const description = "Une fiche technique est un guide de référence pratique au
         margin-left: auto;
         margin-right: auto;
         max-width: 1100px;
+    }
+
+    .cards-wrapper {
+        display: grid;
+        gap: 2rem;
+
+        @media screen and (min-width: 48rem) {
+            margin-top: 3rem;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media screen and (min-width: 90rem) {
+            margin-top: 3rem;
+            grid-template-columns: repeat(3, 1fr);
+        }
     }
 </style>

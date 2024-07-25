@@ -1,10 +1,46 @@
 ---
-
+import Button from "./Button.astro"
 ---
 
 <div>
     <img src="/public/enfant-rangeant-jouets.webp" alt="">
-    <p>Comprendre la propriété CSS Box Sizing</p>
-    <p>Une description</p>
-    <button>Lire la fiche</button>
+    <p class="title">Comprendre la fonction CSS Clamp</p>
+    <p class="description">Apprenez à utiliser la fonction CSS Clamp et rendez facilement les tailles de vos polices responsives.</p>
+    <Button label="Lire la fiche" type="primary" href="#" />
 </div>
+
+<style>
+    div {
+        display: grid;
+        margin-bottom: 2rem;
+
+        grid-template-areas: "image"
+            "title"
+            "description"
+            "link"
+        ;
+        gap: .75rem;
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+
+    img {
+        grid-area: image;
+    }
+
+    .title {
+        grid-area: title;
+        font-size: 1.25rem;
+        font-weight: 700;
+    }
+
+    .description {
+        grid-area: description;
+    }
+
+    a {
+        grid-area: link;
+    }
+</style>

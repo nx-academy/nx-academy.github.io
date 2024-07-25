@@ -1,4 +1,6 @@
 ---
+import theme from "../config/theme"
+
 interface Props {
   label: string;
   type: "primary" | "secondary";
@@ -6,13 +8,22 @@ interface Props {
 }
 
 const { label, type, href } = Astro.props;
+
+const {
+  colors: {
+    black,
+    neonGreen,
+    neonGreenLight,
+    white
+  }
+} = theme
 ---
 
 <a class={type} href={href}>
   {label}
 </a>
 
-<style>
+<style define:vars={{ black, neonGreen, neonGreenLight, white }}>
   a {
     text-decoration: none;
     font-weight: 500;
