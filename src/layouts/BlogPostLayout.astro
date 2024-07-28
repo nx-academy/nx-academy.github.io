@@ -6,16 +6,44 @@ import Footer from "../components/Footer.astro";
 ---
 
 <BaseLayout>
-    <div>
-        <Header />
-        <slot />
-        <Footer />
-    </div>
+  <div>
+    <Header />
+    <section>
+      <slot />
+    </section>
+    <Footer />
+  </div>
 </BaseLayout>
 
 <style>
-    div {
-        padding-left: 1.5rem;
-        padding-bottom: 1.5rem;
-    }
+  div {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  section {
+    width: 90%;
+    max-inline-size: 66ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
+
+<style is:global>
+  h1 {
+    font-size: clamp(2.5rem, 0.75rem + 1.5vw, 4rem);
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  img {
+    width: 100%;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+  }
 </style>
