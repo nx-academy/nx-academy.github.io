@@ -31,14 +31,17 @@ const {
 <style>
     div {
         display: grid;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
+        background-color: #252525;
+        padding: 1rem;
+        border-radius: 8px;
 
         grid-template-areas: "image"
             "title"
             "description"
             "link"
         ;
-        gap: .75rem;
+        gap: 1rem;
     }
 
     p {
@@ -61,6 +64,7 @@ const {
 
     .link {
         grid-area: link;
+        margin-top: auto;
     }
 
     .link :global(a) {

@@ -5,7 +5,8 @@ const descriptiveColorVariables = {
     safetyOrange: "#FE7600",
     amber: "#FFC107",
     frenchGrey: "#B0BEC5",
-    bitterSweet: "#FF5252"
+    bitterSweet: "#FF5252",
+    mineShaft: "#252525"
 }
 
 const theme = {
