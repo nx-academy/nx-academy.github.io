@@ -276,3 +276,69 @@ Dans ce cas, **"this" fera référence à l'instance de la SOUS-CLASSE** et pas 
 Nous avons fait le tour concernant les classes, fonctions, etc... Il nous reste un dernier point à aborder avant de conclure...
 
 #### Comprendre le Comportement de this dans les Méthodes comme .addEventListener() et .setTimeout() :
+
+> En JavaScript, comme nous l'avons vu, la valeur de "this" peut varier **en fonction du contexte d'exécution**, notamment lorsqu'elle est utilisée dans des méthodes telles que `.addEventListener()` et `.setTimeout()`. 
+
+- "this" dans .addEventListener() :
+
+Lorsque vous ajoutez un gestionnaire d'événements avec `.addEventListener()`, "this" fait référence à l'élément sur lequel l'événement a été écouté.
+
+```js
+const button = document.querySelector('button');
+
+button.addEventListener('click', function() {
+  console.log(this); // Référence au bouton
+  this.style.backgroundColor = 'blue';
+});
+```
+
+Dans cet exemple, le "this" à l'intérieur de la fonction du gestionnaire d'événements fait référence au bouton sur lequel l'événement "click" s'est produit.
+
+- "this" dans .setTimeout() :
+
+Avec `.setTimeout()`, la fonction de rappel (callback) est appelée par l'environnement global (window dans un navigateur), ce qui signifie que "this" fait référence à l'objet global.
+
+```js
+function sayHi() {
+  console.log(this); // Référencera 'window' en mode non strict
+}
+
+setTimeout(sayHi, 1000);
+```
+
+Pour maintenir la liaison/référence du "this", vous pouvez utiliser une fonction fléchée (arrow function) ou la méthode `.bind()`que nous avons vu plus haut ^^.
+
+- Avec une fonction fléchée :
+Comme nous l'avons déjà vu, les fonctions fléchées ne créent pas leur propre "this", elles héritent donc de "this" du contexte où elles sont définies.
+
+```js
+const unicorn = {
+  name: 'Fluffy',
+  greet: function() {
+    setTimeout(() => {
+      console.log(this.name); // Référencera 'Fluffy'
+    }, 1000);
+  }
+};
+
+person.greet();
+```
+
+- Avec .bind() :
+
+Comme nous l'avons vu également, Vous pouvez lier explicitement this à la fonction de rappel en utilisant bind.
+
+```js
+const unicorn = {
+  name: 'Fluffy',
+  greet: function() {
+    setTimeout(function() {
+      console.log(this.name); // Référencera 'Fluffy'
+    }.bind(this), 1000);
+  }
+};
+
+person.greet();
+```
+
+Voilà voilà, ce topic touche à sa fin ^^ j'espère que le mot clef "this" est à présent plus clair pour vous !
