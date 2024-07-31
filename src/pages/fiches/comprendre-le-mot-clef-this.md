@@ -35,7 +35,7 @@ Passons en revue les différents cas de figure cité ci-dessus :
 
 ### Utilisation de this dans le contexte Global (objet window dans le navigateur) :
 
-Comme vous le savez certainement, le simple fait de créer un fichier JS (même "vide") et de le charger dans le navigateur aura un effet : **Créer le contexte global, en d'autres termes, l'objet "window", objet auquel le fameux "this" fait référence.** Que l'on soit `mode strict`ou `mode non strict`, this fait référence à window. Prenons comme exemple le code suivant, donné comme seule instruction dans votre module JS :
+Comme vous le savez certainement, le simple fait de créer un fichier JS (même "vide") et de le charger dans le navigateur aura un effet : **Créer le contexte global, en d'autres termes, l'objet "window", objet auquel le fameux "this" fait référence.** Que l'on soit en `mode strict`ou `mode non strict`, this fait référence à window. Prenons comme exemple le code suivant, donné comme seule instruction dans votre module JS :
 
 ```js
 console.log("this is : " this); 
@@ -59,7 +59,7 @@ console.log(this.document.location);
 
 Le principe de l'appel de méthode...
 
-> Un petit trick pour se faciliter la vie avec le "this" est de se demander `ce qu'il y a gauche du .`lorsque vous invoquez une méthode d'un objet. Car lorsque vous appelez cette méthode, **"this" fait référence à l'objet qui précède le point (.) lors de l'appel de la méthode**.
+> Un petit trick pour se faciliter la vie avec le "this" est de se demander `ce qu'il y a à gauche du .`lorsque vous invoquez une méthode d'un objet. Car lorsque vous appelez cette méthode, **"this" fait référence à l'objet qui précède le point (.) lors de l'appel de la méthode**.
 
 Au niveau du `mode strict` ou `mode non strict`, dans le cadre des `objets littéraux` par exemple, Nous aurons ici quelques différences de comportement dans certains cas. Déclarons tout d'abord un objet quelconque "on the fly" dans l'objet global et attribuons lui une méthode avec deux arguments et quelques propriétés :
 
