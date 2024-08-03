@@ -1,2 +1,0 @@
-# Découvrez les fiches techniques
-
