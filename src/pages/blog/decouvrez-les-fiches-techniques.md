@@ -63,12 +63,16 @@ En travaillant sur des contenus et des formats plus courts, on peut plus facilem
 
 ## Les premières fiches techniques JavaScript / CSS
 
-- Vous pouvez dès à présent découvrir les premières fiches techniques sur cette page. N'hésitez surtout pas à nous faire un retour via GitHub - ce lien vous permettra d'ouvrir une issue.
-- Je vous invite à lire les fiches 
-    - de Lionel sur le this en JavaScript
-    - de moi sur la méthode CSS Clamp
-    - d'Oumar sur le mot clé return en JavaScript.
 
+J'ai donc le plaisir de vous présenter les premières fiches techniques de NX ! Elles sont pour l'instant en lien avec le CSS et le JavaScript. Vous pouvez les consulter sur cette page.
+
+Je vous invite à lire les fiches :
+- [le this en JavaScript](/fiches/comprendre-la-propriete-css-box-sizing), rédigé par [Lionel](https://nx.academy) ;
+- [le mot clé return en JavaScript d'Oumar](/fiches/comprendre-la-propriete-css-box-sizing) ;
+- [la méthode CSS Clamp de moi-même](/fiches/comprendre-la-propriete-css-box-sizing) ;
+
+
+N'hésitez surtout pas à nous faire un retour via GitHub - ce lien vous permettra d'ouvrir une issue sur notre repository GitHub.
 
 ---
 
