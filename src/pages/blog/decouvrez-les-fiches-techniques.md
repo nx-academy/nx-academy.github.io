@@ -7,15 +7,22 @@ layout: ../../layouts/BlogPostLayout.astro
 
 ## La recherche du bon format
 
-- Ecrire un cours prend du temps, beaucoup de temps. Il faut réfléchir aux notions, au plan et au projet.
-- Avec la V2 de NX, les intégrer à la plateforme reste prioriraire. Cependant, bien les intégrer à la nouvelle plateforme demande du temps.
-- Pour les fiches techniques, on s'est inspiré des cheatsheets. Traduit litéralement, on appelle ça des feuilles de triche. J'aimais bien cette idée d'anti-sèche.
+Depuis l'annonce de la nouvelle version de NX, j'ai été un peu avare en nouveautés. On pourrait croire que j'ai lancé la page d'accueil de la V2 et que j'ai directement abandonné. C'est loin d'être le cas. Mon travail principal m'a demandé pas mal de temps en fin d'année scolaire et je n'ai pas pu avancer autant que je le souhaitais.
+
+
+Je profite donc de la pause estival pour travailler sur NX et notamment sur la création d'un nouveau format. Pour être honnête, cela fait un moment que j'avais ça en tête. Je voulais un contenu plus court. Il devait être plus rapide à écrire et à lire. Je n'abandonne pas la création de cours, loin de là.
+
+
+Cela dit, il faut bien comprendre que les cours sont des contenus très denses. Ils demandent beaucoup de temps à réaliser. Il faut penser aux notions que l'on souhaite aborder, au plan, au projet fil rouge, etc. Puis, il y a aussi l'écriture du cours et l'enregistrement des screencasts. Tout cela prend un temps considérable. Avec la V2 de NX, les intégrer à la plateforme reste prioriraire. Cependant, bien les intégrer va demander de temps.
+
+
+Les fiches techniques sont ce nouveau format. Je me suis inspiré des cheatsheets, quelque chose de bien connu dans le monde anglophone. Traduit litéralement, on les appelle des feuilles de triche. J'aime bien cette idée d'anti-sèche.
 
 
 ---
 
 
-## Un condensé d'informations qui se 
+## Un condensé d'informations accessible et synthétique
 
 - Une fiche technnique = une notion. 
 - Une fiche technique se veut rapide à écrire et à lire. Elle doit contenir le plus de notions pratiques possible.
