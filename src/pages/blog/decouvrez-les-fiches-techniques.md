@@ -1,5 +1,7 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
+
+title: Découvrez les fiches techniques
 ---
 
 # Découvrez les fiches techniques
@@ -13,21 +15,27 @@ Depuis l'annonce de la nouvelle version de NX, j'ai été un peu avare en nouvea
 Je profite donc de la pause estival pour travailler sur NX et notamment sur la création d'un nouveau format. Pour être honnête, cela fait un moment que j'avais ça en tête. Je voulais un contenu plus court. Il devait être plus rapide à écrire et à lire. Je n'abandonne pas la création de cours, loin de là.
 
 
-Cela dit, il faut bien comprendre que les cours sont des contenus très denses. Ils demandent beaucoup de temps à réaliser. Il faut penser aux notions que l'on souhaite aborder, au plan, au projet fil rouge, etc. Puis, il y a aussi l'écriture du cours et l'enregistrement des screencasts. Tout cela prend un temps considérable. Avec la V2 de NX, les intégrer à la plateforme reste prioriraire. Cependant, bien les intégrer va demander de temps.
+Cela dit, il faut bien comprendre que les cours sont des contenus très denses. Ils demandent beaucoup de temps à réaliser. Il faut penser aux notions que l'on souhaite aborder, au plan, au projet fil rouge, etc. Puis, il y a aussi l'écriture du cours et l'enregistrement des screencasts. Tout cela prend un temps considérable. Avec la V2 de NX, les intégrer à la plateforme reste prioriraire. Cependant, bien les intégrer va demander du temps.
 
 
-Les fiches techniques sont ce nouveau format. Je me suis inspiré des cheatsheets, quelque chose de bien connu dans le monde anglophone. Traduit litéralement, on les appelle des feuilles de triche. J'aime bien cette idée d'anti-sèche.
+Les fiches techniques sont ce nouveau format. Je me suis inspiré des cheatsheets, quelque chose de bien connu dans le monde anglophone. Traduit litéralement, on les appelle des feuilles de triche. J'aime bien cette idée d'anti-sèche. Cela dit, j'avais envie de les retravailler un peu : je les trouve parfois un peu trop théorique.
 
 
 ---
 
 
-## Un condensé d'informations accessible et synthétique
+## Un condensé d'informations accessible et pratiques
 
-- Une fiche technnique = une notion. 
-- Une fiche technique se veut rapide à écrire et à lire. Elle doit contenir le plus de notions pratiques possible.
-- Elle doit vous permettre d'aller plus loin si vous le désirez.
-- J'ai bon espoir qu'elles vont aussi nous aider pour le SEO.
+Alors, qu'est-ce qu'une fiche technique ? Pour faire simple, une fiche technique est en rapport avec une notion unique. Là où un cours regroupe de nombreuses notions, la fiche technique se concentre sur l'essentiel. Par exemple, la propriété CSS Box Sizing.
+
+
+Elle se veut rapide à écrire et à lire. L'idée n'est pas de passer des semaines à écrire une fiche technique comme c'était le cas avec les cours. Cela dit, elle doit aussi contenir le plus d'informations pratique. Idéalement, j'aimerais qu'une fiche technique vous permette d'intégrer directement un morceau de code, ou une bonne pratique, une fois celle-ci terminée.
+
+
+Autre point important : une fiche technique doit vous permettre d'aller plus loin facilement. Elle doit contenir des ressources sélectionnées spécifiquement en rapport avec le sujet. Cela peut peut-être sembler normal pour certains mais il faut savoir que beaucoup de développeurs rencontrent des difficultés dans le choix des ressources. Dans un sens, nous faisons ce travail pour vous.
+
+
+J'ai aussi bon espoir que les fiches vont nous aider côté SEO. Ce n'est pas forcément l'aspect le plus glorieux du web. En effet, quand on pense SEO, on peut souvent à des articles optimisés pour le SEO avec beaucoup de mots clés. Ces articles représentent souvent un interêt limité pour l'utilisateur. J'espère ici faire le contraire. Autrement dit, faire que les fiches techniques soient bien référencéess et contiennent un contenu de qualité.
 
 
 ---
@@ -58,14 +66,3 @@ Les fiches techniques sont ce nouveau format. Je me suis inspiré des cheatsheet
 Bonne lecture.
 <br>
 <span class="author">Thomas</span>
-
-
-
-<!-- Idées principales :
-
-- Cela fait un moment que je réfléchissais à un nouveau type de contenu. Les cours sont des contenus très denses avec beaucoup d'informations. Ils prennent beaucoup de temps à faire.
-- Pour prendre un main la nouvelle plateforme, et mieux imbriquer les différentes parties (le blog, les cours, les exercices), je réfléchissais à un format plus court. Je voulais aller à l'essentiel sur une notion spécifique.
-- Si vous suivez des cours ou des ressources anglophones, le terme de cheatsheet vous parle sûrement. Traduit litéralement, on appelle cela une feuille de triche. C'est un peu comme une anti sèche en quelque sorte.
-- J'aimrais bien cette idée d'anti-sèche. Cela dit, je trouve qu'elles sont parfois un peu trop "dry" : elle manque de contexte et d'application pratique.
-- Pour l'instant, avec Lionel, nous avons commencé à travailler sur des fiches techniques en lien avec le CSS et le JavaScript. Nous allons continuer à en ajouter de manière continue. Comme je le disais, l'avantage de ce format est qu'il est assez court. Il se veut synthétique tout en étant rapide et facile à lire.
-- Pour l'instant, nous avons écrit 3 à 5 fiches techniques. Vous pouvez les retrouver sur la page "fiches". Je vous invite à lire la fiche de Lionel sur le this en JavaScript ainsi que celle sur la fonction CSS Clamp. -->

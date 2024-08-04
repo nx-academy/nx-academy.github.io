@@ -1,11 +1,23 @@
 ---
+interface Props {
+  frontmatter: {
+    title?: string
+  }
+}
+
 import BaseLayout from "./BaseLayout.astro";
 
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+
+const {
+  frontmatter: {
+    title
+  }
+} = Astro.props
 ---
 
-<BaseLayout>
+<BaseLayout title={title}>
   <div>
     <Header />
     <section>
