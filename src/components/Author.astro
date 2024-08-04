@@ -1,0 +1,18 @@
+---
+interface Props {
+    name: string
+}
+
+const { name } = Astro.props
+---
+
+<p>
+    {name}
+</p>
+
+<style>
+    p {
+        font-family: "Pixelify Sans", sans-serif;
+        font-size: 1.5rem;
+    }
+</style>
