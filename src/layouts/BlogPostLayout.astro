@@ -34,16 +34,49 @@ import Footer from "../components/Footer.astro";
     font-size: clamp(2.5rem, 0.75rem + 1.5vw, 4rem);
     margin-top: 0;
     margin-bottom: 1rem;
+    color: #fff;
   }
 
   h2 {
     font-size: 1.75rem;
     margin-bottom: 1rem;
+    color: #fff;
   }
 
   img {
     width: 100%;
     margin-bottom: 1rem;
     border-radius: 8px;
+  }
+
+  p {
+    margin-bottom: 1.5rem;
+    color: #eee;
+  }
+
+  hr {
+    color: #FFF;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  a {
+    text-decoration: none;
+    color: #4effa0;
+    font-weight: 500;
+    transition: 0.4s color;
+
+    &:hover {
+      color: #4effa0aa;
+    }
+  }
+
+  .brand-name,
+  .author {
+    font-family: "Pixelify Sans", sans-serif;
+  }
+
+  .author {
+    font-size: 1.5rem;
   }
 </style>
