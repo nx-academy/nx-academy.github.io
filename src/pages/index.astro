@@ -4,7 +4,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <BaseLayout>
   <main>
-    <h1>NX Academy</h1>
+    <h1>
+      <span class="first-letter">N</span><span class="second-letter">X</span> <span class="third-letter">A</span><span class="fourth-letter">c</span>ademy
+    </h1>
     <p>Passez au niveau supérieur</p>
     <div class="buttons-wrapper">
       <a class="btn-secondary" href="https://github.com/nx-academy/nx-academy.github.io" target="_blank">Suivre le projet sur GitHub</a>
@@ -29,6 +31,28 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     margin-top: 0;
     margin-bottom: 0;
     color: #FEFEFE;
+  }
+
+  h1:hover .first-letter {
+    animation: change-color .8s ease-out infinite;
+  }
+
+  h1:hover .second-letter {
+    animation: change-color .8s ease-out .4s infinite;
+  }
+
+  @keyframes change-color {
+    0% {
+      color: #FEFEFE;
+    }
+
+    50% {
+      color: #4effa0;
+    }
+
+    100% {
+      color: #FEFEFE;
+    }
   }
 
   p {
