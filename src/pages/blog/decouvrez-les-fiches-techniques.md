@@ -24,7 +24,7 @@ Les fiches techniques sont ce nouveau format. Je me suis inspiré des cheatsheet
 ---
 
 
-## Un condensé d'informations accessible et pratiques
+## Un condensé d'informations accessible et pratique
 
 Alors, qu'est-ce qu'une fiche technique ? Pour faire simple, une fiche technique est en rapport avec une notion unique. Là où un cours regroupe de nombreuses notions, la fiche technique se concentre sur l'essentiel. Par exemple, la propriété CSS Box Sizing.
 
@@ -43,10 +43,20 @@ J'ai aussi bon espoir que les fiches vont nous aider côté SEO. Ce n'est pas fo
 
 ## Une base pour intégrer les futurs cours
 
-- La nouvelle version de NX utilise Astro JS. Pour votre information, l'ancienne version passait par un LMS : Teachable.
-- L'avantage de développer notre propre outil est la liberté de pouvoir lier les différents contenus plus facilement.
-- Le desavantage est qu'on doit penser tous ces contenus en amont. C'est un travail passionnant mais il y a le risque de partir dans tous les sens. En travaillant sur des contenus et des formats plus courts, on peut plus facilement itérer et trouver les bonnes fonctionnalités à développer.
-- Je recommencerais à réintégrer les cours bientôt mais dans un premier temps, je préfère qu'on se concentre sur les fiches techniques. D'autant plus que je ne suis plus seul à coder sur le projet.
+La nouvelle version de NX utilise le framework Astro JS. Pour votre information, l'ancienne version passait par un LMS : Teachable. Cet outil m'a permis de développer la première version de NX rapidement sans trop me soucier du code. Un peu comme avec WordPress pour les CMS, je suis passé par une solution clé en main qui s'occupe aussi bien de la partie paiement, gestion des comptes et herbegement des cours et des vidéos.
+
+
+Cet outil avait néanmoins des inconvénients. Il coutait relativement cher (plus de 1600€ par an) notamment au regard des cinq cours publiés sur la plateforme. Autre problème, il n'y avait pas une intégration "simple" entre les différents contenus. J'avais soit le choix entre les cours, soit des ressources. C'était assez limitant. D'où le fait de passer par la création de notre propre outil.
+
+
+L'avantage de développer notre propre outil est la liberté de pouvoir lier les différents contenus plus facilement. C'est vraiment quelque chose d'important. Je souhaite pouvoir tester différents formats pédagogiques et faciliter la collaboration. De plus, avec le changement de modèle de NX (un modèle payant par abonnement à un modèle entièrement gratuit et open-source), le choix d'avoir notre propre outil faisaint sens.
+
+
+Mais là encore, il y a des desavantages. On doit penser tous ces contenus en amont. C'est un travail passionnant mais il y a le risque de partir dans tous les sens. Vous prenez le risque de rendre votre code immaintenable et multiplier les formats. C'est une balance assez difficile à trouver. D'où l'idée de travailler sur des formats plus cours.
+
+
+En travaillant sur des contenus et des formats plus courts, on peut plus facilement itérer et trouver les bonnes fonctionnalités à développer. On peut tester plus facilement sans prendre le risque de rentrer dans un tunnel. Je recommencerais à réintégrer les cours bientôt mais dans un premier temps, je vais me concentrer sur les fiches techniques. D'autant plus que je ne suis plus seul à coder sur le projet.
+
 
 ---
 
