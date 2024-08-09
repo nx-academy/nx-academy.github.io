@@ -14,14 +14,22 @@ imgSrc: /enfant-rangeant-jouets.webp
 ![Un enfant rangeant ses jouets dans un carton dans sa chambre, pixel art](/enfant-rangeant-jouets.webp)
 
 
-J'ai découvert la propriété CSS `box-sizing` il y a plus de 10 ans (ça ne nous rajeunit pas !) grâce à un cours [sur Teamtreehouse](https://teamtreehouse.com/). À cette époque, j'utilisais énormément les cours de Teamtreehouse pour me former en développement web.
+J'ai découvert la propriété CSS `box-sizing` il y a plus de 10 ans (ça ne nous rajeunit pas !) grâce à un cours [sur Teamtreehouse](https://teamtreehouse.com/). À cette époque, j'utilisais énormément les cours de Teamtreehouse pour me former en développement web. C'est une propriété CSS que j'ai rapidement utilisé lors de mes intégrations. Pour être honnête, je ne comprenais pas forcément comment elle fonctionnait. Par contre, je savais qu'il était important de l'ajouter.
 
-Au fil des années, j'ai constaté une réelle différence entre les ressources anglophones et francophones, notamment concernant l'apprentissage de cette propriété. Bien que la propriété `box-sizing` soit couramment enseignée dans les cours anglophones, elle reste encore méconnue pour de nombreux développeurs francophones, surtout les plus juniors. C'est, selon moi, un vrai problème : beaucoup de développeurs en herbe ne connaissent pas cette propriété et ne savent pas à quel point elle est utile.
 
-Attention, je ne dis pas qu'elle va littéralement transformer vos intégrations et résoudre tous vos ennuis. Cela dit, elle vous permettra d'avoir des designs plus prédictibles. En fait, **avoir du code CSS prédictible est l'essence même d'une bonne intégration**. Utiliser `box-sizing` va grandement simplifier la gestion des mises en page. Elle va aussi vous éviter des calculs complexes pour ajuster les dimensions des éléments. Pour faire simple, elle va rendre vos projets plus robustes et plus faciles à maintenir.
+Je continue d'utiliser cette propriété aujourd'hui. Je l'intègre directement [via le reset CSS de Josh Comeau](https://www.joshwcomeau.com/css/custom-css-reset/). J'ai découvert au fil des années que beaucoup de développeurs en herbe ne connaissaient pas cette propriété. Je pense ici principalement à des développeurs francophones. Je pense que cela vient de la différence entre les ressources anglophones et francophones dédiées au développement front. J'ai, par exemple, passé au revu le cours de HTML et CSS d'OpenClassrooms avant d'écrire cette fiche. Il n'en n'est jamais fait question. C'est un peu dommage.
+
+
+Je ne dis pas qu'elle va littéralement transformer vos intégrations et résoudre tous vos ennuis. Cela dit, elle vous permettra d'avoir des designs plus prédictibles. En fait, **avoir du code CSS prédictible est l'essence même d'une bonne intégration**. Utiliser `box-sizing` va grandement simplifier la gestion des mises en page. Elle va aussi vous éviter des calculs complexes pour ajuster les dimensions des éléments. Pour faire simple, elle va rendre vos projets plus robustes et plus faciles à maintenir.
 
 
 ## Définition | Présentation avec des mots simples
+
+[Selon le MDN](https://developer.mozilla.org/fr/docs/Web/CSS/box-sizing),
+
+> La propriété CSS box-sizing définit la façon dont la hauteur et la largeur totale d'un élément est calculée.
+
+Autrement dit, elle définit si la largeur et la hauteur spécifiées pour un élément, incluent ou excluent, les bordures (`border`) et marges intérieures (`padding`).
 
 - Définition en une à deux phrases
 - A quoi sert cette propriété ?
