@@ -6,6 +6,8 @@ title: Découvrez les fiches techniques
 
 # Découvrez les fiches techniques
 
+![Quelqu'un assis dans un jardin au printemps, pixel art](/triche-classe-exam.webp)
+
 
 ## La recherche du bon format
 
@@ -26,7 +28,7 @@ Les fiches techniques sont ce nouveau format. Je me suis inspiré des cheatsheet
 
 ## Un condensé d'informations accessible et pratique
 
-Alors, qu'est-ce qu'une fiche technique ? Pour faire simple, une fiche technique est en rapport avec une notion unique. Là où un cours regroupe de nombreuses notions, la fiche technique se concentre sur l'essentiel. Par exemple, la propriété CSS Box Sizing.
+Alors, qu'est-ce qu'une fiche technique ? Pour faire simple, une fiche technique est en rapport avec une notion unique. Là où un cours regroupe de nombreuses notions, la fiche technique se concentre sur l'essentiel. Par exemple, [la propriété CSS Box Sizing](/fiches/comprendre-la-propriete-css-box-sizing).
 
 
 Elle se veut rapide à écrire et à lire. L'idée n'est pas de passer des semaines à écrire une fiche technique comme c'était le cas avec les cours. Cela dit, elle doit aussi contenir le plus d'informations pratique. Idéalement, j'aimerais qu'une fiche technique vous permette d'intégrer directement un morceau de code, ou une bonne pratique, une fois celle-ci terminée.
@@ -43,7 +45,7 @@ J'ai aussi bon espoir que les fiches vont nous aider côté SEO. Ce n'est pas fo
 
 ## Une base pour intégrer les futurs cours
 
-La nouvelle version de NX utilise le framework Astro JS. Pour votre information, l'ancienne version passait par un LMS : Teachable. Cet outil m'a permis de développer la première version de NX rapidement sans trop me soucier du code. Un peu comme avec WordPress pour les CMS, je suis passé par une solution clé en main qui s'occupe aussi bien de la partie paiement, gestion des comptes et herbegement des cours et des vidéos.
+La nouvelle version de NX utilise [le framework Astro JS](https://astro.build/). Pour votre information, l'ancienne version passait [par un LMS : Teachable](https://teachable.com/). Cet outil m'a permis de développer la première version de NX rapidement sans trop me soucier du code. Un peu comme avec WordPress pour les CMS, je suis passé par une solution clé en main qui s'occupe aussi bien de la partie paiement, gestion des comptes et herbegement des cours et des vidéos.
 
 
 Cet outil avait néanmoins des inconvénients. Il coutait relativement cher (plus de 1600€ par an) notamment au regard des cinq cours publiés sur la plateforme. Autre problème, il n'y avait pas une intégration "simple" entre les différents contenus. J'avais soit le choix entre les cours, soit des ressources. C'était assez limitant. D'où le fait de passer par la création de notre propre outil.
@@ -67,12 +69,11 @@ En travaillant sur des contenus et des formats plus courts, on peut plus facilem
 J'ai donc le plaisir de vous présenter les premières fiches techniques de NX ! Elles sont pour l'instant en lien avec le CSS et le JavaScript. Vous pouvez les consulter sur cette page.
 
 Je vous invite à lire les fiches :
-- [le this en JavaScript](/fiches/comprendre-la-propriete-css-box-sizing), rédigé par [Lionel](https://nx.academy) ;
-- [le mot clé return en JavaScript d'Oumar](/fiches/comprendre-la-propriete-css-box-sizing) ;
+- [le this en JavaScript](/fiches/comprendre-la-propriete-css-box-sizing), rédigé par [Lionel](https://github.com/Escanor1986) ;
 - [la méthode CSS Clamp de moi-même](/fiches/comprendre-la-propriete-css-box-sizing) ;
 
 
-N'hésitez surtout pas à nous faire un retour via GitHub - ce lien vous permettra d'ouvrir une issue sur notre repository GitHub.
+N'hésitez surtout pas à nous faire un retour via GitHub - [ce lien](https://github.com/nx-academy/nx-academy.github.io/issues/new) vous permettra d'ouvrir une issue sur notre repository GitHub.
 
 ---
 
