@@ -23,17 +23,40 @@ Je continue d'utiliser cette propriété aujourd'hui. Je l'intègre directement 
 Je ne dis pas qu'elle va littéralement transformer vos intégrations et résoudre tous vos ennuis. Cela dit, elle vous permettra d'avoir des designs plus prédictibles. En fait, **avoir du code CSS prédictible est l'essence même d'une bonne intégration**. Utiliser `box-sizing` va grandement simplifier la gestion des mises en page. Elle va aussi vous éviter des calculs complexes pour ajuster les dimensions des éléments. Pour faire simple, elle va rendre vos projets plus robustes et plus faciles à maintenir.
 
 
-## Définition | Présentation avec des mots simples
+## Une propriété liée au modèle de boite (box model) du CSS
 
 [Selon le MDN](https://developer.mozilla.org/fr/docs/Web/CSS/box-sizing),
 
 > La propriété CSS box-sizing définit la façon dont la hauteur et la largeur totale d'un élément est calculée.
 
-Autrement dit, elle définit si la largeur et la hauteur spécifiées pour un élément, incluent ou excluent, les bordures (`border`) et marges intérieures (`padding`).
+Autrement dit, elle définit si la largeur et la hauteur spécifiées d'un élément, incluent ou excluent, les bordures (`border`) et marges intérieures (`padding`). On utilise souvent la valeur `border-box` avec la propriété `box-sizing` : elle rend les dimensions des éléments plus prévisibles. L'autre valeur possible pour cette propriété est `content-box`. Vous verrez très bientôt la différence entre ces deux propriétés. Il vous faut dans un premier temps revenir sur le modèle de boite du CSS.
+
+
+Le modèle de boite du CSS est utilisé pour décrire la structure et le comportement des éléments HTML en termes de dimensions et d'espacement. Chaque élément est représenté comme une boîte rectangulaire composée de quatre parties principales. Un peu comme une poupée russe.
+
+
+```text
++-------------------------------+
+|           Margin               |
+|  +-------------------------+  |
+|  |        Border            |  |
+|  |  +-------------------+  |  |
+|  |  |     Padding        |  |  |
+|  |  |  +-------------+  |  |  |
+|  |  |  |  Content     |  |  |  |
+|  |  |  +-------------+  |  |  |
+|  |  +-------------------+  |  |
+|  +-------------------------+  |
++-------------------------------+
+```
+
+
 
 - Définition en une à deux phrases
 - A quoi sert cette propriété ?
+- retour sur le box model en CSS
 - Pourquoi utilise-t-on souvent `box-sizing: border-box` ?
+
 
 ```css
 * {
