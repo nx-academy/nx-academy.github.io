@@ -16,7 +16,8 @@ imgSrc: /vigile-boite-de-nuit.webp
 
 ## Introduction
 
-- Durant l'un de mes premiers entretiens techniques, j'ai été confronté à une erreur de CORS sur mon test technique. Ca m'a litéralement paralisé.
+- Durant l'un de mes premiers entretiens techniques, j'ai été confronté à une erreur de CORS sur mon test technique. Je devais réaliser une intégration côté front d'un site de transport. Ca m'a litéralement paralisé.
+- 
 
 ## Définition du concept avec des mots simples
 
@@ -30,7 +31,10 @@ imgSrc: /vigile-boite-de-nuit.webp
 - Côté front
 
 
-## Le Bonus - CORS Everywhere
+## Les bonus
+
+- CORS Everywhere
+- La méthode fetch et les CORS.
 
 
 ## Ressources
