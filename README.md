@@ -11,6 +11,7 @@ Here are the key points you need to remember:
 - We aim to be as accessible as possible.
 - Apart from this README, all content is written in French.
 - We are currently working on creating valuable cheatsheets, which we refer to in French as "Fiches techniques."
+- We use Figma to help us designing the website and [it's accessible to everyone](https://www.figma.com/design/CMX7KkMti1EMBxIKksQl0v/Website?node-id=0-1&t=oQilfknMIs7W0XQ2-1). Yeah, it's pretty rough at the moment!
 
 
 ## How to Run this Project on your Computer?
