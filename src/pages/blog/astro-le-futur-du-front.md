@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/ContentLayout.astro
+layout: ../../layouts/BlogPostLayout.astro
 ---
 
 # Astro JS, le futur du développement front ?
