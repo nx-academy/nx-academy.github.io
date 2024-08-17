@@ -1,5 +1,7 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
+
+title: Bienvenue sur la V2
 ---
 
 # Bienvenue sur la V2
