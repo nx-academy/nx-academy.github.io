@@ -1,10 +1,13 @@
 ---
-layout: ../../layouts/ContentLayout.astro
+layout: ../../layouts/BlogPostLayout.astro
+
+title: Ce qui caractérise le top 20% des devs
 ---
 
-![A pixel art scene of people standing on a podium](/public/a-pixel-art-scene-of-people-standing-on-a-podium.webp)
-
 # Ce qui caractérise le top 20% des devs
+
+![A pixel art scene of people standing on a podium](/a-pixel-art-scene-of-people-standing-on-a-podium.webp)
+
 
 Lorsque l'on parle des développeurs, il est fréquent de vouloir comprendre ce qui distingue les meilleurs, le fameux top 20%, du reste des développeurs.
 
@@ -50,6 +53,10 @@ Quels sont leurs traits de caractère, leurs habitudes ou leurs compétences sp�
 Je suis Oumar, j’ai rejoins le monde de la programmation en septembre 2022 et c’est là tout un tas de questions que je me suis posé (et que je me pose toujours d’ailleurs pour sainement progresser 😉).
 
 Je vous propose donc dans ce blog post de vous partager les conseils reçus, de mes paires plus “seniors”. Cela me sers beaucoup au quotidien et je l’espère vous servira également. Allez on se lance !
+
+
+---
+
 
 ## Oui, la technique ça compte
 
@@ -97,6 +104,10 @@ Les développeurs du top 20% investissent régulièrement du temps pour amélior
 Ils ont un sens aigu des bonnes pratiques de code. Ils écrivent du code clair, maintenable et bien structuré. Ils maîtrisent également les principes de conception logicielle, tels que SOLID, DRY (Don't Repeat Yourself) et KISS (Keep It Simple, Stupid), etc.
 
 N’importe quel client, chef d’entreprise, manager(euse) ou même collaborateur (trice), s’il devait choisir à capacités quasi équivalentes entre un développeur reconnu pour son respect/maitrise des bonnes pratiques et les autres... La réponse semble évidente en effet, mais on a tendance à l’oublier durant notre progression et l’on saute souvent trop vite des étapes cruciales pour forger cette compétence (moi le premier😅).
+
+
+---
+
 
 ## Mais il n’y a pas que la technique pour faire partir du top 20%
 
@@ -157,6 +168,10 @@ Si comme moi, vous êtes naturellement à la recherche de sens dans tout ce que 
 Les meilleurs développeurs prennent la responsabilité de leur travail. Ils sont conscients que chaque ligne de code qu'ils écrivent peut avoir des conséquences, non seulement techniques mais aussi éthiques. En étant conscients de cela, ils s'efforcent de produire un travail de qualité, visant à minimiser les bugs et les problèmes à long terme.
 
 Cette responsabilité ne se limite pas à la simple maîtrise des bonnes pratiques du métier. Elle intègre également une dimension éthique qui fait toute la différence. Pour ceux qui, comme moi, cherchent un sens dans tout ce qu'ils entreprennent, cette approche est essentielle. Elle vous permet de trouver une satisfaction personnelle et professionnelle. Si vous ne l'avez pas encore adoptée, il serait judicieux d'y réfléchir sérieusement. Votre futur vous vous en remerciera, et cela déclenchera un cercle vertueux qui vous élèvera au rang des meilleurs développeurs. Cet effort n'est pas seulement bénéfique pour vous-même (renforcement de la confiance, fierté du travail bien fait, sentiment d'utilité), mais il a également un impact positif sur les autres : pairs, utilisateurs, et clients (reconnaissance, satisfaction des utilisateurs, prévention des pires scénarios).
+
+
+---
+
 
 ## Conclusion
 
