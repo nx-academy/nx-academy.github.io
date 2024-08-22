@@ -358,3 +358,4 @@ Alors, armez-vous de votre café et plongez dans vos projets avec une nouvelle c
 - [Articles JavaScript - GeeksforGeeks](https://www.geeksforgeeks.org/)
 - [Guide sur `this` et l'orientation objet - JavaScript.info](https://javascript.info/object-methods#method-this)
 - [Tutoriels JavaScript - Dyma](https://dyma.fr/cours/javascript)
+ </article>
