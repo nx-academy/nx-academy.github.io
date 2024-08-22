@@ -2,18 +2,18 @@
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: Comprendre le mot clef "this"
-description: sd
+description: Découvrez comment maîtriser l'utilisation du mot-clé 'this' en JavaScript avec des exemples concrets. Apprenez les subtilités de 'this' dans différents contextes, y compris les fonctions, les objets, les classes et l'utilisation du mot-clé 'new' pour la création d'objets avec des constructeurs. Comprenez les différences entre les modes strict et non strict pour éviter les erreurs courantes dans votre code JavaScript.
 ---
 
 <article>
 
 # Comprendre le mot clef "this"
 
-![Deux personnes dans une cuisine différente, pixel art](/this_context.webp)
+![Deux personnes dans une cuisine séparée, pixel art](/this_context.webp)
 
-Dans le cadre [d'un cours en ligne avancé sur le JavaScript disponible sur la plateforme Udemy](https://www.udemy.com/course/pro-javascript/), qui comprend des cours vidéos ainsi que des supports écrits et des exercices pratiques à réaliser par soi-même, j'ai été confronté à l'utilisation du mot clef "this" lors de la réalisation d'un exo consistant à "revisiter" le jeu Puissance 4 par le biais de la POO (programmation orientée objet).
+J'ai récemment été confronté à l'utilisation du mot clé this [dans un cours sur le JavaScript sur Udemy](https://www.udemy.com/course/pro-javascript/). Le cours proposait de réaliser un jeu de Puissance 4 en programmation orienté objet.
 
-Durant ce projet, je me suis particulièrement intéressé à l'utilisation des `classes` et de la manière dont est géré le mot clef "this" dans ce cadre, et en dehors. **Il est primordiale de bien saisir les différences de comportement de "this" lorsqu'il est utilisé :**
+Durant ce projet, je me suis particulièrement intéressé à l'utilisation des classes et à la manière dont le mot clef "this" est géré. **Il est primordiale de bien saisir les différences de comportement de "this" lorsqu'il est utilisé :**
 
 - En `mode strict` ou `mode non-strict`.
 - Dans le `context global` (référence à l'objet window du navigateur), dans des `objets littéraux`, des `fonctions`(fléchée ou non) ou des `classes`(sucre synthaxique permettant leur utilisation en JS).
@@ -25,17 +25,15 @@ J'ai agrémenté mes recherches sur [la rubrique lui étant dédiée dans la doc
 
 ## Pourquoi est-ce important de comprendre le mot clef "this" ?
 
-Il est souvent méconnu par certains dévéloppeurs dans le cadre d'une utilisation avancé et peut très vite poser de gros problèmes dans l'exécution de votre code s'il n'est pas compris et implémenter correctemment, en toutes connaissances de causes. Qui ne s'est jamais "arraché les cheveux" après plusieurs heures de debbug suite à une gestion incorrect de ce "merveilleux" mot clef ?? 😅
+Il est souvent méconnu par certains dévéloppeurs dans le cadre d'une utilisation avancé et peut très vite poser de gros problèmes dans l'exécution de votre code s'il n'est pas compris et implémenter correctemment, en toutes connaissances de causes. Qui ne s'est jamais "arraché les cheveux" après plusieurs heures de debbug suite à une gestion incorrect de ce "merveilleux" mot clef ?? 😅 Pour ma part, j'ai rencontré de grosses difficultés lors d'un de mes premiers projets en JavaScript. Je tentais d'utiliser "this" dans un écouteur d'évènement en utilisant une fonction fléchée. Je n'avais pas saisi la subtilité à l'époque ! Nous aborderons d'ailleurs ce point plus loin dans la fiche... !
 
 Alors si vous êtes prêt à faire chauffer votre matière grise, préparez-vous un bon petit café ☕ et à l'abordage !
 
-## Comment utiliser this suivants les cas de figures ?
-
-Passons en revue les différents cas de figure cité ci-dessus :
+## Les différents cas d'utilisation du this :
 
 ### Utilisation de this dans le contexte Global (objet window dans le navigateur) :
 
-Comme vous le savez certainement, le simple fait de créer un fichier JS (même "vide") et de le charger dans le navigateur aura un effet : **Créer le contexte global, en d'autres termes, l'objet "window", objet auquel le fameux "this" fait référence.** Que l'on soit `mode strict`ou `mode non strict`, this fait référence à window. Prenons comme exemple le code suivant, donné comme seule instruction dans votre module JS :
+Quand vous créez un fichier JavaScript, même vide, et que vous le charger dans le navigateur, cela aura un effet : **Créer le contexte global, en d'autres termes, l'objet "window", objet auquel le fameux "this" fait référence.** Que l'on soit `mode strict`ou `mode non strict`, this fait référence à window. Prenons comme exemple le code suivant, donné comme seule instruction dans votre module JS :
 
 ```js
 console.log("this is : " this); 
@@ -56,8 +54,6 @@ console.log(this.document.location);
 ```
 
 ### Utilisation dans le cadre d'objets littéraux :
-
-Le principe de l'appel de méthode...
 
 > Un petit trick pour se faciliter la vie avec le "this" est de se demander `ce qu'il y a gauche du .`lorsque vous invoquez une méthode d'un objet. Car lorsque vous appelez cette méthode, **"this" fait référence à l'objet qui précède le point (.) lors de l'appel de la méthode**.
 
@@ -105,7 +101,9 @@ C'est ici qu'entre en jeu nos méthodes d'instances `.call()`, `.apply()` && `.b
 
 ### Les méthodes d'instances .call(), .apply() && .bind() :
 
-- Si vous devez `faire appel une seule fois` à une méthode d'instance tout en reliant son "this" à l'objet souhaité, vous pouvez utiliser la méthode `.call()` qui invoquera immédiatemment la fonction avec les arguments fournis. Elle prend au minimum un paramètre, l'objet auquel vous souhaitez lier votre méthode, ainsi qu'un nombre de paramètre supplémentaire étant fontion du nombre d'arguments attendu par votre méthode d'instance de l'objet lié. Pour autant, Celle-ci ne liera pas définitivement l'objet à votre méthode d'instance. Reprenons notre exemple ci-dessus dans sa continuité :
+#### Invoquer this à la demande avec .call() :
+
+Si vous devez `faire appel une seule fois` à une méthode d'instance tout en reliant son "this" à l'objet souhaité, vous pouvez utiliser la méthode `.call()` qui invoquera immédiatemment la fonction avec les arguments fournis. Elle prend au minimum un paramètre, l'objet auquel vous souhaitez lier votre méthode, ainsi qu'un nombre de paramètre supplémentaire étant fontion du nombre d'arguments attendu par votre méthode d'instance de l'objet lié. Pour autant, Celle-ci ne liera pas définitivement l'objet à votre méthode d'instance. Reprenons notre exemple ci-dessus dans sa continuité :
 
 ```js
 const fluffy = {
@@ -123,14 +121,18 @@ fluffySayHi.call(fluffy, "pretty", "bright"); // mode strict ou non
 // 'Fluffy the pretty Unicorn with the Rainbow color and the bright says hi !'
 ``` 
 
-- Dans un cas similaire, mais où vous souhaitez passer un tableau d'objets en argument, c'est ici alors qu'intervient l'usage de la méthode `.apply()`. La principale différence avec la méthode `.call()`, se situe dans la manière dont sont passés les paramètres des méthodes d'instances liées à l'objet. Ils le sont sous forme de tableau, mais le résultat sera identique au niveau de votre console :
+#### Passez this et ses arguments avec .apply():
+
+ Dans un cas similaire, mais où vous souhaitez passer un tableau d'objets en argument, c'est ici alors qu'intervient l'usage de la méthode `.apply()`. La principale différence avec la méthode `.call()`, se situe dans la manière dont sont passés les paramètres des méthodes d'instances liées à l'objet. Ils le sont sous forme de tableau, mais le résultat sera identique au niveau de votre console :
 
 ```js
 fluffySayHi.apply(fluffy, ["pretty", "bright"]) // mode strict ou non
 // 'Fluffy the pretty Unicorn with the Rainbow color and the bright says hi !'
 ```
 
-- Le dernier cas de figure est préconisé lorsque vous désirez lié définitivement votre méthode d'instance au "this" de l'objet ciblé. Dans cette hypothèse, nous utiliserons la méthode `.bind()`. Au niveau des arguments passé en paramètre à cette méthode, `.bind()` fonctionne de la même manière que `.call()`. Au niveau de l'invocation de la méthode, celle-ci ne l'est pas immédiatemment, `.bind()`retourne une nouvelle fonction avec this et des arguments partiellement appliqués, qui peut être appelée ultérieurement avec des arguments supplémentaires.
+#### Fixer this pour de bon avec .bind():
+
+ Le dernier cas de figure est préconisé lorsque vous désirez lié définitivement votre méthode d'instance au "this" de l'objet ciblé. Dans cette hypothèse, nous utiliserons la méthode `.bind()`. Au niveau des arguments passé en paramètre à cette méthode, `.bind()` fonctionne de la même manière que `.call()`. Au niveau de l'invocation de la méthode, celle-ci ne l'est pas immédiatemment, `.bind()`retourne une nouvelle fonction avec this et des arguments partiellement appliqués, qui peut être appelée ultérieurement avec des arguments supplémentaires.
 
 ```js
 const fluffy = {
@@ -153,7 +155,7 @@ console.log(fluffySayHi("pretty", "bright"));  // mode strict ou non
 
 A présent, si votre tasse de café est vide, que la motivation est toujours là et que vous n'avez pas perdu le fil, je vous propose de remplir votre tasse pour un tour d'horizon des mystères "liés" au "this"... 🌌 !
 
-#### This et les fonctions (fléchées ou non) :
+#### This et les fonctions fléchées :
 
 C'est partis, je vous ais parlé plus haut (au début du blog) de `contexte d'exécution` et `d' environnement lexical`, et bien c'est ici que cela fera sens principalement.
 
@@ -341,4 +343,18 @@ const unicorn = {
 person.greet();
 ```
 
-Voilà voilà, ce topic touche à sa fin ^^ j'espère que le mot clef "this" est à présent plus clair pour vous !
+### Conclusion 
+
+Nous voilà arrivés à la fin de ce topic sur le mot clef "this" en JavaScript. J'espère que le concept est désormais plus clair pour vous et que vous avez apprécié cette exploration, ponctuée de licornes et de mystères techniques. 
+
+Gardez en tête que la maîtrise de this est essentielle pour écrire un code JavaScript propre et efficace. 
+
+Alors, armez-vous de votre café et plongez dans vos projets avec une nouvelle compréhension de ce petit mot si crucial !
+
+### Ressources
+
+- [Cours JavaScript sur Udemy](https://www.udemy.com/course/pro-javascript/)
+- [Référence sur `this` - MDN Web Docs](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/this)
+- [Articles JavaScript - GeeksforGeeks](https://www.geeksforgeeks.org/)
+- [Guide sur `this` et l'orientation objet - JavaScript.info](https://javascript.info/object-methods#method-this)
+- [Tutoriels JavaScript - Dyma](https://dyma.fr/cours/javascript)
