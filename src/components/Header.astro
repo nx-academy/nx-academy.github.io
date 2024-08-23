@@ -4,33 +4,51 @@
       <li class="brand-name">
         <a href="/">NX Academy</a>
       </li>
-      <!-- <li>
-        <a href="/blog/welcome-v2"> Blog </a>
-      </li> -->
+      <li class="burger-menu">
+        <svg
+          width="18"
+          height="16"
+          viewBox="0 0 18 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 1.33333C0 0.596954 0.447715 0 1 0H17C17.5523 0 18 0.596954 18 1.33333C18 2.06971 17.5523 2.66667 17 2.66667H1C0.447716 2.66667 0 2.06971 0 1.33333Z"
+            fill="white"></path>
+          <path
+            d="M0 8C0 7.26362 0.447715 6.66667 1 6.66667H17C17.5523 6.66667 18 7.26362 18 8C18 8.73638 17.5523 9.33333 17 9.33333H1C0.447716 9.33333 0 8.73638 0 8Z"
+            fill="white"></path>
+          <path
+            d="M0 14.6667C0 13.9303 0.447715 13.3333 1 13.3333H17C17.5523 13.3333 18 13.9303 18 14.6667C18 15.403 17.5523 16 17 16H1C0.447716 16 0 15.403 0 14.6667Z"
+            fill="white"></path>
+        </svg>
+      </li>
     </ul>
   </nav>
 </header>
 
 <style>
   header {
-    width: 90%;
-    max-width: 1100px;
+    border-bottom: 1px solid #333;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
     margin-left: auto;
     margin-right: auto;
-    gap: 1.5rem;
-    border-bottom: 1px solid #333;
-    margin-bottom: 1.5rem;
+    max-width: 1100px;
     padding-bottom: 0.75rem;
+    padding-top: 1.5rem;
+    width: 90%;
   }
 
   ul {
-    padding-left: 0;
-    display: flex;
-    list-style-type: none;
-    gap: 1rem;
-    font-size: 1rem;
     align-items: baseline;
+    align-items: center;
+    display: flex;
+    font-size: 1rem;
+    gap: 1rem;
+    list-style-type: none;
     margin-bottom: 0;
+    padding-left: 0;
   }
 
   .brand-name {
@@ -38,9 +56,14 @@
     font-size: 1.25rem;
   }
 
+  .burger-menu {
+    cursor: pointer;
+    margin-left: auto;
+  }
+
   a {
-    text-decoration: none;
     color: #fff;
+    text-decoration: none;
     transition: 0.4s color;
 
     &:hover {

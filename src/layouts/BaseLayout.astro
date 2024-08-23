@@ -10,6 +10,8 @@ import "../styles/reset.css"
 import "@fontsource/pixelify-sans";
 import "@fontsource/space-grotesk";
 
+import Header from "../components/Header.astro";
+
 let { title, description } = Astro.props
 
 title = title ? `${title} - NX Academy` : "Passez au niveau supérieur en programmation avec NX Academy"
@@ -28,6 +30,7 @@ description = description ? description : "Avec NX Academy, suivez gratuitement 
     <meta name="description" content={description}>
   </head>
   <body>
+    <Header />
     <slot />
   </body>
 </html>
