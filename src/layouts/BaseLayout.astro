@@ -11,6 +11,7 @@ import "@fontsource/pixelify-sans";
 import "@fontsource/space-grotesk";
 
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 let { title, description } = Astro.props
 
@@ -32,6 +33,7 @@ description = description ? description : "Avec NX Academy, suivez gratuitement 
   <body>
     <Header />
     <slot />
+    <Footer />
   </body>
 </html>
 

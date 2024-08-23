@@ -1,8 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro"
 
-import Header from "../../components/Header.astro"
-import Footer from "../../components/Footer.astro"
 import CheatsheetCard from "../../components/CheatsheetCard.astro"
 
 const cheatsheets = await Astro.glob("./*.md")
@@ -13,7 +11,6 @@ const description = "Une fiche technique est un guide de référence pratique au
 
 <BaseLayout title={title} description={description}>
     <div class="wrapper">
-        <Header />
         <section>
             <h1>Nos dernières fiches techniques</h1>
             <p>
@@ -35,7 +32,6 @@ const description = "Une fiche technique est un guide de référence pratique au
                 }
             </div>
         </section>
-        <Footer />
     </div>
 </BaseLayout>
 

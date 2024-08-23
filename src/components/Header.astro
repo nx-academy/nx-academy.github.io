@@ -4,6 +4,14 @@
       <li class="brand-name">
         <a href="/">NX Academy</a>
       </li>
+      <div class="nav-items">
+        <li>
+          <a href="/fiches">Fiches techniques</a>
+        </li>
+        <li>
+          <a href="/news">Actualités du site</a>
+        </li>
+      </div>
       <li class="burger-menu">
         <svg
           width="18"
@@ -41,7 +49,6 @@
   }
 
   ul {
-    align-items: baseline;
     align-items: center;
     display: flex;
     font-size: 1rem;
@@ -49,6 +56,16 @@
     list-style-type: none;
     margin-bottom: 0;
     padding-left: 0;
+  }
+
+  .nav-items {
+    display: none;
+
+    @media screen and (min-width: 1024px) {
+      display: flex;
+      gap: 1.5rem;
+      margin-left: auto;
+    }
   }
 
   .brand-name {
@@ -59,10 +76,14 @@
   .burger-menu {
     cursor: pointer;
     margin-left: auto;
+
+    @media screen and (min-width: 1024px) {
+      display: none;
+    }
   }
 
   a {
-    color: #fff;
+    color: #FFF;
     text-decoration: none;
     transition: 0.4s color;
 
