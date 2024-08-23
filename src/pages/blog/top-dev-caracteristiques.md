@@ -1,48 +1,58 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
 
-title: Ce qui caractérise le top 20% des devs
+title: Les caractéristiques du top 20% des devs
 ---
 
-# Ce qui caractérise le top 20% des devs
+# Les caractéristiques du top 20% des devs
 
-![A pixel art scene of people standing on a podium](/a-pixel-art-scene-of-people-standing-on-a-podium.webp)
+![Trois personnes sur un podium, elles célèbrent une victoire sportive, pixel art](/personne-sur-podium.webp)
 
 
 Lorsque l'on parle des développeurs, il est fréquent de vouloir comprendre ce qui distingue les meilleurs, le fameux top 20%, du reste des développeurs.
 
-Les raisons sont multiples et variées mais nous pouvons citer (sans être exhaustif) ces dernières qui reviennent assez souvent :
+## Pourquoi cette comparaison est intéressante ?
 
-1. Pour s'améliorer continuellement
+### Pour s'améliorer continuellement
 
 > "On ne peut améliorer que ce que l'on mesure."  
 > — Peter Drucker
 
-Et donc ces excellents développeurs peuvent être des "références externes"/"sources d'inspiration" pour s'améliorer. Bien qu'il faille aussi prendre en compte son évolution interne d'une période à une autre. Voyez-le plus comme un benchmark que comme une fin en soi.
+Ces excellents développeurs peuvent être **des références externes / sources d'inspiration pour s'améliorer**. Il faut bien sur prendre en compte son évolution interne d'une période à une autre. 
 
-2. Pour être plus productif
+Voyez-le plus comme un benchmark que comme une fin en soi.
 
-Ce n'est plus un secret avec l'évolution colossale des logiciels et outils de productivité que c'est un sujet d'autant plus important pour la communauté des développeurs. En allant des outils de "DX" (Developer Experience) à des environnements de développement intégrés (IDE) avancés, des gestionnaires de versions comme Git, et des plateformes de collaboration comme GitHub et GitLab, etc. Tous ces outils ont en commun l'objectif de rendre les développeurs plus productifs. Ainsi comprendre les méthodes de travail des meilleurs développeurs peut aider les autres à adopter des pratiques qui augmentent leur propre productivité en symbiose avec ces outils.
-Imaginer Cristiano Ronaldo ou Messi avec un ballon de football ou même Guido van Rossum, le créateur du langage de programmation Python avec son setup de programmation vous voudriez sûrement identifier des patterns de productivité chez ces derniers.
 
-3. Pour innover
+### Pour être plus productif
 
-Je sais pas vous mais personnellement innover, c'est quelque chose qui me parle beaucoup et notre milieu informatique est l'un des endroits les plus propices pour celà. Combien de personnes "randoms" selon les codes sociaux actuels, en marge (nerds, autiste, asperger, etc) ou même anonyme (satoshi de Bitcoin) font régulièrement des prouesses. C'est quelque chose qui m'a toujours fasciné chez les développeurs. Une machine, une connexion internet et un cerveau peuvent littéralement changer une communauté voir même le monde. Et c'est souvent ce top 20% qui est l'avant garde des innovations.
-En étudiant leurs approches, on peut apprendre à être plus créatifs et à innover dans nos propres projets.
+Avec l'évolution colossale des logiciels, les développeurs sont souvent en quête de productivité. En allant des outils de "DX" (Developer Experience) à des environnements de développement intégrés (IDE) avancés, des gestionnaires de versions comme Git et des plateformes de collaboration comme GitHub et GitLab, etc. Des outils de DX, les IDE et autres plateformes de collobarotation comme GitHub ont en commun l'objectif de rendre les développeurs plus productifs.
 
-4. Les sujets de leadership et mentorat
+**Comprendre les méthodes de travail des meilleurs développeurs peut aider à adopter des pratiques qui augmentent sa propre productivité.**
+
+Imaginez Cristiano Ronaldo ou Messi avec un ballon de football ou même Guido van Rossum, le créateur du langage de programmation Python avec son setup de programmation vous voudriez sûrement identifier des patterns de productivité chez ces derniers.
+
+
+### Pour innover
+
+Je sais pas vous mais personnellement innover, c'est quelque chose qui me parle beaucoup et notre milieu informatique est l'un des endroits les plus propices pour celà. 
+
+Combien de personnes "randoms" selon les codes sociaux actuels, en marge (nerds, autiste, asperger, etc) ou même anonyme (satoshi de Bitcoin) font régulièrement des prouesses. C'est quelque chose qui m'a toujours fasciné chez les développeurs. Une machine, une connexion internet et un cerveau peuvent littéralement changer une communauté voir même le monde.
+
+Et c'est souvent ce top 20% qui est l'avant garde des innovations. **En étudiant leurs approches, on peut apprendre à être plus créatifs et à innover dans nos propres projets.**
+
+### Les sujets de leadership et mentorat
 
 Les meilleurs développeurs jouent souvent un rôle de leader ou de mentor au sein de leurs équipes ou communauté. Comprendre ce qui les rend efficaces dans ces rôles peut aider à développer de futurs leaders et mentors. Qui sait ce sera peut-être vous 😉
 
-5. Leur source de motivation et passion
+### Leur source de motivation et passion
 
-Les développeurs d’élite sont souvent très motivés et passionnés par leur travail. Identifier les sources de leur motivation peut aider à nous inspirer et à nous motiver.
+Les développeurs d’élite sont souvent très motivés et passionnés par leur travail. **Identifier les sources de leur motivation peut aider à nous inspirer et à nous motiver.**
 
-6. La résolution de problèmes
+### La résolution de problèmes
 
 Les meilleurs développeurs ont souvent des compétences exceptionnelles en résolution de problèmes (rassurez-vous, ce n'est pas systématiquement inné cela ce travail). Apprendre de leurs approches peut aider les autres à devenir de meilleurs "problèmes solveurs".
 
-7. Saisir de meilleures opportunités professionnelles
+### Saisir de meilleures opportunités professionnelles
 
 Comprendre ce qui distingue les meilleurs développeurs peut nous aider à progresser dans notre carrière et à saisir de meilleures opportunités professionnelles (celles dont on rêve, pas juste un job alimentaire).
 
@@ -52,7 +62,7 @@ Quels sont leurs traits de caractère, leurs habitudes ou leurs compétences sp�
 
 Je suis Oumar, j’ai rejoins le monde de la programmation en septembre 2022 et c’est là tout un tas de questions que je me suis posé (et que je me pose toujours d’ailleurs pour sainement progresser 😉).
 
-Je vous propose donc dans ce blog post de vous partager les conseils reçus, de mes paires plus “seniors”. Cela me sers beaucoup au quotidien et je l’espère vous servira également. Allez on se lance !
+Je vous propose donc dans ce blog post de vous partager les conseils reçus, de mes paires plus “seniors”. Cela me sert beaucoup au quotidien et je l’espère vous servira également. Allez on se lance !
 
 
 ---
@@ -66,7 +76,7 @@ Aussi technique soi le sujet cela ne les refrènent pas le moins du monde, c’e
 
 Notre métier est sacrément dur faut le dire et le reconnaître !
 
-En effet, les meilleurs développeurs sont souvent des personnes curieuses-résilientes (j’insiste sur la mise en commun de ces deux caractéristiques) qui s'intéressent à de nouvelles technologies, outils ou langages de programmation. Ils aiment expérimenter avec de nouvelles idées et ne se contentent pas de suivre les méthodes établies. Ils cherchent toujours à comprendre comment les choses fonctionnent en profondeur. C’est souvent de la que ressort l’un des deux groupes du top 20%, que j’entends souvent qualifier “d’innovateurs”. On parlera du second groupe, dans la prochaine caractéristique.
+Les meilleurs développeurs sont souvent des personnes curieuses-résilientes (j’insiste sur la mise en commun de ces deux caractéristiques) qui s'intéressent à de nouvelles technologies, outils ou langages de programmation. Ils aiment expérimenter avec de nouvelles idées et ne se contentent pas de suivre les méthodes établies. Ils cherchent toujours à comprendre comment les choses fonctionnent en profondeur. C’est souvent de la que ressort l’un des deux groupes du top 20%, que j’entends souvent qualifier “d’innovateurs”. On parlera du second groupe, dans la prochaine caractéristique.
 
 ### Approche plus souvent orientée du problème à la solution (et moins l’inverse)
 
@@ -74,30 +84,25 @@ Ils ont une approche orientée problème, ce qui signifie qu'ils se concentrent 
 
 Ils choisissent les outils et les méthodes en fonction de ce qui est le mieux adapté pour résoudre le problème à portée de main. C’est souvent de là que ressort ceux que j’appel (excusez mon anglicisme), les “problèmes solveurs” qui à force d’entrainer cette capacité de résolution de problème développent une vélocité cumulée à une efficacité qui en fait des développeurs hors norme.
 
+
 C’est le gars dans l’équipe (pas forcément le plus senior) à qui on pense dont on est quasi sûr qu’il résoudra aussi vite et proprement un problème qui nous aura pris un temps fou. Mais ce n'est pas qu'une question de vélocité, c'est surtout une question de solutions robustes et long termes ultra efficaces.
 
-Illustrons nos propos avec quelques exemples parlants :
-
-- L'origine de Kubernetes : Face à l'explosion des conteneurs, les ingénieurs de Google ont dû trouver une solution pour gérer efficacement ces milliers d'instances. Au lieu de se contenter d'adapter des outils existants, ils ont conçu Kubernetes, une plateforme entièrement dédiée à l'orchestration de conteneurs. Cette approche "orientée problème" a permis de créer un outil extrêmement performant et flexible, qui est aujourd'hui utilisé par des entreprises du monde entier.
-  À l'inverse, imaginez si les ingénieurs de Google avaient privilégié une approche "orientée solution" en décidant de créer une plateforme d'orchestration de conteneurs simplement parce que la technologie des conteneurs était à la mode. Ils auraient pu développer un outil complexe, difficile à utiliser et peu adapté aux besoins réels des utilisateurs. En effet, sans une analyse approfondie des problèmes rencontrés dans la gestion des conteneurs à grande échelle, ils auraient risqué de créer une solution surdimensionnée, peu pratique avec beaucoup de fonctionnalités inutiles. Cette anecdote illustre bien l'importance d'une approche centrée sur les problèmes pour concevoir des solutions efficaces et durables.
-- On pourrait en dire de même pour React, développé par Facebook pour améliorer l'interface utilisateur de ses applications web. React est un exemple d'une bibliothèque JavaScript conçue pour répondre à un "besoin précis".
-- Ou même deux exemples plus terre à terre du quotidien :
-
-Votre application mobile est lente sur les anciens appareils. Un développeur adoptant l'approche non orientée problème peut essayer d'optimiser chaque ligne de code, sans forcément identifier les goulots d'étranglement qui ralentissent l'application. A l'inverse le développeur avec l'approche orientée problème commence par profiler l'application pour identifier les parties les plus lentes du code. Il peut ensuite optimiser les algorithmes, réduire la taille des images, ou utiliser des techniques de caching pour améliorer les performances.
-
-Vous êtes un développeur expérimenté et travaillé sur un projet avec du "legacy code" dont la particularité est que la codebase étant grosse est difficile à maintenir et à faire évoluer. Le développeur avec l'approche "non orientée problème" peut ajouter des correctifs sans une vision globale de l'architecture du système, ce qui peut créer une dette technique. En revanche, celui avec l'approche "orientée problème" commence par refactoriser le code pour le rendre plus clair et plus modulaire. Il identifie les parties du code qui sont les plus couplées et les plus complexes, et **il les simplifie**.
+Imagiginez, vous êtes un développeur expérimenté et travaillez sur un projet avec du "legacy code". Sa particularité est que la codebase est grosse et difficile à maintenir. Le développeur avec l'approche "non orientée problème" peut ajouter des correctifs sans une vision globale de l'architecture du système, ce qui peut créer une dette technique. En revanche, celui avec l'approche "orientée problème" commence par refactoriser le code pour le rendre plus clair et plus modulaire. Il identifie les parties du code qui sont les plus couplées et les plus complexes, et **il les simplifie**.
 
 Alors je ne serais pas étonné que ce concept soit contre intuitif pour beaucoup d'entre vous. Rassurez vous c'est normal, car la frontière entre l'approche "orientée problème" et l'approche "orientée solution ou non orientée problème" est plus fine qu'elle n'y parent. On n'est plutôt sur une zone grisatre que noir ou blanc.
-C'est la raison qui m'a pousssé à écrire ce blog post entier pour m'exprimer plus en profondeur sur ce sujet : <a href="https://nx-academy.github.io" target="_blank">Entre marteau et enclume : Naviguer entre l'approche orientée problème et orientée solution</a>
 
 En fin de compte, vous pourriez comparer l'approche orientée problème à la construction d'une maison sur mesure, et l'approche orientée solution à l'achat d'une maison préfabriquée qui ne correspond pas tout à fait à vos besoins.
 Vous comprendrez que le top 20 % navigue savamment entre les deux tout en privilégiant la plupart du temps la première approche, car c'est la plus durable et c'est elle qui façonne notre industrie.
 
 ### L’ Apprentissage Continu
 
-Etant un profil en reconversion venant de la finance, un élément m’a frappé dans ce nouveau monde fascinant. Tout le monde est à la recherche du One Piece (clin d’œil aux fan de mangas), ce trésor légendaire que Luffy et son équipage poursuivent inlassablement à travers les mers. Cela change la donne par rapport à la plupart des autres industries (dont la finance). Dans cette industrie, l'esprit de communauté est aussi fort que la soif d'apprendre. Les développeurs sont comme des pirates modernes, explorant un océan de connaissances à la recherche de leur "One Piece". Ils partagent leurs découvertes, s'entraident, et ensemble, ils repoussent les limites de ce qui est possible.
+Etant un profil en reconversion venant de la finance, un élément m’a frappé dans ce nouveau monde fascinant. Tout le monde est à la recherche du One Piece (clin d’œil aux fan de mangas), ce trésor légendaire que Luffy et son équipage poursuivent inlassablement à travers les mers.
 
-Les développeurs du top 20% investissent régulièrement du temps pour améliorer leurs compétences. Ils participent à des formations, lisent des livres ou des articles techniques, suivent des conférences, et sont souvent impliqués dans des communautés technologiques. C'est comme si chaque développeur était un pirate explorant un nouvel archipel de connaissances, à la recherche du trésor qui lui permettra de réaliser ses ambitions sur cette carte infinie des possibilités technologiques.
+Cela change la donne par rapport à la plupart des autres industries (dont la finance). Dans cette industrie, l'esprit de communauté est aussi fort que la soif d'apprendre. Les développeurs sont comme des pirates modernes, explorant un océan de connaissances à la recherche de leur "One Piece". Ils partagent leurs découvertes, s'entraident, et ensemble, ils repoussent les limites de ce qui est possible.
+
+Les développeurs du top 20% investissent régulièrement du temps pour améliorer leurs compétences. Ils participent à des formations, lisent des livres ou des articles techniques, suivent des conférences, et sont souvent impliqués dans des communautés technologiques.
+
+C'est comme si chaque développeur était un pirate explorant un nouvel archipel de connaissances, à la recherche du trésor qui lui permettra de réaliser ses ambitions sur cette carte infinie des possibilités technologiques.
 
 ### Bonnes pratiques du métier
 
@@ -113,9 +118,7 @@ N’importe quel client, chef d’entreprise, manager(euse) ou même collaborate
 
 ### Travail en équipe
 
-On a assez parler technique là, car même pour chez les devs où c’est un sujet très important (et à juste titre faut le dire), il n’y a pas que la technique.
-
-Les meilleurs développeurs savent comment communiquer efficacement avec les différentes parties prenantes, qu'il s'agisse des clients/utilisateurs, d’autres collègues développeurs, de chefs de projet, ou de designers, etc. Ils sont capables de recevoir et de donner des feedbacks constructifs, et contribuent à la dynamique positive de l'équipe.
+Les meilleurs développeurs savent comment communiquer efficacement avec les différentes parties prenantes, qu'il s'agisse des clients/utilisateurs, d’autres collègues développeurs, de chefs de projet, ou de designers, etc. Ils sont capables de recevoir et de donner des feedbacks constructifs et contribuent à la dynamique positive de l'équipe.
 
 Si vous en doutez regarder autour de vous la grande majorité des logiciels qui marchent réellement dont les gens veulent et qui résoudent des problèmes puis demander vous s’ils auraient eu la même portée coder par un excellent dev certes mais tout seul dans sa grotte ou mal accompagné.
 
@@ -125,7 +128,7 @@ Votre compétence marginale aussi impressionnante soit-elle trouvera ses limites
 
 Ils comprennent l'importance de l'impact de leur travail sur le produit final et sur l'utilisateur/client. Ils sont motivés par la création de valeur réelle, plutôt que par la simple écriture de code.
 
-C’est un point auquel, je suis particulièrement sensible. Au début, on passe quasi tous par la phase “pisseurs de code” comme on dit dans le jargon. Personnellement, je ne la vois pas systématiquement que d’un mauvais œil, c’est une partie intégrante d’une phase de progression, l’erreur serait d’y rester pire de penser que plus de code impressionnant on envoi, plus on est excellente.
+C’est un point auquel je suis particulièrement sensible. Au début, on passe quasi tous par la phase “pisseurs de code” comme on dit dans le jargon. Personnellement, je ne la vois pas systématiquement que d’un mauvais œil, c’est une partie intégrante d’une phase de progression, l’erreur serait d’y rester pire de penser que plus de code impressionnant on envoi, plus on est excellente.
 
 Une phrase de devs seniors avec qui j’ai échangé et qui m’a beaucoup marqué est la suivante :
 
