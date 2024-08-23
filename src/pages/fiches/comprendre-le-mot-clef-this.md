@@ -39,7 +39,7 @@ Quand vous créez un fichier JavaScript, même vide, et que vous le charger dans
 console.log("this is : " this); 
 // ou encore
 console.log("this is : " window); 
-// Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+// Window {window: Window, self: Window, document: document, name: '', location: Location, …}
 console.log(window === this);
 // true
 ```
@@ -48,9 +48,9 @@ Si vous tapez ce code dans votre console du navigateur, vous obtiendrez le même
 
 ```js
 console.log("this is : " this.window); 
-// Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+// Window {window: Window, self: Window, document: document, name: '', location: Location, …}
 console.log(this.document.location);
-// Location {ancestorOrigins: DOMStringList, href: 'chrome-error://chromewebdata/', origin: 'null', protocol: 'chrome-error:', host: 'chromewebdata', …}
+// Location {ancestorOrigins: DOMStringList, href: 'chrome-error://chromewebdata/', origin: 'null', protocol: 'chrome-error:', host: 'chromewebdata', …}
 ```
 
 ### Utilisation dans le cadre d'objets littéraux :
