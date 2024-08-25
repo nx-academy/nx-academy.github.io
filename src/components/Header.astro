@@ -30,6 +30,7 @@ import NavigationMobile from "./NavigationMobile.astro";
   const $body = document.querySelector("body");
 
   $burgerBtn?.addEventListener("click", function () {
+    $mobileNavigation?.classList.remove("fade-out");
     $mobileNavigation?.classList.remove("hidden");
     $mobileNavigation?.classList.add("fade-in");
 
@@ -38,8 +39,12 @@ import NavigationMobile from "./NavigationMobile.astro";
   });
 
   $closeBtn?.addEventListener("click", function () {
+    setTimeout(function() {
+      $mobileNavigation?.classList.add("hidden");
+    }, 200)
+
+    $mobileNavigation?.classList.add("fade-out");
     $mobileNavigation?.classList.remove("fade-in");
-    $mobileNavigation?.classList.add("hidden");
 
     $body!.style.height = "";
     $body!.style.overflow = "";

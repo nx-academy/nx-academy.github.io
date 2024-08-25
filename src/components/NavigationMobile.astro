@@ -44,8 +44,23 @@
     }
   }
 
+  @keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        display: none;
+    }
+  }
+
   .fade-in {
-    animation: fade-in .6s;
+    animation: fade-in .4s;
+  }
+
+  .fade-out {
+    animation: fade-out .4s;
   }
   
   .hidden {
