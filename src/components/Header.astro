@@ -35,24 +35,32 @@
       </li>
     </ul>
   </nav>
-  <nav class="mobile-navigation">
+  <nav class="mobile-navigation hidden">
     <ul>
-      <svg
-        width="16"
-        height="16"
-        viewBox="0 0 16 16"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M15.6464 15.648C16.1157 15.1787 16.1157 14.4178 15.6464 13.9484L9.69939 8.00082L15.648 2.05155C16.1173 1.58223 16.1173 0.821313 15.648 0.351993C15.1788 -0.117327 14.4179 -0.117327 13.9487 0.351992L8 6.30126L2.05134 0.35199C1.58207 -0.11733 0.821226 -0.11733 0.351954 0.35199C-0.117318 0.82131 -0.117318 1.58223 0.351954 2.05155L6.30061 8.00082L0.353586 13.9485C-0.115686 14.4178 -0.115686 15.1787 0.353586 15.648C0.822858 16.1173 1.5837 16.1173 2.05297 15.648L8 9.70038L13.947 15.648C14.4163 16.1173 15.1771 16.1173 15.6464 15.648Z"
-          fill="white"></path>
-      </svg>
+      <li class="close-icon">
+        <button aria-label="Fermer le menu de navigation">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.6464 15.648C16.1157 15.1787 16.1157 14.4178 15.6464 13.9484L9.69939 8.00082L15.648 2.05155C16.1173 1.58223 16.1173 0.821313 15.648 0.351993C15.1788 -0.117327 14.4179 -0.117327 13.9487 0.351992L8 6.30126L2.05134 0.35199C1.58207 -0.11733 0.821226 -0.11733 0.351954 0.35199C-0.117318 0.82131 -0.117318 1.58223 0.351954 2.05155L6.30061 8.00082L0.353586 13.9485C-0.115686 14.4178 -0.115686 15.1787 0.353586 15.648C0.822858 16.1173 1.5837 16.1173 2.05297 15.648L8 9.70038L13.947 15.648C14.4163 16.1173 15.1771 16.1173 15.6464 15.648Z"
+              fill="white"></path>
+          </svg>
+        </button>
+      </li>
     </ul>
   </nav>
 </header>
 
 <style>
+  .hidden {
+    display: none;
+  }
+
   .mobile-navigation {
     position: absolute;
     left: 0;
@@ -61,12 +69,14 @@
     width: 100vw;
     background-color: rgba(255, 255, 255, 0.8);
     z-index: 10;
+    transition: 0.2s;
 
     ul {
       background-color: #252525;
       width: 90%;
       margin-left: auto;
       height: 100%;
+      transition: 0.4s;
     }
   }
 
@@ -135,10 +145,22 @@
 
 <script>
   const $burgerBtn = document.querySelector(".burger-menu button");
+  const $closeBtn = document.querySelector('.close-icon button')
+  const $mobileNavigation = document.querySelector(".mobile-navigation");
+
+  const $body = document.querySelector('body')
 
   $burgerBtn?.addEventListener("click", function () {
-    console.log("====");
-    console.log("====");
-    console.log("====");
+    $mobileNavigation?.classList.remove("hidden");
+
+      $body!.style.height = "100vh"
+      $body!.style.overflow = "hidden"
   });
+
+  $closeBtn?.addEventListener('click', function() {
+    $mobileNavigation?.classList.add('hidden')
+
+    $body!.style.height = ""
+      $body!.style.overflow = ""
+  })
 </script>
