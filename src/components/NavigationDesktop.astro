@@ -1,0 +1,88 @@
+<nav>
+  <ul>
+    <li class="brand-name">
+      <a href="/">NX Academy</a>
+    </li>
+    <div class="nav-items">
+      <li>
+        <a href="/fiches">Fiches techniques</a>
+      </li>
+      <li>
+        <a href="/articles">Articles</a>
+      </li>
+    </div>
+    <li class="burger-menu">
+      <button aria-label="Ouvrir le menu de navigation">
+        <svg
+          width="18"
+          height="16"
+          viewBox="0 0 18 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 1.33333C0 0.596954 0.447715 0 1 0H17C17.5523 0 18 0.596954 18 1.33333C18 2.06971 17.5523 2.66667 17 2.66667H1C0.447716 2.66667 0 2.06971 0 1.33333Z"
+            fill="white"></path>
+          <path
+            d="M0 8C0 7.26362 0.447715 6.66667 1 6.66667H17C17.5523 6.66667 18 7.26362 18 8C18 8.73638 17.5523 9.33333 17 9.33333H1C0.447716 9.33333 0 8.73638 0 8Z"
+            fill="white"></path>
+          <path
+            d="M0 14.6667C0 13.9303 0.447715 13.3333 1 13.3333H17C17.5523 13.3333 18 13.9303 18 14.6667C18 15.403 17.5523 16 17 16H1C0.447716 16 0 15.403 0 14.6667Z"
+            fill="white"></path>
+        </svg>
+      </button>
+    </li>
+  </ul>
+</nav>
+
+<style>
+  ul {
+    align-items: center;
+    display: flex;
+    font-size: 1rem;
+    gap: 1rem;
+    list-style-type: none;
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+
+  .nav-items {
+    display: none;
+
+    @media screen and (min-width: 1024px) {
+      display: flex;
+      gap: 1.5rem;
+      margin-left: auto;
+    }
+  }
+
+  .brand-name {
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 1.25rem;
+  }
+
+  .burger-menu {
+    margin-left: auto;
+
+    @media screen and (min-width: 1024px) {
+      display: none;
+    }
+  }
+
+  button {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.4s color;
+
+    &:hover {
+      color: #4effa0bb;
+    }
+  }
+</style>
