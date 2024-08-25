@@ -29,6 +29,25 @@
 </nav>
 
 <style>
+  @keyframes fade-in {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+    }
+
+    100% {
+        opacity: 1;
+    }
+  }
+
+  .fade-in {
+    animation: fade-in .6s;
+  }
+  
   .hidden {
     display: none;
   }
@@ -53,9 +72,9 @@
     padding-top: 1.5rem;
 
     div {
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 
@@ -80,6 +99,7 @@
     text-decoration: none;
     transition: 0.4s color;
     font-size: 1.25rem;
+    display: block;
 
     &:hover {
       color: #4effa0bb;

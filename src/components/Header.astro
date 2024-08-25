@@ -31,12 +31,14 @@ import NavigationMobile from "./NavigationMobile.astro";
 
   $burgerBtn?.addEventListener("click", function () {
     $mobileNavigation?.classList.remove("hidden");
+    $mobileNavigation?.classList.add("fade-in");
 
     $body!.style.height = "100vh";
     $body!.style.overflow = "hidden";
   });
 
   $closeBtn?.addEventListener("click", function () {
+    $mobileNavigation?.classList.remove("fade-in");
     $mobileNavigation?.classList.add("hidden");
 
     $body!.style.height = "";
