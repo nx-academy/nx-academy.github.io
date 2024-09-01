@@ -5,6 +5,7 @@ interface Props {
   level: string
   imgSrc: string
   imgAlt: string
+  href: string
 }
 
 
@@ -18,11 +19,12 @@ const {
   description,
   level,
   imgSrc,
-  imgAlt
+  imgAlt,
+  href
 } = Astro.props
 ---
 
-<a href="#">
+<a href={href}>
   <img class="image" src={`/public/${imgSrc}`} alt={imgAlt} />
   <ParagraphLarge content="Fiche technique" />
   <Heading3 content={title} />
@@ -38,6 +40,10 @@ const {
 
   a:hover .image {
     border-color: #4effa0;
+  }
+
+  a:hover :global(h3) {
+    color: #4effa0;
   }
 
   .image {
