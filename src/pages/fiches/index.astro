@@ -24,13 +24,7 @@ const description = "Une fiche technique est un guide de référence pratique au
             <div class="cards-wrapper">
                 {
                     cheatsheets.map(cheatsheet => (
-                    <CheatsheetCard
-                        description={cheatsheet.frontmatter.description}
-                        href={cheatsheet.url!}
-                        imgAlt={cheatsheet.frontmatter.imgAlt}
-                        imgSrc={cheatsheet.frontmatter.imgSrc}
-                        title={cheatsheet.frontmatter.title}
-                    />
+                    <CheatsheetCard />
                     ))
                 }
             </div>

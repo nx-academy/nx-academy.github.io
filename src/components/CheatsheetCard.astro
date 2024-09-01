@@ -1,73 +1,54 @@
----
-interface Props {
-    description: string
-    href: string
-    imgAlt: string
-    imgSrc: string
-    title: string
-}
-
-import Button from "./Button.astro"
-
-const {
-    description,
-    href,
-    imgAlt,
-    imgSrc,
-    title
-} = Astro.props
----
-
-<div>
-    <img src={imgSrc} alt={imgAlt}>
-    <p class="title">{title}</p>
-    <p class="description">{description}</p>
-    <span class="link">
-        <Button label="Lire la fiche" type="primary" href={href} />
-    </span>
-    
-</div>
+<a href="#">
+  <img class="image" src="/public/enfant-rangeant-jouets.webp" alt="" />
+  <p class="paragraph-large">Fiche technique</p>
+  <h3 class="heading-3">Comprendre le mot clé this</h3>
+  <p class="paragraph-extra-small">Niveau : intermédiaire</p>
+  <p class="paragraph-small">
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+    aliquip ex ea commodo consequat.
+  </p>
+</a>
 
 <style>
-    div {
-        display: grid;
-        margin-bottom: 1rem;
-        background-color: #252525;
-        padding: 1rem;
-        border-radius: 8px;
+  a {
+    display: grid;
+    gap: 8px;
+  }
 
-        grid-template-areas: "image"
-            "title"
-            "description"
-            "link"
-        ;
-        gap: 1rem;
-    }
+  a:hover .heading-3 {
+    color: #4effa0;
+  }
 
-    p {
-        margin-bottom: 0;
-    }
+  a:hover .image {
+    border-color: #4effa0;
+  }
 
-    img {
-        grid-area: image;
-    }
+  .image {
+    border-radius: 16px;
+    transition: .4s;
+    border: 2px solid #151515;
+  }
 
-    .title {
-        grid-area: title;
-        font-size: 1.25rem;
-        font-weight: 700;
-    }
+  .paragraph-large {
+    font-size: 18px;
+    margin-bottom: 0;
+    color: #fff;
+  }
 
-    .description {
-        grid-area: description;
-    }
+  .heading-3 {
+    font-size: 24px;
+    transition: .4s;
+  }
 
-    .link {
-        grid-area: link;
-        margin-top: auto;
-    }
+  .paragraph-extra-small {
+    font-size: 12px;
+    margin-bottom: 0;
+    color: #fff;
+  }
 
-    .link :global(a) {
-        width: 100%;
-    }
+  .paragraph-small {
+    font-size: 14px;
+    color: #bababa;
+    margin-bottom: 0;
+  }
 </style>
