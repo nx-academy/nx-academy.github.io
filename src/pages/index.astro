@@ -4,104 +4,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 <BaseLayout>
   <main>
-    <h1>
-      <span class="first-letter">N</span><span class="second-letter">X</span> Academy
-    </h1>
-    <p>Passez au niveau supérieur</p>
-    <div class="buttons-wrapper">
-      <a class="btn-secondary" href="https://github.com/nx-academy/nx-academy.github.io" target="_blank">Suivez le projet sur GitHub</a>
-      <a class="btn-primary" href="/blog/welcome-v2">Lire le mot de bienvenue
-      </a>
-    </div>
+    <h1>Hello, NX</h1>
   </main>
 </BaseLayout>
 
 <style>
   main {
-    min-height: 100vh;
-    min-width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
-  }
-
-  h1 {
-    font-family: "Pixelify Sans", sans-serif;
-    font-size: 2.5rem;
-    margin-top: 0;
-    margin-bottom: 0;
-    color: #FEFEFE;
-  }
-
-  h1:hover .first-letter {
-    animation: change-color .8s ease-out infinite;
-  }
-
-  h1:hover .second-letter {
-    animation: change-color .8s ease-out .4s infinite;
-  }
-
-  @keyframes change-color {
-    0% {
-      color: #FEFEFE;
-    }
-
-    50% {
-      color: #4effa0;
-    }
-
-    100% {
-      color: #FEFEFE;
-    }
-  }
-
-  p {
-    font-size: 1.25rem;
-    margin-top: 0;
-    margin-bottom: 2rem;
-    color: #BABABA;
-  }
-
-  .btn-primary {
-    text-decoration: none;
-    color: #151515;
-    font-weight: 500;
-    transition: 0.4s color;
-    border: 1px solid #4effa0;
-    background-color: #4effa0;
-    padding: .5rem 1rem;
-    border-radius: 8px;
-    transition: .4s background-color;
-
-    &:hover {
-      background-color: #4effa0AA;
-    }
-  }
-
-  .btn-secondary {
-    text-decoration: none;
-    color: #151515;
-    font-weight: 500;
-    transition: 0.4s color;
-    border: 1px solid #B0BEC5;
-    background-color: #B0BEC5;
-    padding: .5rem 1rem;
-    border-radius: 8px;
-    transition: .4s background-color;
-
-    &:hover {
-      background-color: #B0BEC5AA;
-    }
-  }
-
-  .buttons-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-
-    @media screen and (min-width: 48rem) {
-      flex-direction: row;
-    }
   }
 </style>
