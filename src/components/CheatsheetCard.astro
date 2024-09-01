@@ -1,11 +1,12 @@
 ---
 import ParagraphLarge from "./ParagraphLarge.astro"
+import Heading3 from "./Heading3.astro"
 ---
 
 <a href="#">
   <img class="image" src="/public/enfant-rangeant-jouets.webp" alt="" />
   <ParagraphLarge content="Fiche technique" />
-  <h3 class="heading-3">Comprendre le mot clé this</h3>
+  <Heading3 content="Comprendre le mot clé this" />
   <p class="paragraph-extra-small">Niveau : intermédiaire</p>
   <p class="paragraph-small">
     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -19,10 +20,6 @@ import ParagraphLarge from "./ParagraphLarge.astro"
     gap: 8px;
   }
 
-  a:hover .heading-3 {
-    color: #4effa0;
-  }
-
   a:hover .image {
     border-color: #4effa0;
   }
@@ -31,11 +28,6 @@ import ParagraphLarge from "./ParagraphLarge.astro"
     border-radius: 16px;
     transition: .4s;
     border: 2px solid #151515;
-  }
-
-  .heading-3 {
-    font-size: 24px;
-    transition: .4s;
   }
 
   .paragraph-extra-small {
