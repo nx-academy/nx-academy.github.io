@@ -1,6 +1,10 @@
+---
+import ParagraphLarge from "./ParagraphLarge.astro"
+---
+
 <a href="#">
   <img class="image" src="/public/enfant-rangeant-jouets.webp" alt="" />
-  <p class="paragraph-large">Fiche technique</p>
+  <ParagraphLarge content="Fiche technique" />
   <h3 class="heading-3">Comprendre le mot clé this</h3>
   <p class="paragraph-extra-small">Niveau : intermédiaire</p>
   <p class="paragraph-small">
@@ -27,12 +31,6 @@
     border-radius: 16px;
     transition: .4s;
     border: 2px solid #151515;
-  }
-
-  .paragraph-large {
-    font-size: 18px;
-    margin-bottom: 0;
-    color: #fff;
   }
 
   .heading-3 {
