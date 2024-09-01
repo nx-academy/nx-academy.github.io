@@ -1,17 +1,16 @@
 ---
 import ParagraphLarge from "./ParagraphLarge.astro"
 import Heading3 from "./Heading3.astro"
+import ParagraphExtraSmall from "./ParagraphExtraSmall.astro"
+import ParagraphSmall from "./ParagraphSmall.astro"
 ---
 
 <a href="#">
   <img class="image" src="/public/enfant-rangeant-jouets.webp" alt="" />
   <ParagraphLarge content="Fiche technique" />
   <Heading3 content="Comprendre le mot clé this" />
-  <p class="paragraph-extra-small">Niveau : intermédiaire</p>
-  <p class="paragraph-small">
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-    aliquip ex ea commodo consequat.
-  </p>
+  <ParagraphExtraSmall content="Niveau : intermédiaire" />
+  <ParagraphSmall content="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." />
 </a>
 
 <style>
@@ -28,17 +27,5 @@ import Heading3 from "./Heading3.astro"
     border-radius: 16px;
     transition: .4s;
     border: 2px solid #151515;
-  }
-
-  .paragraph-extra-small {
-    font-size: 12px;
-    margin-bottom: 0;
-    color: #fff;
-  }
-
-  .paragraph-small {
-    font-size: 14px;
-    color: #bababa;
-    margin-bottom: 0;
   }
 </style>
