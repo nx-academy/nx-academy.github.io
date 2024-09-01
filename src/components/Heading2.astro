@@ -1,0 +1,22 @@
+---
+interface Props {
+    content: string
+}
+
+const {
+    content
+} = Astro.props
+---
+
+<h2>
+    {content}
+</h2>
+
+<style>
+    h2 {
+        font-size: clamp(1.5rem, 1.5rem + 2.083vw, 2.5rem);
+        color: #FFF;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+</style>
