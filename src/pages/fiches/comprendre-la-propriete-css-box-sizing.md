@@ -1,10 +1,12 @@
 ---
 layout: ../../layouts/CheatSheetsLayout.astro
 
-title: Comprendre la propriété CSS box sizing
 description: Résolvez des possibles problèmes de mise en page avec la propriété CSS Box sizing.
 imgAlt: Un enfant rangeant ses jouets dans un carton dans sa chambre, pixel art
 imgSrc: /enfant-rangeant-jouets.webp
+kind: Fiche technique
+level: Débutant
+title: Comprendre la propriété CSS box sizing
 ---
 
 <article>
