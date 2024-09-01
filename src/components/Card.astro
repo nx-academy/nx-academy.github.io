@@ -1,27 +1,19 @@
 ---
 interface Props {
-  title: string
-  description: string
-  level: string
-  imgSrc: string
-  imgAlt: string
-  href: string
+  description: string;
+  href: string;
+  imgAlt: string;
+  imgSrc: string;
+  level: string;
+  title: string;
 }
 
+import Heading3 from "./Heading3.astro";
+import ParagraphExtraSmall from "./ParagraphExtraSmall.astro";
+import ParagraphLarge from "./ParagraphLarge.astro";
+import ParagraphSmall from "./ParagraphSmall.astro";
 
-import Heading3 from "./Heading3.astro"
-import ParagraphExtraSmall from "./ParagraphExtraSmall.astro"
-import ParagraphLarge from "./ParagraphLarge.astro"
-import ParagraphSmall from "./ParagraphSmall.astro"
-
-const {
-  title,
-  description,
-  level,
-  imgSrc,
-  imgAlt,
-  href
-} = Astro.props
+const { description, href, imgAlt, imgSrc, level, title } = Astro.props;
 ---
 
 <a href={href}>
@@ -35,7 +27,7 @@ const {
 <style>
   a {
     display: grid;
-    gap: .5rem;
+    gap: 0.5rem;
   }
 
   a:hover .image {
@@ -48,7 +40,7 @@ const {
 
   .image {
     border-radius: 16px;
-    transition: .4s;
     border: 2px solid #151515;
+    transition: 0.4s;
   }
 </style>
