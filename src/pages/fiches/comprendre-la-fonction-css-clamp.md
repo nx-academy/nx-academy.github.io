@@ -101,7 +101,7 @@ h1 {
 
 ## Comment calculer la valeur idéale ?
 
-Quand on voit le calcul de la valeur idéale, il y a de quoi avoir des sueurs froides. Surtout si les mathématiques vous ont traumatisé. La bonne nouvelle, c'est que j'ai trouvé [cet outil](https://xgkft.csb.app/). Je l'ai découvert [sur cet excellent article de CSS Tricks](https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/).
+Quand on voit le calcul de la valeur idéale, il y a de quoi avoir des sueurs froides. Surtout si les mathématiques vous ont traumatisé. La bonne nouvelle, c'est que j'ai trouvé [cet outil](https://fluid.style/type?min=1&max=1.125&min-bp=2&max-bp=90&unit=%22rem%22). Je l'ai découvert [sur cet excellent article de CSS Tricks](https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/).
 
 
 ![Capture d'écran de l'application permettant de calculer la valeur idéale avec la fonction clamp](/screenshot-app-calcul-valeur-ideal.png)
@@ -119,5 +119,6 @@ Vous n'avez maintenant plus d'excuses pour ne pas vous en servir dans vos projet
 - [CSS min(), max(), and clamp()](https://web.dev/articles/min-max-clamp)
 - [Modern Fluid Typography Using CSS Clamp](https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/)
 - [CSS math functions min(), max() and clamp()](https://caniuse.com/css-math-functions)
+- [An accessible fluid type generator](https://fluid.style/type?min=1&max=1.125&min-bp=2&max-bp=90&unit=%22rem%22)
 
 </article>
