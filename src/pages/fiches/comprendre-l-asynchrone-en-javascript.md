@@ -9,7 +9,7 @@ imgSrc: /asynchrone_js.webp
 
 <article>
 
-# Comprendre l'Asynchrone en JavaScript 🚀
+# Plongée dans l'Asynchrone en JavaScript 🕶️
 
 ![Une personne multitâche au bureau avec un symbole de boucle infinie, pixel art](/asynchrone_js.webp)
 
@@ -113,7 +113,9 @@ Maintenant, imaginez un monde où à chaque fois que vous envoyez un message, vo
        });
    ```
 
-3. **async/await** 🕶️ : Si les promises sont cool, alors `async/await` est le maître du cool. Cela permet d'écrire du code asynchrone qui ressemble presque à du code synchrone. Fini les `.then()`, et bienvenue à un code plus lisible et facile à suivre.
+3. **async/await** 🕶️ : Si les promises sont hyper pratique, `async/await` c'est se simplifier encore plus la vie : plus fluide, plus intuitif, et une fusion parfaite avec le code.. Cela permet d'écrire du code asynchrone qui ressemble presque à du code synchrone. Fini les `.then()`, et bienvenue à un code plus lisible et facile à suivre.
+
+> Il s'agit ici clairement de "sucre synthaxique", mais l'effet n'ene st pas moins présent. Pour retenir facilement, l'on pourrait s'imaginer `await` comme un bouton "pause" dans le code permettant d'attendre une valeur retourner par une `promise`(car oui, cela reste des promesses, encore et toujours des promesses... !).
 
    ```javascript
    async function commanderPizzaEtManger() {
