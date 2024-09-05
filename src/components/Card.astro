@@ -4,7 +4,7 @@ interface Props {
   href: string;
   imgAlt: string;
   imgSrc: string;
-  level: string;
+  level?: string;
   title: string;
 }
 
@@ -20,7 +20,9 @@ const { description, href, imgAlt, imgSrc, level, title } = Astro.props;
   <img class="image" src={`/public/${imgSrc}`} alt={imgAlt} />
   <ParagraphLarge content="Fiche technique" />
   <Heading3 content={title} />
-  <ParagraphExtraSmall content={`Niveau : ${level}`} />
+  {
+    level && <ParagraphExtraSmall content={`Niveau : ${level}`} />
+  }
   <ParagraphSmall content={description} />
 </a>
 
