@@ -3,17 +3,17 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 import Card from "../../components/Card.astro";
 
-const cheatsheets = await Astro.glob("./*.md");
+const articles = await Astro.glob("./*.md");
 
-const title = "Nos dernières fiches techniques";
+const title = "Nos derniers articles";
 const description =
-  "Une fiche technique est un guide de référence pratique autour d'une notion. Nous vous expliquons les notions et des astuceq pour les intégrer facilement à vos projets.";
+  "Retrouvez les derniers articles écrits par l'équipe de NX. Ils vous informent sur des sujets de fond, des tendances et des avis de certains membres de l'équipe.";
 ---
 
 <BaseLayout title={title} description={description}>
   <div class="wrapper">
     <section>
-      <h1>Nos dernières fiches techniques</h1>
+      <h1>Nos derniers articles</h1>
       <p>
         Une fiche technique est un guide de référence pratique autour d'une
         notion. Par exemple, comment faire des designs fluides ou qu'est-ce que
@@ -27,14 +27,14 @@ const description =
 
       <div class="cards-wrapper">
         {
-          cheatsheets.map((cheatsheet) => (
+          articles.map((article) => (
             <Card
-              href={cheatsheet.url!}
-              title={cheatsheet.frontmatter.title}
-              description={cheatsheet.frontmatter.description}
-              level={cheatsheet.frontmatter.level}
-              imgAlt={cheatsheet.frontmatter.imgAlt}
-              imgSrc={cheatsheet.frontmatter.imgSrc}
+              href={article.url!}
+              title={article.frontmatter.title}
+              description={article.frontmatter.description}
+              level={article.frontmatter.level}
+              imgAlt={article.frontmatter.imgAlt}
+              imgSrc={article.frontmatter.imgSrc}
             />
           ))
         }
