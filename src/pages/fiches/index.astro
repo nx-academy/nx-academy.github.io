@@ -1,7 +1,9 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro"
 
-import CheatsheetCard from "../../components/CheatsheetCard.astro"
+import Header from "../../components/Header.astro"
+import Footer from "../../components/Footer.astro"
+import Card from "../../components/Card.astro"
 
 const cheatsheets = await Astro.glob("./*.md")
 
@@ -21,12 +23,13 @@ const description = "Une fiche technique est un guide de référence pratique au
             <div class="cards-wrapper">
                 {
                     cheatsheets.map(cheatsheet => (
-                    <CheatsheetCard
-                        description={cheatsheet.frontmatter.description}
+                    <Card
                         href={cheatsheet.url!}
+                        title={cheatsheet.frontmatter.title}
+                        description={cheatsheet.frontmatter.description}
+                        level={cheatsheet.frontmatter.level}
                         imgAlt={cheatsheet.frontmatter.imgAlt}
                         imgSrc={cheatsheet.frontmatter.imgSrc}
-                        title={cheatsheet.frontmatter.title}
                     />
                     ))
                 }
@@ -51,11 +54,12 @@ const description = "Une fiche technique est un guide de référence pratique au
 
     .cards-wrapper {
         display: grid;
-        gap: 2rem;
+        gap: 2.5rem;
 
         @media screen and (min-width: 48rem) {
             margin-top: 3rem;
             grid-template-columns: repeat(2, 1fr);
+            gap: 5rem;
         }
 
         @media screen and (min-width: 90rem) {

@@ -1,0 +1,46 @@
+---
+interface Props {
+  description: string;
+  href: string;
+  imgAlt: string;
+  imgSrc: string;
+  level: string;
+  title: string;
+}
+
+import Heading3 from "./Heading3.astro";
+import ParagraphExtraSmall from "./ParagraphExtraSmall.astro";
+import ParagraphLarge from "./ParagraphLarge.astro";
+import ParagraphSmall from "./ParagraphSmall.astro";
+
+const { description, href, imgAlt, imgSrc, level, title } = Astro.props;
+---
+
+<a href={href}>
+  <img class="image" src={`/public/${imgSrc}`} alt={imgAlt} />
+  <ParagraphLarge content="Fiche technique" />
+  <Heading3 content={title} />
+  <ParagraphExtraSmall content={`Niveau : ${level}`} />
+  <ParagraphSmall content={description} />
+</a>
+
+<style>
+  a {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  a:hover .image {
+    border-color: #4effa0;
+  }
+
+  a:hover :global(h3) {
+    color: #4effa0;
+  }
+
+  .image {
+    border-radius: 16px;
+    border: 2px solid #151515;
+    transition: 0.4s;
+  }
+</style>
