@@ -1,39 +1,26 @@
 ---
 interface Props {
   frontmatter: {
-    title: string
-    description: string
-  }
+    title: string;
+    description: string;
+  };
 }
 
-import theme from "../config/theme"
-
+import theme from "../config/theme";
 import BaseLayout from "./BaseLayout.astro";
 
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+const {
+  colors: { neonGreen, neonGreenLight, black },
+} = theme;
 
 const {
-    colors: {
-        neonGreen,
-        neonGreenLight,
-        black
-    }
-} = theme
-
-const {
-  frontmatter: {
-    title,
-    description
-  }
-} = Astro.props
+  frontmatter: { title, description },
+} = Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>
   <div>
-    <Header />
     <slot />
-    <Footer />
   </div>
 </BaseLayout>
 
@@ -61,22 +48,22 @@ const {
     font-size: 2.5rem;
     margin-top: 0;
     margin-bottom: 1rem;
-    color: #FEFEFE;
+    color: #fefefe;
   }
 
   h2 {
     font-size: 1.75rem;
     margin-bottom: 1rem;
-    color: #FEFEFE;
+    color: #fefefe;
   }
 
   p {
     margin-bottom: 1.5rem;
-    color: #BABABA;
+    color: #bababa;
   }
 
   ul {
-    color: #BABABA;
+    color: #bababa;
   }
 
   a {
@@ -92,7 +79,7 @@ const {
 
   p > code {
     background-color: var(--neonGreen);
-    padding: .25rem;
+    padding: 0.25rem;
     color: var(--black);
   }
 
