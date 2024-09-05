@@ -1,0 +1,32 @@
+---
+import Button from "./Button.astro";
+import Heading2 from "./Heading2.astro";
+---
+
+<div class="main-wrapper">
+  <Heading2 content="Nouveau sur le site ?" />
+  <div class="buttons-wrapper">
+    <Button href="#" label="Suivre le projet sur GitHub" type="secondary" />
+    <Button href="#" label="Découvrir notre manifeste" type="primary" />
+  </div>
+</div>
+
+<style>
+  .main-wrapper {
+    background-color: #252525;
+    border-radius: 8px;
+    display: grid;
+    gap: 1.5rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .buttons-wrapper {
+    display: grid;
+    gap: 1.5rem;
+
+    @media screen and (min-width: 48rem) {
+      gap: 2rem;
+      grid-template-columns: max-content max-content;
+    }
+  }
+</style>
