@@ -26,12 +26,16 @@ const { description, href, imgAlt, imgSrc, level, title } = Astro.props;
 
 <style>
   a {
+    border-radius: 16px;
+    border: 1px solid #252525;
     display: grid;
     gap: 0.5rem;
+    padding: 1.5rem;
+    transition: .4s
   }
 
-  a:hover .image {
-    border-color: #4effa0;
+  a:hover {
+    border-color: #333;
   }
 
   a:hover :global(h3) {
@@ -40,7 +44,6 @@ const { description, href, imgAlt, imgSrc, level, title } = Astro.props;
 
   .image {
     border-radius: 16px;
-    border: 2px solid #151515;
-    transition: 0.4s;
+    transition: .4s;
   }
 </style>
