@@ -14,22 +14,13 @@ const description =
   <div class="wrapper">
     <section>
       <h1>Nos derniers articles</h1>
-      <p>
-        Une fiche technique est un guide de référence pratique autour d'une
-        notion. Par exemple, comment faire des designs fluides ou qu'est-ce que
-        le <strong>this en JavaScript.</strong>
-      </p>
-      <p>
-        Les fiches techniques sont particulièrement utiles pour expliquer un
-        concept rapidement et simplement. Elles concernent aussi bien le HTML,
-        CSS et JavaScript que le DevOps.
-      </p>
 
       <div class="cards-wrapper">
         {
           articles.map((article) => (
             <Card
               href={article.url!}
+              kind="Article"
               title={article.frontmatter.title}
               description={article.frontmatter.description}
               imgAlt={article.frontmatter.imgAlt}
