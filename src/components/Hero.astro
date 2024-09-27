@@ -1,17 +1,29 @@
 ---
+interface Props {
+  description: string;
+  href: string;
+  imgAlt: string;
+  imgSrc: string;
+  title: string;
+  kind: string;
+  author: string;
+}
+
 import ParagraphLarge from "./ParagraphLarge.astro";
 import ParagraphSmall from "./ParagraphSmall.astro";
+
+const { description, href, imgAlt, imgSrc, title, kind, author } = Astro.props;
 ---
 
-<a class="hero-wrapper" href="#">
-  <img class="main-img" src="/enfant-rangeant-jouets.webp" />
+<a class="hero-wrapper" href={href}>
+  <img class="main-img" src={imgSrc} alt={imgAlt} />
   <div class="hero-content">
-    <ParagraphLarge content="Actualites du site" />
-    <h1 class="title">Decouvrez les fiches techniques</h1>
+    <ParagraphLarge content={kind} />
+    <h1 class="title">{title}</h1>
     <ParagraphSmall
-      content="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        content={description}
       />
-    <ParagraphSmall content="Par Oumar - aout 2024" />
+      <ParagraphSmall content={`Par ${author} - aout 2024`} />
   </div>
 </a>
 

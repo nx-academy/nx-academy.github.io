@@ -8,18 +8,30 @@ import Card from "../components/Card.astro";
 const articles = await Astro.glob("./articles/*.md");
 const cheatsheets = await Astro.glob("./fiches/*.md");
 
-const content = articles.concat(cheatsheets);
+const content = cheatsheets.concat(articles);
+const heroContent = content.filter(
+  (c) => c.frontmatter.title === "Découvrez les fiches techniques",
+)[0];
+
 ---
 
 <BaseLayout>
   <main>
-    <Hero />
+    <Hero
+      kind={heroContent.frontmatter.kind}
+      href={heroContent.url!}
+      title={heroContent.frontmatter.title}
+      description={heroContent.frontmatter.description}
+      imgAlt={heroContent.frontmatter.imgAlt}
+      imgSrc={heroContent.frontmatter.imgSrc}
+      author="Thomas"
+    />
     <Banner />
     <section class="cards-wrapper">
       {
         content.map((c) => (
           <Card
-            kind="Fiche Technique"
+            kind={c.frontmatter.kind}
             href={c.url!}
             title={c.frontmatter.title}
             description={c.frontmatter.description}
