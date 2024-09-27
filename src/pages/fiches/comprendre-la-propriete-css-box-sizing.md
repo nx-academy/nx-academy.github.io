@@ -1,10 +1,12 @@
 ---
 layout: ../../layouts/CheatSheetsLayout.astro
 
-title: Comprendre la propriété CSS box sizing
-description: Résolvez des possibles problèmes de mise en page avec la propriété CSS Box sizing.
+description: La propriété CSS Box Sizing fait parti des propriétés indispensables à connaître. Ce qui est dommage, c'est qu'on ne parle que trop de cette police en France. On a pris le temps de faire le point dessus pour vous.
 imgAlt: Un enfant rangeant ses jouets dans un carton dans sa chambre, pixel art
 imgSrc: /enfant-rangeant-jouets.webp
+kind: Fiche technique
+level: Débutant
+title: Comprendre la propriété CSS box sizing
 ---
 
 <article>

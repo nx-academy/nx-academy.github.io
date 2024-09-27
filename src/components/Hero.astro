@@ -1,0 +1,70 @@
+---
+interface Props {
+  description: string;
+  href: string;
+  imgAlt: string;
+  imgSrc: string;
+  title: string;
+  kind: string;
+  author: string;
+}
+
+import ParagraphLarge from "./ParagraphLarge.astro";
+import ParagraphSmall from "./ParagraphSmall.astro";
+
+const { description, href, imgAlt, imgSrc, title, kind, author } = Astro.props;
+---
+
+<a class="hero-wrapper" href={href}>
+  <img class="main-img" src={imgSrc} alt={imgAlt} />
+  <div class="hero-content">
+    <ParagraphLarge content={kind} />
+    <h1 class="title">{title}</h1>
+    <ParagraphSmall
+        content={description}
+      />
+      <ParagraphSmall content={`Par ${author} - aout 2024`} />
+  </div>
+</a>
+
+<style>
+  .hero-wrapper {
+    display: block;
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
+    display: grid;
+    gap: .75rem;
+
+    @media screen and (min-width: 48rem) {
+      grid-template-columns: 40% auto;
+      gap: 2.5rem;
+    }
+
+    @media screen and (min-width: 90rem) {
+      gap: 5rem;
+    }
+
+    h1 {
+      transition: .4s;
+    }
+
+    &:hover h1 {
+      color: #4effa0;
+    }
+  }
+
+  .main-img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-content {
+    display: grid;
+    gap: .75rem;
+  }
+
+  .title {
+    font-size: 2.25rem;
+    margin-bottom: 0;
+  }
+</style>

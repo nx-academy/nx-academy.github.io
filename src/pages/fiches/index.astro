@@ -1,70 +1,75 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro"
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
-import Header from "../../components/Header.astro"
-import Footer from "../../components/Footer.astro"
-import CheatsheetCard from "../../components/CheatsheetCard.astro"
+import Card from "../../components/Card.astro";
 
-const cheatsheets = await Astro.glob("./*.md")
+const cheatsheets = await Astro.glob("./*.md");
 
-const title = "Nos dernières fiches techniques"
-const description = "Une fiche technique est un guide de référence pratique autour d'une notion. Nous vous expliquons les notions et des astuceq pour les intégrer facilement à vos projets."
+const title = "Nos dernières fiches techniques";
+const description =
+  "Une fiche technique est un guide de référence pratique autour d'une notion. Nous vous expliquons les notions et des astuceq pour les intégrer facilement à vos projets.";
 ---
 
 <BaseLayout title={title} description={description}>
-    <div class="wrapper">
-        <Header />
-        <section>
-            <h1>Nos dernières fiches techniques</h1>
-            <p>
-                Une fiche technique est un guide de référence pratique autour d'une notion. Par exemple, comment faire des designs fluides ou qu'est-ce que le <strong>this en JavaScript.</strong>
-            </p>
-            <p>Les fiches techniques sont particulièrement utiles pour expliquer un concept rapidement et simplement. Elles concernent aussi bien le HTML, CSS et JavaScript que le DevOps.</p>
+  <div class="wrapper">
+    <section>
+      <h1>Nos dernières fiches techniques</h1>
+      <p>
+        Une fiche technique est un guide de référence pratique autour d'une
+        notion. Par exemple, comment faire des designs fluides ou qu'est-ce que
+        le <strong>this en JavaScript.</strong>
+      </p>
+      <p>
+        Les fiches techniques sont particulièrement utiles pour expliquer un
+        concept rapidement et simplement. Elles concernent aussi bien le HTML,
+        CSS et JavaScript que le DevOps.
+      </p>
 
-            <div class="cards-wrapper">
-                {
-                    cheatsheets.map(cheatsheet => (
-                    <CheatsheetCard
-                        description={cheatsheet.frontmatter.description}
-                        href={cheatsheet.url!}
-                        imgAlt={cheatsheet.frontmatter.imgAlt}
-                        imgSrc={cheatsheet.frontmatter.imgSrc}
-                        title={cheatsheet.frontmatter.title}
-                    />
-                    ))
-                }
-            </div>
-        </section>
-        <Footer />
-    </div>
+      <div class="cards-wrapper">
+        {
+          cheatsheets.map((cheatsheet) => (
+            <Card
+              kind="Fiche Technique"
+              href={cheatsheet.url!}
+              title={cheatsheet.frontmatter.title}
+              description={cheatsheet.frontmatter.description}
+              level={cheatsheet.frontmatter.level}
+              imgAlt={cheatsheet.frontmatter.imgAlt}
+              imgSrc={cheatsheet.frontmatter.imgSrc}
+            />
+          ))
+        }
+      </div>
+    </section>
+  </div>
 </BaseLayout>
 
-
 <style>
-    .wrapper {
-        padding-top: 1.5rem;
-        padding-bottom: 1.5rem;
+  .wrapper {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  section {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1100px;
+  }
+
+  .cards-wrapper {
+    display: grid;
+    gap: 2.5rem;
+
+    @media screen and (min-width: 48rem) {
+      margin-top: 3rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5rem;
     }
 
-    section {
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 1100px;
+    @media screen and (min-width: 90rem) {
+      margin-top: 3rem;
+      grid-template-columns: repeat(3, 1fr);
     }
-
-    .cards-wrapper {
-        display: grid;
-        gap: 2rem;
-
-        @media screen and (min-width: 48rem) {
-            margin-top: 3rem;
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        @media screen and (min-width: 90rem) {
-            margin-top: 3rem;
-            grid-template-columns: repeat(3, 1fr);
-        }
-    }
+  }
 </style>

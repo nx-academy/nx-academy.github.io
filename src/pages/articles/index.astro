@@ -1,0 +1,64 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+import Card from "../../components/Card.astro";
+
+const articles = await Astro.glob("./*.md");
+
+const title = "Nos derniers articles";
+const description =
+  "Retrouvez les derniers articles écrits par l'équipe de NX. Ils vous informent sur des sujets de fond, des tendances et des avis de certains membres de l'équipe.";
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="wrapper">
+    <section>
+      <h1>Nos derniers articles</h1>
+
+      <div class="cards-wrapper">
+        {
+          articles.map((article) => (
+            <Card
+              href={article.url!}
+              kind="Article"
+              title={article.frontmatter.title}
+              description={article.frontmatter.description}
+              imgAlt={article.frontmatter.imgAlt}
+              imgSrc={article.frontmatter.imgSrc}
+            />
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .wrapper {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  section {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1100px;
+  }
+
+  .cards-wrapper {
+    display: grid;
+    gap: 2.5rem;
+
+    @media screen and (min-width: 48rem) {
+      margin-top: 3rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5rem;
+    }
+
+    @media screen and (min-width: 90rem) {
+      margin-top: 3rem;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
