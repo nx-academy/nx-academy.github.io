@@ -15,7 +15,7 @@ const content = articles.concat(cheatsheets);
   <main>
     <Hero />
     <Banner />
-    <section>
+    <section class="cards-wrapper">
       {
         content.map((c) => (
           <Card
@@ -39,5 +39,11 @@ const content = articles.concat(cheatsheets);
     margin-right: auto;
     max-width: 1100px;
     width: 90%;
+  }
+
+  .cards-wrapper {
+    display: grid;
+    gap: 2.5rem;
+    margin-top: 2.5rem;
   }
 </style>
