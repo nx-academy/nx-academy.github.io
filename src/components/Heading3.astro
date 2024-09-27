@@ -1,22 +1,19 @@
 ---
 interface Props {
-    content: string
+  content: string;
 }
 
-const {
-    content,
-} = Astro.props
+const { content } = Astro.props;
 ---
 
 <h3>
-    {
-        content
-    }
+  {content}
 </h3>
 
 <style>
-    h3 {
-        font-size: clamp(1.25rem, 1.25rem + 0.278vw, 1.5rem);
-        transition: .4s;
-    }
+  h3 {
+    color: #fff;
+    font-size: clamp(1.25rem, 1.25rem + 0.278vw, 1.5rem);
+    transition: 0.4s;
+  }
 </style>
