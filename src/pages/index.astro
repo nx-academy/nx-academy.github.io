@@ -2,12 +2,34 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 import Banner from "../components/Banner.astro";
+import Hero from "../components/Hero.astro";
+import Card from "../components/Card.astro";
+
+const articles = await Astro.glob("./articles/*.md");
+const cheatsheets = await Astro.glob("./fiches/*.md");
+
+const content = articles.concat(cheatsheets);
 ---
 
 <BaseLayout>
   <main>
-    <h1>Hello, NX</h1>
+    <Hero />
     <Banner />
+    <section>
+      {
+        content.map((c) => (
+          <Card
+            kind="Fiche Technique"
+            href={c.url!}
+            title={c.frontmatter.title}
+            description={c.frontmatter.description}
+            level={c.frontmatter.level}
+            imgAlt={c.frontmatter.imgAlt}
+            imgSrc={c.frontmatter.imgSrc}
+          />
+        ))
+      }
+    </section>
   </main>
 </BaseLayout>
 

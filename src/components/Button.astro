@@ -5,9 +5,10 @@ interface Props {
   label: string;
   type: "primary" | "secondary";
   href: string;
+  external?: boolean
 }
 
-const { label, type, href } = Astro.props;
+const { label, type, href, external } = Astro.props;
 
 const {
   colors: {
@@ -19,7 +20,7 @@ const {
 } = theme
 ---
 
-<a class={type} href={href}>
+<a class={type} href={href} target={external ? "_blank" : ""}>
   {label}
 </a>
 
