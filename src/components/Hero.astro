@@ -1,7 +1,58 @@
 ---
-interface Props {
-  
-}
+import ParagraphLarge from "./ParagraphLarge.astro";
+import ParagraphSmall from "./ParagraphSmall.astro";
 ---
 
-<h1>Hello, Hero!</h1>
+<a class="hero-wrapper" href="#">
+  <img class="main-img" src="/enfant-rangeant-jouets.webp" />
+  <div class="hero-content">
+    <ParagraphLarge content="Actualites du site" />
+    <h1 class="title">Decouvrez les fiches techniques</h1>
+    <ParagraphSmall
+      content="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      />
+    <ParagraphSmall content="Par Oumar - aout 2024" />
+  </div>
+</a>
+
+<style>
+  .hero-wrapper {
+    display: block;
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
+    display: grid;
+    gap: .75rem;
+
+    @media screen and (min-width: 48rem) {
+      grid-template-columns: 40% auto;
+      gap: 2.5rem;
+    }
+
+    @media screen and (min-width: 90rem) {
+      gap: 5rem;
+    }
+
+    h1 {
+      transition: .4s;
+    }
+
+    &:hover h1 {
+      color: #4effa0;
+    }
+  }
+
+  .main-img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-content {
+    display: grid;
+    gap: .75rem;
+  }
+
+  .title {
+    font-size: 2.25rem;
+    margin-bottom: 0;
+  }
+</style>
