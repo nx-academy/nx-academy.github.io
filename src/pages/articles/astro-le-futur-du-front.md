@@ -28,8 +28,16 @@ kind: Articles
 
 ### La plupart du temps, vous n'avez pas besoin de la complexité de React
 
-- Vous n'affichez que du contenu, vous ne faites pas de nombreux raffraichissements à la seconde
-- On se sert de React pour le JSX, mais pour la gestion de l'état
+
+React repose sur du JSX, une syntaxe qui combine JavaScript et HTML.
+Le JSX ressemble au HTML, ce qui le rend plus intuitif pour les développeurs habitués à construire des interfaces web.Il aide à structurer facilement l'interface dans un style de syntaxe simplifié.
+
+Cependant si votre application :
+- N'affiche que du contenu statique,
+- N'implique aucune gestion d'état,
+- N'a pas besoin de rafraîchissements fréquents,
+
+Alors JSX et React peuvent être excessifs, et une simple page en HTML, CSS et JavaScript suffirait à répondre aux besoins, tout en étant plus légère et facile à maintenir.
 
 
 ## Quelles sont les limites d'Astro ?
