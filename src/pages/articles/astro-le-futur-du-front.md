@@ -12,7 +12,7 @@ kind: Articles
 
 ## Introduction
 
-- Si vous avez trainé un peu sur LinkedIn ou sur la toile dernièrément, vous avez certainement entendu parler d'Astro. 
+- Si vous avez trainé un peu sur LinkedIn ou sur la toile dernièrement, vous avez certainement entendu parler d'Astro. 
 - Astro est un framework front. Vous écrivez du HTML, du CSS et du JavaScript et une partie est directement compilée en pure HTML et CSS.
 - Frontend Masters a sorti un cours dessus cette année. Le cours n'est pas parfait, dans le sens où ça n'est qu'une introduction, mais il pose des bases solides pour aller plus loin.
 - J'ai commencé à l'utiliser sur plusieurs de mes projets. Je ne pense pas être un expert dessus mais je commence quand même à avoir une bonne idée de son utilité.
@@ -26,10 +26,18 @@ kind: Articles
 - Des sites plus sémantiques
 
 
-### La plupart du temps, vous n'avez pas besoin de la complexcité de React
+### La plupart du temps, vous n'avez pas besoin de la complexité de React
 
-- Vous n'affichez que du contenu, vous ne faites pas de nombreux raffraichissements à la seconde
-- On se sert de React pour le JSX, mais pour la gestion de l'état
+
+React repose sur du JSX, une syntaxe qui combine JavaScript et HTML.
+Le JSX ressemble au HTML, ce qui le rend plus intuitif pour les développeurs habitués à construire des interfaces web.Il aide à structurer facilement l'interface dans un style de syntaxe simplifié.
+
+Cependant si votre application :
+- N'affiche que du contenu statique,
+- N'implique aucune gestion d'état,
+- N'a pas besoin de rafraîchissements fréquents,
+
+Alors JSX et React peuvent être excessifs, et une simple page en HTML, CSS et JavaScript suffirait à répondre aux besoins, tout en étant plus légère et facile à maintenir.
 
 
 ## Quelles sont les limites d'Astro ?
