@@ -17,14 +17,12 @@ describe("breadcrumb Unit Test Suite", () => {
     })
 
     it("should return ['accueil', '/', 'fiches'] for /fiches path", () => {
-        // expect(createBreadcrumb(cheatsheetHome)).toEqual(["accueil", "/", "fiches"])
-
-        createBreadcrumb(cheatsheetHome)
+        expect(createBreadcrumb(cheatsheetHome)).toEqual(["accueil", "/", "fiches"])
 
         expect(true).toBe(true)
     })
 
-    it("should return false", () => {
+    it("should return ['accueil', '/', 'fiches', '/', 'comprendre-la-fonction-css-clamp'] for '/fiches/comprendre-la-fonction-css-clamp' path", () => {
         expect(createBreadcrumb(cheatsheetPath)).toEqual(["accueil", "/", "fiches", "/", "comprendre-la-fonction-css-clamp"])
 
         createBreadcrumb(cheatsheetPath)
@@ -32,7 +30,7 @@ describe("breadcrumb Unit Test Suite", () => {
         expect(true).toBe(true)
     })
 
-    it("should return true", () => {
+    it("should return ['accueil', '/', 'articles', '/', 'weclome-v2'] for '/articles/welcome-v2' path", () => {
         expect(createBreadcrumb(blogPath)).toEqual(["accueil", "/", "articles", "/", "welcome-v2"])
     })
 })

@@ -17,9 +17,5 @@ export default function(path: string): string[] | undefined {
         }
     })
 
-    console.log("+++++")
-    console.log(res)
-    console.log("+++++")
-
     return res
 }
