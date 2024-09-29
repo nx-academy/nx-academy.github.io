@@ -1,3 +1,36 @@
 ---
+import createBreadcrumb from "../utils/createBreadcrumb"
 
+const breadcrumb = Astro.url.pathname
+const arrayOfLinks = createBreadcrumb(breadcrumb)
+
+console.log("=====")
+console.log(arrayOfLinks)
+console.log("=====")
 ---
+
+{
+    arrayOfLinks ? (
+        <ul>
+            {
+                arrayOfLinks.map((link, index) => {
+                    if (link === "accueil") {
+                        return (
+                            <li>
+                                <a href="/">Accueil</a>
+                            </li>
+                        )
+                    } else if (link === "/") {
+                        return <li> / </li>
+                    } else if ((arrayOfLinks.length - 1) === index) {
+                        return <li>{link}</li>
+                    } else {
+                        return <li><a href={`/${link}`}>{link}</a></li>
+                    }
+                })
+            }
+        </ul>
+    ) : (
+        null
+    )
+}
