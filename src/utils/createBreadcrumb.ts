@@ -3,5 +3,23 @@ export default function(path: string): string[] | undefined {
         return undefined
     }
 
-    return ["accueil", "/", "fiches"]
+    let pathToArray = path.split("/")
+    let res = ["accueil", "/"]
+
+    pathToArray.forEach((elt, index) => {
+        if (elt.length === 0) return
+
+        if ((pathToArray.length - 1) === index) {
+            res.push(elt)    
+        } else {
+            res.push(elt)
+            res.push("/")
+        }
+    })
+
+    console.log("+++++")
+    console.log(res)
+    console.log("+++++")
+
+    return res
 }
