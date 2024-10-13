@@ -14,11 +14,8 @@ title: Comprendre les proxys et reverse proxys
 # Comprendre les proxys et reverses proxys
 
 
-## Objectifs 
-- Comprendre globalement le rôle d'un serveur et d'un client
-- Comprendre ce qu’est un un proxy, et un reverse proxy. 
-- Comprendre comment utiliser un serveur proxy et un reverse proxy. 
-- Comprendre les différences entre ces technologies. 
+En informatique, un proxy et un reverse proxy sont des types de serveurs. 
+Pour bien comprendre ce qu’est un proxy et un reverse proxy, il faut d'abord comprendre globalement ce qu’est un serveur et un client. 
 
 
 ![Quelqu'un mesurant un salon avec un mètre, pixel art](/homme-mesure-salon.webp)
