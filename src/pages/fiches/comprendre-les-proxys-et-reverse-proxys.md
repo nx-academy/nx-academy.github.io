@@ -2,7 +2,7 @@
 layout: ../../layouts/CheatSheetsLayout.astro
 
 description: Les proxys et reverse proxys sont des composants essentiels d'architecture réseau. Ils agissent comme intermédiaires entre les utilisateurs et les serveurs, améliorant ainsi la sécurité, les performances et la gestion du trafic.
-imgAlt: Quelqu'un mesurant un salon avec un mètre, pixel art
+imgAlt: Un serveur dans un café parisien, pixel art
 imgSrc: /serveur-parisien.webp
 kind: Fiche technique
 level: Débutant
@@ -18,7 +18,7 @@ En informatique, un proxy et un reverse proxy sont des types de serveurs.
 Pour bien comprendre ce qu’est un proxy et un reverse proxy, il faut d'abord comprendre globalement ce qu’est un serveur et un client. 
 
 
-![Quelqu'un mesurant un salon avec un mètre, pixel art](/homme-mesure-salon.webp)
+![Un serveur dans un café parisien, pixel art](//serveur-parisien.webp)
 
 ## Pour la petite histoire 
 
