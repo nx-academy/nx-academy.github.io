@@ -3,7 +3,7 @@ layout: ../../layouts/CheatSheetsLayout.astro
 
 description: Les proxys et reverse proxys sont des composants essentiels d'architecture réseau. Ils agissent comme intermédiaires entre les utilisateurs et les serveurs, améliorant ainsi la sécurité, les performances et la gestion du trafic.
 imgAlt: Quelqu'un mesurant un salon avec un mètre, pixel art
-imgSrc: /homme-mesure-salon.webp
+imgSrc: /serveur-parisien.png
 kind: Fiche technique
 level: Débutant
 title: Comprendre les proxys et reverse proxys
@@ -13,10 +13,6 @@ title: Comprendre les proxys et reverse proxys
 
 # Comprendre les proxys et reverses proxys
 
-
-
-En informatique, un proxy et un reverse proxy sont des types de serveurs. 
-Pour bien comprendre ce qu’est un proxy et un reverse proxy, il faut d'abord comprendre globalement ce qu’est un serveur et un client. 
 
 ## Objectifs 
 - Comprendre globalement le rôle d'un serveur et d'un client
@@ -65,7 +61,7 @@ A quoi ça sert pour développeur ?
 Un serveur est essentiel pour un développeur, car c'est là où sont stockées et gérées les ressources d'une application, comme les bases de données, les fichiers ou les vidéos.
 
 
-## 1. Qu’est-ce qu’un client ? 
+## 2. Qu’est-ce qu’un client ? 
 
 Un client désigne celui qui fait la demande au serveur. Ce client peut être un utilisateur, un programme ou même un autre serveur. 
 
@@ -73,7 +69,7 @@ Au final, un client en informatique est un peu comme un client dans un restauran
 ###Exemple : 
 Lorsqu’on utilise ordinateur pour pour accéder à un site, notre navigateur (le client) envoie une requête au serveur qui héberge le site. Le serveur reçoit la requête et renvoie les informations demandées au client (notre navigateur). 
 
-## Qu’est-ce qu’un proxy ? 
+## 3. Qu’est-ce qu’un proxy ? 
 
 Un proxy est un serveur qui sert d’intermédiaire entre un client et un serveur. 
 Lorsqu’on souhaite accéder à un service ou à une vidéo, au lieu de demander directement au serveur, on peut passer par un proxy. 
