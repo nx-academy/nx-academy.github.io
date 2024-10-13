@@ -18,7 +18,7 @@ En informatique, un proxy et un reverse proxy sont des types de serveurs.
 Pour bien comprendre ce qu’est un proxy et un reverse proxy, il faut d'abord comprendre globalement ce qu’est un serveur et un client. 
 
 
-![Un serveur dans un café parisien, pixel art](//serveur-parisien.webp)
+![Un serveur dans un café parisien, pixel art](/serveur-parisien.webp)
 
 ## Pour la petite histoire 
 
