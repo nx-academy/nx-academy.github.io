@@ -1,10 +1,12 @@
 ---
 layout: ../../layouts/CheatSheetsLayout.astro
 
-title: Comprendre l'asynchrone en JavaScript
 description: Explorez le fonctionnement de l'asynchrone en JavaScript. Apprenez les concepts clés comme les promesses, les callbacks, et async/await pour écrire un code efficace et non-bloquant. Découvrez des exemples pratiques pour maîtriser l'asynchronisme en développement web.
 imgAlt: Une personne multitâche au bureau avec un symbole de boucle infinie, pixel art
 imgSrc: /asynchrone_js.webp
+kind: Fiche technique
+level: Intémediaire
+title: Comprendre l'asynchrone en JavaScript
 ---
 
 <article>
