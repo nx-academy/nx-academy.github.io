@@ -18,7 +18,7 @@ const { description, href, imgAlt, imgSrc, level, title, kind } = Astro.props;
 ---
 
 <a href={href}>
-  <img class="image" src={`${imgSrc}`} alt={imgAlt} />
+  <img loading="lazy" class="image" src={`${imgSrc}`} alt={imgAlt} />
   <ParagraphLarge content={kind} />
   <Heading3 content={title} />
   {level && <ParagraphExtraSmall content={`Niveau : ${level}`} />}
