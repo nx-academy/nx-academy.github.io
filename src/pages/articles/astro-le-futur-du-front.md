@@ -1,5 +1,11 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
+
+title: Astro, le futur du développement front ?
+description: Depuis quelque temps, le framework Astro fait beaucoup parlé de lui. Particulièrement orienté contenu, NX Academy l'utilise d'ailleurs, il est particulièrement utile pour réaliser des sites statiques. Mais est-ce vraiment le remplaçant de ReactJS ?
+imgAlt: Quelqu'un assis dans un jardin au printemps, pixel art
+imgSrc: /triche-classe-exam.webp
+kind: Articles
 ---
 
 # Astro JS, le futur du développement front ?

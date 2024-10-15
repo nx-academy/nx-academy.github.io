@@ -5,9 +5,10 @@ interface Props {
   label: string;
   type: "primary" | "secondary";
   href: string;
+  external?: boolean
 }
 
-const { label, type, href } = Astro.props;
+const { label, type, href, external } = Astro.props;
 
 const {
   colors: {
@@ -19,7 +20,7 @@ const {
 } = theme
 ---
 
-<a class={type} href={href}>
+<a class={type} href={href} target={external ? "_blank" : ""}>
   {label}
 </a>
 
@@ -27,32 +28,28 @@ const {
   a {
     text-decoration: none;
     font-weight: 500;
-    height: 2.5rem;
-    width: 20rem;
+    padding: 8px 32px;
     border-radius: 8px;
     transition: 0.4s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   .primary {
-    color: var(--black);
-    border: 1px solid var(--neonGreen);
-    background-color: var(--neonGreen);
+    color: #151515;
+    border: 1px solid #4effa0;
+    background-color: #4effa0;
 
     &:hover {
-      background-color: var(--neonGreenLight);
+      background-color: #4effa0aa;
     }
   }
 
   .secondary {
-    background-color: var(--white);
-    color: var(--black);
-    border: 1px solid var(--white);
+    background-color: #B0BEC5;
+    color: #151515;
+    border: 1px solid #B0BEC5;
 
     &:hover {
-      background-color: #FEFEFECC;
+      background-color: #B0BEC5AA;
     }
   }
 </style>

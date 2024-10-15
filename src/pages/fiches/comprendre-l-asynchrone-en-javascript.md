@@ -1,15 +1,17 @@
 ---
 layout: ../../layouts/CheatSheetsLayout.astro
 
-title: Comprendre l'asynchrone en JavaScript
 description: Explorez le fonctionnement de l'asynchrone en JavaScript. Apprenez les concepts clés comme les promesses, les callbacks, et async/await pour écrire un code efficace et non-bloquant. Découvrez des exemples pratiques pour maîtriser l'asynchronisme en développement web.
 imgAlt: Une personne multitâche au bureau avec un symbole de boucle infinie, pixel art
 imgSrc: /asynchrone_js.webp
+kind: Fiche technique
+level: Intémediaire
+title: Comprendre l'asynchrone en JavaScript
 ---
 
 <article>
 
-# Plongée dans l'Asynchrone en JavaScript 🕶️
+# Comprendre l'Asynchrone en JavaScript 🚀
 
 ![Une personne multitâche au bureau avec un symbole de boucle infinie, pixel art](/asynchrone_js.webp)
 
@@ -113,9 +115,7 @@ Maintenant, imaginez un monde où à chaque fois que vous envoyez un message, vo
        });
    ```
 
-3. **async/await** 🕶️ : Si les promises sont hyper pratique, `async/await` c'est se simplifier encore plus la vie : plus fluide, plus intuitif, et une fusion parfaite avec le code.. Cela permet d'écrire du code asynchrone qui ressemble presque à du code synchrone. Fini les `.then()`, et bienvenue à un code plus lisible et facile à suivre.
-
-> Il s'agit ici clairement de "sucre synthaxique", mais l'effet n'ene st pas moins présent. Pour retenir facilement, l'on pourrait s'imaginer `await` comme un bouton "pause" dans le code permettant d'attendre une valeur retourner par une `promise`(car oui, cela reste des promesses, encore et toujours des promesses... !).
+3. **async/await** 🕶️ : Si les promises sont cool, alors `async/await` est le maître du cool. Cela permet d'écrire du code asynchrone qui ressemble presque à du code synchrone. Fini les `.then()`, et bienvenue à un code plus lisible et facile à suivre.
 
    ```javascript
    async function commanderPizzaEtManger() {

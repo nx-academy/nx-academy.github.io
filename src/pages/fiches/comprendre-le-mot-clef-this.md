@@ -1,10 +1,12 @@
 ---
 layout: ../../layouts/CheatSheetsLayout.astro
 
-title: Comprendre le mot clef "this"
 description: Découvrez le mot-clé 'this' en JavaScript avec des exemples concrets et Apprenez ses subtilités de 'this' dans différents contextes.
 imgAlt: Deux personnes dans une cuisine séparée, pixel art
 imgSrc: /this_context.webp
+kind: Fiche technique
+level: Débutant
+title: Comprendre le mot clef "this"
 ---
 
 <article>
