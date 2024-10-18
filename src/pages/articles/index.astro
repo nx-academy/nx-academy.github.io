@@ -17,16 +17,20 @@ const description =
 
       <div class="cards-wrapper">
         {
-          articles.map((article) => (
-            <Card
-              href={article.url!}
-              kind="Article"
-              title={article.frontmatter.title}
-              description={article.frontmatter.description}
-              imgAlt={article.frontmatter.imgAlt}
-              imgSrc={article.frontmatter.imgSrc}
-            />
-          ))
+          articles
+            .filter((article) => !article.frontmatter.draft)
+            .map((article) => (
+              <Card
+                href={article.url!}
+                kind="Article"
+                title={article.frontmatter.title}
+                description={article.frontmatter.description}
+                imgAlt={article.frontmatter.imgAlt}
+                imgSrc={article.frontmatter.imgSrc}
+                author={article.frontmatter.author}
+                publishedDate={article.frontmatter.publishedDate}
+              />
+            ))
         }
       </div>
     </section>

@@ -7,6 +7,9 @@ imgSrc: /this_context.webp
 kind: Fiche technique
 level: Débutant
 title: Comprendre le mot clef "this"
+author: Lionel
+draft: false
+publishedDate: 08/22/2024
 ---
 
 <article>

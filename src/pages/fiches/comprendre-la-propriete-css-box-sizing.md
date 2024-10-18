@@ -7,6 +7,9 @@ imgSrc: /enfant-rangeant-jouets.webp
 kind: Fiche technique
 level: Débutant
 title: Comprendre la propriété CSS box sizing
+author: Thomas
+draft: true
+publishedDate: 12/01/2024
 ---
 
 <article>

@@ -7,6 +7,9 @@ imgSrc: /serveur-parisien.webp
 kind: Fiche technique
 level: Débutant
 title: Comprendre les proxys et reverse proxys
+author: Yacine
+draft: false
+publishedDate: 10/03/2024
 ---
 
 <article>

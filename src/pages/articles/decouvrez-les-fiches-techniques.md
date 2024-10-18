@@ -6,6 +6,9 @@ description: NX Academy propose maintenant un nouveau format d'apprentissage les
 imgAlt: Quelqu'un assis dans un jardin au printemps, pixel art
 imgSrc: /triche-classe-exam.webp
 kind: Articles
+author: Thomas
+draft: false
+publishedDate: 08/24/2024
 ---
 
 # Découvrez les fiches techniques

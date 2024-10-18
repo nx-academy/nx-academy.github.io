@@ -6,6 +6,9 @@ description: Depuis quelque temps, le framework Astro fait beaucoup parlé de lu
 imgAlt: Quelqu'un assis dans un jardin au printemps, pixel art
 imgSrc: /triche-classe-exam.webp
 kind: Articles
+author: Thomas
+draft: true
+publishedDate: 11/01/2024
 ---
 
 # Astro JS, le futur du développement front ?

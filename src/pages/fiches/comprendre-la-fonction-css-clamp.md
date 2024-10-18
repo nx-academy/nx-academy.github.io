@@ -7,6 +7,9 @@ imgSrc: /homme-mesure-salon.webp
 kind: Fiche technique
 level: Intermédiaire
 title: Comprendre la fonction CSS Clamp
+author: Thomas
+draft: false
+publishedDate: 07/17/2024
 ---
 
 <article>

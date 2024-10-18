@@ -7,6 +7,9 @@ imgAlt: Un vigile devant la porte d'entrée d'une boite de nuit, pixel art
 imgSrc: /vigile-boite-de-nuit.webp
 level: Débutant
 kind: Fiche technique
+author: Thomas
+draft: true
+publishedDate: 11/22/2024
 ---
 
 

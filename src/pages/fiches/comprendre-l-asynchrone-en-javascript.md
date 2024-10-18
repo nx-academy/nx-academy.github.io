@@ -7,6 +7,9 @@ imgSrc: /asynchrone_js.webp
 kind: Fiche technique
 level: Intémediaire
 title: Comprendre l'asynchrone en JavaScript
+author: Lionel
+draft: false
+publishedDate: 09/15/2024
 ---
 
 <article>

@@ -7,6 +7,9 @@ imgSrc: /jeune-programmeur-code-valeurs-retour-javascript.webp
 kind: Fiche technique
 level: Débutant
 title: Les retours de fonction en Javascript
+author: Oumar
+draft: false
+publishedDate: 10/18/2024
 ---
 
 <article>

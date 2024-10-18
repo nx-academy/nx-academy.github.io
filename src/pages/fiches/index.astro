@@ -27,17 +27,21 @@ const description =
 
       <div class="cards-wrapper">
         {
-          cheatsheets.map((cheatsheet) => (
-            <Card
-              kind="Fiche Technique"
-              href={cheatsheet.url!}
-              title={cheatsheet.frontmatter.title}
-              description={cheatsheet.frontmatter.description}
-              level={cheatsheet.frontmatter.level}
-              imgAlt={cheatsheet.frontmatter.imgAlt}
-              imgSrc={cheatsheet.frontmatter.imgSrc}
-            />
-          ))
+          cheatsheets
+            .filter((cheatsheet) => !cheatsheet.frontmatter.draft)
+            .map((cheatsheet) => (
+              <Card
+                kind="Fiche Technique"
+                href={cheatsheet.url!}
+                title={cheatsheet.frontmatter.title}
+                description={cheatsheet.frontmatter.description}
+                level={cheatsheet.frontmatter.level}
+                imgAlt={cheatsheet.frontmatter.imgAlt}
+                imgSrc={cheatsheet.frontmatter.imgSrc}
+                author={cheatsheet.frontmatter.author}
+                publishedDate={cheatsheet.frontmatter.publishedDate}
+              />
+            ))
         }
       </div>
     </section>

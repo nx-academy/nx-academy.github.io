@@ -10,9 +10,8 @@ const cheatsheets = await Astro.glob("./fiches/*.md");
 
 const content = cheatsheets.concat(articles);
 const heroContent = content.filter(
-  (c) => c.frontmatter.title === "Les retours de fonction en Javascript",
+  (c) => c.frontmatter.title === "Les retours de fonction en Javascript"
 )[0];
-
 ---
 
 <BaseLayout>
@@ -24,22 +23,27 @@ const heroContent = content.filter(
       description={heroContent.frontmatter.description}
       imgAlt={heroContent.frontmatter.imgAlt}
       imgSrc={heroContent.frontmatter.imgSrc}
-      author="Oumar"
+      author={heroContent.frontmatter.author}
+      publishedDate={heroContent.frontmatter.publishedDate}
     />
     <Banner />
     <section class="cards-wrapper">
       {
-        content.map((c) => (
-          <Card
-            kind={c.frontmatter.kind}
-            href={c.url!}
-            title={c.frontmatter.title}
-            description={c.frontmatter.description}
-            level={c.frontmatter.level}
-            imgAlt={c.frontmatter.imgAlt}
-            imgSrc={c.frontmatter.imgSrc}
-          />
-        ))
+        content
+          .filter((c) => !c.frontmatter.draft)
+          .map((c) => (
+            <Card
+              kind={c.frontmatter.kind}
+              href={c.url!}
+              title={c.frontmatter.title}
+              description={c.frontmatter.description}
+              level={c.frontmatter.level}
+              imgAlt={c.frontmatter.imgAlt}
+              imgSrc={c.frontmatter.imgSrc}
+              author={c.frontmatter.author}
+              publishedDate={c.frontmatter.publishedDate}
+            />
+          ))
       }
     </section>
   </main>
