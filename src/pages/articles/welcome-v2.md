@@ -6,6 +6,9 @@ description: NX Academy évolue. Le site passe d'une V1 payante à une V2 gratui
 imgAlt: Quelqu'un assis dans un jardin au printemps, pixel art
 imgSrc: /jardin-printemps.webp
 kind: Articles
+author: Thomas
+draft: false
+publishedDate: 03/21/2024
 ---
 
 # Bienvenue sur la V2

@@ -7,12 +7,13 @@ interface Props {
   title: string;
   kind: string;
   author: string;
+  publishedDate: string
 }
 
 import ParagraphLarge from "./ParagraphLarge.astro";
 import ParagraphSmall from "./ParagraphSmall.astro";
 
-const { description, href, imgAlt, imgSrc, title, kind, author } = Astro.props;
+const { description, href, imgAlt, imgSrc, title, kind, author, publishedDate } = Astro.props;
 ---
 
 <a class="hero-wrapper" href={href}>
@@ -23,7 +24,7 @@ const { description, href, imgAlt, imgSrc, title, kind, author } = Astro.props;
     <ParagraphSmall
         content={description}
       />
-      <ParagraphSmall content={`Par ${author} - Octobre 2024`} />
+      <ParagraphSmall content={`Par ${author} - ${new Date(publishedDate).toLocaleDateString('fr-FR')}`} />
   </div>
 </a>
 

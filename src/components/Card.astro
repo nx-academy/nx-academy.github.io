@@ -1,12 +1,14 @@
 ---
 interface Props {
+  author: string;
   description: string;
   href: string;
   imgAlt: string;
   imgSrc: string;
-  level?: string;
-  title: string;
   kind: string;
+  level?: string;
+  publishedDate: string;
+  title: string;
 }
 
 import Heading3 from "./Heading3.astro";
@@ -14,7 +16,7 @@ import ParagraphExtraSmall from "./ParagraphExtraSmall.astro";
 import ParagraphLarge from "./ParagraphLarge.astro";
 import ParagraphSmall from "./ParagraphSmall.astro";
 
-const { description, href, imgAlt, imgSrc, level, title, kind } = Astro.props;
+const { description, href, imgAlt, imgSrc, level, title, kind, author, publishedDate } = Astro.props;
 ---
 
 <a href={href}>
@@ -23,6 +25,7 @@ const { description, href, imgAlt, imgSrc, level, title, kind } = Astro.props;
   <Heading3 content={title} />
   {level && <ParagraphExtraSmall content={`Niveau : ${level}`} />}
   <ParagraphSmall content={description} />
+  <ParagraphExtraSmall content=`Par ${author} - le ${new Date(publishedDate).toLocaleDateString('fr-FR')}` />
 </a>
 
 <style>
