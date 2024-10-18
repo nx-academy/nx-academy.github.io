@@ -13,7 +13,7 @@ title: Les retours de fonction en Javascript
 
 # Les retours de fonction en Javascript
 
-![un jeune programmeur assis devant un ordinateur rétro, en train de coder des valeurs de retour en javaScript, pixel art](/public/jeune-programmeur-code-valeurs-retour-javascript.webp)
+![un jeune programmeur assis devant un ordinateur rétro, en train de coder des valeurs de retour en javaScript, pixel art](/jeune-programmeur-code-valeurs-retour-javascript.webp)
 
 A nos débuts en Javascript après avoir compris les types de données primitifs (Number, String, Boolean, undefined et Null), on a tendance à se jeter sur les fonctions et les manipuler directement sans vraiment comprendre une notion clé de ces dernières les retours de fonctions avec le mot clé `return`.
 
