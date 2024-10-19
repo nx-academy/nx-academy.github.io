@@ -12,9 +12,14 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.8.0",
+    "@astrojs/react": "^3.6.2",
     "@fontsource/pixelify-sans": "^5.0.3",
     "@fontsource/space-grotesk": "^5.0.18",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
     "astro": "^4.11.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "typescript": "^5.5.3"
   },
   "devDependencies": {
