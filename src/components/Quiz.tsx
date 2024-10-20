@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import "../styles/quiz.css"
+import "../styles/quiz.css";
 import { firstQuiz } from "../data/quiz";
 
 export default function Component() {
@@ -20,27 +20,35 @@ export default function Component() {
     console.log(selectedAnswer);
     console.log("===");
 
-    if (selectedAnswer === firstQuestion.answer) {
-      console.log("Ok, let's go!");
-    } else {
-      console.log("Nope!");
+    if (selectedAnswer.length) {
+      if (selectedAnswer === firstQuestion.answer) {
+        console.log("Ok, let's go!");
+      } else {
+        console.log("Nope!");
+      }
     }
   }
 
   return (
     <div className="quiz-wrapper">
       <div className="question-wrapper">
-        <p>Question 1 sur 10</p>
-        <p>{firstQuestion.question}</p>
+        <p className="question-number">Question 1 sur 10</p>
+        <p className="current-question">{firstQuestion.question}</p>
       </div>
       <ul className="answers-wrapper">
         {firstQuestion.options.map((option) => (
-          <li className="answer-btn" onClick={() => onSelectOption(option)} key={option}>
+          <li
+            className={`answer-btn ${selectedAnswer === option ? "active" : ""}`}
+            onClick={() => onSelectOption(option)}
+            key={option}
+          >
             {option}
           </li>
         ))}
 
-        <li className="validation-btn" onClick={() => onValidateAnswer()}>Valider la réponse</li>
+        <li className="validation-btn" onClick={() => onValidateAnswer()}>
+          Valider la réponse
+        </li>
       </ul>
     </div>
   );

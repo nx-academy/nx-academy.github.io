@@ -2,24 +2,40 @@
 }
 
 .question-wrapper {
-    flex-grow: 1;
+  flex-grow: 1;
+  margin-bottom: 24px;
+}
+
+.question-number {
+    font-weight: 300;
+    font-size: 12px;
+}
+
+.current-question {
+    font-weight: 600;
 }
 
 .answers-wrapper {
-    flex-grow: 1;
-    list-style-type: none;
-    padding-left: 0;
+  flex-grow: 1;
+  list-style-type: none;
+  padding-left: 0;
 }
 
-.answer-btn {
-    padding: 8px 16px;
-    background-color: #252525;
-    margin-bottom: 16px;
-    cursor: pointer;
-}
-
+.answer-btn,
 .validation-btn {
-    padding: 8px 16px;
-    background-color: #252525;
-    cursor: pointer;
+  padding: 8px 16px;
+  background-color: #252525;
+  margin-bottom: 24px;
+  cursor: pointer;
+  transition: 0.4s;
+  border: 1px solid transparent;
+  border-radius: 8px;
+
+  &:hover {
+    background-color: #333;
+  }
+}
+
+.active {
+  border: 1px solid #fff;
 }
