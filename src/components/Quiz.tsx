@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import "../styles/quiz.css"
 import { firstQuiz } from "../data/quiz";
 
 export default function Component() {
@@ -27,19 +28,19 @@ export default function Component() {
   }
 
   return (
-    <div>
-      <div>
+    <div className="quiz-wrapper">
+      <div className="question-wrapper">
         <p>Question 1 sur 10</p>
         <p>{firstQuestion.question}</p>
       </div>
-      <ul>
+      <ul className="answers-wrapper">
         {firstQuestion.options.map((option) => (
-          <li onClick={() => onSelectOption(option)} key={option}>
+          <li className="answer-btn" onClick={() => onSelectOption(option)} key={option}>
             {option}
           </li>
         ))}
 
-        <li onClick={() => onValidateAnswer()}>Valider la réponse</li>
+        <li className="validation-btn" onClick={() => onValidateAnswer()}>Valider la réponse</li>
       </ul>
     </div>
   );

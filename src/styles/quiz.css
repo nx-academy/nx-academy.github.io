@@ -1,0 +1,25 @@
+.quiz-wrapper {
+}
+
+.question-wrapper {
+    flex-grow: 1;
+}
+
+.answers-wrapper {
+    flex-grow: 1;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.answer-btn {
+    padding: 8px 16px;
+    background-color: #252525;
+    margin-bottom: 16px;
+    cursor: pointer;
+}
+
+.validation-btn {
+    padding: 8px 16px;
+    background-color: #252525;
+    cursor: pointer;
+}
