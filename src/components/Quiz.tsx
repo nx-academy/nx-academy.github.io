@@ -4,25 +4,18 @@ import "../styles/quiz.css";
 import { firstQuiz } from "../data/quiz";
 
 export default function Component() {
-  let [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState("");
+  let [currentQuestion, setCurrentQuestion] = useState(0);
   let [isAnswerValidated, setIsAnswerValidated] = useState(false);
-
-  function onSelectOption(option: string) {
-    console.log("=====");
-    console.log(option);
-    console.log("=====");
-
-    setSelectedAnswer(option);
-  }
+  let [score, setScore] = useState(0)
 
   function onValidateAnswer() {
-    console.log("===");
-    console.log(selectedAnswer);
-    console.log("===");
-
     if (selectedAnswer.length) {
       setIsAnswerValidated(true);
+    }
+
+    if (selectedAnswer === firstQuiz[currentQuestion].answer) {
+      setScore(score + 1)
     }
   }
 
@@ -31,11 +24,23 @@ export default function Component() {
     setSelectedAnswer("");
     setCurrentQuestion(currentQuestion + 1);
   }
+  
+
+  if (currentQuestion === firstQuiz.length) {
+    return (
+      <div className="score-wrapper">
+        <p>Le quiz est terminé.</p>
+        <p>Votre score est de</p>
+        <p>{score}</p>
+        <p>sur {firstQuiz.length}</p>
+      </div>
+    )
+  }
 
   return (
     <div className="quiz-wrapper">
       <div className="question-wrapper">
-        <p className="question-number">Question 1 sur 10</p>
+        <p className="question-number">Question {currentQuestion + 1} sur {firstQuiz.length}</p>
         <p className="current-question">
           {firstQuiz[currentQuestion].question}
         </p>
@@ -63,7 +68,7 @@ export default function Component() {
               className={`answer-btn ${
                 selectedAnswer === option ? "active" : ""
               }`}
-              onClick={() => onSelectOption(option)}
+              onClick={() => setSelectedAnswer(option)}
               key={option}
             >
               {option}

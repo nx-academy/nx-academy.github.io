@@ -27,4 +27,12 @@ export const firstQuiz: Quiz = [
     ],
     answer: "Cascading Style Sheet",
   },
+  {
+    question: "Est-ce que le JavaScript et le Java sont le même language ?",
+    options: [
+      "Oui",
+      "Non",
+    ],
+    answer: "Non",
+  },
 ];
