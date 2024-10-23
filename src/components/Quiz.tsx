@@ -24,7 +24,7 @@ export default function Component() {
     setSelectedAnswer("");
     setCurrentQuestion(currentQuestion + 1);
   }
-  
+
 
   if (currentQuestion === firstQuiz.length) {
     return (
@@ -56,6 +56,10 @@ export default function Component() {
               <p>{firstQuiz[currentQuestion].answer}</p>
             </div>
           )}
+
+          <p>
+            {firstQuiz[currentQuestion].explaination}
+          </p>
 
           <p onClick={() => onMoveToNextQuestion()} className="validation-btn">
             Passer à la prochaine question
