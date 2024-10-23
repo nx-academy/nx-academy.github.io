@@ -39,3 +39,11 @@
 .active {
   border: 1px solid #fff;
 }
+
+.invalid-answer {
+  border: 1px solid tomato;
+}
+
+.valid-answer {
+  border: 1px solid green;
+}
