@@ -4,8 +4,8 @@ import "../styles/quiz.css";
 import { firstQuiz } from "../data/quiz";
 
 export default function Component() {
+  let [currentQuestion, setCurrentQuestion] = useState(0)
   const [selectedAnswer, setSelectedAnswer] = useState("");
-  const firstQuestion = firstQuiz[0];
 
   function onSelectOption(option: string) {
     console.log("=====");
@@ -21,8 +21,9 @@ export default function Component() {
     console.log("===");
 
     if (selectedAnswer.length) {
-      if (selectedAnswer === firstQuestion.answer) {
+      if (selectedAnswer === firstQuiz[currentQuestion].answer) {
         console.log("Ok, let's go!");
+        setCurrentQuestion(currentQuestion + 1)
       } else {
         console.log("Nope!");
       }
@@ -33,10 +34,10 @@ export default function Component() {
     <div className="quiz-wrapper">
       <div className="question-wrapper">
         <p className="question-number">Question 1 sur 10</p>
-        <p className="current-question">{firstQuestion.question}</p>
+        <p className="current-question">{firstQuiz[currentQuestion].question}</p>
       </div>
       <ul className="answers-wrapper">
-        {firstQuestion.options.map((option) => (
+        {firstQuiz[currentQuestion].options.map((option) => (
           <li
             className={`answer-btn ${selectedAnswer === option ? "active" : ""}`}
             onClick={() => onSelectOption(option)}

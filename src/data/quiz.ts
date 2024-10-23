@@ -17,4 +17,14 @@ export const firstQuiz: Quiz = [
     ],
     answer: "Hyper Text Markup Language",
   },
+  {
+    question: "Que signifie CSS ?",
+    options: [
+      "Cascading Style Sheet",
+      "Cover Style Suit",
+      "Centralized Style Sheet",
+      "Cheat Sheet Style",
+    ],
+    answer: "Cascading Style Sheet",
+  },
 ];
