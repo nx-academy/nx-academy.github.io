@@ -10,7 +10,7 @@ const cheatsheets = await Astro.glob("./fiches/*.md");
 
 const content = cheatsheets.concat(articles);
 const heroContent = content.filter(
-  (c) => c.frontmatter.title === "Les retours de fonction en Javascript"
+  (c) => c.frontmatter.title === "Comprendre l'utilisation de module next-image avec Storybook & TypeScript"
 )[0];
 ---
 
