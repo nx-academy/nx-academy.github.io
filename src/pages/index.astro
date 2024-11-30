@@ -40,8 +40,8 @@ const heroContent = content.filter(
           )
           .sort(
             (item1, item2) =>
-              new Date(item2.frontmatter.publishedDate) -
-              new Date(item1.frontmatter.publishedDate),
+              new Date(item2.frontmatter.publishedDate).getTime() -
+              new Date(item1.frontmatter.publishedDate).getTime(),
           )
           .map((c) => (
             <Card
