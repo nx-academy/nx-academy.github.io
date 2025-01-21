@@ -5,8 +5,8 @@ import Banner from "../components/Banner.astro";
 import Hero from "../components/Hero.astro";
 import Card from "../components/Card.astro";
 
-const articles = await Astro.glob("./articles/*.md");
-const cheatsheets = await Astro.glob("./fiches/*.md");
+const articles = Object.values(import.meta.glob("./articles/*.md", { eager: true })) as any
+const cheatsheets = Object.values(import.meta.glob("./fiches/*.md", { eager: true })) as any
 
 const content = cheatsheets.concat(articles);
 const heroContent = content.filter(

@@ -3,7 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 import Card from "../../components/Card.astro";
 
-const articles = await Astro.glob("./*.md");
+const articles = Object.values(import.meta.glob("./*.md", { eager: true })) as any
 
 const title = "Nos derniers articles";
 const description =

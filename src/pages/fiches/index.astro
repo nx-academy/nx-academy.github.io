@@ -3,7 +3,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
 import Card from "../../components/Card.astro";
 
-const cheatsheets = await Astro.glob("./*.md");
+
+const cheatsheets = Object.values(import.meta.glob("./*.md", { eager: true })) as any
 
 const title = "Nos dernières fiches techniques";
 const description =
