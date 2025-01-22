@@ -11,10 +11,10 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@astrojs/check": "^0.8.0",
+    "@astrojs/check": "^0.9.4",
     "@fontsource/pixelify-sans": "^5.0.3",
     "@fontsource/space-grotesk": "^5.0.18",
-    "astro": "^4.11.5",
+    "astro": "^5.1.8",
     "typescript": "^5.5.3"
   },
   "devDependencies": {
