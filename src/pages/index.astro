@@ -5,8 +5,23 @@ import Banner from "../components/Banner.astro";
 import Hero from "../components/Hero.astro";
 import Card from "../components/Card.astro";
 
-const articles = Object.values(import.meta.glob("./articles/*.md", { eager: true })) as any
-const cheatsheets = Object.values(import.meta.glob("./fiches/*.md", { eager: true })) as any
+type Article = {
+  frontmatter: {
+    kind: string
+    title: string
+    description: string
+    imgAlt: string
+    imgSrc: string
+    author: string
+    publishedDate: string
+    draft: boolean
+    level: string
+  },
+  url: string
+}
+
+const articles = Object.values(import.meta.glob("./articles/*.md", { eager: true })) as Article[]
+const cheatsheets = Object.values(import.meta.glob("./fiches/*.md", { eager: true })) as Article[]
 
 const content = cheatsheets.concat(articles);
 const heroContent = content.filter(
