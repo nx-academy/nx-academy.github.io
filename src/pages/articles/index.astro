@@ -1,9 +1,11 @@
 ---
+import type { Article } from "../../types/Article"
+
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 import Card from "../../components/Card.astro";
 
-const articles = Object.values(import.meta.glob("./*.md", { eager: true })) as any
+const articles = Object.values(import.meta.glob("./*.md", { eager: true })) as Article[]
 
 const title = "Nos derniers articles";
 const description =
