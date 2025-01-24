@@ -20,14 +20,15 @@ type Article = {
   url: string
 }
 
+const heroContentTitle = "On fait le bilan ?"
+
 const articles = Object.values(import.meta.glob("./articles/*.md", { eager: true })) as Article[]
 const cheatsheets = Object.values(import.meta.glob("./fiches/*.md", { eager: true })) as Article[]
 
 const content = cheatsheets.concat(articles);
 const heroContent = content.filter(
   (c) =>
-    c.frontmatter.title ===
-    "Comprendre l'utilisation de module next-image avec Storybook & TypeScript",
+    c.frontmatter.title === heroContentTitle,
 )[0];
 ---
 
@@ -50,8 +51,7 @@ const heroContent = content.filter(
           .filter(
             (c) =>
               !c.frontmatter.draft &&
-              c.frontmatter.title !==
-                "Comprendre l'utilisation de module next-image avec Storybook & TypeScript",
+              c.frontmatter.title !== heroContentTitle,
           )
           .sort(
             (item1, item2) =>
