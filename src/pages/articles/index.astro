@@ -1,11 +1,13 @@
 ---
-import type { Article } from "../../types/Article"
+import type { Article } from "../../types/Article";
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 import Card from "../../components/Card.astro";
 
-const articles = Object.values(import.meta.glob("./*.md", { eager: true })) as Article[]
+const articles = Object.values(
+  import.meta.glob("./*.md", { eager: true })
+) as Article[];
 
 const title = "Nos derniers articles";
 const description =
@@ -21,6 +23,11 @@ const description =
         {
           articles
             .filter((article) => !article.frontmatter.draft)
+            .sort(
+              (item1, item2) =>
+                new Date(item2.frontmatter.publishedDate).getTime() -
+                new Date(item1.frontmatter.publishedDate).getTime()
+            )
             .map((article) => (
               <Card
                 href={article.url!}
