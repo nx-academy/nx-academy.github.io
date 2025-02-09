@@ -2,7 +2,7 @@
 layout: ../../layouts/BlogPostLayout.astro
 
 title: On fait le bilan ?
-description: Je (Thomas) prends le temps de revenir sur l'année 2024 et je vous parle un peu de ce que j'ai prévu pour l'année 2025 sur NX.
+description: On prend le temps de revenir sur l'année 2024 et je vous parle un peu de ce que j'ai prévu pour l'année 2025 sur NX. 
 
 imgAlt: Des personnes faisant une réunion dans une salle, pixel art
 imgSrc: /reunion-point.webp

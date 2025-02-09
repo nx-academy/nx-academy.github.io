@@ -1,12 +1,13 @@
 ---
-import type { Cheatsheet } from "../../types/Cheatsheet"
+import type { Cheatsheet } from "../../types/Cheatsheet";
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 import Card from "../../components/Card.astro";
 
-
-const cheatsheets = Object.values(import.meta.glob("./*.md", { eager: true })) as Cheatsheet[]
+const cheatsheets = Object.values(
+  import.meta.glob("./*.md", { eager: true })
+) as Cheatsheet[];
 
 const title = "Nos dernières fiches techniques";
 const description =
@@ -32,6 +33,11 @@ const description =
         {
           cheatsheets
             .filter((cheatsheet) => !cheatsheet.frontmatter.draft)
+            .sort(
+              (item1, item2) =>
+                new Date(item2.frontmatter.publishedDate).getTime() -
+                new Date(item1.frontmatter.publishedDate).getTime()
+            )
             .map((cheatsheet) => (
               <Card
                 kind="Fiche Technique"

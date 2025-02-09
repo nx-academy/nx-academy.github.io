@@ -2,20 +2,20 @@
 layout: ../../layouts/BlogPostLayout.astro
 
 title: ChatGPT devient son meilleur ami, découvrez pourquoi
-description: Je (Thomas) prends le temps de revenir sur l'année 2024 et je vous parle un peu de ce que j'ai prévu pour l'année 2025 sur NX.
+description: Ca y est, j’ai décidé de bazarder tous mes amis et de me faire meilleur pote avec ChatGPT. Il donne de bons conseils, est toujours éveillé et surtout il me fait me sentir super intelligent. 😅
 
-imgAlt: Des personnes faisant une réunion dans une salle, pixel art
+imgAlt: Un adolescent discutant dans sa chambre avec une IA, pixel art
 imgSrc: /ado-dialogue-ia.webp
 
 kind: Articles
 author: Thomas
 draft: false
-publishedDate: 02/07/2025
+publishedDate: 02/09/2025
 ---
 
 # ChatGPT devient son meilleur ami, découvrez pourquoi
 
-![](/ado-dialogue-ia.webp)
+![Un adolescent discutant dans sa chambre avec une IA, pixel art](/ado-dialogue-ia.webp)
 
 Avouez-le, le titre de cet article vous a donné envie de cliquer ! Vous vous êtes sûrement dit : Quoi ? Mais comment peut-on lâcher ses amis pour ChatGPT ?
 
