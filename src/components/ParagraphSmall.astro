@@ -16,7 +16,7 @@ const { content } = Astro.props;
     -webkit-line-clamp: 3;
     color: #bababa;
     display: -webkit-box;
-    font-size: .875rem;
+    font-size: clamp(.875rem, 0.75rem + 1.5vw, 1rem);
     margin-bottom: 0;
     margin-top: 0;
     overflow: hidden;
