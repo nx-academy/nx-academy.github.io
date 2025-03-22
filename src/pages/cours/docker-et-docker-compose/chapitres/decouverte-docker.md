@@ -154,7 +154,7 @@ Mais vous pouvez déjà faire un essai. Cherchez des images officielles pour Nod
 
 ## Les contextes d’utilisation de Docker
 
-L’objectif principal de ce cours est de vous apprendre à utiliser Docker dans un contexte professionnel. L’idée est que vous puissiez créer vos propres images Docker et les utiliser aussi bien dans vos environnements de développement que ceux de production ainsi que sur vos CI.
+L’objectif principal de ce cours est de vous apprendre à utiliser Docker dans un contexte professionnel. L’idée est que vous puissiez créer vos propres images Docker et les utiliser aussi bien dans vos environnements de développement que ceux de production et vos CI.
 
 
 Cela dit, il y a deux concepts particulièrement importants que je n’ai pas abordés : l’orchestration (et les orchestrateurs) et les registries Docker. [Selon RedHat](https://www.redhat.com/fr/topics/automation/what-is-orchestration) : 
@@ -210,8 +210,15 @@ Dans ce cours, on utilisera DockerHub mais sachez que les règles d’utilisatio
 
 ## Résumé
 
+
 - Docker vous permet de faire de la conteneurisation. La conteneurisation est un processus de virtualisation qui vous permet de créer des ordinateurs dans votre ordinateur.
 - La virtualisation est plus gourmande en ressources parce que l’intégralité de l’OS et du hardware sont virtualisés pour chaque instance. Les conteneurs les partagent.
 - Docker vous permet de facilement répliquer un environnement et de le partager entre plusieurs ordinateurs. 
+
+
+<br>
+
+
+<a class="secondary" href="/cours">Passer au prochain chapitre</a>
 
 </article>

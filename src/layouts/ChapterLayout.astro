@@ -1,0 +1,30 @@
+---
+interface Props {
+    frontmatter: {
+        title: string
+        description: string
+    }
+}
+
+import BaseLayout from './BaseLayout.astro'
+
+const {
+    frontmatter: {
+        title,
+        description
+    }
+} = Astro.props
+---
+
+<BaseLayout>
+    <div>
+        <slot />
+    </div>
+</BaseLayout>
+
+<style>
+    div {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }    
+</style>
