@@ -160,7 +160,10 @@ L’objectif principal de ce cours est de vous apprendre à utiliser Docker dans
 Cela dit, il y a deux concepts particulièrement importants que je n’ai pas abordés : l’orchestration (et les orchestrateurs) et les registries Docker. [Selon RedHat](https://www.redhat.com/fr/topics/automation/what-is-orchestration) : 
 
 
-> l’orchestration correspond à la configuration, gestion et coordination automatisées des systèmes informatiques, applications et services. L’orchestration facilite la gestion des tâches et workflows complexes pour le service informatique
+> L’orchestration correspond à la configuration, gestion et coordination automatisées des systèmes informatiques, applications et services. L’orchestration facilite la gestion des tâches et workflows complexes pour le service informatique
+
+
+<br>
 
 
 Même si cette définition peut sembler un peu complexe, elle résume bien le concept d’orchestration. Essayez de penser à un chef d’orchestre. Le rôle d’un chef d’orchestre est de coordonner des musiciens. Il indique le tempo, les nuances (piano, mezzo piano, etc.) et quand les musiciens commencent et s’arrêtent. Un orchestrateur fonctionne exactement pareil. Son rôle n’est pas de réaliser une tâche métier mais plutôt d’organiser les différentes tâches métiers des différents exécutants.
@@ -172,6 +175,43 @@ Il existe des solutions d'orchestration pour les conteneurs Docker (mais pas que
 Ils vous permettront de créer ce qu’on appelle des clusters. Autrement dit, un ensemble de conteneurs.
 
 
+<br>
+
+
+![Un schéma montrant un regroupant de conteneurs dans un orchestrateur](/orchestrateur-schema.png)
+
+
+<br>
+
+
+Votre orchestrateur va récupérer vos images Docker prêtes à l’emploi et ajouter et supprimer des conteneurs Docker.
+
+
+Passons maintenant aux registries Docker. Un registry Docker est un endroit où vous allez stocker vos images Docker. Le registry peut être l’un de vos serveurs informatiques tout comme il peut être une solution SaaS. Docker propose un registry Docker via DockerHub.
+
+
+Comme pour GitHub, les images peuvent être publiques, autrement dit tout le monde y a accès, ou privées, c’est-à-dire que seules les personnes autorisées y ont accès. Sachez qu’AWS propose son propre registry tout comme Google Cloud Platform (GCP).
+
+
+Dans ce cours, on utilisera DockerHub mais sachez que les règles d’utilisation sont globalement les mêmes entre les registry Docker. Vous ne devriez pas être perdus. Bien, maintenant que vous en savez un peu plus sur Docker, il est temps de l’installer sur votre ordinateur !
+
+
+<br>
+
+
+---
+
+
+<br>
+
+
+![Un technicien en train de régler des pipelines de gaz dans le désert, pixel art](/ingenieur-pontage-pipeline.webp)
+
+
 ## Résumé
+
+- Docker vous permet de faire de la conteneurisation. La conteneurisation est un processus de virtualisation qui vous permet de créer des ordinateurs dans votre ordinateur.
+- La virtualisation est plus gourmande en ressources parce que l’intégralité de l’OS et du hardware sont virtualisés pour chaque instance. Les conteneurs les partagent.
+- Docker vous permet de facilement répliquer un environnement et de le partager entre plusieurs ordinateurs. 
 
 </article>
