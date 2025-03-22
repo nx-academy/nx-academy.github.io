@@ -47,22 +47,28 @@ Je vais maintenant vous parler de virtualisation et de conteneurisation. Vous al
 
 ## Différenciez les VM des conteneurs
 
-On va commencer par parler de VM et de conteneurs. Le terme VM signifie machine virtuelle, ou Virtual Machine en anglais. Si vous programmez depuis quelque temps, il est très fortement possible que vous ayez déjà entendu le terme VM. Une VM est simplement l’émulation d’un ordinateur. Pour fonctionner une VM a besoin d’un hyperviseur. Grâce à un hyperviseur, votre ordinateur, on l’appelle aussi l’hôte, va être en mesure de faire tourner un ordinateur à l’intérieur de son ordinateur. Par exemple, le Mac sur lequel j’écris ce cours me permet de faire tourner un serveur linux sous Ubuntu via l’hyperviseur VirtualBox.
+On va commencer par parler de VM et de conteneurs. Le terme VM signifie machine virtuelle, ou Virtual Machine en anglais. Si vous programmez depuis quelque temps, il est très fortement possible que vous ayez déjà entendu le terme VM. Une VM est simplement l’émulation d’un ordinateur. Pour fonctionner une VM a besoin d’un hyperviseur. Grâce à un hyperviseur, votre ordinateur, on l’appelle aussi l’hôte, va être en mesure de faire tourner un ordinateur à l’intérieur de l'ordinateur. Par exemple, le Mac sur lequel j’écris ce cours me permet de faire tourner un serveur linux sous Ubuntu via l’hyperviseur VirtualBox.
 
 
 Ce qui est assez intéressant avec les VM, c’est que vous pouvez leur allouer des ressources bien spécifiques comme la mémoire vive (la RAM), le processeur (le CPU) et l’espace disque. Il est très fréquent qu’un serveur physique de datacenter, pour lequel on emploie souvent le terme Bare Metal, “hoste” (héberge) plusieurs VM. Sachez qu’il existe différents types d’hyperviseurs. Si le sujet vous intéresse, vous pouvez jeter [un œil à cette ressource](https://www.it-connect.fr/les-types-dhyperviseurs/).
 
 
-D’un point de vue grosse maille, un conteneur est un peu comme une VM. C’est un ordinateur dans votre ordinateur. Cela dit, la différence entre les deux vient de la partie virtualisation matérielle. En effet, chaque VM va émuler son matériel, soit sa carte réseau, son micro-processeur, etc. Autrement dit, si vous avez 10 VM qui tournent sur votre ordinateur ou votre serveur, vous avez dix fois une émulation du matériel.
+Globalement, un conteneur est un peu comme une VM. C’est un ordinateur dans votre ordinateur. Cela dit, la différence entre les deux vient de la partie virtualisation matérielle. En effet, chaque VM va émuler son matériel, soit sa carte réseau, son micro-processeur, etc. Autrement dit, si vous avez 10 VM qui tournent sur votre ordinateur ou votre serveur, vous avez dix fois une émulation du matériel.
 
 
-Pour les conteneurs, c’est exactement l’inverse. Tous les conteneurs partagent cette virtualisation matérielle, ce qui a un impact particulièrement fort sur les performances de votre ordinateur hôte tant d’un point de vue CPU ou RAM qu’espace disque. Les conteneurs sont beaucoup plus légers que les VM.
+Pour les conteneurs, c’est exactement l’inverse. Tous les conteneurs partagent cette virtualisation matérielle, ce qui a un fort impact sur les performances de votre ordinateur hôte tant d’un point de vue CPU ou RAM qu’espace disque. Ainsi, Les conteneurs sont beaucoup plus légers que les VM.
+
+
+<br>
 
 
 ![Un schéma présentant de manière graphique les différences d'architecture entre une VM et une conteneur](/container-vs-vm.png)
 
 
-Vous pouvez aussi voir, grâce au schéma ci-dessus, que chaque VM a son propre OS. Ce sera donc votre boulot de mettre à jour les OS de chacune de vos VM. Avec un conteneur, vous mettez à jour l’image et cela se répercute sur l’ensemble de vos conteneurs. Il y a une vraie notion de temporalité avec les VM qu’il n’y a pas avec les conteneurs. Un conteneur est fait pour être éphémère. Vous le lancez, il effectue sa tâche et vous le supprimez (on dit souvent qu’on les “kill” ou qu’on les “bute”).
+<br>
+
+
+**Grâce au schéma ci-dessus, vous pouvez voir que chaque VM a son propre OS. Ce sera donc votre boulot de mettre à jour les OS de chacune de vos VM**. Avec un conteneur, vous mettez à jour l’image et cela se répercute sur l’ensemble de vos conteneurs. Il y a une vraie notion de temporalité avec les VM qu’il n’y a pas avec les conteneurs. Un conteneur est fait pour être éphémère. Vous le lancez, il effectue sa tâche et vous le supprimez (on dit souvent qu’on les “kill” ou qu’on les “bute”).
 
 
 **Cette notion d'éphémère vient aussi du fait que les conteneurs se lancent quasiment instantanément à la différence des VM qui peuvent prendre plusieurs minutes à se lancer**. Je vous invite [à lire cette ressource](https://www.freecodecamp.org/news/a-beginner-friendly-introduction-to-containers-vms-and-docker-79a9e3e119b) avant de passer à la suite. Elle fournit un bon complément d’informations à ce que je viens de vous expliquer. Vous pouvez vous arrêter à la partie Fundamental Docker Concepts (sauf si vous souhaitez prendre de l’avance sur le cours).
