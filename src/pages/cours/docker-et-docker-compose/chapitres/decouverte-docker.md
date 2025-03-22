@@ -13,7 +13,7 @@ description: Une super description liée à ce chapitre.
 
 ## Familiarisez-vous avec la conteneurisation
 
-Contrairement à d’autres technologies, telles que le JavaScript, Linux et MySQL par exemple, Docker est un logiciel relativement récent dans le monde du développement. La version initiale du projet date du 20 mars 2013. Pour votre information, j’écris ces lignes le 21 mars 2023. C’était il y a 10 ans. À titre de comparaison, la première version de Google Chrome est sortie en 2008 et Node.JS en 2009.
+Contrairement à d’autres technologies, telles que le JavaScript, Linux et MySQL, Docker est un logiciel relativement récent dans le monde du développement. La version initiale du projet date du 20 mars 2013. Pour votre information, j’écris ces lignes le 21 mars 2023. C’était il y a 10 ans. À titre de comparaison, la première version de Google Chrome est sortie en 2008 et Node.JS en 2009.
 
 
 Quand on y pense, c’est assez fou de voir à quel point Docker s’est imposé comme un standard. **D’un point de vue purement personnel, j’aurais autant de mal à voir ma vie de programmeur sans Git que sans Docker**.
@@ -37,13 +37,16 @@ Cette définition provient de l’entreprise 451 Research et je la trouve très 
 <br>
 
 
-Je vais maintenant vous parler de virtualisation et de conteneurisation. Vous allez apprendre ce qu’est une VM, un hyperviseur et des différences entre la virtualisation et la conteneurisation.
+Je vais maintenant vous parler de virtualisation et de conteneurisation. Vous allez apprendre ce qu’est une VM, un hyperviseur et des différences entre la virtualisation et la conteneurisation. Attrapez-vous un café, vous allez voir, ça va être passionnant !
 
+---
 
-Attrapez-vous un café, vous allez voir, ça va être passionnant !
+<br>
 
+![Un vigile à l'entrée d'une boite de nuit, pixel art](/vigile-boite-de-nuit.webp)
 
 ## Différenciez les VM des conteneurs
+
 
 
 ## Les problématiques résolues par Docker
