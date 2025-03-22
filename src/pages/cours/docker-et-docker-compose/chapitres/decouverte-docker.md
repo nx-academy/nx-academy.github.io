@@ -74,7 +74,73 @@ Pour les conteneurs, c’est exactement l’inverse. Tous les conteneurs partage
 **Cette notion d'éphémère vient aussi du fait que les conteneurs se lancent quasiment instantanément à la différence des VM qui peuvent prendre plusieurs minutes à se lancer**. Je vous invite [à lire cette ressource](https://www.freecodecamp.org/news/a-beginner-friendly-introduction-to-containers-vms-and-docker-79a9e3e119b) avant de passer à la suite. Elle fournit un bon complément d’informations à ce que je viens de vous expliquer. Vous pouvez vous arrêter à la partie Fundamental Docker Concepts (sauf si vous souhaitez prendre de l’avance sur le cours).
 
 
+---
+
+<br>
+
+
+![Un élève en train de tricher dans une classe, pixel art](/triche-classe-exam.webp)
+
 ## Les problématiques résolues par Docker
+
+**Quand on apprend à utiliser un outil, il y a toujours, selon moi, une question essentielle que l’on doit se poser : à quelle problématique répond l’outil, le langage ou le framework ?** Par exemple, pour la programmation, quelle est l’utilité de la programmation orientée objet ? A quelle problématique la programmation orientée objet essaye de répondre ? Quelles sont les limites ? Mêmes questions pour la programmation fonctionnelle.
+
+
+Se poser ces questions fait vraiment de vous un ou une meilleure ingénieure : c’est ce qui vous permet de prendre du recul et de bien comprendre pourquoi vous utilisez tel ou tel outil. La qualité attendue de la réponse n’est pas la même en fonction de si vous êtes junior ou senior. Cela dit, quand je reçois en entretien des candidats ayant au moins 4 ans d’expérience, ce sont des questions que je pose quasi systématiquement.
+
+
+On va donc profiter de cette section pour faire un essai. J’aimerais que vous ouvriez un autre onglet dans votre navigateur et que vous recherchiez les problématiques que Docker cherche à résoudre. Prenez une dizaine de minutes puis revenez sur le cours. On pourra comparer nos réponses.
+
+
+<br>
+
+
+![Un meme concernant Docker et OpenStack basé sur des images du film Inception](/meme-docker.jpg)
+
+
+<br>
+
+
+C’est bon ? Alors, comparons nos réponses.
+
+
+Dans la page de présentation du cours, j’ai donné un exemple d’une situation professionnelle courante. Je l’appelle le **“ça marche chez moi mais pas chez mon voisin”**. Combien de fois cette situation vous est déjà arrivée ? Vous bossez sur un projet, un nouveau arrive dessus, il suit les étapes d’installation à la lettre mais le projet ne veut pas s’installer ou ne veut pas se lancer. Quand le projet est “simple”, autrement dit qu’il ne comprend pas de base de données ou qu’il n’y a qu’un langage, c’est déjà ennuyeux. Mais imaginez que le projet soit complexe, qu’il comprenne plusieurs bases de données différentes, qu’il utilise plusieurs langages, là, ça peut clairement devenir l’enfer.
+
+
+**L’un des autres problèmes assez récurrent est la gestion des différents systèmes d’exploitation dans une équipe de développeurs**. Certains vont utiliser MacOS, d’autres Linux et d’autres encore Windows. Seulement, voilà, la majeure partie des serveurs webs tourne sur Linux et ses nombreuses distributions. Qu’est-ce qui vous garantit que ce qui marche dans un environnement de développement sur un ordinateur de l’un ou l’une de vos collègues fonctionnera aussi dans l'environnement de production ? Vous ne pouvez pas le savoir. **C’est le fameux “ça marche en dev mais pas en prod”**.
+
+
+Admettons maintenant que vous développiez une API Rest en Node.js. Au moment du démarrage du projet, la LTS, pour Long Term Support, était la version 16. Votre ordinateur utilise donc Node 16 et vous avez une dizaine de serveurs qui font tourner cette API. Eux aussi sont tous sur Node 16. Vous apprenez au cours de l’année que cette version va être dépréciée, autrement dit qu’elle ne sera plus mise à jour et vous allez devoir migrer tout le parc informatique vers Node 18. Imaginez le temps que vous allez perdre à faire ces montées de versions sur tous les serveurs.
+
+
+Il existe bien des outils permettant d’automatiser tout ça mais ça ira toujours plus lentement qu’avec Docker. **Avec Docker, vous mettez à jour votre image, vous faites le travail de montée de version une fois et vous l’appliquez partout**. C’est quand même sacrément plus pratique, non ?
+
+
+En plus, grâce à Docker, vous n’allez pas “polluer” votre machine en installant des logiciels. Terminée l’installation de deux versions différentes de MariaDB ou de Redis. Docker va vous permettre de facilement changer de version entre vos projets sans avoir à vous embêter à installer ou désinstaller des logiciels.
+
+
+D’ailleurs, Docker est particulièrement pratique quand vous devez reprendre un projet legacy : un projet en PHP4 ou Python 2 par exemple. Grâce à Docker, vous allez être capable de faire fonctionner un projet legacy sur votre ordinateur, puis en production avant de réaliser la montée de versions.
+
+
+Si vous avez bien compris la section précédente, vous vous dites peut-être qu’il est possible de réaliser la même chose avec des VM. J’installe un hyperviseur puis ma VM et je fais bosser toute l’équipe de développement dans une VM linux. Sachez que c’est totalement possible. Vous serez dans un environnement proche de celui de production et vous ne polluerez pas votre machine hôte. Seulement vous aurez quand même à gérer les montées de version sur l’ensemble du parc informatique. Autre point négatif, rappelez-vous que les VM consomment plus de ressources que les conteneurs.
+
+
+Avant de passer à la dernière section de ce premier chapitre, il y a un dernier point que je souhaite aborder : l’écosystème. **Si vous avez déjà utilisé VirtualBox, vous avez peut-être déjà eu des difficultés à trouver la bonne image**. Le plus souvent cette image est un fichier ISO. C’est en quelque sorte le disque d’installation de votre OS. Avec Docker, trouver la bonne image se fait très facilement [grâce à DockerHub](https://hub.docker.com/). Vous pouvez faire le parallèle avec GitHub.
+
+
+Sur GitHub, vous pouvez trouver le code de projets. Sur DockerHub, vous trouvez des images Docker. Nous verrons ensemble dans la suite de ce cours comment choisir la bonne image et comment en envoyer sur DockerHub.
+
+
+Mais vous pouvez déjà faire un essai. Cherchez des images officielles pour Node.js ou MongoDB. Vous pourrez voir qu’il y existe beaucoup. Pour votre information, [c’est ici que nous récupérons nos images NodeJS](https://hub.docker.com/_/node).
+
+
+<br>
+
+
+![Un serveur tenant un plateau dans un restaurant parisien, pixel art](/serveur-parisien.webp)
+
+
+<br>
 
 
 ## Les contextes d’utilisation de Docker
