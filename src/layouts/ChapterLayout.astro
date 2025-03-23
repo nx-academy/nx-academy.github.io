@@ -29,12 +29,17 @@ const {
 
 const sectionsHeading = headings.filter((heading) => heading.depth === 2);
 
-console.log(sectionsHeading);
+console.log(sectionsHeading[0].slug);
 ---
 
 <BaseLayout title={title} description={description}>
   <div class="main-wrapper">
-    <slot />
+    <div>
+        <slot />
+        <div class="end-chapter-wrapper">
+            <Button label="Passer au prochain chapitre" type="primary" href="#" />
+        </div>
+    </div>
     <div class="aside-wrapper">
       <aside>
         <Heading3 content="Contenu" />
@@ -42,7 +47,7 @@ console.log(sectionsHeading);
           {
             sectionsHeading.map((heading) => (
               <li>
-                <a href={heading.slug}>{heading.text}</a>
+                <a class="section-link" href=`#${heading.slug}`>{heading.text}</a>
               </li>
             ))
           }
@@ -88,6 +93,20 @@ console.log(sectionsHeading);
     li {
       margin-bottom: 1rem;
     }
+  }
+
+  .section-link {
+    color: #bababa;
+    
+    &:hover {
+        color: #4effa0;
+    }
+  }
+
+  .end-chapter-wrapper {
+    border-top: 1px solid #eee;
+    margin-top: 4rem;
+    padding-top: 4rem;
   }
 </style>
 

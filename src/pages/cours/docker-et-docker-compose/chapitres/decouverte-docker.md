@@ -215,10 +215,4 @@ Dans ce cours, on utilisera DockerHub mais sachez que les règles d’utilisatio
 - La virtualisation est plus gourmande en ressources parce que l’intégralité de l’OS et du hardware sont virtualisés pour chaque instance. Les conteneurs les partagent.
 - Docker vous permet de facilement répliquer un environnement et de le partager entre plusieurs ordinateurs. 
 
-
-<br>
-
-
-<a class="secondary" href="/cours">Passer au prochain chapitre</a>
-
 </article>
