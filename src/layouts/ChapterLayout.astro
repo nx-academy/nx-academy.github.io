@@ -1,9 +1,16 @@
 ---
+type Heading = {
+  depth: number;
+  slug: string;
+  text: string;
+};
+
 interface Props {
   frontmatter: {
     title: string;
     description: string;
   };
+  headings: Heading[];
 }
 
 import theme from "../config/theme";
@@ -17,50 +24,58 @@ const {
 
 const {
   frontmatter: { title, description },
+  headings,
 } = Astro.props;
+
+const sectionsHeading = headings.filter((heading) => heading.depth === 2);
+
+console.log(sectionsHeading);
 ---
 
 <BaseLayout title={title} description={description}>
-  <div>
+  <div class="main-wrapper">
     <slot />
-    <aside>
+    <div class="aside-wrapper">
+      <aside>
         <Heading3 content="Contenu" />
         <ul class="chapter-content">
-            <li>
-                <a href="#">Une section</a>
-            </li>
-            <li>
-                <a href="#">Une autre section</a>
-            </li>
-            <li>
-                <a href="#">Encore une section</a>
-            </li>
+          {
+            sectionsHeading.map((heading) => (
+              <li>
+                <a href={heading.slug}>{heading.text}</a>
+              </li>
+            ))
+          }
         </ul>
         <Button label="Passer au prochain chapitre" type="primary" href="#" />
-    </aside>
+      </aside>
+    </div>
   </div>
 </BaseLayout>
 
 <style>
-  div {
+  .main-wrapper {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+    width: 90%;
     max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
 
-    @media screen and (min-width: 768px) {
-        display: grid;
-        grid-template-columns: 65% 35%;
-        gap: 64px;
+    @media screen and (min-width: 1024px) {
+      display: grid;
+      grid-template-columns: 65% 35%;
+      gap: 64px;
     }
   }
 
   aside {
     display: none;
 
-    @media screen and (min-width: 768px) {
-        display: initial;
+    @media screen and (min-width: 1024px) {
+      display: initial;
+      position: sticky;
+      top: 24px;
     }
   }
 
@@ -71,7 +86,7 @@ const {
     margin-bottom: 5rem;
 
     li {
-        margin-bottom: 1rem;
+      margin-bottom: 1rem;
     }
   }
 </style>
