@@ -1,5 +1,5 @@
 ---
-layout: ../../../../layouts/CheatSheetsLayout.astro
+layout: ../../../../layouts/ChapterLayout.astro
 
 title: Découvrez Docker
 description: Une super description liée à ce chapitre.
