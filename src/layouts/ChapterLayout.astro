@@ -9,6 +9,7 @@ interface Props {
   frontmatter: {
     title: string;
     description: string;
+    nextChapterLink: string
   };
   headings: Heading[];
 }
@@ -23,13 +24,13 @@ const {
 } = theme;
 
 const {
-  frontmatter: { title, description },
+  frontmatter: { title, description, nextChapterLink },
   headings,
 } = Astro.props;
 
 const sectionsHeading = headings.filter((heading) => heading.depth === 2);
 
-console.log(sectionsHeading[0].slug);
+const fullNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${nextChapterLink}`
 ---
 
 <BaseLayout title={title} description={description}>
@@ -37,7 +38,7 @@ console.log(sectionsHeading[0].slug);
     <div>
         <slot />
         <div class="end-chapter-wrapper">
-            <Button label="Passer au prochain chapitre" type="primary" href="#" />
+            <Button label="Passer au prochain chapitre" type="primary" href={fullNextChapterLink} />
         </div>
     </div>
     <div class="aside-wrapper">
@@ -52,7 +53,7 @@ console.log(sectionsHeading[0].slug);
             ))
           }
         </ul>
-        <Button label="Passer au prochain chapitre" type="primary" href="#" />
+        <Button label="Passer au prochain chapitre" type="primary" href={fullNextChapterLink} />
       </aside>
     </div>
   </div>

@@ -3,6 +3,8 @@ layout: ../../../../layouts/ChapterLayout.astro
 
 title: Découvrez Docker
 description: Une super description liée à ce chapitre.
+
+nextChapterLink: installation-et-configuration-docker
 ---
 
 <article>
