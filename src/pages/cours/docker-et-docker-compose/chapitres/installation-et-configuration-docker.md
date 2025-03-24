@@ -149,14 +149,71 @@ Options:
 Je sais ce que vous vous dites : ça fait beaucoup d’informations pour une simple commande. Vous n’avez pas besoin de tout savoir et de tout connaître. Il faut juste savoir que ça existe et comment accéder à cette information. Comme la description le précise, la commande `docker run` permet de lancer une commande dans un nouveau conteneur.
 
 
+<br>
+
+
+La partie Usage est particulièrement importante : elle vous permet de voir ce qui est requis et optionnel à votre commande.
+
+
+```bash
+Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+```
+
+
+<br>
+
+
+- `[OPTIONS]` est optionnelle. Ce sont toutes les options que vous allez pouvoir passer à Docker et plus précisément, dans le cas ci-dessus, à une image Docker. Pour rappel la liste des options est affichée avec la commande `docker run –help`.
+- `IMAGE` est obligatoire. Cela correspond à l’image que vous allez utiliser pour votre conteneur Docker. Vous avez précédemment utilisé l’image hello-world.
+- `[COMMAND]` est optionnelle. C’est la commande que vous allez lancer dans votre conteneur Docker. Par exemple, yarn ou yarn dev ou ls. Vous verrez dans la dernière section quelques exemples de commandes.
+- `[ARG…]` est aussi optionnelle. Ce sont les arguments de votre commande. Par exemple, --help ou plus précisément yarn –help ou npm –help. Vous pourriez ainsi avoir une commande tel que `docker run my-image npm run dev –port 3000`, à savoir lancer un conteneur avec une image my-image où la commande pour lancer le projet est npm run dev.
+
+
+<br>
+
+
+À ce stade du cours, il est possible que vous soyez encore perdu entre les images et les conteneurs. C’est parfaitement normal. On passe tous par cette étape (en tout cas, j’y suis passé ^^). Une image Docker est comme une empreinte digitale ou un moule ; souvenez-vous de l’exemple des gâteaux. Votre image est prête à l’emploi mais elle ne “tourne” pas.
+
+
+Pour exécuter le code ou le programme contenu dans votre image, vous avez besoin de la faire tourner dans un conteneur. La commande docker run permet donc de faire tourner l’image Docker dans un conteneur Docker. Le conteneur Docker correspond à votre gâteau 🙂.
+
+
+Dernier point essentiel : la commande docker run est une abréviation de la commande docker container run. Vous allez voir qu’il existe beaucoup de commandes abrégées. J’avoue ne pas être très fan de ces commandes abrégées. Elles ont tendance à nous faire oublier ce qu’on manipule, à savoir un conteneur, une image, un réseau, etc.
+
+
+Durant tout le cours, je vais utiliser les commandes complètes, à savoir docker container run, docker container exec, docker image pull, etc. Cela devrait vous aider à accélérer votre apprentissage.
+
+
+<br>
+
+On va se faire un premier screencast où je vais reprendre les notions dont je viens de parler. Vous verrez ensuite d’autres commandes de base de Docker.
+
+
+<iframe src="https://www.youtube.com/embed/SYMPIdMC2qo" frameborder="0"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+Maintenant que vous avez pris en main l’interface en ligne de commandes de Docker (le CLI), vous allez apprendre à récupérer une image Node.js depuis DockerHub.
+
+
 ---
 
 <br>
 
 
-## Appréhendez la ligne de commande de Docker
+## Récupérez une image Node.JS
 
-Pour récupérer une image Docker NodeJS, la première est de savoir où et comment la récupérer. Pour le “où”, normalement, vous ne devriez pas être surpris si je vous parle de Dockerhub.
+**Pour récupérer une image Docker NodeJS, la première est de savoir où et comment la récupérer**. Pour le “où”, normalement, vous ne devriez pas être surpris si je vous parle de Dockerhub. Allez [sur Dockerhub](https://hub.docker.com/) et tapez _Node_ dans la barre de recherche. Vous devriez avoir des résultats similaires à l’image ci-dessous.
+
+
+<br>
+
+
+![La page de recherche de DockerHub quand vous tapez Node.JS dans la barre de recherche](/dockerhub-node.png)
+
+
+<br>
+
+Vous voyez le texte écrit en vert (en espérant que vous ne soyez pas daltonien 😀) : “Docker Official Image”. **Quand vous choisissez votre image sur DockerHub, essayez de privilégier les images officielles**. C’est un signe de qualité (et de sécurité), autrement dit, vous pouvez y aller les yeux fermés.
 
 
 ---
