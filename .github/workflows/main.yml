@@ -3,11 +3,11 @@ name: Deploy NX Website to GH Pages
 on:
   push:
     branches: ["main"]
-  pull_request:
-    branches: ["main"]
-    types:
-      - opened
-      - synchronize
+  # pull_request:
+  #   branches: ["main"]
+  #   types:
+  #     - opened
+  #     - synchronize
 
 
 permissions:

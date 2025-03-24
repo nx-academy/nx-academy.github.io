@@ -33,13 +33,6 @@ const sectionsHeading = headings.filter((heading) => heading.depth === 2);
 
 const previousNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${previousChapterLink}`
 const fullNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${nextChapterLink}`
-
-
-console.log("=====")
-console.log(previousNextChapterLink)
-console.log("=====")
-console.log(fullNextChapterLink)
-console.log("=====")
 ---
 
 <BaseLayout title={title} description={description}>
@@ -49,7 +42,7 @@ console.log("=====")
         <div class="end-chapter-wrapper">
           <div class="buttons-group">
             {
-              previousChapterLink && <Button label="Revenir au prochain précédent" type="secondary" href={previousNextChapterLink} />
+              previousChapterLink && <Button label="Revenir au chapitre précédent" type="secondary" href={previousNextChapterLink} />
             }
             {
               nextChapterLink && <Button label="Passer au prochain chapitre" type="primary" href={fullNextChapterLink} />
@@ -71,7 +64,7 @@ console.log("=====")
         </ul>
         <div class="buttons-group">
           {
-            previousChapterLink && <Button label="Revenir au prochain précédent" type="secondary" href={previousNextChapterLink} />
+            previousChapterLink && <Button label="Revenir au chapitre précédent" type="secondary" href={previousNextChapterLink} />
           }
           {
             nextChapterLink && <Button label="Passer au prochain chapitre" type="primary" href={fullNextChapterLink} />
@@ -93,7 +86,7 @@ console.log("=====")
 
     @media screen and (min-width: 1024px) {
       display: grid;
-      grid-template-columns: 65% 35%;
+      grid-template-columns: 65% 30%;
       gap: 64px;
     }
   }
@@ -138,6 +131,14 @@ console.log("=====")
     flex-direction: column;
     gap: 16px;
     width: max-content;
+  }
+
+  .end-chapter-wrapper .buttons-group {
+    flex-direction: row;
+  }
+
+  .active {
+    color: #4effa0;
   }
 </style>
 
@@ -197,7 +198,8 @@ console.log("=====")
     }
   }
 
-  p > code {
+  p > code,
+  li > code {
     background-color: var(--neonGreen);
     padding: 0.25rem;
     color: var(--black);
@@ -212,4 +214,76 @@ console.log("=====")
     padding-left: 2rem;
     font-style: italic;
   }
+
+  iframe {
+    width: 100%;
+    height: 450px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
 </style>
+
+<script>
+  const $sectionTitles = document.querySelectorAll(".main-wrapper h2")
+  const $sectionLinks = document.querySelectorAll(".section-link")
+
+
+  function scrollToTitle() {
+    $sectionLinks.forEach(link => {
+      link.addEventListener("click", event => {
+        event.preventDefault();
+
+        const href = link.getAttribute("href");
+        if (!href) return;
+
+        const target = document.querySelector(href);
+        if (target) {
+          const top = target.getBoundingClientRect().top + window.scrollY;
+          const offset = 500;
+
+          window.scrollTo({
+            top: top - offset,
+            behavior: "smooth"
+          });
+        }
+      });
+    });
+  }
+
+
+  function onScroll() {
+    let closestSection = null;
+    let minDistance = Infinity;
+
+    $sectionTitles.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      const distance = Math.abs(rect.top);
+
+      if (rect.top <= window.innerHeight && distance < minDistance) {
+        minDistance = distance;
+        closestSection = section;
+      }
+    });
+
+    $sectionLinks.forEach(link => link.classList.remove("active"));
+
+    if (closestSection) {
+      const sectionId = (closestSection as HTMLElement).getAttribute("id")
+      const activeLink = document.querySelector(`.section-link[href="#${sectionId}"]`)
+
+      if (activeLink) {
+        activeLink.classList.add("active")
+      }
+    }
+  }
+
+
+  window.addEventListener("scroll", function() {
+    onScroll()
+  })
+
+
+  window.addEventListener("DOMContentLoaded", function() {
+    scrollToTitle()
+  })
+</script>
