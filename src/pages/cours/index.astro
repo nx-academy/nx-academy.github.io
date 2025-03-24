@@ -1,0 +1,38 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro"
+
+const pageTitle = "Nos cours"
+const pageDescription = "Passez au niveau supérieur avec des cours en ligne gratuits couvrant des sujets avancés en programmation et DevOps."
+
+// For now, I put the courses links here
+type Course = {
+    name: string
+    description: string
+    href: string
+}
+
+const COURSES: Course[] = [
+    {
+        name: "Conteneurisez vos applications avec Docker",
+        description: "Une super description",
+        href: "/cours/docker-et-docker-compose"
+    }
+]
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+    <div class="wrapper">
+        <h1>Bienvenue sur la page d'accueil des cours</h1>
+        <hr>
+        <p>La liste de nos derniers cours :</p>
+        <ul>
+            {
+                COURSES.map(course => (
+                    <a href={course.href}>
+                        {course.name}
+                    </a>
+                ))
+            }
+        </ul>
+    </div>
+</BaseLayout>

@@ -1,73 +1,189 @@
 ---
-import theme from "../config/theme"
+type Heading = {
+  depth: number;
+  slug: string;
+  text: string;
+};
 
+interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    previousChapterLink?: string
+    nextChapterLink?: string
+  };
+  headings: Heading[];
+}
+
+import theme from "../config/theme";
 import BaseLayout from "./BaseLayout.astro";
-
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import Button from "../components/Button.astro"
+import Heading3 from "../components/Heading3.astro";
+import Button from "../components/Button.astro";
 
 const {
-  colors: {
-    black,
-    neonGreen,
-    neonGreenLight,
-    white
-  }
-} = theme
+  colors: { neonGreen, neonGreenLight, black },
+} = theme;
+
+const {
+  frontmatter: { title, description, nextChapterLink, previousChapterLink },
+  headings,
+} = Astro.props;
+
+const sectionsHeading = headings.filter((heading) => heading.depth === 2);
+
+const previousNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${previousChapterLink}`
+const fullNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${nextChapterLink}`
+
+
+console.log("=====")
+console.log(previousNextChapterLink)
+console.log("=====")
+console.log(fullNextChapterLink)
+console.log("=====")
 ---
 
-<BaseLayout>
-  <div>
-    <Header />
-    <slot />
-    <div class="links-wrapper">
-      <Button label="Revenir au chapitre précédent" href="#" type="secondary" />
-      <Button label="Passer au chapitre suivant" href="#" type="primary" />
+<BaseLayout title={title} description={description}>
+  <div class="main-wrapper">
+    <div>
+        <slot />
+        <div class="end-chapter-wrapper">
+          <div class="buttons-group">
+            {
+              previousChapterLink && <Button label="Revenir au prochain précédent" type="secondary" href={previousNextChapterLink} />
+            }
+            {
+              nextChapterLink && <Button label="Passer au prochain chapitre" type="primary" href={fullNextChapterLink} />
+            }
+          </div>
+        </div>
     </div>
-    <Footer />
+    <div class="aside-wrapper">
+      <aside>
+        <Heading3 content="Contenu" />
+        <ul class="chapter-content">
+          {
+            sectionsHeading.map((heading) => (
+              <li>
+                <a class="section-link" href=`#${heading.slug}`>{heading.text}</a>
+              </li>
+            ))
+          }
+        </ul>
+        <div class="buttons-group">
+          {
+            previousChapterLink && <Button label="Revenir au prochain précédent" type="secondary" href={previousNextChapterLink} />
+          }
+          {
+            nextChapterLink && <Button label="Passer au prochain chapitre" type="primary" href={fullNextChapterLink} />
+          }
+        </div>
+      </aside>
+    </div>
   </div>
 </BaseLayout>
 
-<style is:global define:vars={{ black, neonGreen, neonGreenLight, white }}>
-  div {
+<style>
+  .main-wrapper {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-  }
-
-  section {
     width: 90%;
-    /* max-width: 680px; */
-    max-inline-size: 66ch;
+    max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
+
+    @media screen and (min-width: 1024px) {
+      display: grid;
+      grid-template-columns: 65% 35%;
+      gap: 64px;
+    }
+  }
+
+  aside {
+    display: none;
+
+    @media screen and (min-width: 1024px) {
+      display: initial;
+      position: sticky;
+      top: 24px;
+    }
+  }
+
+  .chapter-content {
+    margin-top: 1.75rem;
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 5rem;
+
+    li {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .section-link {
+    color: #bababa;
+    
+    &:hover {
+        color: #4effa0;
+    }
+  }
+
+  .end-chapter-wrapper {
+    border-top: 1px solid #eee;
+    margin-top: 4rem;
+    padding-top: 4rem;
+  }
+
+  .buttons-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: max-content;
+  }
+</style>
+
+<style is:global define:vars={{ neonGreen, neonGreenLight, black }}>
+  img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+
+  article {
+    max-inline-size: 66ch;
   }
 
   h1 {
     font-size: 2.5rem;
     margin-top: 0;
     margin-bottom: 1rem;
+    color: #fefefe;
   }
 
   h2 {
     font-size: 1.75rem;
     margin-bottom: 1rem;
-  }
-
-  img {
-    width: 100%;
-    margin-bottom: 1rem;
-    border-radius: 8px;
+    color: #fefefe;
   }
 
   p {
     margin-bottom: 1.5rem;
+    color: #bababa;
+    font-size: clamp(0.875rem, 0.75rem + 1.5vw, 1.125rem);
+  }
+
+  ul {
+    color: #bababa;
+    margin-bottom: 2.5rem;
+  }
+
+  li {
+    margin-bottom: 1.5rem;
+    color: #bababa;
+    font-size: clamp(0.875rem, 0.75rem + 1.5vw, 1.125rem);
   }
 
   hr {
-    color: #fefefe;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
+    margin-top: 2rem;
   }
 
   a {
@@ -81,15 +197,19 @@ const {
     }
   }
 
-  .links-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    flex-direction: column;
+  p > code {
+    background-color: var(--neonGreen);
+    padding: 0.25rem;
+    color: var(--black);
+  }
 
-    @media screen and (min-width: 48rem) {
-      flex-direction: row;
-    }
+  pre,
+  ul {
+    margin-bottom: 1.75rem;
+  }
+
+  blockquote {
+    padding-left: 2rem;
+    font-style: italic;
   }
 </style>
