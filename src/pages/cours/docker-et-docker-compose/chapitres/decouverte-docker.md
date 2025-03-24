@@ -11,7 +11,7 @@ nextChapterLink: installation-et-configuration-docker
 
 # Découvrez Docker
 
-![Un superhero regardant une ville de nuit, pixel art](/superhero.webp)
+![Un superhero regardant une ville de nuit, pixel art](/docker-port.webp)
 
 ## Familiarisez-vous avec la conteneurisation
 
@@ -45,7 +45,7 @@ Je vais maintenant vous parler de virtualisation et de conteneurisation. Vous al
 
 <br>
 
-![Un vigile à l'entrée d'une boite de nuit, pixel art](/vigile-boite-de-nuit.webp)
+![Un vigile à l'entrée d'une boite de nuit, pixel art](/homme-magasin-voiture.webp)
 
 ## Différenciez les VM des conteneurs
 
@@ -81,7 +81,7 @@ Pour les conteneurs, c’est exactement l’inverse. Tous les conteneurs partage
 <br>
 
 
-![Un élève en train de tricher dans une classe, pixel art](/triche-classe-exam.webp)
+![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
 
 ## Les problématiques résolues par Docker
 
@@ -148,7 +148,7 @@ Mais vous pouvez déjà faire un essai. Cherchez des images officielles pour Nod
 ---
 
 
-![Un serveur tenant un plateau dans un restaurant parisien, pixel art](/serveur-parisien.webp)
+![Un serveur tenant un plateau dans un restaurant parisien, pixel art](/femme-manuel-utilisation.webp)
 
 
 <br>
@@ -207,7 +207,7 @@ Dans ce cours, on utilisera DockerHub mais sachez que les règles d’utilisatio
 <br>
 
 
-![Un technicien en train de régler des pipelines de gaz dans le désert, pixel art](/ingenieur-pontage-pipeline.webp)
+![Un technicien en train de régler des pipelines de gaz dans le désert, pixel art](/vendeur-journaux.webp)
 
 
 ## Résumé
