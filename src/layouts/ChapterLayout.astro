@@ -9,7 +9,8 @@ interface Props {
   frontmatter: {
     title: string;
     description: string;
-    nextChapterLink: string
+    previousChapterLink?: string
+    nextChapterLink?: string
   };
   headings: Heading[];
 }
@@ -24,13 +25,21 @@ const {
 } = theme;
 
 const {
-  frontmatter: { title, description, nextChapterLink },
+  frontmatter: { title, description, nextChapterLink, previousChapterLink },
   headings,
 } = Astro.props;
 
 const sectionsHeading = headings.filter((heading) => heading.depth === 2);
 
+const previousNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${previousChapterLink}`
 const fullNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${nextChapterLink}`
+
+
+console.log("=====")
+console.log(previousNextChapterLink)
+console.log("=====")
+console.log(fullNextChapterLink)
+console.log("=====")
 ---
 
 <BaseLayout title={title} description={description}>
@@ -38,7 +47,14 @@ const fullNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${nextCha
     <div>
         <slot />
         <div class="end-chapter-wrapper">
-            <Button label="Passer au prochain chapitre" type="primary" href={fullNextChapterLink} />
+          <div class="buttons-group">
+            {
+              previousChapterLink && <Button label="Revenir au prochain précédent" type="secondary" href={previousNextChapterLink} />
+            }
+            {
+              nextChapterLink && <Button label="Passer au prochain chapitre" type="primary" href={fullNextChapterLink} />
+            }
+          </div>
         </div>
     </div>
     <div class="aside-wrapper">
@@ -53,7 +69,14 @@ const fullNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${nextCha
             ))
           }
         </ul>
-        <Button label="Passer au prochain chapitre" type="primary" href={fullNextChapterLink} />
+        <div class="buttons-group">
+          {
+            previousChapterLink && <Button label="Revenir au prochain précédent" type="secondary" href={previousNextChapterLink} />
+          }
+          {
+            nextChapterLink && <Button label="Passer au prochain chapitre" type="primary" href={fullNextChapterLink} />
+          }
+        </div>
       </aside>
     </div>
   </div>
@@ -108,6 +131,13 @@ const fullNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${nextCha
     border-top: 1px solid #eee;
     margin-top: 4rem;
     padding-top: 4rem;
+  }
+
+  .buttons-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: max-content;
   }
 </style>
 
