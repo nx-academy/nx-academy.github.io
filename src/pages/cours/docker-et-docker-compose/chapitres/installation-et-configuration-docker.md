@@ -29,6 +29,9 @@ Si vous êtes sur Linux, vous n’aurez pas besoin d’installer Docker Desktop.
 Dans ce screencast, vous allez voir comment installer Docker sur macOS. Vous verrez où et comment installer Docker Desktop, quelques commandes de base et vous en profiterez pour lancer votre premier conteneur.
 
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ieVeY_M3I" frameborder="0"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 ---
 
 <br>
