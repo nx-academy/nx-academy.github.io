@@ -136,6 +136,10 @@ const fullNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${nextCha
   .end-chapter-wrapper .buttons-group {
     flex-direction: row;
   }
+
+  .active {
+    color: #4effa0;
+  }
 </style>
 
 <style is:global define:vars={{ neonGreen, neonGreenLight, black }}>
@@ -218,3 +222,40 @@ const fullNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${nextCha
     margin-bottom: 32px;
   }
 </style>
+
+<script>
+  const $sectionTitles = document.querySelectorAll(".main-wrapper h2")
+  const $sectionLinks = document.querySelectorAll(".section-link")
+
+
+  function onScroll() {
+    let closestSection = null;
+    let minDistance = Infinity;
+
+    $sectionTitles.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      const distance = Math.abs(rect.top);
+
+      if (rect.top <= window.innerHeight && distance < minDistance) {
+        minDistance = distance;
+        closestSection = section;
+      }
+    });
+
+    $sectionLinks.forEach(link => link.classList.remove("active"));
+
+    if (closestSection) {
+      const sectionId = (closestSection as HTMLElement).getAttribute("id")
+      const activeLink = document.querySelector(`.section-link[href="#${sectionId}"]`)
+
+      if (activeLink) {
+        activeLink.classList.add("active")
+      }
+    }
+  }
+
+
+  window.addEventListener("scroll", function() {
+    onScroll()
+  })
+</script>
