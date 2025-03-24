@@ -42,7 +42,7 @@ const fullNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${nextCha
         <div class="end-chapter-wrapper">
           <div class="buttons-group">
             {
-              previousChapterLink && <Button label="Revenir au prochain précédent" type="secondary" href={previousNextChapterLink} />
+              previousChapterLink && <Button label="Revenir au chapitre précédent" type="secondary" href={previousNextChapterLink} />
             }
             {
               nextChapterLink && <Button label="Passer au prochain chapitre" type="primary" href={fullNextChapterLink} />
@@ -64,7 +64,7 @@ const fullNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${nextCha
         </ul>
         <div class="buttons-group">
           {
-            previousChapterLink && <Button label="Revenir au prochain précédent" type="secondary" href={previousNextChapterLink} />
+            previousChapterLink && <Button label="Revenir au chapitre précédent" type="secondary" href={previousNextChapterLink} />
           }
           {
             nextChapterLink && <Button label="Passer au prochain chapitre" type="primary" href={fullNextChapterLink} />
@@ -132,6 +132,10 @@ const fullNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${nextCha
     gap: 16px;
     width: max-content;
   }
+
+  .end-chapter-wrapper .buttons-group {
+    flex-direction: row;
+  }
 </style>
 
 <style is:global define:vars={{ neonGreen, neonGreenLight, black }}>
@@ -190,7 +194,8 @@ const fullNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${nextCha
     }
   }
 
-  p > code {
+  p > code,
+  li > code {
     background-color: var(--neonGreen);
     padding: 0.25rem;
     color: var(--black);
@@ -204,5 +209,12 @@ const fullNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${nextCha
   blockquote {
     padding-left: 2rem;
     font-style: italic;
+  }
+
+  iframe {
+    width: 100%;
+    height: 450px;
+    margin-top: 32px;
+    margin-bottom: 32px;
   }
 </style>

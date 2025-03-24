@@ -37,7 +37,10 @@ Si ça vous intéresse d’en apprendre un peu plus sur le fonctionnement intern
 Dans ce screencast, vous allez voir comment installer Docker sur macOS. Vous verrez où et comment installer Docker Desktop, quelques commandes de base et vous en profiterez pour lancer votre premier conteneur.
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ieVeY_M3I" frameborder="0"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/SYMPIdMC2qo" frameborder="0"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+Félicitations, Docker Desktop est maintenant prêt à l’emploi sur votre ordinateur. La commande `docker run hello-world` est l’une des nombreuses commandes de Docker. Cette commande vous permet de lancer un conteneur avec l’image ayant le nom _hello-world_. Cette image est hébergée [sur ce repository DockerHub](https://hub.docker.com/_/hello-world).
 
 
 ---
@@ -46,6 +49,14 @@ Dans ce screencast, vous allez voir comment installer Docker sur macOS. Vous ver
 
 
 ## Installez Docker Desktop sur Windows
+
+N’ayant actuellement pas d’ordinateur sur Windows me permettant de faire tourner Docker, je vous partage ce tuto Youtube. Dès que j’aurais un moyen simple de le faire, je mettrais à jour ce cours.
+
+
+<iframe src="https://www.youtube.com/embed/SYMPIdMC2qo" frameborder="0"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+Félicitations, Docker Desktop est maintenant prêt à l’emploi sur votre ordinateur. La commande `docker run hello-world` est l’une des nombreuses commandes de Docker. Cette commande vous permet de lancer un conteneur avec l’image ayant le nom _hello-world_. Cette image est hébergée [sur ce repository DockerHub](https://hub.docker.com/_/hello-world).
 
 
 ---
@@ -101,5 +112,72 @@ Run 'docker COMMAND --help' for more information on a command.
 
 
 Si vous n’avez pas l’habitude, je vous invite à utiliser l’argument `--help` sur tous les programmes en CLI que vous utilisez. C’est souvent votre meilleur ami pour apprendre comment une commande fonctionne. Vous pouvez aussi avoir plus d’informations sur une commande en particulier via la docker `COMMAND --help` (c.f. la dernière ligne du bout de code ci-dessus).
+
+
+<br>
+
+
+Vous avez précédemment lancé la commande docker run hello-world. Pour afficher l’aide de cette commande, tapez `docker run –help`. Vous devriez avoir un résultat semblable à celui ci-dessous.
+
+
+```bash
+docker run --help
+
+
+Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+Run a command in a new container
+
+Options:
+  	--add-host list              	Add a custom host-to-IP mapping (host:ip)
+  -a, --attach list                	Attach to STDIN, STDOUT or STDERR
+  	--blkio-weight uint16        	Block IO (relative weight), between 10 and 1000, or 0 to disable (default 0)
+  	--blkio-weight-device list   	Block IO weight (relative device weight) (default [])
+  	--cap-add list               	Add Linux capabilities
+  	--cap-drop list              	Drop Linux capabilities
+  	--cgroup-parent string       	Optional parent cgroup for the container
+  	--cgroupns string            	Cgroup namespace to use (host|private)
+                                   	'host':	Run the container in the Docker host's cgroup 
+# [...]
+  -v, --volume list                	Bind mount a volume
+  	--volume-driver string       	Optional volume driver for the container
+  	--volumes-from list          	Mount volumes from the specified container(s)
+  -w, --workdir string             	Working directory inside the container
+```
+
+
+Je sais ce que vous vous dites : ça fait beaucoup d’informations pour une simple commande. Vous n’avez pas besoin de tout savoir et de tout connaître. Il faut juste savoir que ça existe et comment accéder à cette information. Comme la description le précise, la commande `docker run` permet de lancer une commande dans un nouveau conteneur.
+
+
+---
+
+<br>
+
+
+## Appréhendez la ligne de commande de Docker
+
+Pour récupérer une image Docker NodeJS, la première est de savoir où et comment la récupérer. Pour le “où”, normalement, vous ne devriez pas être surpris si je vous parle de Dockerhub.
+
+
+---
+
+<br>
+
+
+## Lancez et manipulez votre conteneur Node.js
+
+Pour récupérer une image Docker NodeJS, la première est de savoir où et comment la récupérer. Pour le “où”, normalement, vous ne devriez pas être surpris si je vous parle de Dockerhub.
+
+
+---
+
+<br>
+
+
+## Résumé
+
+- Il est important de bien faire la différence entre une image et un conteneur Docker. Essayez, notamment au début, de toujours vous poser la question si vous manipulez une image ou un conteneur. Vous pouvez avoir 10, 20, 30 conteneurs qui utilisent la même image.
+- L’interface en ligne de commandes (le CLI) de Docker vous donne beaucoup d’informations sur comment utiliser Docker. Prenez l’habitude d’utiliser l’option `--help`. Par exemple, `docker –help`, `docker volume –help`, etc.
+- Essayez d’utiliser le moins possible les commandes abrégées. Par exemple, `docker container ls` au lieu de `docker ps`. Cela va vous permettre de mieux comprendre ce que vous manipulez.
 
 </article>
