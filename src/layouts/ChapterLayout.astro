@@ -228,6 +228,26 @@ const fullNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${nextCha
   const $sectionLinks = document.querySelectorAll(".section-link")
 
 
+  function scrollToTitle() {
+    $sectionLinks.forEach(link => {
+      link.addEventListener("click", event => {
+        event.preventDefault(); // Empêche le saut instantané
+
+        const href = link.getAttribute("href");
+        if (!href) return;
+
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start" // ou "center" si tu préfères centrer le titre
+          });
+        }
+      });
+    });
+  }
+
+
   function onScroll() {
     let closestSection = null;
     let minDistance = Infinity;
@@ -257,5 +277,10 @@ const fullNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${nextCha
 
   window.addEventListener("scroll", function() {
     onScroll()
+  })
+
+
+  window.addEventListener("DOMContentLoaded", function() {
+    scrollToTitle()
   })
 </script>
