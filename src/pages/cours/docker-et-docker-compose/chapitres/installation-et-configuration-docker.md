@@ -5,7 +5,7 @@ title: Installez et configurez Docker Desktop
 description: Une nouvelle super description dédiée à Docker
 
 previousChapterLink: decouverte-docker
-# nextChapterLink: installation-et-configuration-docker
+nextChapterLink: presentation-projet-fil-rouge
 ---
 
 <artice>
