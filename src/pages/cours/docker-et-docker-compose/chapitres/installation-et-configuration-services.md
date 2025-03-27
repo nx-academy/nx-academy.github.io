@@ -6,6 +6,10 @@ description: Une nouvelle super description dédiée à Docker
 
 previousChapterLink: gestion-reseau-infrastructure
 nextChapterLink: developpement-environnement-conteneurisation
+
+chapterNumber: 1
+sectionNumber: 3
+id: 7
 ---
 
 <article>

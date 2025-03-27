@@ -6,6 +6,10 @@ description: Une nouvelle super description dédiée à Docker
 
 previousChapterLink: presentation-projet-fil-rouge
 nextChapterLink: creation-premier-docker-compose
+
+chapterNumber: 1
+sectionNumber: 2
+id: 4
 ---
 
 <article>

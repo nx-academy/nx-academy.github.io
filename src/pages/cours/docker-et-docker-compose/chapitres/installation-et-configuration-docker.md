@@ -6,6 +6,10 @@ description: Une nouvelle super description dédiée à Docker
 
 previousChapterLink: decouverte-docker
 nextChapterLink: presentation-projet-fil-rouge
+
+chapterNumber: 2
+sectionNumber: 1
+id: 2
 ---
 
 <artice>
@@ -228,7 +232,11 @@ Pour récupérer une image Docker NodeJS, la première est de savoir où et comm
 
 ---
 
+
 <br>
+
+![Un vendeur de journaux dans une rue, pixel art](/vendeur-journaux.webp)
+
 
 
 ## Résumé

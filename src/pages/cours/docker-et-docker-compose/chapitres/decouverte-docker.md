@@ -5,6 +5,10 @@ title: Découvrez Docker
 description: Une super description liée à ce chapitre.
 
 nextChapterLink: installation-et-configuration-docker
+
+chapterNumber: 1
+sectionNumber: 1
+id: 1
 ---
 
 <article>
@@ -207,7 +211,7 @@ Dans ce cours, on utilisera DockerHub mais sachez que les règles d’utilisatio
 <br>
 
 
-![Un technicien en train de régler des pipelines de gaz dans le désert, pixel art](/vendeur-journaux.webp)
+![Un vendeur de journaux dans une rue, pixel art](/vendeur-journaux.webp)
 
 
 ## Résumé

@@ -1,21 +1,52 @@
 ---
-import BaseLayout from "../../../layouts/BaseLayout.astro"
+import BaseLayout from "../../../layouts/BaseLayout.astro";
 
-const pageTitle = "Conteneurisez vos applications avec Docker"
-const pageDescription = "Une super description"
+import type { Chapter } from "../../../types/Chapter";
+
+const pageTitle = "Conteneurisez vos applications avec Docker";
+const pageDescription = "Une super description";
+
+const courseChapters = Object.values(
+  import.meta.glob("./chapitres/*.md", { eager: true })
+) as Chapter[];
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-    <div>
-        <h1>{pageTitle}</h1>
+  <div class="main-wrapper">
+    <h1>{pageTitle}</h1>
 
-        <h2>Contenu du cours</h2>
-        <ul>
+    <h2>Contenu du cours</h2>
+    <ul>
+      {
+        courseChapters
+          .sort(
+            (chapter1, chapter2) =>
+              chapter1.frontmatter.id -
+              chapter2.frontmatter.id
+          )
+          .map((chapter) => (
             <li>
-                <a href="/cours/docker-et-docker-compose/chapitres/decouverte-docker">
-                    Découvrez Docker
-                </a>
+              <a href={chapter.url}>{chapter.frontmatter.title}</a>
             </li>
-        </ul>
-    </div>
+          ))
+      }
+    </ul>
+  </div>
 </BaseLayout>
+
+<style>
+  .main-wrapper {
+    max-width: 1100px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .main-wrapper a {
+    color: #bababa;
+
+    &:hover {
+      color: #4effa0;
+    }
+  }
+</style>
