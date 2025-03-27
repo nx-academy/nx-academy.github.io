@@ -179,10 +179,10 @@ Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 À ce stade du cours, il est possible que vous soyez encore perdu entre les images et les conteneurs. C’est parfaitement normal. On passe tous par cette étape (en tout cas, j’y suis passé ^^). Une image Docker est comme une empreinte digitale ou un moule ; souvenez-vous de l’exemple des gâteaux. Votre image est prête à l’emploi mais elle ne “tourne” pas.
 
 
-Pour exécuter le code ou le programme contenu dans votre image, vous avez besoin de la faire tourner dans un conteneur. La commande docker run permet donc de faire tourner l’image Docker dans un conteneur Docker. Le conteneur Docker correspond à votre gâteau 🙂.
+Pour exécuter le code ou le programme contenu dans votre image, vous avez besoin de la faire tourner dans un conteneur. La commande `docker run` permet donc de faire tourner l’image Docker dans un conteneur Docker. Le conteneur Docker correspond à votre gâteau 🙂.
 
 
-Dernier point essentiel : la commande docker run est une abréviation de la commande docker container run. Vous allez voir qu’il existe beaucoup de commandes abrégées. J’avoue ne pas être très fan de ces commandes abrégées. Elles ont tendance à nous faire oublier ce qu’on manipule, à savoir un conteneur, une image, un réseau, etc.
+Dernier point essentiel : la commande `docker run` est une abréviation de la commande `docker container run`. Vous allez voir qu’il existe beaucoup de commandes abrégées. J’avoue ne pas être très fan de ces commandes abrégées. Elles ont tendance à nous faire oublier ce qu’on manipule, à savoir un conteneur, une image, un réseau, etc.
 
 
 Durant tout le cours, je vais utiliser les commandes complètes, à savoir docker container run, docker container exec, docker image pull, etc. Cela devrait vous aider à accélérer votre apprentissage.
@@ -217,7 +217,43 @@ Maintenant que vous avez pris en main l’interface en ligne de commandes de Doc
 
 <br>
 
-Vous voyez le texte écrit en vert (en espérant que vous ne soyez pas daltonien 😀) : “Docker Official Image”. **Quand vous choisissez votre image sur DockerHub, essayez de privilégier les images officielles**. C’est un signe de qualité (et de sécurité), autrement dit, vous pouvez y aller les yeux fermés.
+Vous voyez le texte écrit en vert (en espérant que vous ne soyez pas daltonien 😀) : “Docker Official Image”. **Quand vous choisissez votre image sur DockerHub, essayez de privilégier les images officielles**. C’est un signe de qualité (et de sécurité), autrement dit, vous pouvez y aller les yeux fermés. D’ailleurs, le site de DockerHub l’explique lui aussi :
+
+<br>
+
+![Une capture d'écran montrant les avantages des images officielles selon Docker](/avantages-image-officielle-docker.png)
+
+
+<br>
+
+
+Cliquez sur la page de Node, vous devriez là encore avoir un résultat similaire à l’image ci-dessous.
+
+
+<br>
+
+![Une capture d'écran de l'image officielle de Node.JS sur DockerHub](/image-officielle-node-js.png)
+
+<br>
+
+
+Il y a beaucoup d’informations affichées à l’écran mais celle qui m’intéresse est située en haut à droite : `docker pull node`. **Cette commande va vous permettre de récupérer la dernière image de Node en date**. C’est l'abréviation de la commande `docker image pull node`. Ouvrez votre terminal et lancez cette commande. Cela va vous faire télécharger la dernière image Node, sauf si vous avez déjà récupéré cette image au préalable.
+
+Pour consulter les images présentes sur votre ordinateur, tapez la commande `docker image ls`.
+
+
+<br>
+
+```
+
+```
+
+<br>
+
+
+J’ai deux images sur mon ordinateur : node et hello-world. J’ai leur taille, le nom du repository et leur tag. Sachez que nous reviendrons sur la notion de tag d’ici peu de temps 😉.
+
+Le screencast ci-dessous reprend ce que je viens de faire mais en vidéo. Encore une fois, cela devrait vous permettre d’apprendre un peu plus vite. 
 
 
 ---
