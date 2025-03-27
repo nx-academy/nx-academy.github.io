@@ -244,14 +244,20 @@ Pour consulter les images présentes sur votre ordinateur, tapez la commande `do
 
 <br>
 
-```
+```bash
+docker image ls
 
+REPOSITORY	TAG   	IMAGE ID   	CREATED     	SIZE
+node      	latest	c080a37e3dd2   18 hours ago	949MB
+hello-world   latest	46331d942d63   12 months ago   9.14kB
 ```
 
 <br>
 
 
-J’ai deux images sur mon ordinateur : node et hello-world. J’ai leur taille, le nom du repository et leur tag. Sachez que nous reviendrons sur la notion de tag d’ici peu de temps 😉.
+J’ai deux images sur mon ordinateur : `node` et `hello-world`. J’ai leur taille, le nom du repository et leur tag. Sachez que nous reviendrons sur la notion de tag d’ici peu de temps 😉.
+
+<br>
 
 Le screencast ci-dessous reprend ce que je viens de faire mais en vidéo. Encore une fois, cela devrait vous permettre d’apprendre un peu plus vite. 
 
@@ -263,8 +269,60 @@ Le screencast ci-dessous reprend ce que je viens de faire mais en vidéo. Encore
 
 ## Lancez et manipulez votre conteneur Node.js
 
-Pour récupérer une image Docker NodeJS, la première est de savoir où et comment la récupérer. Pour le “où”, normalement, vous ne devriez pas être surpris si je vous parle de Dockerhub.
+Commencez par taper la commande `docker container –help` dans votre terminal.
 
+<br>
+
+```bash
+docker container --help
+
+
+Usage:  docker container COMMAND
+
+Manage containers
+
+Commands:
+  attach  	Attach local standard input, output, and error streams to a running container
+  commit  	Create a new image from a container's changes
+  cp      	Copy files/folders between a container and the local filesystem
+  # [...]
+  unpause 	Unpause all processes within one or more containers
+  update  	Update configuration of one or more containers
+  wait    	Block until one or more containers stop, then print their exit codes
+
+Run 'docker container COMMAND --help' for more information on a command.
+```
+
+Essayez de lire un peu ce que fait chacune des commandes. **Sachez qu’on utilise régulièrement les commandes** `docker container exec`, `docker container run`, `docker container ls` et `docker container kill`. Lisez un peu la documentation de chacune de ces commandes avec le *--help*. Pour être tout à fait honnête, je trouve la documentation du CLI de Docker particulièrement bien fournie et claire.
+
+<br>
+
+On va maintenant lancer notre premier conteneur Node.js. Vérifiez que vous avez bien l’image de Node sur votre ordinateur via la commande docker image ls. Puis, écrivez docker container run node ls dans votre terminal et appuyez sur entrer.
+
+```bash
+docker container run node ls
+
+bin
+boot
+dev
+etc
+home
+# [...]
+usr
+var
+```
+
+Cette commande va vous permettre d'exécuter la commande ls à l’intérieur de votre conteneur. Vous êtes actuellement à la racine de votre linux. Pour afficher le contenu du répertoire bin, tapez docker container run node ls bin. Si vous connaissez un peu linux et la ligne de commandes, vous ne devriez pas être trop perdu.
+
+<br>
+
+Admettons maintenant que vous souhaitez connaître la version de node de votre conteneur Docker. Vous pouvez le faire via la commande docker container run node node -v.
+
+```bash
+docker container run node node -v
+
+v19.8.1
+```
 
 ---
 
