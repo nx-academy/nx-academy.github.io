@@ -16,7 +16,7 @@ id: 2
 
 # Installez et configurez Docker Desktop
 
-![Des personnes réalisant une réunion dans un bureau, pixel art](/reunion-point-webp)
+![Des personnes réalisant une réunion dans un bureau, pixel art](/homme_bureau_heureux.webp)
 
 ## Découvrez Docker Desktop
 
