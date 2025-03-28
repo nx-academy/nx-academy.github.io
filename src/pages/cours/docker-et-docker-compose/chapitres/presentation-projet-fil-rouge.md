@@ -16,7 +16,7 @@ id: 3
 
 # Prenez en main le projet fil rouge
 
-![Un superhero regardant une ville de nuit, pixel art](/femme-heureuse-bureau.webp)
+![Un superhero regardant une ville de nuit, pixel art](/docker-port.webp)
 
 ## Découvrez le projet fil rouge
 
