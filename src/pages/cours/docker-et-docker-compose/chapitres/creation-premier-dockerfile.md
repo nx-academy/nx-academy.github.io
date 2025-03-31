@@ -128,6 +128,134 @@ Voici un récapitulatif de ce que je viens de vous dire.
 
 Bon, ça fait pas mal de choses ! Si vous voyez que tout ne rentre pas du premier coup, je vous invite à revenir sur ce chapitre dans quelques jours ou après avoir pratiqué un peu. Vous serez heureux de voir que vous avez compris plus de choses que vous ne le pensez. Nous verrons aussi dans les prochains chapitres comment optimiser ses images et la sécurité. Mais pour l’instant, allons-y étape par étape.
 
+---
+
+<br>
+
+![Un vigile à l'entrée d'une boite de nuit, pixel art](/homme-magasin-voiture.webp)
+
+## Choisissez la bonne image Docker
+
+Parlons maintenant un peu des types et des tags d’image Docker. Je suis assez content de pouvoir vous en parler dès maintenant. Le choix de l’image et du tag est souvent quelque chose sur lequel on rencontre quelques difficultés quand on apprend Docker. **Il existe plusieurs bonnes pratiques à suivre quand on travaille avec des images Docker**.
+
+**La première bonne pratique est d’essayer de garder votre image la plus petite possible**. Une image est dite “petite”, on dit aussi légère, quand son nombre de mega-bites est faible. Plus vous choisissez une petite image, plus le nombre de librairies qu’elle embarque est limité. Cela vous permet non seulement de déployer cette image plus rapidement, autrement dit le build prend moins de temps, mais aussi de ne pas embarquer des libraires Linux inutiles. Par exemple, vous n’avez pas forcément besoin que Git, Python ou des libraires réseaux soient installés sur votre image. **Embarquer peu de librairies est non seulement utile pour le temps de build et la taille de l’image mais aussi pour la sécurité**. Qui dit moins de librairies dit moins de librairies à devoir mettre à jour.
+
+<br>
+
+Ok, maintenant, tapez la commande :
+
+
+```bash
+docker system prune –all
+```
+
+**Cette commande va vous permettre de nettoyer votre système et de supprimer non seulement tous vos conteneurs mais aussi toutes vos images**. C’est une commande que j’utilise assez régulièrement, en plus des commandes `docker container prune` et `docker image prune`. Vous pouvez faire un `docker image ls` avant de passer à la suite, vous ne devriez plus avoir d’images sur votre ordinateur.
+
+<br>
+
+Lancez ensuite ces deux commandes :
+
+```bash
+docker image pull node
+
+docker image pull node:alpine
+```
+
+<br>
+
+Maintenant, lancez la commande docker image ls. Vous devriez avoir un résultat similaire au mien :
+
+```bash
+REPOSITORY   TAG   	IMAGE ID   	CREATED    	SIZE
+node     	alpine	4c67af820943   17 hours ago   175MB
+node     	latest	c080a37e3dd2   6 days ago 	949MB
+```
+
+Vous pouvez voir que l’image alpine est beaucoup plus petite que l’image de base de Node. [L’image de Node Alpine](https://github.com/nodejs/docker-node/blob/0adf29a4daa744d828d23a8de4c4397dc43d5761/18/alpine3.17/Dockerfile) correspond [à la distribution Alpine Linux](https://www.alpinelinux.org/). Il s’agit d’une distribution Linux particulièrement petite. D’ailleurs, vous pouvez faire un essai.
+
+<br>
+
+Tapez dans votre terminal la commande :
+
+```bash
+docker container run -ti node bash
+```
+
+Cette commande lance le conteneur Docker de l’image Node et vous lance dans un terminal bash.
+
+<br>
+
+Vous devriez avoir un résultat similaire.
+
+```bash
+root@530bbeb24740:/#
+```
+
+Tapez maintenant `git`. Vous verrez que la documentation de git apparaît. Tapez `exit` pour sortir du conteneur.
+
+<br>
+
+Pour l’image alpine, les commandes sont légèrement différentes.
+
+```bash
+docker container run -ti node:alpine bin/sh
+
+# Voici que m’affiche mon conteneur
+/ #
+```
+
+Essayez de taper git maintenant. Vous devriez avoir la réponse `bin/sh: git: not found`. **Et oui, git n’est pas installé par défaut sur les images alpine !** Vous pouvez taper exit pour sortir du conteneur.
+
+<br>
+
+Nous allons travailler, pour le moment, avec une image type buster-slim où Buster avec une image d’une distribution Debian et slim est une version particulièrement légère. C’est une bonne image pour débuter avec Docker. Nous verrons dans les derniers chapitres du cours comment optimiser notre image pour la production. J’en profite pour vous recommander [un excellent article Medium](https://medium.com/swlh/alpine-slim-stretch-buster-jessie-bullseye-bookworm-what-are-the-differences-in-docker-62171ed4531d) qui présente les différences entre les différentes images Docker.
+
+Pour résumer ce que nous venons de voir. **Essayez de toujours prendre l’image la plus petite**. Je vous recommande d’utiliser *une buster* ou *une buster-slim* pour commencer. Cela va vous permettre de construire votre image et de rendre fonctionnel votre projet. Je m’occupe généralement de l’optimisation dans un deuxième.
+
+
+---
+
+
+Maintenant, parlons de la deuxième bonne pratiques : les tags !
+
+Jusqu’à présent, nous avons manipulé les images suivantes : *ubuntu:18.04*, *node* et *node-alpine*. Les tags des images sont situés sur la partie droite, autrement dit après les : Notre image ubuntu a le tag 18.04. Nous lui disons donc de récupérer l’image Ubuntu ayant ce tag particulier. Je vous entends déjà derrière votre écran me dire, “_Merci Thomas, j’avais compris ça. Par contre, je ne comprends pas pourquoi les deux images node n’ont pas de tags_”.
+
+En fait, **ces deux images ont un tag implicite, le tag `latest`. Ce tag correspond à la dernière version de l’image**. Sur le papier, ça peut sembler une bonne idée de toujours utiliser ce tag implicite : qui ne rêve pas d’avoir une image la plus à jour possible. C’est idéal niveau sécurité et on sait qu’on est toujours à jour.
+
+En pratique, ce n’est pas vraiment une bonne idée. Admettons que vous utilisez le tag latest, la version de node utilisée serait la 19. Puis, une nouvelle version majeure de node sort, la 20. Votre projet risque de ne plus fonctionner correctement. **Il faut donc de manière générale éviter d’utiliser le tag latest dans les Dockerfile**. Dans le cadre de notre projet fil rouge, nous devrons utiliser la version 12.22 de NodeJS. Il nous faudra le spécifier dans le Dockerfile. Sauf contres indications, pour le projet fil rouge par exemple, j’ai tendance à utiliser les versions LTS, pour Long-term Support. C’est là que j’aurais le meilleur ratio entre stabilité et nouvelles fonctionnalités du langage. Actuellement, j’utiliserais donc l’image `node:18.15-buster-slim`.
+
+---
+
+<br>
+
+![Un vigile à l'entrée d'une boite de nuit, pixel art](/homme-magasin-voiture.webp)
+
+## Exercez-vous
+
+Pour rappel, [voici la problématique](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/1) que nous essayons de résoudre dans ce chapitre. Je vous demande de créer un Dockerfile avec la version 12.22 de NodeJS et de lancer la fonction `sayHello` contenu dans le fichier `app.js`.
+
+Amusez-vous bien !
+
+<br>
+
+**screencast**
+
+<br>
+
+Le code source contenant la solution de cet exercice se trouve [sur la branche `partie-2/chapitre-1-fin`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-1-fin).
+
+---
+
+<br>
+
+![Un vigile à l'entrée d'une boite de nuit, pixel art](/homme-magasin-voiture.webp)
+
+## Résumé
+
+- Un Dockerfile correspond au squelette de votre application. C’est une série d’étapes dont le rôle est de télécharger un environnement d'exécution (le runtime), d’ajouter les fichiers requis et d’installer les librairies.
+- La commande `docker image build` vous permet de builder une image Docker à partir d’un Dockerfile. Vous pouvez lui donner un nom avec l’option -t ou --tag.
+- La commande `docker container run` vous permet de lancer un conteneur. Vous devez soit lui donner l’id de l’image, soit son nom. Vous pouvez utiliser docker image ls pour retrouver les images présentes sur votre ordinateur.
+- De manière générale, il est important d’utiliser les plus petites images possibles, autrement dit celles qui embarquent le moins de librairies. Vous pouvez commencer avec des images type buster-slim. Nous verrons dans un prochain chapitre comment optimiser notre Dockerfile pour la production.
 
 </article>
 
