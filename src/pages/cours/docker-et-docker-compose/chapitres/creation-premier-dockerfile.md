@@ -75,5 +75,59 @@ CMD [ "echo", "hello, world" ]
 Créez un fichier appelé Dockerfile dans le dossier du projet fil rouge. Votre arborescence devrait ressembler à ça. Recopiez le code ci-dessus dans ce fichier.
 
 
+<br>
+
+![Une capture d'écran de l'arborescence du projet sous VsCode](/arborescence-projet.png)
+
+<br>
+
+Je vais maintenant vous demander de lancer deux commandes. Pas d’inquiètude, je vous expliquerais juste après ce qu’elles font. Cela dit, n’oubliez pas d’utiliser `--help`, par exemple `docker image –help`.
+
+<br>
+
+```bash
+# Commande 1
+docker image build . -t my-first-app
+
+# Commande 2
+docker container run my-first-app
+```
+
+<br>
+
+Vous devriez normalement voir s’afficher dans votre console *hello, world*. **Vous venez, sans le savoir, de builder votre image Docker à partir d’un Dockerfile** et de lancer votre premier contenu à partir d’une image que vous avez créée.
+
+
+Il y a deux choses importantes à noter ici :
+
+- **Le build est une étape qui prend généralement un peu de temps**. En effet, si l’image de base n’est pas présente sur votre ordinateur, vous allez devoir la télécharger (la puller) depuis un registry Docker. Puis, vous devrez potentiellement installer des librairies.
+- **Le lancement du conteneur par contre est quasiment instantané**. Voici la grande force de la conteneurisation. D’ailleurs, vous pouvez vous amuser à lancer le conteneur encore et encore, cela ne changera en rien sa rapidité d’exécution.
+
+Je vais profiter du screencast ci-dessous pour reprendre les concepts dont je viens de parler mais je vais aussi vous présenter les instructions du Dockerfile et vous donner quelques exemples.
+
+À tout de suite !
+
+<br>
+
+**screencast**
+
+<br>
+
+Vous venez de voir comment construire (builder) et lancer notre image. Je vous ai aussi présenté les quatre instructions de notre Dockerfile.
+
+<br>
+
+Voici un récapitulatif de ce que je viens de vous dire.
+
+- **L’instruction `FROM` demande à Docker de récupérer une image depuis un registry Docker**, en l'occurrence [de ce registry](https://hub.docker.com/_/ubuntu). Nous récupérons plus précisément la version 18.04 d’Ubuntu. Cette partie 18.04 correspond au tag de l’image. Nous verrons les tags un peu plus bas dans ce chapitre.
+- **L’instruction `COPY` sert à copier des fichiers de la machine hôte**, ici mon ordinateur, vers l’image. Je lui dis ici de prendre tous les fichiers et dossiers contenus dans mon répertoire courant et de tous les mettre dans un dossier nommé app. Notre dossier app contiendra les fichiers `.gitignore`, `app.js`, `Dockerfile` et `README.md`. Si vous n’êtes pas trop à l’aise avec Linux, sachez que /app sera situé à la racine de mon image, autrement dit au même endroit que les dossiers bin, etc, etc.
+- **L’instruction `WORKDIR` me permet de me positionner dans un répertoire**. C’est un peu comme un `cd ./app`. Il va me permettre de spécifier le dossier dans lequel je travaille.
+- **L’instruction `CMD` me permet de lancer une commande par défaut**. Ici, la commande par défaut est `echo hello, world`. Elle pourrait être node start, npm run dev, etc. N’oubliez pas que je peux surcharger cette commande quand je lance mon conteneur, `docker container run my-first-app ls | grep app` par exemple.
+
+<br>
+
+Bon, ça fait pas mal de choses ! Si vous voyez que tout ne rentre pas du premier coup, je vous invite à revenir sur ce chapitre dans quelques jours ou après avoir pratiqué un peu. Vous serez heureux de voir que vous avez compris plus de choses que vous ne le pensez. Nous verrons aussi dans les prochains chapitres comment optimiser ses images et la sécurité. Mais pour l’instant, allons-y étape par étape.
+
+
 </article>
 
