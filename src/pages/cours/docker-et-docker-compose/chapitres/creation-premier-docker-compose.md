@@ -147,5 +147,54 @@ Notre fichier docker-compose comprend deux services : db et wordpress. Chaque se
 
 Ces quatre propriétés sont très courantes. Elles reviennent dans beaucoup de fichiers docker-compose. Habituez-vous à les voir et à comprendre leur sens. Encore une fois, il n’y a pas besoin de tout connaître. Il faut surtout savoir bien chercher l’information. D’ailleurs, vous pouvez trouver la référence de ces propriétés [sur la documentation officielle de Docker](https://docs.docker.com/compose/compose-file/compose-file-v3/). **Pour info, j’ai tapé _docker compose file reference_ dans mon moteur de recherche**. Comme vous pouvez le constater, il existe beaucoup de propriétés.
 
+<br>
+
+Regardons maintenant le service db. Il contient 6 propriétés dont certaines que nous venons de voir.
+
+- **`image`** ; nous allons utiliser une image de MariaDB, une alternative à MySQL. On utilisera la version 10.6. Je vous invite à regarder la documentation de MariaDB sur DockerHub. Elle propose une documentation très complète et soignée.
+- **`command` surcharge la commande par défaut pour lancer une autre commande**. Souvenez-vous, c’est l’instruction CMD que nous avons vu dans le Dockerfile dans le chapitre précédent.
+- **volumes est une propriété intéressante**. D’ailleurs, un chapitre complet est dédié aux volumes Docker. **Les volumes vous permettent de partager des fichiers et/ou des configurations entre votre ordinateur (souvenez-vous, on l’appelle l’hôte) et les conteneurs**. Les volumes fonctionnent toujours en deux parties : celle de gauche (avant le “:”) qui correspond au stockage de la machine hôte et celle de droite (après le “:”) qui correspond au stockage sur le conteneur. Il existe pas mal de subtilités sur les volumes. Nous verrons ça ensemble dans un prochain chapitre.
+- **`restart`** qui dicte la politique de redémarrage des conteneurs. Si vous ne le précisez pas, les conteneurs ne redémarrent pas par défaut.
+- **`environment`** qui sont nos fameuses variables d’environnement. Notez qu’elles ne sont pas choisies au hasard : elles proviennent de la documentation officielle de l’image MariaDB.
+- **`expose` qui permet d’exposer des ports dans le conteneur mais pas sur l’hôte**. Autrement dit, si j’avais utilisé expose et non ports un peu plus haut, je n’aurais pas été capable d’accéder à mon site WordPress. On reviendra sur ces notions dans le chapitre dédié au networking mais retenez simplement que si j’utilise expose et non ports, sur le port 3000 par exemple, le port 3000 de mon ordinateur restera disponible. expose rend le port disponible à l’intérieur de mon infrastructure Docker et non à l’extérieur. 
+
+J’ai conscience que je suis en train de vous donner beaucoup d’informations et que vous ne vous souviendrez pas forcément de tout. C’est absolument normal. Le projet fil rouge est là pour vous permettre de mettre en application mais il est aussi important que vous relisiez ce cours d’ici quelques jours, semaines et mois.
+
+J’en profite pour vous donner [une ressource complémentaire à lire](https://www.educative.io/blog/docker-compose-tutorial). Elle comporte aussi un peu de contenu sur Docker avant de parler de Docker Compose (mais bon, c’est toujours bien d’avoir un rafraîchissement 🙂).
+
+On va maintenant s’attaquer à créer le Docker Compose de notre projet.
+
+
+---
+
+<br>
+
+![Un vigile à l'entrée d'une boite de nuit, pixel art](/homme-magasin-voiture.webp)
+
+## Faites le lien entre votre Dockerfile et votre docker-compose
+
+Pensez bien à vous positionner [sur la branche `partie-2/chapitre-2-debut`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-2-debut) avant de passer à la suite.
+
+<br>
+
+J’ai ajouté et modifié quelques fichiers, notamment :
+
+- Le fichier `docker-compose.yml`. il est actuellement vide, ce sera la base de notre infrastructure. Nous n’aurons pour le moment qu’un seul service.
+- Le fichier `Dockerfile` sur lequel j’ai supprimé la commande par défaut. On passera la commande directement à notre service.
+- Le fichier `app.js` qui importe une API Rest et vous retourne le message hello, world quand vous vous rendez sur la route /.
+
+<br>
+
+Je vous invite à suivre le screencast ci-dessous dans lequel vous allez voir comment travailler avec des images locales, les commandes et propriétés à connaître. Cela va me permettre de vous montrer une manière de travailler avec Docker. Vous trouverez un résumé après le screencast des éléments essentiels.
+
+<br>
+
+**screencast**
+
+<br>
+
+Voici les éléments essentiels à retenir de cette vidéo :
+
+
 </article>
 
