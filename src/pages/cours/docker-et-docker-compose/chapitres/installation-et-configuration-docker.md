@@ -6,13 +6,17 @@ description: Une nouvelle super description dédiée à Docker
 
 previousChapterLink: decouverte-docker
 nextChapterLink: presentation-projet-fil-rouge
+
+chapterNumber: 2
+sectionNumber: 1
+id: 2
 ---
 
 <artice>
 
 # Installez et configurez Docker Desktop
 
-![Des personnes réalisant une réunion dans un bureau, pixel art](/reunion-point-webp)
+![Un superhero regardant une ville de nuit, pixel art](/docker-port.webp)
 
 ## Découvrez Docker Desktop
 
@@ -175,10 +179,10 @@ Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 À ce stade du cours, il est possible que vous soyez encore perdu entre les images et les conteneurs. C’est parfaitement normal. On passe tous par cette étape (en tout cas, j’y suis passé ^^). Une image Docker est comme une empreinte digitale ou un moule ; souvenez-vous de l’exemple des gâteaux. Votre image est prête à l’emploi mais elle ne “tourne” pas.
 
 
-Pour exécuter le code ou le programme contenu dans votre image, vous avez besoin de la faire tourner dans un conteneur. La commande docker run permet donc de faire tourner l’image Docker dans un conteneur Docker. Le conteneur Docker correspond à votre gâteau 🙂.
+Pour exécuter le code ou le programme contenu dans votre image, vous avez besoin de la faire tourner dans un conteneur. La commande `docker run` permet donc de faire tourner l’image Docker dans un conteneur Docker. Le conteneur Docker correspond à votre gâteau 🙂.
 
 
-Dernier point essentiel : la commande docker run est une abréviation de la commande docker container run. Vous allez voir qu’il existe beaucoup de commandes abrégées. J’avoue ne pas être très fan de ces commandes abrégées. Elles ont tendance à nous faire oublier ce qu’on manipule, à savoir un conteneur, une image, un réseau, etc.
+Dernier point essentiel : la commande `docker run` est une abréviation de la commande `docker container run`. Vous allez voir qu’il existe beaucoup de commandes abrégées. J’avoue ne pas être très fan de ces commandes abrégées. Elles ont tendance à nous faire oublier ce qu’on manipule, à savoir un conteneur, une image, un réseau, etc.
 
 
 Durant tout le cours, je vais utiliser les commandes complètes, à savoir docker container run, docker container exec, docker image pull, etc. Cela devrait vous aider à accélérer votre apprentissage.
@@ -213,7 +217,49 @@ Maintenant que vous avez pris en main l’interface en ligne de commandes de Doc
 
 <br>
 
-Vous voyez le texte écrit en vert (en espérant que vous ne soyez pas daltonien 😀) : “Docker Official Image”. **Quand vous choisissez votre image sur DockerHub, essayez de privilégier les images officielles**. C’est un signe de qualité (et de sécurité), autrement dit, vous pouvez y aller les yeux fermés.
+Vous voyez le texte écrit en vert (en espérant que vous ne soyez pas daltonien 😀) : “Docker Official Image”. **Quand vous choisissez votre image sur DockerHub, essayez de privilégier les images officielles**. C’est un signe de qualité (et de sécurité), autrement dit, vous pouvez y aller les yeux fermés. D’ailleurs, le site de DockerHub l’explique lui aussi :
+
+<br>
+
+![Une capture d'écran montrant les avantages des images officielles selon Docker](/avantages-image-officielle-docker.png)
+
+
+<br>
+
+
+Cliquez sur la page de Node, vous devriez là encore avoir un résultat similaire à l’image ci-dessous.
+
+
+<br>
+
+![Une capture d'écran de l'image officielle de Node.JS sur DockerHub](/image-officielle-node-js.png)
+
+<br>
+
+
+Il y a beaucoup d’informations affichées à l’écran mais celle qui m’intéresse est située en haut à droite : `docker pull node`. **Cette commande va vous permettre de récupérer la dernière image de Node en date**. C’est l'abréviation de la commande `docker image pull node`. Ouvrez votre terminal et lancez cette commande. Cela va vous faire télécharger la dernière image Node, sauf si vous avez déjà récupéré cette image au préalable.
+
+Pour consulter les images présentes sur votre ordinateur, tapez la commande `docker image ls`.
+
+
+<br>
+
+```bash
+docker image ls
+
+REPOSITORY	TAG   	IMAGE ID   	CREATED     	SIZE
+node      	latest	c080a37e3dd2   18 hours ago	949MB
+hello-world   latest	46331d942d63   12 months ago   9.14kB
+```
+
+<br>
+
+
+J’ai deux images sur mon ordinateur : `node` et `hello-world`. J’ai leur taille, le nom du repository et leur tag. Sachez que nous reviendrons sur la notion de tag d’ici peu de temps 😉.
+
+<br>
+
+Le screencast ci-dessous reprend ce que je viens de faire mais en vidéo. Encore une fois, cela devrait vous permettre d’apprendre un peu plus vite. 
 
 
 ---
@@ -223,12 +269,68 @@ Vous voyez le texte écrit en vert (en espérant que vous ne soyez pas daltonien
 
 ## Lancez et manipulez votre conteneur Node.js
 
-Pour récupérer une image Docker NodeJS, la première est de savoir où et comment la récupérer. Pour le “où”, normalement, vous ne devriez pas être surpris si je vous parle de Dockerhub.
+Commencez par taper la commande `docker container –help` dans votre terminal.
 
+<br>
+
+```bash
+docker container --help
+
+
+Usage:  docker container COMMAND
+
+Manage containers
+
+Commands:
+  attach  	Attach local standard input, output, and error streams to a running container
+  commit  	Create a new image from a container's changes
+  cp      	Copy files/folders between a container and the local filesystem
+  # [...]
+  unpause 	Unpause all processes within one or more containers
+  update  	Update configuration of one or more containers
+  wait    	Block until one or more containers stop, then print their exit codes
+
+Run 'docker container COMMAND --help' for more information on a command.
+```
+
+Essayez de lire un peu ce que fait chacune des commandes. **Sachez qu’on utilise régulièrement les commandes** `docker container exec`, `docker container run`, `docker container ls` et `docker container kill`. Lisez un peu la documentation de chacune de ces commandes avec le *--help*. Pour être tout à fait honnête, je trouve la documentation du CLI de Docker particulièrement bien fournie et claire.
+
+<br>
+
+On va maintenant lancer notre premier conteneur Node.js. Vérifiez que vous avez bien l’image de Node sur votre ordinateur via la commande docker image ls. Puis, écrivez docker container run node ls dans votre terminal et appuyez sur entrer.
+
+```bash
+docker container run node ls
+
+bin
+boot
+dev
+etc
+home
+# [...]
+usr
+var
+```
+
+Cette commande va vous permettre d'exécuter la commande ls à l’intérieur de votre conteneur. Vous êtes actuellement à la racine de votre linux. Pour afficher le contenu du répertoire bin, tapez docker container run node ls bin. Si vous connaissez un peu linux et la ligne de commandes, vous ne devriez pas être trop perdu.
+
+<br>
+
+Admettons maintenant que vous souhaitez connaître la version de node de votre conteneur Docker. Vous pouvez le faire via la commande docker container run node node -v.
+
+```bash
+docker container run node node -v
+
+v19.8.1
+```
 
 ---
 
+
 <br>
+
+![Un vendeur de journaux dans une rue, pixel art](/vendeur-journaux.webp)
+
 
 
 ## Résumé

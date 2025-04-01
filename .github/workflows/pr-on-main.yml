@@ -1,0 +1,32 @@
+name: Test and check NX Website when creating a PR on main
+
+on:
+  pull_request:
+    branches: ["main"]
+    types:
+      - opened
+      - synchronize
+
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+
+jobs:
+  test-and-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checking out
+        uses: actions/checkout@v4
+      - name: Setting up Node 20
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: "npm"
+      - name: Installing dependencies
+        run: npm ci
+      - name: Building the app for testing purposes
+        run: npm run build
