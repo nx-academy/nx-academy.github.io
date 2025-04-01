@@ -15,7 +15,7 @@ permissions:
 
 
 jobs:
-  deploy:
+  test-and-check:
     runs-on: ubuntu-latest
 
     steps:
