@@ -195,6 +195,47 @@ Je vous invite à suivre le screencast ci-dessous dans lequel vous allez voir co
 
 Voici les éléments essentiels à retenir de cette vidéo :
 
+- La propriété services est optionnelle, mais reste importante. Elle vous permet de définir le niveau de compatibilité de votre fichier avec le moteur de Docker.
+- **La propriété build vous permet de builder une image à partir d’un fichier Dockefile**. C’est une propriété assez intéressante et je vous recommande [de lire la documentation](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-2/section-3).
+- **Les propriétés tty et stdin_open correspondent aux options -ti que vous lancez via Docker**. Elles permettent au conteneur de continuer à tourner et de pouvoir réaliser la communication entre mon ordinateur et le conteneur. [Voici un bon topic stackoverflow à ce sujet](https://stackoverflow.com/questions/58636607/how-to-read-understand-a-docker-compose-yml-and-what-the-stdin-open-true-tty).
+- **La commande docker compose exec me permet d'exécuter une commande sur un service**. Notez que j’utilise le nom du service défini dans le fichier docker compose. Ici, la commande `docker compose exec api bash` me permet d’ouvrir un terminal bash dans mon conteneur Docker.
+
+
+Votre code devrait maintenant correspondre [à celui de la branche `partie-2/chapitre-2/section-3`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-2/section-3). 
+
+
+---
+
+<br>
+
+![Un vigile à l'entrée d'une boite de nuit, pixel art](/homme-magasin-voiture.webp)
+
+## Exercez-vous
+
+Pour rappel, [voici la problématique](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/2) que nous essayons de résoudre dans ce chapitre. Vous devriez avoir tous les éléments à votre disposition. **Si vous coincez un peu, essayez de lire la documentation, notamment la partie `volumes`**. J’ai essayé de rendre la problématique la plus claire possible mais si vous pensez qu’elle n’est pas totalement claire, je vous invite à créer une issue sur le repository Curriculum.
+
+<br>
+
+**screencast**
+
+<br>
+
+Le code source contenant la solution de cet exercice se trouve [sur la branche `partie-2/chapitre-2-fin`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-2-fin). 
+
+L’application n’est pas encore accessible depuis l’extérieur de conteneur. Nous n’avons d’ailleurs même pas alloué de port dans le conteneur. La bonne nouvelle, c’est qu’on va voir ça ensemble dès le prochain chapitre.
+
+---
+
+<br>
+
+![Un vigile à l'entrée d'une boite de nuit, pixel art](/homme-magasin-voiture.webp)
+
+## Résumé
+
+- Le fichier docker-compose.yml représente le squelette de votre infrastructure. Son rôle est d’initialiser les services externes et de gérer les règles de communication entre l’ensemble des services.
+- En pratique, on passe souvent par docker-compose, notamment dans les environnements de développement locaux. Autrement dit, quand vous programmez sur votre machine.
+- Il existe de nombreuses propriétés pour les fichiers docker-compose. Il n’y a pas besoin de toutes les connaître. Voici la page de la documentation qui fait référence à toutes ces propriétés.
+
 
 </article>
 
