@@ -35,7 +35,7 @@ L’Intégration Continue (CI) est très orientée “code”. Son objectif est 
 
 <br>
 
-Le Déploiement Continu (CD) s’intéresse lui à la mise en production. On appelle ça aussi la livraison. Une fois que les modifications de votre code ont été testées et buildées, ces modifications vont pouvoir être déployées. L’objectif ici est de pouvoir déployer le plus facilement et le plus tranquillement possible. C’est une tâche qui est un peu redondante (et pas franchement passionnante). De ce fait, elle sera très souvent automatisée. Cela dit, ce n’est pas forcément tout le temps conseillé.
+**Le Déploiement Continu (CD) s’intéresse lui à la mise en production**. On appelle ça aussi la livraison. Une fois que les modifications de votre code ont été testées et buildées, ces modifications vont pouvoir être déployées. L’objectif ici est de pouvoir déployer le plus facilement et le plus tranquillement possible. C’est une tâche qui est un peu redondante (et pas franchement passionnante). Elle sera la plupart du temps automatisée. Cela dit, attention, une CD n’est pas tout le temps conseillé.
 
 En fonction de votre équipe et de votre projet, une CD peut complexifier votre projet et nécessite une plus grande surveillance. Il faut bien prendre en compte qu’en mettant en place une CD, vous aurez parfois des déploiements défectueux et qu’il faudra prévoir des plans de retour en arrière. Il est important de prendre ça en considération quand vous mettez en place votre pipeline CI/CD.
 
