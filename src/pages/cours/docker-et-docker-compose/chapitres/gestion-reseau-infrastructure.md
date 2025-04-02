@@ -220,7 +220,39 @@ Pour récapituler, vous pouvez soit :
 
 <br>
 
-Votre code devrait maintenant correspondre à celui [de la branche `partie-2/chapitre-3/section-3`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-3/section-3). 
+Votre code devrait maintenant correspondre à celui [de la branche `partie-2/chapitre-3/section-3`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-3/section-3).
+
+
+---
+
+<br>
+
+![Un vigile à l'entrée d'une boite de nuit, pixel art](/homme-magasin-voiture.webp)
+
+## Exercez-vous
+
+Pour rappel, [voici la problématique](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/3) que nous essayons de résoudre dans ce chapitre. Pensez bien [à partir de la branche `partie-2/chapitre-3/section-3`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-3/section-3).
+
+<br>
+
+**screencast**
+
+<br>
+
+Le code source contenant la solution de cet exercice se trouve [sur la branche `partie-2/chapitre-3-fin`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-3-fin).
+
+---
+
+<br>
+
+![Un vigile à l'entrée d'une boite de nuit, pixel art](/homme-magasin-voiture.webp)
+
+## Résumé
+
+- Les ports, ou numéros de port, font partie de la couche 4 (la couche transport) du modèle OSI. Les ports représentent les points d’entrée et et de sortie dans vos communications réseaux.
+- Les propriétés expose et ports sont utilisées pour établir des numéros de port.
+- Vous pouvez assigner des variables d'environnement à un conteneur Docker soit via la propriété environment, soit un `env_file` avec un fichier de variables d'environnements.
+- Il est recommandé de créer un fichier `.example.env` pour préciser les variables d'environnement requises.
 
 
 </article>
