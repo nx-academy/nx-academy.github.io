@@ -124,17 +124,27 @@ const fullNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${nextCha
     border-top: 1px solid #eee;
     margin-top: 4rem;
     padding-top: 4rem;
+    width: 100%;
   }
 
   .buttons-group {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    width: max-content;
+    width: 100%;
+
+    a {
+      width: 100%;
+      text-align: center;
+    }
   }
 
   .end-chapter-wrapper .buttons-group {
-    flex-direction: row;
+    flex-direction: column;
+
+    @media screen and (min-width: 1024px) {
+      flex-direction: row;
+    }
   }
 
   .active {
@@ -143,6 +153,13 @@ const fullNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${nextCha
 </style>
 
 <style is:global define:vars={{ neonGreen, neonGreenLight, black }}>
+  .hero-image {
+    aspect-ratio: 1792 / 1024;
+    object-fit: cover;
+    width: 100%;
+    display: block;
+  }
+
   img {
     max-width: 100%;
     border-radius: 8px;
@@ -226,6 +243,18 @@ const fullNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${nextCha
 <script>
   const $sectionTitles = document.querySelectorAll(".main-wrapper h2")
   const $sectionLinks = document.querySelectorAll(".section-link")
+
+  document.querySelectorAll(".main-wrapper h2").forEach(h2 => {
+    const prev = h2.previousElementSibling;
+
+    if (prev?.tagName === "P" && prev.querySelector("img")) {
+      const prevImage = prev.querySelector("img")
+      
+      if (prevImage) {
+        prevImage.classList.add("hero-image");
+      }
+    }
+  });
 
 
   function scrollToTitle() {

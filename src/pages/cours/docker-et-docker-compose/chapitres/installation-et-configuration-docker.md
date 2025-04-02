@@ -16,7 +16,7 @@ id: 2
 
 # Installez et configurez Docker Desktop
 
-![Un superhero regardant une ville de nuit, pixel art](/docker-port.webp)
+![Un superhero regardant une ville de nuit, pixel art](/cours-docker/port-avec-conteneurs.png)
 
 ## Découvrez Docker Desktop
 
@@ -35,6 +35,7 @@ Si ça vous intéresse d’en apprendre un peu plus sur le fonctionnement intern
 
 <br>
 
+![Un superhero regardant une ville de nuit, pixel art](/cours-docker/installation-logiciel.png)
 
 ## Installez Docker Desktop sur macOS
 
@@ -51,6 +52,7 @@ Félicitations, Docker Desktop est maintenant prêt à l’emploi sur votre ordi
 
 <br>
 
+![Un superhero regardant une ville de nuit, pixel art](/cours-docker/installation-logiciel.png)
 
 ## Installez Docker Desktop sur Windows
 
@@ -67,6 +69,7 @@ Félicitations, Docker Desktop est maintenant prêt à l’emploi sur votre ordi
 
 <br>
 
+![Un superhero regardant une ville de nuit, pixel art](/cours-docker/hacker-sombre.png)
 
 ## Appréhendez la ligne de commande de Docker
 
