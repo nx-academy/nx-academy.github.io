@@ -247,9 +247,12 @@ const fullNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${nextCha
   document.querySelectorAll(".main-wrapper h2").forEach(h2 => {
     const prev = h2.previousElementSibling;
 
-    // Vérifie si c'est un <p> contenant une image
     if (prev?.tagName === "P" && prev.querySelector("img")) {
-      prev.querySelector("img").classList.add("hero-image");
+      const prevImage = prev.querySelector("img")
+      
+      if (prevImage) {
+        prevImage.classList.add("hero-image");
+      }
     }
   });
 
