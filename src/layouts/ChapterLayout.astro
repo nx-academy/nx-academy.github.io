@@ -143,6 +143,12 @@ const fullNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${nextCha
 </style>
 
 <style is:global define:vars={{ neonGreen, neonGreenLight, black }}>
+  .hero-image {
+    max-height: 408px;
+    width: 100%;
+    object-fit: cover;
+  }
+
   img {
     max-width: 100%;
     border-radius: 8px;
@@ -226,6 +232,15 @@ const fullNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${nextCha
 <script>
   const $sectionTitles = document.querySelectorAll(".main-wrapper h2")
   const $sectionLinks = document.querySelectorAll(".section-link")
+
+  document.querySelectorAll(".main-wrapper h2").forEach(h2 => {
+    const prev = h2.previousElementSibling;
+
+    // Vérifie si c'est un <p> contenant une image
+    if (prev?.tagName === "P" && prev.querySelector("img")) {
+      prev.querySelector("img").classList.add("hero-image");
+    }
+  });
 
 
   function scrollToTitle() {
