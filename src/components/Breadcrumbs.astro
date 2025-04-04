@@ -63,6 +63,10 @@ const { breadcrumbs } = Astro.props
         content: " > ";
     }
 
+    .links-wrapper li:last-of-type::after {
+        content: "";
+    }
+
     .links-wrapper li a {
         color: #fff;
         text-decoration: none;

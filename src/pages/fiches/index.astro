@@ -1,6 +1,5 @@
 ---
 import type { Cheatsheet } from "../../types/Cheatsheet";
-import { Breadcrumb } from "../../types/Breadcrumb"
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
@@ -13,16 +12,9 @@ const cheatsheets = Object.values(
 const title = "Nos dernières fiches techniques";
 const description =
   "Une fiche technique est un guide de référence pratique autour d'une notion. Nous vous expliquons les notions et des astuceq pour les intégrer facilement à vos projets.";
-
-const breadCrumbs: Breadcrumb[] = [
-  {
-    pageName: "NX Academy",
-    pageUrl: "/"
-  }
-]
 ---
 
-<BaseLayout title={title} description={description} breadcrumbs={breadCrumbs}>
+<BaseLayout title={title} description={description}>
   <div class="wrapper">
     <section>
       <h1>Nos dernières fiches techniques</h1>

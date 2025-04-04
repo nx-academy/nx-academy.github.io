@@ -1,4 +1,6 @@
 ---
+import type { Breadcrumb } from "../types/Breadcrumb"
+
 interface Props {
   frontmatter: {
     title: string;
@@ -16,9 +18,20 @@ const {
 const {
   frontmatter: { title, description },
 } = Astro.props;
+
+const breadCrumbs: Breadcrumb[] = [
+  {
+    pageName: "NX Academy",
+    pageUrl: "/",
+  },
+  {
+    pageName: "Fiches techniques",
+    pageUrl: "/fiches",
+  },
+];
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} breadcrumbs={breadCrumbs}>
   <div>
     <slot />
   </div>
