@@ -18,6 +18,7 @@ interface Props {
   url: string
 }
 
+import { handleLinks } from "../utils/handleLinks"
 import theme from "../config/theme";
 import BaseLayout from "./BaseLayout.astro";
 import Heading3 from "../components/Heading3.astro";
@@ -33,41 +34,26 @@ const {
   url
 } = Astro.props;
 
+const { baseUrl, breadcrumbs } = handleLinks(url)
+
 const sectionsHeading = headings.filter((heading) => heading.depth === 2);
 
-const previousNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${previousChapterLink}`
-const fullNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${nextChapterLink}`
+const previousFullChapterLink = `${baseUrl}/chapitres/${previousChapterLink}`
+const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
 
-const breadCrumbs: Breadcrumb[] = [
-  {
-    pageName: "NX Academy",
-    pageUrl: "/",
-  },
-  {
-    pageName: "Cours",
-    pageUrl: "/cours",
-  },
-  {
-    pageName: "Conteneurisez vos applications avec Docker",
-    pageUrl: "/cours/docker-et-docker-compose"
-  }
-];
-
-
-console.log(url)
 ---
 
-<BaseLayout title={title} description={description} breadcrumbs={breadCrumbs}>
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
   <div class="main-wrapper">
     <div>
         <slot />
         <div class="end-chapter-wrapper">
           <div class="buttons-group">
             {
-              previousChapterLink && <Button label="Revenir au chapitre précédent" type="secondary" href={previousNextChapterLink} />
+              previousChapterLink && <Button label="Revenir au chapitre précédent" type="secondary" href={previousFullChapterLink} />
             }
             {
-              nextChapterLink && <Button label="Passer au prochain chapitre" type="primary" href={fullNextChapterLink} />
+              nextChapterLink && <Button label="Passer au prochain chapitre" type="primary" href={nextFullChapterLink} />
             }
           </div>
         </div>
@@ -86,10 +72,10 @@ console.log(url)
         </ul>
         <div class="buttons-group">
           {
-            previousChapterLink && <Button label="Revenir au chapitre précédent" type="secondary" href={previousNextChapterLink} />
+            previousChapterLink && <Button label="Revenir au chapitre précédent" type="secondary" href={previousFullChapterLink} />
           }
           {
-            nextChapterLink && <Button label="Passer au prochain chapitre" type="primary" href={fullNextChapterLink} />
+            nextChapterLink && <Button label="Passer au prochain chapitre" type="primary" href={nextFullChapterLink} />
           }
         </div>
       </aside>
