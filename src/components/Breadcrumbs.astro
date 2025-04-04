@@ -1,17 +1,40 @@
 ---
+import type { Breadcrumb } from "../types/Breadcrumb"
 
+interface Props {
+    breadcrumbs?: Breadcrumb[]
+}
+
+// import type { Breadcrumb } from "../types/Breadcrumb"
+
+// const links: Breadcrumb[] = [
+//     {
+//         pageName: "NX Academy",
+//         pageUrl: "/"
+//     },
+//     {
+//         pageName: "Cours",
+//         pageUrl: "/cours"
+//     },
+//     {
+//         pageName: "Conteneurisez vos applications avec Docker",
+//         pageUrl: "/docker-et-docker-compose"
+//     }
+// ]
+
+const { breadcrumbs } = Astro.props
 ---
 
 <ul class="links-wrapper">
-    <li>
-        <a href="/">NX Academy</a>
-    </li>
-    <li>
-        <a href="/cours">Cours</a>
-    </li>
-    <li>
-        <a href="#">Conteneurisez vos applications avec Docker</a>
-    </li>
+    {
+        breadcrumbs && breadcrumbs.map(breadcrumb => (
+            <li>
+                <a href={breadcrumb.pageUrl}>
+                    {breadcrumb.pageName}
+                </a>
+            </li>
+        ))
+    }
 </ul>
 
 <style>
@@ -40,11 +63,9 @@
         content: " > ";
     }
 
-    .links-wrapper li:last-child::after {
-        content: "";
-    }
-
     .links-wrapper li a {
+        color: #fff;
+        text-decoration: none;
         transition: 0.4s color;
         
         &:hover {
