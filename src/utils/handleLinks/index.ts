@@ -18,7 +18,7 @@ export function handleLinks(url: string): Links {
         baseUrl = "/cours/ci-cd-github-actions"
         pageName = "Maîtrisez les pipelines CI/CD avec les GitHub Actions"
     } else {
-        throw new Error("Unknow course")
+        throw new Error("Unknown course")
     }
 
 
