@@ -15,6 +15,7 @@ interface Props {
     nextChapterLink?: string
   };
   headings: Heading[];
+  url: string
 }
 
 import theme from "../config/theme";
@@ -29,6 +30,7 @@ const {
 const {
   frontmatter: { title, description, nextChapterLink, previousChapterLink },
   headings,
+  url
 } = Astro.props;
 
 const sectionsHeading = headings.filter((heading) => heading.depth === 2);
@@ -52,7 +54,7 @@ const breadCrumbs: Breadcrumb[] = [
 ];
 
 
-console.log(Astro.props)
+console.log(url)
 ---
 
 <BaseLayout title={title} description={description} breadcrumbs={breadCrumbs}>
