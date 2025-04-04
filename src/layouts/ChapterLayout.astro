@@ -1,4 +1,6 @@
 ---
+import type { Breadcrumb } from "../types/Breadcrumb"
+
 type Heading = {
   depth: number;
   slug: string;
@@ -33,9 +35,24 @@ const sectionsHeading = headings.filter((heading) => heading.depth === 2);
 
 const previousNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${previousChapterLink}`
 const fullNextChapterLink = `/cours/docker-et-docker-compose/chapitres/${nextChapterLink}`
+
+const breadCrumbs: Breadcrumb[] = [
+  {
+    pageName: "NX Academy",
+    pageUrl: "/",
+  },
+  {
+    pageName: "Cours",
+    pageUrl: "/cours",
+  },
+  {
+    pageName: "Conteneurisez vos applications avec Docker",
+    pageUrl: "/cours/docker-et-docker-compose"
+  }
+];
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} breadcrumbs={breadCrumbs}>
   <div class="main-wrapper">
     <div>
         <slot />

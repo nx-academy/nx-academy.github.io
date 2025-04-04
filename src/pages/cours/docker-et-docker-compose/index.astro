@@ -1,4 +1,6 @@
 ---
+import type { Breadcrumb } from "../../../types/Breadcrumb"
+
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 
 import type { Chapter } from "../../../types/Chapter";
@@ -9,9 +11,20 @@ const pageDescription = "Une super description";
 const courseChapters = Object.values(
   import.meta.glob("./chapitres/*.md", { eager: true })
 ) as Chapter[];
+
+const breadCrumbs: Breadcrumb[] = [
+  {
+    pageName: "NX Academy",
+    pageUrl: "/",
+  },
+  {
+    pageName: "Cours",
+    pageUrl: "/cours",
+  },
+];
 ---
 
-<BaseLayout title={pageTitle} description={pageDescription}>
+<BaseLayout title={pageTitle} description={pageDescription} breadcrumbs={breadCrumbs}>
   <div class="main-wrapper">
     <h1>{pageTitle}</h1>
 
