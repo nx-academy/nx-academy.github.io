@@ -9,10 +9,14 @@
     <li>
         <a href="/cours">Cours</a>
     </li>
+    <li>
+        <a href="#">Conteneurisez vos applications avec Docker</a>
+    </li>
 </ul>
 
 <style>
     .links-wrapper {
+        margin-top: 16px;
         padding-left: 0;
         list-style-type: none;
         display: flex;
@@ -24,6 +28,8 @@
         align-items: center;
         justify-content: flex-start;
         margin-bottom: 8px;
+        flex-wrap: wrap;
+        max-width: 1100px;
     }
 
     .links-wrapper li {
@@ -36,5 +42,13 @@
 
     .links-wrapper li:last-child::after {
         content: "";
+    }
+
+    .links-wrapper li a {
+        transition: 0.4s color;
+        
+        &:hover {
+            color: #4effa0bb;
+        }
     }
 </style>
