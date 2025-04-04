@@ -111,6 +111,200 @@ Mais du coup, le multi-staging, c’est quoi ?
 
 ## Découpez votre image `web` avec le multi staging
 
-**Le principe du multi-staging en Docker est d’avoir plusieurs images dans votre fichier Dockerfile**. Souvenez-vous, l’instruction `FROM` vous permet de définir l’image sur laquelle vous souhaitez travailler. Grâce au multi-staging, vous aurez plusieurs instructions `FROM` à l’intérieur de vos fichiers Dockerfile.
+**Le principe du multi-staging en Docker est d’avoir plusieurs images dans votre fichier Dockerfile**. Souvenez-vous, l’instruction `FROM` vous permet de définir l’image sur laquelle vous souhaitez travailler. Grâce au multi-staging, vous aurez plusieurs instructions `FROM` à l’intérieur de vos fichiers Dockerfile. Par exemple :
+
+<br>
+
+```dockerfile
+FROM golang:1.16
+WORKDIR /go/src/github.com/alexellis/href-counter/
+RUN go get -d -v golang.org/x/net/html  
+COPY app.go ./
+RUN CGO_ENABLED=0 go build -a -installsuffix cgo -o app .
+
+FROM alpine:latest  
+RUN apk --no-cache add ca-certificates
+WORKDIR /root/
+COPY --from=0 /go/src/github.com/alexellis/href-counter/app ./
+CMD ["./app"]
+```
+
+<br>
+
+J’ai repris cet exemple de la documentation officielle de Docker. Regardez l’avant dernière instruction : `COPY --from=0 /go/src/github.com/alexellis/href-counter/app ./`.
+
+L’option `--from=0` me permet de récupérer dans l’étape contenant l’image golang. Cela dit, je ne suis pas forcément très fan de cette notation : on a un nombre magique, 0, qui se balade dans notre Dockerfile. Ce n’est pas forcément l’idéal pour s’y référer. **La bonne nouvelle, c’est qu’on va pouvoir donner des noms à ces étapes**.
+
+<br>
+
+Si on reprend l’exemple précédent : 
+
+<br>
+
+```dockerfile
+FROM golang:1.16 AS builder
+WORKDIR /go/src/github.com/alexellis/href-counter/
+RUN go get -d -v golang.org/x/net/html  
+COPY app.go ./
+RUN CGO_ENABLED=0 go build -a -installsuffix cgo -o app .
+
+FROM alpine:latest  
+RUN apk --no-cache add ca-certificates
+WORKDIR /root/
+COPY --from=builder /go/src/github.com/alexellis/href-counter/app ./
+CMD ["./app"] 
+```
+
+<br>
+
+Regardez la première instruction : `FROM golang:1.16 AS builder`. On donne un nom précis à cette étape, à savoir builder. Le mot AS est utilisé pour donner un alias. Puis, plus dans le Dockerfile, on peut s’y référer via l’option `COPY --from=builder /go/src/github.com/alexellis/href-counter/app ./`. **L’étape 0 est maintenant identifiée comme l’étape builder**.
+
+<br>
+
+Notre projet fil rouge comprend deux fichiers Dockerfile : un pour le front-end et l’autre pour le back-end. On va profiter de cette section pour faire le multi-stage de notre web-app. Voici le format qu’elle aura à la fin du screencast.
+
+<br>
+
+```dockerfile
+FROM node:12.22-buster-slim AS base
+WORKDIR /web
+
+COPY package*.json ./
+RUN npm ci
+COPY . .
+
+
+FROM base AS build
+RUN REACT_APP_API_URL=http://localhost:3000 npm run build
+
+
+FROM nginx:1.17 AS prod
+COPY --from=build /web/build /usr/share/nginx/html 
+```
+
+<br>
+
+Et voici le fichier docker-compose :
+
+<br>
+
+```yml
+version: "3"
+
+services:
+  web:
+    build:
+      context: web
+      target: prod
+    depends_on:
+      - database
+    ports:
+      - 80:80
+
+  api:
+    build: api
+    stdin_open: true
+    tty: true
+    depends_on:
+      - database
+    environment:
+      DB_URL: 'myUrl'
+      DB_NAME: 'mooc-db'
+      PORT: 3000
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@database:27017
+    env_file:
+      - ./.env
+    ports:
+      - 3000:3000
+
+  database:
+    image: mongo:3.7.9
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+```
+
+<br>
+
+On se retrouve tout de suite pour le screencast !
+
+<br>
+
+**screencast**
+
+<br>
+
+Le code source correspond à la fin du screencast se trouve [sur la branche `partie-3/chapitre-3/section-3`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-3/chapitre-3/section-3).
+
+---
+
+<br>
+
+![Un vigile à l'entrée d'une boite de nuit, pixel art](/homme-magasin-voiture.webp)
+
+## Exercez-vous
+
+Pour rappel, [voici la problématique](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/6) que nous essayons de résoudre dans ce chapitre.
+
+<br>
+
+**screencast**
+
+<br>
+
+Le code source contenant la solution de cet exercice se trouve [sur la branche partie-3/chapitre-3-fin](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-3/chapitre-3-fin).
+
+---
+
+<br>
+
+![Un vigile à l'entrée d'une boite de nuit, pixel art](/homme-magasin-voiture.webp)
+
+## Résumé
+
+- L’une des différences principales entre un environnement de développement et de production est sa taille. Les environnements de production sont plus légers. Cela leur permet de contenir non seulement moins de failles de sécurité mais aussi de “booter” plus rapidement.
+- Bien qu’il soit possible de créer un fichier Dockerfile par environnement, ce n’est pas forcément une pratique recommandée. Il est préférable d’avoir un seul fichier Dockerfile.
+- Le multi staging consiste à avoir un seul fichier Dockerfile et à lui donner des instructions spécifiques à un environnement. Par exemple, lance la commande `npm install –ci` plutôt que `npm install`. C’est le fichier docker-compose qui va vous permettre de sélectionner le “bon” environnement.
+
+---
+
+<br>
+
+![Un vigile à l'entrée d'une boite de nuit, pixel art](/homme-magasin-voiture.webp)
+
+## Le mot de la fin
+
+Ce cours est maintenant terminé. **J’espère que vous avez pris autant de plaisir à le suivre que j’ai pris de plaisir à le concevoir**. Grâce à ce cours, vous devriez être capable :
+
+- de comprendre comment fonctionne Docker et les problématiques résolues par ce dernier. C’est, mine de rien, un avantage particulièrement intéressant en entreprise ;
+- de créer vos propres images Docker grâce au Dockerfile.
+- de créer vos propres infrastructures grâce à docker compose et au fichier docker-compose.yml ;
+- de mettre les mains dans le cambouis en cas de problèmes avec Docker.
+
+<br>
+
+Sachez que je n'ai pas parlé :
+
+- de certaines des nouveautés Docker, notamment Docker Buildx.
+- de certaines optimisations supplémentaires que vous pouvez faire via le multistaging.
+- plus globalement de la partie mise en production via un registry Docker. C’est l’un des prochains cours que je prépare 😊.
+
+<br>
+
+Vous vous demandez peut-être maintenant quelle(s) suite(s) donner à ce cours. Je pense qu'il y en a plusieurs :
+- je vous invite à reprendre une application existante utilisant une API et une base de données et à la dockeriser.
+- vous pouvez aussi reprendre un projet complet (y compris un projet d’entreprise) et le dockeriser pour vos collègues.
+
+Comme toujours, n’hésitez surtout pas à me faire un feedback sur le cours par mail.
+
+Codez bien !
+
+<br>
+
+![Un vigile à l'entrée d'une boite de nuit, pixel art](/homme-magasin-voiture.webp)
 
 </article>
