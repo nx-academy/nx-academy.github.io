@@ -1,0 +1,40 @@
+---
+
+---
+
+<ul class="links-wrapper">
+    <li>
+        <a href="/">NX Academy</a>
+    </li>
+    <li>
+        <a href="/cours">Cours</a>
+    </li>
+</ul>
+
+<style>
+    .links-wrapper {
+        padding-left: 0;
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 8px;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 8px;
+    }
+
+    .links-wrapper li {
+        margin-bottom: 0;
+    }
+
+    .links-wrapper li::after {
+        content: " > ";
+    }
+
+    .links-wrapper li:last-child::after {
+        content: "";
+    }
+</style>
