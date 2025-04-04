@@ -1,0 +1,79 @@
+---
+import type { Breadcrumb } from "../types/Breadcrumb"
+
+interface Props {
+    breadcrumbs?: Breadcrumb[]
+}
+
+// import type { Breadcrumb } from "../types/Breadcrumb"
+
+// const links: Breadcrumb[] = [
+//     {
+//         pageName: "NX Academy",
+//         pageUrl: "/"
+//     },
+//     {
+//         pageName: "Cours",
+//         pageUrl: "/cours"
+//     },
+//     {
+//         pageName: "Conteneurisez vos applications avec Docker",
+//         pageUrl: "/docker-et-docker-compose"
+//     }
+// ]
+
+const { breadcrumbs } = Astro.props
+---
+
+<ul class="links-wrapper">
+    {
+        breadcrumbs && breadcrumbs.map(breadcrumb => (
+            <li>
+                <a href={breadcrumb.pageUrl}>
+                    {breadcrumb.pageName}
+                </a>
+            </li>
+        ))
+    }
+</ul>
+
+<style>
+    .links-wrapper {
+        margin-top: 16px;
+        padding-left: 0;
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        gap: 8px;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 8px;
+        flex-wrap: wrap;
+        max-width: 1100px;
+    }
+
+    .links-wrapper li {
+        margin-bottom: 0;
+    }
+
+    .links-wrapper li::after {
+        content: " > ";
+    }
+
+    .links-wrapper li:last-of-type::after {
+        content: "";
+    }
+
+    .links-wrapper li a {
+        color: #fff;
+        text-decoration: none;
+        transition: 0.4s color;
+        
+        &:hover {
+            color: #4effa0bb;
+        }
+    }
+</style>

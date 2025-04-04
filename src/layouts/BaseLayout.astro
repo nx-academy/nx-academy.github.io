@@ -1,7 +1,10 @@
 ---
+import type { Breadcrumb } from "../types/Breadcrumb"
+
 interface Props {
   title?: string,
   description?: string
+  breadcrumbs?: Breadcrumb[]
 }
 
 import "../styles/normalize.css"
@@ -12,11 +15,14 @@ import "@fontsource/space-grotesk";
 
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro"
 
-let { title, description } = Astro.props
+let { title, description, breadcrumbs } = Astro.props
 
 title = title ? `${title} - NX Academy` : "Passez au niveau supérieur en programmation avec NX Academy"
 description = description ? description : "Avec NX Academy, suivez gratuitement des cours en ligne et améliorez vos compétences en programmation et devops. Aucun compte n'est requis."
+
+const { pathname } = Astro.url
 ---
 
 <html lang="FR-fr">
@@ -32,6 +38,9 @@ description = description ? description : "Avec NX Academy, suivez gratuitement 
   </head>
   <body>
     <Header />
+    {
+      pathname !== "/" && <Breadcrumbs breadcrumbs={breadcrumbs} />
+    }
     <slot />
     <Footer />
   </body>

@@ -25,6 +25,8 @@ jobs:
           cache: "npm"
       - name: Installing dependencies
         run: npm ci
+      - name: Running the test
+        run: npm test
       - name: Building project
         run: npm run build
       - name: Setting up Pages
