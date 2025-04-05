@@ -81,6 +81,11 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
       </aside>
     </div>
   </div>
+  <div class="image-modal-wrapper hidden">
+    <div class="image-modal">
+      <img src="" alt="">
+    </div>
+  </div>
 </BaseLayout>
 
 <style>
@@ -157,6 +162,36 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
   .active {
     color: #4effa0;
   }
+
+  .hidden {
+    display: none !important;
+  }
+
+  .image-modal-wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, .7);
+    content: "";
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .image-modal {
+    width: 90%;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .image-modal img {
+    width: 100%;
+    object-fit: cover;
+    max-height: 500px;
+  }
 </style>
 
 <style is:global define:vars={{ neonGreen, neonGreenLight, black }}>
@@ -170,6 +205,7 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
   img {
     max-width: 100%;
     border-radius: 8px;
+    cursor: pointer;
   }
 
   article {
@@ -250,6 +286,31 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
 <script>
   const $sectionTitles = document.querySelectorAll(".main-wrapper h2")
   const $sectionLinks = document.querySelectorAll(".section-link")
+
+  const $modal = document.querySelector(".image-modal-wrapper") as HTMLDivElement
+  const $images = document.querySelectorAll("img")
+  const $imageModal = document.querySelector(".image-modal img") as HTMLImageElement
+
+  
+  $images.forEach($image => (
+    $image.addEventListener("click", () => {
+
+      const imgSrc = $image.getAttribute("src") as string
+      const imgAlt = $image.getAttribute("alt") as string
+
+      $imageModal.setAttribute("src", imgSrc)
+      $imageModal.setAttribute("alt", imgAlt)
+
+      $modal.classList.remove("hidden")
+      document.body.style.overflow = "hidden"
+    })
+  ))
+
+  $modal.addEventListener("click", () => {
+    $modal.classList.add("hidden")
+    document.body.style.overflow = ""
+  })
+
 
   document.querySelectorAll(".main-wrapper h2").forEach(h2 => {
     const prev = h2.previousElementSibling;
