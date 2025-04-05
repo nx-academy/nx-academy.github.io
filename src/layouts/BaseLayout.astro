@@ -39,11 +39,16 @@ const { pathname } = Astro.url
     {
       import.meta.env.PROD && <script>
         (function(h,o,u,n,d) {
+          // @ts-ignore
           h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}}
+          // @ts-ignore
           d=o.createElement(u);d.async=1;d.src=n
+          // @ts-ignore
           n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n)
         })(window,document,'script','https://www.datadoghq-browser-agent.com/eu1/v6/datadog-rum.js','DD_RUM')
+        // @ts-ignore
         window.DD_RUM.onReady(function() {
+          // @ts-ignore
         window.DD_RUM.init({
           clientToken: 'pub7662c92e1ecc427c59eda2d0034f7bc7',
           applicationId: 'a1998a8c-a21e-4944-a708-9f628663f454',
