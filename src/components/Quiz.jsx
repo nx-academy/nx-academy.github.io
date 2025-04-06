@@ -1,42 +1,39 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 
 function Component() {
-    const [quizData, setQuizData] = useState(null)
+  let [quizData, setQuizData] = useState(null);
+  let [questionNumber, setQuestionNumber] = useState(0);
 
-    useEffect(() => {
-        async function getQuizData() {
-            const res = await fetch("/data/testQuiz.json")
-            const quizData = await res.json()
+  useEffect(() => {
+    async function getQuizData() {
+      const res = await fetch("/data/testQuiz.json");
+      const quizData = await res.json();
 
-            setQuizData(quizData.data)
-        }
+      setQuizData(quizData.data);
+    }
 
-        getQuizData()
-    }, [])
+    getQuizData();
+  }, []);
 
-    console.log("====")
-    console.log(quizData)
-    console.log("====")
+  console.log("====");
+  console.log(quizData);
+  console.log("====");
 
-    return (
+  return (
+    <div>
+      <h2>Hello, React!</h2>
+      {quizData && quizData.length && (
         <div>
-            <h2>Hello, React!</h2>
-            {
-                quizData.length && (
-                    <div>
-                        <h3>Question: {quizData[0].question}</h3>
-                        <ul>
-                            {
-                                quizData[0].options.map(option => (
-                                    <li key={option}>{option}</li>
-                                ))
-                            }
-                        </ul>
-                    </div>
-                )
-            }
+          <h3>Question: {quizData[0].question}</h3>
+          <ul>
+            {quizData[0].options.map((option) => (
+              <li key={option}>{option}</li>
+            ))}
+          </ul>
         </div>
-    )
+      )}
+    </div>
+  );
 }
 
-export default Component
+export default Component;
