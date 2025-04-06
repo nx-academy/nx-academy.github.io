@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "question": "Qu'est-ce que l'article vous suggère de rechercher sur un autre onglet de votre navigateur ?",
+      "options": [
+        "Les problématiques que Docker cherche à résoudre",
+        "Comment installer Docker",
+        "L'histoire de Docker",
+        "Les alternatives à Docker"
+      ],
+      "answer": "Les problématiques que Docker cherche à résoudre"
+    },
+    {
+      "question": "Quel est le but de l'activité suggérée dans le texte ?",
+      "options": [
+        "Pour partager des memes sur Docker",
+        "Pour se familiariser avec la conteneurisation",
+        "Pour découvrir les problématiques que Docker résout",
+        "Pour apprendre les Fundamental Docker Concepts"
+      ],
+      "answer": "Pour découvrir les problématiques que Docker résout"
+    },
+    {
+      "question": "Où doit-on s'arrêter dans la lecture selon les instructions?",
+      "options": [
+        "À la section 'Découvrez Docker'",
+        "À la section 'Les problématiques résolues par Docker'",
+        "À la section 'Familiarisez-vous avec la conteneurisation'",
+        "À la partie 'Fundamental Docker Concepts'"
+      ],
+      "answer": "À la partie 'Fundamental Docker Concepts'"
+    }
+  ]
+}
