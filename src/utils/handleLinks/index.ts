@@ -27,7 +27,7 @@ export function handleLinks(url: string): Links {
         breadcrumbs: [
             {
                 pageUrl: "/",
-                pageName: "NX Academy"
+                pageName: "Accueil"
             },
             {
                 pageUrl: "/cours",
