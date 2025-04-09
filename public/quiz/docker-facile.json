@@ -1,0 +1,29 @@
+{
+  "data": [
+    {
+      "question": "Qu'est-ce que Docker permet de faire ?",
+      "options": [
+        "Créer des machines virtuelles",
+        "Compiler du code Java",
+        "Lancer des applications dans des conteneurs isolés",
+        "Déboguer des applications front-end"
+      ],
+      "answer": "Lancer des applications dans des conteneurs isolés"
+    },
+    {
+      "question": "Quel est le nom du fichier utilisé pour définir l'image Docker ?",
+      "options": [
+        "Dockerfile",
+        "docker-compose.yml",
+        "image.conf",
+        "config.json"
+      ],
+      "answer": "Dockerfile"
+    },
+    {
+      "question": "Quelle commande permet de voir les conteneurs en cours d'exécution ?",
+      "options": ["docker ps", "docker run", "docker exec", "docker images"],
+      "answer": "docker ps"
+    }
+  ]
+}

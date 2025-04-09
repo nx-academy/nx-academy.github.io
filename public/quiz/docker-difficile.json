@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "question": "Quel est le rôle de l'instruction `ENTRYPOINT` dans un Dockerfile ?",
+      "options": [
+        "Définir une variable d'environnement",
+        "Spécifier l’utilisateur à utiliser dans le conteneur",
+        "Spécifier la commande principale exécutée à chaque démarrage du conteneur",
+        "Copier un fichier dans l’image"
+      ],
+      "answer": "Spécifier la commande principale exécutée à chaque démarrage du conteneur"
+    },
+    {
+      "question": "Quelle est la différence entre une image et un conteneur Docker ?",
+      "options": [
+        "Une image est une application en cours d'exécution, un conteneur est un modèle figé",
+        "Une image est statique, un conteneur est une instance active d'une image",
+        "Une image contient des logs, un conteneur non",
+        "Aucune différence, ce sont deux termes équivalents"
+      ],
+      "answer": "Une image est statique, un conteneur est une instance active d'une image"
+    },
+    {
+      "question": "Dans un fichier `docker-compose.yml`, à quoi sert la directive `depends_on` ?",
+      "options": [
+        "À définir le nombre de réplicas pour un service",
+        "À créer un réseau personnalisé",
+        "À spécifier un ordre de démarrage entre les services",
+        "À limiter la mémoire utilisée par un conteneur"
+      ],
+      "answer": "À spécifier un ordre de démarrage entre les services"
+    }
+  ]
+}

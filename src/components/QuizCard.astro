@@ -1,0 +1,57 @@
+---
+interface Props {
+  href: string;
+  imgSrc: string;
+  imgAlt: string;
+  title: string;
+  level: string
+}
+
+const { href, imgAlt, imgSrc, title } = Astro.props;
+---
+
+<a class="quiz-card" href={href}>
+  <img class="quiz-image" src={imgSrc} alt={imgAlt} />
+  <div class="quiz-content">
+    <p class="quiz-title">{title}</p>
+  </div>
+</a>
+
+<style>
+  .quiz-card {
+    position: relative;
+    color: #FFF;
+    text-decoration: none;
+  }
+
+  .quiz-image {
+    aspect-ratio: 1792 / 1024;
+    object-fit: cover;
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+    filter: brightness(50%);
+    border: 2px solid #FE7600;
+  }
+
+  .quiz-content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    text-align: center;
+  }
+
+  .quiz-title {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .quiz-level {
+    font-weight: 700;
+    letter-spacing: 4px;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+</style>

@@ -1,0 +1,34 @@
+{
+  "data": [
+    {
+      "question": "À quoi sert le fichier `docker-compose.yml` ?",
+      "options": [
+        "À créer un conteneur Ubuntu",
+        "À lancer une image depuis Docker Hub",
+        "À définir et gérer plusieurs services Docker",
+        "À configurer le réseau de l'hôte"
+      ],
+      "answer": "À définir et gérer plusieurs services Docker"
+    },
+    {
+      "question": "Quelle commande permet de construire une image à partir d’un Dockerfile ?",
+      "options": [
+        "docker create",
+        "docker run",
+        "docker build",
+        "docker start"
+      ],
+      "answer": "docker build"
+    },
+    {
+      "question": "Quel est l’avantage principal de Docker par rapport aux machines virtuelles ?",
+      "options": [
+        "Les conteneurs peuvent exécuter plusieurs systèmes d'exploitation",
+        "Les conteneurs sont plus légers et démarrent plus rapidement",
+        "Les conteneurs n'ont pas besoin de noyau Linux",
+        "Les conteneurs peuvent stocker plus de données"
+      ],
+      "answer": "Les conteneurs sont plus légers et démarrent plus rapidement"
+    }
+  ]
+}
