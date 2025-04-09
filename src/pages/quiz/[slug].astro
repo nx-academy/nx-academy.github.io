@@ -1,9 +1,9 @@
 ---
-import { QUIZ_SLUGS } from "../../data/quiz"
+import { QUIZZES } from "../../data/quiz"
 
 export function getStaticPaths() {
-    return QUIZ_SLUGS.map(slug => ({
-        params: { slug: slug }
+    return QUIZZES.map(quiz => ({
+        params: { slug: quiz.slug }
     }))
 }
 
@@ -12,14 +12,12 @@ import QuizIsland from "../../components/Quiz"
 
 const { slug } = Astro.params;
 
-console.log("====")
 console.log(slug)
-console.log("====")
 ---
 
 <BaseLayout>
   <main class="main-wrapper">
-    <QuizIsland client:load />
+    <QuizIsland client:load slug={slug} />
   </main>
 </BaseLayout>
 

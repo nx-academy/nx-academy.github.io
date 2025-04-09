@@ -1,7 +1,7 @@
 import "../styles/quiz.css";
 import { useState, useEffect } from "react";
 
-function Component() {
+function Component({ slug }) {
   let [quizData, setQuizData] = useState(null);
   let [questionNumber, setQuestionNumber] = useState(0);
   let [answer, setAnswer] = useState(null);
@@ -9,9 +9,11 @@ function Component() {
   let [score, setScore] = useState(0)
   let [isQuizFinished, setIsQuizFinished] = useState(false)
 
+  console.log(slug)
+
   useEffect(() => {
     async function getQuizData() {
-      const res = await fetch("/data/testQuiz.json");
+      const res = await fetch(`/quiz/${slug}.json`);
       const quizData = await res.json();
 
       setQuizData(quizData.data);
