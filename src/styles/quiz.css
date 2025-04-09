@@ -1,0 +1,42 @@
+.quiz-wrapper {
+
+}
+
+.questions-wrapper {
+    padding-left: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.question {
+    background-color: #252525;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.active {
+    background-color: #B0BEC5;
+    color: #151515;
+}
+
+.submit-answer-btn {
+    background-color: #4effa0;
+    border: 1px solid #4effa0;
+    width: 100%;
+    text-align: center;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    cursor: pointer;
+    color: #151515;
+    border-radius: 8px;
+    transition: .4s;
+
+    &:hover {
+        background-color: #4effa0dd;
+    }
+}
