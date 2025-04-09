@@ -26,7 +26,7 @@ const breadCrumbs: Breadcrumb[] = [
 ---
 
 <BaseLayout title={title} breadcrumbs={breadCrumbs}>
-  <div>
+  <div class="main-wrapper">
     <section>
       <slot />
     </section>
@@ -91,7 +91,21 @@ const breadCrumbs: Breadcrumb[] = [
   }
 
   ul {
-    margin-bottom: 1.75rem;
+    color: #bababa;
+    margin-bottom: 2.5rem;
+  }
+
+  li {
+    margin-bottom: 1.5rem;
+    color: #bababa;
+    font-size: clamp(0.875rem, 0.75rem + 1.5vw, 1.125rem);
+  }
+
+  blockquote {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding-left: 2rem;
+    font-style: italic;
   }
 
   .brand-name,

@@ -20,7 +20,7 @@ type Article = {
   url: string
 }
 
-const heroContentTitle = "ChatGPT devient son meilleur ami, découvrez pourquoi"
+const heroContentTitle = "Le moine, le vape coder, le debugger et le learner"
 
 const articles = Object.values(import.meta.glob("./articles/*.md", { eager: true })) as Article[]
 const cheatsheets = Object.values(import.meta.glob("./fiches/*.md", { eager: true })) as Article[]
