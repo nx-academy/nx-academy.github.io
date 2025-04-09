@@ -56,7 +56,7 @@ Commencez par regarder le Dockerfile ci-dessous. Pour votre information, ce snip
 
 <br>
 
-```Dockerfile
+```dockerfile
 # Je récupère une image ubuntu 18
 FROM ubuntu:18.04
 

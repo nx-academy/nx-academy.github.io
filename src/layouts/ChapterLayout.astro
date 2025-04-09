@@ -41,6 +41,8 @@ const sectionsHeading = headings.filter((heading) => heading.depth === 2);
 const previousFullChapterLink = `${baseUrl}/chapitres/${previousChapterLink}`
 const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
 
+console.log("====")
+
 ---
 
 <BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
@@ -284,6 +286,9 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
 </style>
 
 <script>
+
+  console.log("+++++")
+
   const $sectionTitles = document.querySelectorAll(".main-wrapper h2")
   const $sectionLinks = document.querySelectorAll(".section-link")
 
