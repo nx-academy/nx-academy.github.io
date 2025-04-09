@@ -10,7 +10,7 @@ interface Props {
 const { href, imgAlt, imgSrc, title } = Astro.props;
 ---
 
-<a class="quiz-card" href={href}>
+<a class="quiz-card" href={`/${href}`}>
   <img class="quiz-image" src={imgSrc} alt={imgAlt} />
   <div class="quiz-content">
     <p class="quiz-title">{title}</p>
