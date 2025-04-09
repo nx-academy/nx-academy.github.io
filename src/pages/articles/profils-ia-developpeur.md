@@ -41,28 +41,28 @@ Mais pour moi, il manquait un dernier profil : le développeur junior. Son appro
 
 ### TL;DR
 
-A senior dev with a minimalist setup and a maximalist mindset. Codes slowly, but with intention. GPT is just another tool — not a threat.
+Un développeur senior avec une configuration minimaliste et un état d’esprit maximaliste. Il ne code pas forcément très rapidement mais avec intention. **Pour lui, GPT est juste un outil de plus, pas une menace**.
 
 ### Description
 
-**The Monk has been coding for a while — usually 7 to 10 years or more**. They’ve used multiple programming languages, worked in various types of companies, and learned to rely on the essentials: clear thinking and precise tools.
+**Le Monk code depuis un bon moment déjà. En général depuis au moins 7 à 10 ans**. Il connait plusieurs langages de programmation, a travaillé dans différents types de boîtes. Il a appris à se concentrer sur l’essentiel : une pensée claire et des outils précis.
 
-They know their way around Vim (yeah, I know, I should have speak about Emacs instead) and the command line. They prefer terminal setups over flashy IDEs. They may be old school in their habits, but they’re not stuck in the past. On the contrary, they see AI as a natural evolution of their toolbox — like a new Swiss army knife, not a job stealer.
+Il maîtrise Vim (oui, je sais, j’aurais dû parler d’Emacs à la place 😉) et la ligne de commande. Il préfère les environnements en terminal aux IDE trop chargés. Il peut sembler old school dans ses habitudes mais il n’est pas bloqué dans le passé. Au contraire, il voit l’IA comme une évolution naturelle de sa boîte à outils. C'est une espèce de couteau suisse et pas un voleur d’emploi.
 
-The Monk takes their time when coding. They know that deadlines matter, but they also understand which parts of a system are critical and require care. GPT is not there to replace thinking — it’s there to challenge ideas and offer different perspectives.
+Le Monk prend son temps quand il code. Il sait que les deadlines comptent mais il sait aussi identifier les parties critiques d’un système qui méritent d’être soignées. Pour lui, GPT n’est pas là pour penser à sa place mais pour challenger ses idées et proposer d’autres angles.
 
-They’re also intellectually curious: **they want to understand how AI works under the hood**, not just how to prompt it.
+Il est aussi curieux intellectuellement : il veut comprendre comment fonctionne l’IA en profondeur, pas seulement comment écrire de bons prompts.
 
 ### Son workflow
 
-- Dual-screen setup: one screen with their editor or browser, the other with GPT.
-- Asynchronous interaction: they write a prompt, reflect on the response, adapt and integrate it — no rush.
-- Refactoring mindset: they often clean GPT’s output, renaming variables, rewriting functions, or just reimplementing the idea from scratch.
-- Minimal distractions: no Copilot suggestions popping up — they prefer full control and focus.
+- **Double écran** : un pour son éditeur ou navigateur, l’autre pour GPT.
+- **Interaction asynchrone** : il écrit un prompt, prend le temps de réfléchir à la réponse, l’adapte, puis l’intègre sans se presser.
+- **Esprit refacto** : il nettoie souvent le code proposé par GPT, renomme des variables, réécrit des fonctions, voire repart de zéro en gardant juste l’idée.
+- **Pas de distractions** : pas de suggestions Copilot en continu. Il préfère garder le contrôle total et rester concentré.
 
 ### Le prompt typique du Monk
 
-> Here’s a function I wrote. Can you suggest improvements in terms of readability and performance — without changing the logic?
+> Voici une fonction que j’ai écrite. Peux-tu proposer des améliorations en termes de lisibilité et de performance — sans en changer la logique ?
 
 
 ---
@@ -73,11 +73,29 @@ They’re also intellectually curious: **they want to understand how AI works un
 
 ### TL;DR
 
+Il va vite, casse des trucs, et laisse GPT les réparer. Il vit littéralement dans l’écosystème IA. **Le code n’est qu’un moyen. La vitesse est le vrai objectif**.
+
 ### Description
+
+Le Vape Coder est à fond dans l’IA. Il a remplacé VSCode par Vector, iTerm2 par Warp. Il est toujours au courant des dernières nouveautés : _« GPT-5, Claude 3.5, Gemini 1.5 ? Déjà testé. »_.
+
+Son but n’est pas de peaufiner chaque ligne de code. Ce qui compte, c’est de shipper vite, tester vite, itérer encore plus vite. Que ce soit pour prototyper une feature, corriger un bug ou sortir un MVP complet, il avance. Et il avance vite.
+
+Son code n’est pas toujours très propre. Son architecture peut sembler improvisée. **Mais ce qu’il perd en structure, il le gagne en vélocité**.
+Dans un contexte de startup, de hackathon ou de projet solo, c’est une machine de guerre.
 
 ### Workflow
 
-### Typical prompt from The Monk
+- **Fenêtre unique, tout intégré** : GPT (Vector ou Copilot Chat) est intégré directement dans l’IDE ou le terminal. Un seul onglet pour tout faire.
+- **Complétions de code en direct** : il accepte les suggestions de Copilot en temps réel, il navigue dedans comme on scrolle sur TikTok.
+- **Prompt-then-code** : il balance souvent un truc du genre « écris-moi un endpoint Next.js pour faire ça », il modifie un peu puis il passe à autre chose.
+- **Boucle d’itération rapide** : build → test → bug → fix → ship → repeat.
+- **Prompts stack-aware** : ses prompts sont courts, précis et taillés pour son stack. Pas de blabla, que du résultat.
+- **Obsédé des outils** : dernières extensions, plugins, wrappers CLI… s’il existe un moyen plus rapide, il l’a déjà trouvé.
+
+### Le prompt typique du Vape Coder
+
+> Génère un composant React avec Tailwind qui récupère des données depuis cet endpoint et les affiche sous forme de grille de cartes. Et rends ça joli.
 
 
 ---
@@ -88,11 +106,40 @@ They’re also intellectually curious: **they want to understand how AI works un
 
 ### TL;DR
 
+Il ne code pas avec l’IA mais il code à côté. Et quand quelque chose casse, GPT est le premier appelé.
+
 ### Description
+
+Le Debugger vient de l’école des développeurs old-school. Il n’est pas contre l’IA. Au contraire, il est plutôt curieux mais il est suffisamment efficace sans elle. Enfin, jusqu’à ce que quelque chose casse ^^.
+
+<br>
+
+Il utilise rarement GPT pour générer du code depuis zéro. À la place, il copie-colle :
+
+- des traces d’erreur,
+- des fonctions qui plantent,
+- des bugs incompréhensibles,
+- des messages d’erreur tordus.
+
+<br>
+
+Il considère GPT comme un assistant de diagnostic, pas comme un copilote.
+Ce qu’il veut, c’est comprendre en profondeur pourquoi ça marche ou pourquoi ça casse. Il n’a pas peur d’affiner ses prompts plusieurs fois pour aller plus loin que la simple solution.
+
+Là où le Monk cherche la structure et l’élégance, le Debugger cherche la vérité et les causes profondes. Il répare d’abord. Il nettoiera après.
 
 ### Workflow
 
-### Typical prompt from The Monk
+- **Prompt orienté erreur** : il commence par copier-coller une stack trace, des logs ou un message d’erreur. Il demande ensuite à GPT de l’aider à comprendre ce qui se passe.
+- **Contexte partiel** : il envoie des morceaux de code cassés ou des fonctions isolées, en posant des questions du type « Qu’est-ce qui cloche ici ? »
+- **Test d’hypothèses** : il demande à GPT de valider des suppositions — « Si je passe null ici, ça plante ? »
+- **Reverse-engineering** : quand il doit bosser sur une API non documentée ou du vieux code legacy, il s’appuie sur GPT pour décrypter.
+- **Peu de génération** : il demande rarement à GPT de « générer du code ». Ce qui l’intéresse, c’est le debug, la relecture, et l’explication.
+- **Prompt en cas de blocage** : l’IA est un dernier recours — mais quand il y a recours, c’est efficace.
+
+### Le prompt typique du Debugger
+
+> Cette fonction renvoie TypeError: Cannot read properties of undefined. Voici le code. Tu peux m’aider à comprendre pourquoi ça plante et comment le corriger ?
 
 
 ---
