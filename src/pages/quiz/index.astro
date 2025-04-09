@@ -1,0 +1,126 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro"
+
+import QuizIsland from "../../components/Quiz"
+
+import QuizCard from "../../components/QuizCard.astro"
+
+type Quiz = {
+    id: number
+    title: string
+    description: string
+    level: "Facile" | "Moyen" | "Difficile"
+    imgSrc: string
+    imgAlt: string
+    href: string
+}
+
+const QUIZZES: Quiz[] = [
+    {
+        id: 1,
+        title: "Les images Docker",
+        description: "Un quiz facile sur les concepts de base relatifs aux images Docker",
+        level: "Facile",
+        imgSrc: "/misc/quiz-hero.webp",
+        imgAlt: "toto",
+        href: "#"
+    },
+    {
+        id: 2,
+        title: "Les images Docker",
+        description: "Un quiz facile sur les concepts de base relatifs aux images Docker",
+        level: "Facile",
+        imgSrc: "/misc/quiz-hero.webp",
+        imgAlt: "toto",
+        href: "#"
+    },
+    {
+        id: 3,
+        title: "Les images Docker",
+        description: "Un quiz facile sur les concepts de base relatifs aux images Docker",
+        level: "Facile",
+        imgSrc: "/misc/quiz-hero.webp",
+        imgAlt: "toto",
+        href: "#"
+    },
+    {
+        id: 4,
+        title: "Les images Docker",
+        description: "Un quiz facile sur les concepts de base relatifs aux images Docker",
+        level: "Facile",
+        imgSrc: "/misc/quiz-hero.webp",
+        imgAlt: "toto",
+        href: "#"
+    },
+    {
+        id: 5,
+        title: "Les images Docker",
+        description: "Un quiz facile sur les concepts de base relatifs aux images Docker",
+        level: "Facile",
+        imgSrc: "/misc/quiz-hero.webp",
+        imgAlt: "toto",
+        href: "#"
+    },
+    {
+        id: 6,
+        title: "Les images Docker",
+        description: "Un quiz facile sur les concepts de base relatifs aux images Docker",
+        level: "Facile",
+        imgSrc: "/misc/quiz-hero.webp",
+        imgAlt: "toto",
+        href: "#"
+    },
+    {
+        id: 7,
+        title: "Les images Docker",
+        description: "Un quiz facile sur les concepts de base relatifs aux images Docker",
+        level: "Facile",
+        imgSrc: "/misc/quiz-hero.webp",
+        imgAlt: "toto",
+        href: "#"
+    },
+    {
+        id: 8,
+        title: "Les images Docker",
+        description: "Un quiz facile sur les concepts de base relatifs aux images Docker",
+        level: "Facile",
+        imgSrc: "/misc/quiz-hero.webp",
+        imgAlt: "toto",
+        href: "#"
+    }
+]
+---
+
+<BaseLayout>
+    <main>
+        <!-- <QuizIsland client:load /> -->
+        <h1>Hello, Quiz!</h1>
+        <div class="quiz-cards-wrapper">
+            {
+                QUIZZES.map(quiz => (
+                    <QuizCard
+                        href={quiz.href}
+                        imgAlt={quiz.imgAlt}
+                        imgSrc={quiz.imgSrc}
+                        title={quiz.title}
+                        level={quiz.level}
+                    />
+                ))
+            }
+        </div>
+    </main>
+</BaseLayout>
+
+<style>
+    main {
+        width: 90%;
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .quiz-cards-wrapper {
+        display: grid;
+        gap: 24px;
+    }
+</style>
