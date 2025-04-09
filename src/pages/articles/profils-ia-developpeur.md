@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
 
-title: Le moine, le vape copder, le debugger et le learner.
+title: Le moine, le vape coder, le debugger et le learner
 description: A force d'utiliser l'IA au travail et d'en parler avec mes éleves, j'ai pu établir les différents profils de développeur qui utiilisent l'IA. Alors, vous êtes quel type de dev IA vous ?
 
 imgAlt: Un moine, un jeune avec une capuche, un bucheron et un adolescent posant sur une photo, pixel art
@@ -31,7 +31,10 @@ On retrouvait notamment :
 Mais pour moi, il manquait un dernier profil : le développeur junior. Son approche est différente. Il ne se focalise pas encore sur la lisibilité ou la performance. Son objectif principal est d’apprendre et de progresser. Parfois même, il va volontairement complexifier une solution pour se challenger ou pour se prouver qu’il en est capable.
 
 
-**Alors, vous êtes quel type de dev vous ? On va voir ça tout de suite :)**
+<br>
+
+
+**Mais vous êtes vous déjà demandé le type de dev que vous étiez quand vous utilisiez l'IA ?** Je me suis récemment posé la question et je vais prendre le temps de revenir dessus dans cet article
 
 ---
 
@@ -54,6 +57,8 @@ Le Monk prend son temps quand il code. Il sait que les deadlines comptent mais i
 Il est aussi curieux intellectuellement : il veut comprendre comment fonctionne l’IA en profondeur, pas seulement comment écrire de bons prompts.
 
 ### Son workflow
+
+<br>
 
 - **Double écran** : un pour son éditeur ou navigateur, l’autre pour GPT.
 - **Interaction asynchrone** : il écrit un prompt, prend le temps de réfléchir à la réponse, l’adapte, puis l’intègre sans se presser.
@@ -85,6 +90,8 @@ Son code n’est pas toujours très propre. Son architecture peut sembler improv
 Dans un contexte de startup, de hackathon ou de projet solo, c’est une machine de guerre.
 
 ### Workflow
+
+<br>
 
 - **Fenêtre unique, tout intégré** : GPT (Vector ou Copilot Chat) est intégré directement dans l’IDE ou le terminal. Un seul onglet pour tout faire.
 - **Complétions de code en direct** : il accepte les suggestions de Copilot en temps réel, il navigue dedans comme on scrolle sur TikTok.
@@ -119,7 +126,6 @@ Il utilise rarement GPT pour générer du code depuis zéro. À la place, il cop
 - des bugs incompréhensibles,
 - des messages d’erreur tordus.
 
-<br>
 
 Il considère GPT comme un assistant de diagnostic, pas comme un copilote.
 Ce qu’il veut, c’est comprendre en profondeur pourquoi ça marche ou pourquoi ça casse. Il n’a pas peur d’affiner ses prompts plusieurs fois pour aller plus loin que la simple solution.
@@ -127,6 +133,8 @@ Ce qu’il veut, c’est comprendre en profondeur pourquoi ça marche ou pourquo
 Là où le Monk cherche la structure et l’élégance, le Debugger cherche la vérité et les causes profondes. Il répare d’abord. Il nettoiera après.
 
 ### Workflow
+
+<br>
 
 - **Prompt orienté erreur** : il commence par copier-coller une stack trace, des logs ou un message d’erreur. Il demande ensuite à GPT de l’aider à comprendre ce qui se passe.
 - **Contexte partiel** : il envoie des morceaux de code cassés ou des fonctions isolées en posant des questions du type « Qu’est-ce qui cloche ici ? »
@@ -166,6 +174,8 @@ Ses prompts sont souvent longs, exploratoires, remplis de contexte — comme s�
 Avec suffisamment d’itérations, de questions et de feedback, le Learner d’aujourd’hui peut devenir le Monk de demain.
 
 ### Workflow
+
+<br>
 
 - **Approche prompt-first** : avant même de coder, il demande souvent à GPT d’expliquer un concept, une structure ou comment démarrer.
 - **Code avant compréhension** : il lance parfois du code qu’il ne comprend pas encore, puis demande des explications.
