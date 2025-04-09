@@ -11,7 +11,6 @@ kind: Articles
 author: Thomas
 draft: false
 publishedDate: 01/25/2025
-
 ---
 
 # On fait le bilan ?
