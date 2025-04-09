@@ -1,6 +1,8 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro"
 
+import Warning from "../../components/Warning.astro"
+
 const pageTitle = "Nos cours"
 const pageDescription = "Passez au niveau supérieur avec des cours en ligne gratuits couvrant des sujets avancés en programmation et DevOps."
 
@@ -26,18 +28,38 @@ const COURSES: Course[] = [
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-    <div class="wrapper">
-        <h1>Bienvenue sur la page d'accueil des cours</h1>
-        <hr>
-        <p>La liste de nos derniers cours :</p>
-        <ul>
+    <main class="main-wrapper">
+        <h1>Nos derniers cours</h1>
+        <Warning />
+        <ul class="courses-wrapper">
             {
                 COURSES.map(course => (
-                    <a href={course.href}>
-                        {course.name}
-                    </a>
+                    <li>
+                        <a class="course-link" href={course.href}>
+                            {course.name}
+                        </a>
+                    </li>
                 ))
             }
         </ul>
-    </div>
+    </main>
 </BaseLayout>
+
+
+<style>
+    .main-wrapper {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1100px;
+    }
+
+    .courses-wrapper {
+        margin-top: 16px;
+    }
+
+    .course-link {
+        color: #FFF;
+        text-decoration: none;
+    }
+</style>
