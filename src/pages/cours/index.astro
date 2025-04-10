@@ -2,6 +2,8 @@
 import BaseLayout from "../../layouts/BaseLayout.astro"
 
 import Warning from "../../components/Warning.astro"
+import CourseCard from "../../components/CourseCard.astro"
+import { coerce } from "astro:schema"
 
 const pageTitle = "Nos cours"
 const pageDescription = "Passez au niveau supérieur avec des cours en ligne gratuits couvrant des sujets avancés en programmation et DevOps."
@@ -11,18 +13,21 @@ type Course = {
     name: string
     description: string
     href: string
+    img: string
 }
 
 const COURSES: Course[] = [
     {
         name: "Conteneurisez vos applications avec Docker",
         description: "Une super description",
-        href: "/cours/docker-et-docker-compose"
+        href: "/cours/docker-et-docker-compose",
+        img: "/port-sous-neige.png"
     },
     {
         name: "Maîtrisez les pipelines CI/CD avec les GitHub Actions",
         description: "Une super description",
-        href: "/cours/ci-cd-github-actions"
+        href: "/cours/ci-cd-github-actions",
+        img: "/port-sous-neige.png"
     }
 ]
 ---
@@ -35,9 +40,7 @@ const COURSES: Course[] = [
             {
                 COURSES.map(course => (
                     <li>
-                        <a class="course-link" href={course.href}>
-                            {course.name}
-                        </a>
+                        <CourseCard name={course.name} href={course.href} img={course.img} description={course.description} />
                     </li>
                 ))
             }
@@ -56,6 +59,10 @@ const COURSES: Course[] = [
 
     .courses-wrapper {
         margin-top: 16px;
+        list-style-type: none;
+        padding-left: 0;
+        display: grid;
+        gap: 32px;
     }
 
     .course-link {
