@@ -1,9 +1,10 @@
 ---
-import type { Breadcrumb } from "../../../types/Breadcrumb"
+import type { Breadcrumb } from "../../../types/Breadcrumb";
+import type { Chapter } from "../../../types/Chapter";
 
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 
-import type { Chapter } from "../../../types/Chapter";
+import Warning from "../../../components/Warning.astro";
 
 const pageTitle = "Conteneurisez vos applications avec Docker";
 const pageDescription = "Une super description";
@@ -24,18 +25,21 @@ const breadCrumbs: Breadcrumb[] = [
 ];
 ---
 
-<BaseLayout title={pageTitle} description={pageDescription} breadcrumbs={breadCrumbs}>
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  breadcrumbs={breadCrumbs}
+>
   <div class="main-wrapper">
+    <Warning />
     <h1>{pageTitle}</h1>
-
     <h2>Contenu du cours</h2>
     <ul>
       {
         courseChapters
           .sort(
             (chapter1, chapter2) =>
-              chapter1.frontmatter.id -
-              chapter2.frontmatter.id
+              chapter1.frontmatter.id - chapter2.frontmatter.id
           )
           .map((chapter) => (
             <li>
