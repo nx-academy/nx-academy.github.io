@@ -5,23 +5,6 @@ interface Props {
     breadcrumbs?: Breadcrumb[]
 }
 
-// import type { Breadcrumb } from "../types/Breadcrumb"
-
-// const links: Breadcrumb[] = [
-//     {
-//         pageName: "NX Academy",
-//         pageUrl: "/"
-//     },
-//     {
-//         pageName: "Cours",
-//         pageUrl: "/cours"
-//     },
-//     {
-//         pageName: "Conteneurisez vos applications avec Docker",
-//         pageUrl: "/docker-et-docker-compose"
-//     }
-// ]
-
 const { breadcrumbs } = Astro.props
 ---
 
@@ -32,6 +15,9 @@ const { breadcrumbs } = Astro.props
                 <a href={breadcrumb.pageUrl}>
                     {breadcrumb.pageName}
                 </a>
+                <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 6L15 12L9 18" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
             </li>
         ))
     }
@@ -57,14 +43,9 @@ const { breadcrumbs } = Astro.props
 
     .links-wrapper li {
         margin-bottom: 0;
-    }
-
-    .links-wrapper li::after {
-        content: " > ";
-    }
-
-    .links-wrapper li:last-of-type::after {
-        content: "";
+        display: flex;
+        align-items: center;
+        gap: 8px;
     }
 
     .links-wrapper li a {
