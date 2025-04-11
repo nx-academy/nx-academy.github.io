@@ -1,11 +1,12 @@
 ---
 import type { Breadcrumb } from "../../../types/Breadcrumb"
+import type { Chapter } from "../../../types/Chapter";
 
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 
-import type { Chapter } from "../../../types/Chapter";
+import Warning from "../../../components/Warning.astro"
 
-const pageTitle = "Maîtrisez les pipelines CI/CD avec les GitHub Actions r";
+const pageTitle = "Maîtrisez les pipelines CI/CD avec les GitHub Actions";
 const pageDescription = "Une super description";
 
 const courseChapters = Object.values(
@@ -14,7 +15,7 @@ const courseChapters = Object.values(
 
 const breadCrumbs: Breadcrumb[] = [
   {
-    pageName: "NX Academy",
+    pageName: "Accueil",
     pageUrl: "/",
   },
   {
@@ -26,8 +27,8 @@ const breadCrumbs: Breadcrumb[] = [
 
 <BaseLayout title={pageTitle} description={pageDescription} breadcrumbs={breadCrumbs}>
   <div class="main-wrapper">
+    <Warning />
     <h1>{pageTitle}</h1>
-
     <h2>Contenu du cours</h2>
     <ul>
       {
@@ -53,6 +54,10 @@ const breadCrumbs: Breadcrumb[] = [
     width: 90%;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  h1 {
+    margin-top: 0;
   }
 
   .main-wrapper a {

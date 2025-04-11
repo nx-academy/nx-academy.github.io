@@ -1,65 +1,96 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro"
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
-import Warning from "../../components/Warning.astro"
+import Warning from "../../components/Warning.astro";
+import CourseCard from "../../components/CourseCard.astro";
 
-const pageTitle = "Nos cours"
-const pageDescription = "Passez au niveau supérieur avec des cours en ligne gratuits couvrant des sujets avancés en programmation et DevOps."
+const pageTitle = "Nos cours";
+const pageDescription =
+  "Passez au niveau supérieur avec des cours en ligne gratuits couvrant des sujets avancés en programmation et DevOps.";
 
 // For now, I put the courses links here
 type Course = {
-    name: string
-    description: string
-    href: string
-}
+  description: string;
+  href: string;
+  imgAlt: string;
+  imgSrc: string;
+  name: string;
+};
 
 const COURSES: Course[] = [
-    {
-        name: "Conteneurisez vos applications avec Docker",
-        description: "Une super description",
-        href: "/cours/docker-et-docker-compose"
-    },
-    {
-        name: "Maîtrisez les pipelines CI/CD avec les GitHub Actions",
-        description: "Une super description",
-        href: "/cours/ci-cd-github-actions"
-    }
-]
+  {
+    description: "Apprenez à utiliser Docker et docker compose pour conteuriser vos applications du dev à la prod.",
+    href: "/cours/docker-et-docker-compose",
+    imgAlt: "Un port sous la neige, pixel art",
+    imgSrc: "/port-sous-neige.png",
+    name: "Conteneurisez vos applications avec Docker",
+  },
+  {
+    description: "Tirez parti des GitHub Actions pour automatiser des tâches redondantes tels que les tests et la mise en production d'applications.",
+    href: "/cours/ci-cd-github-actions",
+    imgAlt: "Une usine sous la neigne, pixel art",
+    imgSrc: "/usine-sous-neige.png",
+    name: "Maîtrisez les pipelines CI/CD avec les GitHub Actions",
+  },
+];
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
-    <main class="main-wrapper">
-        <h1>Nos derniers cours</h1>
-        <Warning />
-        <ul class="courses-wrapper">
-            {
-                COURSES.map(course => (
-                    <li>
-                        <a class="course-link" href={course.href}>
-                            {course.name}
-                        </a>
-                    </li>
-                ))
-            }
-        </ul>
-    </main>
+  <main class="main-wrapper">
+    <h1 class="main-title">Nos derniers cours</h1>
+    <ul class="courses-wrapper">
+      {
+        COURSES.map((course) => (
+          <li>
+            <CourseCard
+              description={course.description}
+              href={course.href}
+              imgAlt={course.imgAlt}
+              imgSrc={course.imgSrc}
+              name={course.name}
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </main>
 </BaseLayout>
 
-
 <style>
-    .main-wrapper {
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 1100px;
-    }
+  .main-wrapper {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1100px;
+  }
 
+  .main-title {
+    margin-top: 0;
+  }
+
+  .courses-wrapper {
+    margin-top: 16px;
+    list-style-type: none;
+    padding-left: 0;
+    display: grid;
+    gap: 32px;
+  }
+
+  .course-link {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  @media screen and (min-width: 768px) {
     .courses-wrapper {
-        margin-top: 16px;
+      grid-template-columns: repeat(2, 1fr);
     }
+  }
 
-    .course-link {
-        color: #FFF;
-        text-decoration: none;
+  @media screen and (min-width: 1024px) {
+    .courses-wrapper {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
     }
+  }
 </style>
