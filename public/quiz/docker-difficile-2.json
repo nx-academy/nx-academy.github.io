@@ -1,0 +1,109 @@
+{
+  "data": [
+    {
+      "question": "Quel est l'intérêt principal du build multi-stage ?",
+      "options": [
+        "Ajouter plusieurs CMD dans un Dockerfile",
+        "Créer plusieurs conteneurs dans une image",
+        "Réduire la taille de l’image finale",
+        "Permettre aux conteneurs de redémarrer automatiquement"
+      ],
+      "answer": "Réduire la taille de l’image finale",
+      "explanation": "Le build multi-stage permet de séparer les étapes de compilation et d'exécution, ce qui permet de ne garder que les fichiers nécessaires dans l’image finale."
+    },
+    {
+      "question": "Quelle est une bonne pratique pour réduire la taille d’une image Docker ?",
+      "options": [
+        "Utiliser `apt-get upgrade` dans le Dockerfile",
+        "Installer tous les outils système possibles",
+        "Utiliser une image de base alpine",
+        "Ajouter tous les fichiers sources dans le conteneur"
+      ],
+      "answer": "Utiliser une image de base alpine",
+      "explanation": "Les images Alpine sont minimalistes (environ 5 Mo) et permettent de construire des conteneurs plus légers."
+    },
+    {
+      "question": "Quelle commande permet de se connecter à un registre Docker privé ?",
+      "options": [
+        "docker ssh",
+        "docker connect",
+        "docker login",
+        "docker hub-auth"
+      ],
+      "answer": "docker login",
+      "explanation": "`docker login` permet de s’authentifier auprès d’un registre Docker, qu’il soit public (Docker Hub) ou privé."
+    },
+    {
+      "question": "Quelle directive permet de définir une variable d’environnement dans un Dockerfile ?",
+      "options": ["ARG", "ENV", "EXPOSE", "SET"],
+      "answer": "ENV",
+      "explanation": "`ENV` permet de définir une variable d’environnement dans l’image, qui sera accessible au moment de l’exécution du conteneur."
+    },
+    {
+      "question": "Quelle commande permet d’inspecter la configuration d’un conteneur ?",
+      "options": [
+        "docker config",
+        "docker inspect",
+        "docker details",
+        "docker view"
+      ],
+      "answer": "docker inspect",
+      "explanation": "`docker inspect` retourne tous les détails internes (réseau, volumes, environnement, etc.) d’un conteneur ou d’une image au format JSON."
+    },
+    {
+      "question": "Que permet l'option `--network host` dans un `docker run` ?",
+      "options": [
+        "Créer un réseau isolé pour le conteneur",
+        "Partager le réseau du conteneur avec d'autres conteneurs",
+        "Faire en sorte que le conteneur utilise directement le réseau de l'hôte",
+        "Activer un VPN dans le conteneur"
+      ],
+      "answer": "Faire en sorte que le conteneur utilise directement le réseau de l'hôte",
+      "explanation": "Avec `--network host`, le conteneur partage la pile réseau de la machine hôte, ce qui supprime l’isolation réseau mais peut améliorer les performances."
+    },
+    {
+      "question": "Quelle est la fonction de la commande `docker system prune` ?",
+      "options": [
+        "Mettre à jour Docker",
+        "Vérifier les dépendances d’un conteneur",
+        "Nettoyer les ressources inutilisées (volumes, images, conteneurs arrêtés)",
+        "Créer une sauvegarde des volumes"
+      ],
+      "answer": "Nettoyer les ressources inutilisées (volumes, images, conteneurs arrêtés)",
+      "explanation": "`docker system prune` supprime tout ce qui n’est plus utilisé : images orphelines, conteneurs arrêtés, réseaux et volumes inutiles."
+    },
+    {
+      "question": "Quel est le comportement par défaut d’un conteneur Docker quand le processus principal se termine ?",
+      "options": [
+        "Il redémarre automatiquement",
+        "Il reste en pause",
+        "Il est supprimé",
+        "Il s’arrête"
+      ],
+      "answer": "Il s’arrête",
+      "explanation": "Par défaut, un conteneur s’arrête dès que son processus principal (défini via `CMD` ou `ENTRYPOINT`) se termine."
+    },
+    {
+      "question": "Comment monter un fichier spécifique dans un conteneur à l’exécution ?",
+      "options": [
+        "`docker run -f fichier.conf:/data`",
+        "`docker mount fichier.conf`",
+        "`docker run -v fichier.conf:/data/fichier.conf`",
+        "`docker copy fichier.conf`"
+      ],
+      "answer": "`docker run -v fichier.conf:/data/fichier.conf`",
+      "explanation": "L’option `-v` permet de faire un bind mount vers un fichier ou un dossier spécifique de l’hôte vers le conteneur."
+    },
+    {
+      "question": "Pourquoi utiliser une politique de redémarrage (`--restart`) dans un conteneur ?",
+      "options": [
+        "Pour mettre à jour automatiquement l’image",
+        "Pour garantir la persistance des logs",
+        "Pour que le conteneur redémarre en cas de crash ou reboot",
+        "Pour monter automatiquement les volumes"
+      ],
+      "answer": "Pour que le conteneur redémarre en cas de crash ou reboot",
+      "explanation": "`--restart=always` ou `--restart=on-failure` permettent de relancer un conteneur automatiquement en cas de plantage ou redémarrage de l’hôte."
+    }
+  ]
+}

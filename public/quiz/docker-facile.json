@@ -8,7 +8,8 @@
         "Lancer des applications dans des conteneurs isolés",
         "Déboguer des applications front-end"
       ],
-      "answer": "Lancer des applications dans des conteneurs isolés"
+      "answer": "Lancer des applications dans des conteneurs isolés",
+      "explanation": "Docker permet de lancer des applications dans des environnements appelés conteneurs, qui sont isolés du système hôte et des autres conteneurs."
     },
     {
       "question": "Quel est le nom du fichier utilisé pour définir l'image Docker ?",
@@ -18,12 +19,81 @@
         "image.conf",
         "config.json"
       ],
-      "answer": "Dockerfile"
+      "answer": "Dockerfile",
+      "explanation": "Le fichier `Dockerfile` contient les instructions pour construire une image Docker à partir d'une base et y ajouter les composants nécessaires."
     },
     {
       "question": "Quelle commande permet de voir les conteneurs en cours d'exécution ?",
       "options": ["docker ps", "docker run", "docker exec", "docker images"],
-      "answer": "docker ps"
+      "answer": "docker ps",
+      "explanation": "La commande `docker ps` affiche les conteneurs Docker actuellement en cours d'exécution sur la machine."
+    },
+    {
+      "question": "Quel est l'intérêt principal d'utiliser Docker ?",
+      "options": [
+        "Améliorer la sécurité du réseau",
+        "Exécuter des applications dans un environnement reproductible",
+        "Remplacer les bases de données",
+        "Créer des pages web statiques"
+      ],
+      "answer": "Exécuter des applications dans un environnement reproductible",
+      "explanation": "Docker permet de garantir que l'application fonctionne de la même manière sur toutes les machines, car l'environnement est contenu dans une image."
+    },
+    {
+      "question": "Quelle commande sert à télécharger une image depuis Docker Hub ?",
+      "options": [
+        "docker fetch",
+        "docker pull",
+        "docker download",
+        "docker install"
+      ],
+      "answer": "docker pull",
+      "explanation": "La commande `docker pull` permet de récupérer une image depuis un registre comme Docker Hub pour pouvoir ensuite l'exécuter."
+    },
+    {
+      "question": "Quel élément Docker exécute réellement une application ?",
+      "options": ["L'image", "Le conteneur", "Le Dockerfile", "Le registre"],
+      "answer": "Le conteneur",
+      "explanation": "L'image est un modèle statique, tandis que le conteneur est l'instance en cours d'exécution de cette image. C’est lui qui fait tourner l'application."
+    },
+    {
+      "question": "Que contient une image Docker ?",
+      "options": [
+        "Le code source uniquement",
+        "Le système d'exploitation complet",
+        "Le code, les dépendances et les configurations nécessaires",
+        "Un fichier README"
+      ],
+      "answer": "Le code, les dépendances et les configurations nécessaires",
+      "explanation": "Une image Docker contient tout ce dont une application a besoin pour fonctionner : code, librairies, outils, variables d'environnement, etc."
+    },
+    {
+      "question": "Quelle commande permet de démarrer un conteneur à partir d’une image ?",
+      "options": ["docker ps", "docker build", "docker run", "docker start"],
+      "answer": "docker run",
+      "explanation": "La commande `docker run` permet de démarrer un nouveau conteneur à partir d'une image Docker, en créant une instance active."
+    },
+    {
+      "question": "Que fait la commande `docker build` ?",
+      "options": [
+        "Lance un conteneur",
+        "Construit une image à partir d’un Dockerfile",
+        "Supprime un conteneur",
+        "Crée un réseau Docker"
+      ],
+      "answer": "Construit une image à partir d’un Dockerfile",
+      "explanation": "La commande `docker build` lit un `Dockerfile` et crée une image Docker selon les instructions qu’il contient."
+    },
+    {
+      "question": "À quoi sert Docker Hub ?",
+      "options": [
+        "Créer des réseaux privés",
+        "Partager des images Docker",
+        "Configurer des bases de données",
+        "Analyser les performances d’un conteneur"
+      ],
+      "answer": "Partager des images Docker",
+      "explanation": "Docker Hub est un registre public où les développeurs peuvent stocker, partager et télécharger des images Docker."
     }
   ]
 }

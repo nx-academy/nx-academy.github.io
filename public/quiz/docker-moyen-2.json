@@ -1,0 +1,109 @@
+{
+  "data": [
+    {
+      "question": "À quoi sert la commande `docker start` ?",
+      "options": [
+        "À démarrer un conteneur déjà créé",
+        "À créer une nouvelle image",
+        "À reconstruire un Dockerfile",
+        "À télécharger une image depuis Docker Hub"
+      ],
+      "answer": "À démarrer un conteneur déjà créé",
+      "explanation": "`docker start` relance un conteneur existant qui a été précédemment arrêté."
+    },
+    {
+      "question": "Quelle différence entre `docker stop` et `docker kill` ?",
+      "options": [
+        "`stop` arrête immédiatement, `kill` attend la fin du processus",
+        "`stop` tente un arrêt propre, `kill` force l’arrêt sans délai",
+        "Aucune, les deux font la même chose",
+        "`kill` crée un log, `stop` ne le fait pas"
+      ],
+      "answer": "`stop` tente un arrêt propre, `kill` force l’arrêt sans délai",
+      "explanation": "`docker stop` envoie un signal SIGTERM pour permettre au processus de s’arrêter proprement, tandis que `docker kill` envoie directement un SIGKILL."
+    },
+    {
+      "question": "Quel paramètre de `docker run` permet de publier un port ?",
+      "options": ["-d", "-v", "-e", "-p"],
+      "answer": "-p",
+      "explanation": "L’option `-p` permet de faire correspondre un port de la machine hôte avec un port du conteneur (`-p 8080:80`)."
+    },
+    {
+      "question": "Que permet de faire la commande `docker build .` ?",
+      "options": [
+        "Construire un conteneur à partir d’un fichier zip",
+        "Lancer une application dans le terminal",
+        "Créer une image Docker à partir d’un Dockerfile dans le dossier courant",
+        "Démarrer un conteneur depuis Docker Hub"
+      ],
+      "answer": "Créer une image Docker à partir d’un Dockerfile dans le dossier courant",
+      "explanation": "`docker build .` crée une image en utilisant les instructions du Dockerfile situé dans le répertoire actuel."
+    },
+    {
+      "question": "Quel est le rôle du `CMD` dans un Dockerfile ?",
+      "options": [
+        "Configurer les permissions",
+        "Définir la commande exécutée au démarrage du conteneur",
+        "Construire l’image",
+        "Redémarrer le conteneur automatiquement"
+      ],
+      "answer": "Définir la commande exécutée au démarrage du conteneur",
+      "explanation": "L’instruction `CMD` indique quelle commande doit s’exécuter automatiquement quand le conteneur démarre."
+    },
+    {
+      "question": "Pourquoi utiliser un volume Docker ?",
+      "options": [
+        "Pour exécuter plusieurs conteneurs en parallèle",
+        "Pour stocker des données persistantes indépendamment du cycle de vie des conteneurs",
+        "Pour crypter les logs",
+        "Pour compresser les images"
+      ],
+      "answer": "Pour stocker des données persistantes indépendamment du cycle de vie des conteneurs",
+      "explanation": "Les volumes Docker permettent de sauvegarder des données même si le conteneur est supprimé."
+    },
+    {
+      "question": "Que permet la commande `docker rm` ?",
+      "options": [
+        "Supprimer une image Docker",
+        "Relancer un conteneur",
+        "Supprimer un conteneur arrêté",
+        "Réinitialiser le registre Docker"
+      ],
+      "answer": "Supprimer un conteneur arrêté",
+      "explanation": "`docker rm` supprime un conteneur qui n’est plus actif. Il faut d’abord l’arrêter avec `docker stop` si ce n’est pas déjà fait."
+    },
+    {
+      "question": "Quel est le rôle d’un fichier `docker-compose.yml` ?",
+      "options": [
+        "Compiler les images plus rapidement",
+        "Partager des images en ligne",
+        "Définir et orchestrer plusieurs services Docker",
+        "Analyser les performances d’un conteneur"
+      ],
+      "answer": "Définir et orchestrer plusieurs services Docker",
+      "explanation": "`docker-compose.yml` permet de décrire plusieurs conteneurs/services et leurs relations (réseau, volumes, dépendances, etc.)."
+    },
+    {
+      "question": "Quel est l'effet de `--rm` dans `docker run --rm` ?",
+      "options": [
+        "Lance un conteneur en lecture seule",
+        "Supprime l’image après exécution",
+        "Supprime automatiquement le conteneur à l'arrêt",
+        "Redémarre le conteneur en cas d’erreur"
+      ],
+      "answer": "Supprime automatiquement le conteneur à l'arrêt",
+      "explanation": "`--rm` permet de supprimer automatiquement le conteneur une fois qu’il est terminé. Utile pour les conteneurs temporaires."
+    },
+    {
+      "question": "Quel est l'intérêt d’utiliser un tag dans une image Docker ?",
+      "options": [
+        "Définir le port d’écoute du conteneur",
+        "Assigner des permissions d’accès",
+        "Identifier une version précise de l’image",
+        "Limiter la taille du conteneur"
+      ],
+      "answer": "Identifier une version précise de l’image",
+      "explanation": "Un tag (comme `nginx:1.23`) permet d’indiquer une version spécifique d’une image, pour éviter d’utiliser `latest` de manière implicite."
+    }
+  ]
+}

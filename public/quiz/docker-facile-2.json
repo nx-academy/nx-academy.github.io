@@ -1,0 +1,94 @@
+{
+  "data": [
+    {
+      "question": "Comment s'appelle le format standardisé que Docker utilise pour lancer des applications ?",
+      "options": ["Conteneur", "VirtualBox", "Machine virtuelle", "Bloc-notes"],
+      "answer": "Conteneur",
+      "explanation": "Docker utilise des conteneurs, un format léger et isolé pour exécuter des applications de manière reproductible."
+    },
+    {
+      "question": "À quoi sert une image Docker ?",
+      "options": [
+        "À créer des fichiers texte",
+        "À installer Linux",
+        "À fournir le modèle de base pour un conteneur",
+        "À sauvegarder des vidéos"
+      ],
+      "answer": "À fournir le modèle de base pour un conteneur",
+      "explanation": "Une image Docker est un modèle figé contenant tout ce qu’il faut pour lancer une application dans un conteneur."
+    },
+    {
+      "question": "Quel fichier permet de construire une image Docker ?",
+      "options": ["Dockerfile", "index.html", "setup.sh", "docker-compose.yml"],
+      "answer": "Dockerfile",
+      "explanation": "Le `Dockerfile` contient les instructions pour créer une image Docker, étape par étape."
+    },
+    {
+      "question": "Quelle commande permet de télécharger une image depuis Docker Hub ?",
+      "options": [
+        "docker fetch",
+        "docker install",
+        "docker pull",
+        "docker clone"
+      ],
+      "answer": "docker pull",
+      "explanation": "`docker pull` permet de récupérer une image publique sur un registre tel que Docker Hub."
+    },
+    {
+      "question": "Quelle commande sert à créer et lancer un conteneur ?",
+      "options": ["docker ps", "docker run", "docker build", "docker init"],
+      "answer": "docker run",
+      "explanation": "`docker run` permet de lancer un nouveau conteneur à partir d'une image."
+    },
+    {
+      "question": "Que fait la commande `docker ps` ?",
+      "options": [
+        "Elle affiche les images disponibles",
+        "Elle arrête les conteneurs",
+        "Elle montre les conteneurs en cours d’exécution",
+        "Elle installe Docker"
+      ],
+      "answer": "Elle montre les conteneurs en cours d’exécution",
+      "explanation": "`docker ps` affiche les conteneurs actifs sur la machine."
+    },
+    {
+      "question": "Quelle commande affiche toutes les images téléchargées sur votre machine ?",
+      "options": ["docker images", "docker ls", "docker show", "docker list"],
+      "answer": "docker images",
+      "explanation": "`docker images` liste toutes les images présentes localement sur votre système."
+    },
+    {
+      "question": "À quoi sert Docker Hub ?",
+      "options": [
+        "À modifier les conteneurs",
+        "À créer des Dockerfiles",
+        "À stocker et partager des images Docker",
+        "À visualiser l'interface graphique"
+      ],
+      "answer": "À stocker et partager des images Docker",
+      "explanation": "Docker Hub est un service en ligne qui permet d’héberger et de récupérer des images Docker prêtes à l’emploi."
+    },
+    {
+      "question": "Comment appelle-t-on l'outil Docker qui automatise le lancement de plusieurs conteneurs ?",
+      "options": [
+        "Docker Engine",
+        "Docker Compose",
+        "Docker Linker",
+        "Docker Setup"
+      ],
+      "answer": "Docker Compose",
+      "explanation": "`Docker Compose` permet de lancer plusieurs conteneurs définis dans un même fichier `docker-compose.yml`."
+    },
+    {
+      "question": "Quel est l'avantage principal de Docker par rapport aux machines virtuelles ?",
+      "options": [
+        "Docker utilise plus de ressources",
+        "Docker permet de lancer des jeux vidéo",
+        "Docker est plus rapide et plus léger",
+        "Docker remplace totalement le système d’exploitation"
+      ],
+      "answer": "Docker est plus rapide et plus léger",
+      "explanation": "Contrairement aux machines virtuelles, Docker utilise les ressources système de manière plus efficace, ce qui le rend plus rapide et plus léger."
+    }
+  ]
+}

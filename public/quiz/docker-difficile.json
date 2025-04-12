@@ -1,34 +1,99 @@
 {
   "data": [
     {
-      "question": "Quel est le rôle de l'instruction `ENTRYPOINT` dans un Dockerfile ?",
+      "question": "Qu'est-ce qu'une image multi-stage dans Docker ?",
       "options": [
-        "Définir une variable d'environnement",
-        "Spécifier l’utilisateur à utiliser dans le conteneur",
-        "Spécifier la commande principale exécutée à chaque démarrage du conteneur",
-        "Copier un fichier dans l’image"
+        "Une image contenant plusieurs conteneurs",
+        "Une image avec plusieurs ports exposés",
+        "Une image construite en plusieurs étapes pour optimiser la taille finale",
+        "Une image qui tourne sur plusieurs machines"
       ],
-      "answer": "Spécifier la commande principale exécutée à chaque démarrage du conteneur"
+      "answer": "Une image construite en plusieurs étapes pour optimiser la taille finale",
+      "explanation": "Le build multi-stage permet d'utiliser plusieurs `FROM` dans un `Dockerfile` afin de ne garder que les fichiers nécessaires dans l’image finale, réduisant sa taille."
     },
     {
-      "question": "Quelle est la différence entre une image et un conteneur Docker ?",
+      "question": "Comment Docker gère-t-il les layers d'une image ?",
       "options": [
-        "Une image est une application en cours d'exécution, un conteneur est un modèle figé",
-        "Une image est statique, un conteneur est une instance active d'une image",
-        "Une image contient des logs, un conteneur non",
-        "Aucune différence, ce sont deux termes équivalents"
+        "Chaque image est monolithique",
+        "Chaque instruction crée un nouveau layer mis en cache",
+        "Les layers ne s’appliquent qu’aux volumes",
+        "Les layers ne sont utilisés que sur Docker Hub"
       ],
-      "answer": "Une image est statique, un conteneur est une instance active d'une image"
+      "answer": "Chaque instruction crée un nouveau layer mis en cache",
+      "explanation": "Chaque instruction du `Dockerfile` crée une couche (layer) qui peut être réutilisée dans de futurs builds si rien n’a changé."
     },
     {
-      "question": "Dans un fichier `docker-compose.yml`, à quoi sert la directive `depends_on` ?",
+      "question": "Quel type de réseau permet à plusieurs conteneurs de communiquer via un nom de service ?",
+      "options": ["bridge", "host", "overlay", "none"],
+      "answer": "bridge",
+      "explanation": "Le réseau `bridge` permet à plusieurs conteneurs connectés au même réseau d’utiliser leurs noms pour communiquer entre eux via DNS."
+    },
+    {
+      "question": "Quel est l’effet de l’instruction `COPY --chown=user:group` dans un Dockerfile ?",
       "options": [
-        "À définir le nombre de réplicas pour un service",
-        "À créer un réseau personnalisé",
-        "À spécifier un ordre de démarrage entre les services",
-        "À limiter la mémoire utilisée par un conteneur"
+        "Elle donne l’accès root à l’utilisateur",
+        "Elle copie un fichier sans en modifier les droits",
+        "Elle change le propriétaire du fichier copié",
+        "Elle monte un volume"
       ],
-      "answer": "À spécifier un ordre de démarrage entre les services"
+      "answer": "Elle change le propriétaire du fichier copié",
+      "explanation": "`COPY --chown` permet de copier un fichier tout en lui attribuant un propriétaire spécifique dans l’image construite."
+    },
+    {
+      "question": "Comment limiter l'utilisation CPU d’un conteneur Docker ?",
+      "options": ["--limit-cpu", "--cpu-quota", "--cpu-usage", "--max-cpu"],
+      "answer": "--cpu-quota",
+      "explanation": "`--cpu-quota` permet de limiter le temps CPU qu’un conteneur peut utiliser. Il s’utilise avec `--cpu-period` pour définir une limite."
+    },
+    {
+      "question": "Quel est l’intérêt principal d’utiliser un `.dockerignore` ?",
+      "options": [
+        "Augmenter les performances réseau du conteneur",
+        "Réduire la taille de l’image en excluant certains fichiers du build",
+        "Protéger les secrets à l’intérieur du conteneur",
+        "Lancer des builds en parallèle"
+      ],
+      "answer": "Réduire la taille de l’image en excluant certains fichiers du build",
+      "explanation": "Le fichier `.dockerignore` fonctionne comme un `.gitignore` : il empêche certains fichiers (logs, node_modules, etc.) d’être copiés dans l’image."
+    },
+    {
+      "question": "Quelle est la meilleure stratégie pour stocker des données persistantes dans Docker ?",
+      "options": [
+        "Écrire dans le système de fichiers du conteneur",
+        "Utiliser un volume Docker",
+        "Créer un fichier temporaire avec TMPFS",
+        "Utiliser les layers de l’image"
+      ],
+      "answer": "Utiliser un volume Docker",
+      "explanation": "Les volumes Docker permettent de stocker des données persistantes, séparées du cycle de vie du conteneur, ce qui évite leur perte."
+    },
+    {
+      "question": "Quelle commande permet de visualiser l'espace disque utilisé par Docker ?",
+      "options": ["docker disk", "docker stats", "docker df", "docker usage"],
+      "answer": "docker df",
+      "explanation": "`docker df` affiche l’espace disque utilisé par les images, conteneurs, volumes et caches sur la machine."
+    },
+    {
+      "question": "Quelle est la différence entre `bind mount` et `volume` dans Docker ?",
+      "options": [
+        "Le bind mount est plus sécurisé",
+        "Le volume est géré par Docker, le bind mount pointe vers un chemin local",
+        "Le volume est temporaire, le bind mount est persistant",
+        "Il n’y a pas de différence"
+      ],
+      "answer": "Le volume est géré par Docker, le bind mount pointe vers un chemin local",
+      "explanation": "Un volume est géré par Docker et stocké dans un dossier spécifique, tandis qu’un bind mount pointe directement vers un chemin du système hôte."
+    },
+    {
+      "question": "Quel outil permet de surveiller en temps réel les performances d’un conteneur ?",
+      "options": [
+        "docker logs",
+        "docker inspect",
+        "docker top",
+        "docker stats"
+      ],
+      "answer": "docker stats",
+      "explanation": "`docker stats` fournit un suivi en temps réel de l’utilisation CPU, mémoire, et réseau de chaque conteneur actif."
     }
   ]
 }
