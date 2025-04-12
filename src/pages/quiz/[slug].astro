@@ -33,14 +33,14 @@ const breadCrumbs: Breadcrumb[] = [
   <main class="main-wrapper">
     <h1 class="quiz-title">{title}</h1>
     <p class="quiz-level">Niveau : <span>{level}</span></p>
-    <div class="quiz-presentation">
+    <div class="quiz-presentation hidden">
       <img class="quiz-picture" src={imgSrc} alt={imgAlt} />
       <div>
         <p class="quiz-description">{description}</p>
         <button class="start-quiz-btn">Commencer le quiz</button>
       </div>
     </div>
-    <div class="quiz-container hidden">
+    <div class="quiz-container">
       <QuizIsland client:load slug={slug} />
     </div>
   </main>

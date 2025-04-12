@@ -9,8 +9,6 @@ function Component({ slug }) {
   let [score, setScore] = useState(0);
   let [isQuizFinished, setIsQuizFinished] = useState(false);
 
-  console.log(slug);
-
   useEffect(() => {
     async function getQuizData() {
       const res = await fetch(`/quiz/${slug}.json`);
@@ -29,21 +27,18 @@ function Component({ slug }) {
   }
 
   function onSubmitAnswer() {
+    if (!answer) return
     setIsAnswerSubmit(true);
 
+    // Right answer
     if (quizData[questionNumber].answer === answer) {
-      console.log("=====");
-      console.log("Bonne réponse");
-      console.log("=====");
       setScore(score + 1);
-    } else {
-      console.log("=====");
-      console.log("Mauvaise réponse");
-      console.log("=====");
     }
   }
 
   function handleNextQuestion() {
+    setAnswer(null)
+
     if (questionNumber + 1 === quizData.length) {
       setIsQuizFinished(true);
     } else {
@@ -59,11 +54,11 @@ function Component({ slug }) {
       <div className="finished-quiz-wrapper">
         <p className="finished-quiz-title">C'est terminé !</p>
         <p className="finished-quiz-score">
-          Vous avez obtenu: {score} sur {quizData.length}
+          Vous avez obtenu : {score} sur {quizData.length}
         </p>
-        <div>
-          <a href="/">Faire un autre quiz</a>
-          <a href="/quiz">Refaire le quiz</a>
+        <div className="finished-quiz-btns">
+          <a className="redo-quiz" href={`/quiz/${slug}`}>Refaire le quiz</a>
+          <a className="go-back" href="/quiz">Faire un autre quiz</a>
         </div>
       </div>
     );
@@ -78,6 +73,20 @@ function Component({ slug }) {
               Question {questionNumber + 1} sur {quizData.length}
             </p>
             <p className="question">{quizData[questionNumber].question}</p>
+            {
+              isAnswerSubmit && (
+                <>
+                  {
+                    answer === quizData[questionNumber].answer ? (
+                      <p className="explanation-title explanation-title-right">Bonne réponse !</p>
+                    ) : (
+                      <p className="explanation-title explanation-title-wrong">Mauvaise réponse !</p>
+                    )
+                  }
+                  <p className="explanation">{quizData[questionNumber]. explanation}</p>
+                </>
+              )
+            }
           </div>
           <div className="options-container">
             <ul className="options-wrapper">

@@ -4,7 +4,26 @@
 
 .question {
     font-size: 1.25rem;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
+}
+
+.explanation-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.explanation-title-right {
+    color: #4effa0;
+}
+
+.explanation-title-wrong {
+    /* For my Eden School students ^^ */
+    color: tomato;
+}
+
+.explanation {
+    color: #bababa;
+    margin-bottom: 40px;
 }
 
 .options-wrapper {
@@ -68,6 +87,51 @@
     font-size: 32px;
 }
 
+.finished-quiz-score {
+    margin-bottom: 24px;
+}
+
+.finished-quiz-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.go-back {
+    background-color: #4effa0;
+    border: 1px solid #4effa0;
+    text-align: center;
+    padding: 8px 16px;
+    cursor: pointer;
+    color: #151515;
+    border-radius: 8px;
+    transition: .4s;
+    display: block;
+    text-decoration: none;
+
+    &:hover {
+        background-color: #4effa0dd;
+    }
+}
+
+.redo-quiz {
+    display: block;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .4s;
+    background-color: #B0BEC5;
+    color: #151515;
+    text-align: center;
+    text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+    .finished-quiz-btns {
+        flex-direction: row;
+    }
+}
+
 @media screen and (min-width: 1024px) {
     .quiz-wrapper {
         height: 50vh;
@@ -78,10 +142,15 @@
 
     .quiz-inner-container {
         display: flex;
+        gap: 40px;
     }
 
     .question-wrapper {
         width: 50%;
+    }
+
+    .explanation {
+        margin-bottom: 0;   
     }
 
     .options-container {

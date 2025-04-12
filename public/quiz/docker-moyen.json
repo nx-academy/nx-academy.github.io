@@ -1,34 +1,109 @@
 {
   "data": [
     {
-      "question": "À quoi sert le fichier `docker-compose.yml` ?",
+      "question": "Quelle commande permet de supprimer une image Docker ?",
       "options": [
-        "À créer un conteneur Ubuntu",
-        "À lancer une image depuis Docker Hub",
-        "À définir et gérer plusieurs services Docker",
-        "À configurer le réseau de l'hôte"
+        "docker delete",
+        "docker remove-image",
+        "docker rmi",
+        "docker image-rm"
       ],
-      "answer": "À définir et gérer plusieurs services Docker"
+      "answer": "docker rmi",
+      "explanation": "La commande `docker rmi` supprime une image Docker locale. Elle ne fonctionne que si aucun conteneur n’utilise cette image."
     },
     {
-      "question": "Quelle commande permet de construire une image à partir d’un Dockerfile ?",
-      "options": [
-        "docker create",
-        "docker run",
-        "docker build",
-        "docker start"
-      ],
-      "answer": "docker build"
+      "question": "Quelle instruction dans un Dockerfile permet d'exécuter une commande pendant la construction de l'image ?",
+      "options": ["CMD", "ENTRYPOINT", "RUN", "EXEC"],
+      "answer": "RUN",
+      "explanation": "L’instruction `RUN` permet d’exécuter des commandes au moment de la construction de l’image (par exemple, installer des paquets)."
     },
     {
-      "question": "Quel est l’avantage principal de Docker par rapport aux machines virtuelles ?",
+      "question": "À quoi sert la commande `docker exec` ?",
       "options": [
-        "Les conteneurs peuvent exécuter plusieurs systèmes d'exploitation",
-        "Les conteneurs sont plus légers et démarrent plus rapidement",
-        "Les conteneurs n'ont pas besoin de noyau Linux",
-        "Les conteneurs peuvent stocker plus de données"
+        "Construire une image",
+        "Lancer un conteneur",
+        "Afficher les logs",
+        "Exécuter une commande dans un conteneur en cours d'exécution"
       ],
-      "answer": "Les conteneurs sont plus légers et démarrent plus rapidement"
+      "answer": "Exécuter une commande dans un conteneur en cours d'exécution",
+      "explanation": "`docker exec` permet d’exécuter une commande dans un conteneur déjà lancé, utile pour du débogage ou de l’administration."
+    },
+    {
+      "question": "Quelle différence entre CMD et ENTRYPOINT dans un Dockerfile ?",
+      "options": [
+        "CMD est obligatoire, ENTRYPOINT est optionnel",
+        "CMD est utilisé pour des scripts shell, ENTRYPOINT pour les binaires",
+        "ENTRYPOINT définit le processus principal, CMD fournit les arguments par défaut",
+        "Il n'y a aucune différence"
+      ],
+      "answer": "ENTRYPOINT définit le processus principal, CMD fournit les arguments par défaut",
+      "explanation": "ENTRYPOINT lance le programme principal du conteneur, tandis que CMD sert à fournir des arguments par défaut que l’on peut écraser."
+    },
+    {
+      "question": "Que permet la commande `docker logs` ?",
+      "options": [
+        "Afficher les erreurs du Dockerfile",
+        "Afficher les événements du daemon Docker",
+        "Afficher les journaux d’un conteneur",
+        "Afficher la configuration réseau"
+      ],
+      "answer": "Afficher les journaux d’un conteneur",
+      "explanation": "`docker logs` permet de consulter la sortie standard et les erreurs d’un conteneur, ce qui est utile pour surveiller son comportement."
+    },
+    {
+      "question": "Quel est l’effet de la commande `docker stop` sur un conteneur ?",
+      "options": [
+        "Supprime le conteneur",
+        "Met en pause le conteneur",
+        "Arrête le conteneur proprement",
+        "Tue immédiatement le processus"
+      ],
+      "answer": "Arrête le conteneur proprement",
+      "explanation": "`docker stop` envoie un signal SIGTERM pour permettre au processus du conteneur de s’arrêter proprement, avant d’utiliser SIGKILL si nécessaire."
+    },
+    {
+      "question": "Que signifie le drapeau `-d` dans la commande `docker run -d` ?",
+      "options": [
+        "Désactive le conteneur après l’exécution",
+        "Démarre le conteneur en mode détaché",
+        "Supprime le conteneur après l’exécution",
+        "Désactive les logs"
+      ],
+      "answer": "Démarre le conteneur en mode détaché",
+      "explanation": "L’option `-d` signifie *detached mode* : le conteneur s’exécute en arrière-plan, sans bloquer le terminal."
+    },
+    {
+      "question": "Quel est l’intérêt principal de docker-compose ?",
+      "options": [
+        "Créer des images plus rapidement",
+        "Déboguer les conteneurs",
+        "Gérer plusieurs conteneurs avec un seul fichier de configuration",
+        "Sauvegarder les logs automatiquement"
+      ],
+      "answer": "Gérer plusieurs conteneurs avec un seul fichier de configuration",
+      "explanation": "`docker-compose` permet de définir et lancer plusieurs conteneurs avec un seul fichier `docker-compose.yml`."
+    },
+    {
+      "question": "Que permet l’instruction `EXPOSE` dans un Dockerfile ?",
+      "options": [
+        "Créer une nouvelle interface réseau",
+        "Ouvrir un port dans l’image",
+        "Définir un port que le conteneur utilisera",
+        "Rendre l’image publique sur Docker Hub"
+      ],
+      "answer": "Définir un port que le conteneur utilisera",
+      "explanation": "`EXPOSE` indique quel port sera utilisé par l’application dans le conteneur, mais ne publie pas ce port automatiquement vers l’extérieur."
+    },
+    {
+      "question": "Que permet la commande `docker volume` ?",
+      "options": [
+        "Créer une image compressée",
+        "Gérer des espaces de stockage persistants",
+        "Créer des réseaux Docker",
+        "Changer les permissions d’un conteneur"
+      ],
+      "answer": "Gérer des espaces de stockage persistants",
+      "explanation": "Les volumes Docker permettent de stocker des données en dehors du cycle de vie des conteneurs, garantissant leur persistance."
     }
   ]
 }
