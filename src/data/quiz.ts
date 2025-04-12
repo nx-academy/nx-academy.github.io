@@ -11,8 +11,8 @@ type QuizMeta = {
 export const QUIZZES: readonly QuizMeta[] = [
   {
     slug: "docker-facile",
-    title: "Docker - Niveau facile",
-    description: "Un quiz pour démarrer avec Docker en douceur",
+    title: "Les concepts essentiels de Docker",
+    description: "Un quiz pour démarrer avec Docker en douceur. Testez vos connaissances sur des concepts de base tels que les images, les containeurs et les problématiques résolues par Docker.",
     level: "Facile",
     imgSrc: "/misc/quiz-hero.webp",
     imgAlt: "Illustration Docker facile",
@@ -20,7 +20,7 @@ export const QUIZZES: readonly QuizMeta[] = [
   },
   {
     slug: "docker-moyen",
-    title: "Docker - Niveau moyen",
+    title: "Docker et docker compose, les essentiels",
     description: "Un quiz pour tester tes connaissances intermédiaires",
     level: "Moyen",
     imgSrc: "/misc/quiz-hero.webp",
@@ -29,7 +29,7 @@ export const QUIZZES: readonly QuizMeta[] = [
   },
   {
     slug: "docker-difficile",
-    title: "Docker - Niveau difficile",
+    title: "Concepts avancés en Docker et docker compose",
     description: "Un challenge costaud pour les pros de Docker",
     level: "Difficile",
     imgSrc: "/misc/quiz-hero.webp",

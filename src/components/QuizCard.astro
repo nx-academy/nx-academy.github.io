@@ -7,13 +7,14 @@ interface Props {
   level: string
 }
 
-const { href, imgAlt, imgSrc, title } = Astro.props;
+const { href, imgAlt, imgSrc, title, level } = Astro.props;
 ---
 
 <a class="quiz-card" href={`/${href}`}>
   <img class="quiz-image" src={imgSrc} alt={imgAlt} />
   <div class="quiz-content">
     <p class="quiz-title">{title}</p>
+    <span class="quiz-level">Niveau : {level}</span>
   </div>
 </a>
 
@@ -30,7 +31,7 @@ const { href, imgAlt, imgSrc, title } = Astro.props;
     width: 100%;
     display: block;
     border-radius: 8px;
-    filter: brightness(50%);
+    filter: brightness(20%);
     border: 2px solid #FE7600;
   }
 

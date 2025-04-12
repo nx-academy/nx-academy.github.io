@@ -1,31 +1,154 @@
 ---
-import { QUIZZES } from "../../data/quiz"
+import type { Breadcrumb } from "../../types/Breadcrumb";
+
+import { QUIZZES } from "../../data/quiz";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import QuizIsland from "../../components/Quiz";
 
 export function getStaticPaths() {
-    return QUIZZES.map(quiz => ({
-        params: { slug: quiz.slug }
-    }))
+  return QUIZZES.map((quiz) => ({
+    params: { slug: quiz.slug },
+  }));
 }
-
-import BaseLayout from "../../layouts/BaseLayout.astro"
-import QuizIsland from "../../components/Quiz"
-
 const { slug } = Astro.params;
 
-console.log(slug)
+const { title, description, level, imgSrc, imgAlt, href } = QUIZZES.filter(
+  (quiz) => quiz.slug === slug
+)[0];
+
+const breadCrumbs: Breadcrumb[] = [
+  {
+    pageName: "Accueil",
+    pageUrl: "/",
+  },
+  {
+    pageName: "Quiz",
+    pageUrl: "/quiz",
+  }
+];
 ---
 
-<BaseLayout>
+<BaseLayout title={title} description={description} breadcrumbs={breadCrumbs}>
   <main class="main-wrapper">
-    <QuizIsland client:load slug={slug} />
+    <h1 class="quiz-title">{title}</h1>
+    <p class="quiz-level">Niveau : <span>{level}</span></p>
+    <div class="quiz-presentation">
+      <img class="quiz-picture" src={imgSrc} alt={imgAlt} />
+      <div>
+        <p class="quiz-description">{description}</p>
+        <button class="start-quiz-btn">Commencer le quiz</button>
+      </div>
+    </div>
+    <div class="quiz-container hidden">
+      <QuizIsland client:load slug={slug} />
+    </div>
   </main>
 </BaseLayout>
 
 <style>
-    .main-wrapper {
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 1100px;
+  .hidden {
+    display: none !important;
+  }
+
+  .main-wrapper {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1100px;
+  }
+
+  .quiz-title {
+    margin-bottom: 0;
+  }
+
+  .quiz-level {
+    font-size: 0.75rem;
+    margin-bottom: 24px;
+    letter-spacing: 2px;
+
+    span {
+      font-weight: 700;
     }
+  }
+
+  .quiz-picture {
+    border-radius: 8px;
+    aspect-ratio: 1792 / 1024;
+    object-fit: cover;
+    object-position: top;
+    width: 100%;
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .quiz-description {
+    margin-bottom: 24px;
+  }
+
+  .start-quiz-btn {
+    background-color: #4effa0;
+    width: 100%;
+    border: none;
+    color: #151515;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: .4s;
+
+    &:hover {
+      background-color: #4effa0aa; 
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .main-wrapper {
+      min-height: 70vh;
+    }
+
+    .quiz-presentation {
+      display: flex;
+      gap: 48px;
+
+      .quiz-picture,
+      div {
+        width: 50%;
+      }
+
+      div {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    .start-quiz-btn {
+      margin-top: auto;
+      margin-bottom: 16px;
+    }
+  }
 </style>
+
+<script>
+  const $quizContainer = document.querySelector(
+    ".quiz-container"
+  ) as HTMLElement;
+  const $startQuizBtn = document.querySelector(
+    ".start-quiz-btn"
+  ) as HTMLButtonElement;
+  const $quizPresentation = document.querySelector(
+    ".quiz-presentation"
+  ) as HTMLDivElement;
+  const $goBackBtn = document.querySelector(".go-back-btn") as HTMLSpanElement
+
+  $startQuizBtn.addEventListener("click", function () {
+    $quizContainer.classList.remove("hidden");
+    $quizPresentation.classList.add("hidden");
+  });
+
+  $goBackBtn.addEventListener("click", function() {
+    $quizContainer.classList.add("hidden");
+    $quizPresentation.classList.remove("hidden");
+  })
+</script>
