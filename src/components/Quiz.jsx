@@ -9,8 +9,6 @@ function Component({ slug }) {
   let [score, setScore] = useState(0);
   let [isQuizFinished, setIsQuizFinished] = useState(false);
 
-  console.log(slug);
-
   useEffect(() => {
     async function getQuizData() {
       const res = await fetch(`/quiz/${slug}.json`);
@@ -29,21 +27,18 @@ function Component({ slug }) {
   }
 
   function onSubmitAnswer() {
+    if (!answer) return
     setIsAnswerSubmit(true);
 
+    // Right answer
     if (quizData[questionNumber].answer === answer) {
-      console.log("=====");
-      console.log("Bonne réponse");
-      console.log("=====");
       setScore(score + 1);
-    } else {
-      console.log("=====");
-      console.log("Mauvaise réponse");
-      console.log("=====");
     }
   }
 
   function handleNextQuestion() {
+    setAnswer(null)
+
     if (questionNumber + 1 === quizData.length) {
       setIsQuizFinished(true);
     } else {
