@@ -4,7 +4,25 @@
 
 .question {
     font-size: 1.25rem;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
+}
+
+.explanation-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.explanation-title-right {
+    color: #4effa0;
+}
+
+.explanation-title-wrong {
+    /* For my Eden School students ^^ */
+    color: tomato;
+}
+
+.explanation {
+    color: #bababa;
 }
 
 .options-wrapper {
@@ -78,6 +96,7 @@
 
     .quiz-inner-container {
         display: flex;
+        gap: 40px;
     }
 
     .question-wrapper {

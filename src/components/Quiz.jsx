@@ -73,6 +73,20 @@ function Component({ slug }) {
               Question {questionNumber + 1} sur {quizData.length}
             </p>
             <p className="question">{quizData[questionNumber].question}</p>
+            {
+              isAnswerSubmit && (
+                <>
+                  {
+                    answer === quizData[questionNumber].answer ? (
+                      <p className="explanation-title explanation-title-right">Bonne réponse !</p>
+                    ) : (
+                      <p className="explanation-title explanation-title-wrong">Mauvaise réponse !</p>
+                    )
+                  }
+                  <p className="explanation">{quizData[questionNumber]. explanation}</p>
+                </>
+              )
+            }
           </div>
           <div className="options-container">
             <ul className="options-wrapper">
