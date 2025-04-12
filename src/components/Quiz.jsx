@@ -54,11 +54,11 @@ function Component({ slug }) {
       <div className="finished-quiz-wrapper">
         <p className="finished-quiz-title">C'est terminé !</p>
         <p className="finished-quiz-score">
-          Vous avez obtenu: {score} sur {quizData.length}
+          Vous avez obtenu : {score} sur {quizData.length}
         </p>
-        <div>
-          <a href="/">Faire un autre quiz</a>
-          <a href="/quiz">Refaire le quiz</a>
+        <div className="finished-quiz-btns">
+          <a className="redo-quiz" href={`/quiz/${slug}`}>Refaire le quiz</a>
+          <a className="go-back" href="/quiz">Faire un autre quiz</a>
         </div>
       </div>
     );
