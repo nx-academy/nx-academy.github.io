@@ -95,9 +95,19 @@ const breadCrumbs: Breadcrumb[] = [
     padding-bottom: 16px;
     border-radius: 4px;
     cursor: pointer;
+    font-weight: 700;
+    transition: .4s;
+
+    &:hover {
+      background-color: #4effa0aa; 
+    }
   }
 
   @media screen and (min-width: 1024px) {
+    .main-wrapper {
+      min-height: 70vh;
+    }
+
     .quiz-presentation {
       display: flex;
       gap: 48px;
