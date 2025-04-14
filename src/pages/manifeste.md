@@ -5,6 +5,8 @@ title: Le manifeste
 description: NX est une plateforme de cours en ligne gratuite et open source. Cette page représente le contrat de confiance entre moi, Thomas, et vous le lecteur.
 ---
 
+![Un champignon bleu qui lit un livre dans sa chambre, pixel art](/champignon-lecture.png)
+
 # Bienvenue sur NX Academy
 
 Avant de commencer, merci de prendre le temps de consulter cette page. L’écrire était important pour moi. C’est une manière de poser les choses et de faire un contrat avec vous… mais aussi avec moi-même.
@@ -59,9 +61,9 @@ Vous trouverez sur NX Academy plusieurs types de contenus, selon ce que vous che
 ### En cours de release
 Comme vous l'avez sûrement compris, je développe de manière active NX. Je n'ai pas forcément autant de temps que j'aimerais mais sachez que je vais bientôt sortir :
 
-- Des quiz pour tester rapidement vos connaissances. Ils sont pour l’instant accessibles depuis la page quiz et portent principalement sur Docker. Je suis en train de les intégrer progressivement aux chapitres de certains cours, pour qu’ils soient mieux liés aux apprentissages.
+- [Des quiz](/quiz) pour tester rapidement vos connaissances. Ils sont pour l’instant accessibles depuis la page quiz et portent principalement sur Docker. Je suis en train de les intégrer progressivement aux chapitres de certains cours, pour qu’ils soient mieux liés aux apprentissages.
 
-- Des cours en ligne complets. Je finalise actuellement deux cours : l’un sur Docker, l’autre sur les CI/CD avec GitHub Actions. Ces cours mixent théorie et pratique, avec un projet fil rouge pour appliquer les notions, ainsi que des screencasts pour accompagner chaque étape. Quand c’est possible, je réalise ces vidéos sur Linux, macOS et Windows, pour que chacun puisse s’y retrouver selon son environnement.
+- Des cours en ligne complets. Je finalise actuellement deux cours : [l’un sur Docker](/cours/docker-et-docker-compose), [l’autre sur les CI/CD avec GitHub Actions](/cours/ci-cd-github-actions). Ces cours mixent théorie et pratique, avec un projet fil rouge pour appliquer les notions, ainsi que des screencasts pour accompagner chaque étape. Quand c’est possible, je réalise ces vidéos sur Linux, macOS et Windows, pour que chacun puisse s’y retrouver selon son environnement.
 
 
 ### Dans les cartons
@@ -78,6 +80,6 @@ L’idée est de se rapprocher de situations réelles, avec un début de cahier 
 
 Si le projet vous parle, n’hésitez pas à ajouter une étoile sur GitHub ou simplement à en parler autour de vous. 
 
-À l’heure où j’écris ces lignes, en avril 2025, je n’ai pas encore beaucoup communiqué autour de NX. Je ne suis pas très présent sur les réseaux sociaux, et je n’ai jamais été à l’aise avec l’idée de “promouvoir” ce que je fais. Mais si ce site vous aide, ou peut aider quelqu’un d’autre, alors c’est déjà beaucoup.
+À l’heure où j’écris ces lignes, en avril 2025, je n’ai pas encore beaucoup communiqué autour de NX. Je ne suis pas très présent sur les réseaux sociaux. Je n’ai jamais vraiment été à l’aise avec l’idée de “promouvoir” ce que je fais. Mais si ce site vous aide, ou peut aider quelqu’un d’autre, alors c’est déjà beaucoup.
 
 Merci encore d’avoir pris le temps de me lire — et à bientôt sur NX !
