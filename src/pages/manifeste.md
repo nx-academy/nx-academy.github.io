@@ -1,12 +1,19 @@
+---
+layout: ../layouts/BlogPostLayout.astro
+
+title: Le manifeste
+description: NX est une plateforme de cours en ligne gratuite et open source. Cette page représente le contrat de confiance entre moi, Thomas, et vous le lecteur.
+---
+
 # Bienvenue sur NX Academy
 
 Avant de commencer, merci de prendre le temps de consulter cette page. L’écrire était important pour moi. C’est une manière de poser les choses et de faire un contrat avec vous… mais aussi avec moi-même.
 
-Je m’appelle Thomas Dimnet, je suis le créateur et le développeur de NX Academy. Si vous êtes arrivé jusqu’ici, il y a de bonnes chances que ce soit grâce à un cours que vous avez suivi sur OpenClassrooms — et que ce cours vous a plu (enfin, j’espère).
+Je m’appelle [Thomas Dimnet](https://www.linkedin.com/in/thomas-dimnet-4114a4147/), je suis le créateur et le développeur de NX Academy. Si vous êtes arrivé jusqu’ici, il y a de bonnes chances que ce soit grâce à un cours que [vous avez suivi sur OpenClassrooms](https://openclassrooms.com/fr/search?query=Thomas%20Dimnet) — et que ce cours vous a plu (enfin, j’espère).
 
-Sachez que cette page évoluera probablement avec le temps, au fil de l’avancée du projet. Ce que vous lisez ici correspond à la version d’avril 2025.
+Sachez que cette page évoluera probablement avec le temps, au fil de l’avancée du projet. **Ce que vous lisez ici correspond à la version d’avril 2025**.
 
-J’ai décidé de créer cette page pour vous présenter NX, le projet, ce qui est actuellement sur la plateforme, et ce que je suis en train de développer. C’est parti !
+J’ai décidé de créer cette page pour vous présenter NX, le projet, ce qui est actuellement sur la plateforme et ce que je suis en train de développer. C’est parti !
 
 ---
 
@@ -30,10 +37,12 @@ Au fil des années, j’ai eu la chance de former plusieurs dizaines d’élève
 
 Certains d’entre eux travaillent aujourd’hui dans des entreprises comme :
 <br>
-Meetic, On train, Datadog, OpenClassrooms, Odoo Technology, ou encore Eden School.
 
+**Datadog, Odoo, LeBonCoin, Meilleurs Agents, Meetic, Hub One, Dior, Wemanity**.
 
-J'ai forcément une part de fiétié quand je les vois progresser et parfois même transmettre à leur tour.
+<br>
+
+J'ai forcément une part de fiérté quand je les vois progresser et parfois même transmettre à leur tour.
 
 
 ---
@@ -44,7 +53,7 @@ J'ai forcément une part de fiétié quand je les vois progresser et parfois mê
 Vous trouverez sur NX Academy plusieurs types de contenus, selon ce que vous cherchez à explorer :
 
 - [Des articles](/articles) sur le métier de développeur et développeuse. Vous trouverez des réflexions sur le marché, les dernières technologies ou encore des sujets de fond autour de notre quotidien.
-- [Des fiches techniques](/cheatsheets), à mi-chemin entre la cheat sheet et le cours condensé. Elles abordent des concepts précis avec différents niveaux de difficulté selon les sujets.
+- [Des fiches techniques](/fiches), à mi-chemin entre la cheat sheet et le cours condensé. Elles abordent des concepts précis avec différents niveaux de difficulté selon les sujets.
 
 
 ### En cours de release
