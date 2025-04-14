@@ -1,31 +1,39 @@
 # Bienvenue sur NX Academy
 
-## Introduction
-- Merci de prendre le temps de consulter cette page. Ecrire une telle page était important pour moi, elle me permet dans un sens de faire un contrat avec vous (et avec moi-même).
-- Je m'appelle Thomas Dimnet, je suis le créateur et développeur de NX Academy. Si vous venez sur ce site, il y a fort à parier que c'est grâce à des cours que vous avez suivi sur OpenClassrooms.
-- Il est possible que cette page évolue dans le temps au fur et à mesure que le projet avance. Vous lisez la version d'avril 2025.
+Avant de commencer, merci de prendre le temps de consulter cette page. L’écrire était important pour moi. C’est une manière de poser les choses et de faire un contrat avec vous… mais aussi avec moi-même.
+
+Je m’appelle Thomas Dimnet, je suis le créateur et le développeur de NX Academy. Si vous êtes arrivé jusqu’ici, il y a de bonnes chances que ce soit grâce à un cours que vous avez suivi sur OpenClassrooms — et que ce cours vous a plu (enfin, j’espère).
+
+Sachez que cette page évoluera probablement avec le temps, au fil de l’avancée du projet. Ce que vous lisez ici correspond à la version d’avril 2025.
+
+J’ai décidé de créer cette page pour vous présenter NX, le projet, ce qui est actuellement sur la plateforme, et ce que je suis en train de développer. C’est parti !
 
 ---
 
 ## Pourquoi NX ?
 
-### Un projet gratuit et open source
-- Il était important pour moi de revenir aux principes fondateurs du web : le partage libre et gratuit de connaissances. Je pense que c'est quelque chose qui s'est un peu perdu ces 10 dernières années.
-- Le projet est open source, vous pouvez trouver son code source ici. Pour votre information, tous les projets relatifs à NX sont open source : j'essaye de partager le code dès que possible.
-- Le front de NX utilise Astro. L'idée est d'utiliser le moins de JavaScript possible pour avoir un site utilisable par un plus grand nombre de personnes. Je travaille aussi à ce que le site soit aussi accessible que possible.
+Il était important pour moi de revenir à l’un des principes fondateurs du web : le partage libre et gratuit des connaissances. C’est une idée qui m’est chère. Elle s’est un peu perdue ces dix dernières années. De nombreuses plateformes ont fleuri et ont rendu le web plus privatisé. Je trouve que c'est un peu dommage.
+
+NX Academy est un projet open source. Vous pouvez [consulter son code ici](https://github.com/nx-academy/nx-academy.github.io). D’ailleurs, tous les projets liés à NX sont publics : j’essaye de partager le code dès que possible. J'essaye qu'il soit le plus propre et le plus réutilisable (même si quand je lance un POC, il ne l'est pas forcément).
+
+Côté technique, le site utilise [Astro](https://astro.build/) pour le front. L’objectif est d’avoir un site rapide, léger et avec le moins de JavaScript possible. J’y tiens pour des raisons de performance mais aussi d’accessibilité. Je veux que le site soit utilisable par le plus grand nombre, quelles que soient leurs conditions d’accès ou leurs équipements.
+
 
 ### Pour moi et mes élèves
-- Je suis professeur d'informatique. J'aime enseigner et j'aime programmer. NX Academy se veut la passerelle entre mes deux passions.
-- J'aime que mes élèves puissent garder un support après les cours. Autrement dit, qu'ils puissent continuer à s'entrainer et à apprendre grâce à des supports adaptés et en lien avec ce que je leur ai dit en cours.
+Je suis professeur d'informatique et développeur. J'aime enseigner et programmer. NX Academy me permet de regrouper ces deux passions. Il me permet de tester de nouvelles technologies tout en étant utile.
+
+Avec NX, j’ai aussi envie de créer un espace où mes élèves peuvent retrouver des contenus après les cours. Des supports clairs, adaptés et cohérents avec ce qu’on a vu ensemble en classe. L’idée, c’est qu’ils puissent continuer à s'entraîner, approfondir, tester, quand ils en ont besoin et à leur rythme.
 
 
-### Par qui NX est utilisé ?
-- Meetic
-- On train
-- Datadog
-- OpenClassrooms
-- Odoo Technology
-- Eden School
+### Mes étudiants travaillent chez…
+Au fil des années, j’ai eu la chance de former plusieurs dizaines d’élèves, que ce soit en reconversion, en formation initiale ou en montée en compétences.
+
+Certains d’entre eux travaillent aujourd’hui dans des entreprises comme :
+<br>
+Meetic, On train, Datadog, OpenClassrooms, Odoo Technology, ou encore Eden School.
+
+
+J'ai forcément une part de fiétié quand je les vois progresser et parfois même transmettre à leur tour.
 
 
 ---
@@ -33,21 +41,34 @@
 ## Il y a quoi sur NX ?
 
 ### Actuellement
-- Des articles sur le métier de développeur et développeuse. L'idée est de parler du marché, des derniers technos et d'éléments de fond par rapport à notre métier.
-- Des fiches techniques couvrant des concepts techniques. Ils sont de difficultés diverses.
+Vous trouverez sur NX Academy plusieurs types de contenus, selon ce que vous cherchez à explorer :
+
+- [Des articles](/articles) sur le métier de développeur et développeuse. Vous trouverez des réflexions sur le marché, les dernières technologies ou encore des sujets de fond autour de notre quotidien.
+- [Des fiches techniques](/cheatsheets), à mi-chemin entre la cheat sheet et le cours condensé. Elles abordent des concepts précis avec différents niveaux de difficulté selon les sujets.
+
 
 ### En cours de release
-- Des quiz pour tester rapidement ses connaissances. Ils sont pour le moment accessible à la page quiz et couvrent principalement Docker. Je suis en train de les intégrer aux chapitres de certains cours.
-- Des cours en ligne complets. Je suis en train de finir d'ajouter les cours sur Docker et les CI/CD avec les GitHub Actions. Ces cours mixtent théorie et pratique avec un projet fil rouge et des screencasts. Quand c'est possible, je réalise les screencasts sur Linux, MacOS et Windows.
+Comme vous l'avez sûrement compris, je développe de manière active NX. Je n'ai pas forcément autant de temps que j'aimerais mais sachez que je vais bientôt sortir :
+
+- Des quiz pour tester rapidement vos connaissances. Ils sont pour l’instant accessibles depuis la page quiz et portent principalement sur Docker. Je suis en train de les intégrer progressivement aux chapitres de certains cours, pour qu’ils soient mieux liés aux apprentissages.
+
+- Des cours en ligne complets. Je finalise actuellement deux cours : l’un sur Docker, l’autre sur les CI/CD avec GitHub Actions. Ces cours mixent théorie et pratique, avec un projet fil rouge pour appliquer les notions, ainsi que des screencasts pour accompagner chaque étape. Quand c’est possible, je réalise ces vidéos sur Linux, macOS et Windows, pour que chacun puisse s’y retrouver selon son environnement.
+
 
 ### Dans les cartons
-- Des exercices de mises en pratiques avec corrigé. Par exemple, pour monter une image Docker d'une application Python. J'intégrerais ces cours à terme dans certains chapitres.
-- Des projets plus complets avec maquette Figma et infrastructre à réaliser.
-- Et bien d'autres choses encore :).
+J'ai fait plus de choses sur NX depuis début 2025 que durant tout 2024. Sachez que je suis en train de préparer :
+
+- Des exercices pratiques avec corrigés. Par exemple : conteneuriser une application Python avec Docker, ou configurer une image PHP avec Apache.
+L’objectif est de proposer des énoncés concrets, accompagnés de solutions commentées. Ces exercices seront à terme intégrés aux chapitres de certains cours.
+- Des projets plus complets, avec une maquette Figma à suivre et une infrastructure à mettre en place.
+L’idée est de se rapprocher de situations réelles, avec un début de cahier des charges, des choix techniques à faire, et une solution proposée en fin de parcours.
+- Et bien sûr, plein d'autres choses en réflexion :). J’avance petit à petit, en fonction du temps que je peux y consacrer, mais l’envie ne manque pas.
 
 ---
 
-## Conclusion
 
-- Si le projet vous parle, n'hésitez pas à ajouter une étoile sur GitHub et à en parler autour de vous. A l'heure où j'écris ces lignes, Avril 2025, je n'ai pas encore énormément communiqué autour du projet. Je ne suis pas quelqu'un de trop présent sur les réseaux sociaux. Je n'aime pas forcément trop communiquer sur ce que je fais.
-- Merci encore d'avoir pris le temps de me lire et à bientôt sur NX !
+Si le projet vous parle, n’hésitez pas à ajouter une étoile sur GitHub ou simplement à en parler autour de vous. 
+
+À l’heure où j’écris ces lignes, en avril 2025, je n’ai pas encore beaucoup communiqué autour de NX. Je ne suis pas très présent sur les réseaux sociaux, et je n’ai jamais été à l’aise avec l’idée de “promouvoir” ce que je fais. Mais si ce site vous aide, ou peut aider quelqu’un d’autre, alors c’est déjà beaucoup.
+
+Merci encore d’avoir pris le temps de me lire — et à bientôt sur NX !
