@@ -39,8 +39,33 @@ const sectionsHeading = headings.filter((heading) => heading.depth === 2);
 const previousFullChapterLink = `${baseUrl}/chapitres/${previousChapterLink}`
 const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
 
-import { QUIZZES } from "../data/quiz"
-import QuizCard from "../components/QuizCard.astro"
+import ActivityCard from "../components/ActivityCard.astro"
+type Activity = {
+  title: string
+  type: "Article" | "Fiche technique" | "Quiz" | "Exercice" | "Projet"
+}
+const activities: Activity[] = [
+  {
+    title: "Découvrez Docker",
+    type: "Quiz"
+  },
+  {
+    title: "Dockerfile pour un script Python simple",
+    type: "Exercice"
+  },
+  {
+    title: "Dockerfile pour un serveur PHP simple",
+    type: "Exercice"
+  },
+  {
+    title: "Comprendre les volumes Docker",
+    type: "Fiche technique"
+  },
+  {
+    title: "Docker change de CEO",
+    type: "Article"
+  }
+]
 ---
 
 <BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
@@ -88,13 +113,11 @@ import QuizCard from "../components/QuizCard.astro"
     </div>
     <div class="pratice-section-cards">
       {
-        QUIZZES.map(quiz => (
-          <QuizCard
-            href={quiz.href}
-            imgAlt={quiz.imgAlt}
-            imgSrc={quiz.imgSrc}
-            level={quiz.level}
-            title={quiz.title}
+        activities.map(activity => (
+          <ActivityCard
+            title={activity.title}
+            href="#"
+            type={activity.type}
           />
         ))
       }
