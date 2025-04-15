@@ -1,6 +1,4 @@
 ---
-import type { Breadcrumb } from "../types/Breadcrumb"
-
 type Heading = {
   depth: number;
   slug: string;
@@ -40,10 +38,13 @@ const sectionsHeading = headings.filter((heading) => heading.depth === 2);
 
 const previousFullChapterLink = `${baseUrl}/chapitres/${previousChapterLink}`
 const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
+
+import { QUIZZES } from "../data/quiz"
+import QuizCard from "../components/QuizCard.astro"
 ---
 
 <BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
-  <div class="main-wrapper">
+  <main class="main-wrapper">
     <div>
         <slot />
         <div class="end-chapter-wrapper">
@@ -79,6 +80,25 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
         </div>
       </aside>
     </div>
+  </main>
+  <div class="pratice-section">
+    <div class="pratice-heading-section">
+      <h2>Et si on passait à la pratique ?</h2>
+      <p>Validez et appliquez dès maintenant vos nouvelles connaissances <strong>dès maintenant</strong> avec des quiz et des exercices.</p>
+    </div>
+    <div class="pratice-section-cards">
+      {
+        QUIZZES.map(quiz => (
+          <QuizCard
+            href={quiz.href}
+            imgAlt={quiz.imgAlt}
+            imgSrc={quiz.imgSrc}
+            level={quiz.level}
+            title={quiz.title}
+          />
+        ))
+      }
+    </div>
   </div>
   <div class="image-modal-wrapper hidden">
     <div class="image-modal">
@@ -88,6 +108,45 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
 </BaseLayout>
 
 <style>
+  .pratice-section {
+    width: 90%;
+    margin-left: auto;
+    max-width: 1100px;
+    margin-right: auto;
+    margin-top: 64px;
+  }
+
+  .pratice-heading-section {
+    background-color: #252525;
+    padding: 32px;
+    border-radius: 8px;
+    margin-bottom: 32px;
+
+    h2,
+    p {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    h2 {
+      margin-bottom: 8px;
+    }
+  }
+
+  .pratice-section-cards {
+    display: grid;
+    gap: 32px;
+
+    @media screen and (min-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+
   .main-wrapper {
     padding-bottom: 1.5rem;
     width: 90%;
@@ -283,9 +342,6 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
 </style>
 
 <script>
-
-  console.log("+++++")
-
   const $sectionTitles = document.querySelectorAll(".main-wrapper h2")
   const $sectionLinks = document.querySelectorAll(".section-link")
 
