@@ -21,6 +21,7 @@ J’ai décidé de créer cette page pour vous présenter NX, le projet, ce qui 
 
 ## Pourquoi NX ?
 
+### Un projet gratuit et open source
 Il était important pour moi de revenir à l’un des principes fondateurs du web : le partage libre et gratuit des connaissances. C’est une idée qui m’est chère. Elle s’est un peu perdue ces dix dernières années. De nombreuses plateformes ont fleuri et ont rendu le web plus privatisé. Je trouve que c'est un peu dommage.
 
 NX Academy est un projet open source. Vous pouvez [consulter son code ici](https://github.com/nx-academy/nx-academy.github.io). D’ailleurs, tous les projets liés à NX sont publics : j’essaye de partager le code dès que possible. J'essaye qu'il soit le plus propre et le plus réutilisable (même si quand je lance un POC, il ne l'est pas forcément).
