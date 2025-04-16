@@ -20,7 +20,7 @@ type Article = {
   url: string
 }
 
-const heroContentTitle = "Le récap N°1 - Avril 2025"
+const heroContentTitle = "Le récap #1 - Avril 2025"
 
 const articles = Object.values(import.meta.glob("./articles/*.md", { eager: true })) as Article[]
 const cheatsheets = Object.values(import.meta.glob("./fiches/*.md", { eager: true })) as Article[]

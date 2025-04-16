@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
 
-title: Le récap N°1 - Avril 2025
+title: "Le récap #1 - Avril 2025"
 description: Bienvenue dans le récap du mois d'avril 2025. Au sommaire, de l'IA, des reflexions sur le sur le métier de développeur et une petite nouveauté.
 
 imgAlt: rien
@@ -59,5 +59,5 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ---
 
-**Bonne lecture et on se retrouve le mois prochain**.
+Bonne lecture et on se retrouve **au mois de mai** !
 
