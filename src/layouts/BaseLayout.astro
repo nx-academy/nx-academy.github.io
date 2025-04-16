@@ -16,6 +16,7 @@ import "@fontsource/space-grotesk";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro"
+import ScrollToTopButton from "../components/ScrollToTopButton.astro"
 
 let { title, description, breadcrumbs } = Astro.props
 
@@ -70,19 +71,35 @@ const { pathname } = Astro.url
 
   </head>
   <body>
-    <Header />
-    {
-      pathname !== "/" && <Breadcrumbs breadcrumbs={breadcrumbs} />
-    }
-    <slot />
-    <Footer />
+    <div class="page-wrapper">
+      <Header />
+      {
+        pathname !== "/" && <Breadcrumbs breadcrumbs={breadcrumbs} />
+      }
+      <div style="flex: 1;">
+        <slot />
+      </div>
+      <Footer />
+      <ScrollToTopButton />
+    </div>
   </body>
 </html>
 
 <style>
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+
   body {
     background-color: #151515;
     color: #fff;
     font-family: "Space Grotesk", sans-serif;
   }
+
+  .page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 </style>
