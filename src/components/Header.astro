@@ -1,52 +1,147 @@
 ---
-import NavigationDesktop from "./NavigationDesktop.astro";
-import NavigationMobile from "./NavigationMobile.astro";
+// Pas de frontmatter nécessaire
 ---
 
 <header>
-  <NavigationDesktop />
-  <NavigationMobile />
+  <!-- Menu desktop -->
+  <nav class="desktop-nav">
+    <a href="/fiches">Fiches</a>
+    <a href="/articles">Articles</a>
+    <a href="/cours">Cours</a>
+    <a href="/quiz">Quiz</a>
+  </nav>
+
+  <!-- Burger (mobile uniquement) -->
+  <div class="burger" aria-label="Menu mobile" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Menu mobile -->
+  <nav class="mobile-nav" aria-hidden="true">
+    <a href="/fiches">Fiches</a>
+    <a href="/articles">Articles</a>
+    <a href="/cours">Cours</a>
+    <a href="/quiz">Quiz</a>
+  </nav>
 </header>
 
 <style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
   header {
+    position: relative;
+    padding: 1.5rem 2rem;
     border-bottom: 1px solid #333;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1100px;
-    padding-bottom: 0.75rem;
-    padding-top: 1.5rem;
-    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #151515;
+    z-index: 100;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.125rem;
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: #4effa0;
+  }
+
+  /* Desktop nav */
+  .desktop-nav {
+    display: none;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .desktop-nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .burger,
+    .mobile-nav {
+      display: none !important;
+    }
+  }
+
+  /* Burger */
+  .burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 32px;
+    height: 24px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .burger span {
+    height: 4px;
+    width: 100%;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .burger:hover span {
+    background: #4effa0;
+  }
+
+  .burger.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(10px);
+  }
+
+  .burger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-10px);
+  }
+
+  /* Mobile nav */
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 80vw;
+    max-width: 320px;
+    height: 100vh;
+    background: rgba(37, 37, 37, 0.9);
+    backdrop-filter: blur(6px);
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 1000;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .mobile-nav.active {
+    transform: translateX(0);
+    opacity: 1;
   }
 </style>
 
 <script>
-  const $burgerBtn = document.querySelector(".burger-menu button");
-  const $closeBtn = document.querySelector(".close-icon button");
-  const $mobileNavigation = document.querySelector(".mobile-navigation");
+  const burger = document.querySelector('.burger');
+  const mobileNav = document.querySelector('.mobile-nav');
 
-  const $body = document.querySelector("body");
-
-  $burgerBtn?.addEventListener("click", function () {
-    $mobileNavigation?.classList.remove("fade-out");
-    $mobileNavigation?.classList.remove("hidden");
-    $mobileNavigation?.classList.add("fade-in");
-
-    $body!.style.height = "100vh";
-    $body!.style.overflow = "hidden";
-  });
-
-  $closeBtn?.addEventListener("click", function () {
-    setTimeout(function () {
-      $mobileNavigation?.classList.add("hidden");
-    }, 200);
-
-    $mobileNavigation?.classList.add("fade-out");
-    $mobileNavigation?.classList.remove("fade-in");
-
-    $body!.style.height = "";
-    $body!.style.overflow = "";
+  burger?.addEventListener('click', () => {
+    const isOpen = burger.classList.toggle('active');
+    mobileNav.classList.toggle('active');
+    burger.setAttribute('aria-expanded', isOpen);
+    mobileNav.setAttribute('aria-hidden', !isOpen);
   });
 </script>
