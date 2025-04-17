@@ -19,31 +19,48 @@ import { ALL_MONTHS } from "../data/changelog";
         >. L’idée ici est de vous tenir au courant des évolutions de NX Academy
         : nouvelles fonctionnalités, corrections, ajustements.
       </p>
-      <p>Chaque item est reliée à une pastille de couleur :</p>
-      <ul class="indicators-list">
-        <li>🟢 <strong>Vert</strong> pour les ajouts</li>
-        <li>🟡 <strong>Jaune</strong> pour les mises à jour en cours</li>
-        <li>🔴 <strong>Rouge</strong> pour les corrections de bugs</li>
-      </ul>
-
       <p>Bonne lecture 🙂 !</p>
     </div>
     {
-      ALL_MONTHS.map((month) => (
-        <section class="montly-section">
-          <h2>{month.monthName}</h2>
-          {month.dailyLogs.map((dailyLog) => (
-            <section class="daily-section">
-              <h3>{dailyLog.date}</h3>
-              <ul class="logs-list">
-                {dailyLog.tasks.map((task) => (
-                  <li class={`${task.kind}`}>
-                    <span set:html={task.content} />
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ))}
+      ALL_MONTHS.map(month => (
+        <section class="monthly-section">
+          <h2>{month.month} 2025</h2>
+          <section class="daily-section">
+            <h3>🟢 Les nouveautés et mises à jour du mois</h3>
+            <ul>
+              {
+                month.tasks
+                  .filter(task => task.kind === "done")
+                  .map(task => (
+                    <li>{task.content}</li>
+                  ))
+              }
+            </ul>
+          </section>
+          <section class="daily-section">
+            <h3>🟡 Les projets en cours</h3>
+            <ul>
+              {
+                month.tasks
+                  .filter(task => task.kind === "in-progress")
+                  .map(task => (
+                    <li>{task.content}</li>
+                  ))
+              }
+            </ul>
+          </section>
+          <section class="daily-section">
+            <h3>🔴 Les corrections de bugs</h3>
+            <ul>
+              {
+                month.tasks
+                  .filter(task => task.kind === "fix")
+                  .map(task => (
+                    <li>{task.content}</li>
+                  ))
+              }
+            </ul>
+          </section>
         </section>
       ))
     }
@@ -61,9 +78,7 @@ import { ALL_MONTHS } from "../data/changelog";
 
   .changelog-description {
     padding-top: 24px;
-    margin-bottom: 32px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid #333;
+    margin-bottom: 56px;
   }
 
   h1 {
@@ -89,15 +104,7 @@ import { ALL_MONTHS } from "../data/changelog";
     color:;
   }
 
-  .indicators-list {
-    margin-bottom: 32px;
-  }
-
-  .indicators-list li {
-    margin-bottom: 8px;
-  }
-
-  .montly-section {
+  .monthly-section {
     margin-bottom: 80px;
   }
 
@@ -122,17 +129,5 @@ import { ALL_MONTHS } from "../data/changelog";
         color: #4effa0aa;
       }
     }
-  }
-
-  .done::marker {
-    content: "🟢 ";
-  }
-
-  .in-progress::marker {
-    content: "🟡 ";
-  }
-
-  .fix::marker {
-    content: "🔴 ";
   }
 </style>
