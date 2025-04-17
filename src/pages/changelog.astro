@@ -1,0 +1,95 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+
+const pageTitle = "Changelog"
+const pageDescription = "NX Academy est regulièrement mis à jour. J'utilise cette page pour vous tenir au courant des derniers fixes et fonctionnalités."
+
+// # 🟢 Vert pour les ajouts
+// # 🟡 Jaune pour les mises à jour en cours
+// # 🔴 Rouge pour les corrections de bugs ￼
+
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+    <main class="main-wrapper">
+        <h1>Changelog</h1>
+        <section class="montly-section">
+            <h2>Avril 2025</h2>
+            <section class="daily-section">
+                <h3>12 avril</h3>
+                <ul class="logs-list">
+                    <li class="done">Nouvelle fiche technique : “Comprendre les réseaux Docker”</li>
+                    <li class="in-progress">Correction de liens cassés sur la fiche CI/CD</li>
+                    <li class="fix">Intégration du projet RAG pour générer des quiz (phase bêta)</li>
+                </ul>
+            </section>
+            <section class="daily-section">
+                <h3>5 avril</h3>
+                <ul class="logs-list">
+                    <li>Nouvelle fiche technique : “Comprendre les réseaux Docker”</li>
+                    <li>Correction de liens cassés sur la fiche CI/CD</li>
+                    <li>Intégration du projet RAG pour générer des quiz (phase bêta)</li>
+                </ul>
+            </section>
+        </section>
+        <section class="montly-section">
+            <h2>Mars 2025</h2>
+            <section class="daily-section">
+                <h3>29 mars</h3>
+                <ul class="logs-list">
+                    <li>Nouvelle fiche technique : “Comprendre les réseaux Docker”</li>
+                    <li>Correction de liens cassés sur la fiche CI/CD</li>
+                    <li>Intégration du projet RAG pour générer des quiz (phase bêta)</li>
+                </ul>
+            </section>
+        </section>
+    </main>
+</BaseLayout>
+
+
+
+<style>
+    .main-wrapper {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1100px;
+    }
+
+    h2 {
+        margin-bottom: 24px;
+    }
+
+    h3 {
+        margin-bottom: 16px;
+    }
+
+    .montly-section {
+        margin-bottom: 80px;
+    }
+
+    .daily-section {
+        margin-bottom: 40px;
+    }
+
+    .logs-list {
+        list-style-type: none;
+    }
+
+    .logs-list li {
+        margin-bottom: 8px;
+    }
+
+    .done::marker {
+        content: "🟢 ";
+    }
+
+    .in-progress::marker {
+        content: "🟡 ";
+    }
+
+    .fix::marker {
+        content: "🔴 ";
+    }
+</style>
+

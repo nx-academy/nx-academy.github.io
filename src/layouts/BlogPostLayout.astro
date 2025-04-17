@@ -25,7 +25,7 @@ const breadCrumbs: Breadcrumb[] = [
 ];
 ---
 
-<BaseLayout title={title} breadcrumbs={title === "Le manifeste" ? [] : breadCrumbs}>
+<BaseLayout title={title} breadcrumbs={title === "Le manifeste" || title === "Changelog" ? [] : breadCrumbs}>
   <div class="main-wrapper">
     <section>
       <slot />
