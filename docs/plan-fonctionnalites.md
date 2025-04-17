@@ -8,7 +8,7 @@ Ce document suit les fonctionnalités en cours de développement et leur état d
 
 | Priorité | Fonctionnalité                                      | État actuel             | Prochaine étape                                           |
 |----------|------------------------------------------------------|--------------------------|------------------------------------------------------------|
-| 🔥 1     | Page changelog                                       | À créer                  | Créer `/changelog`, format journal, à alimenter chaque mois |
+| 🟢 1     | Page changelog                                       | **DONE**                  | Créer `/changelog`, format journal, à alimenter chaque mois |
 | 🟡 2     | Popin “Reprendre là où vous vous êtes arrêté”        | À faire                  | Design + intégration localStorage                          |
 | 🟢 3     | Quiz du mois                                         | Fonctionnelle            | Finaliser le système RAG, publier un quiz chaque mois      |
 | 🟢 4     | Fiche technique mensuelle (“Fiche du vendredi”)     | En place                 | Rédiger un batch de 4 fiches Docker                        |
