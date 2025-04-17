@@ -124,7 +124,7 @@
       transform 0.3s ease,
       opacity 0.3s ease;
     z-index: 1000;
-    padding: 3rem 2rem;
+    padding: 5rem 2rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -149,14 +149,23 @@
 </style>
 
 <script>
-  const burger = document.querySelector(".burger") as HTMLDivElement;
-  const mobileNav = document.querySelector(".mobile-nav") as HTMLElement;
+  const $burger = document.querySelector(".burger") as HTMLDivElement;
+  const $mobileNav = document.querySelector(".mobile-nav") as HTMLElement;
+  const $body = document.body as HTMLBodyElement
 
-  burger?.addEventListener("click", () => {
-    const isOpen = burger.classList.toggle("active");
+  $burger.addEventListener("click", () => {
+    const isOpen = $burger.classList.toggle("active");
 
-    mobileNav.classList.toggle("active");
-    burger.setAttribute("aria-expanded", isOpen);
-    mobileNav.setAttribute("aria-hidden", !isOpen);
+    $mobileNav.classList.toggle("active");
+    $burger.setAttribute("aria-expanded", String(isOpen));
+    $mobileNav.setAttribute("aria-hidden", String(!isOpen));
+    
+    if (isOpen) {
+      $body.style.overflow = 'hidden';
+      $body.style.height = '100vh';
+    } else {
+      $body.style.overflow = '';
+      $body.style.height = '';
+    }
   });
 </script>
