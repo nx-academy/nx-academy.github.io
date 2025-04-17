@@ -1,52 +1,171 @@
----
-import NavigationDesktop from "./NavigationDesktop.astro";
-import NavigationMobile from "./NavigationMobile.astro";
----
-
 <header>
-  <NavigationDesktop />
-  <NavigationMobile />
+  <div class="innner-div-wrapper">
+    <div class="brand">
+      <a href="/">NX Academy</a>
+    </div>
+
+    <nav class="desktop-nav">
+      <a href="/fiches">Fiches techniques</a>
+      <a href="/articles">Articles</a>
+      <a href="/cours">Cours</a>
+      <a href="/quiz">Quiz</a>
+    </nav>
+
+    <div class="burger" aria-label="Menu mobile" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav class="mobile-nav" aria-hidden="true">
+      <a href="/fiches">Fiches techniques</a>
+      <a href="/articles">Articles</a>
+      <a href="/cours">Cours</a>
+      <a href="/quiz">Quiz</a>
+    </nav>
+  </div>
 </header>
 
 <style>
   header {
+    align-items: center;
+    background-color: #151515;
     border-bottom: 1px solid #333;
-    gap: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 100;
     margin-bottom: 1.5rem;
+  }
+
+  .innner-div-wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
     margin-left: auto;
     margin-right: auto;
     max-width: 1100px;
-    padding-bottom: 0.75rem;
+    padding-bottom: 1.5rem;
     padding-top: 1.5rem;
     width: 90%;
+  }
+
+  .brand a {
+    color: white;
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 1.4rem;
+
+    &:hover {
+      color: #4effa0;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.125rem;
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: #4effa0;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 32px;
+    height: 24px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .burger span {
+    height: 4px;
+    width: 100%;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .burger:hover span {
+    background: #4effa0;
+  }
+
+  .burger.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(10px);
+  }
+
+  .burger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-10px);
+  }
+
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 80vw;
+    max-width: 320px;
+    height: 100vh;
+    background: rgba(37, 37, 37, 0.9);
+    backdrop-filter: blur(6px);
+    transform: translateX(100%);
+    opacity: 0;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+    z-index: 1000;
+    padding: 5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .mobile-nav.active {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .desktop-nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .burger,
+    .mobile-nav {
+      display: none !important;
+    }
   }
 </style>
 
 <script>
-  const $burgerBtn = document.querySelector(".burger-menu button");
-  const $closeBtn = document.querySelector(".close-icon button");
-  const $mobileNavigation = document.querySelector(".mobile-navigation");
+  const $burger = document.querySelector(".burger") as HTMLDivElement;
+  const $mobileNav = document.querySelector(".mobile-nav") as HTMLElement;
+  const $body = document.body as HTMLBodyElement
 
-  const $body = document.querySelector("body");
+  $burger.addEventListener("click", () => {
+    const isOpen = $burger.classList.toggle("active");
 
-  $burgerBtn?.addEventListener("click", function () {
-    $mobileNavigation?.classList.remove("fade-out");
-    $mobileNavigation?.classList.remove("hidden");
-    $mobileNavigation?.classList.add("fade-in");
-
-    $body!.style.height = "100vh";
-    $body!.style.overflow = "hidden";
-  });
-
-  $closeBtn?.addEventListener("click", function () {
-    setTimeout(function () {
-      $mobileNavigation?.classList.add("hidden");
-    }, 200);
-
-    $mobileNavigation?.classList.add("fade-out");
-    $mobileNavigation?.classList.remove("fade-in");
-
-    $body!.style.height = "";
-    $body!.style.overflow = "";
+    $mobileNav.classList.toggle("active");
+    $burger.setAttribute("aria-expanded", String(isOpen));
+    $mobileNav.setAttribute("aria-hidden", String(!isOpen));
+    
+    if (isOpen) {
+      $body.style.overflow = 'hidden';
+      $body.style.height = '100vh';
+    } else {
+      $body.style.overflow = '';
+      $body.style.height = '';
+    }
   });
 </script>
