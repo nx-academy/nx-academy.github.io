@@ -25,38 +25,38 @@ import { ALL_MONTHS } from "../data/changelog";
       ALL_MONTHS.map(month => (
         <section class="monthly-section">
           <h2>{month.month} 2025</h2>
-          <section class="daily-section">
+          <section class="kind-section">
             <h3>🟢 Les nouveautés et mises à jour du mois</h3>
-            <ul>
+            <ul class="logs-list">
               {
                 month.tasks
                   .filter(task => task.kind === "done")
                   .map(task => (
-                    <li>{task.content}</li>
+                    <li set:html={task.content} />
                   ))
               }
             </ul>
           </section>
-          <section class="daily-section">
+          <section class="kind-section">
             <h3>🟡 Les projets en cours</h3>
-            <ul>
+            <ul class="logs-list">
               {
                 month.tasks
                   .filter(task => task.kind === "in-progress")
                   .map(task => (
-                    <li>{task.content}</li>
+                    <li set:html={task.content} />
                   ))
               }
             </ul>
           </section>
-          <section class="daily-section">
+          <section class="kind-section">
             <h3>🔴 Les corrections de bugs</h3>
-            <ul>
+            <ul class="logs-list">
               {
                 month.tasks
                   .filter(task => task.kind === "fix")
                   .map(task => (
-                    <li>{task.content}</li>
+                    <li set:html={task.content} />
                   ))
               }
             </ul>
@@ -108,12 +108,8 @@ import { ALL_MONTHS } from "../data/changelog";
     margin-bottom: 80px;
   }
 
-  .daily-section {
+  .kind-section {
     margin-bottom: 40px;
-  }
-
-  .logs-list {
-    list-style-type: none;
   }
 
   .logs-list li {

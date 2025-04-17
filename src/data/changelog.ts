@@ -13,7 +13,11 @@ const aprilTasks: LogTasks = {
     tasks: [
         {
             kind: "done",
-            content: "Mise à jour du menu burger."
+            content: "Mise à jour du menu burger"
+        },
+        {
+            kind: "done",
+            content: "Création de la page Changelog. <small>Je crois que c'est la page que vous êtes en train de lire... Elle est bien, hein ?</small>"
         }
     ]
 }
