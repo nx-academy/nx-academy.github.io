@@ -21,6 +21,10 @@ const april: MonthLog = {
             tasks: [
                 {
                     kind: "done",
+                    content: `Mise à jour du menu burger.`
+                },
+                {
+                    kind: "done",
                     content: `Création de la page de changelog. Si vous lisez ça, ça veut dire que vous êtes dessus 😅.`
                 },
                 {
