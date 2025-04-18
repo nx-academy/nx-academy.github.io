@@ -29,6 +29,10 @@ const aprilTasks: LogTasks = {
         },
         {
             kind: "done",
+            content: `Création du <a href="/articles/le-recap-avril-2025">premier Recap (youhou !)</a> avec <a href="/articles/le-recap-presentation">un bel article de présentation</a>.`
+        },
+        {
+            kind: "done",
             content: "Mise à jour du menu burger"
         },
         {
