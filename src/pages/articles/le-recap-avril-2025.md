@@ -55,9 +55,9 @@ L’article s’appuie sur une enquête menée auprès de plus de 1 000 dévelop
 ## Le Moine, le Vape Coder, le Debugger & le Learner
 <small>Par NX Academy</small>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Cet article explore quatre profils de développeurs à l’ère de l’IA : Le Monk, Le Vape Coder, Le Debugger et Le Learner. Chacun a son approche, ses outils, son rapport à GPT. Ce n’est pas une typologie figée, mais plutôt un moyen de réfléchir à notre manière de coder avec l’IA. Je me retrouve pas mal dans ce texte… et pour cause, c’est moi qui l’ai écrit 😅.
 
-[Lire l'article](#)
+[Lire l'article](/articles/profils-ia-developpeur)
 
 <br>
 
