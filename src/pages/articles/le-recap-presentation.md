@@ -28,14 +28,16 @@ Et franchement je crois que ce temps était nécessaire. Il m’a permis de pose
 
 Forcément, je n’ai pas résisté à l’envie d’écrire un petit billet pour vous expliquer tout ça en détail.
 
----
+
+<br>
+
 
 ## TL;DR
 
 - Le Récap, c’est un nouveau rendez-vous mensuel pour faciliter votre veille technologique.
 - Publié chaque dernier vendredi du mois.
 - Seulement quatre articles, soigneusement choisis, qui parlent de tech, d’outils, de bonnes pratiques.
-- Le tout via un format mêlant curation humaine et aide à la rédaction par IA — j’en reparlerai bientôt dans une fiche dédiée.
+- Le tout via un format mêlant curation humaine et aide à la rédaction par IA. J’en reparlerai bientôt dans une fiche dédiée.
 
 
 ---
@@ -60,11 +62,11 @@ Le Récap, c’est donc un outil/format d’apprentissage. Chaque article est so
 Concrètement, voici comment je m’y prends pour construire chaque Récap :
 
 - je sélectionne les articles qui m’ont marqué pendant le mois ;
-- je les lis (vraiment) — pas de simple survol ;
+- je les lis (vraiment) et pas un simple survol ;
 - je demande ensuite à l’IA de m’aider à en faire un résumé clair et fidèle ;
 - je génère le contenu final du Récap à partir de ça ;
 - je relis, j’ajuste, je mets en ligne ;
-- et je publie le tout sur le site et sur les réseaux (principalement LinkedIn, pour l’instant).
+- et je publie le tout sur les réseaux (principalement LinkedIn, pour l’instant).
 
 <br>
 
@@ -72,7 +74,7 @@ C’est donc un workflow où l’IA m’assiste mais où je reste aux commandes.
 
 À terme, j’aimerais que ce processus devienne plus asynchrone. L’idée serait que l’IA scrape automatiquement des articles sélectionnés, en fasse une synthèse et prépare une première ébauche du Récap sans intervention humaine. Je pourrais ensuite relire et valider. On n’y est pas encore mais c’est un axe de travail que je trouve passionnant.
 
-Et au fond, c’est peut-être ça qui m’anime aussi dans ce format : le fait de travailler avec des outils qu’on est encore en train d’apprivoiser. Parce qu’on va devoir, en tant que développeurs et développeuses, travailler de plus en plus avec ce type de problématiques. Et franchement, ces questions-là sont nouvelles, stimulantes… et parfois un peu déroutantes — mais c’est ce qui les rend intéressantes.
+Et au fond, c’est peut-être ça qui m’anime aussi dans ce format. Je pressens que ce type de workflow est amené à devenir la norme et NX se trouve un peu à l'avant garde. Et franchement, ces questions-là sont nouvelles et stimulantes. J'avoue que mon cerveau adore ça.
 
 
 ---
@@ -95,12 +97,15 @@ Les prochains mois seront donc très orientés Docker, avec des quiz, des fiches
 Voilà, vous savez tout (ou presque) sur le pourquoi du Récap, comment je le construis, et ce que j’y mets.
 
 👉 La première édition du Récap est disponible ici : Le Récap #1 — Avril 2025
-N’hésitez pas à y jeter un œil, à picorer un lien, ou à tout lire d’un coup — c’est fait pour ça.
+N’hésitez pas à y jeter un œil, à picorer un lien ou à tout lire d’un coup. Il est là pour ça 🙂.
+
+
+<br>
+
 
 Et si vous souhaitez suivre les prochaines éditions, vous pouvez :
 
 - Suivre NX Academy sur LinkedIn — c’est là que je poste les nouveautés
 - Ou tout simplement revenir ici, chaque dernier vendredi du mois.
 
-Merci d’avoir pris le temps de me lire,
-et bonne lecture ✌️
+Merci d’avoir pris le temps de me lire et bonne lecture ✌️
