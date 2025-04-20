@@ -1,10 +1,12 @@
-# Plan d’évolution de NX Academy – Avril 2025
+# Plan d’évolution de NX Academy
 
 Ce document suit les fonctionnalités en cours de développement et leur état d’avancement.
 
 ---
 
-## ✅ Fonctionnalités planifiées
+## Avril 2025
+
+### ✅ Fonctionnalités planifiées
 
 | Priorité | Fonctionnalité                                      | État actuel             | Prochaine étape                                           |
 |----------|------------------------------------------------------|--------------------------|------------------------------------------------------------|
@@ -17,7 +19,7 @@ Ce document suit les fonctionnalités en cours de développement et leur état d
 
 ---
 
-## 🎓 Cours en ligne
+### 🎓 Cours en ligne
 
 - 🔧 En cours : **Docker et Docker Compose**
   - Intégration des vidéos
@@ -28,3 +30,34 @@ Ce document suit les fonctionnalités en cours de développement et leur état d
   - À intégrer une fois le cours Docker terminé
 
 ---
+
+### Details des fonctionnalites
+
+#### Workflow IA pour le recap
+
+1. Discord (canal #le-recap)
+   └─ Tu postes les liens vers les articles à synthétiser
+
+2. Bot Python
+   └─ Récupère les messages du mois concerné
+   └─ Extrait uniquement les URLs des messages
+
+3. Module d’extraction d’article
+   └─ Pour chaque URL :
+       ├─ Charge la page avec Selenium ou requests
+       ├─ Nettoie le contenu (HTML -> texte)
+       └─ Prépare une version simplifiée à synthétiser
+
+4. Appel à ChatGPT (via API)
+   └─ Envoie le texte nettoyé
+   └─ Reçoit un résumé de 5 lignes (format fiche technique)
+
+5. Génération du markdown
+   └─ Formate la fiche dans un fichier `.md` avec un nom clair
+   └─ Classe dans le dossier du mois concerné
+
+6. Automatisation GitHub
+   └─ Crée une branche
+   └─ Push le fichier `.md`
+   └─ Crée une Pull Request automatiquement
+
