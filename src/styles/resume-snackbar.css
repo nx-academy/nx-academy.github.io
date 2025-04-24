@@ -1,0 +1,92 @@
+.resume-snackbar-wrapper {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #252525;
+  border: 1px solid #333;
+  padding: 16px 24px;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  font-family: sans-serif;
+  z-index: 1000;
+  min-width: 320px;
+  max-width: 90%;
+}
+
+.resume-snackbar-wrapper p {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+}
+
+.resume-snackbar-lastpage {
+  font-weight: 600;
+  display: inline-block;
+  max-width: 50vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
+}
+
+.resume-snackbar-actions {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.resume-snackbar-actions a {
+  background: #4effa0;
+  color: #151515;
+  padding: 6px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  display: block;
+  width: 50%;
+  text-align: center;
+  transition: 0.4s;
+
+  &:hover {
+    color: #151515;
+    background-color: #4effa0aa;
+  }
+}
+
+.resume-snackbar-actions button {
+  background: #b0bec5;
+  border: none;
+  color: #151515;
+  width: 50%;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.4s;
+
+  &:hover {
+    background-color: #b0bec5aa;
+  }
+}
+
+.progress-bar {
+  height: 4px;
+  background-color: #4effa0;
+  width: 100%;
+  animation: shrink 10s linear forwards;
+  border-radius: 2px;
+}
+
+@keyframes shrink {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .resume-snackbar-wrapper {
+    left: unset;
+    right: 24px;
+    transform: unset;
+  }
+}

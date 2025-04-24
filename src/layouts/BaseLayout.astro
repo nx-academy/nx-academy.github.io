@@ -17,6 +17,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro"
 import ScrollToTopButton from "../components/ScrollToTopButton.astro"
+import ResumeSnackbar from "../components/ResumeSnackbar"
 
 let { title, description, breadcrumbs } = Astro.props
 
@@ -81,6 +82,7 @@ const { pathname } = Astro.url
       </div>
       <Footer />
       <ScrollToTopButton />
+      <ResumeSnackbar client:load />
     </div>
   </body>
 </html>
