@@ -21,6 +21,12 @@
 
 .resume-snackbar-lastpage {
     font-weight: 600;
+    display: inline-block;
+    max-width: 50vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
 }
 
 .resume-snackbar-actions {
@@ -38,6 +44,12 @@
   display: block;
   width: 50%;
   text-align: center;
+  transition: .4s;
+
+  &:hover {
+    color: #151515;
+    background-color: #4effa0aa;
+  }
 }
 
 .resume-snackbar-actions button {
@@ -46,6 +58,12 @@
   color: #151515;
   width: 50%;
   border-radius: 4px;
+  cursor: pointer;
+  transition: .4s;
+
+  &:hover {
+    background-color: #B0BEC5AA;
+  }
 }
 
 .progress-bar {

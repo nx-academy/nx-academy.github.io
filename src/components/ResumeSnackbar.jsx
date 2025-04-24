@@ -5,10 +5,15 @@ import "../styles/resume-snackbar.css"
 function Component() {
   const [isSnackbarVisible, setIsSnackbarVisible] = useState(false)
   const [lastPageVisited, setLastPageVisited] = useState(null)
+  const [lastPageLabel, setLastPageLabel] = useState(null)
 
   useEffect(() => {
     const currentPath = window.location.pathname;
+    const rawTitle = document.title;
+    const pageLabel = rawTitle.split(" - ")[0].trim();
+
     const lastVisited = localStorage.getItem("lastVisited");
+    const lastVisitedLabel = localStorage.getItem("lastVisitedLabel")
     const sessionMarker = sessionStorage.getItem("sessionStarted");
 
     const isReturningToHome = currentPath === "/";
@@ -28,6 +33,7 @@ function Component() {
     if (true) {
       setIsSnackbarVisible(true)
       setLastPageVisited(lastVisited)
+      setLastPageLabel(lastVisitedLabel)
 
       // const timer = setTimeout(() => {
       //   setIsSnackbarVisible(false)
@@ -38,6 +44,7 @@ function Component() {
     }
 
     localStorage.setItem("lastVisited", currentPath);
+    localStorage.setItem("lastVisitedLabel", pageLabel);
   }, []);
 
   if (!isSnackbarVisible) return null
@@ -46,7 +53,9 @@ function Component() {
     <div className="resume-snackbar-wrapper">
       <p>Vous étiez en train de lire : 
         <br /> 
-        <span className="resume-snackbar-lastpage">Le Moine, le Vape Coder, le Debugger & le Learner</span>
+        <span title={lastPageLabel} className="resume-snackbar-lastpage">
+          {lastPageLabel}
+        </span>
       </p>
       <div className="resume-snackbar-actions">
         <a href={lastPageVisited}>Reprendre</a>
