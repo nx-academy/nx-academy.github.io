@@ -12,6 +12,18 @@ const aprilTasks: LogTasks = {
     month: "Avril",
     tasks: [
         {
+            kind: "fix",
+            content: "Mise à jour du favicon (je le trouvais pas très propre)"
+        },
+        {
+            kind: "in-progress",
+            content: "Optimisation du SEO du site avec l'ajout du sitemap et du robots.txt"
+        },
+        {
+            kind: "in-progress",
+            content: "Travail sur le partage du site sur les réseaux sociaux."
+        },
+        {
             kind: "done",
             content: "Ajout de la snackbar: “Reprendre là où vous vous êtes arrêté”"
         },
