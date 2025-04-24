@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
-import "../styles/resume-snackbar.css"
+import "../styles/resume-snackbar.css";
 
 function Component() {
-  const [isSnackbarVisible, setIsSnackbarVisible] = useState(false)
-  const [lastPageVisited, setLastPageVisited] = useState(null)
-  const [lastPageLabel, setLastPageLabel] = useState(null)
+  const [isSnackbarVisible, setIsSnackbarVisible] = useState(false);
+  const [lastPageVisited, setLastPageVisited] = useState(null);
+  const [lastPageLabel, setLastPageLabel] = useState(null);
 
   useEffect(() => {
     const currentPath = window.location.pathname;
@@ -13,7 +13,7 @@ function Component() {
     const pageLabel = rawTitle.split(" - ")[0].trim();
 
     const lastVisited = localStorage.getItem("lastVisited");
-    const lastVisitedLabel = localStorage.getItem("lastVisitedLabel")
+    const lastVisitedLabel = localStorage.getItem("lastVisitedLabel");
     const sessionMarker = sessionStorage.getItem("sessionStarted");
 
     const isReturningToHome = currentPath === "/";
@@ -29,41 +29,43 @@ function Component() {
     // - the user on the home page (/)
     // - the session just started
     // - there is a "history", e.g. a page to back to
-    // if (isReturningToHome && isNewSession && isDifferentPage) {
-    if (true) {
-      setIsSnackbarVisible(true)
-      setLastPageVisited(lastVisited)
-      setLastPageLabel(lastVisitedLabel)
+    if (isReturningToHome && isNewSession && isDifferentPage) {
+      setIsSnackbarVisible(true);
+      setLastPageVisited(lastVisited);
+      setLastPageLabel(lastVisitedLabel);
 
-      // const timer = setTimeout(() => {
-      //   setIsSnackbarVisible(false)
-      // }, 10000)
-      // return () => clearTimeout(timer)
+      const timer = setTimeout(() => {
+        setIsSnackbarVisible(false);
+      }, 10000);
+      return () => clearTimeout(timer);
     } else {
-      setIsSnackbarVisible(false)
+      setIsSnackbarVisible(false);
     }
 
     localStorage.setItem("lastVisited", currentPath);
     localStorage.setItem("lastVisitedLabel", pageLabel);
   }, []);
 
-  if (!isSnackbarVisible) return null
+  if (!isSnackbarVisible) return null;
 
   return (
     <div className="resume-snackbar-wrapper">
-      <p>Vous étiez en train de lire : 
-        <br /> 
+      <p>
+        Vous étiez en train de lire :
+        <br />
         <span title={lastPageLabel} className="resume-snackbar-lastpage">
           {lastPageLabel}
         </span>
       </p>
       <div className="resume-snackbar-actions">
         <a href={lastPageVisited}>Reprendre</a>
-        <button onClick={() => setIsSnackbarVisible(false)}>Pas maintenant</button>
+        <button onClick={() => setIsSnackbarVisible(false)}>
+          Pas maintenant
+        </button>
       </div>
       <div className="progress-bar"></div>
     </div>
-  )
+  );
 }
 
 export default Component;

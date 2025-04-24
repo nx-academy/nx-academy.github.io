@@ -20,13 +20,13 @@
 }
 
 .resume-snackbar-lastpage {
-    font-weight: 600;
-    display: inline-block;
-    max-width: 50vw;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    vertical-align: bottom;
+  font-weight: 600;
+  display: inline-block;
+  max-width: 50vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
 }
 
 .resume-snackbar-actions {
@@ -44,7 +44,7 @@
   display: block;
   width: 50%;
   text-align: center;
-  transition: .4s;
+  transition: 0.4s;
 
   &:hover {
     color: #151515;
@@ -53,16 +53,16 @@
 }
 
 .resume-snackbar-actions button {
-  background: #B0BEC5;
+  background: #b0bec5;
   border: none;
   color: #151515;
   width: 50%;
   border-radius: 4px;
   cursor: pointer;
-  transition: .4s;
+  transition: 0.4s;
 
   &:hover {
-    background-color: #B0BEC5AA;
+    background-color: #b0bec5aa;
   }
 }
 
@@ -84,9 +84,9 @@
 }
 
 @media screen and (min-width: 768px) {
-    .resume-snackbar-wrapper {
-        left: unset;
-        right: 24px;
-        transform: unset;
-    }
+  .resume-snackbar-wrapper {
+    left: unset;
+    right: 24px;
+    transform: unset;
+  }
 }

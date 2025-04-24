@@ -13,6 +13,10 @@ const aprilTasks: LogTasks = {
     tasks: [
         {
             kind: "done",
+            content: "Ajout de la snackbar: “Reprendre là où vous vous êtes arrêté”"
+        },
+        {
+            kind: "done",
             content: "Mise à jour du menu burger"
         },
         {

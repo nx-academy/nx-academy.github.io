@@ -11,7 +11,7 @@ Ce document suit les fonctionnalités en cours de développement et leur état d
 | Priorité | Fonctionnalité                                      | État actuel             | Prochaine étape                                           |
 |----------|------------------------------------------------------|--------------------------|------------------------------------------------------------|
 | 🟢 1     | Page changelog                                       | **DONE**                  | Créer `/changelog`, format journal, à alimenter chaque mois |
-| 🟡 2     | Popin “Reprendre là où vous vous êtes arrêté”        | À faire                  | Design + intégration localStorage                          |
+| 🟢 2     | Popin “Reprendre là où vous vous êtes arrêté”        | **DONE**                 | Design + intégration localStorage                          |
 | 🟢 3     | Quiz du mois                                         | Fonctionnelle            | Finaliser le système RAG, publier un quiz chaque mois      |
 | 🟢 4     | Fiche technique mensuelle (“Fiche du vendredi”)     | En place                 | Rédiger un batch de 4 fiches Docker                        |
 | 🟡 5     | Bloc “En cours de rédaction”                         | À faire                  | Design + emplacement à définir                             |
@@ -35,8 +35,9 @@ Ce document suit les fonctionnalités en cours de développement et leur état d
 
 #### Workflow IA pour le recap
 
+```
 1. Discord (canal #le-recap)
-   └─ Tu postes les liens vers les articles à synthétiser
+   └─ Poste des liens vers les articles à synthétiser
 
 2. Bot Python
    └─ Récupère les messages du mois concerné
@@ -60,4 +61,4 @@ Ce document suit les fonctionnalités en cours de développement et leur état d
    └─ Crée une branche
    └─ Push le fichier `.md`
    └─ Crée une Pull Request automatiquement
-
+```
