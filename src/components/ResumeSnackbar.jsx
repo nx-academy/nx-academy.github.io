@@ -4,6 +4,7 @@ import "../styles/resume-snackbar.css"
 
 function Component() {
   const [isSnackbarVisible, setIsSnackbarVisible] = useState(false)
+  const [lastPageVisited, setLastPageVisited] = useState(null)
 
   useEffect(() => {
     const currentPath = window.location.pathname;
@@ -23,22 +24,37 @@ function Component() {
     // - the user on the home page (/)
     // - the session just started
     // - there is a "history", e.g. a page to back to
-    if (isReturningToHome && isNewSession && isDifferentPage) {
-      console.log("✅ Afficher la popin pour :", lastVisited);
+    // if (isReturningToHome && isNewSession && isDifferentPage) {
+    if (true) {
       setIsSnackbarVisible(true)
+      setLastPageVisited(lastVisited)
+
+      // const timer = setTimeout(() => {
+      //   setIsSnackbarVisible(false)
+      // }, 10000)
+      // return () => clearTimeout(timer)
     } else {
-      console.log("❌ Ne rien afficher");
       setIsSnackbarVisible(false)
     }
 
     localStorage.setItem("lastVisited", currentPath);
   }, []);
 
-  console.log("++++++")
-  console.log(isSnackbarVisible)
-  console.log("++++++")
+  if (!isSnackbarVisible) return null
 
-  return null
+  return (
+    <div className="resume-snackbar-wrapper">
+      <p>Vous étiez en train de lire : 
+        <br /> 
+        <span className="resume-snackbar-lastpage">Le Moine, le Vape Coder, le Debugger & le Learner</span>
+      </p>
+      <div className="resume-snackbar-actions">
+        <a href={lastPageVisited}>Reprendre</a>
+        <button onClick={() => setIsSnackbarVisible(false)}>Pas maintenant</button>
+      </div>
+      <div className="progress-bar"></div>
+    </div>
+  )
 }
 
 export default Component;
