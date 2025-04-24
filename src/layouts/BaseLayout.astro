@@ -17,7 +17,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro"
 import ScrollToTopButton from "../components/ScrollToTopButton.astro"
-import ResumePopup from "../components/ResumePopup"
+import ResumeSnackbar from "../components/ResumeSnackbar"
 
 let { title, description, breadcrumbs } = Astro.props
 
@@ -82,7 +82,7 @@ const { pathname } = Astro.url
       </div>
       <Footer />
       <ScrollToTopButton />
-      <ResumePopup client:load />
+      <ResumeSnackbar client:load />
     </div>
   </body>
 </html>
@@ -105,10 +105,3 @@ const { pathname } = Astro.url
   min-height: 100vh;
 }
 </style>
-
-<script is:inline>
-  document.addEventListener("DOMContentLoaded", function() {
-    const currentPath = window.location.pathname
-    localStorage.setItem("lastVisited", currentPath)
-  })
-</script>
