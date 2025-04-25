@@ -10,7 +10,7 @@ imgSrc: /blog/hero.png
 kind: Articles
 author: Thomas
 draft: false
-publishedDate: 04/29/2025
+publishedDate: 03/29/2025
 ---
 
 # Le Moine, le Vape Coder, le Debugger & le Learner
