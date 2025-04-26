@@ -9,10 +9,10 @@ Possibilité d’ajouter un article de blog libre (ex. IA, dev, coulisses) selon
 
 | Mois     | Sujet de la fiche technique                      |
 |----------|--------------------------------------------------|
-| Mai      | Docker – réseaux et ponts (`docker network`)     |
-| Juin     | Docker – volumes et persistance (`docker volume`)|
-| Juillet  | Docker Compose – structure et services            |
-| Août     | Docker Compose – variables d’environnement, `.env` |
+| Mai      | Comment (bien) utiliser les volumes Docker ?    |
+| Juin     | Qu'est-ce qu'un registry Docker ? |
+| Juillet  | Comment optimiser son image Docker ?            |
+| Août     | Comment faire un multi stagging ? |
 
 ---
 

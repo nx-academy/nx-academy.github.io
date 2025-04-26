@@ -96,7 +96,7 @@ Les prochains mois seront donc très orientés Docker, avec des quiz, des fiches
 
 Voilà, vous savez tout (ou presque) sur le pourquoi du Récap, comment je le construis, et ce que j’y mets.
 
-👉 La première édition du Récap est disponible ici : Le Récap #1 — Avril 2025
+👉 La première édition du Récap est disponible ici : [Le Récap #1 — Avril 2025](/articles/le-recap-avril-2025)
 N’hésitez pas à y jeter un œil, à picorer un lien ou à tout lire d’un coup. Il est là pour ça 🙂.
 
 
@@ -105,7 +105,7 @@ N’hésitez pas à y jeter un œil, à picorer un lien ou à tout lire d’un c
 
 Et si vous souhaitez suivre les prochaines éditions, vous pouvez :
 
-- Suivre NX Academy sur LinkedIn — c’est là que je poste les nouveautés
+- **Suivre NX Academy [sur LinkedIn](https://www.linkedin.com/company/nx-academy-france)** — c’est là que je poste les nouveautés
 - Ou tout simplement revenir ici, chaque dernier vendredi du mois.
 
 Merci d’avoir pris le temps de me lire et bonne lecture ✌️
