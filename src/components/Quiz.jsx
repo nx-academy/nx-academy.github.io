@@ -1,13 +1,31 @@
 import "../styles/quiz.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 function Component({ slug }) {
+  const clickAudioRef = useRef(null);
+  const successAudioRef = useRef(null);
+  const errorAudioRef = useRef(null);
+
   let [quizData, setQuizData] = useState(null);
   let [questionNumber, setQuestionNumber] = useState(0);
   let [answer, setAnswer] = useState(null);
   let [isAnswerSubmit, setIsAnswerSubmit] = useState(false);
   let [score, setScore] = useState(0);
   let [isQuizFinished, setIsQuizFinished] = useState(false);
+
+  useEffect(() => {
+    if (clickAudioRef.current) {
+      clickAudioRef.current.load();
+    }
+
+    if (successAudioRef.current) {
+      successAudioRef.current.load();
+    }
+
+    if (errorAudioRef.current) {
+      errorAudioRef.current.load();
+    }
+  }, []);
 
   useEffect(() => {
     async function getQuizData() {
@@ -22,22 +40,37 @@ function Component({ slug }) {
 
   function onSelectAnswer(selectedAnswer) {
     if (isAnswerSubmit) return;
+    if (selectedAnswer === answer) return
+
+    if (clickAudioRef.current) {
+      clickAudioRef.current.currentTime = 0;
+      clickAudioRef.current.play();
+    }
 
     setAnswer(selectedAnswer);
   }
 
   function onSubmitAnswer() {
-    if (!answer) return
+    if (!answer) return;
     setIsAnswerSubmit(true);
 
     // Right answer
     if (quizData[questionNumber].answer === answer) {
+
+      if (successAudioRef.current) {
+        successAudioRef.current.currentTime = 0
+        successAudioRef.current.play()
+      }
+
       setScore(score + 1);
+    } else {
+      errorAudioRef.current.currentTime = 0
+      errorAudioRef.current.play()
     }
   }
 
   function handleNextQuestion() {
-    setAnswer(null)
+    setAnswer(null);
 
     if (questionNumber + 1 === quizData.length) {
       setIsQuizFinished(true);
@@ -57,8 +90,12 @@ function Component({ slug }) {
           Vous avez obtenu : {score} sur {quizData.length}
         </p>
         <div className="finished-quiz-btns">
-          <a className="redo-quiz" href={`/quiz/${slug}`}>Refaire le quiz</a>
-          <a className="go-back" href="/quiz">Faire un autre quiz</a>
+          <a className="redo-quiz" href={`/quiz/${slug}`}>
+            Refaire le quiz
+          </a>
+          <a className="go-back" href="/quiz">
+            Faire un autre quiz
+          </a>
         </div>
       </div>
     );
@@ -66,6 +103,18 @@ function Component({ slug }) {
 
   return (
     <div className="quiz-wrapper">
+      <audio ref={clickAudioRef} style={{ display: "none" }}>
+        <source src="/sounds/click.mp3" type="audio/mpeg" />
+        <source src="/sounds/click.ogg" type="audio/ogg" />
+      </audio>
+      <audio ref={successAudioRef} style={{ display: "none" }}>
+        <source src="/sounds/success.mp3" type="audio/mpeg" />
+        <source src="/sounds/success.ogg" type="audio/ogg" />
+      </audio>
+      <audio ref={errorAudioRef} style={{ display: "none" }}>
+        <source src="/sounds/error.mp3" type="audio/mpeg" />
+        <source src="/sounds/error.ogg" type="audio/ogg" />
+      </audio>
       {quizData && quizData.length && (
         <div className="quiz-inner-container">
           <div className="question-wrapper">
@@ -73,20 +122,22 @@ function Component({ slug }) {
               Question {questionNumber + 1} sur {quizData.length}
             </p>
             <p className="question">{quizData[questionNumber].question}</p>
-            {
-              isAnswerSubmit && (
-                <>
-                  {
-                    answer === quizData[questionNumber].answer ? (
-                      <p className="explanation-title explanation-title-right">Bonne réponse !</p>
-                    ) : (
-                      <p className="explanation-title explanation-title-wrong">Mauvaise réponse !</p>
-                    )
-                  }
-                  <p className="explanation">{quizData[questionNumber]. explanation}</p>
-                </>
-              )
-            }
+            {isAnswerSubmit && (
+              <>
+                {answer === quizData[questionNumber].answer ? (
+                  <p className="explanation-title explanation-title-right">
+                    Bonne réponse !
+                  </p>
+                ) : (
+                  <p className="explanation-title explanation-title-wrong">
+                    Mauvaise réponse !
+                  </p>
+                )}
+                <p className="explanation">
+                  {quizData[questionNumber].explanation}
+                </p>
+              </>
+            )}
           </div>
           <div className="options-container">
             <ul className="options-wrapper">
