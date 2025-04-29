@@ -3,7 +3,7 @@ Allow: /
 
 # For now, these pages don't exists, I just keep that here just in case.
 # Disallow: /admin 
-# Disallow: /drafts
+Disallow: /drafts
 # Disallow: /preview
 # Disallow: /private
 

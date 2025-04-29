@@ -10,6 +10,7 @@ export default defineConfig({
   site: "https://nx.academy",
   integrations: [react(), 
     sitemap({
+      filter: (page) => !page.startsWith("/drafts"),
       changefreq: 'weekly',
       priority: 0.7,
       lastmod: new Date()
