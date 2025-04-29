@@ -136,15 +136,9 @@ const breadCrumbs: Breadcrumb[] = [
   const $quizPresentation = document.querySelector(
     ".quiz-presentation"
   ) as HTMLDivElement;
-  const $goBackBtn = document.querySelector(".go-back-btn") as HTMLSpanElement
 
   $startQuizBtn.addEventListener("click", function () {
     $quizContainer.classList.remove("hidden");
     $quizPresentation.classList.add("hidden");
   });
-
-  $goBackBtn.addEventListener("click", function() {
-    $quizContainer.classList.add("hidden");
-    $quizPresentation.classList.remove("hidden");
-  })
 </script>
