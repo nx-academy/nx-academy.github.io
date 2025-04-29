@@ -3,6 +3,8 @@ import { useState, useEffect, useRef } from "react";
 
 function Component({ slug }) {
   const clickAudioRef = useRef(null);
+  const successAudioRef = useRef(null);
+  const errorAudioRef = useRef(null);
 
   let [quizData, setQuizData] = useState(null);
   let [questionNumber, setQuestionNumber] = useState(0);
@@ -14,6 +16,14 @@ function Component({ slug }) {
   useEffect(() => {
     if (clickAudioRef.current) {
       clickAudioRef.current.load();
+    }
+
+    if (successAudioRef.current) {
+      successAudioRef.current.load();
+    }
+
+    if (errorAudioRef.current) {
+      errorAudioRef.current.load();
     }
   }, []);
 
@@ -46,7 +56,16 @@ function Component({ slug }) {
 
     // Right answer
     if (quizData[questionNumber].answer === answer) {
+
+      if (successAudioRef.current) {
+        successAudioRef.current.currentTime = 0
+        successAudioRef.current.play()
+      }
+
       setScore(score + 1);
+    } else {
+      errorAudioRef.current.currentTime = 0
+      errorAudioRef.current.play()
     }
   }
 
@@ -87,6 +106,14 @@ function Component({ slug }) {
       <audio ref={clickAudioRef} style={{ display: "none" }}>
         <source src="/sounds/click.mp3" type="audio/mpeg" />
         <source src="/sounds/click.ogg" type="audio/ogg" />
+      </audio>
+      <audio ref={successAudioRef} style={{ display: "none" }}>
+        <source src="/sounds/success.mp3" type="audio/mpeg" />
+        <source src="/sounds/success.ogg" type="audio/ogg" />
+      </audio>
+      <audio ref={errorAudioRef} style={{ display: "none" }}>
+        <source src="/sounds/error.mp3" type="audio/mpeg" />
+        <source src="/sounds/error.ogg" type="audio/ogg" />
       </audio>
       {quizData && quizData.length && (
         <div className="quiz-inner-container">
