@@ -4,7 +4,8 @@ layout: ../../layouts/CheatSheetsLayout.astro
 title: Comment (bien) utiliser les volumes Docker ?
 description: Découvrez comment utiliser les volumes Docker pour persister vos données ou partager des fichiers entre votre machine et vos conteneurs.
 
-
+imgAlt: Une femme en train de brancher une clé USB dans un ordinateur, pixel art
+imgSrc: /femme-cle-usb.png
 
 author: Thomas
 kind: Fiche technique
