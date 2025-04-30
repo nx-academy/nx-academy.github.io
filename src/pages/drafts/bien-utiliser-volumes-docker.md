@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/BlogPostLayout.astro
+layout: ../../layouts/CheatSheetsLayout.astro
 
 title: Comment (bien) utiliser les volumes Docker ?
 description: Découvrez comment utiliser les volumes Docker pour persister vos données ou partager des fichiers entre votre machine et vos conteneurs.
@@ -15,6 +15,8 @@ publishedDate: 05/01/2025
 <article>
 
 # Comment (bien) utiliser les volumes Docker ?
+
+![Une femme en train de brancher une clé USB dans un ordinateur, pixel art](/femme-cle-usb.png)
 
 La sortie du cours sur Docker approche à grand pas. Pour cette occasion, sachez que **les quatre prochaines fiches techniques seront dédiées à cet outil**. C'est, selon moi, un indispensable à connaître.
 
