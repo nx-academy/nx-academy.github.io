@@ -2,17 +2,19 @@
 layout: ../../layouts/BlogPostLayout.astro
 
 title: Comment (bien) utiliser les volumes Docker ?
+description: Découvrez comment utiliser les volumes Docker pour persister vos données ou partager des fichiers entre votre machine et vos conteneurs.
 
+
+
+author: Thomas
+kind: Fiche technique
+level: Intermédiaire
+publishedDate: 05/01/2025
 ---
 
+<article>
+
 # Comment (bien) utiliser les volumes Docker ?
-
-<!-- ## Introduction
-
-- Le cours sur Docker va bientôt pointer le bout de son nez. A l'occassion de sa sortie, les quatre prochaines fiches techniques seront dédiées à Docker.
-- Une surprise vous attend en bas de l'article (le premier quiz auto-généré via IA et directement mis en prod via l'agent que j'ai développé).
-- J'ai décidé de commencer par une fiche technique sur les volumes car c'est l'un des éléments essentiels à comprendre une fois qu'on a joué un peu avec Docker. Autrement dit, une fois qu'on a compris la différence entre les images et les conteneurs et qu'on a mis les mains dans le fichier docker-compose.yml
-- C'est aussi l'une des principales premières difficultés. Les volumes ont deux utilisations possibles (nous allons revenir dessus). Bien comprendre les volumes (et ceux qu'ils permettent de résoudre) est essentiel pour bien les utiliser. -->
 
 La sortie du cours sur Docker approche à grand pas. Pour cette occasion, sachez que **les quatre prochaines fiches techniques seront dédiées à cet outil**. C'est, selon moi, un indispensable à connaître.
 
@@ -23,12 +25,6 @@ Pour marquer le coup, une surprise vous attend en bas de l’article. Le tout pr
 **Les volumes sont l’un des premiers gros morceaux** à assimiler. Ils ont deux usages très différents (on y revient juste après). Savoir les utiliser correctement permet d’éviter pas mal de galères, notamment quand on bosse avec une base de données ou un simple serveur de développement.
 
 ## Pourquoi utilise-t-on des volumes en Docker ?
-
-<!-- - Commençons par parler de la problématique résolue par les volumes. On les utilise principalement pour deux raisons :
-  - La persistance de données, typiquement une base de données MySQL ou PostgreSQL. On va vouloir que ces données soient persister (comprendre: soient sauvegarder) quand on éteint et on redémarre le conteneur.
-  - Le partage de fichiers entre la machine hôte (votre ordinateur par exemple) et le conteneur (dans lequel vous codez).
-- Imaginez la scène, vous êtes en train de coder un serveur en Node.JS avec Express et vous voulez que le conteneur soit au courant des fichiers que vous êtes en train de modifier.
-- J'aimerais bien une ou deux phrases sur comment ça marche "behind the scene". Peut-être que ce n'est pas l'endroit et qu'il vaut mieux le faire quand on décrit les types de volumes. -->
 
 Avant de parler un peu de technique (on y vient juste après), j'aimerais prendre le temps de parler des problématiques résolues par les volumes.
 
@@ -55,7 +51,7 @@ Docker propose deux façons de connecter des fichiers entre votre machine et vos
 
 <br>
 
-![Un schéma représentant un bind volume et un volume nommé, source https://mingeun2154.github.io](/bind-and-named-volumes.jpeg)
+![Un schéma représentant un bind mount et un volume nommé, source https://mingeun2154.github.io](/bind-and-named-volumes.jpeg)
 
 <br>
 
@@ -69,9 +65,11 @@ Allez, on va regarder maintenant comment on déclare des volumes dans un `docker
 
 ## Comment les déclarer dans un docker-compose.yml
 
-Dans cette section, je vais couvrir les deux cas d'usage que nous avons vu ci-dessus : les bind volumes et les volumes nommés.
+Dans cette section, je vais couvrir les deux cas d'usage que nous avons vu ci-dessus : les bind mount et les volumes nommés.
 
-### Développez en local avec un bind volume
+### Développez en local avec un bind mount
+
+Admettons que vous travailliez sur un projet Node.js avec Express. Vous voulez que chaque changement de fichier soit immédiatement pris en compte dans le conteneur (idéal avec un nodemon par exemple). Voici comment faire :
 
 ```yaml
 services:
@@ -81,12 +79,18 @@ services:
       - ./app:/usr/src/app
 ```
 
+<br>
+
+Décryptage :
+- `./app` est un dossier local (relatif au fichier `docker-compose.yml`) ;
+- `/usr/src/app` est le dossier monté dans le conteneur ;
+- tout changement dans `./app` est automatiquement visible dans le conteneur.
+
 
 ### Persistez des données avec un volume nommé
 
 On va partir sur une base de données PostgreSQL. Pour s'assurer que les données soient conservées même après l'arrêt ou la suppression du conteneur, on déclare un volume nommé comme ci-dessous :
 
-<br>
 
 ```yaml
 services:
@@ -101,15 +105,23 @@ volumes:
   pg_data:
 ```
 
+<br>
+
 Décryptage :
 - `pg_data` est le nom du volume qu'on crée ;
 - `/var/lib/postgresql/data` est le chemin dans le conteneur où PostgreSQL stocke ses données ;
 - La clé `volumes`, tout en bas, permet de définir explicitement le volume, mais si on l’omet, Docker le crée quand même automatiquement. (Pratique, non ?)
 
-## Les commandes à connaître
 
-## Cas pratique - Persister une base de données PostgreSQL
+Comme prévu, voici l'heure de la surprise. Vous trouverez en-dessous de cette fiche un quiz pour vous valider vos connaissances. Et si vous revenez plus tard, vous aurez peut-être quelques exercices de mise en application. Mais c'est une autre surprise :).
 
-## Astuce bonus
 
 ## Ressources
+
+- [La documentation officielle sur les volumes Docker](https://docs.docker.com/engine/storage/volumes/)
+- [Travailler avec les volumes Docker - LabEx](https://labex.io/fr/tutorials/docker-working-with-docker-volumes-389189)
+- [La documentation officielle sur les bind mounts Docker](https://docs.docker.com/get-started/workshop/06_bind_mounts/)
+
+
+
+</article>
