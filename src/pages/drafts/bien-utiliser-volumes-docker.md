@@ -37,19 +37,74 @@ Avant de parler un peu de technique (on y vient juste après), j'aimerais prendr
 Pour faire simple, on les utilise pour deux raisons :
 
 - La persistance des données. C’est le cas typique d’une base de données MySQL ou PostgreSQL : vous lancez un conteneur, vous y stockez des données, vous le redémarrez et tout a disparu. Sans volume, un conteneur Docker n’a pas de mémoire durable. Il est fait pour être éphémère. En utilisant un volume, on sauvegarde les données à l’extérieur du conteneur et on les retrouve intactes (comprendre: sauvergarder) au redémarrage.
-
 - Le partage de fichiers entre l’hôte et le conteneur. Imaginez que vous développiez un serveur Express en Node.js et vous souhaitiez que votre conteneur “voie” en temps réel les fichiers que vous modifiez. C’est là qu’intervient le montage de dossier : vous connectez un dossier local (celui de votre projet, par exemple) à un dossier dans le conteneur. Résultat : chaque changement est automatiquement pris en compte. Si vous ne faites pas ça, vous êtes obligé de redémarrer le conteneur à chaque fois.
 
 
 <br>
 
 
-Ces deux usages — persister et partager — sont très différents, mais tous deux passent par le système de volumes. Docker propose deux façons de les gérer : les bind mounts et les volumes nommés. On va voir dès maintenant la différence entre les deux.
+Ces deux usages, persister et partager,  sont très différents. Cela dit, ils passent tous deux par le système de volumes. Docker propose deux façons de les gérer : les bind mounts et les volumes nommés. On va voir dès maintenant la différence entre les deux.
 
 
 ## Deux types de volumes : bind mount vs volume nommé
 
+Docker propose deux façons de connecter des fichiers entre votre machine et vos conteneurs. Chacune répond à une problématique différente mais elles passent toutes les deux par la même directive : `volumes`.
+
+- Le bind mount connecte directement un dossier de votre machine hôte au conteneur. Ce que vous modifiez en local est aussitôt visible dans le conteneur.
+- Le volume nommé, lui, est un espace de stockage géré et maintenu par Docker, souvent utilisé pour stocker des données de manière durable et isolée.
+
+<br>
+
+![Un schéma représentant un bind volume et un volume nommé, source https://mingeun2154.github.io](/bind-and-named-volumes.jpeg)
+
+<br>
+
+Si vous vous demandez comment ça marche _behind the scenes_, sachez que :
+
+- avec un bind mount, vous dites à Docker : “ce dossier précis de ma machine, monte-le dans le conteneur”.
+- avec un volume nommé, Docker crée un espace de stockage dans son propre système interne (`/var/lib/docker/volumes/`).
+
+Allez, on va regarder maintenant comment on déclare des volumes dans un `docker-compose.yml` !
+
+
 ## Comment les déclarer dans un docker-compose.yml
+
+Dans cette section, je vais couvrir les deux cas d'usage que nous avons vu ci-dessus : les bind volumes et les volumes nommés.
+
+### Développez en local avec un bind volume
+
+```yaml
+services:
+  web:
+    image: node
+    volumes:
+      - ./app:/usr/src/app
+```
+
+
+### Persistez des données avec un volume nommé
+
+On va partir sur une base de données PostgreSQL. Pour s'assurer que les données soient conservées même après l'arrêt ou la suppression du conteneur, on déclare un volume nommé comme ci-dessous :
+
+<br>
+
+```yaml
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: exemple
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+volumes:
+  pg_data:
+```
+
+Décryptage :
+- `pg_data` est le nom du volume qu'on crée ;
+- `/var/lib/postgresql/data` est le chemin dans le conteneur où PostgreSQL stocke ses données ;
+- La clé `volumes`, tout en bas, permet de définir explicitement le volume, mais si on l’omet, Docker le crée quand même automatiquement. (Pratique, non ?)
 
 ## Les commandes à connaître
 
