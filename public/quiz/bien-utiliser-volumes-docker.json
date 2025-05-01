@@ -1,0 +1,59 @@
+{
+    "data": [
+        {
+            "question": "Quels sont les deux principaux usages des volumes en Docker ?",
+            "options": [
+                "La persistance des données et le partage de fichiers entre l’hôte et le conteneur",
+                "La compression des données et la sécurisation des fichiers",
+                "La sauvegarde des fichiers et la synchronisation des données",
+                "La diffusion en temps réel et la sauvegarde des fichiers"
+            ],
+            "answer": "La persistance des données et le partage de fichiers entre l’hôte et le conteneur",
+            "explanation": "Les volumes en Docker sont utilisés pour assurer la persistance des données et le partage de fichiers entre l’hôte et le conteneur, permettant ainsi la sauvegarde des données à l’extérieur du conteneur et la prise en compte automatique des modifications de fichiers."
+        },
+        {
+            "question": "Quels sont les deux usages principaux des volumes Docker?",
+            "options": [
+                "Pour tester des applications, Pour déployer des applications",
+                "Pour la persistance des données, Pour le partage de fichiers entre l'hôte et le conteneur",
+                "Pour la sécurité des données, Pour la performance des applications",
+                "Pour le déploiement continu, Pour l'intégration continue"
+            ],
+            "answer": "Pour la persistance des données, Pour le partage de fichiers entre l'hôte et le conteneur",
+            "explanation": "Les volumes Docker sont principalement utilisés pour deux choses : la persistance des données (pour sauvegarder les données à l'extérieur du conteneur et les retrouver intactes au redémarrage) et pour le partage de fichiers entre l'hôte et le conteneur (pour que les modifications apportées aux fichiers locaux soient automatiquement prises en compte dans le conteneur)."
+        },
+        {
+            "question": "Pourquoi utilise-t-on des volumes en Docker ?",
+            "options": [
+                "Pour augmenter la capacité de stockage du container",
+                "Pour partager des fichiers entre l’hôte et le conteneur et pour la persistance des données",
+                "Pour améliorer la performance du container",
+                "Pour sécuriser le container"
+            ],
+            "answer": "Pour partager des fichiers entre l’hôte et le conteneur et pour la persistance des données",
+            "explanation": "Les volumes Docker sont utilisés pour deux raisons principales: la persistance des données et le partage de fichiers entre l'hôte et le conteneur. Ils ne sont pas conçus pour augmenter la capacité de stockage, améliorer la performance ou sécuriser le conteneur."
+        },
+        {
+            "question": "Pour quelles raisons utilise-t-on des volumes en Docker ?",
+            "options": [
+                "Pour la persistance des données et le partage de fichiers entre l'hôte et le conteneur.",
+                "Pour augmenter la capacité de stockage du conteneur.",
+                "Pour accélérer le temps de démarrage du conteneur.",
+                "Pour sécuriser les données du conteneur."
+            ],
+            "answer": "Pour la persistance des données et le partage de fichiers entre l'hôte et le conteneur.",
+            "explanation": "Les volumes Docker sont utilisés pour deux raisons principales : la persistance des données (sauvegarde des données à l’extérieur du conteneur qui sont intactes au redémarrage) et le partage de fichiers entre l’hôte et le conteneur (les modifications de fichiers sont automatiquement prises en compte dans le conteneur)."
+        },
+        {
+            "question": "Pourquoi utilise-t-on des volumes en Docker ?",
+            "options": [
+                "Pour lancer des services via docker-compose.yml",
+                "Pour partager des fichiers entre l'hôte et le conteneur et pour la persistance des données",
+                "Pour créer des images Docker",
+                "Pour gérer les données dans un conteneur Docker sans avoir à rebuild à chaque fois"
+            ],
+            "answer": "Pour partager des fichiers entre l'hôte et le conteneur et pour la persistance des données",
+            "explanation": "Les volumes en Docker sont utilisés pour deux raisons principales : pour partager des fichiers entre l'hôte et le conteneur et pour la persistance des données, c'est-à-dire pour sauvegarder les données à l'extérieur du conteneur et les retrouver intactes au redémarrage."
+        }
+    ]
+}
