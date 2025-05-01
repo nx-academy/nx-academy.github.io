@@ -1,12 +1,14 @@
 ---
 layout: ../../layouts/CheatSheetsLayout.astro
 
+title: Comprendre la fonction CSS Clamp
 description: La fonction CSS Clamp est particulièrement utile. Nous nous en servons chez NX Academy pour rendre les polices responsives. En une ligne, vous pouvez adapter la taille de la police sur vos différentes formats. Pratique, non ?
+
 imgAlt: Quelqu'un mesurant un salon avec un mètre, pixel art
 imgSrc: /homme-mesure-salon.webp
+
 kind: Fiche technique
 level: Intermédiaire
-title: Comprendre la fonction CSS Clamp
 author: Thomas
 draft: false
 publishedDate: 07/17/2024
