@@ -10,6 +10,15 @@ type QuizMeta = {
 
 export const QUIZZES: readonly QuizMeta[] = [
   {
+    slug: "bien-utiliser-volume-docker",
+    title: "Les volumes Docker",
+    description: "Ajouter une description",
+    level: "Facile",
+    imgSrc: "/misc/quiz-hero.webp",
+    imgAlt: "Illustration Docker facile",
+    href: "quiz/bien-utiliser-volume-docker"
+  },
+  {
     slug: "docker-facile",
     title: "Les concepts essentiels de Docker",
     description: "Un quiz pour démarrer avec Docker en douceur. Testez vos connaissances sur les concepts essentiels : images, conteneurs, Dockerfile, Docker Hub et les commandes de base. L’occasion de revoir à quoi sert Docker et comment il facilite le lancement d’applications. Idéal pour valider vos premières notions avant d’aller plus loin.",

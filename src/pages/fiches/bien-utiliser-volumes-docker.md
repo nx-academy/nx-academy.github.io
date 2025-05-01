@@ -116,7 +116,7 @@ Décryptage :
 - La clé `volumes`, tout en bas, permet de définir explicitement le volume, mais si on l’omet, Docker le crée quand même automatiquement. (Pratique, non ?)
 
 
-Et voilà ! Les volumes Docker peuvent être un peu pertubants de premier abord. Il y a souvent beaucoup d'incompréhensions sur comment bien les utiliser. Je vous invite à faire le quiz ci-dessous pour valider vos connaissances et on se retrouve pour le mois prochain pour une fiche technique dédiée aux registries Docker !
+Et voilà ! Les volumes Docker peuvent être un peu pertubants de premier abord. Il y a souvent beaucoup d'incompréhensions sur comment bien les utiliser. Je vous invite [à faire ce quiz pour valider vos connaissances](/quiz/bien-utiliser-volume-docker) et on se retrouve pour le mois prochain pour une fiche technique dédiée aux registries Docker !
 
 
 ## Ressources

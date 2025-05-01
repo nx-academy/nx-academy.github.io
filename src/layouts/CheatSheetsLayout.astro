@@ -32,13 +32,15 @@ const breadCrumbs: Breadcrumb[] = [
 ---
 
 <BaseLayout title={title} description={description} breadcrumbs={breadCrumbs}>
-  <div>
-    <slot />
-  </div>
+  <main>
+    <section>
+      <slot />
+    </section>
+  </main>
 </BaseLayout>
 
 <style>
-  div {
+  main {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
   }
