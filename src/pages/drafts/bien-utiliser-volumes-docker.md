@@ -23,7 +23,7 @@ La sortie du cours sur Docker approche à grand pas. Pour cette occasion, sachez
 
 Pour marquer le coup, une surprise vous attend en bas de l’article. Le tout premier quiz généré par IA, directement mis en ligne grâce à l’agent que j’ai développé. Oui, ça bosse pas mal en ce moment !
 
-**On commence cette série Docker par les volumes**. Pourquoi ? Parce que c’est souvent à ce moment-là que les choses se compliquent. Quand on a compris la différence entre une image et un conteneur, qu’on a lancé ses premiers services via un `docker-compose.yml`,  on se heurte assez vite à cette question : _où sont passées les données ?_
+**On commence cette série Docker par les volumes**. Pourquoi ? Parce que c’est souvent à ce moment-là que les choses se compliquent. Quand on a compris la différence entre une image et un conteneur, qu’on a lancé ses premiers services via un `docker-compose.yml`,  on se heurte assez vite à cette question : _où sont passées les données ?_ ou _comment bien gérés mes données dans mon conteneur sans avoir à rebuild à chaque fois ?_
 
 **Les volumes sont l’un des premiers gros morceaux** à assimiler. Ils ont deux usages très différents (on y revient juste après). Savoir les utiliser correctement permet d’éviter pas mal de galères, notamment quand on bosse avec une base de données ou un simple serveur de développement.
 
@@ -35,19 +35,19 @@ Avant de parler un peu de technique (on y vient juste après), j'aimerais prendr
 
 Pour faire simple, on les utilise pour deux raisons :
 
-- La persistance des données. C’est le cas typique d’une base de données MySQL ou PostgreSQL : vous lancez un conteneur, vous y stockez des données, vous le redémarrez et tout a disparu. Sans volume, un conteneur Docker n’a pas de mémoire durable. Il est fait pour être éphémère. En utilisant un volume, on sauvegarde les données à l’extérieur du conteneur et on les retrouve intactes (comprendre: sauvergarder) au redémarrage.
-- Le partage de fichiers entre l’hôte et le conteneur. Imaginez que vous développiez un serveur Express en Node.js et vous souhaitiez que votre conteneur “voie” en temps réel les fichiers que vous modifiez. C’est là qu’intervient le montage de dossier : vous connectez un dossier local (celui de votre projet, par exemple) à un dossier dans le conteneur. Résultat : chaque changement est automatiquement pris en compte. Si vous ne faites pas ça, vous êtes obligé de redémarrer le conteneur à chaque fois.
+- La persistance des données. C’est le cas typique d’une base de données MySQL ou PostgreSQL : vous lancez un conteneur, vous y stockez des données, vous le redémarrez et tout a disparu. Sans volume, un conteneur Docker n’a pas de mémoire durable. Il est fait pour être éphémère. En utilisant un volume, on sauvegarde les données à l’extérieur du conteneur et on les retrouve intactes au redémarrage.
+- Le partage de fichiers entre l’hôte et le conteneur. Imaginez que vous développiez un serveur Express en Node.js et vous souhaitiez que votre conteneur “voie” en temps réel les fichiers que vous modifiez. C’est là qu’intervient le montage de dossier : vous connectez un dossier local (celui de votre projet, par exemple) à un dossier dans le conteneur. **Résultat : chaque changement est automatiquement pris en compte**. Si vous ne faites pas ça, vous êtes obligé de redémarrer le conteneur à chaque fois.
 
 
 <br>
 
 
-Ces deux usages, persister et partager,  sont très différents. Cela dit, ils passent tous deux par le système de volumes. Docker propose deux façons de les gérer : les bind mounts et les volumes nommés. On va voir dès maintenant la différence entre les deux.
+Ces deux usages, persister et partager,  sont très différents. Cela dit, ils passent tous deux par le système de volumes. On va voir dès maintenant comment gérer ces deux usages avec Docker.
 
 
 ## Deux types de volumes : bind mount vs volume nommé
 
-Docker propose deux façons de connecter des fichiers entre votre machine et vos conteneurs. Chacune répond à une problématique différente mais elles passent toutes les deux par la même directive : `volumes`.
+Avant toute chose, sachez que les deux usages que nous venons de voir utilise la même directive Docker : les `volumes`.
 
 - Le bind mount connecte directement un dossier de votre machine hôte au conteneur. Ce que vous modifiez en local est aussitôt visible dans le conteneur.
 - Le volume nommé, lui, est un espace de stockage géré et maintenu par Docker, souvent utilisé pour stocker des données de manière durable et isolée.
@@ -60,15 +60,13 @@ Docker propose deux façons de connecter des fichiers entre votre machine et vos
 
 Si vous vous demandez comment ça marche _behind the scenes_, sachez que :
 
-- avec un bind mount, vous dites à Docker : “ce dossier précis de ma machine, monte-le dans le conteneur”.
-- avec un volume nommé, Docker crée un espace de stockage dans son propre système interne (`/var/lib/docker/volumes/`).
+- avec un bind mount, vous dites à Docker : “Utilise ce dossier sur ma machine et monte le (on pourrait dire aussi partage le) dans mon conteneur”.
+- avec un volume nommé, Docker crée un espace de stockage dans son propre système interne (`/var/lib/docker/volumes/`). C'est plus proche ici d'une sauvegarde que d'un partage de fichier.
 
 Allez, on va regarder maintenant comment on déclare des volumes dans un `docker-compose.yml` !
 
 
-## Comment les déclarer dans un docker-compose.yml
-
-Dans cette section, je vais couvrir les deux cas d'usage que nous avons vu ci-dessus : les bind mount et les volumes nommés.
+## Comment les déclarer dans un docker-compose.yml ?
 
 ### Développez en local avec un bind mount
 
@@ -116,7 +114,7 @@ Décryptage :
 - La clé `volumes`, tout en bas, permet de définir explicitement le volume, mais si on l’omet, Docker le crée quand même automatiquement. (Pratique, non ?)
 
 
-Comme prévu, voici l'heure de la surprise. Vous trouverez en-dessous de cette fiche un quiz pour vous valider vos connaissances. Et si vous revenez plus tard, vous aurez peut-être quelques exercices de mise en application. Mais c'est une autre surprise :).
+Et voilà ! Les volumes Docker peuvent être un peu pertubants de premier abord. Il y a souvent beaucoup d'incompréhensions sur comment bien les utiliser. Je vous invite à faire le quiz ci-dessous pour valider vos connaissances et on se retrouve pour le mois prochain pour une fiche technique dédiée aux registries Docker !
 
 
 ## Ressources
@@ -124,7 +122,5 @@ Comme prévu, voici l'heure de la surprise. Vous trouverez en-dessous de cette f
 - [La documentation officielle sur les volumes Docker](https://docs.docker.com/engine/storage/volumes/)
 - [Travailler avec les volumes Docker - LabEx](https://labex.io/fr/tutorials/docker-working-with-docker-volumes-389189)
 - [La documentation officielle sur les bind mounts Docker](https://docs.docker.com/get-started/workshop/06_bind_mounts/)
-
-
 
 </article>
