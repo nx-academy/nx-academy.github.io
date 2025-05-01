@@ -56,6 +56,8 @@ Avant toute chose, sachez que les deux usages que nous venons de voir utilise la
 
 ![Un schéma représentant un bind mount et un volume nommé, source https://mingeun2154.github.io](/bind-and-named-volumes.jpeg)
 
+Dans le schéma ci-dessus, vous pouvez voir nos deux types de volumes : le bind mount et le volume nommé. _source https://mingeun2154.github.io_
+
 <br>
 
 Si vous vous demandez comment ça marche _behind the scenes_, sachez que :
