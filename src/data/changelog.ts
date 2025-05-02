@@ -12,6 +12,10 @@ const mayTaks: LogTasks = {
     month: "Mai",
     tasks: [
         {
+            kind: "fix",
+            content: "Mise à jour des meta pour les réseaux sociaux (LinkedIn) qui ajoute l'image de l'article."
+        },
+        {
             kind: "done",
             content: "Mis à jour des polices du site : Inter remplace maintenant Space Grotesk pour les paragraphes."
         },

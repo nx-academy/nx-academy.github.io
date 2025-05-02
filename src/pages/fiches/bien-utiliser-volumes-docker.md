@@ -116,6 +116,22 @@ Décryptage :
 - La clé `volumes`, tout en bas, permet de définir explicitement le volume, mais si on l’omet, Docker le crée quand même automatiquement. (Pratique, non ?)
 
 
+## Astuce bonus – Montez un volume en lecture seule
+
+Sachez qu'il est possible de monter un volume (bind ou nommé) en lecture seule dans un conteneur. Cela peut être utile si vous voulez éviter toute modification involontaire. Par exemple, on peut penser à un dossier de config dans lequel vous souhaitez uniquement lire des informations.
+
+```yaml
+volumes:
+  - ./config:/app/config:ro
+
+```
+
+<br>
+
+Le `:ro` à la fin signifie read-only (lecture seule). Si le conteneur essaie d’écrire dedans, il renverra une erreur.
+
+<hr>
+
 Et voilà ! Les volumes Docker peuvent être un peu pertubants de premier abord. Il y a souvent beaucoup d'incompréhensions sur comment bien les utiliser. Je vous invite [à faire ce quiz pour valider vos connaissances](/quiz/bien-utiliser-volumes-docker) et on se retrouve pour le mois prochain pour une fiche technique dédiée aux registries Docker !
 
 
