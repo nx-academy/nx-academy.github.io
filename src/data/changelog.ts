@@ -12,6 +12,10 @@ const mayTaks: LogTasks = {
     month: "Mai",
     tasks: [
         {
+            kind: "done",
+            content: "Mis à jour des polices du site : Inter remplace maintenant Space Grotesk pour les paragraphes."
+        },
+        {
             kind: "fix",
             content: "Ajout du résumé du quiz"
         },
