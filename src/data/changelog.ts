@@ -8,6 +8,28 @@ type LogTasks = {
     tasks: Task[]
 }
 
+const mayTaks: LogTasks = {
+    month: "Mai",
+    tasks: [
+        {
+            kind: "fix",
+            content: "Ajout du résumé du quiz"
+        },
+        {
+            kind: "in-progress",
+            content: `Mise à jour du <a href="https://github.com/nx-academy/nx-ai/pull/2">système de RAG</a> sur les quiz des fiches techniques`
+        },
+        {
+            kind: "done",
+            content: `Ajout de la fiche technique <a href="fiches/bien-utiliser-volumes-docker">sur les volumes Docker</a>`
+        },
+        {
+            kind: "in-progress",
+            content: `Ajout des premiers effets sonores (pour l'instant, <a href="/quiz">sur le quiz</a>)`
+        }
+    ]
+}
+
 const aprilTasks: LogTasks = {
     month: "Avril",
     tasks: [
@@ -79,5 +101,6 @@ const aprilTasks: LogTasks = {
 }
 
 export const ALL_MONTHS = [
+    mayTaks,
     aprilTasks
 ]
