@@ -1,0 +1,65 @@
+{
+  "data": [
+    {
+      "question": "Quels sont les deux principaux usages des volumes en Docker ?",
+      "options": [
+        "La persistance des données et le partage de fichiers entre l’hôte et le conteneur",
+        "La compression des données et la sécurisation des fichiers",
+        "La sauvegarde des fichiers et la synchronisation des données",
+        "La diffusion en temps réel et la sauvegarde des fichiers"
+      ],
+      "answer": "La persistance des données et le partage de fichiers entre l’hôte et le conteneur",
+      "explanation": "Les volumes en Docker sont utilisés pour assurer la persistance des données et le partage de fichiers entre l’hôte et le conteneur, permettant ainsi la sauvegarde des données à l’extérieur du conteneur et la prise en compte automatique des modifications de fichiers."
+    },
+    {
+      "question": "Vous développez un backend en NestJS et vous souhaitez que les modifications de fichiers soient prises en compte sans redémarrer le conteneur. Quel type de volume devez-vous utiliser ?",
+      "options": [
+        "Un volume nommé",
+        "Un bind mount",
+        "Un volume monté en lecture seule",
+        "Aucun, ce n'est pas possible avec Docker"
+      ],
+      "answer": "Un bind mount",
+      "explanation": "Un bind mount permet de lier un dossier local au conteneur, idéal pour du live reload pendant le développement avec un outil comme nodemon."
+    },
+    {
+      "question": "Pourquoi utilise-t-on des volumes en Docker ?",
+      "options": [
+        "Pour lancer des services via docker-compose.yml",
+        "Pour partager des fichiers entre l'hôte et le conteneur et pour la persistance des données",
+        "Pour créer des images Docker",
+        "Pour gérer les données dans un conteneur Docker sans avoir à rebuild à chaque fois"
+      ],
+      "answer": "Pour partager des fichiers entre l'hôte et le conteneur et pour la persistance des données",
+      "explanation": "Les volumes en Docker sont utilisés pour deux raisons principales : pour partager des fichiers entre l'hôte et le conteneur et pour la persistance des données, c'est-à-dire pour sauvegarder les données à l'extérieur du conteneur et les retrouver intactes au redémarrage."
+    },
+    {
+      "question": "Que signifie `:ro` à la fin d'une déclaration de volume dans un docker-compose.yml ?",
+      "options": [
+        "Le volume est supprimé après l'arrêt du conteneur",
+        "Le volume est monté en lecture seule",
+        "Le volume est recréé à chaque démarrage",
+        "Le volume est chiffré"
+      ],
+      "answer": "Le volume est monté en lecture seule",
+      "explanation": "`:ro` signifie `read-only`. Cela empêche le conteneur d'écrire dans le dossier ou volume monté."
+    },
+    {
+      "question": "Voici une ligne de configuration : `./data:/app/data:ro`. Que fait-elle ?",
+      "options": [
+        "Elle crée un volume nommé entre ./data et /app/data",
+        "Elle monte un dossier local en lecture seule dans le conteneur",
+        "Elle copie le contenu de /app/data vers ./data à chaque démarrage",
+        "Elle rend le dossier /app/data accessible uniquement au conteneur"
+      ],
+      "answer": "Elle monte un dossier local en lecture seule dans le conteneur",
+      "explanation": "`./data:/app/data:ro` est un bind mount monté en lecture seule. Le conteneur peut lire les fichiers, mais pas les modifier."
+    },
+    {
+      "question": "Monter un dossier local contenant les fichiers d'une base de données PostgreSQL via un bind mount est une bonne pratique. Vrai ou faux ?",
+      "options": ["Vrai", "Faux"],
+      "answer": "Faux",
+      "explanation": "Les bind mounts sont pratiques pour du code source ou des logs, mais ils posent des problèmes de portabilité et de permission. Pour une base de données, un volume nommé est recommandé."
+    }
+  ]
+}

@@ -10,6 +10,15 @@ type QuizMeta = {
 
 export const QUIZZES: readonly QuizMeta[] = [
   {
+    slug: "bien-utiliser-volumes-docker",
+    title: "Les volumes Docker",
+    description: "Testez vos connaissances sur la persistance des données, le partage de fichiers entre l’hôte et le conteneur, les différences entre bind mounts et volumes nommés, et les bonnes pratiques d’utilisation. Idéal pour valider ce que vous avez retenu de la fiche technique… et éviter les pièges courants en développement comme en production.",
+    level: "Facile",
+    imgSrc: "/misc/quiz-hero.webp",
+    imgAlt: "Illustration Docker facile",
+    href: "quiz/bien-utiliser-volumes-docker"
+  },
+  {
     slug: "docker-facile",
     title: "Les concepts essentiels de Docker",
     description: "Un quiz pour démarrer avec Docker en douceur. Testez vos connaissances sur les concepts essentiels : images, conteneurs, Dockerfile, Docker Hub et les commandes de base. L’occasion de revoir à quoi sert Docker et comment il facilite le lancement d’applications. Idéal pour valider vos premières notions avant d’aller plus loin.",
