@@ -15,6 +15,7 @@
     "@astrojs/check": "^0.9.4",
     "@astrojs/react": "^4.2.3",
     "@astrojs/sitemap": "^3.3.1",
+    "@fontsource-variable/inter": "^5.2.5",
     "@fontsource/pixelify-sans": "^5.0.3",
     "@fontsource/space-grotesk": "^5.0.18",
     "@types/react": "^19.1.0",

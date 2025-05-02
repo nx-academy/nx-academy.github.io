@@ -9,11 +9,12 @@ interface Props {
   pubDate?: string
 }
 
-import "../styles/normalize.css"
-import "../styles/reset.css"
-
 import "@fontsource/pixelify-sans";
 import "@fontsource/space-grotesk";
+import '@fontsource-variable/inter';
+
+import "../styles/normalize.css"
+import "../styles/reset.css"
 
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -104,7 +105,7 @@ const { pathname } = Astro.url
   </body>
 </html>
 
-<style>
+<style is:global>
   html, body {
     height: 100%;
     margin: 0;
@@ -113,12 +114,18 @@ const { pathname } = Astro.url
   body {
     background-color: #151515;
     color: #fff;
+    font-family: 'Inter Variable', sans-serif;
+  }
+
+  h1,
+  h2,
+  h3 {
     font-family: "Space Grotesk", sans-serif;
   }
 
   .page-wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
 </style>
