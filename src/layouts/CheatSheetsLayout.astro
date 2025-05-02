@@ -1,10 +1,11 @@
 ---
-import type { Breadcrumb } from "../types/Breadcrumb"
+import type { Breadcrumb } from "../types/Breadcrumb";
 
 interface Props {
   frontmatter: {
     title: string;
     description: string;
+    imgSrc?: string;
   };
 }
 
@@ -16,7 +17,7 @@ const {
 } = theme;
 
 const {
-  frontmatter: { title, description },
+  frontmatter: { title, description, imgSrc },
 } = Astro.props;
 
 const breadCrumbs: Breadcrumb[] = [
@@ -31,7 +32,12 @@ const breadCrumbs: Breadcrumb[] = [
 ];
 ---
 
-<BaseLayout title={title} description={description} breadcrumbs={breadCrumbs}>
+<BaseLayout
+  breadcrumbs={breadCrumbs}
+  description={description}
+  image={imgSrc}
+  title={title}
+>
   <main>
     <section>
       <slot />
@@ -75,7 +81,7 @@ const breadCrumbs: Breadcrumb[] = [
   p {
     margin-bottom: 1.5rem;
     color: #bababa;
-    font-size: clamp(.875rem, 0.75rem + 1.5vw, 1.125rem);
+    font-size: clamp(0.875rem, 0.75rem + 1.5vw, 1.125rem);
   }
 
   ul {
@@ -86,7 +92,7 @@ const breadCrumbs: Breadcrumb[] = [
   li {
     margin-bottom: 1.5rem;
     color: #bababa;
-    font-size: clamp(.875rem, 0.75rem + 1.5vw, 1.125rem);
+    font-size: clamp(0.875rem, 0.75rem + 1.5vw, 1.125rem);
   }
 
   hr {
