@@ -123,7 +123,6 @@ Sachez qu'il est possible de monter un volume (bind ou nommé) en lecture seule 
 ```yaml
 volumes:
   - ./config:/app/config:ro
-
 ```
 
 <br>
