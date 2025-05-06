@@ -126,4 +126,34 @@ const breadCrumbs: Breadcrumb[] = [
     padding-left: 2rem;
     font-style: italic;
   }
+
+  small {
+    font-size: 0.9rem;
+    color: #bababa;
+    display: none;
+  }
 </style>
+
+<script>
+  function estimateReadingTime(text: string, wordsPerMinute: number): number {
+    const words = text.trim().split(/\s+/).length
+    const time = Math.ceil(words / wordsPerMinute)
+    
+    return time
+  }
+
+  window.addEventListener("DOMContentLoaded", function() {
+    const $article = document.querySelector("article")
+
+    if ($article && $article.textContent) {
+      const readingTime = estimateReadingTime($article.textContent, 200)
+
+      const timeInfo = document.createElement("small")
+      timeInfo.textContent = `Temps de lecture estimé : ${readingTime} minutes`
+
+      console.log("====")
+      console.log(timeInfo)
+      console.log("====")
+    }
+  })
+</script>
