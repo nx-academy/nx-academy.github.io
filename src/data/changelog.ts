@@ -13,6 +13,18 @@ const mayTaks: LogTasks = {
     tasks: [
         {
             kind: "fix",
+            content: "Un peu de clean de code (suppression de console.log, formattage de codes, etc.)"
+        },
+        {
+            kind: "done",
+            content: "Ajout du temps de lecture sur les fiches techniques."
+        },
+        {
+            kind: "fix",
+            content: "Suppression de contenus morts (des articles et des fiches techniques abandonnés)"
+        },
+        {
+            kind: "fix",
             content: "Mise à jour des meta pour les réseaux sociaux (LinkedIn) qui ajoute l'image de l'article."
         },
         {
