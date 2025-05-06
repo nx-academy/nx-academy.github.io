@@ -17,8 +17,6 @@ publishedDate: 05/01/2025
 
 # Comment (bien) utiliser les volumes Docker ?
 
-<!-- <small>Temps de lecture estimé : 5 minutes</small> -->
-
 ![Une femme en train de brancher une clé USB dans un ordinateur, pixel art](/femme-cle-usb.png)
 
 La sortie du cours sur Docker approche à grand pas. Pour cette occasion, sachez que **les quatre prochaines fiches techniques seront dédiées à cet outil**. C'est, selon moi, un indispensable à connaître.
