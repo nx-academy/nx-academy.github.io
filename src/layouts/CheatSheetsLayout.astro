@@ -68,7 +68,7 @@ const breadCrumbs: Breadcrumb[] = [
   h1 {
     font-size: 2.5rem;
     margin-top: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     color: #fefefe;
   }
 
@@ -126,4 +126,34 @@ const breadCrumbs: Breadcrumb[] = [
     padding-left: 2rem;
     font-style: italic;
   }
+
+  small {
+    font-size: 14px;
+    color: #bababa;
+    margin-bottom: 2.5rem;
+    display: block;
+  }
 </style>
+
+<script>
+  import { estimateReadingTime } from "../utils/estimateReadingTime";
+
+  window.addEventListener("DOMContentLoaded", function () {
+    const $article = document.querySelector("article");
+    const $articleTitle = document.querySelector("h1");
+
+    if ($article && $article.textContent) {
+      const readingTime = estimateReadingTime($article.textContent, 200);
+
+      const $timeInfo = document.createElement("small");
+      $timeInfo.textContent = `Temps de lecture estimé : ${readingTime} minutes`;
+
+      if ($articleTitle) {
+        $articleTitle.parentNode?.insertBefore(
+          $timeInfo,
+          $articleTitle.nextSibling
+        );
+      }
+    }
+  });
+</script>
