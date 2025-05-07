@@ -2,6 +2,7 @@
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: Qu'est-ce qu'un registry Docker ?
+description: Comprenez ce qu’est un registry Docker, comment publier et récupérer vos images et maîtrisez le workflow build → tag → push → pull → run.
 
 author: Thomas
 kind: Fiche technique
@@ -90,50 +91,209 @@ Voici un autre exemple, cette fois hébergé sur Docker Hub : `tdimnet/php_templ
 
 ---
 
-Ok, maintenant qu’on a revu la structure d’une image, on peut passer à la suite logique. A savoir, comment envoyer une image vers un registry et comment la récupérer.
+Ok, passons maintenant à la suite logique : comment envoyer une image vers un registry et comment la récupérer.
 
 ## Pushez et pullez vos images Docker
 ### Authentifiez-vous sur un registry Docker
 
-- La première étape est de s'authentifier sur votre votre registry. Cela peut sembler idiot mais c'est notamment ce qui va vous permettre de récupérer des images privées.
+<!-- - La première étape est de s'authentifier sur votre votre registry. Cela peut sembler idiot mais c'est notamment ce qui va vous permettre de récupérer des images privées.
 - Vous devez créer un compte sur DockerHub (peut-être prévoir une capture d'écran).
 - Une fois votre compte créé, utilisez la commande `docker login` (idem, prévoir ici le retour en ligne de commandes de Docker ou une capture d'écran).
 
-Et voilà ! Vous êtes prêt à envoyer vos images sur votre registry Docker.
+Et voilà ! Vous êtes prêt à envoyer vos images sur votre registry Docker. -->
+
+Avant d’envoyer vos images dans un registry ou d’en récupérer certaines, notamment si elles sont privées, il faut vous y authentifier. On va prendre l'exemple ici de  [Docker Hub](hub.docker.com). Créez votre compte (c'est gratuit) si ce n’est pas déjà fait.
+
+<br>
+
+![La page de création de compte de DockerHub](/cheatsheets/screenshot-dockerhub.png)
+
+<br>
+
+Une fois votre compte crée, ouvrez votre terminal et lancez la commande :
+
+```bash
+docker login
+```
+
+<br>
+
+Docker vous demande alors :
+- votre nom d’utilisateur,
+- votre mot de passe (ou token d’accès si vous avez activé la double authentification).
+
+**Point important** : n'oubliez pas de lancer Docker  (ou Docker Desktop) sur votre machine avant d'essayer de vous connecter. Si tout se passe bien, vous devriez voir le message suivant :
+
+```bash
+Login Succeeded
+```
+
+Vous êtes maintenant prêt à pousser vos images dans votre registry Docker.
 
 ### Taguez et poussez votre image
 
-- Etape préalable - buildez votre image `docker image build . -t monimage:1.0.0`
+<!-- - Etape préalable - buildez votre image `docker image build . -t monimage:1.0.0`
 - Taguer l’image : `docker image tag monimage monpseudo/monimage:1.0.0`
 - Pourquoi il est nécessaire de tagguer son image ?
 - Envoyez (on dit aussi poussez) votre image sur DockerHub `docker push monpseudo/monimage:1.0.0`
 - Variante avec GCR ou GHCR ?
 
-Maintenant que vous avez pousser votre image, il ne reste plus qu'à la récupérer.
+Maintenant que vous avez pousser votre image, il ne reste plus qu'à la récupérer. -->
+
+Une fois que vous êtes connecté à votre registry, vous pouvez envoyer votre image Docker. Mais avant ça, il y a une étape importante : le tag.
+
+#### Étape 1 – Buildez votre image
+
+Si ce n’est pas déjà fait, commencez par construire votre image localement :
+
+```bash
+docker image build . -t monimage:1.0.0
+```
+
+Vous venez de créer une image nommée `monimage` en version 1.0.0. Mais pour l’envoyer sur un registry, Docker doit savoir à quel compte ou organisation elle appartient.
+
+<br>
+
+#### Étape 2 – Taguez l’image
+Il faut donc re-tagger cette image avec le nom du compte Docker Hub :
+
+```bash
+docker image tag monimage monpseudo/monimage:1.0.0
+```
+
+Ici, `monpseudo` est votre identifiant Docker Hub (ou le nom de votre organisation).
+
+Pourquoi cette étape est-elle nécessaire ? Parce que Docker utilise ce nom pour savoir où envoyer l’image. Sans ça, il ne peut pas deviner que vous voulez la publier sur `docker.io/monpseudo`.
+
+<br>
+
+#### Étape 3 – Poussez votre image
+
+C’est le moment d’envoyer votre image sur Docker Hub :
+
+```bash
+docker push monpseudo/monimage:1.0.0
+```
+
+Docker contacte le registry, vérifie vos identifiants (grâce à docker login) et y envoie votre image.
+
+<br>
+
+#### Workflow avec un registry différent que DockerHub (ici, GitHub Container Registry)
+
+<br>
+
+```bash
+# Vous taguez avec le nom du registry :
+docker image tag monimage ghcr.io/mon-orga/monimage:1.0.0
+
+# Puis vous poussez :
+docker push ghcr.io/mon-orga/monimage:1.0.0
+```
+
+---
+
+Maintenant que votre image est en ligne, vous pouvez la récupérer depuis n’importe quelle machine. On voit dès maintenant.
 
 ### Récupérez votre image
 
-- Exemple avec DockerHub
+<!-- - Exemple avec DockerHub
 
 ```bash
 docker image pull monpseudo/monimage
 docker container run moniage
 ```
 
-- Exemple avec GCR
+- Exemple avec GHCR -->
 
-- Exemple avec GHCR
+Une fois votre image envoyée sur un registry, vous pouvez la récupérer depuis n’importe quelle machine avec une simple commande `docker image pull`.
 
-- Exemple avec ECR
+<br>
+
+Imaginons que vous ayez envoyé votre image vers Docker Hub sous le nom `monpseudo/monimage`. Voici comment la récupérer et la lancer :
+
+```bash
+# Récupère l'image
+docker image pull monpseudo/monimage
+
+# Lance le conteneur avec l'image
+docker container run monpseudo/monimage
+```
+
+<br>
+
+Si vous avez bien suivi la partie sur les tags, vous pouvez aussi ajouter la version souhaitée :
+
+```bash
+docker image pull monpseudo/monimage:1.0.0
+```
+
+<br>
+
+#### Exemple avec GitHub Container Registry (GHCR)
+
+Même principe, mais cette fois avec une image hébergée sur GHCR :
+
+```bash
+docker image pull ghcr.io/mon-orga/monimage:1.0.0
+docker container run ghcr.io/mon-orga/monimage:1.0.0
+```
+
+**Attention** : Si l’image est privée, vous devrez vous être authentifié avec `docker login ghcr.io` avant d’y accéder.
+
+---
+
+Et voilà. Peu importe l’ordinateur ou le serveur, tant que vous avez Docker installé et accès au registry, vous pouvez récupérer votre image et la lancer.
 
 
 ## Astuce bonus - Changez de registry dans votre `docker-compose.yml`
 
+Quand vous utilisez Docker Compose, vous pouvez très bien spécifier une image provenant d’un registry autre que Docker Hub.
+
+Par exemple, si votre image est stockée sur GitHub Container Registry (GHCR), voici à quoi pourrait ressembler votre `docker-compose.yml` :
+
+```yml
+services:
+  web:
+    image: ghcr.io/mon-orga/monimage:1.0.0
+    ports:
+      - "3000:3000"
+```
+
+<br>
+
+Même logique pour une image stockée sur Docker Hub :
+
+```yml
+services:
+  api:
+    image: monpseudo/monimage:1.0.0
+    ports:
+      - "8080:8080"
+```
+
+<br>
+
+Pensez simplement à vous être authentifié (docker login) si vous travaillez avec une image privée.
+Et si vous êtes en CI/CD, vous devrez souvent fournir un token d’accès ou un secret dans vos variables d’environnement pour automatiser tout ça.
+
 
 <hr>
 
-Conclusion
+Maintenant que vous maîtrisez le concept de registry, vous avez entre les mains tout le workflow pour partager et déployer vos images Docker : 
+<br>
+`build → tag → push → pull → run`.
+
+C’est une étape clé dès que vous commencez à travailler en équipe, à déployer sur un serveur ou à automatiser vos déploiements. Et comme pour Git, plus tôt vous prenez l’habitude de publier vos images, mieux c’est. 
+
+La suite logique ? Brancher tout ça sur un pipeline CI/CD. Mais ça, on en reparlera 😉. D'ici là, je vous laisse entre [les mains du quiz](/quiz/presentation-registry-docker) pour vérifier que vous avez bien compris ce qu'on vient de voir.
 
 ## Ressources
+
+- La documentation officielle sur Docker Hub
+- GitHub Container Registry (GHCR)
+- Docker push – Référence CLI
+- Docker tag – Référence CLI
+- Configurer un registry privé Docker
 
 </article>
