@@ -33,3 +33,8 @@ Possibilité d’ajouter un article de blog libre (ex. IA, dev, coulisses) selon
 - **Juin-Août** : Sujet libre (IA, pédagogie, outillage, etc.)
 
 ---
+
+## Idées d'articles
+
+- L'IA va-t-elle tuer internet (réponse rapide, non) ?
+- Comment bien utiliser les projets OpenAI ?
