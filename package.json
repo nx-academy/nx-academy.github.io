@@ -1,7 +1,7 @@
 {
   "name": "nx-academy.github.io",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "check": "astro check",
     "dev": "astro dev",
