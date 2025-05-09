@@ -1,37 +1,64 @@
-# Plan d’évolution de NX Academy
+# Roadmap NX Academy – Mai à Décembre 2025
 
-Ce document suit les fonctionnalités en cours de développement et leur état d’avancement.
-
----
-
-## Avril 2025
-
-### ✅ Fonctionnalités planifiées
-
-| Priorité | Fonctionnalité                                      | État actuel             | Prochaine étape                                           |
-|----------|------------------------------------------------------|--------------------------|------------------------------------------------------------|
-| 🟢 1     | Page changelog                                       | **DONE**                  | Créer `/changelog`, format journal, à alimenter chaque mois |
-| 🟢 2     | Popin “Reprendre là où vous vous êtes arrêté”        | **DONE**                 | Design + intégration localStorage                          |
-| 🟢 3     | Quiz du mois                                         | Fonctionnelle            | Finaliser le système RAG, publier un quiz chaque mois      |
-| 🟢 4     | Fiche technique mensuelle (“Fiche du vendredi”)     | En place                 | Rédiger un batch de 4 fiches Docker                        |
-| 🟡 5     | Bloc “En cours de rédaction”                         | À faire                  | Design + emplacement à définir                             |
-| 🧪 6     | Récap mensuel (veille IA automatisée)                | En réflexion             | Structurer le prompt IA + tester une première génération   |
+Cette feuille de route présente les fonctionnalités à venir sur NX, indépendamment du contenu éditorial.
 
 ---
 
-### 🎓 Cours en ligne
+## Fonctionnalités principales
 
-- 🔧 En cours : **Docker et Docker Compose**
-  - Intégration des vidéos
-  - Génération des quiz et exercices chapitre par chapitre (via RAG)
-  - Un peu de travail front à finaliser
-
-- 📦 À venir : **CI/CD avec GitHub Actions**
-  - À intégrer une fois le cours Docker terminé
+| Priorité | Fonctionnalité                                 | État actuel         | Prochaine(s) étape(s)                                  | Mois cible      |
+|----------|------------------------------------------------|---------------------|--------------------------------------------------------|-----------------|
+| 🔥       | Page de présentation de cours                  | À faire             | Créer un modèle (ex. Docker) avec chapitres, prérequis | Juin             |
+| 🔥       | Finalisation RAG pour auto-Récap               | En cours            | Structurer prompt + boucle de validation IA            | Mai-juin        |
+| 🔥       | Finalisation du système d’auto-génération de quiz | En cours         | Améliorer précision, enrichir prompts, mieux structurer PR | Juin-juillet |
+| 🔥       | Système d’exercices avec corrections           | En réflexion        | Sélectionner les sujets, créer première fiche via Gist | Juillet         |
+| 🔥       | Redesign de la page d’accueil                  | À faire             | Réflexion sur l’architecture, zonage, maquettes        | Septembre            |
+| 🔥       | Système de news automatisé                     | Prototype partiel   | Finaliser scraping + génération IA + PR auto           | Septembre / Octobre            |
 
 ---
 
-### Details des fonctionnalites
+## Améliorations UX et structure
+
+| Priorité | Fonctionnalité                                 | État actuel         | Prochaine(s) étape(s)                                  | Mois cible      |
+|----------|------------------------------------------------|---------------------|--------------------------------------------------------|-----------------|
+| 🟡       | Page “Roadmap NX” publique                     | À faire             | Créer une page statique avec liens changelog / recap   | Juillet        |
+| 🟡       | Redesign fiches/articles avec tags + filtres   | À faire             | Repenser layout, ajouter système de métadonnées        | Septembre       |
+| 🟡       | Système de recherche sur le site               | À faire             | Choisir moteur (client-side / lunr.js / Algolia etc.)  | Octobre         |
+
+---
+
+## Petits chantiers / améliorations ciblées
+
+| Priorité | Fonctionnalité                                 | État actuel         | Prochaine(s) étape(s)                                  | Mois cible      |
+|----------|------------------------------------------------|---------------------|--------------------------------------------------------|-----------------|
+| 🧊       | Mode clair basé sur les préférences système    | À faire             | Ajouter détection `prefers-color-scheme`               | Juin            |
+| 🧊       | Flux RSS                                        | À faire             | Générer à partir des articles + fiches techniques      | Juillet         |
+| 🧊       | Bouton “copier le code” sur les blocs          | À faire             | Ajouter via JavaScript + styles accessibles            | Août            |
+| 🧊       | Ajouter des animations douces (hover, entrée)  | À faire             | Définir zones prioritaires + tester transitions CSS    | Septembre       |
+| 🧊       | Nettoyage de code / refactor                   | En continu          | Identifier les vieux composants, uniformiser les styles| Étapes mensuelles (fond) |
+
+
+---
+
+## Backlog / idées à explorer
+
+Cette section regroupe les idées à fort potentiel mais non encore planifiées, à explorer selon le temps disponible, les retours utilisateurs ou les priorités stratégiques.
+
+### Fonctionnalités principales à long terme
+- **Espace “Projets guidés”** : parcours semi-guidés avec étapes, livrables ou défis pratiques, pour structurer des apprentissages complets.
+- **Zone “NX pour formateurs”** : boîte à outils pédagogique pour exploiter les contenus NX en contexte éducatif (fiches imprimables, séquences, exports).
+
+### Améliorations UX potentielles
+- **Sauvegarde locale de fiches ou articles** : via `localStorage`, avec icône flottante sticky pour retrouver l’historique ou “lire plus tard”.
+- **Système de gamification léger** : scoring basé sur les quiz et projets réalisés (profil ou classement local non connecté).
+
+### Quick wins à prévoir
+- **Favicon dynamique** : changement selon thème clair/sombre.
+- **Amélioration des `meta.title` et SEO** : mieux structurer les balises par type de contenu (cours, fiches, articles).
+
+---
+
+### Details des fonctionnalites (à bouger ailleurs)
 
 #### Workflow IA pour le recap
 
