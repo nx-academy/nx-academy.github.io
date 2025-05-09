@@ -5,7 +5,7 @@ Possibilité d’ajouter un article de blog libre (ex. IA, dev, coulisses) selon
 
 ---
 
-## 📅 Fiches techniques prévues
+## Fiches techniques prévues
 
 | Mois     | Sujet de la fiche technique                      |
 |----------|--------------------------------------------------|
@@ -13,10 +13,14 @@ Possibilité d’ajouter un article de blog libre (ex. IA, dev, coulisses) selon
 | Juin     | Qu'est-ce qu'un registry Docker ? |
 | Juillet  | Comment optimiser son image Docker ?            |
 | Août     | Comment faire un multi stagging ? |
+| Septembre      | Quand et comment déclencher un workflow GitHub Actions ?    |
+| Octobre     | Qu'est-ce qu'un artefact dans GitHub Actions ? |
+| Novembre  | Comment déployer une image Docker depuis GitHub Actions ?            |
+| Décembre     | Comment optimiser vos workflows GitHub Actions ? |
 
 ---
 
-## 📰 Recap mensuel – Veille technique
+## Recap mensuel – Veille technique
 
 | Mois     | Objectif                                          |
 |----------|--------------------------------------------------|
@@ -27,7 +31,7 @@ Possibilité d’ajouter un article de blog libre (ex. IA, dev, coulisses) selon
 
 ---
 
-## ✏️ Articles bonus (optionnels)
+## Articles bonus (optionnels)
 
 - **Mai** : “Comment j’ai utilisé une IA pour générer mes quiz”
 - **Juin-Août** : Sujet libre (IA, pédagogie, outillage, etc.)
