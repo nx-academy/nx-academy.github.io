@@ -1,0 +1,37 @@
+{
+    "data": [
+        {
+            "question": "Quelle est la principale différence entre une machine virtuelle et un conteneur Docker?",
+            "options": [
+                "Les conteneurs sont plus lourds que les VM",
+                "Chaque VM a son propre OS tandis que tous les conteneurs partagent la virtualisation matérielle",
+                "Les VM sont plus rapides à lancer que les conteneurs Docker",
+                "Les conteneurs Docker ne peuvent pas être exécutés sur différents serveurs"
+            ],
+            "answer": "Chaque VM a son propre OS tandis que tous les conteneurs partagent la virtualisation matérielle",
+            "explanation": "La virtualisation complète de l'OS et du matériel pour chaque instance rend les VM plus gourmandes en ressources. En revanche, tous les conteneurs partagent cette virtualisation matérielle, ce qui a un impact significatif sur les performances de l'ordinateur hôte, tant en termes de CPU, de RAM que d'espace disque."
+        },
+        {
+            "question": "Quelle est la principale différence entre les conteneurs et les machines virtuelles (VM) en termes de gestion des ressources ?",
+            "options": [
+                "Les conteneurs consomment plus de ressources que les VM",
+                "Les VM consomment plus de ressources que les conteneurs",
+                "Les conteneurs et les VM consomment une quantité équivalente de ressources",
+                "Ni les conteneurs ni les VM ne consomment de ressources"
+            ],
+            "answer": "Les VM consomment plus de ressources que les conteneurs",
+            "explanation": "Contrairement aux VM qui émulent leur propre matériel pour chaque instance, tous les conteneurs partagent la virtualisation matérielle. Cela a un impact sur les performances de l'ordinateur hôte en termes de CPU, de RAM et d'espace disque. Par conséquent, les conteneurs sont beaucoup plus légers que les VM."
+        },
+        {
+            "question": "Quelle est la différence entre une VM (Machine Virtuelle) et un conteneur en termes de virtualisation matérielle?",
+            "options": [
+                "Chaque VM émule son matériel tandis que tous les conteneurs partagent la virtualisation matérielle",
+                "Chaque conteneur émule son matériel tandis que toutes les VM partagent la virtualisation matérielle",
+                "Aucune différence, les deux émulent leur propre matériel",
+                "Aucune différence, les deux partagent la virtualisation matérielle"
+            ],
+            "answer": "Chaque VM émule son matériel tandis que tous les conteneurs partagent la virtualisation matérielle",
+            "explanation": "La différence principale entre les VM et les conteneurs réside dans leur approche de la virtualisation matérielle. Chaque VM émule son propre matériel, y compris son système d'exploitation, tandis que tous les conteneurs partagent la virtualisation matérielle, ce qui a un impact positif sur les performances de l'ordinateur hôte."
+        }
+    ]
+}
