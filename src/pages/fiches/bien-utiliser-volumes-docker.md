@@ -10,7 +10,7 @@ imgSrc: /femme-cle-usb.png
 author: Thomas
 kind: Fiche technique
 level: Intermédiaire
-publishedDate: 05/01/2025
+publishedDate: 05/02/2025
 ---
 
 <article>
