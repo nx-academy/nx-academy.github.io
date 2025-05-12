@@ -14,23 +14,22 @@ publishedDate: 07/04/2025
 
 # Comment optimiser une image Docker ?
 
+![Une vendeuse asiatique utilisant un balancer dans un magasin, pixel art](/cheatsheets/magasin-chinois.png)
+
 Ca y est : le cours sur Docker [est officiellement disponible](/cours/docker-et-docker-compose) ! Si ce n’est pas encore fait, je vous invite à le suivre avant d’attaquer cette fiche. J'y pose toutes les bases : images, conteneurs, Dockerfile, volumes, docker compose, etc.
 
 Dans les prochaines fiches techniques, on va commencer à faire doucement la transition vers l’automatisation (un autre sujet cher à mon coeur). Petit teaser : en septembre, un cours complet sur les CI/CD avec GitHub Actions est prévu.
 
-Mais avant d’automatiser quoi que ce soit, il y a une étape indispensable à connaître : **l’optimisation des images Docker**. Pourquoi ?
+Mais avant d’automatiser quoi que ce soit, il y a une étape indispensable à connaître : **l’optimisation des images Docker**. Pourquoi ? Parce qu’une image lourde, c’est souvent :
 
-<br>
-
-Parce qu’une image lourde, c’est :
-- plus long à builder (en local comme en CI) ;
+- plus long à builder, en local comme en CI ;
 - plus long à envoyer sur un registry ;
 - plus long à télécharger ;
 - et plus lent à démarrer en production.
 
 <br>
 
-Autre chose, une image trop volumineuse embarque souvent des dépendances ou des fichiers inutiles. Résultat : le nombre de points d’entrée potentiels pour une attaque augmente. C’est ce qu’on appelle la surface d’attaque. **Plus une image est complexe, plus elle expose d’éléments à surveiller ou à sécuriser**.
+Autre chose, une image trop volumineuse embarque souvent des dépendances ou des fichiers inutiles. Résultat : le nombre de points d’entrée potentiels pour une attaque augmente. C’est ce qu’on appelle [la surface d’attaque](https://fr.wikipedia.org/wiki/Surface_d%27attaque). **Plus une image est complexe, plus elle expose d’éléments à surveiller ou à sécuriser**.
 
 Dans cette fiche, on va donc voir ensemble plusieurs bonnes pratiques concrètes pour réduire la taille de vos images et améliorer la sécurité de vos déploiements.
 
@@ -46,11 +45,10 @@ Par exemple :
 
 <br>
 
-_Petite anecdote perso_ : pendant longtemps, je ne savais pas que ces tags faisaient référence à des distributions Linux. Je pensais que c’était juste des “saveurs” de l’image. En réalité, ça change complètement ce que contient votre image, à savoir donc sa taille, sa compatibilité et ses performances. C'est un peu comme une pizza si vous préférez une base sauce tomate (moins calorique) ou une base crème.
+_Petite anecdote perso_ : pendant longtemps, je ne savais pas que ces tags faisaient référence à des distributions Linux. Je pensais que c’était juste des noms randoms pour nommer les images.
 
-<br>
+En réalité, **ça change complètement ce que contient votre image, à savoir donc sa taille, sa compatibilité et ses performances**. C'est un peu comme une pizza si vous préférez une base sauce tomate (moins calorique) ou une base crème. Du coup, avec quelques exemples : 
 
-Du coup, avec quelques exemples : 
 - `node` → version complète, assez lourde ;
 - `node:slim` → même base, mais allégée ;
 - `python` → version par défaut (souvent Debian) ;
@@ -58,7 +56,7 @@ Du coup, avec quelques exemples :
 
 <br>
 
-**Attention avec les images alpines**. Elle est souvent recommandée pour sa taille mais ce n’est pas toujours la meilleure option. Il m'est arrivé parfois d'avoir des problèmes de dépendances, notamment en Python. Elle est idéale pour des services simples (comme un worker en Node.js) mais elle n’est pas adaptée à tous les projets.
+**Attention avec les images alpines**. Elle est souvent recommandée pour sa taille mais ce n’est pas toujours la meilleure option. Il m'est arrivé parfois d'avoir des problèmes de dépendances, notamment en Python avec des librairies SQL. Elle est idéale pour des services simples (comme un worker en Node.js) mais elle n’est pas adaptée à tous les projets.
 
 
 ## Nettoyez votre image après l'installation
@@ -106,11 +104,9 @@ Alors le cache supprimé dans le deuxième RUN existe toujours dans le layer pr�
 
 C’est quelque chose que j’ai volontairement peu abordé dans mon cours sur Docker. Je préférais d’abord que vous compreniez ce qu’est un conteneur et comment le construire avant d’entrer dans le fonctionnement interne des images. Maintenant que vous êtes à l’aise avec la création d’images, il est temps de parler des layers.
 
-Chaque fois que vous écrivez une instruction dans un Dockerfile (`FROM`, `RUN`, `COPY`, `ADD`, etc.), Docker crée un nouveau _layer_. **Un layer correspond à une couche empilée dans l’image finale**. C'est un peu comme  une pile de briques : chaque instruction ajoute une brique. L’ensemble des briques forme l’image.
+Chaque fois que vous écrivez une instruction dans un Dockerfile (`FROM`, `RUN`, `COPY`, `ADD`, etc.), Docker crée un nouveau _layer_. 
 
-<br>
-
-Ces layers sont :
+**Un layer correspond à une couche empilée dans l’image finale**. C'est un peu comme  une pile de briques : chaque instruction ajoute une brique. L’ensemble des briques forme l’image. Ces layers sont :
 - cachés à l’utilisateur mais utilisés pour le cache et l’optimisation ;
 - persistés ; ils vont donc peser dans la taille totale de l’image ;
 - immuables ; ce qui veut dire qu’un RUN ne peut pas supprimer un fichier créé dans un layer précédent.
@@ -161,15 +157,13 @@ Bien sûr, ce fichier doit être adapté à chaque projet. Mais ce genre de base
 
 Optimiser une image, c’est bien. Vérifier que l’optimisation fonctionne, c’est encore mieux.
 
-Docker propose plusieurs commandes pour analyser la taille de vos images. Il est recommandé de les utiliser régulièrement dans votre workflow, surtout avant de pousser une image sur un registry ou de l’intégrer dans un pipeline CI/CD. C'est vraiment le détail qui peut faire la différence. J'ai vu des infras où les images n'étaient jamais inspectées.
+Docker propose plusieurs commandes pour analyser la taille de vos images. Il est recommandé de les utiliser régulièrement dans votre workflow, surtout avant de pousser une image sur un registry ou de l’intégrer dans un pipeline CI/CD. C'est vraiment le détail qui peut faire la différence.
 
-<br>
-
-Je vous invite à utiliser :
+J'ai vu des infras où les images n'étaient jamais inspectées. C'était clairement pas l'idéal pour la CI. Je vous invite donc à utiliser :
 
 - `docker image ls` - c’est la commande de base pour avoir une vue d’ensemble rapide sur vos images. Elle affiche toutes les images présentes sur votre machine avec notamment leur nom, leur tag et leur taille ;
 - `docker image inspect nom_image` - cette commande affiche des informations détaillées sur une image, à savoir sa structure interne, sa taille, ses layers et sa configuration. Elle est parfaite pour diagnostiquer ce qui se trouve dans votre image ;
-- `docker history nom_image` - cette dernière commande Aaffiche l’historique de construction de l’image, layer par layer. Vous verrez la taille de chaque étape, ce qui permet d’identifier rapidement les instructions qui alourdissent l’image. Plutôt pratique, non ?
+- `docker history nom_image` - cette dernière commande affiche l’historique de construction de l’image, layer par layer. Vous verrez la taille de chaque étape, ce qui permet d’identifier rapidement les instructions qui alourdissent l’image. Plutôt pratique, non ?
 
 <br>
 
