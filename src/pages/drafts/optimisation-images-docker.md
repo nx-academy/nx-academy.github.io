@@ -13,14 +13,6 @@ publishedDate: 06/04/2025
 
 # Comment optimiser une image Docker ?
 
-## Introduction
-
-<!-- - Le cours sur Docker [est officiellement sorti](/cours/docker-et-docker-compose). Si ce n'est pas déjà fait, je vous invite à le suivre avant de continuer la lecture de cette fiche !
-- Dans les prochaines fiches techniques, nous allons commencer à faire la transition vers les CI/CD. Petit teasing : le prochain cours portera sur les CI/CD avec les GitHub Actions. Il est prévu pour sortir en septembre.
-- Alors, pourquoi il est important de parler d'optimisation d'images Docker. Parce qu'une image lente est plus longue à builder (que ce soit en local ou via une CI), qu'elle plus lourde à envoyer vers un registry Docker et donc plus longue à récupérer et parce que le conteneur prend aussi plus de temps à démarrer.
-- Autre chose, plus votre image est lourde, plus elle utilise potentiellement des librairies inutiles dont elle n'a pas besoin. Cela peut augmenter la surface d'attaque.
-- Dans cette fiche, nous allons voir plusieurs bonnes pratiques pour optimiser la taille de ses images. -->
-
 Ca y est : le cours sur Docker [est officiellement disponible](/cours/docker-et-docker-compose) ! Si ce n’est pas encore fait, je vous invite à le suivre avant d’attaquer cette fiche. J'y pose toutes les bases : images, conteneurs, Dockerfile, volumes, docker compose, etc.
 
 Dans les prochaines fiches techniques, on va commencer à faire doucement la transition vers l’automatisation (un autre sujet cher à mon coeur). Petit teaser : en septembre, un cours complet sur les CI/CD avec GitHub Actions est prévu.
@@ -44,43 +36,101 @@ Dans cette fiche, on va donc voir ensemble plusieurs bonnes pratiques concrètes
 
 ## Choississez une base plus légère
 
-- Avez-vous déjà remarqué en vous rendant sur DockerHub qu'il exitait différentes version des images. Par exemple, si on regarde la page officielle de Node.JS sur Dockerhub, on verra qu'il y a des tags comme `alpine`, `bullseye`, `buster-slim`, etc.
-- Présentation des images officielles “fat” vs “slim” vs alpine
-- Exemples concrets :
-  - node → node:slim
-  - python → python:alpine
-- Annectote perso : pendant longtemps, je n'ai pas compris que `alpine` ou `buster-slim` se référaient à des distributions linux. (j'aimerais bien en dire un peu plus sur ce sujet).
-- Pourquoi utiliser une image alpine n'est pas toujours une bonne idée ?
+Quand vous cherchez une image sur DockerHub, vous avez peut-être déjà remarqué qu’il en existe plusieurs variantes. Prenons[ l’image officielle de Node.js sur DockerHub](https://hub.docker.com/_/node/) : vous y verrez des tags comme alpine, bullseye, buster, buster-slim, etc. **Sachez que ces noms désignent la distribution Linux sur laquelle l’image est construite**.
+
+Par exemple : 
+- alpine → [Alpine Linux](https://www.alpinelinux.org/), ultra légère ;
+- buster, bullseye → différentes versions de Debian ;
+- slim → une version épurée, sans outils inutiles comme `man`, `apt cache`, etc.
+
+<br>
+
+_Petite anecdote perso_ : pendant longtemps, je ne savais pas que ces tags faisaient référence à des distributions Linux. Je pensais que c’était juste des “saveurs” de l’image. En réalité, ça change complètement ce que contient votre image, à savoir donc sa taille, sa compatibilité et ses performances. C'est un peu comme une pizza si vous préférez une base sauce tomate (moins calorique) ou une base crème.
+
+<br>
+
+Du coup, avec quelques exemples : 
+- `node` → version complète, assez lourde ;
+- `node:slim` → même base, mais allégée ;
+- `python` → version par défaut (souvent Debian) ;
+- `python:alpine` → version très compacte (quelques Mo seulement).
+
+<br>
+
+**Attention avec les images alpines**. Elle est souvent recommandée pour sa taille mais ce n’est pas toujours la meilleure option. Il m'est arrivé parfois d'avoir des problèmes de dépendances, notamment en Python. Elle est idéale pour des services simples (comme un worker en Node.js) mais elle n’est pas adaptée à tous les projets.
 
 ## Nettoyez votre image après l'installation
 
-- C'est un point auquel on pense assez peu souvent. A chaque fois que vous installez des librairies, que ce soit avec Node.JS ou même `apt install`, vous ajoutez du cache.
-- A quoi set le cache ? Pourquoi l'installation d'applications génère du cache ?
+C’est un point auquel on ne pense pas toujours (en tout cas, il m'arrive régulièrement de l'oublier). A chaque fois que vous installez des dépendances, que ce soit via `apt install` ou `npm install`, vous ajoutez du cache dans votre image.
 
-- Supprimer le cache APT, les fichiers temporaires, les .log, les *.md, etc.
+
+Au final, votre image embarque des fichiers inutiles tels que des fichiers temporaires, des logs, de la documentation, etc. Ces fichiers peuvent facilement peser plusieurs dizaines de Mo.
+
+
+### Exemple de nettoyage simple avec APT
+
+<br>
+
 ```dockerfile
-RUN apt-get update && apt-get install -y ... \
+RUN apt-get update && apt-get install -y curl \
     && rm -rf /var/lib/apt/lists/*
-
 ```
-- Pourquoi le faire dans le même RUN ?
+
+<br>
+
+Dans cet exemple :
+- on installe curl ;
+- puis on supprime les listes téléchargées pendant le `apt-get update`.
+
+<br>
+
+### Pourquoi tout faire dans le même RUN ?
+
+Chaque RUN dans un Dockerfile crée un nouveau layer (on va revenir sur la notion de layer dans un instant).
+
+<br>
+
+Donc si vous faites ça :
+
+```dockerfile
+RUN apt-get update && apt-get install -y curl
+RUN rm -rf /var/lib/apt/lists/*
+```
+
+Alors le cache supprimé dans le deuxième RUN existe toujours dans le layer précédent. Pour que le nettoyage soit réellement pris en compte, il faut le faire dans la même instruction RUN.
+
+
 
 ## Réduisez le nombre de layers
 
-- C'est quelque chose dont j'ai relativement peu parler dans mon cours sur Docker. Je préfèrerais me concentrer sur la compréhension de Docker avant de parler du concept de layers.
-- Définition d'un layer Docker.
-- Fusionner plusieurs RUN dans un seul
-- Ce que fait Docker en “layerisant”
-- Exemples 
+C’est quelque chose que j’ai volontairement peu abordé dans mon cours sur Docker. Je préférais d’abord que vous compreniez ce qu’est un conteneur et comment le construire avant d’entrer dans le fonctionnement interne des images. Maintenant que vous êtes à l’aise avec la création d’images, il est temps de parler des layers.
+
+Chaque fois que vous écrivez une instruction dans un Dockerfile (`FROM`, `RUN`, `COPY`, `ADD`, etc.), Docker crée un nouveau _layer_. **Un layer correspond à une couche empilée dans l’image finale**. C'est un peu comme  une pile de briques : chaque instruction ajoute une brique. L’ensemble des briques forme l’image.
+
+<br>
+
+Ces layers sont :
+- cachés à l’utilisateur mais utilisés pour le cache et l’optimisation ;
+- persistés ; ils vont donc peser dans la taille totale de l’image ;
+- immuables ; ce qui veut dire qu’un RUN ne peut pas supprimer un fichier créé dans un layer précédent.
+
+<br>
+
+Du coup, plus vous avez de layers dans votre image, plus votre image va devenir lourde et va prendre du temps à se construire. C'est quelque chose qu'on soit éviter autant que possible avec Docker.
+
+Voici un exemple :
 
 ```dockerfile
+# ❌ Version non optimisée
 RUN apt-get install -y curl
 RUN rm -rf /var/cache
-```
 
-```dockerfile
+
+#✅ Version optimisée
 RUN apt-get install -y curl && rm -rf /var/cache
 ```
+
+Dans l'exemple ci-dessus, le cache est supprimé dans le premier cas mais il reste stocké dans le layer précédent alors que dans le second, tout est fait dans le même layer, donc l’image finale est plus légère.
 
 ## Utilisez un `.dockerignore`
 
