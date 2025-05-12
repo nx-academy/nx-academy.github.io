@@ -15,11 +15,31 @@ publishedDate: 06/04/2025
 
 ## Introduction
 
-- Le cours sur Docker [est officiellement sorti](/cours/docker-et-docker-compose). Si ce n'est pas déjà fait, je vous invite à le suivre avant de continuer la lecture de cette fiche !
+<!-- - Le cours sur Docker [est officiellement sorti](/cours/docker-et-docker-compose). Si ce n'est pas déjà fait, je vous invite à le suivre avant de continuer la lecture de cette fiche !
 - Dans les prochaines fiches techniques, nous allons commencer à faire la transition vers les CI/CD. Petit teasing : le prochain cours portera sur les CI/CD avec les GitHub Actions. Il est prévu pour sortir en septembre.
 - Alors, pourquoi il est important de parler d'optimisation d'images Docker. Parce qu'une image lente est plus longue à builder (que ce soit en local ou via une CI), qu'elle plus lourde à envoyer vers un registry Docker et donc plus longue à récupérer et parce que le conteneur prend aussi plus de temps à démarrer.
 - Autre chose, plus votre image est lourde, plus elle utilise potentiellement des librairies inutiles dont elle n'a pas besoin. Cela peut augmenter la surface d'attaque.
-- Dans cette fiche, nous allons voir plusieurs bonnes pratiques pour optimiser la taille de ses images.
+- Dans cette fiche, nous allons voir plusieurs bonnes pratiques pour optimiser la taille de ses images. -->
+
+Ca y est : le cours sur Docker [est officiellement disponible](/cours/docker-et-docker-compose) ! Si ce n’est pas encore fait, je vous invite à le suivre avant d’attaquer cette fiche. J'y pose toutes les bases : images, conteneurs, Dockerfile, volumes, docker compose, etc.
+
+Dans les prochaines fiches techniques, on va commencer à faire doucement la transition vers l’automatisation (un autre sujet cher à mon coeur). Petit teaser : en septembre, un cours complet sur les CI/CD avec GitHub Actions est prévu.
+
+Mais avant d’automatiser quoi que ce soit, il y a une étape indispensable à connaître : **l’optimisation des images Docker**. Pourquoi ?
+
+<br>
+
+Parce qu’une image lourde, c’est :
+- plus long à builder (en local comme en CI) ;
+- plus long à envoyer sur un registry ;
+- plus long à télécharger ;
+- et plus lent à démarrer en production.
+
+<br>
+
+Autre chose, une image trop volumineuse embarque souvent des dépendances ou des fichiers inutiles. Résultat : le nombre de points d’entrée potentiels pour une attaque augmente. C’est ce qu’on appelle la surface d’attaque. **Plus une image est complexe, plus elle expose d’éléments à surveiller ou à sécuriser**.
+
+Dans cette fiche, on va donc voir ensemble plusieurs bonnes pratiques concrètes pour réduire la taille de vos images et améliorer la sécurité de vos déploiements.
 
 
 ## Choississez une base plus légère
