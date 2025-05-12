@@ -2,11 +2,12 @@
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: Comment optimiser une image Docker ?
+description: Découvrez les bonnes pratiques pour optimiser une image Docker et réduire sa taille, accélérer le build et renforcer la sécurité sans changer votre code.
 
 author: Thomas
 kind: Fiche technique
 level: intermediaire
-publishedDate: 06/04/2025
+publishedDate: 07/04/2025
 ---
 
 <article>
@@ -59,6 +60,7 @@ Du coup, avec quelques exemples :
 
 **Attention avec les images alpines**. Elle est souvent recommandée pour sa taille mais ce n’est pas toujours la meilleure option. Il m'est arrivé parfois d'avoir des problèmes de dépendances, notamment en Python. Elle est idéale pour des services simples (comme un worker en Node.js) mais elle n’est pas adaptée à tous les projets.
 
+
 ## Nettoyez votre image après l'installation
 
 C’est un point auquel on ne pense pas toujours (en tout cas, il m'arrive régulièrement de l'oublier). A chaque fois que vous installez des dépendances, que ce soit via `apt install` ou `npm install`, vous ajoutez du cache dans votre image.
@@ -100,7 +102,6 @@ RUN rm -rf /var/lib/apt/lists/*
 Alors le cache supprimé dans le deuxième RUN existe toujours dans le layer précédent. Pour que le nettoyage soit réellement pris en compte, il faut le faire dans la même instruction RUN.
 
 
-
 ## Réduisez le nombre de layers
 
 C’est quelque chose que j’ai volontairement peu abordé dans mon cours sur Docker. Je préférais d’abord que vous compreniez ce qu’est un conteneur et comment le construire avant d’entrer dans le fonctionnement interne des images. Maintenant que vous êtes à l’aise avec la création d’images, il est temps de parler des layers.
@@ -125,45 +126,97 @@ Voici un exemple :
 RUN apt-get install -y curl
 RUN rm -rf /var/cache
 
-
 #✅ Version optimisée
 RUN apt-get install -y curl && rm -rf /var/cache
 ```
 
-Dans l'exemple ci-dessus, le cache est supprimé dans le premier cas mais il reste stocké dans le layer précédent alors que dans le second, tout est fait dans le même layer, donc l’image finale est plus légère.
+Dans l'exemple ci-dessus, le cache est supprimé dans le premier cas mais il reste stocké dans le layer précédent. Dans le second, tout est fait dans le même layer donc l’image finale est plus légère.
+
 
 ## Utilisez un `.dockerignore`
 
-- Vous avez déjà probablement utilisé un `.gitignore` pour masquer certains de vos fichiers de l'index `.git`, par exemple les fichiers `.env`.
-- Expliquer le rôle du fichier
-- Éviter d’envoyer .git, node_modules, fichiers de dev dans le contexte de build.
-- Vérifier la partie `.git` mais oublier de l'enlever dans un projet open source où vous poussez l'image peut augmenter la surface d'attaque. Il peut vous permettre de récupérer des credentials.
-- Exemple de .dockerignore minimal :
-```
+Vous avez probablement déjà utilisé un fichier `.gitignore` pour éviter de versionner certains fichiers dans un dépôt Git. Pensez à des fichiers tel que les `.env` ou les dépendances (les fameux `node_modules`).
+
+Le `.dockerignore`, c’est exactement le même principe mais pour Docker. Son role est d'exclure certains fichiers ou dossiers de votre contexte de build. Autrement dit, ces fichiers ne seront même pas transmis à Docker pendant le build.
+
+Pourquoi c’est important ? Parce que tout le contenu de votre dossier est envoyé à Docker lors d’un build (sauf ce que vous ignorez explicitement). Certains fichiers, comme vos logs, vos `node_modules`, vos fichiers de dev ou pire votre dossier `.git`, peuvent alourdir inutilement votre image.
+
+
+### Exemple de `.dockerignore` minimal
+
+<br>
+
+```.dockerignore
 .git
 node_modules
 *.log
+*.env
+dist/
 ```
+
+Bien sûr, ce fichier doit être adapté à chaque projet. Mais ce genre de base est souvent un bon départ. Au besoin, vous pouvez vous inspirer en parti de votre fichier `.gitignore`.
+
 
 ## Vérifiez la taille de son image
 
-- Il y a quelques commandes importantes à connaître pour vérifier la taille de ces images. Il est recommandé de leur faire régulièrement dans votre workflow.
-- `docker image ls` - explication en une phrase de la commande
-`docker image inspect` - explication en une phrase de la commande
-`docker history nom_image` - explication en une phrase de la commande
+Optimiser une image, c’est bien. Vérifier que l’optimisation fonctionne, c’est encore mieux.
 
-## Astuce bonus - Supprimez le shell
+Docker propose plusieurs commandes pour analyser la taille de vos images. Il est recommandé de les utiliser régulièrement dans votre workflow, surtout avant de pousser une image sur un registry ou de l’intégrer dans un pipeline CI/CD. C'est vraiment le détail qui peut faire la différence. J'ai vu des infras où les images n'étaient jamais inspectées.
 
-Si votre image n’exécute qu’un seul script ou service, il est possible de la builder sans shell du tout.
+<br>
 
-## Conclusion
+Je vous invite à utiliser :
 
-- Conclusion
-- Teasing futur cours sur les CI/CD.
-- Lien vers le cours sur Docker
-- Lien vers le quiz.
-- Si possible (si j'ai déjà préparé un ou deux exercices), donners les liens.
+- `docker image ls` - c’est la commande de base pour avoir une vue d’ensemble rapide sur vos images. Elle affiche toutes les images présentes sur votre machine avec notamment leur nom, leur tag et leur taille ;
+- `docker image inspect nom_image` - cette commande affiche des informations détaillées sur une image, à savoir sa structure interne, sa taille, ses layers et sa configuration. Elle est parfaite pour diagnostiquer ce qui se trouve dans votre image ;
+- `docker history nom_image` - cette dernière commande Aaffiche l’historique de construction de l’image, layer par layer. Vous verrez la taille de chaque étape, ce qui permet d’identifier rapidement les instructions qui alourdissent l’image. Plutôt pratique, non ?
+
+<br>
+
+Avec ces trois commandes, vous êtes en mesure de suivre l'état de vos images et de leur taille simplement :).
+
+
+## Astuce bonus - Évitez `ADD`, préférez `COPY`
+
+Dans un Dockerfile, vous avez peut-être déjà utilisé l'instruction `ADD` pour copier des fichiers dans votre image. Pour être honnête, sauf cas très particulier, vous devriez lui préférer `COPY`.
+
+<br>
+
+```dockerfile
+# ✅ Préféré
+COPY ./app /app
+
+# ❌ À éviter sans besoin spécifique
+ADD ./app /app
+```
+
+<br>
+
+Pourquoi ? Parce que :
+- `ADD` peut faire plus de choses. Par exemple, décompresser une archive `.tar.gz` ou récupérer une URL distante ;
+- mais ces fonctionnalités ne sont pas toujours explicites et peuvent introduire des comportements inattendus (les fameux effets de bord).
+
+Donc, pour faire simple, si vous avez juste besoin de copier des fichiers ou des dossiers, utilisez `COPY`. C’est plus clair, plus prévisible et plus sécurisé.
+
+---
+
+Vous l’aurez compris ! Une image Docker optimisée, c’est une image :
+- plus rapide à builder ;
+- plus légère à pusher ;
+- plus rapide à puller
+- et plus sûre à exécuter.
+
+
+Et tout ça sans changer votre code ! Je vous invite à essayer d'adopter ces réflexes à adopter dès maintenant et notamment si vous commencez à travailler avec des pipelines CI/CD. D'ailleurs, le prochain cours sera justement dédié à ce sujet : les CI/CD avec GitHub Actions. 
+
+Il est prévu pour septembre. Vous y apprendrez à automatiser des pipelines de test, de build et de déploiement.
+
+D'ici là, je vous invite 
+- [à faire le quiz](/quiz/optimisation-images-docker) pour valider vos acquis ;
+- [à commencer le cours sur Docker et docker compose](/cours/docker-et-docker-compose) si ce n'est pas déjà fait.
 
 ## Ressources
+
+- quelques liens
 
 </article>
