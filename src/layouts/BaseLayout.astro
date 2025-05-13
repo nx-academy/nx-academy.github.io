@@ -56,6 +56,13 @@ const { pathname } = Astro.url
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
 
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="NX Academy"
+      href={new URL("rss.xml", Astro.site)}
+    />
+
     {
       import.meta.env.PROD && <script>
         (function(h,o,u,n,d) {
