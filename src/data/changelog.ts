@@ -12,6 +12,10 @@ const mayTaks: LogTasks = {
     month: "Mai",
     tasks: [
         {
+            kind: "done",
+            content: `Ajout basique de la gestion des flux RSS. Si ça vous intéresse, vous pouvez regarder <a href="/rss.xml" target="_blank">la page RSS</a>`
+        },
+        {
             kind: "fix",
             content: "Un peu de clean de code (suppression de console.log, formattage de codes, etc.)"
         },
