@@ -51,6 +51,10 @@ const sectionsHeading = headings.filter(heading => heading.depth === 2)
             color: #4effa0;
         }
     }
+  
+    .active {
+        color: #4effa0;
+    }
 </style>
 
 <script>
@@ -79,35 +83,35 @@ const sectionsHeading = headings.filter(heading => heading.depth === 2)
         });
     }
 
-    // function onScroll() {
-    //     let closestSection = null;
-    //     let minDistance = Infinity;
+    function onScroll() {
+        let closestSection = null;
+        let minDistance = Infinity;
 
-    //     $sectionsTitle.forEach(section => {
-    //         const rect = section.getBoundingClientRect();
-    //         const distance = Math.abs(rect.top);
+        $sectionsTitle.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            const distance = Math.abs(rect.top);
 
-    //         if (rect.top <= window.innerHeight && distance < minDistance) {
-    //             minDistance = distance;
-    //             closestSection = section;
-    //         }
-    //     });
+            if (rect.top <= window.innerHeight && distance < minDistance) {
+                minDistance = distance;
+                closestSection = section;
+            }
+        });
 
-    //     $sectionLinks.forEach(link => link.classList.remove("active"));
+        $sectionLinks.forEach(link => link.classList.remove("active"));
 
-    //     if (closestSection) {
-    //         const sectionId = (closestSection as HTMLElement).getAttribute("id")
-    //         const activeLink = document.querySelector(`.section-link[href="#${sectionId}"]`)
+        if (closestSection) {
+            const sectionId = (closestSection as HTMLElement).getAttribute("id")
+            const activeLink = document.querySelector(`.section-link[href="#${sectionId}"]`)
 
-    //         if (activeLink) {
-    //             activeLink.classList.add("active")
-    //         }
-    //     }
-    // }
+            if (activeLink) {
+                activeLink.classList.add("active")
+            }
+        }
+    }
 
-    // window.addEventListener("scroll", function() {
-    //     onScroll()
-    // })
+    window.addEventListener("scroll", function() {
+        onScroll()
+    })
 
     window.addEventListener("DOMContentLoaded", function() {
         scrollToTitle()

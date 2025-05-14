@@ -56,6 +56,14 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
     <aside>
       <div class="aside-wrapper">
         <StickyOutline headings={headings} />
+        <div class="buttons-group">
+          {
+            previousChapterLink && <Button label="Revenir au chapitre précédent" type="secondary" href={previousFullChapterLink} />
+          }
+          {
+            nextChapterLink && <Button label="Passer au prochain chapitre" type="primary" href={nextFullChapterLink} />
+          }
+        </div>
       </div>
     </aside>
     <!-- <div class="aside-wrapper">
@@ -70,14 +78,7 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
             ))
           }
         </ul>
-        <div class="buttons-group">
-          {
-            previousChapterLink && <Button label="Revenir au chapitre précédent" type="secondary" href={previousFullChapterLink} />
-          }
-          {
-            nextChapterLink && <Button label="Passer au prochain chapitre" type="primary" href={nextFullChapterLink} />
-          }
-        </div>
+        
       </aside>
     </div> -->
   </div>
@@ -113,16 +114,6 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
     }
   }
 
-  /* aside {
-    display: none;
-
-    @media screen and (min-width: 1024px) {
-      display: initial;
-      position: sticky;
-      top: 24px;
-    }
-  }
-
   .end-chapter-wrapper {
     border-top: 1px solid #eee;
     margin-top: 4rem;
@@ -149,10 +140,6 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
       flex-direction: row;
     }
   }
-
-  .active {
-    color: #4effa0;
-  } */
 
   .hidden {
     display: none !important;
