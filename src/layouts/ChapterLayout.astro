@@ -1,6 +1,4 @@
 ---
-import type { Breadcrumb } from "../types/Breadcrumb"
-
 type Heading = {
   depth: number;
   slug: string;
@@ -21,8 +19,8 @@ interface Props {
 import { handleLinks } from "../utils/handleLinks"
 import theme from "../config/theme";
 import BaseLayout from "./BaseLayout.astro";
-import Heading3 from "../components/Heading3.astro";
 import Button from "../components/Button.astro";
+import StickyOutline from "../components/StickyOutline.astro"
 
 const {
   colors: { neonGreen, neonGreenLight, black },
@@ -36,15 +34,13 @@ const {
 
 const { baseUrl, breadcrumbs } = handleLinks(url)
 
-const sectionsHeading = headings.filter((heading) => heading.depth === 2);
-
 const previousFullChapterLink = `${baseUrl}/chapitres/${previousChapterLink}`
 const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
 ---
 
 <BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
   <div class="main-wrapper">
-    <div>
+    <section>
         <slot />
         <div class="end-chapter-wrapper">
           <div class="buttons-group">
@@ -56,19 +52,10 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
             }
           </div>
         </div>
-    </div>
-    <div class="aside-wrapper">
-      <aside>
-        <Heading3 content="Contenu" />
-        <ul class="chapter-content">
-          {
-            sectionsHeading.map((heading) => (
-              <li>
-                <a class="section-link" href=`#${heading.slug}`>{heading.text}</a>
-              </li>
-            ))
-          }
-        </ul>
+      </section>
+    <aside>
+      <div class="aside-wrapper">
+        <StickyOutline headings={headings} pageType="cours" />
         <div class="buttons-group">
           {
             previousChapterLink && <Button label="Revenir au chapitre précédent" type="secondary" href={previousFullChapterLink} />
@@ -77,8 +64,8 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
             nextChapterLink && <Button label="Passer au prochain chapitre" type="primary" href={nextFullChapterLink} />
           }
         </div>
-      </aside>
-    </div>
+      </div>
+    </aside>
   </div>
   <div class="image-modal-wrapper hidden">
     <div class="image-modal">
@@ -102,32 +89,13 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
     }
   }
 
-  aside {
+  .aside-wrapper {
     display: none;
 
     @media screen and (min-width: 1024px) {
       display: initial;
       position: sticky;
       top: 24px;
-    }
-  }
-
-  .chapter-content {
-    margin-top: 1.75rem;
-    list-style-type: none;
-    padding-left: 0;
-    margin-bottom: 5rem;
-
-    li {
-      margin-bottom: 1rem;
-    }
-  }
-
-  .section-link {
-    color: #bababa;
-    
-    &:hover {
-        color: #4effa0;
     }
   }
 
@@ -156,10 +124,6 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
     @media screen and (min-width: 1024px) {
       flex-direction: row;
     }
-  }
-
-  .active {
-    color: #4effa0;
   }
 
   .hidden {
@@ -283,9 +247,6 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
 </style>
 
 <script>
-  const $sectionTitles = document.querySelectorAll(".main-wrapper h2")
-  const $sectionLinks = document.querySelectorAll(".section-link")
-
   const $modal = document.querySelector(".image-modal-wrapper") as HTMLDivElement
   const $images = document.querySelectorAll("img")
   const $imageModal = document.querySelector(".image-modal img") as HTMLImageElement
@@ -322,64 +283,4 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
       }
     }
   });
-
-
-  function scrollToTitle() {
-    $sectionLinks.forEach(link => {
-      link.addEventListener("click", event => {
-        event.preventDefault();
-
-        const href = link.getAttribute("href");
-        if (!href) return;
-
-        const target = document.querySelector(href);
-        if (target) {
-          const top = target.getBoundingClientRect().top + window.scrollY;
-          const offset = 500;
-
-          window.scrollTo({
-            top: top - offset,
-            behavior: "smooth"
-          });
-        }
-      });
-    });
-  }
-
-
-  function onScroll() {
-    let closestSection = null;
-    let minDistance = Infinity;
-
-    $sectionTitles.forEach(section => {
-      const rect = section.getBoundingClientRect();
-      const distance = Math.abs(rect.top);
-
-      if (rect.top <= window.innerHeight && distance < minDistance) {
-        minDistance = distance;
-        closestSection = section;
-      }
-    });
-
-    $sectionLinks.forEach(link => link.classList.remove("active"));
-
-    if (closestSection) {
-      const sectionId = (closestSection as HTMLElement).getAttribute("id")
-      const activeLink = document.querySelector(`.section-link[href="#${sectionId}"]`)
-
-      if (activeLink) {
-        activeLink.classList.add("active")
-      }
-    }
-  }
-
-
-  window.addEventListener("scroll", function() {
-    onScroll()
-  })
-
-
-  window.addEventListener("DOMContentLoaded", function() {
-    scrollToTitle()
-  })
 </script>

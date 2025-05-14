@@ -1,16 +1,25 @@
 ---
 import type { Breadcrumb } from "../types/Breadcrumb"
 
+type Heading = {
+  depth: number
+  slug: string
+  text: string
+}
+
 interface Props {
   frontmatter: {
     title?: string;
   };
+  headings: Heading[]
 }
 
 import BaseLayout from "./BaseLayout.astro";
+import StickyOutline from "../components/StickyOutline.astro"
 
 const {
   frontmatter: { title },
+  headings
 } = Astro.props;
 
 const breadCrumbs: Breadcrumb[] = [
@@ -26,24 +35,42 @@ const breadCrumbs: Breadcrumb[] = [
 ---
 
 <BaseLayout title={title} breadcrumbs={title === "Le manifeste" || title === "Changelog" ? [] : breadCrumbs}>
-  <div class="main-wrapper">
+  <main class="main-wrapper">
     <section>
       <slot />
     </section>
-  </div>
+    <aside>
+      <div class="aside-wrapper">
+        <StickyOutline headings={headings} pageType="fiche" />
+      </div>
+    </aside>
+  </main>
 </BaseLayout>
 
 <style>
-  div {
+  main {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-  }
-
-  section {
     width: 90%;
-    max-inline-size: 66ch;
+    max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
+
+    @media screen and (min-width: 1024px) {
+      display: grid;
+      grid-template-columns: 65% 35%;
+      gap: 64px;
+    }
+  }
+
+  .aside-wrapper {
+    display: none;
+
+    @media screen and (min-width: 1024px) {
+      display: initial;
+      position: sticky;
+      top: 24px;
+    }
   }
 </style>
 

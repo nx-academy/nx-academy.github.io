@@ -1,0 +1,124 @@
+---
+type Heading = {
+    depth: number;
+    slug: string;
+    text: string;
+}
+
+interface Props {
+    headings: Heading[]
+    pageType: string
+}
+
+import Heading3 from "./Heading3.astro"
+
+const {
+    headings,
+    pageType
+} = Astro.props
+
+const sectionsHeading = headings.filter(heading => heading.depth === 2)
+---
+
+<div class="wrapper" data-page={pageType}>
+    <Heading3 content="Contenu" />
+    <ul class="sections-heading">
+        {
+            sectionsHeading.map(heading => (
+                <li>
+                    <a class="section-link" href=`#${heading.slug}`>{heading.text}</a>
+                </li>
+            ))
+        }
+    </ul>
+</div>
+
+<style>
+    .sections-heading {
+        margin-top: 1.75rem;
+        list-style-type: none;
+        padding-left: 0;
+        margin-bottom: 5rem;
+
+        li {
+            margin-bottom: 1rem;
+        }
+    }
+
+    .section-link {
+        color: #bababa;
+        transition: .4s;
+
+        &:hover {
+            color: #4effa0;
+        }
+    }
+  
+    .active {
+        color: #4effa0;
+    }
+</style>
+
+<script>
+    const $sectionsTitle = document.querySelectorAll("h2")
+    const $sectionLinks = document.querySelectorAll(".section-link")
+    const $pageType = (document.querySelector(".wrapper") as HTMLDivElement).getAttribute("data-page")
+
+    function scrollToTitle() {
+        $sectionLinks.forEach(link => {
+        link.addEventListener("click", event => {
+            event.preventDefault();
+
+            const href = link.getAttribute("href");
+            if (!href) return;
+
+            const target = document.querySelector(href);
+            if (target) {
+            const top = target.getBoundingClientRect().top + window.scrollY;
+
+            // cours contents have an image at the beginning of each section
+            const offset = $pageType === "cours" ? 500 : 0;
+
+            window.scrollTo({
+                top: top - offset,
+                behavior: "smooth"
+            });
+            }
+        });
+        });
+    }
+
+    function onScroll() {
+        let closestSection = null;
+        let minDistance = Infinity;
+
+        $sectionsTitle.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            const distance = Math.abs(rect.top);
+
+            if (rect.top <= window.innerHeight && distance < minDistance) {
+                minDistance = distance;
+                closestSection = section;
+            }
+        });
+
+        $sectionLinks.forEach(link => link.classList.remove("active"));
+
+        if (closestSection) {
+            const sectionId = (closestSection as HTMLElement).getAttribute("id")
+            const activeLink = document.querySelector(`.section-link[href="#${sectionId}"]`)
+
+            if (activeLink) {
+                activeLink.classList.add("active")
+            }
+        }
+    }
+
+    window.addEventListener("scroll", function() {
+        onScroll()
+    })
+
+    window.addEventListener("DOMContentLoaded", function() {
+        scrollToTitle()
+    })
+</script>

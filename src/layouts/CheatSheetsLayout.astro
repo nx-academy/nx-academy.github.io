@@ -1,16 +1,24 @@
 ---
 import type { Breadcrumb } from "../types/Breadcrumb";
 
+type Heading = {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
 interface Props {
   frontmatter: {
     title: string;
     description: string;
     imgSrc?: string;
   };
+  headings: Heading[]
 }
 
 import theme from "../config/theme";
 import BaseLayout from "./BaseLayout.astro";
+import StickyOutline from "../components/StickyOutline.astro"
 
 const {
   colors: { neonGreen, neonGreenLight, black },
@@ -18,6 +26,7 @@ const {
 
 const {
   frontmatter: { title, description, imgSrc },
+  headings
 } = Astro.props;
 
 const breadCrumbs: Breadcrumb[] = [
@@ -42,6 +51,11 @@ const breadCrumbs: Breadcrumb[] = [
     <section>
       <slot />
     </section>
+    <aside>
+      <div class="aside-wrapper">
+        <StickyOutline headings={headings} pageType="fiche" />
+      </div>
+    </aside>
   </main>
 </BaseLayout>
 
@@ -49,6 +63,26 @@ const breadCrumbs: Breadcrumb[] = [
   main {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+    width: 90%;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (min-width: 1024px) {
+      display: grid;
+      grid-template-columns: 65% 30%;
+      gap: 64px;
+    }
+  }
+
+  .aside-wrapper {
+    display: none;
+
+    @media screen and (min-width: 1024px) {
+      display: initial;
+      position: sticky;
+      top: 24px;
+    }
   }
 </style>
 
@@ -56,13 +90,6 @@ const breadCrumbs: Breadcrumb[] = [
   img {
     max-width: 100%;
     border-radius: 8px;
-  }
-
-  article {
-    max-inline-size: 66ch;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   h1 {
