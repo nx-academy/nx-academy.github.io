@@ -13,11 +13,23 @@ const mayTaks: LogTasks = {
     tasks: [
         {
             kind: "done",
-            content: `Ajout basique de la gestion des flux RSS. Si ça vous intéresse, vous pouvez regarder <a href="/rss.xml" target="_blank">la page RSS</a>`
+            content: `Alors, ce n'est pas vraiment une feature mais j'ai mis à jour <a href="https://github.com/nx-academy/nx-academy.github.io/blob/main/docs/plan-fonctionnalites.md" target="_blank">les fonctionnalités</a> sur lesquelles je vais travailler jusqu'en décembre ainsi que <a href="https://github.com/nx-academy/nx-academy.github.io/blob/main/docs/calendrier-editorial.md" target="_blank">le calendrier édito</a>. Pour info, je vais bientôt sortir une page roadmap publique pour vous tenir au courant de mes futurs plans.`
+        },
+        {
+            kind: "in-progress",
+            content: "Finalisation du système de RAG pour Le Recap. L'agent est maintenant capable de scrapper un article, de le résumer et de créer un fichier markdown accepté par Astro. Il y a encore un peu de clean à faire mais c'est bientôt terminé !"
+        },
+        {
+            kind: "done",
+            content: "Ajout du menu sticky sur les fiches techniques et les chapitres. En gros, il permet de voir les titres de chaque section et de se rendre directement dessus en cliquant. Pas mal, hein ?"
+        },
+        {
+            kind: "done",
+            content: `Ajout basique de la gestion des flux RSS. Si ça vous intéresse, vous pouvez regarder <a href="/rss.xml" target="_blank">la page RSS</a>.`
         },
         {
             kind: "fix",
-            content: "Un peu de clean de code (suppression de console.log, formattage de codes, etc.)"
+            content: "Un peu de clean de code (suppression de console.log, formattage de codes, etc.)."
         },
         {
             kind: "done",
@@ -25,7 +37,7 @@ const mayTaks: LogTasks = {
         },
         {
             kind: "fix",
-            content: "Suppression de contenus morts (des articles et des fiches techniques abandonnés)"
+            content: "Suppression de contenus morts (des articles et des fiches techniques abandonnés)."
         },
         {
             kind: "fix",
@@ -37,19 +49,19 @@ const mayTaks: LogTasks = {
         },
         {
             kind: "fix",
-            content: "Ajout du résumé du quiz"
+            content: "Ajout du résumé du quiz."
         },
         {
             kind: "in-progress",
-            content: `Mise à jour du <a href="https://github.com/nx-academy/nx-ai/pull/2">système de RAG</a> sur les quiz des fiches techniques`
+            content: `Mise à jour du <a href="https://github.com/nx-academy/nx-ai/pull/2">système de RAG</a> sur les quiz des fiches technique.s`
         },
         {
             kind: "done",
-            content: `Ajout de la fiche technique <a href="fiches/bien-utiliser-volumes-docker">sur les volumes Docker</a>`
+            content: `Ajout de la fiche technique <a href="fiches/bien-utiliser-volumes-docker">sur les volumes Docker</a>.`
         },
         {
             kind: "in-progress",
-            content: `Ajout des premiers effets sonores (pour l'instant, <a href="/quiz">sur le quiz</a>)`
+            content: `Ajout des premiers effets sonores (pour l'instant, <a href="/quiz">sur le quiz</a>).`
         }
     ]
 }
