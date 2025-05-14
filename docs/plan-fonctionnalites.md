@@ -31,9 +31,13 @@ Cette feuille de route présente les fonctionnalités à venir sur NX, indépend
 
 | Priorité | Fonctionnalité                                 | État actuel         | Prochaine(s) étape(s)                                  | Mois cible      |
 |----------|------------------------------------------------|---------------------|--------------------------------------------------------|-----------------|
+| 🧊       | Flux RSS                                        | **DONE**             | Générer à partir des articles + fiches techniques      | Mai         |
+| 🧊       | Ajouter le sticky Outline dans les pages de blog et de fiches techniques  | À faire             |  Créer un module pour le script déjà existant  | Mai       |
+| 🧊       | Mettre à jour le footer (icônes, liens des pages)  | À faire             |  Réfléxion sur les icôns et les liens à placer  | Mai       |
 | 🧊       | Mode clair basé sur les préférences système    | À faire             | Ajouter détection `prefers-color-scheme`               | Juin            |
-| 🧊       | Flux RSS                                        | À faire             | Générer à partir des articles + fiches techniques      | Juillet         |
+| 🧊       | Page 404    | À faire             | Design et contenu à réaliser               | Juin            |
 | 🧊       | Bouton “copier le code” sur les blocs          | À faire             | Ajouter via JavaScript + styles accessibles            | Août            |
+| 🧊       | Ajouter des animations douces (hover, entrée)  | À faire             | Définir zones prioritaires + tester transitions CSS    | Septembre       |
 | 🧊       | Ajouter des animations douces (hover, entrée)  | À faire             | Définir zones prioritaires + tester transitions CSS    | Septembre       |
 | 🧊       | Nettoyage de code / refactor                   | En continu          | Identifier les vieux composants, uniformiser les styles| Étapes mensuelles (fond) |
 
