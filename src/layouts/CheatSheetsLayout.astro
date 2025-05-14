@@ -18,7 +18,7 @@ interface Props {
 
 import theme from "../config/theme";
 import BaseLayout from "./BaseLayout.astro";
-import Heading3 from "../components/Heading3.astro"
+import StickyOutline from "../components/StickyOutline.astro"
 
 const {
   colors: { neonGreen, neonGreenLight, black },
@@ -28,8 +28,6 @@ const {
   frontmatter: { title, description, imgSrc },
   headings
 } = Astro.props;
-
-const sectionsHeading = headings.filter(heading => heading.depth === 2)
 
 const breadCrumbs: Breadcrumb[] = [
   {
@@ -54,18 +52,7 @@ const breadCrumbs: Breadcrumb[] = [
       <slot />
     </section>
     <aside>
-      <div>
-        <Heading3 content="Contenu" />
-        <ul class="section-headings">
-          {
-            sectionsHeading.map(heading => (
-              <li>
-                <a class="section-link" href=`#${heading.slug}`>{heading.text}</a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
+      <StickyOutline headings={headings} />
     </aside>
   </main>
 </BaseLayout>
@@ -85,36 +72,6 @@ const breadCrumbs: Breadcrumb[] = [
       gap: 64px;
     }
   }
-
-  aside div {
-    display: none;
-
-    @media screen and (min-width: 1024px) {
-      display: initial;
-      position: sticky;
-      top: 24px;
-    }
-  }
-
-  .section-headings {
-    margin-top: 1.75rem;
-    list-style-type: none;
-    padding-left: 0;
-    margin-bottom: 5rem;
-
-    li {
-      margin-bottom: 1rem;
-    }
-  }
-
-  .section-link {
-    color: #bababa;
-    
-    &:hover {
-      color: #4effa0;
-    }
-  }
-
 </style>
 
 <style is:global define:vars={{ neonGreen, neonGreenLight, black }}>

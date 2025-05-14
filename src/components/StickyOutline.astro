@@ -1,0 +1,54 @@
+---
+type Heading = {
+    depth: number;
+    slug: string;
+    text: string;
+}
+
+interface Props {
+    headings: Heading[]
+}
+
+import Heading3 from "./Heading3.astro"
+
+const {
+    headings
+} = Astro.props
+
+const sectionsHeading = headings.filter(heading => heading.depth === 2)
+---
+
+<div class="wrapper">
+    <Heading3 content="Contenu" />
+    <ul class="sections-heading">
+        {
+            sectionsHeading.map(heading => (
+                <li>
+                    <a class="section-link" href=`#${heading.slug}`>{heading.text}</a>
+                </li>
+            ))
+        }
+    </ul>
+</div>
+
+<style>
+    .sections-heading {
+        margin-top: 1.75rem;
+        list-style-type: none;
+        padding-left: 0;
+        margin-bottom: 5rem;
+
+        li {
+            margin-bottom: 1rem;
+        }
+    }
+
+    .section-link {
+        color: #bababa;
+        transition: .4s;
+
+        &:hover {
+            color: #4effa0;
+        }
+    }
+</style>

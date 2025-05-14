@@ -19,8 +19,8 @@ interface Props {
 import { handleLinks } from "../utils/handleLinks"
 import theme from "../config/theme";
 import BaseLayout from "./BaseLayout.astro";
-import Heading3 from "../components/Heading3.astro";
 import Button from "../components/Button.astro";
+import StickyOutline from "../components/StickyOutline.astro"
 
 const {
   colors: { neonGreen, neonGreenLight, black },
@@ -34,15 +34,13 @@ const {
 
 const { baseUrl, breadcrumbs } = handleLinks(url)
 
-const sectionsHeading = headings.filter((heading) => heading.depth === 2);
-
 const previousFullChapterLink = `${baseUrl}/chapitres/${previousChapterLink}`
 const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
 ---
 
 <BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
   <div class="main-wrapper">
-    <div>
+    <section>
         <slot />
         <div class="end-chapter-wrapper">
           <div class="buttons-group">
@@ -54,8 +52,11 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
             }
           </div>
         </div>
-    </div>
-    <div class="aside-wrapper">
+      </section>
+    <aside>
+      <StickyOutline headings={headings} />
+    </aside>
+    <!-- <div class="aside-wrapper">
       <aside>
         <Heading3 content="Contenu" />
         <ul class="chapter-content">
@@ -76,7 +77,7 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
           }
         </div>
       </aside>
-    </div>
+    </div> -->
   </div>
   <div class="image-modal-wrapper hidden">
     <div class="image-modal">
@@ -107,25 +108,6 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
       display: initial;
       position: sticky;
       top: 24px;
-    }
-  }
-
-  .chapter-content {
-    margin-top: 1.75rem;
-    list-style-type: none;
-    padding-left: 0;
-    margin-bottom: 5rem;
-
-    li {
-      margin-bottom: 1rem;
-    }
-  }
-
-  .section-link {
-    color: #bababa;
-    
-    &:hover {
-        color: #4effa0;
     }
   }
 
