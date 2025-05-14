@@ -52,3 +52,64 @@ const sectionsHeading = headings.filter(heading => heading.depth === 2)
         }
     }
 </style>
+
+<script>
+    const $sectionsTitle = document.querySelectorAll("h2")
+    const $sectionLinks = document.querySelectorAll(".section-link")
+
+    function scrollToTitle() {
+        $sectionLinks.forEach(link => {
+        link.addEventListener("click", event => {
+            event.preventDefault();
+
+            const href = link.getAttribute("href");
+            if (!href) return;
+
+            const target = document.querySelector(href);
+            if (target) {
+            const top = target.getBoundingClientRect().top + window.scrollY;
+            const offset = 500;
+
+            window.scrollTo({
+                top: top - offset,
+                behavior: "smooth"
+            });
+            }
+        });
+        });
+    }
+
+    // function onScroll() {
+    //     let closestSection = null;
+    //     let minDistance = Infinity;
+
+    //     $sectionsTitle.forEach(section => {
+    //         const rect = section.getBoundingClientRect();
+    //         const distance = Math.abs(rect.top);
+
+    //         if (rect.top <= window.innerHeight && distance < minDistance) {
+    //             minDistance = distance;
+    //             closestSection = section;
+    //         }
+    //     });
+
+    //     $sectionLinks.forEach(link => link.classList.remove("active"));
+
+    //     if (closestSection) {
+    //         const sectionId = (closestSection as HTMLElement).getAttribute("id")
+    //         const activeLink = document.querySelector(`.section-link[href="#${sectionId}"]`)
+
+    //         if (activeLink) {
+    //             activeLink.classList.add("active")
+    //         }
+    //     }
+    // }
+
+    // window.addEventListener("scroll", function() {
+    //     onScroll()
+    // })
+
+    window.addEventListener("DOMContentLoaded", function() {
+        scrollToTitle()
+    })
+</script>

@@ -52,7 +52,9 @@ const breadCrumbs: Breadcrumb[] = [
       <slot />
     </section>
     <aside>
-      <StickyOutline headings={headings} />
+      <div class="aside-wrapper">
+        <StickyOutline headings={headings} />
+      </div>
     </aside>
   </main>
 </BaseLayout>
@@ -70,6 +72,16 @@ const breadCrumbs: Breadcrumb[] = [
       display: grid;
       grid-template-columns: 65% 30%;
       gap: 64px;
+    }
+  }
+
+  .aside-wrapper {
+    display: none;
+
+    @media screen and (min-width: 1024px) {
+      display: initial;
+      position: sticky;
+      top: 24px;
     }
   }
 </style>

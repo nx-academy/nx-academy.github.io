@@ -54,7 +54,9 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
         </div>
       </section>
     <aside>
-      <StickyOutline headings={headings} />
+      <div class="aside-wrapper">
+        <StickyOutline headings={headings} />
+      </div>
     </aside>
     <!-- <div class="aside-wrapper">
       <aside>
@@ -101,7 +103,17 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
     }
   }
 
-  aside {
+  .aside-wrapper {
+    display: none;
+
+    @media screen and (min-width: 1024px) {
+      display: initial;
+      position: sticky;
+      top: 24px;
+    }
+  }
+
+  /* aside {
     display: none;
 
     @media screen and (min-width: 1024px) {
@@ -140,7 +152,7 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
 
   .active {
     color: #4effa0;
-  }
+  } */
 
   .hidden {
     display: none !important;
