@@ -7,18 +7,20 @@ type Heading = {
 
 interface Props {
     headings: Heading[]
+    pageType: string
 }
 
 import Heading3 from "./Heading3.astro"
 
 const {
-    headings
+    headings,
+    pageType
 } = Astro.props
 
 const sectionsHeading = headings.filter(heading => heading.depth === 2)
 ---
 
-<div class="wrapper">
+<div class="wrapper" data-page={pageType}>
     <Heading3 content="Contenu" />
     <ul class="sections-heading">
         {
@@ -60,6 +62,7 @@ const sectionsHeading = headings.filter(heading => heading.depth === 2)
 <script>
     const $sectionsTitle = document.querySelectorAll("h2")
     const $sectionLinks = document.querySelectorAll(".section-link")
+    const $pageType = (document.querySelector(".wrapper") as HTMLDivElement).getAttribute("data-page")
 
     function scrollToTitle() {
         $sectionLinks.forEach(link => {
@@ -72,7 +75,9 @@ const sectionsHeading = headings.filter(heading => heading.depth === 2)
             const target = document.querySelector(href);
             if (target) {
             const top = target.getBoundingClientRect().top + window.scrollY;
-            const offset = 500;
+
+            // cours contents have an image at the beginning of each section
+            const offset = $pageType === "cours" ? 500 : 0;
 
             window.scrollTo({
                 top: top - offset,
