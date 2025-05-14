@@ -18,16 +18,16 @@ Possibilité d’ajouter un article de blog libre (ex. IA, dev, coulisses) selon
 
 ## Fiches techniques prévues
 
-| Mois     | Sujet de la fiche technique                      |
-|----------|--------------------------------------------------|
-| Mai      | Comment (bien) utiliser les volumes Docker ?    |
-| Juin     | Qu'est-ce qu'un registry Docker ? |
-| Juillet  | Comment optimiser son image Docker ?            |
-| Août     | Comment faire un multi stagging ? |
-| Septembre      | Quand et comment déclencher un workflow GitHub Actions ?    |
-| Octobre     | Qu'est-ce qu'un artefact dans GitHub Actions ? |
-| Novembre  | Comment déployer une image Docker depuis GitHub Actions ?            |
-| Décembre     | Comment optimiser vos workflows GitHub Actions ? |
+| Mois     | Sujet de la fiche technique                      | status |
+|----------|--------------------------------------------------|--------|
+| Mai      | Comment (bien) utiliser les volumes Docker ?    | **DONE** |
+| Juin     | Qu'est-ce qu'un registry Docker ? | **DONE** |
+| Juillet  | Comment optimiser son image Docker ? | **DONE** |
+| Août     | Comment faire un multi stagging ? | _En cours_ |
+| Septembre      | Quand et comment déclencher un workflow GitHub Actions ?    | à faire |
+| Octobre     | Qu'est-ce qu'un artefact dans GitHub Actions ? | à faire |
+| Novembre  | Comment déployer une image Docker depuis GitHub Actions ?            | à faire |
+| Décembre     | Comment optimiser vos workflows GitHub Actions ? | à faire |
 
 
 ---
@@ -47,13 +47,13 @@ Possibilité d’ajouter un article de blog libre (ex. IA, dev, coulisses) selon
 ## Articles
 
 
-| Mois     | Objectif                                               |
-|----------|--------------------------------------------------      |
-| Mai      | Les coulisses de NX : comment fonctionne la génération de quiz par IA ?     |
-| Juin     | L'IA va-t-elle tuer internet (réponse rapide, non) ?   |
-| Juillet  | Comment bien utiliser les projets OpenAI ?             |
-| Août     | Astro, le futur du web ?                               |
-| Septembre     | Les coulisses de NX : comment fonctionne le Recap ?    |
+| Mois     | Objectif                                               | Status |
+|----------|--------------------------------------------------|-----|
+| Mai      | Les coulisses de NX : comment fonctionne la génération de quiz par IA ?     | _en cours_ |
+| Juin     | L'IA va-t-elle tuer internet (réponse rapide, non) ?   | à faire |
+| Juillet  | Comment bien utiliser les projets OpenAI ?             | à faire |
+| Août     | Astro, le futur du web ?                               | à faire |
+| Septembre     | Les coulisses de NX : comment fonctionne le Recap ?    | à faire |
 
 
 
@@ -63,3 +63,4 @@ Possibilité d’ajouter un article de blog libre (ex. IA, dev, coulisses) selon
   - Mathématiques essentielles pour comprendre l’IA
   - Visualiser les vecteurs, matrices, fonctions
   - Pourquoi l’algèbre linéaire est (vraiment) utile ?
+
