@@ -1,16 +1,24 @@
 ---
 import type { Breadcrumb } from "../types/Breadcrumb";
 
+type Heading = {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
 interface Props {
   frontmatter: {
     title: string;
     description: string;
     imgSrc?: string;
   };
+  headings: Heading[]
 }
 
 import theme from "../config/theme";
 import BaseLayout from "./BaseLayout.astro";
+import Heading3 from "../components/Heading3.astro"
 
 const {
   colors: { neonGreen, neonGreenLight, black },
@@ -18,7 +26,10 @@ const {
 
 const {
   frontmatter: { title, description, imgSrc },
+  headings
 } = Astro.props;
+
+const sectionsHeading = headings.filter(heading => heading.depth === 2)
 
 const breadCrumbs: Breadcrumb[] = [
   {
@@ -42,6 +53,20 @@ const breadCrumbs: Breadcrumb[] = [
     <section>
       <slot />
     </section>
+    <aside>
+      <div>
+        <Heading3 content="Contenu" />
+        <ul class="section-headings">
+          {
+            sectionsHeading.map(heading => (
+              <li>
+                <a class="section-link" href=`#${heading.slug}`>{heading.text}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </aside>
   </main>
 </BaseLayout>
 
@@ -49,7 +74,47 @@ const breadCrumbs: Breadcrumb[] = [
   main {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+    width: 90%;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (min-width: 1024px) {
+      display: grid;
+      grid-template-columns: 65% 30%;
+      gap: 64px;
+    }
   }
+
+  aside div {
+    display: none;
+
+    @media screen and (min-width: 1024px) {
+      display: initial;
+      position: sticky;
+      top: 24px;
+    }
+  }
+
+  .section-headings {
+    margin-top: 1.75rem;
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 5rem;
+
+    li {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .section-link {
+    color: #bababa;
+    
+    &:hover {
+      color: #4effa0;
+    }
+  }
+
 </style>
 
 <style is:global define:vars={{ neonGreen, neonGreenLight, black }}>
@@ -58,12 +123,12 @@ const breadCrumbs: Breadcrumb[] = [
     border-radius: 8px;
   }
 
-  article {
+  /* article {
     max-inline-size: 66ch;
     width: 90%;
     margin-left: auto;
     margin-right: auto;
-  }
+  } */
 
   h1 {
     font-size: 2.5rem;
