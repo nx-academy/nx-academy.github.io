@@ -109,3 +109,4 @@ Et si vous souhaitez suivre les prochaines éditions, vous pouvez :
 - Ou tout simplement revenir ici, chaque dernier vendredi du mois.
 
 Merci d’avoir pris le temps de me lire et bonne lecture ✌️
+

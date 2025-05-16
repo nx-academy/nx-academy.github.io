@@ -37,7 +37,9 @@ const breadCrumbs: Breadcrumb[] = [
 <BaseLayout title={title} breadcrumbs={title === "Le manifeste" || title === "Changelog" ? [] : breadCrumbs}>
   <main class="main-wrapper">
     <section>
-      <slot />
+      <article>
+        <slot />
+      </article>
     </section>
     <aside>
       <div class="aside-wrapper">
@@ -143,4 +145,16 @@ const breadCrumbs: Breadcrumb[] = [
   .author {
     font-size: 1.5rem;
   }
+
+  small {
+    font-size: 14px;
+    color: #bababa;
+    margin-bottom: 2.5rem;
+    display: block;
+  }
 </style>
+
+<script>
+  import handleReadingTime from "../utils/estimateReadingTime";
+  handleReadingTime();
+</script>
