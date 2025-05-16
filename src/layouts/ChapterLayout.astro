@@ -244,9 +244,19 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
     margin-top: 32px;
     margin-bottom: 32px;
   }
+
+  small {
+    font-size: 14px;
+    color: #bababa;
+    margin-bottom: 2.5rem;
+    display: block;
+  }
 </style>
 
 <script>
+  import handleReadingTime from "../utils/estimateReadingTime";
+  handleReadingTime();
+
   const $modal = document.querySelector(".image-modal-wrapper") as HTMLDivElement
   const $images = document.querySelectorAll("img")
   const $imageModal = document.querySelector(".image-modal img") as HTMLImageElement
