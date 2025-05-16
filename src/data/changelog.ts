@@ -12,6 +12,10 @@ const mayTaks: LogTasks = {
     month: "Mai",
     tasks: [
         {
+            kind: "in-progress",
+            content: "Ajout du temps de lecture sur les articles et les cours."
+        },
+        {
             kind: "done",
             content: `Alors, ce n'est pas vraiment une feature mais j'ai mis à jour <a href="https://github.com/nx-academy/nx-academy.github.io/blob/main/docs/plan-fonctionnalites.md" target="_blank">les fonctionnalités</a> sur lesquelles je vais travailler jusqu'en décembre ainsi que <a href="https://github.com/nx-academy/nx-academy.github.io/blob/main/docs/calendrier-editorial.md" target="_blank">le calendrier édito</a>. Pour info, je vais bientôt sortir une page roadmap publique pour vous tenir au courant de mes futurs plans.`
         },
@@ -53,7 +57,7 @@ const mayTaks: LogTasks = {
         },
         {
             kind: "in-progress",
-            content: `Mise à jour du <a href="https://github.com/nx-academy/nx-ai/pull/2">système de RAG</a> sur les quiz des fiches technique.s`
+            content: `Mise à jour du <a href="https://github.com/nx-academy/nx-ai/pull/2">système de RAG</a> sur les quiz des fiches techniques.`
         },
         {
             kind: "done",
