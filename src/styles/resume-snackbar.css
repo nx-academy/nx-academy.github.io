@@ -12,6 +12,14 @@
   z-index: 1000;
   min-width: 320px;
   max-width: 90%;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 1;
+}
+
+
+.resume-snackbar-wrapper.slide-out {
+  transform: translateX(150%);
+  opacity: 0;
 }
 
 .resume-snackbar-wrapper p {
