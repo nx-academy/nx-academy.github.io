@@ -14,7 +14,7 @@ publishedDate: 06/06/2025
 
 # Qu'est-ce qu'un registry Docker?
 
-![Une installation portuaire où un bateau est en train d'être déchargé de ses conteneurs](/cheatsheets/registry-docker.png)
+![Une installation portuaire où un bateau est en train d'être déchargé de ses conteneurs](/images/cheatsheets/registry-docker.webp)
 
 On continue notre série dédiée à Docker avec les registries Docker. Je me suis rendu compte que j'avais abordé ce concept dans le cours sans vraiment faire un chapitre dédié. Cette fiche technique est l'occasion de revenir sur cette notion et de l'approfondir.
 
@@ -76,7 +76,7 @@ Avant d’envoyer vos images dans un registry ou d’en récupérer certaines, n
 
 <br>
 
-![La page de création de compte de DockerHub](/cheatsheets/screenshot-dockerhub.png)
+![La page de création de compte de DockerHub](/images/cheatsheets/screenshot-dockerhub.webp)
 
 <br>
 
@@ -158,15 +158,6 @@ docker push ghcr.io/mon-orga/monimage:1.0.0
 Maintenant que votre image est en ligne, vous pouvez la récupérer depuis n’importe quelle machine. On voit dès maintenant.
 
 ### Récupérez votre image
-
-<!-- - Exemple avec DockerHub
-
-```bash
-docker image pull monpseudo/monimage
-docker container run moniage
-```
-
-- Exemple avec GHCR -->
 
 Une fois votre image envoyée sur un registry, vous pouvez la récupérer depuis n’importe quelle machine avec une simple commande `docker image pull`.
 

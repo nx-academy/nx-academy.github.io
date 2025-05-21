@@ -13,6 +13,14 @@ const mayTaks: LogTasks = {
     tasks: [
         {
             kind: "in-progress",
+            content: "Début du travail sur l'optimisation des assets du site et notamment des images. J'ai commencé à écrire un script JS qui optimise la taille et les formats de mes images. Je verrais pour le faire soit tourner en CI, soit en local au pre-push."
+        },
+        {
+            kind: "done",
+            content: `Ajout d'une animation de slider sur la barre de "Vous étiez en train de lire : (parce que les animations, c'est quand même cool !)`
+        },
+        {
+            kind: "in-progress",
             content: "Ajout du temps de lecture sur les articles et les cours."
         },
         {

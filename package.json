@@ -3,12 +3,13 @@
   "type": "module",
   "version": "1.0.0",
   "scripts": {
+    "astro": "astro",
+    "build": "astro check && astro build",
     "check": "astro check",
     "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
+    "optimize-images": "node ./scripts/optimizeImages",
     "preview": "astro preview",
-    "astro": "astro",
+    "start": "astro dev",
     "test": "vitest"
   },
   "dependencies": {
@@ -27,6 +28,7 @@
     "typescript": "^5.5.3"
   },
   "devDependencies": {
+    "sharp": "^0.34.2",
     "vitest": "^3.1.1"
   }
 }
