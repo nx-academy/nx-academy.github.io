@@ -14,7 +14,7 @@ publishedDate: 07/04/2025
 
 # Comment optimiser une image Docker ?
 
-![Une vendeuse asiatique utilisant un balancer dans un magasin, pixel art](/cheatsheets/magasin-chinois.png)
+![Une vendeuse asiatique utilisant un balancer dans un magasin, pixel art](/images/cheatsheets/magasin-chinois.webp)
 
 Ca y est : le cours sur Docker [est officiellement disponible](/cours/docker-et-docker-compose) ! Si ce n’est pas encore fait, je vous invite à le suivre avant d’attaquer cette fiche. J'y pose toutes les bases : images, conteneurs, Dockerfile, volumes, docker compose, etc.
 
