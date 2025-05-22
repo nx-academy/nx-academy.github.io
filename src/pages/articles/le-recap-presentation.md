@@ -17,7 +17,6 @@ publishedDate: 04/25/2025
 
 <img src="/scene-journalistes-journal.png" alt="Une scène de rédaction dans un journal, des journalises sont occupés à écrire des articles, pixel art" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block; object-position: top" />
 
-
 Décidément, en ce moment, NX est bien vivant !
 
 Après plusieurs mois d’hibernation (six, pour être honnête mais, hein, c’était l’hiver, après tout), j’ai enfin pu prendre le temps de me replonger dans le projet.
@@ -28,9 +27,7 @@ Et franchement je crois que ce temps était nécessaire. Il m’a permis de pose
 
 Forcément, je n’ai pas résisté à l’envie d’écrire un petit billet pour vous expliquer tout ça en détail.
 
-
 <br>
-
 
 ## TL;DR
 
@@ -39,23 +36,17 @@ Forcément, je n’ai pas résisté à l’envie d’écrire un petit billet pou
 - Seulement quatre articles, soigneusement choisis, qui parlent de tech, d’outils, de bonnes pratiques.
 - Le tout via un format mêlant curation humaine et aide à la rédaction par IA. J’en reparlerai bientôt dans une fiche dédiée.
 
-
 ---
-
 
 ## Le Récap, c'est quoi ?
 
 C’est un nouveau format de veille technique. Il est publié chaque dernier vendredi du mois. Il y a donc un nouveau récap au moment où j'écris ces lignes 😅. L’idée est simple : vous partager quatre articles qui m’ont paru intéressants et utiles. Ils sont en lien avec le développement, le DevOps, l'IA et la tech de manière plus générale.
 
-
 Pourquoi ce format ? Parce que, comme beaucoup d’entre vous, je me retrouve souvent à me noyer dans une trentaine (soyons honnêtes, plutôt une soixantaine) de newsletters que je n’ouvre jamais vraiment. Et quand je les ouvres, je suis souvent deçu par leur contenu. Pour moi une bonne veille, c’est avant tout savoir trier et garder ce qui aide vraiment à progresser et à se tenir à jour.
-
 
 Le Récap, c’est donc un outil/format d’apprentissage. Chaque article est soigneusement choisi avec une ambition derrière : vous aider à devenir un·e meilleur·e développeur·se, à votre rythme, un clic après l’autre.
 
-
 ---
-
 
 ## À mi-chemin entre l’IA et la curation
 
@@ -76,9 +67,7 @@ C’est donc un workflow où l’IA m’assiste mais où je reste aux commandes.
 
 Et au fond, c’est peut-être ça qui m’anime aussi dans ce format. Je pressens que ce type de workflow est amené à devenir la norme et NX se trouve un peu à l'avant garde. Et franchement, ces questions-là sont nouvelles et stimulantes. J'avoue que mon cerveau adore ça.
 
-
 ---
-
 
 ## Pourquoi je fais ça avec NX ?
 
@@ -91,7 +80,6 @@ NX est, pour moi, à la fois un espace de transmission et un terrain d’expéri
 Pour votre information, je termine en ce moment l’intégration du cours sur Docker.
 Les prochains mois seront donc très orientés Docker, avec des quiz, des fiches techniques et probablement quelques surprises autour de la conteneurisation. 🐳
 
-
 ---
 
 Voilà, vous savez tout (ou presque) sur le pourquoi du Récap, comment je le construis, et ce que j’y mets.
@@ -99,9 +87,7 @@ Voilà, vous savez tout (ou presque) sur le pourquoi du Récap, comment je le co
 👉 La première édition du Récap est disponible ici : [Le Récap #1 — Avril 2025](/articles/le-recap-avril-2025)
 N’hésitez pas à y jeter un œil, à picorer un lien ou à tout lire d’un coup. Il est là pour ça 🙂.
 
-
 <br>
-
 
 Et si vous souhaitez suivre les prochaines éditions, vous pouvez :
 
@@ -109,4 +95,3 @@ Et si vous souhaitez suivre les prochaines éditions, vous pouvez :
 - Ou tout simplement revenir ici, chaque dernier vendredi du mois.
 
 Merci d’avoir pris le temps de me lire et bonne lecture ✌️
-

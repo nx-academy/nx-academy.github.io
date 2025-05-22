@@ -2,9 +2,10 @@
 
 ## Welcome to NX Academy 👋!
 
-Thank you for taking the time to read the documentation for the NX Academy Website. 
+Thank you for taking the time to read the documentation for the NX Academy Website.
 
 Here are the key points you need to remember:
+
 - NX Academy uses [Astro JS](https://astro.build/).
 - We strive to minimize JavaScript usage on the client side.
 - We do not use a CSS framework and instead rely on Vanilla CSS.
@@ -12,7 +13,6 @@ Here are the key points you need to remember:
 - Apart from this README, all content is written in French.
 - We are currently working on creating valuable cheatsheets, which we refer to in French as "Fiches techniques."
 - We use Figma to help us designing the website and [it's accessible to everyone](https://www.figma.com/design/CMX7KkMti1EMBxIKksQl0v/Website?node-id=0-1&t=oQilfknMIs7W0XQ2-1). Yeah, it's pretty rough at the moment!
-
 
 ## How to Run this Project on your Computer?
 
@@ -33,7 +33,6 @@ Once you have cloned the repo, the following commands should be available. They 
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
-
 
 ### Project Structure
 
@@ -59,7 +58,6 @@ There's nothing special about `src/components/`, but that's where we like to put
 Any static assets, like images, can be placed in the `public/` directory.
 
 Layouts serve as wrappers for page content, helping to keep your base code [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself).
-
 
 ## Contributing?
 

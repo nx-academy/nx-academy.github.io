@@ -8,10 +8,11 @@
     "check": "astro check",
     "dev": "astro dev",
     "optimize-images": "node ./scripts/optimizeImages",
+    "prettier:check": "prettier . --check",
+    "prettier:format": "prettier . --write",
     "preview": "astro preview",
     "start": "astro dev",
-    "test": "vitest",
-    "format": "prettier . --write"
+    "test": "vitest"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",

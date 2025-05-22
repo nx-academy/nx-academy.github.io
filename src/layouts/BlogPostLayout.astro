@@ -1,25 +1,25 @@
 ---
-import type { Breadcrumb } from "../types/Breadcrumb"
+import type { Breadcrumb } from "../types/Breadcrumb";
 
 type Heading = {
-  depth: number
-  slug: string
-  text: string
-}
+  depth: number;
+  slug: string;
+  text: string;
+};
 
 interface Props {
   frontmatter: {
     title?: string;
   };
-  headings: Heading[]
+  headings: Heading[];
 }
 
 import BaseLayout from "./BaseLayout.astro";
-import StickyOutline from "../components/StickyOutline.astro"
+import StickyOutline from "../components/StickyOutline.astro";
 
 const {
   frontmatter: { title },
-  headings
+  headings,
 } = Astro.props;
 
 const breadCrumbs: Breadcrumb[] = [
@@ -34,7 +34,12 @@ const breadCrumbs: Breadcrumb[] = [
 ];
 ---
 
-<BaseLayout title={title} breadcrumbs={title === "Le manifeste" || title === "Changelog" ? [] : breadCrumbs}>
+<BaseLayout
+  title={title}
+  breadcrumbs={title === "Le manifeste" || title === "Changelog"
+    ? []
+    : breadCrumbs}
+>
   <main class="main-wrapper">
     <section>
       <article>
@@ -99,7 +104,7 @@ const breadCrumbs: Breadcrumb[] = [
   p {
     margin-bottom: 1.5rem;
     color: #bababa;
-    font-size: clamp(.875rem, 0.75rem + 1.5vw, 1.125rem);
+    font-size: clamp(0.875rem, 0.75rem + 1.5vw, 1.125rem);
   }
 
   hr {

@@ -39,7 +39,6 @@ Si on prend un peu de recul, ce phénomène n’a rien de nouveau. Pensez au roc
 
 Alors pourquoi cette peur du changement ? Notre cerveau n’aime pas l’inconnu. Ce n’est pas juste une question de génération ou de société, c’est une réaction profondément ancrée en nous. En psychologie, on parle du biais du statu quo. On préfère ce qui nous est familier et toute nouveauté est perçue comme une menace avant d’être acceptée. L’IA et ChatGPT ne font pas exception.
 
-
 ### Pourquoi ChatGPT n’échappera pas à la règle ?
 
 Les IA comme ChatGPT sont un bouleversement technologique majeur. Certains estiment que leur impact est comparable à l’arrivée de l’iPhone ou même d’Internet (j’en fais parti, ça a totalement changé mon quotidien).
@@ -63,7 +62,6 @@ Tout simplement parce qu’il est bon ! Par exemple, je l’utilise énormément
 Mais ChatGPT ne se limite pas aux recettes. Il est aussi excellent pour donner des conseils. Que ce soit en coaching, en relations humaines ou même en psychologie, il propose souvent des pistes intéressantes. Ok, c’est pas un thérapeute. Cela dit, il aide beaucoup à structurer la réflexion et à prendre du recul. Il ne juge pas, ne réagit pas avec émotion. Il permet souvent de mieux comprendre une situation. Personnellement, je trouve qu’il m’aide à devenir une meilleure personne, à mieux gérer certaines interactions et même à être un meilleur collègue (Aline, si tu lis ce passage).
 
 Autre atout : sa disponibilité. 24 heures sur 24, 7 jours sur 7. Il ne dort pas, ne se lasse pas. Autre chose, il n’a jamais de ne “pas envie de vous écouter”. Un humain, lui, ne peut pas faire ça. Cela dit, vous n’irez jamais boire une bière avec lui. Et c’est très bien comme ça !
-
 
 ### Un rapport à l’IA unidirectionnel
 

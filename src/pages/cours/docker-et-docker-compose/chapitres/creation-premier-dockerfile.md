@@ -24,9 +24,7 @@ Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre [sur la bran
 
 Dans les premiers chapitres, vous avez vu comment récupérer une image Node.js en utilisant la commande `docker image pull`. **Cette commande est bien pratique pour récupérer une image. Cela dit, elle montre rapidement ses limites quand on souhaite travailler avec**. En effet, une fois que vous avez récupéré l’image, vous allez voir lui ajouter des fichiers, installer des librairies, peut-être la préparer pour la production, etc. Chaque étape correspond à une instruction bien précise.
 
-
 Le schéma ci-dessous montre un enchaînement d’instructions assez courant.
-
 
 <br>
 
@@ -36,12 +34,9 @@ Le schéma ci-dessous montre un enchaînement d’instructions assez courant.
 
 Essayez de voir ça comme un voyage à l’étranger. Le point de départ est le moment où vous préparez le départ depuis chez vous. Vous sortez vos affaires de votre armoire, vous préparez vos valises, puis vous prenez le train, arrivez à votre destination, puis vous vous rendez à l'hôtel, etc. Travailler avec Docker, c’est un peu pareil. **Vous allez grâce à votre Dockerfile réaliser une série d’étapes [par le biais d’instructions](https://docs.docker.com/engine/reference/builder/)**. Il existe un peu plus d’une dizaine d’instructions.
 
-
 Dans ce chapitre, on va se concentrer sur les instructions `FROM`, `ADD`. `COPY` et `CMD`. **Le Dockerfile représente le squelette de notre application**. Autrement dit, C’est l’API REST en Node.js que nous allons créer. Ce fichier va nous permettre de définir notre image de base. Nous lui ajouterons des fichiers et installerons nos dépendances grâce à npm. À la fin de ce chapitre, nous aurons une image Docker prête à l’emploi. Elle ne contiendra pas encore notre API REST et elle demandera encore un peu de travail pour être optimiser pour la production. Mais pour le moment, nous y allons étape par étape.
 
-
 Avant de découvrir ces instructions ensemble, je vous invite à télécharger [l’extension VSCode Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker). Cette extension ajoute des indications sur vos fichiers Dockerfile, en vous donnant par exemple des explications sur ce que font telle ou telle commande. C’est ce qu’on appelle [l’Intellisense](https://code.visualstudio.com/docs/editor/intellisense).
-
 
 ---
 
@@ -52,7 +47,6 @@ Avant de découvrir ces instructions ensemble, je vous invite à télécharger [
 ## Ajoutez des instructions sur votre Dockerfile
 
 Commencez par regarder le Dockerfile ci-dessous. Pour votre information, ce snippet, ou morceau de code en français, se trouve [sur ce gist Github](https://gist.github.com/tdimnet/96a5d87fea9955c7824a99534821047a).
-
 
 <br>
 
@@ -74,7 +68,6 @@ CMD [ "echo", "hello, world" ]
 
 Créez un fichier appelé Dockerfile dans le dossier du projet fil rouge. Votre arborescence devrait ressembler à ça. Recopiez le code ci-dessus dans ce fichier.
 
-
 <br>
 
 ![Une capture d'écran de l'arborescence du projet sous VsCode](/arborescence-projet.png)
@@ -95,8 +88,7 @@ docker container run my-first-app
 
 <br>
 
-Vous devriez normalement voir s’afficher dans votre console *hello, world*. **Vous venez, sans le savoir, de builder votre image Docker à partir d’un Dockerfile** et de lancer votre premier contenu à partir d’une image que vous avez créée.
-
+Vous devriez normalement voir s’afficher dans votre console _hello, world_. **Vous venez, sans le savoir, de builder votre image Docker à partir d’un Dockerfile** et de lancer votre premier contenu à partir d’une image que vous avez créée.
 
 Il y a deux choses importantes à noter ici :
 
@@ -143,7 +135,6 @@ Parlons maintenant un peu des types et des tags d’image Docker. Je suis assez 
 <br>
 
 Ok, maintenant, tapez la commande :
-
 
 ```bash
 docker system prune –all
@@ -210,15 +201,13 @@ Essayez de taper git maintenant. Vous devriez avoir la réponse `bin/sh: git: no
 
 Nous allons travailler, pour le moment, avec une image type buster-slim où Buster avec une image d’une distribution Debian et slim est une version particulièrement légère. C’est une bonne image pour débuter avec Docker. Nous verrons dans les derniers chapitres du cours comment optimiser notre image pour la production. J’en profite pour vous recommander [un excellent article Medium](https://medium.com/swlh/alpine-slim-stretch-buster-jessie-bullseye-bookworm-what-are-the-differences-in-docker-62171ed4531d) qui présente les différences entre les différentes images Docker.
 
-Pour résumer ce que nous venons de voir. **Essayez de toujours prendre l’image la plus petite**. Je vous recommande d’utiliser *une buster* ou *une buster-slim* pour commencer. Cela va vous permettre de construire votre image et de rendre fonctionnel votre projet. Je m’occupe généralement de l’optimisation dans un deuxième.
-
+Pour résumer ce que nous venons de voir. **Essayez de toujours prendre l’image la plus petite**. Je vous recommande d’utiliser _une buster_ ou _une buster-slim_ pour commencer. Cela va vous permettre de construire votre image et de rendre fonctionnel votre projet. Je m’occupe généralement de l’optimisation dans un deuxième.
 
 ---
 
-
 Maintenant, parlons de la deuxième bonne pratiques : les tags !
 
-Jusqu’à présent, nous avons manipulé les images suivantes : *ubuntu:18.04*, *node* et *node-alpine*. Les tags des images sont situés sur la partie droite, autrement dit après les : Notre image ubuntu a le tag 18.04. Nous lui disons donc de récupérer l’image Ubuntu ayant ce tag particulier. Je vous entends déjà derrière votre écran me dire, “_Merci Thomas, j’avais compris ça. Par contre, je ne comprends pas pourquoi les deux images node n’ont pas de tags_”.
+Jusqu’à présent, nous avons manipulé les images suivantes : _ubuntu:18.04_, _node_ et _node-alpine_. Les tags des images sont situés sur la partie droite, autrement dit après les : Notre image ubuntu a le tag 18.04. Nous lui disons donc de récupérer l’image Ubuntu ayant ce tag particulier. Je vous entends déjà derrière votre écran me dire, “_Merci Thomas, j’avais compris ça. Par contre, je ne comprends pas pourquoi les deux images node n’ont pas de tags_”.
 
 En fait, **ces deux images ont un tag implicite, le tag `latest`. Ce tag correspond à la dernière version de l’image**. Sur le papier, ça peut sembler une bonne idée de toujours utiliser ce tag implicite : qui ne rêve pas d’avoir une image la plus à jour possible. C’est idéal niveau sécurité et on sait qu’on est toujours à jour.
 
@@ -258,4 +247,3 @@ Le code source contenant la solution de cet exercice se trouve [sur la branche `
 - De manière générale, il est important d’utiliser les plus petites images possibles, autrement dit celles qui embarquent le moins de librairies. Vous pouvez commencer avec des images type buster-slim. Nous verrons dans un prochain chapitre comment optimiser notre Dockerfile pour la production.
 
 </article>
-

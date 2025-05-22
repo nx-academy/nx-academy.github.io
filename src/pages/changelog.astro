@@ -20,48 +20,47 @@ import { ALL_MONTHS } from "../data/changelog";
         : nouvelles fonctionnalités, corrections, ajustements.
       </p>
       <p>
-        Pour votre information, je travaille sur la nouvelle version de NX Academy depuis environ 9 mois. Cela dit, je n'ai pas tout le temps eu autant de temps que je l'aurais souhaité pour travailler dessus. <strong>J'ai lancé ce changelog en Avril 2025.</strong> Je vais continuer à le mettre à jour après ce mois et j'essayerais d'ajouter des dates avant, dans la mesure du possible.
+        Pour votre information, je travaille sur la nouvelle version de NX
+        Academy depuis environ 9 mois. Cela dit, je n'ai pas tout le temps eu
+        autant de temps que je l'aurais souhaité pour travailler dessus. <strong
+          >J'ai lancé ce changelog en Avril 2025.</strong
+        > Je vais continuer à le mettre à jour après ce mois et j'essayerais d'ajouter
+        des dates avant, dans la mesure du possible.
       </p>
       <p>Bonne lecture 🙂 !</p>
     </div>
     {
-      ALL_MONTHS.map(month => (
+      ALL_MONTHS.map((month) => (
         <section class="monthly-section">
           <h2>{month.month} 2025</h2>
           <section class="kind-section">
             <h3>🟢 Les nouveautés et mises à jour du mois</h3>
             <ul class="logs-list">
-              {
-                month.tasks
-                  .filter(task => task.kind === "done")
-                  .map(task => (
-                    <li set:html={task.content} />
-                  ))
-              }
+              {month.tasks
+                .filter((task) => task.kind === "done")
+                .map((task) => (
+                  <li set:html={task.content} />
+                ))}
             </ul>
           </section>
           <section class="kind-section">
             <h3>🟡 Les projets en cours</h3>
             <ul class="logs-list">
-              {
-                month.tasks
-                  .filter(task => task.kind === "in-progress")
-                  .map(task => (
-                    <li set:html={task.content} />
-                  ))
-              }
+              {month.tasks
+                .filter((task) => task.kind === "in-progress")
+                .map((task) => (
+                  <li set:html={task.content} />
+                ))}
             </ul>
           </section>
           <section class="kind-section">
             <h3>🔴 Les corrections de bugs</h3>
             <ul class="logs-list">
-              {
-                month.tasks
-                  .filter(task => task.kind === "fix")
-                  .map(task => (
-                    <li set:html={task.content} />
-                  ))
-              }
+              {month.tasks
+                .filter((task) => task.kind === "fix")
+                .map((task) => (
+                  <li set:html={task.content} />
+                ))}
             </ul>
           </section>
         </section>

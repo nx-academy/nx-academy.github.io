@@ -9,7 +9,7 @@ kind: Fiche technique
 level: Intermédiaire
 author: Lionel
 draft: false
-publishedDate: 11/30/2024 
+publishedDate: 11/30/2024
 ---
 
 <article>
@@ -28,11 +28,11 @@ Ce qui génère ce problème est très simple, lorsque vous lancez Storybook ave
 
 Vous obtenez donc un composant dépourvu d'image dans votre story ou une erreur de compilation lors du lancement de storybook.
 
-Ce petit désagrément m'a finalement pris la journée entière pour trouver une solution ! 
+Ce petit désagrément m'a finalement pris la journée entière pour trouver une solution !
 
 ## Bootstrapping 🚀
 
-Au moment de démarrer votre projet en suivant la documentation de NextJS et de Storybook, Votre configuration de base  devrait ressembler à ceci :
+Au moment de démarrer votre projet en suivant la documentation de NextJS et de Storybook, Votre configuration de base devrait ressembler à ceci :
 
 ### Fichier main.ts dans votre dossier ./storybook/ 📄
 
@@ -65,7 +65,7 @@ export default config;
 
 ```ts
 import type { Preview } from "@storybook/react";
-import '../src/app/globals.css';
+import "../src/app/globals.css";
 
 const preview: Preview = {
   parameters: {
@@ -120,7 +120,9 @@ const config: StorybookConfig = {
     autodocs: "tag",
   },
   // On spécifier le path à suivre pour permettre à storybook de trouver les images.
-  staticDirs: [{ from: path.resolve(__dirname, '../public/images'), to: '/images' }],
+  staticDirs: [
+    { from: path.resolve(__dirname, "../public/images"), to: "/images" },
+  ],
   typescript: {
     check: false,
     checkOptions: {},
@@ -138,10 +140,10 @@ export default config;
 Nous allons ensuite importer au dessus du document les propriétés de `next/image` et ensuite vérifier si next/image.default est configurable et redéfinit pour permettre `l'override` de `next/image` pour Storybook.
 
 ```ts
-import React from 'react';
+import React from "react";
 import type { Preview } from "@storybook/react";
-import '../src/app/globals.css';
-import * as nextImage from 'next/image';
+import "../src/app/globals.css";
+import * as nextImage from "next/image";
 
 const preview: Preview = {
   parameters: {
@@ -151,17 +153,17 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
-    actions: { argTypesRegex: '^on[A-Z].*' },
+    actions: { argTypesRegex: "^on[A-Z].*" },
   },
 };
 
 // Vérifie si nextImage.default est déjà configurable et redéfinit seulement si possible
-if (Object.getOwnPropertyDescriptor(nextImage, 'default')?.configurable) {
+if (Object.getOwnPropertyDescriptor(nextImage, "default")?.configurable) {
   // Override next/image pour Storybook
-  Object.defineProperty(nextImage, 'default', {
+  Object.defineProperty(nextImage, "default", {
     configurable: true,
-    value: (props: React.ImgHTMLAttributes<HTMLImageElement>) => 
-      React.createElement('img', props), 
+    value: (props: React.ImgHTMLAttributes<HTMLImageElement>) =>
+      React.createElement("img", props),
   });
 }
 
@@ -179,27 +181,27 @@ Cette méthode nous permet également de ne pas devoir configurer des fonctions 
 Il ne vous reste plus qu'à spécifier le `path` adéquat de votre fichier `***.stories.tsx` dans la proriété `args` de votre `story`.
 
 ```ts
-import { Meta, StoryObj } from '@storybook/react';
-import Logo from '../components/Logo/Logo';
+import { Meta, StoryObj } from "@storybook/react";
+import Logo from "../components/Logo/Logo";
 
 const meta: Meta<typeof Logo> = {
-  title: 'Components/Logo',
+  title: "Components/Logo",
   component: Logo,
   argTypes: {
-    src: { control: 'text' },
-    alt: { control: 'text' },
-    width: { control: 'number' },
-    height: { control: 'number' },
+    src: { control: "text" },
+    alt: { control: "text" },
+    width: { control: "number" },
+    height: { control: "number" },
   },
-}
+};
 
 export default meta;
 type Story = StoryObj<typeof Logo>;
 
 export const Main: Story = {
   args: {
-    src: '/images/Logo.webp', // <==  Path adapté à la configuration pour le rendu d'image
-    alt: 'Logo Dietetic',
+    src: "/images/Logo.webp", // <==  Path adapté à la configuration pour le rendu d'image
+    alt: "Logo Dietetic",
     width: 75,
     height: 75,
   },
@@ -215,4 +217,4 @@ L'utilisation de next/image avec Storybook nécessite une configuration supplém
 - [Storybook - Images, fonts, and assets](https://storybook.js.org/docs/configure/integration/images-and-assets)
 - [NextJS - API Reference / Components / <Image>](https://nextjs.org/docs/pages/api-reference/components/image)
 - [How to Use the Next.js Image Component in Storybook](https://dev.to/jonasmerlin/how-to-use-the-next-js-image-component-in-storybook-1415)
-- [Next-Image with StorybookJS](https://xenox.dev/next-image-with-storybookjs/) 
+- [Next-Image with StorybookJS](https://xenox.dev/next-image-with-storybookjs/)

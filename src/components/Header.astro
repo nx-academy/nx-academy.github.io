@@ -151,7 +151,7 @@
 <script>
   const $burger = document.querySelector(".burger") as HTMLDivElement;
   const $mobileNav = document.querySelector(".mobile-nav") as HTMLElement;
-  const $body = document.body as HTMLBodyElement
+  const $body = document.body as HTMLBodyElement;
 
   $burger.addEventListener("click", () => {
     const isOpen = $burger.classList.toggle("active");
@@ -159,13 +159,13 @@
     $mobileNav.classList.toggle("active");
     $burger.setAttribute("aria-expanded", String(isOpen));
     $mobileNav.setAttribute("aria-hidden", String(!isOpen));
-    
+
     if (isOpen) {
-      $body.style.overflow = 'hidden';
-      $body.style.height = '100vh';
+      $body.style.overflow = "hidden";
+      $body.style.height = "100vh";
     } else {
-      $body.style.overflow = '';
-      $body.style.height = '';
+      $body.style.overflow = "";
+      $body.style.height = "";
     }
   });
 </script>

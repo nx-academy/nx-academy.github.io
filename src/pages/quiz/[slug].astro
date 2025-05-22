@@ -14,7 +14,7 @@ export function getStaticPaths() {
 const { slug } = Astro.params;
 
 const { title, description, level, imgSrc, imgAlt, href } = QUIZZES.filter(
-  (quiz) => quiz.slug === slug
+  (quiz) => quiz.slug === slug,
 )[0];
 
 const breadCrumbs: Breadcrumb[] = [
@@ -25,7 +25,7 @@ const breadCrumbs: Breadcrumb[] = [
   {
     pageName: "Quiz",
     pageUrl: "/quiz",
-  }
+  },
 ];
 ---
 
@@ -96,10 +96,10 @@ const breadCrumbs: Breadcrumb[] = [
     padding-bottom: 16px;
     border-radius: 4px;
     cursor: pointer;
-    transition: .4s;
+    transition: 0.4s;
 
     &:hover {
-      background-color: #4effa0aa; 
+      background-color: #4effa0aa;
     }
   }
 
@@ -128,13 +128,13 @@ const breadCrumbs: Breadcrumb[] = [
 
 <script>
   const $quizContainer = document.querySelector(
-    ".quiz-container"
+    ".quiz-container",
   ) as HTMLElement;
   const $startQuizBtn = document.querySelector(
-    ".start-quiz-btn"
+    ".start-quiz-btn",
   ) as HTMLButtonElement;
   const $quizPresentation = document.querySelector(
-    ".quiz-presentation"
+    ".quiz-presentation",
   ) as HTMLDivElement;
 
   $startQuizBtn.addEventListener("click", function () {

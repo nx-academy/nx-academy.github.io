@@ -63,13 +63,14 @@ const { pathname } = Astro.url
       href={new URL("rss.xml", Astro.site)}
     />
 
+    <!-- prettier-ignore-start -->
     {
       import.meta.env.PROD && <script>
         (function(h,o,u,n,d) {
           // @ts-ignore
           h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}}
           // @ts-ignore
-          d=o.createElement(u);d.async=1;d.src=n
+          d=o.createElement(u);d.async=1;d.src=n // prettier-ignore
           // @ts-ignore
           n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n)
         })(window,document,'script','https://www.datadoghq-browser-agent.com/eu1/v6/datadog-rum.js','DD_RUM')
@@ -90,9 +91,9 @@ const { pathname } = Astro.url
           sessionReplaySampleRate: 20,
           defaultPrivacyLevel: 'mask-user-input',
         });
-      })</script>
+      })</script>  
     }
-
+    <!-- prettier-ignore-end -->
     
 
   </head>

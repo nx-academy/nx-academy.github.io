@@ -27,12 +27,9 @@ On retrouvait notamment :
 - celui qui se concentre sur l’optimisation en rendant son code aussi rapide et efficace que possible, quitte à sacrifier un peu de lisibilité ;
 - celui obsédé par le design pixel perfect et l’expérience utilisateur. Son objectif est de construire des interfaces que les utilisateurs aiment utiliser.
 
-
 Mais pour moi, il manquait un dernier profil : le développeur junior. Son approche est différente. Il ne se focalise pas encore sur la lisibilité ou la performance. Son objectif principal est d’apprendre et de progresser. Parfois même, il va volontairement complexifier une solution pour se challenger ou pour se prouver qu’il en est capable.
 
-
 <br>
-
 
 **Mais vous êtes vous déjà demandé le type de dev que vous étiez quand vous utilisiez l'IA ?** Je me suis récemment posé la question et je vais prendre le temps de revenir dessus dans cet article
 
@@ -69,7 +66,6 @@ Il est aussi curieux intellectuellement : il veut comprendre comment fonctionne 
 
 > Voici une fonction que j’ai écrite. Peux-tu proposer des améliorations en termes de lisibilité et de performance — sans en changer la logique ?
 
-
 ---
 
 <img src="/blog/vape-coder.png" alt="Le Vape Coder devant son ordinateur, pixel art" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block;" />
@@ -104,7 +100,6 @@ Dans un contexte de startup, de hackathon ou de projet solo, c’est une machine
 
 > Génère un composant React avec Tailwind qui récupère des données depuis cet endpoint et les affiche sous forme de grille de cartes. Et rends ça joli.
 
-
 ---
 
 <img src="/blog/debugger.png" alt="Le Debugger devant son ordinateur, pixel art" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block;" />
@@ -126,7 +121,6 @@ Il utilise rarement GPT pour générer du code depuis zéro. À la place, il cop
 - des bugs incompréhensibles,
 - des messages d’erreur tordus.
 
-
 Il considère GPT comme un assistant de diagnostic, pas comme un copilote.
 Ce qu’il veut, c’est comprendre en profondeur pourquoi ça marche ou pourquoi ça casse. Il n’a pas peur d’affiner ses prompts plusieurs fois pour aller plus loin que la simple solution.
 
@@ -146,7 +140,6 @@ Là où le Monk cherche la structure et l’élégance, le Debugger cherche la v
 ### Le prompt typique du Debugger
 
 > Cette fonction renvoie TypeError: Cannot read properties of undefined. Voici le code. Tu peux m’aider à comprendre pourquoi ça plante et comment le corriger ?
-
 
 ---
 
@@ -188,13 +181,11 @@ Avec suffisamment d’itérations, de questions et de feedback, le Learner d’a
 
 > J’apprends JavaScript. Tu peux m’expliquer ce que fait cette fonction avec async/await, et comment je pourrais en écrire une moi-même ?
 
-
 ---
 
 J’espère que cet article vous a plu ! Souvenez-vous que nous sommes rarement un seul profil. La plupart d’entre nous sont un mélange et cela peut changer selon le contexte.
 
 Par exemple, je me considère comme un Monk quand il s’agit de langages de programmation mais clairement un Learner dès qu’on parle de data science.
-
 
 À bientôt et codez bien !
 

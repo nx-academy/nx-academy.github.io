@@ -16,7 +16,17 @@ import ParagraphExtraSmall from "./ParagraphExtraSmall.astro";
 import ParagraphLarge from "./ParagraphLarge.astro";
 import ParagraphSmall from "./ParagraphSmall.astro";
 
-const { description, href, imgAlt, imgSrc, level, title, kind, author, publishedDate } = Astro.props;
+const {
+  description,
+  href,
+  imgAlt,
+  imgSrc,
+  level,
+  title,
+  kind,
+  author,
+  publishedDate,
+} = Astro.props;
 ---
 
 <a href={href}>
@@ -25,7 +35,9 @@ const { description, href, imgAlt, imgSrc, level, title, kind, author, published
   <Heading3 content={title} />
   {level && <ParagraphExtraSmall content={`Niveau : ${level}`} />}
   <ParagraphSmall content={description} />
-  <ParagraphExtraSmall content=`Par ${author} - le ${new Date(publishedDate).toLocaleDateString('fr-FR')}` />
+  <ParagraphExtraSmall
+    content=`Par ${author} - le ${new Date(publishedDate).toLocaleDateString('fr-FR')}`
+  />
 </a>
 
 <style>
@@ -33,7 +45,7 @@ const { description, href, imgAlt, imgSrc, level, title, kind, author, published
     border-radius: 16px;
     display: grid;
     gap: 0.5rem;
-    transition: .4s
+    transition: 0.4s;
   }
 
   a:hover :global(h3) {
@@ -42,7 +54,7 @@ const { description, href, imgAlt, imgSrc, level, title, kind, author, published
 
   .image {
     border-radius: 16px;
-    transition: .4s;
+    transition: 0.4s;
     aspect-ratio: 1792 / 1024;
     object-fit: cover;
     object-position: top;

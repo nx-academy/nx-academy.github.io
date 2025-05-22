@@ -1,19 +1,20 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
-import react from '@astrojs/react';
+import react from "@astrojs/react";
 
-import sitemap from '@astrojs/sitemap';
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://nx.academy",
-  integrations: [react(), 
+  integrations: [
+    react(),
     sitemap({
       filter: (page) => !page.startsWith("/drafts"),
-      changefreq: 'weekly',
+      changefreq: "weekly",
       priority: 0.7,
-      lastmod: new Date()
-    }
-  )]
+      lastmod: new Date(),
+    }),
+  ],
 });
