@@ -40,7 +40,7 @@ function Component({ slug }) {
 
   function onSelectAnswer(selectedAnswer) {
     if (isAnswerSubmit) return;
-    if (selectedAnswer === answer) return
+    if (selectedAnswer === answer) return;
 
     if (clickAudioRef.current) {
       clickAudioRef.current.currentTime = 0;
@@ -56,16 +56,15 @@ function Component({ slug }) {
 
     // Right answer
     if (quizData[questionNumber].answer === answer) {
-
       if (successAudioRef.current) {
-        successAudioRef.current.currentTime = 0
-        successAudioRef.current.play()
+        successAudioRef.current.currentTime = 0;
+        successAudioRef.current.play();
       }
 
       setScore(score + 1);
     } else {
-      errorAudioRef.current.currentTime = 0
-      errorAudioRef.current.play()
+      errorAudioRef.current.currentTime = 0;
+      errorAudioRef.current.play();
     }
   }
 

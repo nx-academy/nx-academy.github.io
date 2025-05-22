@@ -13,7 +13,7 @@ id: 9
 
 <article>
 
-# Préparez votre application pour la production 
+# Préparez votre application pour la production
 
 Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre [sur la branche partie-3/chapitre-3-debut](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-3/chapitre-3-debut). En plus de cette branche, nous allons utiliser [cette issue Github](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/6) comme problématique. Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
 
@@ -66,7 +66,7 @@ COPY ["package.json", "package-lock.json*", "./"]
 
 RUN npm install --production
 
-COPY . .  
+COPY . .
 
 CMD ["node", "server.js"]
 ```
@@ -118,11 +118,11 @@ Mais du coup, le multi-staging, c’est quoi ?
 ```dockerfile
 FROM golang:1.16
 WORKDIR /go/src/github.com/alexellis/href-counter/
-RUN go get -d -v golang.org/x/net/html  
+RUN go get -d -v golang.org/x/net/html
 COPY app.go ./
 RUN CGO_ENABLED=0 go build -a -installsuffix cgo -o app .
 
-FROM alpine:latest  
+FROM alpine:latest
 RUN apk --no-cache add ca-certificates
 WORKDIR /root/
 COPY --from=0 /go/src/github.com/alexellis/href-counter/app ./
@@ -137,22 +137,22 @@ L’option `--from=0` me permet de récupérer dans l’étape contenant l’ima
 
 <br>
 
-Si on reprend l’exemple précédent : 
+Si on reprend l’exemple précédent :
 
 <br>
 
 ```dockerfile
 FROM golang:1.16 AS builder
 WORKDIR /go/src/github.com/alexellis/href-counter/
-RUN go get -d -v golang.org/x/net/html  
+RUN go get -d -v golang.org/x/net/html
 COPY app.go ./
 RUN CGO_ENABLED=0 go build -a -installsuffix cgo -o app .
 
-FROM alpine:latest  
+FROM alpine:latest
 RUN apk --no-cache add ca-certificates
 WORKDIR /root/
 COPY --from=builder /go/src/github.com/alexellis/href-counter/app ./
-CMD ["./app"] 
+CMD ["./app"]
 ```
 
 <br>
@@ -179,7 +179,7 @@ RUN REACT_APP_API_URL=http://localhost:3000 npm run build
 
 
 FROM nginx:1.17 AS prod
-COPY --from=build /web/build /usr/share/nginx/html 
+COPY --from=build /web/build /usr/share/nginx/html
 ```
 
 <br>
@@ -208,8 +208,8 @@ services:
     depends_on:
       - database
     environment:
-      DB_URL: 'myUrl'
-      DB_NAME: 'mooc-db'
+      DB_URL: "myUrl"
+      DB_NAME: "mooc-db"
       PORT: 3000
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
@@ -296,6 +296,7 @@ Sachez que je n'ai pas parlé :
 <br>
 
 Vous vous demandez peut-être maintenant quelle(s) suite(s) donner à ce cours. Je pense qu'il y en a plusieurs :
+
 - je vous invite à reprendre une application existante utilisant une API et une base de données et à la dockeriser.
 - vous pouvez aussi reprendre un projet complet (y compris un projet d’entreprise) et le dockeriser pour vos collègues.
 

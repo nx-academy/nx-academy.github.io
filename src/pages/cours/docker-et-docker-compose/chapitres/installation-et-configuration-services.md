@@ -1,7 +1,7 @@
 ---
 layout: ../../../../layouts/ChapterLayout.astro
 
-title: Installez et configurez des services avec docker compose 
+title: Installez et configurez des services avec docker compose
 description: Une nouvelle super description dédiée à Docker
 
 previousChapterLink: gestion-reseau-infrastructure
@@ -14,7 +14,7 @@ id: 7
 
 <article>
 
-# Installez et configurez des services avec docker compose 
+# Installez et configurez des services avec docker compose
 
 Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre [sur la branche `partie-3/chapitre-1-debut`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-3/chapitre-1-debut). En plus de cette branche, nous allons utiliser [cette issue Github](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/4) comme problématique. Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
 
@@ -78,27 +78,25 @@ Prenez un peu le temps [de lire la documentation](https://hub.docker.com/_/mongo
 
 ```yml
 # Use root/example as user/password credentials
-version: '3.1'
-
+version: "3.1"
 
 services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
 
- mongo:
-   image: mongo
-   restart: always
-   environment:
-     MONGO_INITDB_ROOT_USERNAME: root
-     MONGO_INITDB_ROOT_PASSWORD: example
-
- mongo-express:
-   image: mongo-express
-   restart: always
-   ports:
-     - 8081:8081
-   environment:
-     ME_CONFIG_MONGODB_ADMINUSERNAME: root
-     ME_CONFIG_MONGODB_ADMINPASSWORD: example
-     ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
 ```
 
 <br>
@@ -112,7 +110,6 @@ Amusez à créer un fichier docker-compose et à y copier/coller ce snippet de c
 ![](/cours-docker/mongo-express-admin.png)
 
 <br>
-
 
 Vous vous demandez peut-être pourquoi vous n’avez pas besoin d’utiliser la commande `docker-compose build`. En fait, cette commande vous permet de builder des images Docker. **Or, là, vous n’avez pas à en builder : elles sont déjà builder sur DockerHub, vous avez simplement à les récupérer (les puller)**.
 
@@ -145,7 +142,7 @@ services:
     image: mariadb:10.6.4-focal
     # If you really want to use MySQL, uncomment the following line
     #image: mysql:8.0.27
-    command: '--default-authentication-plugin=mysql_native_password'
+    command: "--default-authentication-plugin=mysql_native_password"
     volumes:
       - db_data:/var/lib/mysql
     #[...]
@@ -168,12 +165,11 @@ Ce volume est attaché au service `db` grâce à la propriété :
 <br>
 
 ```yml
-  volumes:
-      - db_data:/var/lib/mysql
+volumes:
+  - db_data:/var/lib/mysql
 ```
 
 <br>
-
 
 Pour retrouver des informations concernant un volume, utilisez la commande `docker volume ls`.
 
@@ -248,12 +244,11 @@ docker volume inspect test_db_data
 
 <br>
 
-J’en profite pour vous donner quelques ressources à lire pour approfondir les notions de volumes et de stateful vs stateless : 
+J’en profite pour vous donner quelques ressources à lire pour approfondir les notions de volumes et de stateful vs stateless :
 
 - [Stateful vs stateless](https://www.redhat.com/en/topics/cloud-native-apps/stateful-vs-stateless) - Article de Red Hat autour de ces concepts. C’est en anglais mais je le trouve particulièrement bien expliqué et clair.
 - [How to understand “RESTful API is stateless” ?](https://stackoverflow.com/questions/34130036/how-to-understand-restful-api-is-stateless) - Fil de discussion stackoverflow autour des API REST et de la notion de stateless.
 - [Guide to Docker Volumes - How to Use Volumes with Examples](https://spacelift.io/blog/docker-volumes) - Blog post assez complet concernant les volumes Docker. Vous n’avez pas besoin de tout lire, essayez plutôt de comprendre le sens global.
-
 
 ---
 
@@ -284,8 +279,6 @@ Le code source contenant la solution de cet exercice se trouve [sur la branche `
 - MongoDB est une base de données de type NoSQL. Au lieu de stocker son contenu dans des tables, elle le stocke dans des documents au format JSON. Ce type de base de données propose une structure plus souple que les bases de données SQL.
 - **Faites bien attention au choix de vos images Docker. Elles doivent respecter l’architecture CPU de vos utilisateurs (les développeurs) mais aussi de vos serveurs**. DockerHub indique la plupart du temps si vos images sont compatibles avec votre architecture.
 - Les volumes vous permettent de partager de l’information entre votre machine hôte et votre conteneur. Ils permettent aussi de persister de l’information tel que le contenu du base de données.
-- La commande de management `docker volume` est utile si vous souhaitez avoir plus d’informations sur un volume. 
-
-
+- La commande de management `docker volume` est utile si vous souhaitez avoir plus d’informations sur un volume.
 
 </article>

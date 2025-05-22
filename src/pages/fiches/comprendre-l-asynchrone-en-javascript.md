@@ -18,14 +18,13 @@ publishedDate: 09/15/2024
 
 ![Une personne multitâche au bureau avec un symbole de boucle infinie, pixel art](/asynchrone_js.webp)
 
-
 ## JavaScript est-il asynchrone ? ⏱️
 
 Cela va peut-être en surprendre certains, mais non ! JavaScript est bel et bien synchrone ! Il est également **Single-Threaded** 🪡, ce qui signifie qu'il fonctione sur un seul thread(fil). Concrètement, mis à part les parties de code encapsulée dans un scope contenant du traitement asynchrone, le reste de la pile d'exécution sera traité directement et sans interruption par JavaScript. L'asynchrone lui, sera géré en parallèle...
 
 ## Qu'est-ce que l'asynchronisme en JavaScript ? 🤔
 
-L'asynchronisme en JavaScript, c'est un peu comme commander une pizza 🍕 (Miam!). Vous passez votre commande, et au lieu de rester planté devant la porte du pizzaiolo, vous allez regarder Netflix 🎬, finir cet exo d'algorithmie sur Codewars  💻, ou même faire un petit somme 🛌. Quand la pizza est prête, on sonne à votre porte, et hop, vous pouvez manger ! 🍽️
+L'asynchronisme en JavaScript, c'est un peu comme commander une pizza 🍕 (Miam!). Vous passez votre commande, et au lieu de rester planté devant la porte du pizzaiolo, vous allez regarder Netflix 🎬, finir cet exo d'algorithmie sur Codewars 💻, ou même faire un petit somme 🛌. Quand la pizza est prête, on sonne à votre porte, et hop, vous pouvez manger ! 🍽️
 
 En JavaScript, c'est pareil : vous lancez une opération (comme récupérer des données d'une API), et pendant que le JavaScript attend la réponse, il peut faire d'autres choses. Dès que la réponse arrive, il reprend l'exécution là où il s'était arrêté.
 
@@ -35,7 +34,7 @@ En JavaScript, c'est pareil : vous lancez une opération (comme récupérer des 
 
 #### L'Event Loop : Le Cœur de l'Asynchrone en JavaScript 🔄
 
-Dans le navigateur ou Node.js en ce qui concerne l'asynchrone, tout se passe au niveau de l'**Event Loop**(boucle infinie permettant de gérer tous les évènements asynchrone) et de la **Callback Queue**(fonctionnant un peu comme une `Stack`). 
+Dans le navigateur ou Node.js en ce qui concerne l'asynchrone, tout se passe au niveau de l'**Event Loop**(boucle infinie permettant de gérer tous les évènements asynchrone) et de la **Callback Queue**(fonctionnant un peu comme une `Stack`).
 
 L'**Event Loop** surveille constamment 🕯️ la **Call Stack**(pile d'exécution) la **CallBack Queue**(file d'attente des callbacks).
 
@@ -43,7 +42,7 @@ L'**Event Loop** surveille constamment 🕯️ la **Call Stack**(pile d'exécuti
 
 #### La Call Stack 📚
 
-Elle est utilisée pour gérer l'exécution des fonctions de manière synchrone. 
+Elle est utilisée pour gérer l'exécution des fonctions de manière synchrone.
 
 Les fonctions sont ajoutées au sommet de la pile pour être exécutées et sont retirées après leur exécution.
 
@@ -64,18 +63,18 @@ Cela permet à JavaScript de gérer les tâches asynchrones sans bloquer l'exéc
 ```javascript
 // La callback est placée dans la Callback Queueu après 1 seconde
 setTimeout(() => {
-    console.log("Ce message est affiché après 1 seconde");
+  console.log("Ce message est affiché après 1 seconde");
 }, 1000);
 
 // Lorsque la réponse est reçue, la callback associée est placé dans la Callback Queue pour y être exécutée.
-fetch('https://api.example.com/data')
-    .then(response => response.json())
-    .then(data => {
-      console.log("Réponse AJAX reçue :", data);
-    })
-    .catch(error => {
-        console.error("Erreur lors de la requête AJAX :", error);
-    });
+fetch("https://api.example.com/data")
+  .then((response) => response.json())
+  .then((data) => {
+    console.log("Réponse AJAX reçue :", data);
+  })
+  .catch((error) => {
+    console.error("Erreur lors de la requête AJAX :", error);
+  });
 // Traitement synchrone ==> directement traité sur la pile d'exécution
 console.log("Ce message est affiché immédiatement, avant les callbacks");
 ```
@@ -89,51 +88,51 @@ Maintenant, imaginez un monde où à chaque fois que vous envoyez un message, vo
 
 ## Les Trois Mousquetaires de l'asynchronisme en JavaScript 🏇🏽
 
-1. **Callbacks** 🏴‍☠️ : Les callbacks sont les vétérans du JS asynchrone. Ce sont des fonctions qui sont passées en argument à d'autres fonctions et sont appelées lorsque l'opération asynchrone est terminée. Cependant, ils peuvent entraîner le redouté *callback hell* 🔥😱 (un cauchemar de code imbriqué).
+1. **Callbacks** 🏴‍☠️ : Les callbacks sont les vétérans du JS asynchrone. Ce sont des fonctions qui sont passées en argument à d'autres fonctions et sont appelées lorsque l'opération asynchrone est terminée. Cependant, ils peuvent entraîner le redouté _callback hell_ 🔥😱 (un cauchemar de code imbriqué).
 
    ```javascript
-   console.log('Commander une pizza');
+   console.log("Commander une pizza");
    setTimeout(() => {
-       console.log('Pizza livrée !');
+     console.log("Pizza livrée !");
    }, 3000); // Attend 3 secondes (3000 millisecondes)
-   console.log('Regarder une série en attendant');
+   console.log("Regarder une série en attendant");
    ```
 
-2. **Promises** 🎁 : Les promises, c'est comme un engagement de livraison 📦. Elles permettent d'enchaîner des actions asynchrones de manière plus propre et de gérer les erreurs plus facilement. Avec les promises, fini le *callback hell*, bonjour les .then() enchaînés !
+2. **Promises** 🎁 : Les promises, c'est comme un engagement de livraison 📦. Elles permettent d'enchaîner des actions asynchrones de manière plus propre et de gérer les erreurs plus facilement. Avec les promises, fini le _callback hell_, bonjour les .then() enchaînés !
 
    ```javascript
    let commanderPizza = new Promise((resolve, reject) => {
-       setTimeout(() => {
-           resolve('Pizza livrée !');
-       }, 3000);
+     setTimeout(() => {
+       resolve("Pizza livrée !");
+     }, 3000);
    });
 
    commanderPizza
-       .then(message => {
-           console.log(message);
-           console.log('Manger la pizza');
-       })
-       .catch(error => {
-           console.log('Erreur : ', error);
-       });
+     .then((message) => {
+       console.log(message);
+       console.log("Manger la pizza");
+     })
+     .catch((error) => {
+       console.log("Erreur : ", error);
+     });
    ```
 
 3. **async/await** 🕶️ : Si les promises sont cool, alors `async/await` est le maître du cool. Cela permet d'écrire du code asynchrone qui ressemble presque à du code synchrone. Fini les `.then()`, et bienvenue à un code plus lisible et facile à suivre.
 
    ```javascript
    async function commanderPizzaEtManger() {
-       console.log('Commander une pizza');
-       try {
-           let message = await commanderPizza;
-           console.log(message);
-           console.log('Manger la pizza');
-       } catch (error) {
-           console.log('Erreur : ', error);
-       }
+     console.log("Commander une pizza");
+     try {
+       let message = await commanderPizza;
+       console.log(message);
+       console.log("Manger la pizza");
+     } catch (error) {
+       console.log("Erreur : ", error);
+     }
    }
 
    commanderPizzaEtManger();
-   console.log('Regarder une série en attendant');
+   console.log("Regarder une série en attendant");
    ```
 
 ## En résumé 📝

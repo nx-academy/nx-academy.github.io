@@ -33,12 +33,12 @@ Autre chose, une image trop volumineuse embarque souvent des dépendances ou des
 
 Dans cette fiche, on va donc voir ensemble plusieurs bonnes pratiques concrètes pour réduire la taille de vos images et améliorer la sécurité de vos déploiements.
 
-
 ## Choississez une base plus légère
 
 Quand vous cherchez une image sur DockerHub, vous avez peut-être déjà remarqué qu’il en existe plusieurs variantes. Prenons[ l’image officielle de Node.js sur DockerHub](https://hub.docker.com/_/node/) : vous y verrez des tags comme alpine, bullseye, buster, buster-slim, etc. **Sachez que ces noms désignent la distribution Linux sur laquelle l’image est construite**.
 
-Par exemple : 
+Par exemple :
+
 - alpine → [Alpine Linux](https://www.alpinelinux.org/), ultra légère ;
 - buster, bullseye → différentes versions de Debian ;
 - slim → une version épurée, sans outils inutiles comme `man`, `apt cache`, etc.
@@ -47,7 +47,7 @@ Par exemple :
 
 _Petite anecdote perso_ : pendant longtemps, je ne savais pas que ces tags faisaient référence à des distributions Linux. Je pensais que c’était juste des noms randoms pour nommer les images.
 
-En réalité, **ça change complètement ce que contient votre image, à savoir donc sa taille, sa compatibilité et ses performances**. C'est un peu comme une pizza si vous préférez une base sauce tomate (moins calorique) ou une base crème. Du coup, avec quelques exemples : 
+En réalité, **ça change complètement ce que contient votre image, à savoir donc sa taille, sa compatibilité et ses performances**. C'est un peu comme une pizza si vous préférez une base sauce tomate (moins calorique) ou une base crème. Du coup, avec quelques exemples :
 
 - `node` → version complète, assez lourde ;
 - `node:slim` → même base, mais allégée ;
@@ -58,14 +58,11 @@ En réalité, **ça change complètement ce que contient votre image, à savoir 
 
 **Attention avec les images alpines**. Elle est souvent recommandée pour sa taille mais ce n’est pas toujours la meilleure option. Il m'est arrivé parfois d'avoir des problèmes de dépendances, notamment en Python avec des librairies SQL. Elle est idéale pour des services simples (comme un worker en Node.js) mais elle n’est pas adaptée à tous les projets.
 
-
 ## Nettoyez votre image après l'installation
 
 C’est un point auquel on ne pense pas toujours (en tout cas, il m'arrive régulièrement de l'oublier). A chaque fois que vous installez des dépendances, que ce soit via `apt install` ou `npm install`, vous ajoutez du cache dans votre image.
 
-
 Au final, votre image embarque des fichiers inutiles tels que des fichiers temporaires, des logs, de la documentation, etc. Ces fichiers peuvent facilement peser plusieurs dizaines de Mo.
-
 
 ### Exemple de nettoyage simple avec APT
 
@@ -79,6 +76,7 @@ RUN apt-get update && apt-get install -y curl \
 <br>
 
 Dans cet exemple :
+
 - on installe curl ;
 - puis on supprime les listes téléchargées pendant le `apt-get update`.
 
@@ -99,14 +97,14 @@ RUN rm -rf /var/lib/apt/lists/*
 
 Alors le cache supprimé dans le deuxième RUN existe toujours dans le layer précédent. Pour que le nettoyage soit réellement pris en compte, il faut le faire dans la même instruction RUN.
 
-
 ## Réduisez le nombre de layers
 
 C’est quelque chose que j’ai volontairement peu abordé dans mon cours sur Docker. Je préférais d’abord que vous compreniez ce qu’est un conteneur et comment le construire avant d’entrer dans le fonctionnement interne des images. Maintenant que vous êtes à l’aise avec la création d’images, il est temps de parler des layers.
 
-Chaque fois que vous écrivez une instruction dans un Dockerfile (`FROM`, `RUN`, `COPY`, `ADD`, etc.), Docker crée un nouveau _layer_. 
+Chaque fois que vous écrivez une instruction dans un Dockerfile (`FROM`, `RUN`, `COPY`, `ADD`, etc.), Docker crée un nouveau _layer_.
 
-**Un layer correspond à une couche empilée dans l’image finale**. C'est un peu comme  une pile de briques : chaque instruction ajoute une brique. L’ensemble des briques forme l’image. Ces layers sont :
+**Un layer correspond à une couche empilée dans l’image finale**. C'est un peu comme une pile de briques : chaque instruction ajoute une brique. L’ensemble des briques forme l’image. Ces layers sont :
+
 - cachés à l’utilisateur mais utilisés pour le cache et l’optimisation ;
 - persistés ; ils vont donc peser dans la taille totale de l’image ;
 - immuables ; ce qui veut dire qu’un RUN ne peut pas supprimer un fichier créé dans un layer précédent.
@@ -128,7 +126,6 @@ RUN apt-get install -y curl && rm -rf /var/cache
 
 Dans l'exemple ci-dessus, le cache est supprimé dans le premier cas mais il reste stocké dans le layer précédent. Dans le second, tout est fait dans le même layer donc l’image finale est plus légère.
 
-
 ## Utilisez un `.dockerignore`
 
 Vous avez probablement déjà utilisé un fichier `.gitignore` pour éviter de versionner certains fichiers dans un dépôt Git. Pensez à des fichiers tel que les `.env` ou les dépendances (les fameux `node_modules`).
@@ -136,7 +133,6 @@ Vous avez probablement déjà utilisé un fichier `.gitignore` pour éviter de v
 Le `.dockerignore`, c’est exactement le même principe mais pour Docker. Son role est d'exclure certains fichiers ou dossiers de votre contexte de build. Autrement dit, ces fichiers ne seront même pas transmis à Docker pendant le build.
 
 Pourquoi c’est important ? Parce que tout le contenu de votre dossier est envoyé à Docker lors d’un build (sauf ce que vous ignorez explicitement). Certains fichiers, comme vos logs, vos `node_modules`, vos fichiers de dev ou pire votre dossier `.git`, peuvent alourdir inutilement votre image.
-
 
 ### Exemple de `.dockerignore` minimal
 
@@ -151,7 +147,6 @@ dist/
 ```
 
 Bien sûr, ce fichier doit être adapté à chaque projet. Mais ce genre de base est souvent un bon départ. Au besoin, vous pouvez vous inspirer en parti de votre fichier `.gitignore`.
-
 
 ## Vérifiez la taille de son image
 
@@ -168,7 +163,6 @@ J'ai vu des infras où les images n'étaient jamais inspectées. C'était claire
 <br>
 
 Avec ces trois commandes, vous êtes en mesure de suivre l'état de vos images et de leur taille simplement :).
-
 
 ## Astuce bonus - Évitez `ADD`, préférez `COPY`
 
@@ -187,6 +181,7 @@ ADD ./app /app
 <br>
 
 Pourquoi ? Parce que :
+
 - `ADD` peut faire plus de choses. Par exemple, décompresser une archive `.tar.gz` ou récupérer une URL distante ;
 - mais ces fonctionnalités ne sont pas toujours explicites et peuvent introduire des comportements inattendus (les fameux effets de bord).
 
@@ -195,17 +190,18 @@ Donc, pour faire simple, si vous avez juste besoin de copier des fichiers ou des
 ---
 
 Vous l’aurez compris ! Une image Docker optimisée, c’est une image :
+
 - plus rapide à builder ;
 - plus légère à pusher ;
 - plus rapide à puller
 - et plus sûre à exécuter.
 
-
-Et tout ça sans changer votre code ! Je vous invite à essayer d'adopter ces réflexes à adopter dès maintenant et notamment si vous commencez à travailler avec des pipelines CI/CD. D'ailleurs, le prochain cours sera justement dédié à ce sujet : les CI/CD avec GitHub Actions. 
+Et tout ça sans changer votre code ! Je vous invite à essayer d'adopter ces réflexes à adopter dès maintenant et notamment si vous commencez à travailler avec des pipelines CI/CD. D'ailleurs, le prochain cours sera justement dédié à ce sujet : les CI/CD avec GitHub Actions.
 
 Il est prévu pour septembre. Vous y apprendrez à automatiser des pipelines de test, de build et de déploiement.
 
-D'ici là, je vous invite 
+D'ici là, je vous invite
+
 - [à faire le quiz](/quiz/optimisation-images-docker) pour valider vos acquis ;
 - [à commencer le cours sur Docker et docker compose](/cours/docker-et-docker-compose) si ce n'est pas déjà fait.
 

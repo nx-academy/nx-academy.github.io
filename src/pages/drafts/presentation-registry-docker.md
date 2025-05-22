@@ -27,6 +27,7 @@ C’est là qu’entrent en jeu les registries Docker. Ces serveurs sont conçus
 Un registry Docker correpond un service de stockage et de distribution d’images Docker. Vous pouvez le voir comme l’équivalent de GitHub mais pour les conteneurs. D'ailleurs, GitHub peut héberger des images Docker. On y reviendra un peu plus bas.
 
 Comme pour un repo Git, un registry peut être :
+
 - public, autrement dit, tout le monde peut accéder à vos images ;
 - ou privé, ce qui veut dire que vous contrôlez qui a le droit d’y accéder.
 
@@ -37,6 +38,7 @@ Le plus connu des registries est [Docker Hub](https://hub.docker.com/). C’est 
 <br>
 
 Sachez qu'il existe des alternatives à Docker Hub :
+
 - GitHub Container Registry (GHCR) ;
 - GitLab Container Registry ;
 - Google Container Registry (GCR) ;
@@ -54,8 +56,8 @@ Avant d’aller plus loin, on va faire un petit détour par la façon dont les i
 
 On va partir sur un premier exemple : `ghcr.io/mon-orga/mon-image:1.0.0`. Si vous avez suivi mon cours Docker, et notamment [le chapitre sur les images](/cours/docker-et-docker-compose/chapitres/creation-premier-dockerfile), une partie de cette ligne devrait déjà vous sembler familière.
 
-
 Décortiquons-la ensemble :
+
 - `ghcr.io` → c’est le nom du registry. Ici, il s’agit de GitHub Container Registry.
 - `mon-orga` → c’est le nom de l’organisation ou de l’utilisateur. Par exemple [nx-academy](https://github.com/nx-academy) (organisation) ou [tdimnet](https://github.com/tdimnet) (utilisateur). Par contre, vous ne pouvez pas être les deux en même temps : une image est rattachée soit à un compte perso, soit à une organisation.
 - `mon-image` → c’est le nom de l’image. Par exemple : `nx-ai`, `nodejs`, `mon-app`, etc.
@@ -70,9 +72,10 @@ Voici un autre exemple, cette fois hébergé sur Docker Hub : `tdimnet/php_templ
 Ok, passons maintenant à la suite logique : comment envoyer une image vers un registry et comment la récupérer.
 
 ## Pushez et pullez vos images Docker
+
 ### Authentifiez-vous sur un registry Docker
 
-Avant d’envoyer vos images dans un registry ou d’en récupérer certaines, notamment si elles sont privées, il faut vous y authentifier. On va prendre l'exemple ici de  [Docker Hub](hub.docker.com). Créez votre compte (c'est gratuit) si ce n’est pas déjà fait.
+Avant d’envoyer vos images dans un registry ou d’en récupérer certaines, notamment si elles sont privées, il faut vous y authentifier. On va prendre l'exemple ici de [Docker Hub](hub.docker.com). Créez votre compte (c'est gratuit) si ce n’est pas déjà fait.
 
 <br>
 
@@ -89,10 +92,11 @@ docker login
 <br>
 
 Docker vous demande alors :
+
 - votre nom d’utilisateur,
 - votre mot de passe (ou token d’accès si vous avez activé la double authentification).
 
-**Point important** : n'oubliez pas de lancer Docker  (ou Docker Desktop) sur votre machine avant d'essayer de vous connecter. Si tout se passe bien, vous devriez voir le message suivant :
+**Point important** : n'oubliez pas de lancer Docker (ou Docker Desktop) sur votre machine avant d'essayer de vous connecter. Si tout se passe bien, vous devriez voir le message suivant :
 
 ```bash
 Login Succeeded
@@ -117,6 +121,7 @@ Vous venez de créer une image nommée `monimage` en version 1.0.0. Mais pour l�
 <br>
 
 #### Étape 2 – Taguez l’image
+
 Il faut donc re-tagger cette image avec le nom du compte Docker Hub :
 
 ```bash
@@ -198,7 +203,6 @@ docker container run ghcr.io/mon-orga/monimage:1.0.0
 
 Et voilà. Peu importe l’ordinateur ou le serveur, tant que vous avez Docker installé et accès au registry, vous pouvez récupérer votre image et la lancer.
 
-
 ## Astuce bonus - Changez de registry dans votre `docker-compose.yml`
 
 Quand vous utilisez Docker Compose, vous pouvez très bien spécifier une image provenant d’un registry autre que Docker Hub.
@@ -230,14 +234,13 @@ services:
 Pensez simplement à vous être authentifié (docker login) si vous travaillez avec une image privée.
 Et si vous êtes en CI/CD, vous devrez souvent fournir un token d’accès ou un secret dans vos variables d’environnement pour automatiser tout ça.
 
-
 <hr>
 
-Maintenant que vous maîtrisez le concept de registry, vous avez entre les mains tout le workflow pour partager et déployer vos images Docker : 
+Maintenant que vous maîtrisez le concept de registry, vous avez entre les mains tout le workflow pour partager et déployer vos images Docker :
 <br>
 `build → tag → push → pull → run`.
 
-C’est une étape clé dès que vous commencez à travailler en équipe, à déployer sur un serveur ou à automatiser vos déploiements. Et comme pour Git, plus tôt vous prenez l’habitude de publier vos images, mieux c’est. 
+C’est une étape clé dès que vous commencez à travailler en équipe, à déployer sur un serveur ou à automatiser vos déploiements. Et comme pour Git, plus tôt vous prenez l’habitude de publier vos images, mieux c’est.
 
 La suite logique ? Brancher tout ça sur un pipeline CI/CD. Mais ça, on en reparlera 😉. D'ici là, je vous laisse entre [les mains du quiz](/quiz/presentation-registry-docker) pour vérifier que vous avez bien compris ce qu'on vient de voir.
 

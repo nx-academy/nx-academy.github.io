@@ -9,18 +9,18 @@ interface Props {
   frontmatter: {
     title: string;
     description: string;
-    previousChapterLink?: string
-    nextChapterLink?: string
+    previousChapterLink?: string;
+    nextChapterLink?: string;
   };
   headings: Heading[];
-  url: string
+  url: string;
 }
 
-import { handleLinks } from "../utils/handleLinks"
+import { handleLinks } from "../utils/handleLinks";
 import theme from "../config/theme";
 import BaseLayout from "./BaseLayout.astro";
 import Button from "../components/Button.astro";
-import StickyOutline from "../components/StickyOutline.astro"
+import StickyOutline from "../components/StickyOutline.astro";
 
 const {
   colors: { neonGreen, neonGreenLight, black },
@@ -29,39 +29,63 @@ const {
 const {
   frontmatter: { title, description, nextChapterLink, previousChapterLink },
   headings,
-  url
+  url,
 } = Astro.props;
 
-const { baseUrl, breadcrumbs } = handleLinks(url)
+const { baseUrl, breadcrumbs } = handleLinks(url);
 
-const previousFullChapterLink = `${baseUrl}/chapitres/${previousChapterLink}`
-const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
+const previousFullChapterLink = `${baseUrl}/chapitres/${previousChapterLink}`;
+const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`;
 ---
 
 <BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
   <div class="main-wrapper">
     <section>
-        <slot />
-        <div class="end-chapter-wrapper">
-          <div class="buttons-group">
-            {
-              previousChapterLink && <Button label="Revenir au chapitre précédent" type="secondary" href={previousFullChapterLink} />
-            }
-            {
-              nextChapterLink && <Button label="Passer au prochain chapitre" type="primary" href={nextFullChapterLink} />
-            }
-          </div>
+      <slot />
+      <div class="end-chapter-wrapper">
+        <div class="buttons-group">
+          {
+            previousChapterLink && (
+              <Button
+                label="Revenir au chapitre précédent"
+                type="secondary"
+                href={previousFullChapterLink}
+              />
+            )
+          }
+          {
+            nextChapterLink && (
+              <Button
+                label="Passer au prochain chapitre"
+                type="primary"
+                href={nextFullChapterLink}
+              />
+            )
+          }
         </div>
-      </section>
+      </div>
+    </section>
     <aside>
       <div class="aside-wrapper">
         <StickyOutline headings={headings} pageType="cours" />
         <div class="buttons-group">
           {
-            previousChapterLink && <Button label="Revenir au chapitre précédent" type="secondary" href={previousFullChapterLink} />
+            previousChapterLink && (
+              <Button
+                label="Revenir au chapitre précédent"
+                type="secondary"
+                href={previousFullChapterLink}
+              />
+            )
           }
           {
-            nextChapterLink && <Button label="Passer au prochain chapitre" type="primary" href={nextFullChapterLink} />
+            nextChapterLink && (
+              <Button
+                label="Passer au prochain chapitre"
+                type="primary"
+                href={nextFullChapterLink}
+              />
+            )
           }
         </div>
       </div>
@@ -69,7 +93,7 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
   </div>
   <div class="image-modal-wrapper hidden">
     <div class="image-modal">
-      <img src="" alt="">
+      <img src="" alt="" />
     </div>
   </div>
 </BaseLayout>
@@ -134,7 +158,7 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
     position: fixed;
     left: 0;
     top: 0;
-    background-color: rgba(0, 0, 0, .7);
+    background-color: rgba(0, 0, 0, 0.7);
     content: "";
     height: 100vh;
     width: 100vw;
@@ -257,37 +281,38 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`
   import handleReadingTime from "../utils/estimateReadingTime";
   handleReadingTime();
 
-  const $modal = document.querySelector(".image-modal-wrapper") as HTMLDivElement
-  const $images = document.querySelectorAll("img")
-  const $imageModal = document.querySelector(".image-modal img") as HTMLImageElement
+  const $modal = document.querySelector(
+    ".image-modal-wrapper",
+  ) as HTMLDivElement;
+  const $images = document.querySelectorAll("img");
+  const $imageModal = document.querySelector(
+    ".image-modal img",
+  ) as HTMLImageElement;
 
-  
-  $images.forEach($image => (
+  $images.forEach(($image) =>
     $image.addEventListener("click", () => {
+      const imgSrc = $image.getAttribute("src") as string;
+      const imgAlt = $image.getAttribute("alt") as string;
 
-      const imgSrc = $image.getAttribute("src") as string
-      const imgAlt = $image.getAttribute("alt") as string
+      $imageModal.setAttribute("src", imgSrc);
+      $imageModal.setAttribute("alt", imgAlt);
 
-      $imageModal.setAttribute("src", imgSrc)
-      $imageModal.setAttribute("alt", imgAlt)
-
-      $modal.classList.remove("hidden")
-      document.body.style.overflow = "hidden"
-    })
-  ))
+      $modal.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    }),
+  );
 
   $modal.addEventListener("click", () => {
-    $modal.classList.add("hidden")
-    document.body.style.overflow = ""
-  })
+    $modal.classList.add("hidden");
+    document.body.style.overflow = "";
+  });
 
-
-  document.querySelectorAll(".main-wrapper h2").forEach(h2 => {
+  document.querySelectorAll(".main-wrapper h2").forEach((h2) => {
     const prev = h2.previousElementSibling;
 
     if (prev?.tagName === "P" && prev.querySelector("img")) {
-      const prevImage = prev.querySelector("img")
-      
+      const prevImage = prev.querySelector("img");
+
       if (prevImage) {
         prevImage.classList.add("hero-image");
       }

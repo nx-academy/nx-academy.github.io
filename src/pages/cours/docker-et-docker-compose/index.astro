@@ -10,7 +10,7 @@ const pageTitle = "Conteneurisez vos applications avec Docker";
 const pageDescription = "Une super description";
 
 const courseChapters = Object.values(
-  import.meta.glob("./chapitres/*.md", { eager: true })
+  import.meta.glob("./chapitres/*.md", { eager: true }),
 ) as Chapter[];
 
 const breadCrumbs: Breadcrumb[] = [
@@ -39,7 +39,7 @@ const breadCrumbs: Breadcrumb[] = [
         courseChapters
           .sort(
             (chapter1, chapter2) =>
-              chapter1.frontmatter.id - chapter2.frontmatter.id
+              chapter1.frontmatter.id - chapter2.frontmatter.id,
           )
           .map((chapter) => (
             <li>

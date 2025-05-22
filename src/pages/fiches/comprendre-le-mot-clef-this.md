@@ -30,12 +30,11 @@ Durant ce projet, je me suis particulièrement intéressé à l'utilisation des 
 
 J'ai agrémenté mes recherches sur [la rubrique lui étant dédiée dans la documentation du MDN Web Doc](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/this) qui offre déjà une base pour comprendre le fonctionnement du "this".
 
-
 ## Pourquoi revenir sur le this en JavaScript ?
 
 Il est souvent méconnu par certains dévéloppeurs et peut très vite poser de gros problèmes dans l'exécution de votre code s'il n'est pas compris et implémenter correctemment.
 
-Qui ne s'est jamais "arraché les cheveux" après plusieurs heures de debbug suite à une gestion incorrect de ce "merveilleux" mot clef ? 😅 
+Qui ne s'est jamais "arraché les cheveux" après plusieurs heures de debbug suite à une gestion incorrect de ce "merveilleux" mot clef ? 😅
 
 Pour ma part, j'ai rencontré de grosses difficultés lors d'un de mes premiers projets en JavaScript. Je tentais d'utiliser `this` dans un écouteur d'évènement en utilisant une fonction fléchée. Je n'avais pas saisi la subtilité à l'époque ! Nous aborderons d'ailleurs ce point plus loin dans la fiche... !
 
@@ -45,16 +44,16 @@ Alors si vous êtes prêt à faire chauffer votre matière grise, préparez-vous
 
 ### Utilisation de this dans le contexte Global (objet window dans le navigateur)
 
-Quand vous créez un fichier JavaScript, même vide, et que vous le charger dans le navigateur, cela aura un effet : **créer le contexte global, en d'autres termes, l'objet "window", objet auquel le fameux "this" fait référence.** 
+Quand vous créez un fichier JavaScript, même vide, et que vous le charger dans le navigateur, cela aura un effet : **créer le contexte global, en d'autres termes, l'objet "window", objet auquel le fameux "this" fait référence.**
 
 Que l'on soit mode strict ou mode non strict, `this` fait référence à `window`.
 
 Prenons comme exemple le code suivant, donné comme seule instruction dans votre module JS :
 
-```js
-console.log("this is : " this); 
+```javascript
+console.log("this is : ", this);
 // ou encore
-console.log("this is : " window); 
+console.log("this is : ", window);
 // Window {window: Window, self: Window, document: document, name: '', location: Location, …}
 console.log(window === this);
 // true
@@ -62,12 +61,12 @@ console.log(window === this);
 
 Si vous tapez ce code dans votre console du navigateur, vous obtiendrez le même résultat pour les deux logs.
 
-Je vous épargnes l'entièreté des méthodes composant l'objet window, retenons simplement que dans ce contexte global, "this" fait référence à l'objet global, "window". 
+Je vous épargnes l'entièreté des méthodes composant l'objet window, retenons simplement que dans ce contexte global, "this" fait référence à l'objet global, "window".
 
-Vous pouvez invoquer n'importe quelle méthode de cette objet window en utilisant le "this", jusqu'à l'objet window lui même. 
+Vous pouvez invoquer n'importe quelle méthode de cette objet window en utilisant le "this", jusqu'à l'objet window lui même.
 
-```js
-console.log("this is : " this.window); 
+```javascript
+console.log("this is : ", this.window);
 // Window {window: Window, self: Window, document: document, name: '', location: Location, …}
 console.log(this.document.location);
 // Location {ancestorOrigins: DOMStringList, href: 'chrome-error://chromewebdata/', origin: 'null', protocol: 'chrome-error:', host: 'chromewebdata', …}
@@ -78,7 +77,7 @@ console.log(this.document.location);
 > Un petit trick pour se faciliter la vie avec le "this" est de se demander ce qu'il y a gauche du . lorsque vous invoquez une méthode d'un objet.
 > Lorsque vous appelez cette méthode, **"this" fait référence à l'objet qui précède le point (.) lors de l'appel de la méthode**.
 
-Au niveau du mode strict ou mode non strict, dans le cadre des objets littéraux par exemple, Nous aurons ici quelques différences de comportement dans certains cas. 
+Au niveau du mode strict ou mode non strict, dans le cadre des objets littéraux par exemple, Nous aurons ici quelques différences de comportement dans certains cas.
 
 Déclarons tout d'abord un objet quelconque "on the fly" dans l'objet global et attribuons lui une méthode avec deux arguments et quelques propriétés.
 
@@ -89,11 +88,11 @@ const fluffy = {
   species: "Unicorn",
 
   sayHi(style, humor) {
-    return `${this.name} the ${style} ${this.species} with the ${this.color} color and the ${humor} humor says hi !`
-  }
-}
+    return `${this.name} the ${style} ${this.species} with the ${this.color} color and the ${humor} humor says hi !`;
+  },
+};
 
-console.log(fluffy.sayHi("pretty", "bright")) // Ici, pas de différence mode strict ou non !
+console.log(fluffy.sayHi("pretty", "bright")); // Ici, pas de différence mode strict ou non !
 // Fluffy the pretty Unicorn with the Rainbow color and the bright humor says hi !
 ```
 
@@ -112,15 +111,16 @@ console.log(fluffy.sayHi("pretty", "bright")); // Ici, toujours pas de différen
 
 const fluffySayHi = fluffy.sayHi;
 
-console.log(fluffySayHi("pretty", "bright")); 
+console.log(fluffySayHi("pretty", "bright"));
 // En mode non strict: 'Global Name the Global Species with the Global Color color says hi!'
 // En mode strict: 'undefined the pretty undefined with the undefined color and the bright humor says hi!'
 ```
- > Pourquoi ce comportement ?
 
- En mode strict, lorsque `this` n'est pas défini explicitement dans une fonction, il reste `undefined`. Cela signifie que toutes les références à `this.name`, `this.species` et `this.color` renvoient undefined.
- 
- En mode non strict, lorsque this n'est pas défini explicitement, il fait référence à l'objet global (qui est window dans un navigateur). Comme les propriétés `name`, `species` et `color` n'existent pas sur l'objet global, elles sont donc également undefined.
+> Pourquoi ce comportement ?
+
+En mode strict, lorsque `this` n'est pas défini explicitement dans une fonction, il reste `undefined`. Cela signifie que toutes les références à `this.name`, `this.species` et `this.color` renvoient undefined.
+
+En mode non strict, lorsque this n'est pas défini explicitement, il fait référence à l'objet global (qui est window dans un navigateur). Comme les propriétés `name`, `species` et `color` n'existent pas sur l'objet global, elles sont donc également undefined.
 
 > Comment y remédier ?
 
@@ -139,27 +139,27 @@ const fluffy = {
   species: "Unicorn",
 
   sayHi(style, humor) {
-    return `${this.name} the ${style} ${this.species} with the ${this.color} color and the ${humor} humor says hi !`
-  }
-}
+    return `${this.name} the ${style} ${this.species} with the ${this.color} color and the ${humor} humor says hi !`;
+  },
+};
 const fluffySayHi = fluffy.sayHi;
 
 fluffySayHi.call(fluffy, "pretty", "bright"); // mode strict ou non
 // 'Fluffy the pretty Unicorn with the Rainbow color and the bright says hi !'
-``` 
+```
 
 ### Passez this et ses arguments avec .apply():
 
- Dans un cas similaire, mais où vous souhaitez passer un tableau d'objets en argument, c'est ici alors qu'intervient l'usage de la méthode `.apply()`. La principale différence avec la méthode `.call()`, se situe dans la manière dont sont passés les paramètres des méthodes d'instances liées à l'objet. Ils le sont sous forme de tableau, mais le résultat sera identique au niveau de votre console :
+Dans un cas similaire, mais où vous souhaitez passer un tableau d'objets en argument, c'est ici alors qu'intervient l'usage de la méthode `.apply()`. La principale différence avec la méthode `.call()`, se situe dans la manière dont sont passés les paramètres des méthodes d'instances liées à l'objet. Ils le sont sous forme de tableau, mais le résultat sera identique au niveau de votre console :
 
 ```js
-fluffySayHi.apply(fluffy, ["pretty", "bright"]) // mode strict ou non
+fluffySayHi.apply(fluffy, ["pretty", "bright"]); // mode strict ou non
 // 'Fluffy the pretty Unicorn with the Rainbow color and the bright says hi !'
 ```
 
 ### Fixer this pour de bon avec .bind():
 
- Le dernier cas de figure est préconisé lorsque vous désirez lié définitivement votre méthode d'instance au "this" de l'objet ciblé. Dans cette hypothèse, nous utiliserons la méthode `.bind()`. Au niveau des arguments passé en paramètre à cette méthode, `.bind()` fonctionne de la même manière que `.call()`. Au niveau de l'invocation de la méthode, celle-ci ne l'est pas immédiatemment, `.bind()`retourne une nouvelle fonction avec this et des arguments partiellement appliqués, qui peut être appelée ultérieurement avec des arguments supplémentaires.
+Le dernier cas de figure est préconisé lorsque vous désirez lié définitivement votre méthode d'instance au "this" de l'objet ciblé. Dans cette hypothèse, nous utiliserons la méthode `.bind()`. Au niveau des arguments passé en paramètre à cette méthode, `.bind()` fonctionne de la même manière que `.call()`. Au niveau de l'invocation de la méthode, celle-ci ne l'est pas immédiatemment, `.bind()`retourne une nouvelle fonction avec this et des arguments partiellement appliqués, qui peut être appelée ultérieurement avec des arguments supplémentaires.
 
 ```js
 const fluffy = {
@@ -169,12 +169,12 @@ const fluffy = {
 
   sayHi(style, humor) {
     return `${this.name} the ${style} ${this.species} with the ${this.color} color and the ${humor} says hi !`;
-  }
+  },
 };
 
 const fluffySayHi = fluffy.sayHi.bind(fluffy);
 
-console.log(fluffySayHi("pretty", "bright"));  // mode strict ou non
+console.log(fluffySayHi("pretty", "bright")); // mode strict ou non
 // 'Fluffy the pretty Unicorn with the Rainbow color and the bright says hi !'
 ```
 
@@ -208,11 +208,11 @@ function Unicorn(name) {
   this.name = name;
 }
 
-const fluffy = new Unicorn('Fluffy');
+const fluffy = new Unicorn("Fluffy");
 console.log(fluffy.name); // 'Fluffy'
 ```
 
->  Au niveau de `l'environnement lexical`, cela fait référence à l'environnement où une fonction est définie. En particulier, les fonctions fléchées (=>) n'ont pas leur propre this. Elles héritent de "this" de l'environnement lexical dans lequel elles ont été définies.
+> Au niveau de `l'environnement lexical`, cela fait référence à l'environnement où une fonction est définie. En particulier, les fonctions fléchées (=>) n'ont pas leur propre this. Elles héritent de "this" de l'environnement lexical dans lequel elles ont été définies.
 
 - Les fonctions fléchées :
 
@@ -226,7 +226,7 @@ function Unicorn(name) {
   };
 }
 
-const fluffy = new Unicorn('Fluffy');
+const fluffy = new Unicorn("Fluffy");
 console.log(fluffy.name); // 'Fluffy'
 const getName = fluffy.getName;
 getName(); // 'Fluffy' (hérite de `this` de Unicorn)
@@ -239,12 +239,12 @@ Contrairement aux fonctions fléchées, les fonctions normales créent leur prop
 ```js
 function Unicorn(name) {
   this.name = name;
-  this.getName = function() {
+  this.getName = function () {
     console.log(this.name);
   };
 }
 
-const fluffy = new Unicorn('Fluffy');
+const fluffy = new Unicorn("Fluffy");
 console.log(fluffy.name); // 'Fluffy'
 const getName = fluffy.getName;
 getName(); // undefined (this n'est plus lié à l'instance de Person)
@@ -262,17 +262,16 @@ Dans les méthodes de classe && le constructeur, this fait référence à l'inst
 
 ```js
 class Unicorn {
-
   constructor(name) {
     this.name = name;
   }
 
   getName() {
     return this.name;
-   };
+  }
 }
 
-const fluffy = new Unicorn('Fluffy');
+const fluffy = new Unicorn("Fluffy");
 console.log(fluffy.getName); // 'Fluffy'
 console.log(fluffy.name); // 'Fluffy'
 ```
@@ -283,17 +282,16 @@ Les fonctions fléchées n'ont pas leur propre this. Elles héritent de this du 
 
 ```js
 class Unicorn {
-
   constructor(name) {
     this.name = name;
   }
 
   getNameArrow = () => {
     return this.name;
-  }
+  };
 }
 
-const fluffy = new Unicorn('Fluffy');
+const fluffy = new Unicorn("Fluffy");
 const getNameArrow = fluffy.getNameArrow;
 console.log(getNameArrow()); // 'Fluffy'
 ```
@@ -306,18 +304,18 @@ Nous avons fait le tour concernant les classes, fonctions, etc... Il nous reste 
 
 ## Comprendre le Comportement de this dans les Méthodes comme .addEventListener() et .setTimeout()
 
-> En JavaScript, comme nous l'avons vu, la valeur de "this" peut varier **en fonction du contexte d'exécution**, notamment lorsqu'elle est utilisée dans des méthodes telles que `.addEventListener()` et `.setTimeout()`. 
+> En JavaScript, comme nous l'avons vu, la valeur de "this" peut varier **en fonction du contexte d'exécution**, notamment lorsqu'elle est utilisée dans des méthodes telles que `.addEventListener()` et `.setTimeout()`.
 
 - "this" dans .addEventListener() :
 
 Lorsque vous ajoutez un gestionnaire d'événements avec `.addEventListener()`, "this" fait référence à l'élément sur lequel l'événement a été écouté.
 
 ```js
-const button = document.querySelector('button');
+const button = document.querySelector("button");
 
-button.addEventListener('click', function() {
+button.addEventListener("click", function () {
   console.log(this); // Référence au bouton
-  this.style.backgroundColor = 'blue';
+  this.style.backgroundColor = "blue";
 });
 ```
 
@@ -338,16 +336,16 @@ setTimeout(sayHi, 1000);
 Pour maintenir la liaison/référence du "this", vous pouvez utiliser une fonction fléchée (arrow function) ou la méthode `.bind()`que nous avons vu plus haut ^^.
 
 - Avec une fonction fléchée :
-Comme nous l'avons déjà vu, les fonctions fléchées ne créent pas leur propre "this", elles héritent donc de "this" du contexte où elles sont définies.
+  Comme nous l'avons déjà vu, les fonctions fléchées ne créent pas leur propre "this", elles héritent donc de "this" du contexte où elles sont définies.
 
 ```js
 const unicorn = {
-  name: 'Fluffy',
-  greet: function() {
+  name: "Fluffy",
+  greet: function () {
     setTimeout(() => {
       console.log(this.name); // Référencera 'Fluffy'
     }, 1000);
-  }
+  },
 };
 
 person.greet();
@@ -359,12 +357,15 @@ Comme nous l'avons vu également, Vous pouvez lier explicitement this à la fonc
 
 ```js
 const unicorn = {
-  name: 'Fluffy',
-  greet: function() {
-    setTimeout(function() {
-      console.log(this.name); // Référencera 'Fluffy'
-    }.bind(this), 1000);
-  }
+  name: "Fluffy",
+  greet: function () {
+    setTimeout(
+      function () {
+        console.log(this.name); // Référencera 'Fluffy'
+      }.bind(this),
+      1000,
+    );
+  },
 };
 
 person.greet();
@@ -372,9 +373,9 @@ person.greet();
 
 ---
 
-Nous voilà arrivés à la fin de ce topic sur le mot clef "this" en JavaScript. J'espère que le concept est désormais plus clair pour vous et que vous avez apprécié cette exploration, ponctuée de licornes et de mystères techniques. 
+Nous voilà arrivés à la fin de ce topic sur le mot clef "this" en JavaScript. J'espère que le concept est désormais plus clair pour vous et que vous avez apprécié cette exploration, ponctuée de licornes et de mystères techniques.
 
-Gardez en tête que la maîtrise de this est essentielle pour écrire un code JavaScript propre et efficace. 
+Gardez en tête que la maîtrise de this est essentielle pour écrire un code JavaScript propre et efficace.
 
 Alors, armez-vous de votre café et plongez dans vos projets avec une nouvelle compréhension de ce petit mot si crucial !
 
@@ -385,4 +386,4 @@ Alors, armez-vous de votre café et plongez dans vos projets avec une nouvelle c
 - [Articles JavaScript - GeeksforGeeks](https://www.geeksforgeeks.org/)
 - [Guide sur `this` et l'orientation objet - JavaScript.info](https://javascript.info/object-methods#method-this)
 - [Tutoriels JavaScript - Dyma](https://dyma.fr/cours/javascript)
- </article>
+</article>

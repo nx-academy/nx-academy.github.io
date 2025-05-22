@@ -5,7 +5,7 @@ type Heading = {
   depth: number;
   slug: string;
   text: string;
-}
+};
 
 interface Props {
   frontmatter: {
@@ -13,12 +13,12 @@ interface Props {
     description: string;
     imgSrc?: string;
   };
-  headings: Heading[]
+  headings: Heading[];
 }
 
 import theme from "../config/theme";
 import BaseLayout from "./BaseLayout.astro";
-import StickyOutline from "../components/StickyOutline.astro"
+import StickyOutline from "../components/StickyOutline.astro";
 
 const {
   colors: { neonGreen, neonGreenLight, black },
@@ -26,7 +26,7 @@ const {
 
 const {
   frontmatter: { title, description, imgSrc },
-  headings
+  headings,
 } = Astro.props;
 
 const breadCrumbs: Breadcrumb[] = [

@@ -1,60 +1,71 @@
 ---
-import type { Breadcrumb } from "../types/Breadcrumb"
+import type { Breadcrumb } from "../types/Breadcrumb";
 
 interface Props {
-    breadcrumbs?: Breadcrumb[]
+  breadcrumbs?: Breadcrumb[];
 }
 
-const { breadcrumbs } = Astro.props
+const { breadcrumbs } = Astro.props;
 ---
 
 <ul class="links-wrapper">
-    {
-        breadcrumbs && breadcrumbs.map(breadcrumb => (
-            <li>
-                <a href={breadcrumb.pageUrl}>
-                    {breadcrumb.pageName}
-                </a>
-                <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9 6L15 12L9 18" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </li>
-        ))
-    }
+  {
+    breadcrumbs &&
+      breadcrumbs.map((breadcrumb) => (
+        <li>
+          <a href={breadcrumb.pageUrl}>{breadcrumb.pageName}</a>
+          <svg
+            width="20px"
+            height="20px"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M9 6L15 12L9 18"
+              stroke="#FFF"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </li>
+      ))
+  }
 </ul>
 
 <style>
-    .links-wrapper {
-        margin-top: 16px;
-        padding-left: 0;
-        list-style-type: none;
-        display: flex;
-        flex-direction: row;
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-        gap: 8px;
-        align-items: center;
-        justify-content: flex-start;
-        margin-bottom: 8px;
-        flex-wrap: wrap;
-        max-width: 1100px;
-    }
+  .links-wrapper {
+    margin-top: 16px;
+    padding-left: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+    max-width: 1100px;
+  }
 
-    .links-wrapper li {
-        margin-bottom: 0;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-    }
+  .links-wrapper li {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
 
-    .links-wrapper li a {
-        color: #fff;
-        text-decoration: none;
-        transition: 0.4s color;
-        
-        &:hover {
-            color: #4effa0bb;
-        }
+  .links-wrapper li a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.4s color;
+
+    &:hover {
+      color: #4effa0bb;
     }
+  }
 </style>

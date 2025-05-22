@@ -4,12 +4,10 @@ on:
   push:
     branches: ["main"]
 
-
 permissions:
   contents: read
   pages: write
   id-token: write
-
 
 jobs:
   deploy:
@@ -27,6 +25,8 @@ jobs:
         run: npm ci
       - name: Running the test
         run: npm test
+      - name: Running Prettier (check)
+        run: npm run prettier:check
       - name: Building project
         run: npm run build
       - name: Setting up Pages

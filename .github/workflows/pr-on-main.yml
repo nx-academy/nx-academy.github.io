@@ -7,12 +7,10 @@ on:
       - opened
       - synchronize
 
-
 permissions:
   contents: read
   pages: write
   id-token: write
-
 
 jobs:
   test-and-check:
@@ -28,6 +26,8 @@ jobs:
           cache: "npm"
       - name: Installing dependencies
         run: npm ci
+      - name: Running Prettier (check)
+        run: npm run prettier:check
       - name: Running the tests
         run: npm test
       - name: Building the app for testing purposes

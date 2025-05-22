@@ -14,7 +14,7 @@ id: 6
 
 <article>
 
-# Gérez le réseau de votre infrastructure 
+# Gérez le réseau de votre infrastructure
 
 Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre [sur la branche `partie-2/chapitre-3-debut`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-3-debut). En plus de cette branche, nous allons utiliser [cette issue Github](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/3) comme problématique. Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
 
@@ -107,23 +107,23 @@ Bon, si l’on reprend l’exemple de notre docker-compose pour WordPress du cha
 
 ```yml
 services:
- db:
-   image: mariadb:10.6.4-focal
-   # [...]
-   environment:
-     - MYSQL_ROOT_PASSWORD=somewordpress
-     - MYSQL_DATABASE=wordpress
-     - MYSQL_USER=wordpress
-     - MYSQL_PASSWORD=wordpress
-   expose: # les ports 3306 et 33060 ne sont accessibles qu'à mon service Wordpress ci-dessous
-     - 3306
-     - 33060
- wordpress:
-   image: wordpress:latest
-   ports: # les ports 80 de mon conteneur et de mon hôte seront occupés par ce service
-     - 80:80
-   restart: always
-   # [...]
+  db:
+    image: mariadb:10.6.4-focal
+    # [...]
+    environment:
+      - MYSQL_ROOT_PASSWORD=somewordpress
+      - MYSQL_DATABASE=wordpress
+      - MYSQL_USER=wordpress
+      - MYSQL_PASSWORD=wordpress
+    expose: # les ports 3306 et 33060 ne sont accessibles qu'à mon service Wordpress ci-dessous
+      - 3306
+      - 33060
+  wordpress:
+    image: wordpress:latest
+    ports: # les ports 80 de mon conteneur et de mon hôte seront occupés par ce service
+      - 80:80
+    restart: always
+    # [...]
 ```
 
 <br>
@@ -152,8 +152,8 @@ Avez-vous déjà vu ce genre de choses traîner dans votre code ?
 <br>
 
 ```javascript
-const PORT = process.env.PORT
-const DB_URL = process.env.DB_URL
+const PORT = process.env.PORT;
+const DB_URL = process.env.DB_URL;
 ```
 
 <br>
@@ -214,6 +214,7 @@ Je vous propose qu’on fasse une petite pause sur le texte et qu’on regarde c
 <br>
 
 Pour récapituler, vous pouvez soit :
+
 - **Ajouter des variables d'environnement via la propriété `environment`**. Je vous invite à faire ça quand vous ne manipulez pas des informations sensibles, comme des codes d’accès à une base de données.
 - **Créer un fichier `.env`, bien vérifier qu’il soit ajouté dans un `.gitignore`, pour ne pas être indexé, puis [ajouter la propriété env_file](https://docs.docker.com/compose/compose-file/compose-file-v3/#env_file) avec le chemin vers votre fichier**. Vous pouvez créer ensuite un fichier `.example.env` pour indiquer à vos utilisateurs les variables d'environnement requises pour lancer votre projet.
 - **Vous pouvez aussi ajouter des variables d'environnement directement depuis votre fichier Dockerfile**. En pratique, je vous déconseille de le faire. Ce n’est pas forcément une bonne pratique, notamment niveau sécurité.
@@ -221,7 +222,6 @@ Pour récapituler, vous pouvez soit :
 <br>
 
 Votre code devrait maintenant correspondre à celui [de la branche `partie-2/chapitre-3/section-3`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-3/section-3).
-
 
 ---
 
@@ -254,6 +254,4 @@ Le code source contenant la solution de cet exercice se trouve [sur la branche `
 - Vous pouvez assigner des variables d'environnement à un conteneur Docker soit via la propriété environment, soit un `env_file` avec un fichier de variables d'environnements.
 - Il est recommandé de créer un fichier `.example.env` pour préciser les variables d'environnement requises.
 
-
 </article>
-

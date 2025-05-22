@@ -1,7 +1,4 @@
-function calculateReadingTime(
-  text: string,
-  wordsPerMinute: number
-): number {
+function calculateReadingTime(text: string, wordsPerMinute: number): number {
   const words = text.trim().split(/\s+/).length;
   const time = Math.ceil(words / wordsPerMinute);
 
@@ -22,7 +19,7 @@ export default function displayEstimatedReadingTime() {
       if ($articleTitle) {
         $articleTitle.parentNode?.insertBefore(
           $timeInfo,
-          $articleTitle.nextSibling
+          $articleTitle.nextSibling,
         );
       }
     }

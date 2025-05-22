@@ -23,7 +23,7 @@ La sortie du cours sur Docker approche à grand pas. Pour cette occasion, sachez
 
 Pour marquer le coup, une surprise vous attend en bas de l’article. Le tout premier quiz généré par IA, directement mis en ligne grâce à l’agent que j’ai développé. Oui, ça bosse pas mal en ce moment !
 
-**On commence cette série Docker par les volumes**. Pourquoi ? Parce que c’est souvent à ce moment-là que les choses se compliquent. Quand on a compris la différence entre une image et un conteneur, qu’on a lancé ses premiers services via un `docker-compose.yml`,  on se heurte assez vite à cette question : _où sont passées les données ?_ ou _comment bien gérés mes données dans mon conteneur sans avoir à rebuild à chaque fois ?_
+**On commence cette série Docker par les volumes**. Pourquoi ? Parce que c’est souvent à ce moment-là que les choses se compliquent. Quand on a compris la différence entre une image et un conteneur, qu’on a lancé ses premiers services via un `docker-compose.yml`, on se heurte assez vite à cette question : _où sont passées les données ?_ ou _comment bien gérés mes données dans mon conteneur sans avoir à rebuild à chaque fois ?_
 
 **Les volumes sont l’un des premiers gros morceaux** à assimiler. Ils ont deux usages très différents (on y revient juste après). Savoir les utiliser correctement permet d’éviter pas mal de galères, notamment quand on bosse avec une base de données ou un simple serveur de développement.
 
@@ -38,12 +38,9 @@ Pour faire simple, on les utilise pour deux raisons :
 - La persistance des données. C’est le cas typique d’une base de données MySQL ou PostgreSQL : vous lancez un conteneur, vous y stockez des données, vous le redémarrez et tout a disparu. Sans volume, un conteneur Docker n’a pas de mémoire durable. Il est fait pour être éphémère. En utilisant un volume, on sauvegarde les données à l’extérieur du conteneur et on les retrouve intactes au redémarrage.
 - Le partage de fichiers entre l’hôte et le conteneur. Imaginez que vous développiez un serveur Express en Node.js et vous souhaitiez que votre conteneur “voie” en temps réel les fichiers que vous modifiez. C’est là qu’intervient le montage de dossier : vous connectez un dossier local (celui de votre projet, par exemple) à un dossier dans le conteneur. **Résultat : chaque changement est automatiquement pris en compte**. Si vous ne faites pas ça, vous êtes obligé de redémarrer le conteneur à chaque fois.
 
-
 <br>
 
-
-Ces deux usages, persister et partager,  sont très différents. Cela dit, ils passent tous deux par le système de volumes. On va voir dès maintenant comment gérer ces deux usages avec Docker.
-
+Ces deux usages, persister et partager, sont très différents. Cela dit, ils passent tous deux par le système de volumes. On va voir dès maintenant comment gérer ces deux usages avec Docker.
 
 ## Deux types de volumes : bind mount vs volume nommé
 
@@ -67,7 +64,6 @@ Si vous vous demandez comment ça marche _behind the scenes_, sachez que :
 
 Allez, on va regarder maintenant comment on déclare des volumes dans un `docker-compose.yml` !
 
-
 ## Comment les déclarer dans un docker-compose.yml ?
 
 ### Développez en local avec un bind mount
@@ -85,15 +81,14 @@ services:
 <br>
 
 Décryptage :
+
 - `./app` est un dossier local (relatif au fichier `docker-compose.yml`) ;
 - `/usr/src/app` est le dossier monté dans le conteneur ;
 - tout changement dans `./app` est automatiquement visible dans le conteneur.
 
-
 ### Persistez des données avec un volume nommé
 
 On va partir sur une base de données PostgreSQL. Pour s'assurer que les données soient conservées même après l'arrêt ou la suppression du conteneur, on déclare un volume nommé comme ci-dessous :
-
 
 ```yaml
 services:
@@ -111,10 +106,10 @@ volumes:
 <br>
 
 Décryptage :
+
 - `pg_data` est le nom du volume qu'on crée ;
 - `/var/lib/postgresql/data` est le chemin dans le conteneur où PostgreSQL stocke ses données ;
 - La clé `volumes`, tout en bas, permet de définir explicitement le volume, mais si on l’omet, Docker le crée quand même automatiquement. (Pratique, non ?)
-
 
 ## Astuce bonus – Montez un volume en lecture seule
 
@@ -132,7 +127,6 @@ Le `:ro` à la fin signifie read-only (lecture seule). Si le conteneur essaie d�
 <hr>
 
 Et voilà ! Les volumes Docker peuvent être un peu pertubants de premier abord. Il y a souvent beaucoup d'incompréhensions sur comment bien les utiliser. Je vous invite [à faire ce quiz pour valider vos connaissances](/quiz/bien-utiliser-volumes-docker) et on se retrouve pour le mois prochain pour une fiche technique dédiée aux registries Docker !
-
 
 ## Ressources
 

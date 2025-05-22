@@ -1,7 +1,7 @@
 ---
 layout: ../../../../layouts/ChapterLayout.astro
 
-title: Créez votre premier docker-compose 
+title: Créez votre premier docker-compose
 description: Une nouvelle super description dédiée à Docker
 
 previousChapterLink: creation-premier-dockerfile
@@ -36,40 +36,40 @@ Créez un fichier `docker-compose.yml` à la racine de votre projet. Vous pouvez
 
 ```yml
 services:
- db:
-   # We use a mariadb image which supports both amd64 & arm64 architecture
-   image: mariadb:10.6.4-focal
-   # If you really want to use MySQL, uncomment the following line
-   #image: mysql:8.0.27
-   command: '--default-authentication-plugin=mysql_native_password'
-   volumes:
-     - db_data:/var/lib/mysql
-   restart: always
-   environment:
-     - MYSQL_ROOT_PASSWORD=somewordpress
-     - MYSQL_DATABASE=wordpress
-     - MYSQL_USER=wordpress
-     - MYSQL_PASSWORD=wordpress
-   expose:
-     - 3306
-     - 33060
- wordpress:
-   image: wordpress:latest
-   ports:
-     - 80:80
-   restart: always
-   environment:
-     - WORDPRESS_DB_HOST=db
-     - WORDPRESS_DB_USER=wordpress
-     - WORDPRESS_DB_PASSWORD=wordpress
-     - WORDPRESS_DB_NAME=wordpress
+  db:
+    # We use a mariadb image which supports both amd64 & arm64 architecture
+    image: mariadb:10.6.4-focal
+    # If you really want to use MySQL, uncomment the following line
+    #image: mysql:8.0.27
+    command: "--default-authentication-plugin=mysql_native_password"
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=somewordpress
+      - MYSQL_DATABASE=wordpress
+      - MYSQL_USER=wordpress
+      - MYSQL_PASSWORD=wordpress
+    expose:
+      - 3306
+      - 33060
+  wordpress:
+    image: wordpress:latest
+    ports:
+      - 80:80
+    restart: always
+    environment:
+      - WORDPRESS_DB_HOST=db
+      - WORDPRESS_DB_USER=wordpress
+      - WORDPRESS_DB_PASSWORD=wordpress
+      - WORDPRESS_DB_NAME=wordpress
 volumes:
- db_data:
+  db_data:
 ```
 
 <br>
 
-Je ne vais pas rentrer dès maintenant dans le détail de toutes les propriétés du fichier. J’ai d’abord envie de vous montrer la construction de votre infrastructure. Ouvrez votre terminal et tapez la commande `docker compose up`. 
+Je ne vais pas rentrer dès maintenant dans le détail de toutes les propriétés du fichier. J’ai d’abord envie de vous montrer la construction de votre infrastructure. Ouvrez votre terminal et tapez la commande `docker compose up`.
 
 Docker Compose va se charger de récupérer les images de [MariaDB](https://hub.docker.com/_/mariadb) et de [WordPress](https://hub.docker.com/_/wordpress). Une fois que votre ligne de commande s’est un peu calmée, ouvrez votre navigateur et rendez-vous sur http://localhost. Vous devriez avoir un écran similaire au mien ci-dessous.
 
@@ -81,7 +81,7 @@ Docker Compose va se charger de récupérer les images de [MariaDB](https://hub.
 
 Si vous avez déjà installé WordPress sur votre ordinateur, vous savez à quel point cette étape est chiante (oui, le mot est lancé) ! Vous devez passer par Wamp ou Mamp. Cette suite vous installe Apache, MySQL et Php directement sur votre ordinateur. Avec tous les défauts que cela comprend : c’est difficile à mettre à jour, ça encrasse votre ordinateur, c’est compliqué si vous souhaitez utiliser une version différente de MySQL sur un autre projet, etc.
 
-Pour la petite aparté, sachez que cette stack technique s’appelle couramment le LAMP (Linux Apache MySQL Php). C’était une stack très populaire au milieu des années 2000. Il y a eu d’autres types de stack depuis tel que [le MEAN](https://en.wikipedia.org/wiki/MEAN_(solution_stack)) (MongoDB, Express, Angular et NodeJS) et le MERN (MongoDB, Express, React et NodeJS).
+Pour la petite aparté, sachez que cette stack technique s’appelle couramment le LAMP (Linux Apache MySQL Php). C’était une stack très populaire au milieu des années 2000. Il y a eu d’autres types de stack depuis tel que [le MEAN](<https://en.wikipedia.org/wiki/MEAN_(solution_stack)>) (MongoDB, Express, Angular et NodeJS) et le MERN (MongoDB, Express, React et NodeJS).
 
 Docker, grâce à docker-compose, vous apporte une solution clé en main. **Vous pouvez facilement créer votre stack WordPress, avec les versions de MySQL/MariaDB que vous voulez, et le tout sans encrasser votre ordinateur**. Faites un simple `ctrl + c` pour quitter l'environnement. Regardons maintenant un peu le fichier docker-compose en détails avant de s’amuser à faire le notre.
 
@@ -99,35 +99,35 @@ Reprenons le fichier docker-compose précédent.
 
 ```yml
 services:
- db:
-   # We use a mariadb image which supports both amd64 & arm64 architecture
-   image: mariadb:10.6.4-focal
-   # If you really want to use MySQL, uncomment the following line
-   #image: mysql:8.0.27
-   command: '--default-authentication-plugin=mysql_native_password'
-   volumes:
-     - db_data:/var/lib/mysql
-   restart: always
-   environment:
-     - MYSQL_ROOT_PASSWORD=somewordpress
-     - MYSQL_DATABASE=wordpress
-     - MYSQL_USER=wordpress
-     - MYSQL_PASSWORD=wordpress
-   expose:
-     - 3306
-     - 33060
- wordpress:
-   image: wordpress:latest
-   ports:
-     - 80:80
-   restart: always
-   environment:
-     - WORDPRESS_DB_HOST=db
-     - WORDPRESS_DB_USER=wordpress
-     - WORDPRESS_DB_PASSWORD=wordpress
-     - WORDPRESS_DB_NAME=wordpress
+  db:
+    # We use a mariadb image which supports both amd64 & arm64 architecture
+    image: mariadb:10.6.4-focal
+    # If you really want to use MySQL, uncomment the following line
+    #image: mysql:8.0.27
+    command: "--default-authentication-plugin=mysql_native_password"
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=somewordpress
+      - MYSQL_DATABASE=wordpress
+      - MYSQL_USER=wordpress
+      - MYSQL_PASSWORD=wordpress
+    expose:
+      - 3306
+      - 33060
+  wordpress:
+    image: wordpress:latest
+    ports:
+      - 80:80
+    restart: always
+    environment:
+      - WORDPRESS_DB_HOST=db
+      - WORDPRESS_DB_USER=wordpress
+      - WORDPRESS_DB_PASSWORD=wordpress
+      - WORDPRESS_DB_NAME=wordpress
 volumes:
- db_data:
+  db_data:
 ```
 
 <br>
@@ -156,14 +156,13 @@ Regardons maintenant le service db. Il contient 6 propriétés dont certaines qu
 - **volumes est une propriété intéressante**. D’ailleurs, un chapitre complet est dédié aux volumes Docker. **Les volumes vous permettent de partager des fichiers et/ou des configurations entre votre ordinateur (souvenez-vous, on l’appelle l’hôte) et les conteneurs**. Les volumes fonctionnent toujours en deux parties : celle de gauche (avant le “:”) qui correspond au stockage de la machine hôte et celle de droite (après le “:”) qui correspond au stockage sur le conteneur. Il existe pas mal de subtilités sur les volumes. Nous verrons ça ensemble dans un prochain chapitre.
 - **`restart`** qui dicte la politique de redémarrage des conteneurs. Si vous ne le précisez pas, les conteneurs ne redémarrent pas par défaut.
 - **`environment`** qui sont nos fameuses variables d’environnement. Notez qu’elles ne sont pas choisies au hasard : elles proviennent de la documentation officielle de l’image MariaDB.
-- **`expose` qui permet d’exposer des ports dans le conteneur mais pas sur l’hôte**. Autrement dit, si j’avais utilisé expose et non ports un peu plus haut, je n’aurais pas été capable d’accéder à mon site WordPress. On reviendra sur ces notions dans le chapitre dédié au networking mais retenez simplement que si j’utilise expose et non ports, sur le port 3000 par exemple, le port 3000 de mon ordinateur restera disponible. expose rend le port disponible à l’intérieur de mon infrastructure Docker et non à l’extérieur. 
+- **`expose` qui permet d’exposer des ports dans le conteneur mais pas sur l’hôte**. Autrement dit, si j’avais utilisé expose et non ports un peu plus haut, je n’aurais pas été capable d’accéder à mon site WordPress. On reviendra sur ces notions dans le chapitre dédié au networking mais retenez simplement que si j’utilise expose et non ports, sur le port 3000 par exemple, le port 3000 de mon ordinateur restera disponible. expose rend le port disponible à l’intérieur de mon infrastructure Docker et non à l’extérieur.
 
 J’ai conscience que je suis en train de vous donner beaucoup d’informations et que vous ne vous souviendrez pas forcément de tout. C’est absolument normal. Le projet fil rouge est là pour vous permettre de mettre en application mais il est aussi important que vous relisiez ce cours d’ici quelques jours, semaines et mois.
 
 J’en profite pour vous donner [une ressource complémentaire à lire](https://www.educative.io/blog/docker-compose-tutorial). Elle comporte aussi un peu de contenu sur Docker avant de parler de Docker Compose (mais bon, c’est toujours bien d’avoir un rafraîchissement 🙂).
 
 On va maintenant s’attaquer à créer le Docker Compose de notre projet.
-
 
 ---
 
@@ -200,9 +199,7 @@ Voici les éléments essentiels à retenir de cette vidéo :
 - **Les propriétés tty et stdin_open correspondent aux options -ti que vous lancez via Docker**. Elles permettent au conteneur de continuer à tourner et de pouvoir réaliser la communication entre mon ordinateur et le conteneur. [Voici un bon topic stackoverflow à ce sujet](https://stackoverflow.com/questions/58636607/how-to-read-understand-a-docker-compose-yml-and-what-the-stdin-open-true-tty).
 - **La commande docker compose exec me permet d'exécuter une commande sur un service**. Notez que j’utilise le nom du service défini dans le fichier docker compose. Ici, la commande `docker compose exec api bash` me permet d’ouvrir un terminal bash dans mon conteneur Docker.
 
-
-Votre code devrait maintenant correspondre [à celui de la branche `partie-2/chapitre-2/section-3`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-2/section-3). 
-
+Votre code devrait maintenant correspondre [à celui de la branche `partie-2/chapitre-2/section-3`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-2/section-3).
 
 ---
 
@@ -220,7 +217,7 @@ Pour rappel, [voici la problématique](https://github.com/nx-academy/Conteneuris
 
 <br>
 
-Le code source contenant la solution de cet exercice se trouve [sur la branche `partie-2/chapitre-2-fin`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-2-fin). 
+Le code source contenant la solution de cet exercice se trouve [sur la branche `partie-2/chapitre-2-fin`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-2-fin).
 
 L’application n’est pas encore accessible depuis l’extérieur de conteneur. Nous n’avons d’ailleurs même pas alloué de port dans le conteneur. La bonne nouvelle, c’est qu’on va voir ça ensemble dès le prochain chapitre.
 
@@ -236,6 +233,4 @@ L’application n’est pas encore accessible depuis l’extérieur de conteneur
 - En pratique, on passe souvent par docker-compose, notamment dans les environnements de développement locaux. Autrement dit, quand vous programmez sur votre machine.
 - Il existe de nombreuses propriétés pour les fichiers docker-compose. Il n’y a pas besoin de toutes les connaître. Voici la page de la documentation qui fait référence à toutes ces propriétés.
 
-
 </article>
-

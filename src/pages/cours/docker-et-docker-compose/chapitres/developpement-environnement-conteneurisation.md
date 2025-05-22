@@ -54,12 +54,11 @@ Dans ce screencast, je vais vous montrer comment installer et paramétrer l’ex
 
 <br>
 
-
 Félicitations, l’extension DevContainer est maintenant installée et prête à utiliser sur votre ordinateur. Le code correspond à la fin de cette vidéo se trouve [sur la branche partie-3/chapitre-2/section-2](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-3/chapitre-2/section-2).
 
 <br>
 
-Vous allez maintenant pouvoir faire fonctionner le projet fil rouge dans son intégralité. 
+Vous allez maintenant pouvoir faire fonctionner le projet fil rouge dans son intégralité.
 
 ---
 
@@ -77,13 +76,12 @@ En effet, nous allons maintenant ajouter le front à notre projet fil rouge. Id�
 
 La limitation ici vient principalement de l’extension DevContainer. Elle permet de se placer uniquement dans un conteneur Docker et non dans les deux. Si je trouve une solution plus élégante, je mettrai à jour ce cours.
 
-Notre projet fil rouge va être composé de deux dossiers : 
-- `api`, qui va désormais contenir notre API REST en Express. Ce dossier contient un Dockerfile. C’est celui que nous allons utiliser pour builder notre application Express ET React. 
+Notre projet fil rouge va être composé de deux dossiers :
+
+- `api`, qui va désormais contenir notre API REST en Express. Ce dossier contient un Dockerfile. C’est celui que nous allons utiliser pour builder notre application Express ET React.
 - `web`, qui va contenir notre application React. Ce dossier contient un Dockerfile qui nous sera utile pour le prochain chapitre.
 
-
 Pour l’instant, les deux éléments ne communiquent pas entre eux. C’est votre job de le faire 🙂. Vous pouvez essayer de faire fonctionner le front et le back avant de regarder le screencast ci-dessous. Pensez bien à faire un npm i dans les deux dossiers.
-
 
 <br>
 
@@ -113,6 +111,5 @@ Pour rappel, [voici la problématique](https://github.com/nx-academy/Conteneuris
 
 - L’extension DevContainer vous permet d’allier le confort de VSCode avec celui de Docker. C’est un peu le meilleur des deux mondes réunis.
 - Pensez bien à supprimer le volume du service api dans votre fichier `docker-compose`. Cela peut vous créer des problèmes de cache avec VSCode.
-
 
 </article>

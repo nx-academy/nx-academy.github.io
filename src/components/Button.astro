@@ -1,23 +1,18 @@
 ---
-import theme from "../config/theme"
+import theme from "../config/theme";
 
 interface Props {
   label: string;
   type: "primary" | "secondary";
   href: string;
-  external?: boolean
+  external?: boolean;
 }
 
 const { label, type, href, external } = Astro.props;
 
 const {
-  colors: {
-    black,
-    neonGreen,
-    neonGreenLight,
-    white
-  }
-} = theme
+  colors: { black, neonGreen, neonGreenLight, white },
+} = theme;
 ---
 
 <a class={type} href={href} target={external ? "_blank" : ""}>
@@ -44,12 +39,12 @@ const {
   }
 
   .secondary {
-    background-color: #B0BEC5;
+    background-color: #b0bec5;
     color: #151515;
-    border: 1px solid #B0BEC5;
+    border: 1px solid #b0bec5;
 
     &:hover {
-      background-color: #B0BEC5AA;
+      background-color: #b0bec5aa;
     }
   }
 </style>

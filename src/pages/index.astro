@@ -7,28 +7,31 @@ import Card from "../components/Card.astro";
 
 type Article = {
   frontmatter: {
-    kind: string
-    title: string
-    description: string
-    imgAlt: string
-    imgSrc: string
-    author: string
-    publishedDate: string
-    draft: boolean
-    level: string
-  },
-  url: string
-}
+    kind: string;
+    title: string;
+    description: string;
+    imgAlt: string;
+    imgSrc: string;
+    author: string;
+    publishedDate: string;
+    draft: boolean;
+    level: string;
+  };
+  url: string;
+};
 
-const heroContentTitle = "Comment (bien) utiliser les volumes Docker ?"
+const heroContentTitle = "Comment (bien) utiliser les volumes Docker ?";
 
-const articles = Object.values(import.meta.glob("./articles/*.md", { eager: true })) as Article[]
-const cheatsheets = Object.values(import.meta.glob("./fiches/*.md", { eager: true })) as Article[]
+const articles = Object.values(
+  import.meta.glob("./articles/*.md", { eager: true }),
+) as Article[];
+const cheatsheets = Object.values(
+  import.meta.glob("./fiches/*.md", { eager: true }),
+) as Article[];
 
 const content = cheatsheets.concat(articles);
 const heroContent = content.filter(
-  (c) =>
-    c.frontmatter.title === heroContentTitle,
+  (c) => c.frontmatter.title === heroContentTitle,
 )[0];
 ---
 
@@ -50,8 +53,7 @@ const heroContent = content.filter(
         content
           .filter(
             (c) =>
-              !c.frontmatter.draft &&
-              c.frontmatter.title !== heroContentTitle,
+              !c.frontmatter.draft && c.frontmatter.title !== heroContentTitle,
           )
           .sort(
             (item1, item2) =>

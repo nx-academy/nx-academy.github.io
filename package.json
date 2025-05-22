@@ -8,6 +8,8 @@
     "check": "astro check",
     "dev": "astro dev",
     "optimize-images": "node ./scripts/optimizeImages",
+    "prettier:check": "prettier . --check",
+    "prettier:format": "prettier . --write",
     "preview": "astro preview",
     "start": "astro dev",
     "test": "vitest"
@@ -28,6 +30,8 @@
     "typescript": "^5.5.3"
   },
   "devDependencies": {
+    "prettier": "3.5.3",
+    "prettier-plugin-astro": "0.14.1",
     "sharp": "^0.34.2",
     "vitest": "^3.1.1"
   }

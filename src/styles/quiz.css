@@ -1,158 +1,158 @@
 .question-indicator {
-    font-size: .75rem;
+  font-size: 0.75rem;
 }
 
 .question {
-    font-size: 1.25rem;
-    margin-bottom: 32px;
+  font-size: 1.25rem;
+  margin-bottom: 32px;
 }
 
 .explanation-title {
-    font-size: 1.25rem;
-    font-weight: 600;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .explanation-title-right {
-    color: #4effa0;
+  color: #4effa0;
 }
 
 .explanation-title-wrong {
-    /* For my Eden School students ^^ */
-    color: tomato;
+  /* For my Eden School students ^^ */
+  color: tomato;
 }
 
 .explanation {
-    color: #bababa;
-    margin-bottom: 40px;
+  color: #bababa;
+  margin-bottom: 40px;
 }
 
 .options-wrapper {
-    padding-left: 0;
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-bottom: 24px;
+  padding-left: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
 }
 
 .answer {
-    background-color: #252525;
-    padding: 8px 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: .4s;
-    border: 1px solid #252525;
+  background-color: #252525;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.4s;
+  border: 1px solid #252525;
 
-    &:hover {
-        border: 1px solid #B0BEC5;
-    }
+  &:hover {
+    border: 1px solid #b0bec5;
+  }
 }
 
 .active {
-    background-color: #B0BEC5;
-    color: #151515;
+  background-color: #b0bec5;
+  color: #151515;
 }
 
 .correct-answer {
-    background-color: #252525;
-    border: 1px solid #4effa0;
-    color: #FFF;
+  background-color: #252525;
+  border: 1px solid #4effa0;
+  color: #fff;
 }
 
 .wrong-answer {
-    background-color: #252525;
-    border: 1px solid tomato;
-    color: #FFF;
+  background-color: #252525;
+  border: 1px solid tomato;
+  color: #fff;
 }
 
 .submit-answer-btn {
-    background-color: #4effa0;
-    border: 1px solid #4effa0;
-    width: 100%;
-    text-align: center;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    cursor: pointer;
-    color: #151515;
-    border-radius: 8px;
-    transition: .4s;
-    font-weight: 700;
+  background-color: #4effa0;
+  border: 1px solid #4effa0;
+  width: 100%;
+  text-align: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  cursor: pointer;
+  color: #151515;
+  border-radius: 8px;
+  transition: 0.4s;
+  font-weight: 700;
 
-    &:hover {
-        background-color: #4effa0dd;
-    }
+  &:hover {
+    background-color: #4effa0dd;
+  }
 }
 
 .finished-quiz-title {
-    font-size: 32px;
+  font-size: 32px;
 }
 
 .finished-quiz-score {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 .finished-quiz-btns {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .go-back {
-    background-color: #4effa0;
-    border: 1px solid #4effa0;
-    text-align: center;
-    padding: 8px 16px;
-    cursor: pointer;
-    color: #151515;
-    border-radius: 8px;
-    transition: .4s;
-    display: block;
-    text-decoration: none;
+  background-color: #4effa0;
+  border: 1px solid #4effa0;
+  text-align: center;
+  padding: 8px 16px;
+  cursor: pointer;
+  color: #151515;
+  border-radius: 8px;
+  transition: 0.4s;
+  display: block;
+  text-decoration: none;
 
-    &:hover {
-        background-color: #4effa0dd;
-    }
+  &:hover {
+    background-color: #4effa0dd;
+  }
 }
 
 .redo-quiz {
-    display: block;
-    padding: 8px 16px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: .4s;
-    background-color: #B0BEC5;
-    color: #151515;
-    text-align: center;
-    text-decoration: none;
+  display: block;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.4s;
+  background-color: #b0bec5;
+  color: #151515;
+  text-align: center;
+  text-decoration: none;
 }
 
 @media screen and (min-width: 768px) {
-    .finished-quiz-btns {
-        flex-direction: row;
-    }
+  .finished-quiz-btns {
+    flex-direction: row;
+  }
 }
 
 @media screen and (min-width: 1024px) {
-    .quiz-wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
+  .quiz-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
-    .quiz-inner-container {
-        display: flex;
-        gap: 40px;
-    }
+  .quiz-inner-container {
+    display: flex;
+    gap: 40px;
+  }
 
-    .question-wrapper {
-        width: 50%;
-    }
+  .question-wrapper {
+    width: 50%;
+  }
 
-    .explanation {
-        margin-bottom: 0;   
-    }
+  .explanation {
+    margin-bottom: 0;
+  }
 
-    .options-container {
-        width: 50%;
-    }
+  .options-container {
+    width: 50%;
+  }
 }

@@ -43,7 +43,6 @@ En fonction de votre équipe et de votre projet, une CD peut complexifier votre 
 
 <br>
 
-
 ![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
 
 ## Visualisez le fonctionnement d’une pipeline CI/CD
@@ -91,11 +90,9 @@ Ce schéma me plait particulièrement parce qu’il montre bien le côté répé
 
 Si vous avez déjà déployé manuellement un projet en utilisant un client ftp ou scp, vous comprenez à quel point une pipeline CI/CD change la vie. Si ce n’est pas le cas, pas de panique. Je vais profiter de la prochaine section pour vous faire un bref rappel sur les méthodes de déploiement traditionnelles. Vous découvrirez ensuite les problématiques résolues par ces technologies.
 
-
 ---
 
 <br>
-
 
 ![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
 
@@ -104,9 +101,9 @@ Si vous avez déjà déployé manuellement un projet en utilisant un client ftp 
 Est-ce que les termes `ftp` et `scp` vous parlent ? Si ce n’est pas le cas, vous avez de la chance 😀. Les premiers sites que j’ai déployés utilisaient ces méthodes.
 
 Pour rappel,
+
 - FTP signifie File Transfer Protocol. Comme son nom anglais l’indique, c’est un protocole de communication utilisé pour transférer des fichiers entre un client (votre ordinateur par exemple) et un serveur. Le client FTP le plus connu est FileZilla. Vous l’utilisez en faisant un copier/coller de vos fichiers vers le serveur.
 - SCP signifie Secure Copy Protocol. C’est aussi un protocole de transfert de fichier. Cela dit, il y a l’avantage d’être sécurisé via des clés SSH. Je vous prépare un blog post sur les clés SSH. Je mettrai à jour ce cours une fois que je l’aurais publié. Il existe des clients SCP mais j’ai de mon côté principalement utilisé la commande scp. Cette commande est disponible sur MacOS et Linux.
-
 
 <br>
 
@@ -138,11 +135,9 @@ Je vois trois principaux inconvénients :
 
 Voilà pour les avantages et les inconvénients des pipelines CI/CD. On va maintenant regarder de plus près quelques CI Servers connues.
 
-
 ---
 
 <br>
-
 
 ![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
 
@@ -157,18 +152,13 @@ Parmi les principales solutions de CI Servers, on peut donc citer Jenkins, Travi
 - GitLab CI est la solution de CI intégrée à la plateforme GitLab. L’intérêt principal de cette solution est son intégration avec vos repos GitLab. Cela vous permet de regrouper les outils.
 - GitHub Actions est la réponse de GitHub aux autres solutions. Comme GitLab CI, elle propose une intégration complète allant du versionning du code jusqu’à l’hébergement des build. C’est une solution particulièrement puissante et utilisée par de nombreuses entreprises et organisations.
 
-
 ---
-
 
 <br>
 
-
 ![Un vendeur de journaux dans une rue, pixel art](/vendeur-journaux.webp)
 
-
 ## Résumé
-
 
 - Bien que distincts, les concepts, ainsi que les solutions, de CI/CD sont souvent utilisés de paire. Les CI sont orientées code (build et tests) alors que les CD sont orientées déploiement.
 - Une pipeline CI/CD est le plus souvent composé de 5 grandes étapes : le déclencheur, l’installation des dépendances, le build, les tests automatisés et le déploiement.
