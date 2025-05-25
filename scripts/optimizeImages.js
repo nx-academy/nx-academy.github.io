@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import sharp from "sharp";
 
-const INPUT_DIR = "./images/cheatsheets";
+const INPUT_DIR = "./raw/cheatsheets";
 const OUTPUT_DIR = "./public/images/cheatsheets";
 
 async function optimizeImage(file) {
