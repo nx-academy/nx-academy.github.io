@@ -23,7 +23,7 @@ async function runScript() {
 
   const files = fs
     .readdirSync(INPUT_DIR)
-    .filter((f) => /\.(jpe?g|png)$/i.test(f));
+    .filter((f) => /\.(jpe?g|png|webp)$/i.test(f));
 
   for (const file of files) {
     await optimizeImage(file);
