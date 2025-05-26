@@ -1,14 +1,15 @@
 ---
 layout: ../../layouts/CheatSheetsLayout.astro
 
+title: Comprendre les proxys et reverse proxys
 description: Les proxys et reverse proxys sont des composants essentiels d'architecture réseau. Ils agissent comme intermédiaires entre les utilisateurs et les serveurs, améliorant ainsi la sécurité, les performances et la gestion du trafic.
+
 imgAlt: Un serveur dans un café parisien, pixel art
-imgSrc: /serveur-parisien.webp
+imgSrc: /images/cheatsheets/serveur-parisien.webp
+
 kind: Fiche technique
 level: Débutant
-title: Comprendre les proxys et reverse proxys
 author: Yacine
-draft: false
 publishedDate: 10/03/2024
 ---
 
@@ -16,7 +17,7 @@ publishedDate: 10/03/2024
 
 # Comprendre les proxys et reverses proxys
 
-![Un serveur dans un café parisien, pixel art](/serveur-parisien.webp)
+![Un serveur dans un café parisien, pixel art](/images/cheatsheets/serveur-parisien.webp)
 
 En informatique, un proxy et un reverse proxy sont des types de serveurs.
 Pour bien comprendre ce qu’est un proxy et un reverse proxy, il faut d'abord comprendre globalement ce qu’est un serveur et un client.

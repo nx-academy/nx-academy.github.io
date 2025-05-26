@@ -1,14 +1,15 @@
 ---
 layout: ../../layouts/CheatSheetsLayout.astro
 
+title: Les retours de fonction en Javascript
 description: Comprendre le retour de fonction en JavaScript est essentiel pour tout développeur souhaitant maîtriser ce langage. Malheureusement, ce concept crucial est souvent sous-estimé dans les tutoriels. Dans cet article, je prends le temps d'expliquer comment fonctionne le mot clé « return » et son utilité.
+
 imgAlt: un jeune programmeur assis devant un ordinateur rétro, en train de coder des valeurs de retour en javaScript, pixel art
-imgSrc: /jeune-programmeur-code-valeurs-retour-javascript.webp
+imgSrc: /images/cheatsheets/jeune-programmeur-code.webp
+
 kind: Fiche technique
 level: Débutant
-title: Les retours de fonction en Javascript
 author: Oumar
-draft: false
 publishedDate: 10/18/2024
 ---
 
@@ -16,7 +17,7 @@ publishedDate: 10/18/2024
 
 # Les retours de fonction en Javascript
 
-![un jeune programmeur assis devant un ordinateur rétro, en train de coder des valeurs de retour en javaScript, pixel art](/jeune-programmeur-code-valeurs-retour-javascript.webp)
+![un jeune programmeur assis devant un ordinateur rétro, en train de coder des valeurs de retour en javaScript, pixel art](/images/cheatsheets/jeune-programmeur-code.webp)
 
 A nos débuts en Javascript après avoir compris les types de données primitifs (Number, String, Boolean, undefined et Null), on a tendance à se jeter sur les fonctions et les manipuler directement sans vraiment comprendre une notion clé de ces dernières les retours de fonctions avec le mot clé `return`.
 

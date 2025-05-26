@@ -1,14 +1,15 @@
 ---
 layout: ../../layouts/CheatSheetsLayout.astro
 
+title: Comprendre le mot clef "this"
 description: Découvrez le mot-clé 'this' en JavaScript avec des exemples concrets et Apprenez ses subtilités de 'this' dans différents contextes.
+
 imgAlt: Deux personnes dans une cuisine séparée, pixel art
-imgSrc: /this_context.webp
+imgSrc: /images/cheatsheets/scene-duo-ambiance.webp
+
+author: Lionel
 kind: Fiche technique
 level: Débutant
-title: Comprendre le mot clef "this"
-author: Lionel
-draft: false
 publishedDate: 08/22/2024
 ---
 
@@ -16,7 +17,7 @@ publishedDate: 08/22/2024
 
 # Comprendre le mot clef "this"
 
-![Deux personnes dans une cuisine séparée, pixel art](/this_context.webp)
+![Deux personnes dans une cuisine séparée, pixel art](/images/cheatsheets/scene-duo-ambiance.webp)
 
 J'ai récemment été confronté à l'utilisation du mot clé this [dans un cours sur le JavaScript sur Udemy](https://www.udemy.com/course/pro-javascript/). Le cours proposait de réaliser un jeu de Puissance 4 en programmation orienté objet.
 
