@@ -22,7 +22,8 @@ export const QUIZZES: readonly QuizMeta[] = [
   {
     slug: "presentation-registry-docker",
     title: "Les registry Docker",
-    description: "Mettre à jour la description.",
+    description:
+      "Vous utilisez docker push sans trop savoir où vont vos images ? Ce quiz est fait pour vous. Mettez à l’épreuve vos connaissances sur le rôle d’un registry Docker, les commandes clés (build, tag, pull, etc.), le fonctionnement de Docker Hub, et les bonnes pratiques de nommage. Un passage obligé pour maîtriser le cycle de vie d’une image Docker… et éviter les mauvaises surprises au moment du déploiement.",
     level: "Moyen",
     imgSrc: "/misc/quiz-hero.webp",
     imgAlt: "Illustration Docker facile",
