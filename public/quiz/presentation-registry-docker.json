@@ -1,114 +1,81 @@
 {
-    "data": [
-        {
-            "question": "Qu'est-ce qu'un registry Docker?",
-            "options": [
-                "Un service de stockage et de distribution d’images Docker",
-                "Un service de stockage et de distribution de code source",
-                "Un service de stockage et de distribution de fichiers",
-                "Un service de stockage et de distribution de data"
-            ],
-            "answer": "Un service de stockage et de distribution d’images Docker",
-            "explanation": "Un registry Docker est un service qui permet de stocker et de distribuer des images Docker. C'est l'équivalent de GitHub mais pour les conteneurs Docker."
-        },
-        {
-            "question": "Quelle est la commande pour construire une image Docker localement ?",
-            "options": [
-                "docker image build . -t monimage:1.0.0",
-                "docker image create . -t monimage:1.0.0",
-                "docker image make . -t monimage:1.0.0",
-                "docker image construct . -t monimage:1.0.0"
-            ],
-            "answer": "docker image build . -t monimage:1.0.0",
-            "explanation": "L'image Docker est construite localement à l'aide de la commande 'docker image build . -t monimage:1.0.0'."
-        },
-        {
-            "question": "Quelle est la commande pour récupérer une image Docker depuis un registry ?",
-            "options": [
-                "docker image pull monpseudo/monimage",
-                "docker image get monpseudo/monimage",
-                "docker image fetch monpseudo/monimage",
-                "docker image download monpseudo/monimage"
-            ],
-            "answer": "docker image pull monpseudo/monimage",
-            "explanation": "Pour récupérer une image Docker depuis un registry, on utilise la commande 'docker image pull monpseudo/monimage'."
-        },
-        {
-            "question": "Quel est le workflow pour partager et déployer vos images Docker ?",
-            "options": [
-                "build → tag → push → pull → run",
-                "create → tag → push → pull → execute",
-                "build → label → push → pull → run",
-                "construct → tag → push → retrieve → execute"
-            ],
-            "answer": "build → tag → push → pull → run",
-            "explanation": "Le workflow pour partager et déployer des images Docker est 'build → tag → push → pull → run'."
-        },
-        {
-            "question": "Quel est le registry Docker par défaut ?",
-            "options": [
-                "GitHub Container Registry",
-                "GitLab Container Registry",
-                "Google Container Registry",
-                "Docker Hub"
-            ],
-            "answer": "Docker Hub",
-            "explanation": "Docker Hub est le registry Docker par défaut."
-        },
-        {
-            "question": "Qu'est-ce qu'un registry Docker ?",
-            "options": [
-                "Un service de stockage et de distribution d’images Docker",
-                "Un service de stockage de code source",
-                "Un service de gestion de conteneurs Docker",
-                "Un service de gestion de déploiements Docker"
-            ],
-            "answer": "Un service de stockage et de distribution d’images Docker",
-            "explanation": "Un registry Docker est un service qui vous permet de stocker et de distribuer des images Docker."
-        },
-        {
-            "question": "Qu'est-ce que Docker Hub ?",
-            "options": [
-                "Un service de gestion de code source",
-                "Un service de gestion de projets Docker",
-                "Le registry Docker par défaut",
-                "Un outil pour créer des conteneurs Docker"
-            ],
-            "answer": "Le registry Docker par défaut",
-            "explanation": "Docker Hub est le registry Docker par défaut où Docker va chercher les images si vous ne spécifiez pas de registry."
-        },
-        {
-            "question": "Comment nommer et taguer une image Docker ?",
-            "options": [
-                "registry/organisation/image:tag",
-                "organisation/registry/image:tag",
-                "image/organisation/registry:tag",
-                "tag/registry/organisation/image"
-            ],
-            "answer": "registry/organisation/image:tag",
-            "explanation": "Une image Docker est nommée et taguée de la manière suivante : registry/organisation/image:tag."
-        },
-        {
-            "question": "Quelle commande permet de pousser une image Docker dans un registry ?",
-            "options": [
-                "docker push nom_image:tag",
-                "docker send nom_image:tag",
-                "docker upload nom_image:tag",
-                "docker move nom_image:tag"
-            ],
-            "answer": "docker push nom_image:tag",
-            "explanation": "La commande `docker push nom_image:tag` permet de pousser une image Docker dans un registry."
-        },
-        {
-            "question": "Comment récupérer une image Docker depuis un registry ?",
-            "options": [
-                "docker fetch nom_image:tag",
-                "docker retrieve nom_image:tag",
-                "docker download nom_image:tag",
-                "docker image pull nom_image:tag"
-            ],
-            "answer": "docker image pull nom_image:tag",
-            "explanation": "La commande `docker image pull nom_image:tag` permet de récupérer une image Docker depuis un registry."
-        }
-    ]
+  "data": [
+    {
+      "question": "Qu'est-ce qu'un registry Docker?",
+      "options": [
+        "Un service de stockage et de distribution d’images Docker",
+        "Un service de stockage et de distribution de code source",
+        "Un service de stockage et de distribution de fichiers",
+        "Un service de stockage et de distribution de data"
+      ],
+      "answer": "Un service de stockage et de distribution d’images Docker",
+      "explanation": "Un registry Docker est un service qui permet de stocker et de distribuer des images Docker. C'est l'équivalent de GitHub mais pour les conteneurs Docker."
+    },
+    {
+      "question": "Quelle est la commande pour construire une image Docker localement ?",
+      "options": [
+        "docker image build . -t monimage:1.0.0",
+        "docker image create . -t monimage:1.0.0",
+        "docker image make . -t monimage:1.0.0",
+        "docker image construct . -t monimage:1.0.0"
+      ],
+      "answer": "docker image build . -t monimage:1.0.0",
+      "explanation": "L'image Docker est construite localement à l'aide de la commande 'docker image build . -t monimage:1.0.0'."
+    },
+    {
+      "question": "Quelle est la commande pour récupérer une image Docker depuis un registry ?",
+      "options": [        
+        "docker image get monpseudo/monimage",
+        "docker image fetch monpseudo/monimage",
+        "docker image download monpseudo/monimage",
+        "docker image pull monpseudo/monimage"
+      ],
+      "answer": "docker image pull monpseudo/monimage",
+      "explanation": "Pour récupérer une image Docker depuis un registry, on utilise la commande 'docker image pull monpseudo/monimage'."
+    },
+    {
+      "question": "Quel est le workflow pour partager et déployer vos images Docker ?",
+      "options": [
+        "create → tag → push → pull → execute",
+        "build → label → push → pull → run",
+        "build → tag → push → pull → run",
+        "construct → tag → push → retrieve → execute"
+      ],
+      "answer": "build → tag → push → pull → run",
+      "explanation": "Le workflow pour partager et déployer des images Docker est 'build → tag → push → pull → run'."
+    },
+    {
+      "question": "Quel est le registry Docker par défaut ?",
+      "options": [
+        "GitHub Container Registry",
+        "GitLab Container Registry",
+        "Google Container Registry",
+        "Docker Hub"
+      ],
+      "answer": "Docker Hub",
+      "explanation": "Docker Hub est le registry Docker par défaut."
+    },
+    {
+      "question": "Comment nommer et taguer une image Docker ?",
+      "options": [
+        "registry/organisation/image:tag",
+        "organisation/registry/image:tag",
+        "image/organisation/registry:tag",
+        "tag/registry/organisation/image"
+      ],
+      "answer": "registry/organisation/image:tag",
+      "explanation": "Une image Docker est nommée et taguée de la manière suivante : registry/organisation/image:tag."
+    },
+    {
+      "question": "Quelle commande permet de pousser une image Docker dans un registry ?",
+      "options": [
+        "docker push nom_image:tag",
+        "docker send nom_image:tag",
+        "docker upload nom_image:tag",
+        "docker move nom_image:tag"
+      ],
+      "answer": "docker push nom_image:tag",
+      "explanation": "La commande `docker push nom_image:tag` permet de pousser une image Docker dans un registry."
+    }
+  ]
 }
