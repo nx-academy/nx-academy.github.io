@@ -5,7 +5,7 @@ title: On fait le bilan ?
 description: On prend le temps de revenir sur l'année 2024 et je vous parle un peu de ce que j'ai prévu pour l'année 2025 sur NX.
 
 imgAlt: Des personnes faisant une réunion dans une salle, pixel art
-imgSrc: /reunion-point.webp
+imgSrc: /images/articles/reunion-point.webp
 
 kind: Articles
 author: Thomas
@@ -15,7 +15,7 @@ publishedDate: 01/25/2025
 
 # On fait le bilan ?
 
-![Des personnes faisant une réunion dans une salle, pixel art](/reunion-point.webp)
+![Des personnes faisant une réunion dans une salle, pixel art](/images/articles/reunion-point.webp)
 
 Bonne année 2025 à toutes et à tous ! Oui, je sais, on est déjà à la fin du mois de janvier, mais comme on dit : _il n’est jamais trop tard pour bien faire_. Et quoi de mieux que ce début d’année pour prendre un peu de recul, faire le point sur 2024 et partager avec vous ce qui est prévu pour NX en 2025 ?
 

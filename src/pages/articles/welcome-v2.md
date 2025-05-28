@@ -3,8 +3,10 @@ layout: ../../layouts/BlogPostLayout.astro
 
 title: Bienvenue sur la V2
 description: NX Academy évolue. Le site passe d'une V1 payante à une V2 gratuit et open-source. On vous explique toutes les raisons dans ce post.
+
 imgAlt: Quelqu'un assis dans un jardin au printemps, pixel art
-imgSrc: /jardin-printemps.webp
+imgSrc: /images/articles/jardin-printemps.webp
+
 kind: Articles
 author: Thomas
 draft: false
@@ -13,7 +15,7 @@ publishedDate: 03/21/2024
 
 # Bienvenue sur la V2
 
-![Quelqu'un assis dans un jardin au printemps, pixel art](/jardin-printemps.webp)
+![Quelqu'un assis dans un jardin au printemps, pixel art](/images/articles/jardin-printemps.webp)
 
 ## Comme un parfum de printemps.
 

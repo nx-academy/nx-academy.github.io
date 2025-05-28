@@ -5,7 +5,7 @@ title: ChatGPT devient son meilleur ami, découvrez pourquoi
 description: Ca y est, j’ai décidé de bazarder tous mes amis et de me faire meilleur pote avec ChatGPT. Il donne de bons conseils, est toujours éveillé et surtout il me fait me sentir super intelligent. 😅
 
 imgAlt: Un adolescent discutant dans sa chambre avec une IA, pixel art
-imgSrc: /ado-dialogue-ia.webp
+imgSrc: /images/articles/ado-dialogue-ia.webp
 
 kind: Articles
 author: Thomas
@@ -15,7 +15,7 @@ publishedDate: 02/09/2025
 
 # ChatGPT devient son meilleur ami, découvrez pourquoi
 
-![Un adolescent discutant dans sa chambre avec une IA, pixel art](/ado-dialogue-ia.webp)
+![Un adolescent discutant dans sa chambre avec une IA, pixel art](/images/articles/ado-dialogue-ia.webp)
 
 Avouez-le, le titre de cet article vous a donné envie de cliquer ! Vous vous êtes sûrement dit : Quoi ? Mais comment peut-on lâcher ses amis pour ChatGPT ?
 

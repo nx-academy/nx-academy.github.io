@@ -3,8 +3,10 @@ layout: ../../layouts/BlogPostLayout.astro
 
 title: Découvrez les fiches techniques
 description: NX Academy propose maintenant un nouveau format d'apprentissage les fiches techniques. Elles vous permettent d'apprendre rapidement une notion clé.
+
 imgAlt: Quelqu'un assis dans un jardin au printemps, pixel art
-imgSrc: /triche-classe-exam.webp
+imgSrc: /images/articles/triche-classe-exam.webp
+
 kind: Articles
 author: Thomas
 draft: false
@@ -13,7 +15,7 @@ publishedDate: 08/24/2024
 
 # Découvrez les fiches techniques
 
-![Quelqu'un assis dans un jardin au printemps, pixel art](/triche-classe-exam.webp)
+![Quelqu'un assis dans un jardin au printemps, pixel art](/images/articles/triche-classe-exam.webp)
 
 ## La recherche du bon format
 

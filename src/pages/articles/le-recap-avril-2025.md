@@ -5,7 +5,7 @@ title: "Le récap #1 - Avril 2025"
 description: Bienvenue dans le récap du mois d'avril 2025. Au sommaire, de l'IA, des reflexions sur le sur le métier de développeur et une petite nouveauté.
 
 imgAlt: rien
-imgSrc: /misc/kiosque-journaux.png
+imgSrc: /images/articles/kiosque-journaux.webp
 
 kind: Articles
 author: Thomas
@@ -15,7 +15,7 @@ publishedDate: 04/25/2025
 
 # Le récap #1 - Avril 2025
 
-<img src="/misc/kiosque-journaux.png" alt="" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block; object-position: top" />
+<img src="/images/articles/kiosque-journaux.webp" alt="" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block; object-position: top" />
 
 <br>
 
