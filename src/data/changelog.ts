@@ -12,6 +12,11 @@ const mayTaks: LogTasks = {
   month: "Mai",
   tasks: [
     {
+      kind: "done",
+      content:
+        "Configuration de Prettier, un formatter de code, et ajout de scripts en CI (Comme c'est excitant !)",
+    },
+    {
       kind: "in-progress",
       content:
         "Début du travail sur l'optimisation des assets du site et notamment des images. J'ai commencé à écrire un script JS qui optimise la taille et les formats de mes images. Je verrais pour le faire soit tourner en CI, soit en local au pre-push.",
