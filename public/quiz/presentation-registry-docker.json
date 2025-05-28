@@ -24,7 +24,7 @@
     },
     {
       "question": "Quelle est la commande pour récupérer une image Docker depuis un registry ?",
-      "options": [        
+      "options": [
         "docker image get monpseudo/monimage",
         "docker image fetch monpseudo/monimage",
         "docker image download monpseudo/monimage",

@@ -143,8 +143,7 @@ function Component({ slug }) {
           </div>
           <div className="options-container">
             <ul className="options-wrapper">
-              {quizData[questionNumber].options
-                .map((option) => (
+              {quizData[questionNumber].options.map((option) => (
                 <li
                   className={`answer ${option === answer ? "active" : ""} ${answer === quizData[questionNumber].answer && option === answer && isAnswerSubmit ? "correct-answer" : ""} ${answer !== quizData[questionNumber].answer && option === answer && isAnswerSubmit ? "wrong-answer" : ""}`}
                   onClick={() => onSelectAnswer(option)}
