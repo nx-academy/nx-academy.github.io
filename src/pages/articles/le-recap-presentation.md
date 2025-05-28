@@ -5,7 +5,7 @@ title: Facilitez votre veille technologique avec Le Recap
 description: Dans cet article, je prends le temps de revenir sur ce nouveau format. Alliant à la fois IA et curration, je me sers de ce nouveau format pour faciliter votre veille technologique. Gratuit et open source, aucun compte n'est requis.
 
 imgAlt: Une scène de rédaction dans un journal, des journalises sont occupés à écrire des articles, pixel art
-imgSrc: /scene-journalistes-journal.png
+imgSrc: /images/articles/scene-journalistes-journal.webp
 
 kind: Articles
 author: Thomas
@@ -15,7 +15,7 @@ publishedDate: 04/25/2025
 
 # Facilitez votre veille technologique avec Le Recap
 
-<img src="/scene-journalistes-journal.png" alt="Une scène de rédaction dans un journal, des journalises sont occupés à écrire des articles, pixel art" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block; object-position: top" />
+<img src="/images/articles/scene-journalistes-journal.webp" alt="Une scène de rédaction dans un journal, des journalises sont occupés à écrire des articles, pixel art" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block; object-position: top" />
 
 Décidément, en ce moment, NX est bien vivant !
 

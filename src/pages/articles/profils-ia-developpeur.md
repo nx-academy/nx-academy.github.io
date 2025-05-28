@@ -5,7 +5,7 @@ title: Le moine, le vape coder, le debugger et le learner
 description: A force d'utiliser l'IA au travail et d'en parler avec mes éleves, j'ai pu établir les différents profils de développeur qui utiilisent l'IA. Alors, vous êtes quel type de dev IA vous ?
 
 imgAlt: Un moine, un jeune avec une capuche, un bucheron et un adolescent posant sur une photo, pixel art
-imgSrc: /blog/hero.png
+imgSrc: /images/articles/quatre-hommes-pose.webp
 
 kind: Articles
 author: Thomas
@@ -15,7 +15,7 @@ publishedDate: 03/29/2025
 
 # Le Moine, le Vape Coder, le Debugger & le Learner
 
-<img src="/blog/hero.png" alt="Un moine, un jeune avec une capuche, un bucheron et un adolescent posant sur une photo, pixel art" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block; object-position: top" />
+<img src="/images/articles/quatre-hommes-pose.webp" alt="Un moine, un jeune avec une capuche, un bucheron et un adolescent posant sur une photo, pixel art" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block; object-position: top" />
 
 Vous vous êtes déjà demandé le type de développeur que vous étiez ? Par exemple, est-ce que vous êtes le genre de dev qui accorde plus d’importance à la lisibilité du code ? Ou selon vous, la performance doit toujours passer en premier ?
 
@@ -35,7 +35,7 @@ Mais pour moi, il manquait un dernier profil : le développeur junior. Son appro
 
 ---
 
-<img src="/blog/monk.png" alt="Le moine devant son ordinateur, pixel art" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block;" />
+<img src="/images/articles/moine-devant-ordinateur.webp" alt="Le moine devant son ordinateur, pixel art" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block;" />
 
 ## The Monk
 
@@ -68,7 +68,7 @@ Il est aussi curieux intellectuellement : il veut comprendre comment fonctionne 
 
 ---
 
-<img src="/blog/vape-coder.png" alt="Le Vape Coder devant son ordinateur, pixel art" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block;" />
+<img src="/images/articles/adulte-capuche-hacker.webp" alt="Le Vape Coder devant son ordinateur, pixel art" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block;" />
 
 ## The Vape Coder
 
@@ -102,7 +102,7 @@ Dans un contexte de startup, de hackathon ou de projet solo, c’est une machine
 
 ---
 
-<img src="/blog/debugger.png" alt="Le Debugger devant son ordinateur, pixel art" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block;" />
+<img src="/images/articles/bucheron-ordinateur.webp" alt="Le Debugger devant son ordinateur, pixel art" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block;" />
 
 ## The Debugger
 
@@ -143,7 +143,7 @@ Là où le Monk cherche la structure et l’élégance, le Debugger cherche la v
 
 ---
 
-<img src="/blog/learner.png" alt="Le learner devant son ordinateur, pixel art" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block;" />
+<img src="/images/articles/jeune-sweat-capuche-ordinateur.webp" alt="Le learner devant son ordinateur, pixel art" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block;" />
 
 ## The Learner
 
@@ -189,4 +189,4 @@ Par exemple, je me considère comme un Monk quand il s’agit de langages de pro
 
 À bientôt et codez bien !
 
-![Le moine, le vape coder, le debugger et le learner faisant au revoir avec la main, pixel art](/blog/conclusion.png)
+![Le moine, le vape coder, le debugger et le learner faisant au revoir avec la main, pixel art](/images/articles/quatre-hommes-au-revoir.webp)
