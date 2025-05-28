@@ -20,6 +20,16 @@ export const QUIZZES: readonly QuizMeta[] = [
     href: "quiz/quiz-niveau-docker",
   },
   {
+    slug: "presentation-registry-docker",
+    title: "Les registry Docker",
+    description:
+      "Mettre à jour la description.",
+    level: "Moyen",
+    imgSrc: "/misc/quiz-hero.webp",
+    imgAlt: "Illustration Docker facile",
+    href: "quiz/presentation-registry-docker",
+  },
+  {
     slug: "bien-utiliser-volumes-docker",
     title: "Les volumes Docker",
     description:
