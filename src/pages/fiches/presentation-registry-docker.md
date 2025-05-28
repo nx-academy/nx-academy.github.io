@@ -4,7 +4,6 @@ layout: ../../layouts/CheatSheetsLayout.astro
 title: Qu'est-ce qu'un registry Docker?
 description: Comprenez ce qu’est un registry Docker, comment publier et récupérer vos images et maîtrisez le workflow build → tag → push → pull → run.
 
-
 imgAlt: Une installation portuaire où un bateau est en train d'être déchargé de ses conteneurs, pixel art
 imgSrc: /images/cheatsheets/registry-docker.webp
 
