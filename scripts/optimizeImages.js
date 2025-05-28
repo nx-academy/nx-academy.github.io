@@ -34,9 +34,7 @@ async function runScript() {
       .filter(file => /\.(jpe?g|png|webp)$/i.test(file))
 
 
-    console.log("====")
-    console.log(files)
-    console.log("====")
+    
   })
 }
 
