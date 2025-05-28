@@ -32,10 +32,6 @@ function Component({ slug }) {
       const res = await fetch(`/quiz/${slug}.json`);
       const quizData = await res.json();
 
-      console.log("====")
-      console.log(quizData)
-      console.log("====")
-
       setQuizData(quizData.data);
     }
 
@@ -144,8 +140,7 @@ function Component({ slug }) {
           </div>
           <div className="options-container">
             <ul className="options-wrapper">
-              {quizData[questionNumber].options
-                .map((option) => (
+              {quizData[questionNumber].options.map((option) => (
                 <li
                   className={`answer ${option === answer ? "active" : ""} ${answer === quizData[questionNumber].answer && option === answer && isAnswerSubmit ? "correct-answer" : ""} ${answer !== quizData[questionNumber].answer && option === answer && isAnswerSubmit ? "wrong-answer" : ""}`}
                   onClick={() => onSelectAnswer(option)}
