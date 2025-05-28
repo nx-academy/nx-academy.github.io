@@ -1,8 +1,12 @@
 ---
 layout: ../../layouts/CheatSheetsLayout.astro
 
-title: Qu'est-ce qu'un registry Docker ?
+title: Qu'est-ce qu'un registry Docker?
 description: Comprenez ce qu’est un registry Docker, comment publier et récupérer vos images et maîtrisez le workflow build → tag → push → pull → run.
+
+
+imgAlt: Une installation portuaire où un bateau est en train d'être déchargé de ses conteneurs, pixel art
+imgSrc: /images/cheatsheets/registry-docker.webp
 
 author: Thomas
 kind: Fiche technique
@@ -14,7 +18,7 @@ publishedDate: 06/06/2025
 
 # Qu'est-ce qu'un registry Docker?
 
-![Une installation portuaire où un bateau est en train d'être déchargé de ses conteneurs](/images/cheatsheets/registry-docker.webp)
+![Une installation portuaire où un bateau est en train d'être déchargé de ses conteneurs, pixel art](/images/cheatsheets/registry-docker.webp)
 
 On continue notre série dédiée à Docker avec les registries Docker. Je me suis rendu compte que j'avais abordé ce concept dans le cours sans vraiment faire un chapitre dédié. Cette fiche technique est l'occasion de revenir sur cette notion et de l'approfondir.
 
