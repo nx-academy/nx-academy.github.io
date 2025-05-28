@@ -3,12 +3,13 @@ layout: ../../layouts/CheatSheetsLayout.astro
 
 title: Comprendre l'utilisation de module next-image avec Storybook & TypeScript
 description: Découvrez comment utiliser le composant "next/image" dans Storybook avec TypeScript, en configurant Storybook pour afficher correctement les images Next.js.
+
 imgAlt: Un ingénieur travaillant sur le pontage de pipeline en extérieur, pixel art
-imgSrc: /ingenieur-pontage-pipeline.webp
+imgSrc: /images/cheatsheets/ingenieur-pontage-pipeline.webp
+
+author: Lionel
 kind: Fiche technique
 level: Intermédiaire
-author: Lionel
-draft: false
 publishedDate: 11/30/2024
 ---
 
@@ -16,7 +17,7 @@ publishedDate: 11/30/2024
 
 # Utilisation du composant "next/image" avec Storybook et TypeScript 📕🛠️📘
 
-![Un ingénieur travaillant sur le pontage de pipeline en extérieur, pixel art](/ingenieur-pontage-pipeline.webp)
+![Un ingénieur travaillant sur le pontage de pipeline en extérieur, pixel art](/images/cheatsheets/ingenieur-pontage-pipeline.webp)
 
 ## Problématique 🚨
 
