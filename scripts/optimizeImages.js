@@ -2,8 +2,8 @@ import fs from "fs";
 import path from "path";
 import sharp from "sharp";
 
-const INPUT_DIR = "./raw/cheatsheets";
-const OUTPUT_DIR = "./public/images/cheatsheets";
+const INPUT_DIR = "./raw";
+const OUTPUT_DIR = "./public/images";
 
 async function optimizeImage(file) {
   const inputPath = path.join(INPUT_DIR, file);
@@ -15,19 +15,29 @@ async function optimizeImage(file) {
 }
 
 async function runScript() {
-  if (!fs.existsSync(OUTPUT_DIR)) {
-    fs.mkdirSync(OUTPUT_DIR, {
-      recursive: true,
-    });
-  }
-
-  const files = fs
+  const subDirs = fs
     .readdirSync(INPUT_DIR)
-    .filter((f) => /\.(jpe?g|png|webp)$/i.test(f));
+    .filter(name => fs.statSync(path.join(INPUT_DIR, name)).isDirectory())
 
-  for (const file of files) {
-    await optimizeImage(file);
-  }
+  subDirs.forEach(subDir => {
+    const inputPath = `${INPUT_DIR}/${subDir}`
+    const outputPath = `${OUTPUT_DIR}/${subDir}`
+
+    if (!fs.existsSync(outputPath)) {
+      fs.mkdirSync(outputPath, {
+        recursive: true
+      })
+    }
+
+    const files = fs
+      .readdirSync(inputPath)
+      .filter(file => /\.(jpe?g|png|webp)$/i.test(file))
+
+
+    console.log("====")
+    console.log(files)
+    console.log("====")
+  })
 }
 
 runScript();
