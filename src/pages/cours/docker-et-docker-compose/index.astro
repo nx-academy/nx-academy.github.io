@@ -6,6 +6,7 @@ import type { Cheatsheet } from "../../../types/Cheatsheet"
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Testimonial from "../../../components/Testimonial.astro";
 import Card from "../../../components/Card.astro"
+import Button from "../../../components/Button.astro"
 
 import { TESTIMONIALS } from "../../../data/testimonials";
 
@@ -45,6 +46,11 @@ const breadCrumbs: Breadcrumb[] = [
         comment Docker peut faciliter le développement d'applications et leur
         mise en production.
       </p>
+      <Button
+        label="Commencer le cours"
+        type="primary"
+        href="#"
+      />
     </section>
     <section>
       <h2>Skills</h2>
@@ -76,13 +82,21 @@ const breadCrumbs: Breadcrumb[] = [
               <Testimonial
                 content={testimonial.content}
                 job={testimonial.job}
-                name={testimonial.job}
+                name={testimonial.name}
                 picture={testimonial.picture}
               />
             </li>
           ))
         }
       </ul>
+    </section>
+    <section class="banner-section">
+      <h2>Prêt.e à passer à l'action ?</h2>
+      <Button
+        label="Commencer le cours"
+        type="primary"
+        href="#"
+      />
     </section>
     <section class="related-content-section">
       <h2>Related content</h2>
@@ -157,6 +171,17 @@ const breadCrumbs: Breadcrumb[] = [
 
     li {
       min-width: 80%;
+    }
+  }
+
+  .banner-section {
+    background-color: #252525;
+    padding: 32px 24px;
+    border-radius: 8px;
+    margin-bottom: 32px;
+
+    h2 {
+      margin-bottom: 24px;
     }
   }
 
