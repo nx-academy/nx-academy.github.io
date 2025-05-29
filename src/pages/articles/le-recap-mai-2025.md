@@ -23,7 +23,7 @@ publishedDate: 05/31/2025
 
 <small>Bharathvaj Ganesan</small>
 
-L'auteur de l'article, Bharathvaj Ganesan, partage ses frustrations avec le cadre de travail Next.js. Il souligne les changements constants dans la direction du cadre, qui ont forcé les développeurs à réapprendre et à s'adapter fréquemment. Il critique également la complexité croissante de Next.js et les problèmes de performance qu'il a rencontrés. Un autre problème majeur est une faille de sécurité critique qui a été révélée et qui a pris trois semaines à être corrigée. Enfin, l'auteur mentionne que certaines fonctionnalités ne fonctionnent correctement que sur Vercel et que la migration peut être douloureuse. Il conseille de réévaluer si votre projet nécessite toutes les fonctionnalités de Next.js et d'envisager des cadres plus simples pour les petites applications.
+L'auteur de l'article, Bharathvaj Ganesan, partage ses frustrations avec le framework Next.js. Il souligne les changements constants dans la direction du projet, qui ont forcé les développeurs à réapprendre et à s'adapter fréquemment. Il critique également la complexité croissante de Next.js et les problèmes de performance qu'il a rencontrés. Un autre problème majeur est une faille de sécurité critique qui a été révélée et qui a pris trois semaines à être corrigée. Enfin, l'auteur mentionne que certaines fonctionnalités ne fonctionnent correctement que sur Vercel et que la migration peut être douloureuse. Il conseille de réévaluer si votre projet nécessite toutes les fonctionnalités de Next.js et d'envisager des frameworks plus simples pour les petites applications.
 
 [Lire l'article](https://bharathvaj.com/posts/my-experience-with-nextjs/)
 
@@ -35,7 +35,7 @@ L'auteur de l'article, Bharathvaj Ganesan, partage ses frustrations avec le cadr
 
 <small>sean goedecke</small>
 
-Cet article tente de répondre à la question de pourquoi les grandes entreprises technologiques sont lentes à développer de nouvelles fonctionnalités. L'auteur réfute plusieurs théories courantes, comme l'incompétence des ingénieurs ou l'inefficacité des processus comme Agile. Il argue que la lenteur est due à la complexité croissante qui accompagne l'ajout de nouvelles fonctionnalités à une application déjà riche en fonctionnalités. Chaque nouvelle fonctionnalité peut potentiellement interagir avec toutes celles qui l'ont précédée, ajoutant une charge cognitive importante. De plus, certaines fonctionnalités, appelées "fonctionnalités méchantes", interfèrent avec toutes les autres, augmentant encore plus la complexité. Malgré cela, les grandes entreprises technologiques continuent d'ajouter des fonctionnalités car elles sont très rentables.
+Cet article tente de répondre à la question de pourquoi les grandes entreprises technologiques sont lentes à développer de nouvelles fonctionnalités. L'auteur réfute plusieurs théories courantes, comme l'incompétence des ingénieurs ou l'inefficacité des méthodes de gestion de projet. Il pense que la lenteur est due à la complexité croissante qui accompagne l'ajout de nouvelles fonctionnalités à une application déjà riche en fonctionnalités. Chaque nouvelle fonctionnalité peut potentiellement interagir avec toutes celles qui l'ont précédée, ajoutant une charge cognitive importante. De plus, certaines fonctionnalités, appelées "fonctionnalités méchantes", interfèrent avec toutes les autres, augmentant encore plus la complexité. Malgré cela, les grandes entreprises technologiques continuent d'ajouter des fonctionnalités car elles sont très rentables.
 
 [Lire l'article](https://www.seangoedecke.com/difficulty-in-big-tech/?ref=sidebar)
 
@@ -59,10 +59,12 @@ OpenClassrooms, plateforme française de formation en ligne, a réduit à nouvea
 
 <small>NX Academy</small>
 
-Un registry Docker est un service de stockage et de distribution d'images Docker, similaire à GitHub mais pour les conteneurs. Ces registries peuvent être soit publics, soit privés. Le plus connu est Docker Hub, mais il existe des alternatives comme GitHub Container Registry, GitLab Container Registry, Google Container Registry et Amazon ECR. Il est également possible d'héberger son propre registry Docker sur ses serveurs. Pour utiliser un registry Docker, il faut se connecter, taguer et pousser son image, puis la récupérer sur n'importe quelle machine avec une commande docker image pull. Enfin, il est possible de changer de registry dans son fichier docker-compose.yml.
+Dans ma fiche technique de Juin 2025, je reviens sur le concept de registry Docker. Pour faire simple, un registry, c'est un service de stockage et de distribution d'images Docker, similaire à GitHub mais pour les conteneurs. Ces registries peuvent être soit publics, soit privés. Le plus connu est Docker Hub, mais il existe des alternatives comme GitHub Container Registry, GitLab Container Registry, Google Container Registry et Amazon ECR. Il est également possible d'héberger son propre registry Docker sur ses serveurs. Pour utiliser un registry Docker, il faut se connecter, taguer et pousser son image, puis la récupérer sur n'importe quelle machine avec une commande docker image pull. Enfin, il est possible de changer de registry dans son fichier docker-compose.yml.
 
 [Lire l'article](https://nx.academy/drafts/presentation-registry-docker/)
 
 <br>
 
 ---
+
+Bonne lecture et on se retrouve **au mois de juin** !
