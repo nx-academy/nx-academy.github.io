@@ -3,9 +3,9 @@ import type { Breadcrumb } from "../../../types/Breadcrumb";
 import type { Chapter } from "../../../types/Chapter";
 
 import BaseLayout from "../../../layouts/BaseLayout.astro";
-import Testimonial from "../../../components/Testimonial.astro"
+import Testimonial from "../../../components/Testimonial.astro";
 
-import { TESTIMONIALS } from "../../../data/testimonials"
+import { TESTIMONIALS } from "../../../data/testimonials";
 
 const pageTitle = "Conteneurisez vos applications avec Docker";
 const pageDescription = "Une super description";
@@ -34,9 +34,11 @@ const breadCrumbs: Breadcrumb[] = [
   <main class="main-wrapper">
     <section class="course-heading">
       <h1 class="course-title">{pageTitle}</h1>
-      <img class="course-picture" src="/port-sous-neige.png" alt="">
+      <img class="course-picture" src="/port-sous-neige.png" alt="" />
       <p>
-        Apprenez à utiliser Docker et docker compose par la pratique. Découvrez comment Docker peut faciliter le développement d'applications et leur mise en production. 
+        Apprenez à utiliser Docker et docker compose par la pratique. Découvrez
+        comment Docker peut faciliter le développement d'applications et leur
+        mise en production.
       </p>
     </section>
     <section>
@@ -63,7 +65,7 @@ const breadCrumbs: Breadcrumb[] = [
       <h2>Testimonials</h2>
       <ul class="testimonials-list">
         {
-          TESTIMONIALS.map(testimonial => (
+          TESTIMONIALS.map((testimonial) => (
             <li>
               <Testimonial
                 content={testimonial.content}
