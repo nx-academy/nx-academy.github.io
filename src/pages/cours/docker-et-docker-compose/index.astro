@@ -1,9 +1,11 @@
 ---
 import type { Breadcrumb } from "../../../types/Breadcrumb";
 import type { Chapter } from "../../../types/Chapter";
+import type { Cheatsheet } from "../../../types/Cheatsheet"
 
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Testimonial from "../../../components/Testimonial.astro";
+import Card from "../../../components/Card.astro"
 
 import { TESTIMONIALS } from "../../../data/testimonials";
 
@@ -13,6 +15,9 @@ const pageDescription = "Une super description";
 const courseChapters = Object.values(
   import.meta.glob("./chapitres/*.md", { eager: true }),
 ) as Chapter[];
+const cheatsheets = Object.values(
+  import.meta.glob("../../fiches/*.md", { eager: true })
+) as Cheatsheet[]
 
 const breadCrumbs: Breadcrumb[] = [
   {
@@ -79,8 +84,34 @@ const breadCrumbs: Breadcrumb[] = [
         }
       </ul>
     </section>
-    <section class="author-section">
+    <section class="related-content-section">
       <h2>Related content</h2>
+      <ul class="related-content-list">
+        {
+          cheatsheets
+            .filter(cheatsheet => cheatsheet.frontmatter.title.includes("Docker"))
+            .sort(
+              (item1, item2) =>
+                new Date(item2.frontmatter.publishedDate).getTime() -
+                new Date(item1.frontmatter.publishedDate).getTime(),
+            )
+            .map(cheatsheet => (
+              <li>
+                <Card
+                  author={cheatsheet.frontmatter.author}
+                  description={cheatsheet.frontmatter.description}
+                  href={cheatsheet.url!}
+                  imgAlt={cheatsheet.frontmatter.imgAlt}
+                  imgSrc={cheatsheet.frontmatter.imgSrc}
+                  kind="Fiche Technique"
+                  level={cheatsheet.frontmatter.level}
+                  publishedDate={cheatsheet.frontmatter.publishedDate}
+                  title={cheatsheet.frontmatter.title}
+                />
+              </li>
+            ))
+        }
+      </ul>
     </section>
   </main>
 </BaseLayout>
@@ -127,5 +158,10 @@ const breadCrumbs: Breadcrumb[] = [
     li {
       min-width: 80%;
     }
+  }
+
+  .related-content-list {
+    padding-left: 0;
+    list-style-type: none;
   }
 </style>
