@@ -4,8 +4,6 @@ import type { Chapter } from "../../../types/Chapter";
 
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 
-import Warning from "../../../components/Warning.astro";
-
 const pageTitle = "Conteneurisez vos applications avec Docker";
 const pageDescription = "Une super description";
 
@@ -30,25 +28,38 @@ const breadCrumbs: Breadcrumb[] = [
   description={pageDescription}
   breadcrumbs={breadCrumbs}
 >
-  <div class="main-wrapper">
-    <Warning />
-    <h1>{pageTitle}</h1>
-    <h2>Contenu du cours</h2>
-    <ul>
-      {
-        courseChapters
-          .sort(
-            (chapter1, chapter2) =>
-              chapter1.frontmatter.id - chapter2.frontmatter.id,
-          )
-          .map((chapter) => (
-            <li>
-              <a href={chapter.url}>{chapter.frontmatter.title}</a>
-            </li>
-          ))
-      }
-    </ul>
-  </div>
+  <main class="main-wrapper">
+    <section class="course-heading">
+      <h1 class="course-title">{pageTitle}</h1>
+      <img class="course-picture" src="/port-sous-neige.png" alt="">
+      <p>
+        Apprenez à utiliser Docker et docker compose par la pratique. Découvrez comment Docker peut faciliter le développement d'applications et leur mise en production. 
+      </p>
+    </section>
+    <section>
+      <h2>Skills</h2>
+    </section>
+    <section class="course-content-section">
+      <h2>Contenu du cours</h2>
+      <ul>
+        {
+          courseChapters
+            .sort(
+              (chapter1, chapter2) =>
+                chapter1.frontmatter.id - chapter2.frontmatter.id,
+            )
+            .map((chapter) => (
+              <li>
+                <a href={chapter.url}>{chapter.frontmatter.title}</a>
+              </li>
+            ))
+        }
+      </ul>
+    </section>
+    <section class="testimonials-section">
+      <h2>Testimonials</h2>
+    </section>
+  </main>
 </BaseLayout>
 
 <style>
@@ -65,5 +76,17 @@ const breadCrumbs: Breadcrumb[] = [
     &:hover {
       color: #4effa0;
     }
+  }
+
+  .course-heading {
+    margin-bottom: 32px;
+  }
+
+  .course-title {
+    font-size: 32px;
+  }
+
+  .course-picture {
+    margin-bottom: 24px;
   }
 </style>
