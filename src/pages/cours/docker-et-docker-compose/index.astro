@@ -5,6 +5,8 @@ import type { Chapter } from "../../../types/Chapter";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Testimonial from "../../../components/Testimonial.astro"
 
+import { TESTIMONIALS } from "../../../data/testimonials"
+
 const pageTitle = "Conteneurisez vos applications avec Docker";
 const pageDescription = "Une super description";
 
@@ -60,15 +62,18 @@ const breadCrumbs: Breadcrumb[] = [
     <section class="testimonials-section">
       <h2>Testimonials</h2>
       <ul class="testimonials-list">
-        <li>
-          <Testimonial />
-        </li>
-        <li>
-          <Testimonial />
-        </li>
-        <li>
-          <Testimonial />
-        </li>
+        {
+          TESTIMONIALS.map(testimonial => (
+            <li>
+              <Testimonial
+                content={testimonial.content}
+                job={testimonial.job}
+                name={testimonial.job}
+                picture={testimonial.picture}
+              />
+            </li>
+          ))
+        }
       </ul>
     </section>
   </main>

@@ -1,17 +1,29 @@
 ---
+interface Props {
+    content: string,
+    job: string
+    name: string
+    picture: string
+}
 
+const {
+    content,
+    job,
+    name,
+    picture
+} = Astro.props
 ---
 
 <div class="testimonial-wrapper">
     <header class="testimonial-header">
-      <img src="/thomas.png" alt="">
+      <img src={`/${picture}`} alt={`${name} - ${job}`}>
       <h4>
-        Lionel Vozi
-        <span>Développeur front-end</span>
+        {name}
+        <span>{job}</span>
       </h4>
     </header>
     <p>
-        This journey has been a rewarding dive into the principles of user experience, from user-centered design to interaction. Every step deepened my appreciation for creating designs that not only look good but also feel right for users.
+        {content}
     </p>
 </div>
 
