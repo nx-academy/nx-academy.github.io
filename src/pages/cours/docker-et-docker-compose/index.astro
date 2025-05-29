@@ -3,6 +3,7 @@ import type { Breadcrumb } from "../../../types/Breadcrumb";
 import type { Chapter } from "../../../types/Chapter";
 
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Testimonial from "../../../components/Testimonial.astro"
 
 const pageTitle = "Conteneurisez vos applications avec Docker";
 const pageDescription = "Une super description";
@@ -58,6 +59,17 @@ const breadCrumbs: Breadcrumb[] = [
     </section>
     <section class="testimonials-section">
       <h2>Testimonials</h2>
+      <ul class="testimonials-list">
+        <li>
+          <Testimonial />
+        </li>
+        <li>
+          <Testimonial />
+        </li>
+        <li>
+          <Testimonial />
+        </li>
+      </ul>
     </section>
   </main>
 </BaseLayout>
@@ -82,11 +94,27 @@ const breadCrumbs: Breadcrumb[] = [
     margin-bottom: 32px;
   }
 
-  .course-title {
+  h1 {
     font-size: 32px;
+  }
+
+  h2 {
+    font-size: 24px;
   }
 
   .course-picture {
     margin-bottom: 24px;
+  }
+
+  .testimonials-list {
+    padding-left: 0;
+    list-style-type: none;
+    display: flex;
+    overflow: scroll;
+    gap: 24px;
+
+    li {
+      min-width: 80%;
+    }
   }
 </style>
