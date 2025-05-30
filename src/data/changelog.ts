@@ -13,6 +13,10 @@ const mayTaks: LogTasks = {
   tasks: [
     {
       kind: "done",
+      content: `Création du <a href="/articles/le-recap-mai-2025">deuxième Recap (youhou bis !)</a> !`,
+    },
+    {
+      kind: "done",
       content:
         "Configuration de Prettier, un formatter de code, et ajout de scripts en CI (Comme c'est excitant !)",
     },
