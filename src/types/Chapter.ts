@@ -6,7 +6,7 @@ export type Chapter = {
     nextChapterLink?: string;
     previousChapterLink?: string;
     sectionNumber: number;
-    sectionTitle: string
+    sectionTitle: string;
     title: string;
   };
   url: string;

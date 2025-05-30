@@ -1,12 +1,12 @@
 ---
 import type { Breadcrumb } from "../../../types/Breadcrumb";
 import type { Chapter } from "../../../types/Chapter";
-import type { Cheatsheet } from "../../../types/Cheatsheet"
+import type { Cheatsheet } from "../../../types/Cheatsheet";
 
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Testimonial from "../../../components/Testimonial.astro";
-import Card from "../../../components/Card.astro"
-import Button from "../../../components/Button.astro"
+import Card from "../../../components/Card.astro";
+import Button from "../../../components/Button.astro";
 
 import { TESTIMONIALS } from "../../../data/testimonials";
 
@@ -17,24 +17,24 @@ const courseChapters = Object.values(
   import.meta.glob("./chapitres/*.md", { eager: true }),
 ) as Chapter[];
 const cheatsheets = Object.values(
-  import.meta.glob("../../fiches/*.md", { eager: true })
-) as Cheatsheet[]
+  import.meta.glob("../../fiches/*.md", { eager: true }),
+) as Cheatsheet[];
 
 const sortedChapters = [...courseChapters].sort((a, b) => {
   if (a.frontmatter.sectionNumber === b.frontmatter.sectionNumber) {
-    return a.frontmatter.chapterNumber - b.frontmatter.chapterNumber
+    return a.frontmatter.chapterNumber - b.frontmatter.chapterNumber;
   }
 
-  return a.frontmatter.sectionNumber - b.frontmatter.sectionNumber
-})
+  return a.frontmatter.sectionNumber - b.frontmatter.sectionNumber;
+});
 
-const sections = new Map<number, Chapter[]>()
+const sections = new Map<number, Chapter[]>();
 for (const chapter of sortedChapters) {
-  const sectionNumber = chapter.frontmatter.sectionNumber
+  const sectionNumber = chapter.frontmatter.sectionNumber;
   if (!sections.has(sectionNumber)) {
-    sections.set(sectionNumber, [])
+    sections.set(sectionNumber, []);
   }
-  sections.get(sectionNumber)?.push(chapter)
+  sections.get(sectionNumber)?.push(chapter);
 }
 
 const breadCrumbs: Breadcrumb[] = [
@@ -63,19 +63,19 @@ const breadCrumbs: Breadcrumb[] = [
         comment Docker peut faciliter le développement d'applications et leur
         mise en production.
       </p>
-      <Button
-        label="Commencer le cours"
-        type="primary"
-        href="#"
-      />
+      <Button label="Commencer le cours" type="primary" href="#" />
     </section>
     <section class="skills-section">
       <h2>Objectifs pédagogiques</h2>
       <p>Un peu de blabla sur pourquoi Docker est important</p>
       <p>A la fin de ce cours, vous serez capable de :</p>
       <ul>
-        <li>Manger des sushis et aimer ça ;</li>
-        <li>Coder avec le cul en toute confidence et ne pas faire d'erreurs ;</li>
+        <li>
+          Manger des sushis et aimer ça ;
+        </li>
+        <li>
+          Coder avec le cul en toute confidence et ne pas faire d'erreurs ;
+        </li>
         <li>Être le roi ou la reine de la soirée.</li>
       </ul>
     </section>
@@ -83,35 +83,19 @@ const breadCrumbs: Breadcrumb[] = [
       <h2>Contenu du cours</h2>
       <ul>
         {
-          Array.from(sections.entries()).map(([ sectionNumber, chapters ]) => (
+          Array.from(sections.entries()).map(([sectionNumber, chapters]) => (
             <li>
               <h3>{chapters[0].frontmatter.sectionTitle}</h3>
               <ul>
-                {
-                  chapters.map(chapter => (
-                    <li>
-                      <a href={chapter.url}>
-                        {chapter.frontmatter.title}
-                      </a>
-                    </li>
-                  ))
-                }
+                {chapters.map((chapter) => (
+                  <li>
+                    <a href={chapter.url}>{chapter.frontmatter.title}</a>
+                  </li>
+                ))}
               </ul>
             </li>
           ))
         }
-        <!-- {
-          courseChapters
-            .sort(
-              (chapter1, chapter2) =>
-                chapter1.frontmatter.id - chapter2.frontmatter.id,
-            )
-            .map((chapter) => (
-              <li>
-                <a href={chapter.url}>{chapter.frontmatter.title}</a>
-              </li>
-            ))
-        } -->
       </ul>
     </section>
     <section class="testimonials-section">
@@ -133,24 +117,22 @@ const breadCrumbs: Breadcrumb[] = [
     </section>
     <section class="banner-section">
       <h2>Prêt.e à passer à l'action ?</h2>
-      <Button
-        label="Commencer le cours"
-        type="primary"
-        href="#"
-      />
+      <Button label="Commencer le cours" type="primary" href="#" />
     </section>
     <section class="related-content-section">
       <h2>Related content</h2>
       <ul class="related-content-list">
         {
           cheatsheets
-            .filter(cheatsheet => cheatsheet.frontmatter.title.includes("Docker"))
+            .filter((cheatsheet) =>
+              cheatsheet.frontmatter.title.includes("Docker"),
+            )
             .sort(
               (item1, item2) =>
                 new Date(item2.frontmatter.publishedDate).getTime() -
                 new Date(item1.frontmatter.publishedDate).getTime(),
             )
-            .map(cheatsheet => (
+            .map((cheatsheet) => (
               <li>
                 <Card
                   author={cheatsheet.frontmatter.author}
