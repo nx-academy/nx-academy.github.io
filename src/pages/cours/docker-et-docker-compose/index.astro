@@ -20,6 +20,23 @@ const cheatsheets = Object.values(
   import.meta.glob("../../fiches/*.md", { eager: true })
 ) as Cheatsheet[]
 
+const sortedChapters = [...courseChapters].sort((a, b) => {
+  if (a.frontmatter.sectionNumber === b.frontmatter.sectionNumber) {
+    return a.frontmatter.chapterNumber - b.frontmatter.chapterNumber
+  }
+
+  return a.frontmatter.sectionNumber - b.frontmatter.sectionNumber
+})
+
+const sections = new Map<number, Chapter[]>()
+for (const chapter of sortedChapters) {
+  const sectionNumber = chapter.frontmatter.sectionNumber
+  if (!sections.has(sectionNumber)) {
+    sections.set(sectionNumber, [])
+  }
+  sections.get(sectionNumber)?.push(chapter)
+}
+
 const breadCrumbs: Breadcrumb[] = [
   {
     pageName: "Accueil",
@@ -66,6 +83,24 @@ const breadCrumbs: Breadcrumb[] = [
       <h2>Contenu du cours</h2>
       <ul>
         {
+          Array.from(sections.entries()).map(([ sectionNumber, chapters ]) => (
+            <li>
+              <h3>{chapters[0].frontmatter.sectionTitle}</h3>
+              <ul>
+                {
+                  chapters.map(chapter => (
+                    <li>
+                      <a href={chapter.url}>
+                        {chapter.frontmatter.title}
+                      </a>
+                    </li>
+                  ))
+                }
+              </ul>
+            </li>
+          ))
+        }
+        <!-- {
           courseChapters
             .sort(
               (chapter1, chapter2) =>
@@ -76,7 +111,7 @@ const breadCrumbs: Breadcrumb[] = [
                 <a href={chapter.url}>{chapter.frontmatter.title}</a>
               </li>
             ))
-        }
+        } -->
       </ul>
     </section>
     <section class="testimonials-section">
