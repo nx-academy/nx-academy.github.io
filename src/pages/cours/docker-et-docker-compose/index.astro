@@ -76,13 +76,13 @@ const breadCrumbs: Breadcrumb[] = [
       <p>A la fin de ce cours, vous serez capable de :</p>
       <ul>
         <li>
-          créer et customiser vos propres images Docker ; vous pourrez choisir la bonne image pour votre projet et la débogguer facilement ;
+          Créer et customiser vos propres images Docker ; vous pourrez choisir la bonne image pour votre projet et la débogguer facilement.
         </li>
         <li>
-          mettre en place une infrastructure entièrement dockerisé avec une base de données, une application front-end et une API REST ;
+          Mettre en place une infrastructure entièrement dockerisé avec une base de données, une application front-end et une API REST.
         </li>
         <li>
-          préparer votre image pour la production avec le multi-stage build.
+          Préparer votre image pour la production avec le multi-stage build.
         </li>
       </ul>
       <p>
@@ -130,7 +130,7 @@ const breadCrumbs: Breadcrumb[] = [
       <Button label="Commencer le cours" type="primary" href="#" />
     </section>
     <section class="related-content-section">
-      <h2>Related content</h2>
+      <h2>Contenu associé</h2>
       <ul class="related-content-list">
         {
           cheatsheets
@@ -257,5 +257,22 @@ const breadCrumbs: Breadcrumb[] = [
   .related-content-list {
     padding-left: 0;
     list-style-type: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    .main-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .testimonials-list li {
+      min-width: 45%;
+    }
+
+    .related-content-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 </style>
