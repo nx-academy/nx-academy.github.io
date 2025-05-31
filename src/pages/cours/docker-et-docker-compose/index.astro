@@ -67,18 +67,27 @@ const breadCrumbs: Breadcrumb[] = [
     </section>
     <section class="skills-section">
       <h2>Objectifs pédagogiques</h2>
-      <p>Un peu de blabla sur pourquoi Docker est important</p>
+      <p>
+        Docker est aujourd'hui un outil indispensable pour les développeurs. Il n'est plus limité aux adminstrateurs systèmes et aux devops et de plus en plus d'entreprises demandent de savoir se servir de cet outil.
+        <br />
+        <br />
+        Dans ce cours, vous allez découvrir comment utiliser Docker et docker compose pour conteneuriser vos projets. Cela vous permettra non seulement de faciliter les mises en production mais aussi de partager vos applications plus facilement.
+      </p>
       <p>A la fin de ce cours, vous serez capable de :</p>
       <ul>
         <li>
-          Manger des sushis et aimer ça ;
+          créer et customiser vos propres images Docker ; vous pourrez choisir la bonne image pour votre projet et la débogguer facilement ;
         </li>
         <li>
-          Coder avec le cul en toute confidence et ne pas faire d'erreurs ;
+          mettre en place une infrastructure entièrement dockerisé avec une base de données, une application front-end et une API REST ;
         </li>
-        <li>Être le roi ou la reine de la soirée.</li>
+        <li>
+          préparer votre image pour la production avec le multi-stage build.
+        </li>
       </ul>
-      <p>Un peu de blabla à la fin du projet.</p>
+      <p>
+        J'ai essayé de rendre ce cours le plus hands-on possible. Ce dernier contient de nombreuses mises en pratique avec des screencasts de correction.
+      </p>
     </section>
     <section class="course-content-section">
       <h2>Contenu du cours</h2>
@@ -187,8 +196,14 @@ const breadCrumbs: Breadcrumb[] = [
   }
 
   .skills-section {
+    ul {
+      list-style-type: none;
+      
+    }
+
     li {
       margin-bottom: 16px;
+      list-style-image: url("/icons/check.svg");
     }
   }
 
@@ -221,6 +236,10 @@ const breadCrumbs: Breadcrumb[] = [
 
     li {
       min-width: 80%;
+    }
+
+    li:last-child {
+      margin-right: 48px;
     }
   }
 
