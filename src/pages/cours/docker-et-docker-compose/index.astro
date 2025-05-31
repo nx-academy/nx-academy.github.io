@@ -78,25 +78,26 @@ const breadCrumbs: Breadcrumb[] = [
         </li>
         <li>Être le roi ou la reine de la soirée.</li>
       </ul>
+      <p>Un peu de blabla à la fin du projet.</p>
     </section>
     <section class="course-content-section">
       <h2>Contenu du cours</h2>
-      <ul>
+      <ol class="course-content-sections">
         {
           Array.from(sections.entries()).map(([sectionNumber, chapters]) => (
             <li>
-              <h3>{chapters[0].frontmatter.sectionTitle}</h3>
-              <ul>
+              <h3 class="course-content-section-title">{chapters[0].frontmatter.sectionTitle}</h3>
+              <ol class="course-content-chapters">
                 {chapters.map((chapter) => (
                   <li>
                     <a href={chapter.url}>{chapter.frontmatter.title}</a>
                   </li>
                 ))}
-              </ul>
+              </ol>
             </li>
           ))
         }
-      </ul>
+      </ol>
     </section>
     <section class="testimonials-section">
       <h2>Testimonials</h2>
@@ -170,7 +171,7 @@ const breadCrumbs: Breadcrumb[] = [
   }
 
   .course-heading {
-    margin-bottom: 32px;
+    margin-bottom: 48px;
   }
 
   h1 {
@@ -187,6 +188,26 @@ const breadCrumbs: Breadcrumb[] = [
 
   .skills-section {
     li {
+      margin-bottom: 16px;
+    }
+  }
+
+  .course-content-sections {
+    list-style-type: none;
+    padding-left: 0;
+
+    > li {
+      margin-bottom: 48px;
+    }
+  }
+
+  .course-content-section-title {
+    margin-bottom: 16px;
+    color: #FFF;
+  }
+
+  .course-content-chapters {
+    > li {
       margin-bottom: 16px;
     }
   }
