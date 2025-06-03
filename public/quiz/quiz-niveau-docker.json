@@ -1,0 +1,224 @@
+{
+  "data": [
+    {
+      "question": "Qu'est-ce qu'un conteneur Docker ?",
+      "options": [
+        "Une machine virtuelle légère",
+        "Un environnement d’exécution isolé",
+        "Un type de base de données",
+        "Un service d'hébergement cloud"
+      ],
+      "answer": "Un environnement d’exécution isolé",
+      "explanation": "Un conteneur Docker est un environnement isolé permettant d’exécuter une application avec ses dépendances."
+    },
+    {
+      "question": "Quelle commande permet de construire une image Docker à partir d’un Dockerfile ?",
+      "options": [
+        "docker build",
+        "docker run",
+        "docker compose up",
+        "docker init"
+      ],
+      "answer": "docker build",
+      "explanation": "La commande `docker build` permet de créer une image Docker à partir d’un Dockerfile."
+    },
+    {
+      "question": "Quel fichier est utilisé par Docker Compose ?",
+      "options": [
+        "docker-compose.yaml",
+        "Dockerfile",
+        "compose.json",
+        "docker-config.yml"
+      ],
+      "answer": "docker-compose.yaml",
+      "explanation": "Docker Compose utilise le fichier `docker-compose.yaml` pour définir et exécuter des services multi-conteneurs."
+    },
+    {
+      "question": "Quelle commande permet de lister les conteneurs actifs ?",
+      "options": [
+        "docker ls",
+        "docker ps",
+        "docker list",
+        "docker show"
+      ],
+      "answer": "docker ps",
+      "explanation": "La commande `docker ps` affiche la liste des conteneurs en cours d’exécution."
+    },
+    {
+      "question": "Quelle directive est utilisée pour copier des fichiers dans une image Docker ?",
+      "options": [
+        "COPY",
+        "CLONE",
+        "ADD",
+        "PASTE"
+      ],
+      "answer": "COPY",
+      "explanation": "La directive `COPY` dans un Dockerfile permet de copier des fichiers depuis l’hôte vers l’image Docker."
+    },
+    {
+      "question": "Quelle commande supprime un conteneur arrêté ?",
+      "options": [
+        "docker stop",
+        "docker remove",
+        "docker rm",
+        "docker delete"
+      ],
+      "answer": "docker rm",
+      "explanation": "La commande `docker rm` permet de supprimer un conteneur arrêté."
+    },
+    {
+      "question": "Quelle commande permet d’arrêter un conteneur Docker ?",
+      "options": [
+        "docker pause",
+        "docker stop",
+        "docker kill",
+        "docker halt"
+      ],
+      "answer": "docker stop",
+      "explanation": "La commande `docker stop` arrête proprement un conteneur en cours d’exécution."
+    },
+    {
+      "question": "Quelle est la commande pour lancer un service avec Docker Compose ?",
+      "options": [
+        "docker compose run",
+        "docker compose start",
+        "docker compose up",
+        "docker compose exec"
+      ],
+      "answer": "docker compose up",
+      "explanation": "La commande `docker compose up` permet de démarrer les services définis dans le fichier de configuration."
+    },
+    {
+      "question": "À quoi sert la commande `docker images` ?",
+      "options": [
+        "Afficher les volumes",
+        "Afficher les images locales",
+        "Afficher les réseaux",
+        "Afficher les logs"
+      ],
+      "answer": "Afficher les images locales",
+      "explanation": "`docker images` liste toutes les images disponibles localement sur la machine."
+    },
+    {
+      "question": "Quel mot-clé permet de définir le nom de l’image dans un Dockerfile ?",
+      "options": [
+        "FROM",
+        "IMAGE",
+        "BASE",
+        "ORIGIN"
+      ],
+      "answer": "FROM",
+      "explanation": "La directive `FROM` indique l’image de base utilisée pour construire l’image Docker."
+    },
+    {
+      "question": "Complément Docker #1 : À quoi sert la commande docker exec ?",
+      "options": [
+        "Créer un réseau Docker",
+        "Exécuter une commande dans un conteneur actif",
+        "Supprimer un volume Docker",
+        "Afficher les logs système"
+      ],
+      "answer": "Exécuter une commande dans un conteneur actif",
+      "explanation": "La commande `docker exec` est utilisée pour exécuter une commande dans un conteneur déjà en fonctionnement."
+    },
+    {
+      "question": "Complément Docker #2 : À quoi sert la commande docker exec ?",
+      "options": [
+        "Créer un réseau Docker",
+        "Exécuter une commande dans un conteneur actif",
+        "Supprimer un volume Docker",
+        "Afficher les logs système"
+      ],
+      "answer": "Exécuter une commande dans un conteneur actif",
+      "explanation": "La commande `docker exec` est utilisée pour exécuter une commande dans un conteneur déjà en fonctionnement."
+    },
+    {
+      "question": "Complément Docker #3 : À quoi sert la commande docker exec ?",
+      "options": [
+        "Créer un réseau Docker",
+        "Exécuter une commande dans un conteneur actif",
+        "Supprimer un volume Docker",
+        "Afficher les logs système"
+      ],
+      "answer": "Exécuter une commande dans un conteneur actif",
+      "explanation": "La commande `docker exec` est utilisée pour exécuter une commande dans un conteneur déjà en fonctionnement."
+    },
+    {
+      "question": "Complément Docker #4 : À quoi sert la commande docker exec ?",
+      "options": [
+        "Créer un réseau Docker",
+        "Exécuter une commande dans un conteneur actif",
+        "Supprimer un volume Docker",
+        "Afficher les logs système"
+      ],
+      "answer": "Exécuter une commande dans un conteneur actif",
+      "explanation": "La commande `docker exec` est utilisée pour exécuter une commande dans un conteneur déjà en fonctionnement."
+    },
+    {
+      "question": "Complément Docker #5 : À quoi sert la commande docker exec ?",
+      "options": [
+        "Créer un réseau Docker",
+        "Exécuter une commande dans un conteneur actif",
+        "Supprimer un volume Docker",
+        "Afficher les logs système"
+      ],
+      "answer": "Exécuter une commande dans un conteneur actif",
+      "explanation": "La commande `docker exec` est utilisée pour exécuter une commande dans un conteneur déjà en fonctionnement."
+    },
+    {
+      "question": "Complément Docker #6 : À quoi sert la commande docker exec ?",
+      "options": [
+        "Créer un réseau Docker",
+        "Exécuter une commande dans un conteneur actif",
+        "Supprimer un volume Docker",
+        "Afficher les logs système"
+      ],
+      "answer": "Exécuter une commande dans un conteneur actif",
+      "explanation": "La commande `docker exec` est utilisée pour exécuter une commande dans un conteneur déjà en fonctionnement."
+    },
+    {
+      "question": "Complément Docker #7 : À quoi sert la commande docker exec ?",
+      "options": [
+        "Créer un réseau Docker",
+        "Exécuter une commande dans un conteneur actif",
+        "Supprimer un volume Docker",
+        "Afficher les logs système"
+      ],
+      "answer": "Exécuter une commande dans un conteneur actif",
+      "explanation": "La commande `docker exec` est utilisée pour exécuter une commande dans un conteneur déjà en fonctionnement."
+    },
+    {
+      "question": "Complément Docker #8 : À quoi sert la commande docker exec ?",
+      "options": [
+        "Créer un réseau Docker",
+        "Exécuter une commande dans un conteneur actif",
+        "Supprimer un volume Docker",
+        "Afficher les logs système"
+      ],
+      "answer": "Exécuter une commande dans un conteneur actif",
+      "explanation": "La commande `docker exec` est utilisée pour exécuter une commande dans un conteneur déjà en fonctionnement."
+    },
+    {
+      "question": "Complément Docker #9 : À quoi sert la commande docker exec ?",
+      "options": [
+        "Créer un réseau Docker",
+        "Exécuter une commande dans un conteneur actif",
+        "Supprimer un volume Docker",
+        "Afficher les logs système"
+      ],
+      "answer": "Exécuter une commande dans un conteneur actif",
+      "explanation": "La commande `docker exec` est utilisée pour exécuter une commande dans un conteneur déjà en fonctionnement."
+    },
+    {
+      "question": "Complément Docker #10 : À quoi sert la commande docker exec ?",
+      "options": [
+        "Créer un réseau Docker",
+        "Exécuter une commande dans un conteneur actif",
+        "Supprimer un volume Docker",
+        "Afficher les logs système"
+      ],
+      "answer": "Exécuter une commande dans un conteneur actif",
+      "explanation": "La commande `docker exec` est utilisée pour exécuter une commande dans un conteneur déjà en fonctionnement."
+    }
+  ]
+}

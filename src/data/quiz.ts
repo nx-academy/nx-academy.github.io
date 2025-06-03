@@ -10,6 +10,15 @@ type QuizMeta = {
 
 export const QUIZZES: readonly QuizMeta[] = [
   {
+    slug: "quiz-niveau-docker",
+    title: "Quiz de niveau Docker",
+    description: "Testez vos connaissances sur Docker et Docker Compose à travers 30 questions qui couvrent les fondamentaux de la conteneurisation. Images, conteneurs, volumes, Dockerfile, orchestration avec Compose, dépendances entre services… ce quiz passe en revue les bases indispensables pour bien démarrer avec Docker.",
+    level: "Difficile",
+    imgAlt: "Illustration quiz",
+    imgSrc: "/misc/quiz-hero.webp",
+    href: "quiz/quiz-niveau-docker"
+  },
+  {
     slug: "bien-utiliser-volumes-docker",
     title: "Les volumes Docker",
     description:
