@@ -55,58 +55,89 @@ const breadCrumbs: Breadcrumb[] = [
   breadcrumbs={breadCrumbs}
 >
   <main class="main-wrapper">
-    <section class="course-heading">
-      <h1 class="course-title">{pageTitle}</h1>
-      <img class="course-picture" src="/port-sous-neige.png" alt="" />
-      <p>
-        Apprenez à utiliser Docker et docker compose par la pratique. Découvrez
-        comment Docker peut faciliter le développement d'applications et leur
-        mise en production.
-      </p>
-      <Button label="Commencer le cours" type="primary" href="#" />
-    </section>
-    <section class="skills-section">
-      <h2>Objectifs pédagogiques</h2>
-      <p>
-        Docker est aujourd'hui un outil indispensable pour les développeurs. Il n'est plus limité aux adminstrateurs systèmes et aux devops et de plus en plus d'entreprises demandent de savoir se servir de cet outil.
-        <br />
-        <br />
-        Dans ce cours, vous allez découvrir comment utiliser Docker et docker compose pour conteneuriser vos projets. Cela vous permettra non seulement de faciliter les mises en production mais aussi de partager vos applications plus facilement.
-      </p>
-      <p>A la fin de ce cours, vous serez capable de :</p>
-      <ul>
-        <li>
-          Créer et customiser vos propres images Docker ; vous pourrez choisir la bonne image pour votre projet et la débogguer facilement.
-        </li>
-        <li>
-          Mettre en place une infrastructure entièrement dockerisé avec une base de données, une application front-end et une API REST.
-        </li>
-        <li>
-          Préparer votre image pour la production avec le multi-stage build.
-        </li>
-      </ul>
-      <p>
-        J'ai essayé de rendre ce cours le plus hands-on possible. Ce dernier contient de nombreuses mises en pratique avec des screencasts de correction.
-      </p>
-    </section>
-    <section class="course-content-section">
-      <h2>Contenu du cours</h2>
-      <ol class="course-content-sections">
-        {
-          Array.from(sections.entries()).map(([sectionNumber, chapters]) => (
+    <section class="main-section">
+      <div>
+        <section class="course-heading">
+          <h1 class="course-title">{pageTitle}</h1>
+          <img class="course-picture" src="/port-sous-neige.png" alt="" />
+          <p>
+            Apprenez à utiliser Docker et docker compose par la pratique.
+            Découvrez comment Docker peut faciliter le développement
+            d'applications et leur mise en production.
+          </p>
+        </section>
+        <section class="skills-section">
+          <h2>Objectifs pédagogiques</h2>
+          <p>
+            Docker est aujourd'hui un outil indispensable pour les développeurs.
+            Il n'est plus limité aux adminstrateurs systèmes et aux devops et de
+            plus en plus d'entreprises demandent de savoir se servir de cet
+            outil.
+            <br />
+            <br />
+            Dans ce cours, vous allez découvrir comment utiliser Docker et docker
+            compose pour conteneuriser vos projets. Cela vous permettra non seulement
+            de faciliter les mises en production mais aussi de partager vos applications
+            plus facilement.
+          </p>
+          <p>A la fin de ce cours, vous serez capable de :</p>
+          <ul>
             <li>
-              <h3 class="course-content-section-title">{chapters[0].frontmatter.sectionTitle}</h3>
-              <ol class="course-content-chapters">
-                {chapters.map((chapter) => (
-                  <li>
-                    <a href={chapter.url}>{chapter.frontmatter.title}</a>
-                  </li>
-                ))}
-              </ol>
+              Créer et customiser vos propres images Docker ; vous pourrez
+              choisir la bonne image pour votre projet et la débogguer
+              facilement.
             </li>
-          ))
-        }
-      </ol>
+            <li>
+              Mettre en place une infrastructure entièrement dockerisé avec une
+              base de données, une application front-end et une API REST.
+            </li>
+            <li>
+              Préparer votre image pour la production avec le multi-stage build.
+            </li>
+          </ul>
+          <p>
+            J'ai essayé de rendre ce cours le plus hands-on possible. Ce dernier
+            contient de nombreuses mises en pratique avec des screencasts de
+            correction.
+          </p>
+        </section>
+        <section class="course-content-section">
+          <h2>Contenu du cours</h2>
+          <ol class="course-content-sections">
+            {
+              Array.from(sections.entries()).map(
+                ([sectionNumber, chapters]) => (
+                  <li>
+                    <h3 class="course-content-section-title">
+                      {chapters[0].frontmatter.sectionTitle}
+                    </h3>
+                    <ol class="course-content-chapters">
+                      {chapters.map((chapter) => (
+                        <li>
+                          <a href={chapter.url}>{chapter.frontmatter.title}</a>
+                        </li>
+                      ))}
+                    </ol>
+                  </li>
+                ),
+              )
+            }
+          </ol>
+        </section>
+      </div>
+      <aside class="course-information">
+        <div class="aside-wrapper">
+          <h2>Détails du cours</h2>
+        <ul>
+          <li><strong>Durée : </strong> 12 heures</li>
+          <li><strong>Niveau : </strong>Intérmediaire</li>
+        </ul>
+        <div class="aside-wrapper-buttons">
+          <Button label="Commencer le cours" type="primary" href="#" />
+          <Button label="Passer un quiz de niveau" type="secondary" href="#" />
+        </div>
+        </div>
+      </aside>
     </section>
     <section class="testimonials-section">
       <h2>Testimonials</h2>
@@ -127,7 +158,10 @@ const breadCrumbs: Breadcrumb[] = [
     </section>
     <section class="banner-section">
       <h2>Prêt.e à passer à l'action ?</h2>
-      <Button label="Commencer le cours" type="primary" href="#" />
+      <div class="banner-section-buttons">
+        <Button label="Commencer le cours" type="primary" href="#" />
+        <Button label="Passer un quiz de niveau" type="secondary" href="#" />
+      </div>
     </section>
     <section class="related-content-section">
       <h2>Contenu associé</h2>
@@ -198,7 +232,6 @@ const breadCrumbs: Breadcrumb[] = [
   .skills-section {
     ul {
       list-style-type: none;
-      
     }
 
     li {
@@ -218,13 +251,17 @@ const breadCrumbs: Breadcrumb[] = [
 
   .course-content-section-title {
     margin-bottom: 16px;
-    color: #FFF;
+    color: #fff;
   }
 
   .course-content-chapters {
     > li {
       margin-bottom: 16px;
     }
+  }
+
+  .course-information {
+    display: none;
   }
 
   .testimonials-list {
@@ -254,6 +291,11 @@ const breadCrumbs: Breadcrumb[] = [
     }
   }
 
+  .banner-section-buttons {
+    display: grid;
+    gap: 24px;
+  }
+
   .related-content-list {
     padding-left: 0;
     list-style-type: none;
@@ -277,16 +319,44 @@ const breadCrumbs: Breadcrumb[] = [
   }
 
   @media screen and (min-width: 1024px) {
-    .main-wrapper {
-      max-inline-size: 66ch;
+    .testimonials-list {
+      overflow: unset;
     }
 
     .testimonials-list li {
-      min-width: 30%;
+      min-width: 31.75%;
     }
 
     .related-content-list {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .main-section {
+      display: grid;
+      grid-template-columns: 65% 30%;
+      gap: 64px;
+    }
+
+    .course-information {
+      display: initial;
+    }
+
+    .aside-wrapper {
+      position: sticky;
+      top: 24px;
+    }
+
+    .banner-section {
+      padding: 48px 32px;
+    }
+
+    .banner-section-buttons {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .aside-wrapper-buttons {
+      display: grid;
+      gap: 12px;
     }
   }
 </style>
