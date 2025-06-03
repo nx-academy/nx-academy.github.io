@@ -17,7 +17,7 @@ const { content, job, name, picture } = Astro.props;
       <span>{job}</span>
     </h4>
   </header>
-  <p>
+  <p class="testimonial-content">
     {content}
   </p>
 </div>
@@ -27,6 +27,9 @@ const { content, job, name, picture } = Astro.props;
     border: 1px solid #333;
     padding: 16px;
     border-radius: 4px;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
   }
 
   .testimonial-header {
@@ -55,7 +58,7 @@ const { content, job, name, picture } = Astro.props;
     }
   }
 
-  .testimonial-wrapper p {
+  .testimonial-content {
     margin-bottom: 0;
   }
 </style>
