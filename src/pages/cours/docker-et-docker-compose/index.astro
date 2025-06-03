@@ -7,7 +7,7 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
 import Testimonial from "../../../components/Testimonial.astro";
 import Card from "../../../components/Card.astro";
 import Button from "../../../components/Button.astro";
-import Warning from "../../../components/Warning.astro"
+import Warning from "../../../components/Warning.astro";
 
 import { TESTIMONIALS } from "../../../data/testimonials";
 
@@ -130,14 +130,18 @@ const breadCrumbs: Breadcrumb[] = [
       <aside class="course-information">
         <div class="aside-wrapper">
           <h2>Détails du cours</h2>
-        <ul>
-          <li><strong>Durée : </strong> 12 heures</li>
-          <li><strong>Niveau : </strong>Intérmediaire</li>
-        </ul>
-        <div class="aside-wrapper-buttons">
-          <Button label="Commencer le cours" type="primary" href="#" />
-          <Button label="Passer un quiz de niveau" type="secondary" href="#" />
-        </div>
+          <ul>
+            <li><strong>Durée : </strong> 12 heures</li>
+            <li><strong>Niveau : </strong>Intérmediaire</li>
+          </ul>
+          <div class="aside-wrapper-buttons">
+            <Button label="Commencer le cours" type="primary" href="#" />
+            <Button
+              label="Passer un quiz de niveau"
+              type="secondary"
+              href="#"
+            />
+          </div>
         </div>
       </aside>
     </section>
