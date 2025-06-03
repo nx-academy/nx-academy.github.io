@@ -1,10 +1,15 @@
 ---
 import type { Breadcrumb } from "../../../types/Breadcrumb";
 import type { Chapter } from "../../../types/Chapter";
+import type { Cheatsheet } from "../../../types/Cheatsheet";
 
 import BaseLayout from "../../../layouts/BaseLayout.astro";
-
+import Testimonial from "../../../components/Testimonial.astro";
+import Card from "../../../components/Card.astro";
+import Button from "../../../components/Button.astro";
 import Warning from "../../../components/Warning.astro";
+
+import { TESTIMONIALS } from "../../../data/testimonials";
 
 const pageTitle = "Conteneurisez vos applications avec Docker";
 const pageDescription = "Une super description";
@@ -12,6 +17,26 @@ const pageDescription = "Une super description";
 const courseChapters = Object.values(
   import.meta.glob("./chapitres/*.md", { eager: true }),
 ) as Chapter[];
+const cheatsheets = Object.values(
+  import.meta.glob("../../fiches/*.md", { eager: true }),
+) as Cheatsheet[];
+
+const sortedChapters = [...courseChapters].sort((a, b) => {
+  if (a.frontmatter.sectionNumber === b.frontmatter.sectionNumber) {
+    return a.frontmatter.chapterNumber - b.frontmatter.chapterNumber;
+  }
+
+  return a.frontmatter.sectionNumber - b.frontmatter.sectionNumber;
+});
+
+const sections = new Map<number, Chapter[]>();
+for (const chapter of sortedChapters) {
+  const sectionNumber = chapter.frontmatter.sectionNumber;
+  if (!sections.has(sectionNumber)) {
+    sections.set(sectionNumber, []);
+  }
+  sections.get(sectionNumber)?.push(chapter);
+}
 
 const breadCrumbs: Breadcrumb[] = [
   {
@@ -30,25 +55,152 @@ const breadCrumbs: Breadcrumb[] = [
   description={pageDescription}
   breadcrumbs={breadCrumbs}
 >
-  <div class="main-wrapper">
+  <main class="main-wrapper">
     <Warning />
-    <h1>{pageTitle}</h1>
-    <h2>Contenu du cours</h2>
-    <ul>
-      {
-        courseChapters
-          .sort(
-            (chapter1, chapter2) =>
-              chapter1.frontmatter.id - chapter2.frontmatter.id,
-          )
-          .map((chapter) => (
+    <section class="main-section">
+      <div>
+        <section class="course-heading">
+          <h1 class="course-title">{pageTitle}</h1>
+          <img class="course-picture" src="/port-sous-neige.png" alt="" />
+          <p>
+            Apprenez à utiliser Docker et docker compose par la pratique.
+            Découvrez comment Docker peut faciliter le développement
+            d'applications et leur mise en production.
+          </p>
+        </section>
+        <section class="skills-section">
+          <h2>Objectifs pédagogiques</h2>
+          <p>
+            Docker est aujourd'hui un outil indispensable pour les développeurs.
+            Il n'est plus limité aux adminstrateurs systèmes et aux devops et de
+            plus en plus d'entreprises demandent de savoir se servir de cet
+            outil.
+            <br />
+            <br />
+            Dans ce cours, vous allez découvrir comment utiliser Docker et docker
+            compose pour conteneuriser vos projets. Cela vous permettra non seulement
+            de faciliter les mises en production mais aussi de partager vos applications
+            plus facilement.
+          </p>
+          <p>A la fin de ce cours, vous serez capable de :</p>
+          <ul>
             <li>
-              <a href={chapter.url}>{chapter.frontmatter.title}</a>
+              Créer et customiser vos propres images Docker ; vous pourrez
+              choisir la bonne image pour votre projet et la débogguer
+              facilement.
+            </li>
+            <li>
+              Mettre en place une infrastructure entièrement dockerisé avec une
+              base de données, une application front-end et une API REST.
+            </li>
+            <li>
+              Préparer votre image pour la production avec le multi-stage build.
+            </li>
+          </ul>
+          <p>
+            J'ai essayé de rendre ce cours le plus hands-on possible. Ce dernier
+            contient de nombreuses mises en pratique avec des screencasts de
+            correction.
+          </p>
+        </section>
+        <section class="course-content-section">
+          <h2>Contenu du cours</h2>
+          <ol class="course-content-sections">
+            {
+              Array.from(sections.entries()).map(
+                ([sectionNumber, chapters]) => (
+                  <li>
+                    <h3 class="course-content-section-title">
+                      {chapters[0].frontmatter.sectionTitle}
+                    </h3>
+                    <ol class="course-content-chapters">
+                      {chapters.map((chapter) => (
+                        <li>
+                          <a href={chapter.url}>{chapter.frontmatter.title}</a>
+                        </li>
+                      ))}
+                    </ol>
+                  </li>
+                ),
+              )
+            }
+          </ol>
+        </section>
+      </div>
+      <aside class="course-information">
+        <div class="aside-wrapper">
+          <h2>Détails du cours</h2>
+          <ul>
+            <li><strong>Durée : </strong> 12 heures</li>
+            <li><strong>Niveau : </strong>Intérmediaire</li>
+          </ul>
+          <div class="aside-wrapper-buttons">
+            <Button label="Commencer le cours" type="primary" href="#" />
+            <Button
+              label="Passer un quiz de niveau"
+              type="secondary"
+              href="#"
+            />
+          </div>
+        </div>
+      </aside>
+    </section>
+    <section class="testimonials-section">
+      <h2>Testimonials</h2>
+      <ul class="testimonials-list">
+        {
+          TESTIMONIALS.map((testimonial) => (
+            <li>
+              <Testimonial
+                content={testimonial.content}
+                job={testimonial.job}
+                name={testimonial.name}
+                picture={testimonial.picture}
+              />
             </li>
           ))
-      }
-    </ul>
-  </div>
+        }
+      </ul>
+    </section>
+    <section class="banner-section">
+      <h2>Prêt.e à passer à l'action ?</h2>
+      <div class="banner-section-buttons">
+        <Button label="Commencer le cours" type="primary" href="#" />
+        <Button label="Passer un quiz de niveau" type="secondary" href="#" />
+      </div>
+    </section>
+    <section class="related-content-section">
+      <h2>Contenu associé</h2>
+      <ul class="related-content-list">
+        {
+          cheatsheets
+            .filter((cheatsheet) =>
+              cheatsheet.frontmatter.title.includes("Docker"),
+            )
+            .sort(
+              (item1, item2) =>
+                new Date(item2.frontmatter.publishedDate).getTime() -
+                new Date(item1.frontmatter.publishedDate).getTime(),
+            )
+            .map((cheatsheet) => (
+              <li>
+                <Card
+                  author={cheatsheet.frontmatter.author}
+                  description={cheatsheet.frontmatter.description}
+                  href={cheatsheet.url!}
+                  imgAlt={cheatsheet.frontmatter.imgAlt}
+                  imgSrc={cheatsheet.frontmatter.imgSrc}
+                  kind="Fiche Technique"
+                  level={cheatsheet.frontmatter.level}
+                  publishedDate={cheatsheet.frontmatter.publishedDate}
+                  title={cheatsheet.frontmatter.title}
+                />
+              </li>
+            ))
+        }
+      </ul>
+    </section>
+  </main>
 </BaseLayout>
 
 <style>
@@ -64,6 +216,153 @@ const breadCrumbs: Breadcrumb[] = [
 
     &:hover {
       color: #4effa0;
+    }
+  }
+
+  .course-heading {
+    margin-bottom: 48px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  .course-picture {
+    margin-bottom: 24px;
+  }
+
+  .skills-section {
+    ul {
+      list-style-type: none;
+    }
+
+    li {
+      margin-bottom: 16px;
+      list-style-image: url("/icons/check.svg");
+    }
+  }
+
+  .course-content-sections {
+    list-style-type: none;
+    padding-left: 0;
+
+    > li {
+      margin-bottom: 48px;
+    }
+  }
+
+  .course-content-section-title {
+    margin-bottom: 16px;
+    color: #fff;
+  }
+
+  .course-content-chapters {
+    > li {
+      margin-bottom: 16px;
+    }
+  }
+
+  .course-information {
+    display: none;
+  }
+
+  .testimonials-list {
+    padding-left: 0;
+    list-style-type: none;
+    display: flex;
+    overflow: scroll;
+    gap: 24px;
+
+    li {
+      min-width: 80%;
+    }
+
+    li:last-child {
+      margin-right: 48px;
+    }
+  }
+
+  .banner-section {
+    background-color: #252525;
+    padding: 32px 24px;
+    border-radius: 8px;
+    margin-bottom: 32px;
+
+    h2 {
+      margin-bottom: 24px;
+    }
+  }
+
+  .banner-section-buttons {
+    display: grid;
+    gap: 24px;
+  }
+
+  .related-content-list {
+    padding-left: 0;
+    list-style-type: none;
+  }
+
+  @media screen and (min-width: 768px) {
+    .main-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .testimonials-list li {
+      min-width: 45%;
+    }
+
+    .related-content-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .testimonials-list {
+      overflow: unset;
+    }
+
+    .testimonials-list li {
+      min-width: 31.75%;
+    }
+
+    .related-content-list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .main-section {
+      display: grid;
+      grid-template-columns: 65% 30%;
+      gap: 64px;
+    }
+
+    .course-information {
+      display: initial;
+    }
+
+    .aside-wrapper {
+      position: sticky;
+      top: 24px;
+    }
+
+    .banner-section {
+      padding: 48px 32px;
+    }
+
+    .banner-section-buttons {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .aside-wrapper-buttons {
+      display: grid;
+      gap: 12px;
     }
   }
 </style>

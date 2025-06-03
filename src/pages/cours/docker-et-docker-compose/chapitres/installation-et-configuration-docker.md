@@ -9,6 +9,7 @@ nextChapterLink: presentation-projet-fil-rouge
 
 chapterNumber: 2
 sectionNumber: 1
+sectionTitle: Partie 1 - Initiez-vous à Docker et au projet fil rouge
 id: 2
 ---
 
