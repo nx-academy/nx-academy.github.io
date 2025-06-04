@@ -76,7 +76,6 @@
   color: #151515;
   border-radius: 8px;
   transition: 0.4s;
-  font-weight: 700;
 
   &:hover {
     background-color: #4effa0dd;

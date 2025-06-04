@@ -1,5 +1,7 @@
-import "../styles/quiz.css";
 import { useState, useEffect, useRef } from "react";
+
+import "../styles/quiz.css";
+import { suffleQuestions } from "../utils/suffleQuestions";
 
 function Component({ slug }) {
   const clickAudioRef = useRef(null);
@@ -30,9 +32,10 @@ function Component({ slug }) {
   useEffect(() => {
     async function getQuizData() {
       const res = await fetch(`/quiz/${slug}.json`);
-      const quizData = await res.json();
+      const { data } = await res.json();
 
-      setQuizData(quizData.data);
+      const shuffledQuiz = suffleQuestions(data);
+      setQuizData(shuffledQuiz);
     }
 
     getQuizData();
