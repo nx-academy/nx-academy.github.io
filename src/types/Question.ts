@@ -1,6 +1,6 @@
 export type Question = {
-    question: string
-    options: string[]
-    answer: string
-    explanation: string
-}
+  question: string;
+  options: string[];
+  answer: string;
+  explanation: string;
+};
