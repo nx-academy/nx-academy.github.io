@@ -15,6 +15,15 @@ const juneTasks: LogTasks = {
       kind: "in-progress",
       content: `Redesign de la home d'un cours. Pour l'instant, je travaille sur la page de présentation <a href="/cours/docker-et-docker-compose" target="_blank">du cours sur Docker et docker compose</a>. Une fois finalisé, je vais créer des composants dédiés puis je m'attaquerais à celle du cours sur les CI/CD.`,
     },
+    {
+      kind: "fix",
+      content:
+        "Ajout du changelog de Juin (j'avais bien fait les modifications mais j'avais oublié de le push, oups !)",
+    },
+    {
+      kind: "done",
+      content: `Réalisation du <a href="/quiz/quiz-niveau-docker" target="_blank">premier quiz de niveau</a> (à la sortie de mon cours sur Docker et docker compose). J'ai ajouté une fonction pour <i>suffle le tableau</i>, autrement dit changer l'ordre des questions.`,
+    },
   ],
 };
 
@@ -180,4 +189,4 @@ const aprilTasks: LogTasks = {
   ],
 };
 
-export const ALL_MONTHS = [mayTaks, aprilTasks];
+export const ALL_MONTHS = [juneTasks, mayTaks, aprilTasks];
