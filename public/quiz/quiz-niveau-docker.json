@@ -111,7 +111,7 @@
       "explanation": "La directive `FROM` indique l’image de base utilisée pour construire l’image Docker."
     },
     {
-      "question": "Complément Docker #1 : À quoi sert la commande docker exec ?",
+      "question": "À quoi sert la commande docker exec ?",
       "options": [
         "Créer un réseau Docker",
         "Exécuter une commande dans un conteneur actif",
@@ -122,7 +122,7 @@
       "explanation": "La commande `docker exec` est utilisée pour exécuter une commande dans un conteneur déjà en fonctionnement."
     },
     {
-      "question": "Complément Docker #2 : À quoi sert la commande docker exec ?",
+      "question": "À quoi sert la commande docker exec ?",
       "options": [
         "Créer un réseau Docker",
         "Exécuter une commande dans un conteneur actif",
@@ -133,92 +133,250 @@
       "explanation": "La commande `docker exec` est utilisée pour exécuter une commande dans un conteneur déjà en fonctionnement."
     },
     {
-      "question": "Complément Docker #3 : À quoi sert la commande docker exec ?",
+      "question": "Quel est le nom du fichier de configuration utilisé par Docker Compose ?",
       "options": [
-        "Créer un réseau Docker",
-        "Exécuter une commande dans un conteneur actif",
-        "Supprimer un volume Docker",
-        "Afficher les logs système"
+        "Dockerfile",
+        "docker-compose.yaml",
+        "compose.config",
+        "docker-compose.conf"
       ],
-      "answer": "Exécuter une commande dans un conteneur actif",
-      "explanation": "La commande `docker exec` est utilisée pour exécuter une commande dans un conteneur déjà en fonctionnement."
+      "answer": "docker-compose.yaml",
+      "explanation": "Docker Compose utilise un fichier nommé `docker-compose.yaml` pour définir les services et la configuration multi-conteneurs."
     },
     {
-      "question": "Complément Docker #4 : À quoi sert la commande docker exec ?",
+      "question": "Quelle commande permet de démarrer les services définis dans un fichier Docker Compose ?",
       "options": [
-        "Créer un réseau Docker",
-        "Exécuter une commande dans un conteneur actif",
-        "Supprimer un volume Docker",
-        "Afficher les logs système"
+        "docker compose start",
+        "docker compose run",
+        "docker compose up",
+        "docker up"
       ],
-      "answer": "Exécuter une commande dans un conteneur actif",
-      "explanation": "La commande `docker exec` est utilisée pour exécuter une commande dans un conteneur déjà en fonctionnement."
+      "answer": "docker compose up",
+      "explanation": "La commande `docker compose up` démarre l'ensemble des services définis dans le fichier `docker-compose.yaml`."
     },
     {
-      "question": "Complément Docker #5 : À quoi sert la commande docker exec ?",
+      "question": "Que fait la commande `docker compose down` ?",
       "options": [
-        "Créer un réseau Docker",
-        "Exécuter une commande dans un conteneur actif",
-        "Supprimer un volume Docker",
-        "Afficher les logs système"
+        "Redémarre les services",
+        "Met à jour les conteneurs",
+        "Arrête et supprime les services et réseaux créés",
+        "Supprime uniquement les images"
       ],
-      "answer": "Exécuter une commande dans un conteneur actif",
-      "explanation": "La commande `docker exec` est utilisée pour exécuter une commande dans un conteneur déjà en fonctionnement."
+      "answer": "Arrête et supprime les services et réseaux créés",
+      "explanation": "`docker compose down` arrête les conteneurs et supprime les réseaux associés aux services."
     },
     {
-      "question": "Complément Docker #6 : À quoi sert la commande docker exec ?",
+      "question": "Quelle directive permet de lier un port local à un port du conteneur dans docker-compose.yaml ?",
       "options": [
-        "Créer un réseau Docker",
-        "Exécuter une commande dans un conteneur actif",
-        "Supprimer un volume Docker",
-        "Afficher les logs système"
+        "expose",
+        "bind",
+        "ports",
+        "connect"
       ],
-      "answer": "Exécuter une commande dans un conteneur actif",
-      "explanation": "La commande `docker exec` est utilisée pour exécuter une commande dans un conteneur déjà en fonctionnement."
+      "answer": "ports",
+      "explanation": "La clé `ports` permet de rediriger un port de l’hôte vers un port du conteneur (ex: '8080:80')."
     },
     {
-      "question": "Complément Docker #7 : À quoi sert la commande docker exec ?",
+      "question": "À quoi sert la directive `depends_on` dans Docker Compose ?",
       "options": [
-        "Créer un réseau Docker",
-        "Exécuter une commande dans un conteneur actif",
-        "Supprimer un volume Docker",
-        "Afficher les logs système"
+        "Lancer un service à la demande",
+        "Créer un alias réseau",
+        "Indiquer l’ordre de démarrage des services",
+        "Partager un volume entre services"
       ],
-      "answer": "Exécuter une commande dans un conteneur actif",
-      "explanation": "La commande `docker exec` est utilisée pour exécuter une commande dans un conteneur déjà en fonctionnement."
+      "answer": "Indiquer l’ordre de démarrage des services",
+      "explanation": "`depends_on` définit une dépendance entre services, influençant leur ordre de démarrage."
     },
     {
-      "question": "Complément Docker #8 : À quoi sert la commande docker exec ?",
+      "question": "Quelle commande permet d’afficher les logs de tous les services Docker Compose ?",
       "options": [
-        "Créer un réseau Docker",
-        "Exécuter une commande dans un conteneur actif",
-        "Supprimer un volume Docker",
-        "Afficher les logs système"
+        "docker compose logs",
+        "docker logs",
+        "docker compose show",
+        "docker compose output"
       ],
-      "answer": "Exécuter une commande dans un conteneur actif",
-      "explanation": "La commande `docker exec` est utilisée pour exécuter une commande dans un conteneur déjà en fonctionnement."
+      "answer": "docker compose logs",
+      "explanation": "La commande `docker compose logs` permet de consulter les journaux de tous les services en cours."
     },
     {
-      "question": "Complément Docker #9 : À quoi sert la commande docker exec ?",
+      "question": "Quel mot-clé permet de définir le nom d’un volume dans un fichier docker-compose.yaml ?",
       "options": [
-        "Créer un réseau Docker",
-        "Exécuter une commande dans un conteneur actif",
-        "Supprimer un volume Docker",
-        "Afficher les logs système"
+        "storage",
+        "volumes",
+        "volume_name",
+        "mount"
       ],
-      "answer": "Exécuter une commande dans un conteneur actif",
-      "explanation": "La commande `docker exec` est utilisée pour exécuter une commande dans un conteneur déjà en fonctionnement."
+      "answer": "volumes",
+      "explanation": "La clé `volumes` est utilisée pour définir les volumes et leur utilisation dans les services."
     },
     {
-      "question": "Complément Docker #10 : À quoi sert la commande docker exec ?",
+      "question": "Quelle option de `docker compose up` permet de relancer les conteneurs en arrière-plan ?",
       "options": [
-        "Créer un réseau Docker",
-        "Exécuter une commande dans un conteneur actif",
-        "Supprimer un volume Docker",
-        "Afficher les logs système"
+        "--silent",
+        "--detach",
+        "--background",
+        "--fork"
       ],
-      "answer": "Exécuter une commande dans un conteneur actif",
-      "explanation": "La commande `docker exec` est utilisée pour exécuter une commande dans un conteneur déjà en fonctionnement."
+      "answer": "--detach",
+      "explanation": "L'option `--detach` ou `-d` permet de démarrer les services en arrière-plan."
+    },
+    {
+      "question": "Quelle commande supprime les conteneurs, les réseaux, les volumes et les images définis par Docker Compose ?",
+      "options": [
+        "docker compose clean",
+        "docker compose down --volumes --rmi all",
+        "docker compose stop --force",
+        "docker compose purge"
+      ],
+      "answer": "docker compose down --volumes --rmi all",
+      "explanation": "`docker compose down --volumes --rmi all` supprime les ressources créées par Docker Compose."
+    },
+    {
+      "question": "Quel est le format par défaut des fichiers Docker Compose ?",
+      "options": [
+        "JSON",
+        "XML",
+        "YAML",
+        "TOML"
+      ],
+      "answer": "YAML",
+      "explanation": "Docker Compose utilise le format YAML pour décrire les services, réseaux, volumes, etc."
+    },
+    {
+      "question": "Que permet la directive 'build' dans un fichier docker-compose.yaml ?",
+      "options": [
+        "Construire une base de données",
+        "Indiquer un Dockerfile pour construire une image",
+        "Créer un volume à la volée",
+        "Associer une image distante à un service"
+      ],
+      "answer": "Indiquer un Dockerfile pour construire une image",
+      "explanation": "La clé `build` permet de construire une image à partir d’un contexte de build défini localement."
+    },
+    {
+        "question": "Quel est le principal risque de monter le socket Docker (`/var/run/docker.sock`) dans un conteneur ?",
+        "options": [
+            "Le conteneur peut accéder au réseau de l’hôte",
+            "Le conteneur peut exécuter Docker comme root",
+            "Le conteneur devient lent à démarrer",
+            "Le volume ne peut pas être monté en lecture seule"
+        ],
+        "answer": "Le conteneur peut exécuter Docker comme root",
+        "explanation": "Monter `/var/run/docker.sock` donne un accès complet à l’API Docker, ce qui est équivalent à un accès root sur l’hôte."
+    },
+    {
+        "question": "Quelle commande permet d’isoler le réseau d’un conteneur pour qu’il ne communique pas avec les autres ?",
+        "options": ["--network=host", "--network=none", "--isolate-network", "--no-network"],
+        "answer": "--network=none",
+        "explanation": "L’option `--network=none` désactive complètement le réseau du conteneur."
+    },
+    {
+        "question": "Quelle est la meilleure pratique pour stocker des secrets dans un conteneur Docker ?",
+        "options": [
+            "Utiliser des variables d’environnement",
+            "Les inclure dans l’image",
+            "Utiliser un volume temporaire",
+            "Utiliser un gestionnaire de secrets externe"
+        ],
+        "answer": "Utiliser un gestionnaire de secrets externe",
+        "explanation": "Les gestionnaires de secrets (comme Vault) évitent de stocker des données sensibles dans l’image ou dans des variables exposées."
+    },
+    {
+        "question": "Quel type de volume est le plus adapté pour la persistance longue durée de données applicatives ?",
+        "options": ["Bind mount", "Tmpfs", "Volume nommé", "Overlay"],
+        "answer": "Volume nommé",
+        "explanation": "Les volumes nommés sont gérés par Docker, persistants et portables entre les conteneurs."
+    },
+    {
+        "question": "Que permet l’option `--read-only` dans la commande `docker run` ?",
+        "options": [
+            "Bloquer les accès au disque hôte",
+            "Monter les volumes en lecture seule",
+            "Rendre le système de fichiers du conteneur en lecture seule",
+            "Désactiver les logs"
+        ],
+        "answer": "Rendre le système de fichiers du conteneur en lecture seule",
+        "explanation": "Cela empêche les écritures non contrôlées dans le conteneur, utile pour la sécurité."
+    },
+    {
+        "question": "Quel outil peut analyser une image Docker à la recherche de vulnérabilités connues ?",
+        "options": ["Docker Inspector", "Docker Scan", "Docker Watch", "Docker Defender"],
+        "answer": "Docker Scan",
+        "explanation": "`docker scan` (avec Snyk) permet d’analyser les vulnérabilités d’une image."
+    },
+    {
+        "question": "Quelle stratégie permet de réduire la taille d'une image Docker ?",
+        "options": [
+            "Utiliser des couches ADD multiples",
+            "Installer tous les paquets système",
+            "Éviter les fichiers temporaires et les nettoyer",
+            "Stocker les logs dans l’image"
+        ],
+        "answer": "Éviter les fichiers temporaires et les nettoyer",
+        "explanation": "Nettoyer les fichiers temporaires et combiner les instructions minimise la taille des images."
+    },
+    {
+        "question": "Qu'est-ce qu'un conteneur éphémère ?",
+        "options": [
+            "Un conteneur sans volume",
+            "Un conteneur supprimé automatiquement après son exécution",
+            "Un conteneur sans réseau",
+            "Un conteneur sans image"
+        ],
+        "answer": "Un conteneur supprimé automatiquement après son exécution",
+        "explanation": "L’option `--rm` permet de supprimer le conteneur après sa fin."
+    },
+    {
+        "question": "Quel type de volume est défini via un chemin absolu sur la machine hôte ?",
+        "options": ["Bind mount", "Volume nommé", "Volume temporaire", "Docker layer"],
+        "answer": "Bind mount",
+        "explanation": "Les bind mounts utilisent un chemin précis de l’hôte."
+    },
+    {
+        "question": "Quel est l'intérêt d’utiliser une image `scratch` dans un Dockerfile ?",
+        "options": [
+            "Ajouter une base Ubuntu",
+            "Créer une image de test",
+            "Créer une image minimale sans couche système",
+            "Supporter plus de formats de conteneurs"
+        ],
+        "answer": "Créer une image minimale sans couche système",
+        "explanation": "`scratch` est une image vide, idéale pour les binaires statiques."
+    },
+    {
+        "question": "Quelle option permet d’exécuter un conteneur avec les privilèges d’un superutilisateur de l’hôte ?",
+        "options": ["--user=root", "--privileged", "--sudo", "--admin"],
+        "answer": "--privileged",
+        "explanation": "Cette option donne au conteneur tous les privilèges de l’hôte."
+    },
+    {
+        "question": "Pourquoi est-il déconseillé d’utiliser `latest` comme tag d’image en production ?",
+        "options": [
+            "Cela empêche les mises à jour",
+            "Cela consomme plus de mémoire",
+            "Cela peut introduire des changements non maîtrisés",
+            "Cela rend l’image incompatible avec Kubernetes"
+        ],
+        "answer": "Cela peut introduire des changements non maîtrisés",
+        "explanation": "Le tag `latest` peut pointer vers une nouvelle version sans avertissement."
+    },
+    {
+        "question": "Quel outil permet de créer plusieurs environnements isolés avec leurs propres réseaux, volumes et configurations ?",
+        "options": ["Dockerfile", "Docker Compose", "Docker CLI", "Docker Daemon"],
+        "answer": "Docker Compose",
+        "explanation": "Docker Compose permet de décrire des environnements complexes avec plusieurs services."
+    },
+    {
+        "question": "Comment empêcher un conteneur de voir les processus de l’hôte ?",
+        "options": ["--pid=host", "--isolate", "--pid=container", "--pid=private"],
+        "answer": "--pid=container",
+        "explanation": "Cela empêche le conteneur d'accéder à l’espace PID de l’hôte."
+    },
+    {
+        "question": "Quelle commande permet de créer un volume nommé manuellement ?",
+        "options": ["docker volume make", "docker volume create", "docker create volume", "docker make volume"],
+        "answer": "docker volume create",
+        "explanation": "Cette commande crée un volume nommé, que l’on peut ensuite monter dans un conteneur."
     }
   ]
 }

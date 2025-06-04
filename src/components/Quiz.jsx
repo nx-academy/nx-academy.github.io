@@ -32,6 +32,10 @@ function Component({ slug }) {
       const res = await fetch(`/quiz/${slug}.json`);
       const quizData = await res.json();
 
+      console.log("=====")
+      console.log(quizData.data)
+      console.log("=====")
+
       setQuizData(quizData.data);
     }
 
