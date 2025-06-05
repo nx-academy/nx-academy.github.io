@@ -9,14 +9,16 @@ const pageDescription = ""
 
 <BaseLayout>
     <main class="main-wrapper">
-        <img src="/404.png" alt="">
-        <h1>Page introuvable</h1>
-        <h2>
-            Désolé mais cette page n'existe pas (<small>encore</small>)...
-        </h2>
-        <div class="button-wrapper">
-            <Button label="Retourner à l'accueil" href="/" type="primary" />
+        <div class="content-wrapper">
+            <h1>Page introuvable</h1>
+            <p>
+                Désolé mais cette page n'existe pas (<small>encore</small>)...
+            </p>
+            <div class="button-wrapper">
+                <Button label="Retourner à l'accueil" href="/" type="primary" />
+            </div>
         </div>
+        <img src="/404.png" alt="Un robot regardant une carte, perdu dans le désert, pixel art">
     </main>
 </BaseLayout>
 
@@ -26,16 +28,29 @@ const pageDescription = ""
         margin-left: auto;
         margin-right: auto;
         max-width: 1100px;
+        display: flex;
+        flex-direction: column-reverse;
 
         h1,
-        h2 {
+        p {
             margin-top: 0;
             margin-bottom: 0;
         }
+
+        p {
+            font-size: 20px;
+        }
+
+        img {
+            border-radius: 4px;
+        }
+    }
+
+    .content-wrapper {
+        margin-top: 32px;
     }
 
     .button-wrapper {
-        margin-top: 2rem;
-        width: fit-content;
+        margin-top: 48px;
     }
 </style>
