@@ -12,6 +12,11 @@ const juneTasks: LogTasks = {
   month: "Juin",
   tasks: [
     {
+      kind: "fix",
+      content:
+        "Correction d'un bug lié au partage d'articles sur les réseaux sociaux.",
+    },
+    {
       kind: "in-progress",
       content: `Redesign de la home d'un cours. Pour l'instant, je travaille sur la page de présentation <a href="/cours/docker-et-docker-compose" target="_blank">du cours sur Docker et docker compose</a>. Une fois finalisé, je vais créer des composants dédiés puis je m'attaquerais à celle du cours sur les CI/CD.`,
     },
