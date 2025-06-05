@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+
+import Button from "../components/Button.astro"
+
+const pageTitle = "Page non trouvée"
+const pageDescription = ""
+---
+
+<BaseLayout>
+    <main class="main-wrapper">
+        <img src="/404.png" alt="">
+        <h1>Page introuvable</h1>
+        <h2>
+            Désolé mais cette page n'existe pas (<small>encore</small>)...
+        </h2>
+        <div class="button-wrapper">
+            <Button label="Retourner à l'accueil" href="/" type="primary" />
+        </div>
+    </main>
+</BaseLayout>
+
+<style>
+    .main-wrapper {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1100px;
+
+        h1,
+        h2 {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    .button-wrapper {
+        margin-top: 2rem;
+        width: fit-content;
+    }
+</style>
