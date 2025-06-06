@@ -9,8 +9,8 @@ Cette feuille de route présente les fonctionnalités à venir sur NX, indépend
 | Priorité | Fonctionnalité                                    | État actuel       | Prochaine(s) étape(s)                                      | Mois cible          |
 | -------- | ------------------------------------------------- | ----------------- | ---------------------------------------------------------- | ------------------- |
 | 🔥       | Page de présentation de cours                     | En cours          | Créer un modèle (ex. Docker) avec chapitres, prérequis     | Juin                |
-| 🔥       | Finalisation RAG pour auto-Récap                  | En cours          | Structurer prompt + boucle de validation IA                | Mai-juin            |
-| 🔥       | Finalisation du système d’auto-génération de quiz | En cours          | Améliorer précision, enrichir prompts, mieux structurer PR | Juin-juillet        |
+| 🔥       | Finalisation RAG pour auto-Récap                  | **En beta**          | Structurer prompt + boucle de validation IA                | Mai-juin            |
+| 🔥       | Finalisation du système d’auto-génération de quiz | **En beta**         | Améliorer précision, enrichir prompts, mieux structurer PR | Juin-juillet        |
 | 🔥       | Système d’exercices avec corrections              | En réflexion      | Sélectionner les sujets, créer première fiche via Gist     | Juillet             |
 | 🔥       | Redesign de la page d’accueil                     | À faire           | Réflexion sur l’architecture, zonage, maquettes            | Septembre           |
 | 🔥       | Système de news automatisé                        | Prototype partiel | Finaliser scraping + génération IA + PR auto               | Septembre / Octobre |
