@@ -12,6 +12,10 @@ const juneTasks: LogTasks = {
   month: "Juin",
   tasks: [
     {
+      kind: "done",
+      content: `Première version de la page 404 (Vous pouvez la tester <a href="/qsdqsd" target="_blank">ici</a>). Elle n'est pas incroyable pour le moment mais je reviendrais dessus un peu plus tard pour m'ajouter un peu de fun :).`,
+    },
+    {
       kind: "fix",
       content:
         "Correction d'un bug lié au partage d'articles sur les réseaux sociaux.",
