@@ -1,12 +1,15 @@
 ---
 layout: ../../layouts/CheatSheetsLayout.astro
 
-title: Qu'est-ce qu'un registry Docker ?
+title: Qu'est-ce qu'un registry Docker?
 description: Comprenez ce qu’est un registry Docker, comment publier et récupérer vos images et maîtrisez le workflow build → tag → push → pull → run.
+
+imgAlt: Une installation portuaire où un bateau est en train d'être déchargé de ses conteneurs, pixel art
+imgSrc: /images/cheatsheets/registry-docker.webp
 
 author: Thomas
 kind: Fiche technique
-level: intermédiaire
+level: Intermédiaire
 publishedDate: 06/06/2025
 ---
 
@@ -14,7 +17,7 @@ publishedDate: 06/06/2025
 
 # Qu'est-ce qu'un registry Docker?
 
-![Une installation portuaire où un bateau est en train d'être déchargé de ses conteneurs](/images/cheatsheets/registry-docker.webp)
+![Une installation portuaire où un bateau est en train d'être déchargé de ses conteneurs, pixel art](/images/cheatsheets/registry-docker.webp)
 
 On continue notre série dédiée à Docker avec les registries Docker. Je me suis rendu compte que j'avais abordé ce concept dans le cours sans vraiment faire un chapitre dédié. Cette fiche technique est l'occasion de revenir sur cette notion et de l'approfondir.
 
@@ -65,7 +68,7 @@ Décortiquons-la ensemble :
 
 <br>
 
-Voici un autre exemple, cette fois hébergé sur Docker Hub : `tdimnet/php_template-project-with-ci:latest`. Pour votre information, [cette image existe réellement](https://hub.docker.com/repository/docker/tdimnet/php_template-project-with-ci/general). Comme elle est stockée sur Docker Hub, le registry par défaut, je peux me permettre d’omettre le nom du registry dans la commande.
+Voici un autre exemple, cette fois hébergé sur Docker Hub : `tdimnet/php_template-project-with-ci:latest`. Pour votre information, [cette image existe réellement](https://hub.docker.com/r/tdimnet/php_template-project-with-ci). Comme elle est stockée sur Docker Hub, le registry par défaut, je peux me permettre d’omettre le nom du registry dans la commande.
 
 ---
 
@@ -246,10 +249,10 @@ La suite logique ? Brancher tout ça sur un pipeline CI/CD. Mais ça, on en repa
 
 ## Ressources
 
-- La documentation officielle sur Docker Hub
-- GitHub Container Registry (GHCR)
-- Docker push – Référence CLI
-- Docker tag – Référence CLI
-- Configurer un registry privé Docker
+- [La documentation officielle sur Docker Hub](https://docs.docker.com/docker-hub/)
+- [GitHub Container Registry (GHCR)](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
+- [Docker push – Référence CLI](https://docs.docker.com/reference/cli/docker/image/push/)
+- [Docker tag – Référence CLI](https://docs.docker.com/reference/cli/docker/image/tag/)
+- [Configurer un registry privé Docker](https://devopssec.fr/article/deployer-manipuler-securiser-un-serveur-registry-docker-prive)
 
 </article>

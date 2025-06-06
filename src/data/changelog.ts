@@ -13,6 +13,10 @@ const juneTasks: LogTasks = {
   tasks: [
     {
       kind: "done",
+      content: `Ajout de la fiche technique <a href="/fiches/presentation-registry-docker" target="_blank">sur les registry Docker</a> et <a href="/quiz/presentation-registry-docker" target="_blank">de son quiz</a> généré via un RAG.`,
+    },
+    {
+      kind: "done",
       content: `Première version de la page 404 (Vous pouvez la tester <a href="/qsdqsd" target="_blank">ici</a>). Elle n'est pas incroyable pour le moment mais je reviendrais dessus un peu plus tard pour m'ajouter un peu de fun :).`,
     },
     {
