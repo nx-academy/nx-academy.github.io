@@ -119,10 +119,18 @@ const breadCrumbs: Breadcrumb[] = [
       <aside class="course-information">
         <div class="aside-wrapper">
           <h2>Détails du cours</h2>
-          <ul>
-            <li><strong>Durée : </strong> 12 heures</li>
-            <li><strong>Niveau : </strong>Intérmediaire</li>
-          </ul>
+
+          <div class="course-info">
+              <p><strong>Durée :</strong> 12 heures</p>
+              <p><strong>Niveau :</strong> Intermédiaire</p>
+          </div>
+
+            <ul class="course-goals">
+              <li>✅ Créez vos propres images Docker</li>
+              <li>✅ Déployez une app complète</li>
+              <li>✅ Optimisez vos builds pour la prod</li>
+            </ul>
+
           <div class="aside-wrapper-buttons">
             <Button
               label="Commencer le cours"
@@ -135,6 +143,7 @@ const breadCrumbs: Breadcrumb[] = [
               href="/quiz/quiz-niveau-docker"
             />
           </div>
+          <p class="course-note">🔒 Gratuit, sans inscription</p>
         </div>
       </aside>
     </section>
@@ -329,6 +338,7 @@ const breadCrumbs: Breadcrumb[] = [
   @media screen and (min-width: 1024px) {
     .testimonials-list {
       overflow: unset;
+
     }
 
     .testimonials-list li {
@@ -353,6 +363,43 @@ const breadCrumbs: Breadcrumb[] = [
     .aside-wrapper {
       position: sticky;
       top: 24px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border: 1px solid #333;
+      padding: 24px;
+      border-radius: 4px;
+      background: #252525;
+
+      .course-info {
+        margin-bottom: 40px;
+      }
+
+      .course-info p {
+         margin: 0.25rem 0; 
+      }
+
+      .course-goals {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 40px;
+      }
+
+      .course-goals li {
+        margin-bottom: 0.5rem;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .aside-wrapper-buttons {
+        margin-bottom: 24px;
+      }
+
+      .course-note {
+          font-size: 0.85rem;
+          color: #bababa;
+          text-align: center;
+      }
     }
 
     .banner-section {
