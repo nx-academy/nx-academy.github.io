@@ -68,7 +68,7 @@ Décortiquons-la ensemble :
 
 <br>
 
-Voici un autre exemple, cette fois hébergé sur Docker Hub : `tdimnet/php_template-project-with-ci:latest`. Pour votre information, [cette image existe réellement](https://hub.docker.com/repository/docker/tdimnet/php_template-project-with-ci/general). Comme elle est stockée sur Docker Hub, le registry par défaut, je peux me permettre d’omettre le nom du registry dans la commande.
+Voici un autre exemple, cette fois hébergé sur Docker Hub : `tdimnet/php_template-project-with-ci:latest`. Pour votre information, [cette image existe réellement](https://hub.docker.com/r/tdimnet/php_template-project-with-ci). Comme elle est stockée sur Docker Hub, le registry par défaut, je peux me permettre d’omettre le nom du registry dans la commande.
 
 ---
 
