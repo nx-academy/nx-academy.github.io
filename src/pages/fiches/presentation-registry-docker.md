@@ -9,7 +9,7 @@ imgSrc: /images/cheatsheets/registry-docker.webp
 
 author: Thomas
 kind: Fiche technique
-level: intermédiaire
+level: Intermédiaire
 publishedDate: 06/06/2025
 ---
 
@@ -249,10 +249,10 @@ La suite logique ? Brancher tout ça sur un pipeline CI/CD. Mais ça, on en repa
 
 ## Ressources
 
-- La documentation officielle sur Docker Hub
-- GitHub Container Registry (GHCR)
-- Docker push – Référence CLI
-- Docker tag – Référence CLI
-- Configurer un registry privé Docker
+- [La documentation officielle sur Docker Hub](https://docs.docker.com/docker-hub/)
+- [GitHub Container Registry (GHCR)](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
+- [Docker push – Référence CLI](https://docs.docker.com/reference/cli/docker/image/push/)
+- [Docker tag – Référence CLI](https://docs.docker.com/reference/cli/docker/image/tag/)
+- [Configurer un registry privé Docker](https://devopssec.fr/article/deployer-manipuler-securiser-un-serveur-registry-docker-prive)
 
 </article>
