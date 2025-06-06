@@ -2,7 +2,7 @@
 layout: ../../layouts/BlogPostLayout.astro
 
 title: "Le récap #2 - Mai 2025"
-description: Bienvenue dans le récap du mois de mois 2025. Au sommaire, le point sur NextJS, un critique des big techs, retour sur les licenciments chez OpenClassrooms et un fiche sur les registry Docker.
+description: Bienvenue dans le récap du mois de mois 2025. Au sommaire, le point sur NextJS, une critique des big techs, retour sur les licenciments chez OpenClassrooms et un fiche sur les registry Docker.
 
 imgAlt: Un vendeur de journaux dans un kiosque parisien, pixel art
 imgSrc: /images/articles/kiosque-journaux.webp
