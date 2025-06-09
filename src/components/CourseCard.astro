@@ -18,11 +18,11 @@ const { name, href, imgSrc, imgAlt, description } = Astro.props;
 
 <style>
   .card {
-    color: #fff;
+    color: var(--linkColor);
     text-decoration: none;
 
     &:hover .card-title {
-      color: #4effa0;
+      color: var(--linkHoverColor);
     }
   }
 

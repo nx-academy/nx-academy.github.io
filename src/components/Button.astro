@@ -9,7 +9,7 @@ interface Props {
 const { label, type, href, external } = Astro.props;
 ---
 
-<a class={type} href={href} target={external ? "_blank" : ""}>
+<a class={type} href={href} target={external ? "_blank" : ""} rel={external ? "noopener noreferrer" : ""}>
   {label}
 </a>
 
@@ -26,22 +26,22 @@ const { label, type, href, external } = Astro.props;
   }
 
   .primary {
-    color: #151515;
-    border: 1px solid #4effa0;
-    background-color: #4effa0;
+    color: var(--buttonColorPrimaryText);
+    border: 1px solid var(----buttonColorPrimary);
+    background-color: var(--buttonColorPrimary);
 
     &:hover {
-      background-color: #4effa0aa;
+      background-color: var(--buttonColorPrimaryHover);
     }
   }
 
   .secondary {
-    background-color: #b0bec5;
-    color: #151515;
-    border: 1px solid #b0bec5;
+    background-color: var(--buttonColorSecondary);
+    color: var(--buttonColorSecondaryText);
+    border: 1px solid var(--buttonColorSecondary);
 
     &:hover {
-      background-color: #b0bec5aa;
+      background-color: var(--buttonColorSecondaryHover);
     }
   }
 </style>

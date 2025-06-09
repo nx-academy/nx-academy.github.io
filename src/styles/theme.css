@@ -12,4 +12,12 @@
 
     --burgerColor: #FFF;
     --burgerHoverColor: #4effa0;
+
+    --buttonColorPrimary: #4effa0;
+    --buttonColorPrimaryHover: #4effa0aa;
+    --buttonColorPrimaryText: #151515;
+
+    --buttonColorSecondary: #b0bec5;
+    --buttonColorSecondaryHover: #b0bec5aa;
+    --buttonColorSecondaryText: #151515;
 }
