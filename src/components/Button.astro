@@ -9,7 +9,12 @@ interface Props {
 const { label, type, href, external } = Astro.props;
 ---
 
-<a class={type} href={href} target={external ? "_blank" : ""} rel={external ? "noopener noreferrer" : ""}>
+<a
+  class={type}
+  href={href}
+  target={external ? "_blank" : ""}
+  rel={external ? "noopener noreferrer" : ""}
+>
   {label}
 </a>
 

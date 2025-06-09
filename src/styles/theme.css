@@ -1,23 +1,23 @@
 :root {
-    --backgroundColorPrimary: #151515;
-    --backgroundColorSecondary: #252525;
+  --backgroundColorPrimary: #151515;
+  --backgroundColorSecondary: #252525;
 
-    --borderBottomPrimary: #333;
+  --borderBottomPrimary: #333;
 
-    --titleColor: #FFF;
-    --textColor: #bababa;
+  --titleColor: #fff;
+  --textColor: #bababa;
 
-    --linkColor: #FFF;
-    --linkHoverColor: #4effa0;
+  --linkColor: #fff;
+  --linkHoverColor: #4effa0;
 
-    --burgerColor: #FFF;
-    --burgerHoverColor: #4effa0;
+  --burgerColor: #fff;
+  --burgerHoverColor: #4effa0;
 
-    --buttonColorPrimary: #4effa0;
-    --buttonColorPrimaryHover: #4effa0aa;
-    --buttonColorPrimaryText: #151515;
+  --buttonColorPrimary: #4effa0;
+  --buttonColorPrimaryHover: #4effa0aa;
+  --buttonColorPrimaryText: #151515;
 
-    --buttonColorSecondary: #b0bec5;
-    --buttonColorSecondaryHover: #b0bec5aa;
-    --buttonColorSecondaryText: #151515;
+  --buttonColorSecondary: #b0bec5;
+  --buttonColorSecondaryHover: #b0bec5aa;
+  --buttonColorSecondaryText: #151515;
 }
