@@ -21,7 +21,7 @@ const { href, imgAlt, imgSrc, title, level } = Astro.props;
 <style>
   .quiz-card {
     position: relative;
-    color: #fff;
+    color: var(--titleColor);
     text-decoration: none;
   }
 
@@ -32,7 +32,7 @@ const { href, imgAlt, imgSrc, title, level } = Astro.props;
     display: block;
     border-radius: 8px;
     filter: brightness(20%);
-    border: 2px solid #fe7600;
+    border: 2px solid var(--borderSecondary);
   }
 
   .quiz-content {

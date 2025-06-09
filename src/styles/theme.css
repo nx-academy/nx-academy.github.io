@@ -1,0 +1,27 @@
+:root {
+  --backgroundColorPrimary: #151515;
+  --backgroundColorSecondary: #252525;
+
+  --borderPrimary: #333;
+  --borderSecondary: #fe7600;
+
+  --titleColor: #fff;
+  --textColor: #bababa;
+
+  --linkColor: #fff;
+  --linkHoverColor: #4effa0;
+
+  --burgerColor: #fff;
+  --burgerHoverColor: #4effa0;
+
+  --buttonColorPrimary: #4effa0;
+  --buttonColorPrimaryHover: #4effa0aa;
+  --buttonColorPrimaryText: #151515;
+
+  --buttonColorSecondary: #b0bec5;
+  --buttonColorSecondaryHover: #b0bec5aa;
+  --buttonColorSecondaryText: #151515;
+
+  --quiz-title-right: #4effa0;
+  --quiz-title-wrong: tomato;
+}

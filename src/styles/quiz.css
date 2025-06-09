@@ -13,16 +13,16 @@
 }
 
 .explanation-title-right {
-  color: #4effa0;
+  color: var(--quiz-title-right);
 }
 
 .explanation-title-wrong {
   /* For my Eden School students ^^ */
-  color: tomato;
+  color: var(--quiz-title-wrong);
 }
 
 .explanation {
-  color: #bababa;
+  color: var(--textColor);
   margin-bottom: 40px;
 }
 
@@ -49,36 +49,36 @@
 }
 
 .active {
-  background-color: #b0bec5;
-  color: #151515;
+  background-color: var(--buttonColorSecondary);
+  color: var(--buttonColorSecondaryText);
 }
 
 .correct-answer {
   background-color: #252525;
-  border: 1px solid #4effa0;
+  border: 1px solid var(--quiz-title-right);
   color: #fff;
 }
 
 .wrong-answer {
   background-color: #252525;
-  border: 1px solid tomato;
+  border: 1px solid var(--quiz-title-wrong);
   color: #fff;
 }
 
 .submit-answer-btn {
-  background-color: #4effa0;
-  border: 1px solid #4effa0;
+  background-color: var(--buttonColorPrimary);
+  border: 1px solid var(--buttonColorPrimary);
   width: 100%;
   text-align: center;
   padding-top: 8px;
   padding-bottom: 8px;
   cursor: pointer;
-  color: #151515;
+  color: var(--buttonColorPrimaryText);
   border-radius: 8px;
   transition: 0.4s;
 
   &:hover {
-    background-color: #4effa0dd;
+    background-color: var(--buttonColorPrimaryHover);
   }
 }
 
@@ -97,19 +97,19 @@
 }
 
 .go-back {
-  background-color: #4effa0;
-  border: 1px solid #4effa0;
+  background-color: var(--buttonColorPrimary);
+  border: 1px solid var(--buttonColorPrimary);
   text-align: center;
   padding: 8px 16px;
   cursor: pointer;
-  color: #151515;
+  color: var(--buttonColorPrimaryText);
   border-radius: 8px;
   transition: 0.4s;
   display: block;
   text-decoration: none;
 
   &:hover {
-    background-color: #4effa0dd;
+    background-color: var(--buttonColorPrimaryHover);
   }
 }
 
@@ -119,8 +119,8 @@
   border-radius: 8px;
   cursor: pointer;
   transition: 0.4s;
-  background-color: #b0bec5;
-  color: #151515;
+  background-color: var(--buttonColorSecondary);
+  color: var(--buttonColorSecondaryText);
   text-align: center;
   text-decoration: none;
 }

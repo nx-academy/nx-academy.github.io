@@ -46,7 +46,7 @@
 
 <style>
   .footer-wrapper {
-    border-top: 1px solid #333;
+    border-top: 1px solid var(--borderPrimary);
     text-align: center;
     padding-top: 2rem;
     margin-top: 4rem;
@@ -60,6 +60,7 @@
 
   .footer-copyright {
     margin-bottom: 0;
+    color: var(--linkColor);
 
     span {
       font-family: "Pixelify Sans", sans-serif;
@@ -70,13 +71,14 @@
   .footer-nav a {
     transition: 0.4s;
     text-decoration: none;
+    color: var(--linkColor);
 
     &:visited {
-      color: #fff;
+      color: var(--linkColor);
     }
 
     &:hover {
-      color: #4effa0;
+      color: var(--linkHoverColor);
     }
   }
 
