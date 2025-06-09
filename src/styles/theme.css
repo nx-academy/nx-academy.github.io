@@ -23,6 +23,12 @@
   --buttonColorSecondaryHover: #b0bec5aa;
   --buttonColorSecondaryText: #151515;
 
+  --codeBackgroundColor: #4effa0;
+  --codeTextColor: #333;
+
+  --articleLinkColor: #4effa0;
+  --articleLinkHoverColor: #4effa0aa;
+
   --quiz-title-right: #4effa0;
   --quiz-title-wrong: tomato;
 }
@@ -51,5 +57,11 @@
     --buttonColorSecondary: #6c757d;
     --buttonColorSecondaryHover: #6c757dbb;
     --buttonColorSecondaryText: #ffffff;
+
+    --codeBackgroundColor: #4D4DFF;
+    --codeTextColor: #FFF;
+
+    --articleLinkColor: #4D4DFF;
+    --articleLinkHoverColor: #4D4DFFCC;
   }
 }
