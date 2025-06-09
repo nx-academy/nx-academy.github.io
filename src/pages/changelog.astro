@@ -98,12 +98,16 @@ import { ALL_MONTHS } from "../data/changelog";
   p,
   li {
     margin-bottom: 24px;
-    color: #bababa;
+    color: var(--textColor);
     font-size: clamp(0.875rem, 0.75rem + 1.5vw, 1.125rem);
   }
 
   a {
-    color:;
+    color: var(--articleLinkColor);
+
+    &:hover {
+      color: var(--articleLinkHoverColor);
+    }
   }
 
   .monthly-section {
@@ -119,12 +123,12 @@ import { ALL_MONTHS } from "../data/changelog";
 
     a {
       text-decoration: none;
-      color: #4effa0;
+      color: var(--articleLinkColor);
       font-weight: 500;
       transition: 0.4s color;
 
       &:hover {
-        color: #4effa0aa;
+        color: var(--articleLinkHoverColor);
       }
     }
   }
