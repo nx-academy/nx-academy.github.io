@@ -21,4 +21,7 @@
   --buttonColorSecondary: #b0bec5;
   --buttonColorSecondaryHover: #b0bec5aa;
   --buttonColorSecondaryText: #151515;
+
+  --quiz-title-right: #4effa0;
+  --quiz-title-wrong: tomato;
 }
