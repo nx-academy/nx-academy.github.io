@@ -2,7 +2,8 @@
   --backgroundColorPrimary: #151515;
   --backgroundColorSecondary: #252525;
 
-  --borderBottomPrimary: #333;
+  --borderPrimary: #333;
+  --borderSecondary: #fe7600;
 
   --titleColor: #fff;
   --textColor: #bababa;
