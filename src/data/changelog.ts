@@ -13,11 +13,13 @@ const juneTasks: LogTasks = {
   tasks: [
     {
       kind: "in-progress",
-      content: "Ajout de nouveaux thèmes supplémentaires aux thèmes dark et light (une petite surprise pour cet été)."
+      content:
+        "Ajout de nouveaux thèmes supplémentaires aux thèmes dark et light (une petite surprise pour cet été).",
     },
     {
       kind: "done",
-      content: "Création du thème light - j'en profiterais certainement pour créer une fiche technique dessus."
+      content:
+        "Création du thème light - j'en profiterais certainement pour créer une fiche technique dessus.",
     },
     {
       kind: "done",

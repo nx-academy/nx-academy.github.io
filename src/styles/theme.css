@@ -33,35 +33,34 @@
   --quiz-title-wrong: tomato;
 }
 
-
 @media (prefers-color-scheme: light) {
   :root {
-    --backgroundColorPrimary: #FFF;
-    --backgroundColorSecondary: #EEE;
+    --backgroundColorPrimary: #fff;
+    --backgroundColorSecondary: #eee;
 
-    --borderPrimary: #DDD;
+    --borderPrimary: #ddd;
 
     --titleColor: #333;
     --textColor: #656565;
 
     --linkColor: #333;
-    --linkHoverColor: #4D4DFF;
+    --linkHoverColor: #4d4dff;
 
     --burgerColor: #333;
-    --burgerHoverColor: #4D4DFF;
+    --burgerHoverColor: #4d4dff;
 
-    --buttonColorPrimary: #4D4DFF;
-    --buttonColorPrimaryHover: #4D4DFFCC;
-    --buttonColorPrimaryText: #FFF;
+    --buttonColorPrimary: #4d4dff;
+    --buttonColorPrimaryHover: #4d4dffcc;
+    --buttonColorPrimaryText: #fff;
 
     --buttonColorSecondary: #6c757d;
     --buttonColorSecondaryHover: #6c757dbb;
     --buttonColorSecondaryText: #ffffff;
 
-    --codeBackgroundColor: #4D4DFF;
-    --codeTextColor: #FFF;
+    --codeBackgroundColor: #4d4dff;
+    --codeTextColor: #fff;
 
-    --articleLinkColor: #4D4DFF;
-    --articleLinkHoverColor: #4D4DFFCC;
+    --articleLinkColor: #4d4dff;
+    --articleLinkHoverColor: #4d4dffcc;
   }
 }
