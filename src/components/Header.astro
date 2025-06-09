@@ -29,8 +29,8 @@
 <style>
   header {
     align-items: center;
-    background-color: #151515;
-    border-bottom: 1px solid #333;
+    background-color: var(--backgroundColorPrimary);
+    border-bottom: 1px solid var(--borderBottomPrimary);
     display: flex;
     justify-content: space-between;
     position: relative;
@@ -51,24 +51,24 @@
   }
 
   .brand a {
-    color: white;
+    color: var(--linkColor);
     font-family: "Pixelify Sans", sans-serif;
     font-size: 1.4rem;
 
     &:hover {
-      color: #4effa0;
+      color: var(--linkHoverColor);
     }
   }
 
   a {
     text-decoration: none;
-    color: white;
+    color: var(--linkColor);
     font-size: 1.125rem;
     transition: color 0.3s ease;
   }
 
   a:hover {
-    color: #4effa0;
+    color: var(--linkHoverColor);
   }
 
   .desktop-nav {
@@ -88,13 +88,13 @@
   .burger span {
     height: 4px;
     width: 100%;
-    background: white;
+    background-color: var(--burgerColor);
     border-radius: 2px;
     transition: all 0.3s ease;
   }
 
   .burger:hover span {
-    background: #4effa0;
+    background-color: var(--burgerHoverColor);
   }
 
   .burger.active span:nth-child(1) {

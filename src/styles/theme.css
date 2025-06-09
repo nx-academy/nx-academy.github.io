@@ -2,8 +2,14 @@
     --backgroundColorPrimary: #151515;
     --backgroundColorSecondary: #252525;
 
+    --borderBottomPrimary: #333;
+
     --titleColor: #FFF;
     --textColor: #bababa;
+
+    --linkColor: #FFF;
+    --linkHoverColor: #4effa0;
+
+    --burgerColor: #FFF;
+    --burgerHoverColor: #4effa0;
 }
-
-
