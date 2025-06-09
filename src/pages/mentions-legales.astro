@@ -1,0 +1,77 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+
+const pageTitle = "Mentions légales"
+const pageDescription = ""
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+    <main class="main-wrapper">
+        <h1>Mentions légales</h1>
+
+        <section>
+            <h2>Editeur du site</h2>
+            <p>
+                Ce site est édité à titre personnel par Thomas Dimnet
+                <br>
+                <span>
+                    Contact : <a href="mailto:contact@nx.academy">
+                        contact@nx.academy
+                    </a>
+                </span>
+            </p>
+        </section>
+
+        <section>
+            <h2>Hébergement</h2>
+            <address>
+                Le site est hébergé par GitHub Inc.
+                <br>
+                San Francisco, 88 Colin P. Kelly Jr. Street, United States
+                <br>
+                Site web : https://github.com
+            </address>
+        </section>
+
+        <section>
+            <h2>Responsable de la publication</h2>
+            <p>Thomas Dimnet</p>
+        </section>
+
+        <section>
+            <h2>Propriété intellectuelle</h2>
+            <p>Sauf mention contraire, le contenu de ce site est mis à disposition sous licence Creative Commons BY-NC-SA.</p>
+        </section>
+
+        <section>
+            <h2>Données personnelles</h2>
+            <p>
+                Ce site ne collecte aucune donnée personnelle.
+                <br>
+                Il n'utilise pas de cookies, ni de services de tracking (Google Analytics, etc.).
+            </p>
+        </section>
+    </main>
+</BaseLayout>
+
+<style>
+    .main-wrapper {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1100px;
+
+        a {
+            color: #FFF;
+            transition: .4s;
+
+            &:hover {
+                color: #4effa0;
+            }
+        }
+    }
+
+    section {
+        margin-bottom: 32px;
+    }
+</style>
