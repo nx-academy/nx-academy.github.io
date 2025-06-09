@@ -1,18 +1,91 @@
-<footer>
-  © <span>2025 NX Academy</span>
+<footer class="footer-wrapper">
+  <div class="footer-content">
+    <p class="footer-copyright">
+      © <span>2025 NX Academy</span>
+    </p>
+
+    <nav class="footer-nav">
+      <a href="/manifeste">À propos</a>
+      -
+      <a href="/mentions-legales">Mentions légales</a>
+    </nav>
+
+    <ul class="social-links">
+      <li>
+        <a href="#">
+          <img src="/icons/github.svg" alt="">
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <img style="height: 34px; width: 34px;" src="/icons/linkedin.svg" alt="">
+        </a>
+      </li>
+      <li>
+        <a href="/rss.xml">
+          <img src="/icons/rss.svg" alt="">
+        </a>
+      </li>
+    </ul>
+  </div>
 </footer>
 
 <style>
-  footer {
+  .footer-wrapper {
     border-top: 1px solid #333;
     text-align: center;
     padding-top: 2rem;
     margin-top: 4rem;
     margin-bottom: 3rem;
+    font-size: 18px;
+  }
+
+  .footer-content {
+    display: grid;
+    gap: 16px;
+  }
+
+  .footer-copyright {
+    margin-bottom: 0;
 
     span {
       font-family: "Pixelify Sans", sans-serif;
-      font-size: 18px;
+    }
+  }
+
+  .footer-nav a {
+    transition: .4s;
+
+    &:hover {
+      color: #4effa0;
+    }
+  }
+
+  .social-links {
+    padding-left: 0;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 0;
+  }
+
+  .social-links li {
+    margin-bottom: 0;
+
+    img {
+      margin-bottom: 0;
+      height: 24px;
+      width: 24px;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .footer-content {
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 </style>
