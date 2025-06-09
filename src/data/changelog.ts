@@ -13,6 +13,15 @@ const juneTasks: LogTasks = {
   tasks: [
     {
       kind: "done",
+      content: `Création d'une page incroyable dédiée <a href="/mentions-legales" target="_blank">aux mentions légales</a> !`,
+    },
+    {
+      kind: "done",
+      content:
+        "Création d'un très beau footer avec les liens vers les pages et les réseaux sociaux (et flux rss).",
+    },
+    {
+      kind: "done",
       content: `Ajout de la fiche technique <a href="/fiches/presentation-registry-docker" target="_blank">sur les registry Docker</a> et <a href="/quiz/presentation-registry-docker" target="_blank">de son quiz</a> généré via un RAG.`,
     },
     {
