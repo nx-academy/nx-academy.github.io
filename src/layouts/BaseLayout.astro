@@ -15,6 +15,7 @@ import '@fontsource-variable/inter';
 
 import "../styles/normalize.css"
 import "../styles/reset.css"
+import "../styles/theme.css"
 
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -118,8 +119,8 @@ pubDate = pubDate ? new Date(pubDate).toLocaleDateString('fr-FR') : new Date().t
   }
 
   body {
-    background-color: #151515;
-    color: #fff;
+    background-color: var(--backgroundColorPrimary);
+    color: var(--textColor);
     font-family: 'Inter Variable', sans-serif;
   }
 
@@ -127,6 +128,7 @@ pubDate = pubDate ? new Date(pubDate).toLocaleDateString('fr-FR') : new Date().t
   h2,
   h3 {
     font-family: "Space Grotesk", sans-serif;
+    color: var(--title-color);
   }
 
   .page-wrapper {
