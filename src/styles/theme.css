@@ -1,3 +1,4 @@
+/* By default, NX is in dark mode */
 :root {
   --backgroundColorPrimary: #151515;
   --backgroundColorSecondary: #252525;
@@ -24,4 +25,31 @@
 
   --quiz-title-right: #4effa0;
   --quiz-title-wrong: tomato;
+}
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --backgroundColorPrimary: #FFF;
+    --backgroundColorSecondary: #EEE;
+
+    --borderPrimary: #DDD;
+
+    --titleColor: #333;
+    --textColor: #656565;
+
+    --linkColor: #333;
+    --linkHoverColor: #4D4DFF;
+
+    --burgerColor: #333;
+    --burgerHoverColor: #4D4DFF;
+
+    --buttonColorPrimary: #4D4DFF;
+    --buttonColorPrimaryHover: #4D4DFFCC;
+    --buttonColorPrimaryText: #FFF;
+
+    --buttonColorSecondary: #6c757d;
+    --buttonColorSecondaryHover: #6c757dbb;
+    --buttonColorSecondaryText: #ffffff;
+  }
 }
