@@ -90,14 +90,23 @@ const breadCrumbs: Breadcrumb[] = [
           <p>À l’issue du cours, vous serez capable de :</p>
           <ul>
             <li>
+              <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
               Créer et personnaliser vos propres images Docker en choisissant la
               bonne base et en optimisant vos builds.
             </li>
             <li>
+              <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
               Mettre en place une architecture conteneurisée complète : base de
               données, back-end, front-end.
             </li>
             <li>
+              <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
               Préparer vos images pour la production grâce au multi-stage build.
             </li>
           </ul>
@@ -268,7 +277,17 @@ const breadCrumbs: Breadcrumb[] = [
 
     li {
       margin-bottom: 16px;
-      list-style-image: url("/icons/check.svg");
+      list-style-image: none;
+      position: relative;
+
+      svg {
+        position: absolute;
+        left: -32px;
+      }
+
+      path {
+        stroke: var(--buttonColorPrimary);
+      }
     }
   }
 
