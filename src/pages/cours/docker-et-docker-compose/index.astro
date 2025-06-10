@@ -237,10 +237,11 @@ const breadCrumbs: Breadcrumb[] = [
   }
 
   .main-wrapper a {
-    color: #bababa;
+    color: var(--linkColor);
+    transition: 0.4s;
 
     &:hover {
-      color: #4effa0;
+      color: var(--linkHoverColor);
     }
   }
 
@@ -282,7 +283,7 @@ const breadCrumbs: Breadcrumb[] = [
 
   .course-content-section-title {
     margin-bottom: 16px;
-    color: #fff;
+    color: var(--titleColor);
   }
 
   .course-content-chapters {
@@ -312,7 +313,7 @@ const breadCrumbs: Breadcrumb[] = [
   }
 
   .banner-section {
-    background-color: #252525;
+    background-color: var(--backgroundColorSecondary);
     padding: 32px 24px;
     border-radius: 8px;
     margin-bottom: 32px;
@@ -382,10 +383,10 @@ const breadCrumbs: Breadcrumb[] = [
       position: sticky;
       top: 24px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      border: 1px solid #333;
+      border: 1px solid var(--borderPrimary);
       padding: 24px;
       border-radius: 4px;
-      background: #252525;
+      background: var(--backgroundColorSecondary);
 
       .course-info {
         margin-bottom: 40px;
@@ -415,7 +416,7 @@ const breadCrumbs: Breadcrumb[] = [
 
       .course-note {
         font-size: 0.85rem;
-        color: #bababa;
+        color: var(--textColor);
         text-align: center;
       }
     }

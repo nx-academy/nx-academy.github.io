@@ -12,6 +12,16 @@ const juneTasks: LogTasks = {
   month: "Juin",
   tasks: [
     {
+      kind: "in-progress",
+      content:
+        "Ajout de nouveaux thèmes supplémentaires aux thèmes dark et light (une petite surprise pour cet été).",
+    },
+    {
+      kind: "done",
+      content:
+        "Création du thème light - j'en profiterais certainement pour créer une fiche technique dessus.",
+    },
+    {
       kind: "done",
       content: `Création d'une page incroyable dédiée <a href="/mentions-legales" target="_blank">aux mentions légales</a> !`,
     },

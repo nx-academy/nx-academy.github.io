@@ -16,13 +16,8 @@ interface Props {
   headings: Heading[];
 }
 
-import theme from "../config/theme";
 import BaseLayout from "./BaseLayout.astro";
 import StickyOutline from "../components/StickyOutline.astro";
-
-const {
-  colors: { neonGreen, neonGreenLight, black },
-} = theme;
 
 const {
   frontmatter: { title, description, imgSrc },
@@ -86,7 +81,7 @@ const breadCrumbs: Breadcrumb[] = [
   }
 </style>
 
-<style is:global define:vars={{ neonGreen, neonGreenLight, black }}>
+<style is:global>
   img {
     max-width: 100%;
     border-radius: 8px;
@@ -96,29 +91,29 @@ const breadCrumbs: Breadcrumb[] = [
     font-size: 2.5rem;
     margin-top: 0;
     margin-bottom: 0.5rem;
-    color: #fefefe;
+    color: var(--titleColor);
   }
 
   h2 {
     font-size: 1.75rem;
     margin-bottom: 1rem;
-    color: #fefefe;
+    color: var(--titleColor);
   }
 
   p {
     margin-bottom: 1.5rem;
-    color: #bababa;
+    color: var(--textColor);
     font-size: clamp(0.875rem, 0.75rem + 1.5vw, 1.125rem);
   }
 
   ul {
-    color: #bababa;
+    color: var(--textColor);
     margin-bottom: 2.5rem;
   }
 
   li {
     /* margin-bottom: 1rem; */
-    color: #bababa;
+    color: var(--textColor);
     font-size: clamp(0.875rem, 0.75rem + 1.5vw, 1.125rem);
   }
 
@@ -129,19 +124,19 @@ const breadCrumbs: Breadcrumb[] = [
 
   a {
     text-decoration: none;
-    color: var(--neonGreen);
+    color: var(--articleLinkColor);
     font-weight: 500;
     transition: 0.4s color;
 
     &:hover {
-      color: var(--neonGreenLight);
+      color: var(--articleLinkHoverColor);
     }
   }
 
   p > code {
-    background-color: var(--neonGreen);
+    background-color: var(--codeBackgroundColor);
     padding: 0.25rem;
-    color: var(--black);
+    color: var(--codeTextColor);
   }
 
   pre,
@@ -156,7 +151,7 @@ const breadCrumbs: Breadcrumb[] = [
 
   small {
     font-size: 14px;
-    color: #bababa;
+    color: var(--textColor);
     margin-bottom: 2.5rem;
     display: block;
   }
