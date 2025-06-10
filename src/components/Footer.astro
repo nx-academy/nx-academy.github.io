@@ -74,12 +74,15 @@
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
+              class="path-3"
               d="M3 1H1V3H3C8.52285 3 13 7.47715 13 13V15H15V13C15 6.37258 9.62742 1 3 1Z"
             ></path>
             <path
+              class="path-2"
               d="M3 6H1V8H3C5.76142 8 8 10.2386 8 13V15H10V13C10 9.13401 6.86599 6 3 6Z"
             ></path>
             <path
+              class="path-1"
               d="M3 15C4.10457 15 5 14.1046 5 13C5 11.8954 4.10457 11 3 11C1.89543 11 1 11.8954 1 13C1 14.1046 1.89543 15 3 15Z"
             ></path>
           </svg>
@@ -168,6 +171,36 @@
       height: 24px;
       width: 24px;
     }
+  }
+
+  @keyframes signal {
+    0% {
+      fill: var(--linkColor);
+    }
+    50% {
+      fill: var(--linkHoverColor);
+    }
+    70% {
+      fill: var(--linkHoverColor);
+    }
+    100% {
+      fill: var(--linkColor);
+    }
+  }
+
+  a:hover .rss-icon .path-1 {
+    animation: signal 2s ease-in-out infinite;
+    animation-delay: 0s;
+  }
+
+  a:hover .rss-icon .path-2 {
+    animation: signal 2s ease-in-out infinite;
+    animation-delay: 0.2s;
+  }
+
+  a:hover .rss-icon .path-3 {
+    animation: signal 2s ease-in-out infinite;
+    animation-delay: 0.4s;
   }
 
   @media screen and (min-width: 1024px) {
