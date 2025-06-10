@@ -12,6 +12,15 @@ const juneTasks: LogTasks = {
   month: "Juin",
   tasks: [
     {
+      kind: "done",
+      content: "Ajout d'une magnifique animation sur l'icone des flux RSS !",
+    },
+    {
+      kind: "fix",
+      content:
+        "Quelques fixes dûs à la mise en prod du thème light (quelques icônes et titres qui rendaient mal). Normalement, je devrais pouvoir ajouter de nouveaux thèmes facilement (quoi ? :D)",
+    },
+    {
       kind: "in-progress",
       content:
         "Ajout de nouveaux thèmes supplémentaires aux thèmes dark et light (une petite surprise pour cet été).",
