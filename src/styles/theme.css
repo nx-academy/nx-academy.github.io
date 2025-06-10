@@ -2,6 +2,8 @@
 :root {
   --backgroundColorPrimary: #151515;
   --backgroundColorSecondary: #252525;
+  
+  --backgroundColorMobileNav: rgba(37, 37, 37, 0.9);
 
   --borderPrimary: #333;
   --borderSecondary: #fe7600;
@@ -37,6 +39,8 @@
   :root {
     --backgroundColorPrimary: #fff;
     --backgroundColorSecondary: #eee;
+
+    --backgroundColorMobileNav: rgba(250, 250, 250, 0.9);
 
     --borderPrimary: #ddd;
 
