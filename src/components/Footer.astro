@@ -174,34 +174,34 @@
   }
 
   @keyframes signal {
-  0% {
-    fill: var(--linkColor);
+    0% {
+      fill: var(--linkColor);
+    }
+    50% {
+      fill: var(--linkHoverColor);
+    }
+    70% {
+      fill: var(--linkHoverColor);
+    }
+    100% {
+      fill: var(--linkColor);
+    }
   }
-  50% {
-    fill: var(--linkHoverColor);
-  }
-  70% {
-    fill: var(--linkHoverColor);
-  }
-  100% {
-    fill: var(--linkColor);
-  }
-}
 
   a:hover .rss-icon .path-1 {
     animation: signal 2s ease-in-out infinite;
     animation-delay: 0s;
-}
+  }
 
-a:hover .rss-icon .path-2 {
+  a:hover .rss-icon .path-2 {
     animation: signal 2s ease-in-out infinite;
     animation-delay: 0.2s;
-}
+  }
 
-a:hover .rss-icon .path-3 {
-  animation: signal 2s ease-in-out infinite;
-  animation-delay: 0.4s;
-}
+  a:hover .rss-icon .path-3 {
+    animation: signal 2s ease-in-out infinite;
+    animation-delay: 0.4s;
+  }
 
   @media screen and (min-width: 1024px) {
     .footer-content {
