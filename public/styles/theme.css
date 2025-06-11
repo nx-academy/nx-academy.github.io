@@ -36,7 +36,7 @@
 }
 
 html.theme-dark {
-    --backgroundColorPrimary: #151515;
+  --backgroundColorPrimary: #151515;
   --backgroundColorSecondary: #252525;
 
   --backgroundColorMobileNav: rgba(37, 37, 37, 0.9);
@@ -72,35 +72,35 @@ html.theme-dark {
 }
 
 html.theme-light {
---backgroundColorPrimary: #fff;
-    --backgroundColorSecondary: #eee;
+  --backgroundColorPrimary: #fff;
+  --backgroundColorSecondary: #eee;
 
-    --backgroundColorMobileNav: rgba(250, 250, 250, 0.9);
+  --backgroundColorMobileNav: rgba(250, 250, 250, 0.9);
 
-    --borderPrimary: #ddd;
+  --borderPrimary: #ddd;
 
-    --titleColor: #333;
-    --textColor: #656565;
+  --titleColor: #333;
+  --textColor: #656565;
 
-    --linkColor: #333;
-    --linkHoverColor: #4d4dff;
+  --linkColor: #333;
+  --linkHoverColor: #4d4dff;
 
-    --burgerColor: #333;
-    --burgerHoverColor: #4d4dff;
+  --burgerColor: #333;
+  --burgerHoverColor: #4d4dff;
 
-    --buttonColorPrimary: #4d4dff;
-    --buttonColorPrimaryHover: #4d4dffcc;
-    --buttonColorPrimaryText: #fff;
+  --buttonColorPrimary: #4d4dff;
+  --buttonColorPrimaryHover: #4d4dffcc;
+  --buttonColorPrimaryText: #fff;
 
-    --buttonColorSecondary: #6c757d;
-    --buttonColorSecondaryHover: #6c757dbb;
-    --buttonColorSecondaryText: #ffffff;
+  --buttonColorSecondary: #6c757d;
+  --buttonColorSecondaryHover: #6c757dbb;
+  --buttonColorSecondaryText: #ffffff;
 
-    --codeBackgroundColor: #4d4dff;
-    --codeTextColor: #fff;
+  --codeBackgroundColor: #4d4dff;
+  --codeTextColor: #fff;
 
-    --articleLinkColor: #4d4dff;
-    --articleLinkHoverColor: #4d4dffcc;
+  --articleLinkColor: #4d4dff;
+  --articleLinkHoverColor: #4d4dffcc;
 }
 
 /* @media (prefers-color-scheme: light) {
