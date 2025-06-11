@@ -12,6 +12,11 @@ const juneTasks: LogTasks = {
   month: "Juin",
   tasks: [
     {
+      kind: "done",
+      content:
+        "Ajout d'un bouton pour changer de thème (et le garder en mémoire).",
+    },
+    {
       kind: "fix",
       content:
         "Style de la sticky outline sur les articles, fiches techniques et chapitres de cours. Pour info, c'est la fenête à droite qui donne des informations sur le contenu du cours.",

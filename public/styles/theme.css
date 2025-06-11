@@ -35,7 +35,75 @@
   --quiz-title-wrong: tomato;
 }
 
-@media (prefers-color-scheme: light) {
+html.theme-dark {
+  --backgroundColorPrimary: #151515;
+  --backgroundColorSecondary: #252525;
+
+  --backgroundColorMobileNav: rgba(37, 37, 37, 0.9);
+
+  --borderPrimary: #333;
+  --borderSecondary: #fe7600;
+
+  --titleColor: #fff;
+  --textColor: #bababa;
+
+  --linkColor: #fff;
+  --linkHoverColor: #4effa0;
+
+  --burgerColor: #fff;
+  --burgerHoverColor: #4effa0;
+
+  --buttonColorPrimary: #4effa0;
+  --buttonColorPrimaryHover: #4effa0aa;
+  --buttonColorPrimaryText: #151515;
+
+  --buttonColorSecondary: #b0bec5;
+  --buttonColorSecondaryHover: #b0bec5aa;
+  --buttonColorSecondaryText: #151515;
+
+  --codeBackgroundColor: #4effa0;
+  --codeTextColor: #333;
+
+  --articleLinkColor: #4effa0;
+  --articleLinkHoverColor: #4effa0aa;
+
+  --quiz-title-right: #4effa0;
+  --quiz-title-wrong: tomato;
+}
+
+html.theme-light {
+  --backgroundColorPrimary: #fff;
+  --backgroundColorSecondary: #eee;
+
+  --backgroundColorMobileNav: rgba(250, 250, 250, 0.9);
+
+  --borderPrimary: #ddd;
+
+  --titleColor: #333;
+  --textColor: #656565;
+
+  --linkColor: #333;
+  --linkHoverColor: #4d4dff;
+
+  --burgerColor: #333;
+  --burgerHoverColor: #4d4dff;
+
+  --buttonColorPrimary: #4d4dff;
+  --buttonColorPrimaryHover: #4d4dffcc;
+  --buttonColorPrimaryText: #fff;
+
+  --buttonColorSecondary: #6c757d;
+  --buttonColorSecondaryHover: #6c757dbb;
+  --buttonColorSecondaryText: #ffffff;
+
+  --codeBackgroundColor: #4d4dff;
+  --codeTextColor: #fff;
+
+  --articleLinkColor: #4d4dff;
+  --articleLinkHoverColor: #4d4dffcc;
+}
+
+/* @media (prefers-color-scheme: light) {
   :root {
     --backgroundColorPrimary: #fff;
     --backgroundColorSecondary: #eee;
@@ -67,4 +135,4 @@
     --articleLinkColor: #4d4dff;
     --articleLinkHoverColor: #4d4dffcc;
   }
-}
+} */

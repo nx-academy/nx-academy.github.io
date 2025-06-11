@@ -1,0 +1,157 @@
+.question-indicator {
+  font-size: 0.75rem;
+}
+
+.question {
+  font-size: 1.25rem;
+  margin-bottom: 32px;
+}
+
+.explanation-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.explanation-title-right {
+  color: var(--quiz-title-right);
+}
+
+.explanation-title-wrong {
+  /* For my Eden School students ^^ */
+  color: var(--quiz-title-wrong);
+}
+
+.explanation {
+  color: var(--textColor);
+  margin-bottom: 40px;
+}
+
+.options-wrapper {
+  padding-left: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.answer {
+  background-color: #252525;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.4s;
+  border: 1px solid #252525;
+
+  &:hover {
+    border: 1px solid #b0bec5;
+  }
+}
+
+.active {
+  background-color: var(--buttonColorSecondary);
+  color: var(--buttonColorSecondaryText);
+}
+
+.correct-answer {
+  background-color: #252525;
+  border: 1px solid var(--quiz-title-right);
+  color: #fff;
+}
+
+.wrong-answer {
+  background-color: #252525;
+  border: 1px solid var(--quiz-title-wrong);
+  color: #fff;
+}
+
+.submit-answer-btn {
+  background-color: var(--buttonColorPrimary);
+  border: 1px solid var(--buttonColorPrimary);
+  width: 100%;
+  text-align: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  cursor: pointer;
+  color: var(--buttonColorPrimaryText);
+  border-radius: 8px;
+  transition: 0.4s;
+
+  &:hover {
+    background-color: var(--buttonColorPrimaryHover);
+  }
+}
+
+.finished-quiz-title {
+  font-size: 32px;
+}
+
+.finished-quiz-score {
+  margin-bottom: 24px;
+}
+
+.finished-quiz-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.go-back {
+  background-color: var(--buttonColorPrimary);
+  border: 1px solid var(--buttonColorPrimary);
+  text-align: center;
+  padding: 8px 16px;
+  cursor: pointer;
+  color: var(--buttonColorPrimaryText);
+  border-radius: 8px;
+  transition: 0.4s;
+  display: block;
+  text-decoration: none;
+
+  &:hover {
+    background-color: var(--buttonColorPrimaryHover);
+  }
+}
+
+.redo-quiz {
+  display: block;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.4s;
+  background-color: var(--buttonColorSecondary);
+  color: var(--buttonColorSecondaryText);
+  text-align: center;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+  .finished-quiz-btns {
+    flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .quiz-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .quiz-inner-container {
+    display: flex;
+    gap: 40px;
+  }
+
+  .question-wrapper {
+    width: 50%;
+  }
+
+  .explanation {
+    margin-bottom: 0;
+  }
+
+  .options-container {
+    width: 50%;
+  }
+}
