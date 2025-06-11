@@ -78,7 +78,12 @@ const breadCrumbs: Breadcrumb[] = [
     display: none;
 
     @media screen and (min-width: 1024px) {
-      display: initial;
+      background-color: var(--backgroundColorSecondary);
+      border-radius: 4px;
+      border: 1px solid var(--borderPrimary);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      display: block;
+      padding: 24px;
       position: sticky;
       top: 24px;
     }
