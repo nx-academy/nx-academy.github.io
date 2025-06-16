@@ -1,5 +1,9 @@
 <div class="theme-switcher-wrapper">
-  <svg class="theme-button"><use xlink:href="#sun-icon"></use></svg>
+  <svg class="theme-button">
+    <use class="sun-icon" xlink:href="#sun-icon"></use>
+    <use class="moon-icon" xlink:href="#moon-icon"></use>
+    <use class="system-icon" xlink:href="#system-icon"></use>
+  </svg>
 
   <div class="theme-switcher-popover">
     <ul class="themes">
@@ -20,6 +24,16 @@
 </div>
 
 <style>
+  @keyframes rotateThemeIcon {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -40,12 +54,32 @@
     }
   }
 
+  .theme-button use {
+    display: none;
+  }
+
+  html.theme-dark .theme-button use.moon-icon {
+    display: initial;
+  }
+
+  html.theme-light .theme-button use.sun-icon {
+    display: initial;
+  }
+
+  html.theme-system .theme-button use.system-icon {
+    display: initial;
+  }
+
+  .theme-button.animate {
+    animation: rotateThemeIcon 0.4s ease-in-out;
+  }
+
   .theme-switcher-popover {
     display: none;
     position: absolute;
     top: 3rem;
     right: 0rem;
-    background-color: var(--backgroundColorSecondary);
+    background-color: var(--backgroundColorPrimary);
     min-width: 220px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border: 1px solid var(--borderPrimary);
@@ -70,9 +104,10 @@
     display: flex;
     align-items: center;
     gap: 12px;
+    margin-bottom: 0;
 
     &:hover {
-      background-color: var(--backgroundColorPrimary);
+      background-color: var(--backgroundColorSecondary);
     }
   }
 </style>
@@ -96,14 +131,19 @@
   });
 
   $themeBtn.addEventListener("click", function () {
-    $themeSwitcherPopover.classList.add("open");
+    $themeSwitcherPopover.classList.toggle("open");
   });
 
-  $themeSwitcherPopover.addEventListener("click", function(e) {
-    const selectedTheme = (e.target as HTMLElement).getAttribute("data-theme")
+  $themeSwitcherPopover.addEventListener("click", function (e) {
+    const selectedTheme = (e.target as HTMLElement).getAttribute("data-theme");
     if (selectedTheme) {
-        console.log(selectedTheme)
-        document.documentElement.className = selectedTheme
+      document.documentElement.className = selectedTheme;
+
+      $themeBtn.classList.add("animate");
+      setTimeout(() => {
+        $themeBtn.classList.remove("animate");
+      }, 600);
+      $themeSwitcherPopover.classList.remove("open");
     }
-  })
+  });
 </script>

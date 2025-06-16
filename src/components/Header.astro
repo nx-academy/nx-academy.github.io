@@ -15,7 +15,7 @@ import ThemeSwitcher from "./ThemeSwitcher.astro";
       <a href="/quiz">Quiz</a>
     </nav>
 
-    <div class="theme-btn">
+    <div class="theme-wrapper">
       <ThemeSwitcher />
     </div>
 
@@ -83,17 +83,7 @@ import ThemeSwitcher from "./ThemeSwitcher.astro";
     display: none;
   }
 
-  html.theme-dark .sun-icon {
-    display: none;
-  }
-
-  html.theme-light .moon-icon {
-    display: none;
-  }
-
-  .theme-btn {
-    height: 32px;
-    width: 32px;
+  .theme-wrapper {
     margin-left: auto;
     margin-right: 24px;
     cursor: pointer;
