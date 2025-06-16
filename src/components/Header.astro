@@ -1,3 +1,7 @@
+---
+import ThemeSwitcher from "./ThemeSwitcher.astro"
+---
+
 <header>
   <div class="innner-div-wrapper">
     <div class="brand">
@@ -11,7 +15,12 @@
       <a href="/quiz">Quiz</a>
     </nav>
 
-    <div class="theme-btn" aria-label="Changer le thème">
+
+    <div class="theme-btn">
+      <ThemeSwitcher />
+    </div>
+
+    <!-- <div class="theme-btn" aria-label="Changer le thème">
       <svg
         class="moon-icon"
         viewBox="0 0 24 24"
@@ -82,7 +91,7 @@
           stroke-width="1.5"
           stroke-linecap="round"></path>
       </svg>
-    </div>
+    </div> -->
 
     <div class="burger" aria-label="Menu mobile" aria-expanded="false">
       <span></span>
@@ -252,6 +261,7 @@
   const $mobileNav = document.querySelector(".mobile-nav") as HTMLElement;
   const $body = document.body as HTMLBodyElement;
 
+  /*
   const $themeBtn = document.querySelector(".theme-btn") as HTMLElement;
 
   $themeBtn.addEventListener("click", function () {
@@ -265,6 +275,7 @@
       localStorage.setItem("theme", "theme-light");
     }
   });
+  */
 
   $burger.addEventListener("click", () => {
     const isOpen = $burger.classList.toggle("active");

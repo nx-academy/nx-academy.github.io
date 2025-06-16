@@ -1,0 +1,128 @@
+<div class="theme-switcher-wrapper">
+    <svg
+    class="theme-icon"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <path
+        d="M8 22H16"
+        stroke="#1C274C"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+    <path
+        d="M5 19H19"
+        stroke="#1C274C"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+    <path
+        d="M2 16H22"
+        stroke="#1C274C"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+    <path
+        d="M12 6C8.68629 6 6 8.68629 6 12C6 13.5217 6.56645 14.911 7.5 15.9687H16.5C17.4335 14.911 18 13.5217 18 12C18 8.68629 15.3137 6 12 6Z"
+        stroke="#1C274C"
+        stroke-width="1.5"></path>
+    <path
+        d="M12 2V3"
+        stroke="#1C274C"
+        stroke-width="1.5"
+        stroke-linecap="round"></path>
+    <path
+        d="M22 12L21 12"
+        stroke="#1C274C"
+        stroke-width="1.5"
+        stroke-linecap="round"></path>
+    <path
+        d="M3 12L2 12"
+        stroke="#1C274C"
+        stroke-width="1.5"
+        stroke-linecap="round"></path>
+    <path
+        d="M19.0708 4.92969L18.678 5.32252"
+        stroke="#1C274C"
+        stroke-width="1.5"
+        stroke-linecap="round"></path>
+    <path
+        d="M5.32178 5.32227L4.92894 4.92943"
+        stroke="#1C274C"
+        stroke-width="1.5"
+        stroke-linecap="round"></path>
+</svg>
+    <div class="theme-switcher-popover">
+        <ul class="themes">
+            <li data-theme="light">Thème light</li>
+            <li data-theme="dark">Thème dark</li>
+            <li data-theme="system">Thème système</li>
+        </ul>
+    </div>
+</div>
+
+
+<style>
+    @keyframes fadeIn {
+      from { 
+            opacity: 0; 
+            transform: translateY(-5px);
+        }
+        to { 
+            opacity: 1; 
+            transform: translateY(0);
+        }
+    }
+
+    .theme-switcher-wrapper {
+        position: relative;
+    }
+
+    .theme-switcher-popover {
+        display: none;
+        position: absolute;
+        top: 3rem;
+        right: 0rem;
+        background-color: #FFF;
+        min-width: 180px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        border: 1px solid #CCC;
+        animation: fadeIn 0.2s ease-out;
+    }
+
+    .theme-switcher-popover.open {
+        display: block;
+    }
+
+    .themes {
+        padding-left: 0;
+        list-style-type: none;
+        margin-bottom: 0;
+    }
+
+    .themes li {
+        padding: .6rem 1rem;
+
+        &:hover {
+            background-color: #f0f0f0;
+        }
+    }
+</style>
+
+
+<script>
+    const $themeSwitcherWrapper = document.querySelector(".theme-switcher-wrapper") as HTMLElement
+    const $themeIcon = document.querySelector(".theme-icon") as HTMLElement
+    const $themeSwitcherPopover = document.querySelector(".theme-switcher-popover") as HTMLElement
+
+    document.addEventListener("click", function(e) {
+        if (!$themeSwitcherWrapper.contains((e.target as HTMLElement)) && e.target !== $themeIcon) {
+            $themeSwitcherPopover.classList.remove("open")
+        }
+    })
+
+    $themeIcon.addEventListener("click", function() {
+        $themeSwitcherPopover.classList.add("open")
+    })
+</script>
