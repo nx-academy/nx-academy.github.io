@@ -1,95 +1,100 @@
 <div class="theme-switcher-wrapper">
-    <svg class="theme-icon"><use xlink:href="#sun-icon"/></svg>   
+  <svg class="theme-icon"><use xlink:href="#sun-icon"></use></svg>
 
-    <div class="theme-switcher-popover">
-        <ul class="themes">
-            <li data-theme="light">
-                <svg><use xlink:href="#sun-icon"/></svg>
-                Thème light
-            </li>
-            <li data-theme="dark">
-                <svg><use xlink:href="#moon-icon"/></svg>
-                Thème dark
-            </li>
-            <li data-theme="system">
-                <svg><use xlink:href="#system-icon"/></svg>
-                Thème système
-            </li>
-        </ul>
-    </div>
+  <div class="theme-switcher-popover">
+    <ul class="themes">
+      <li data-theme="light">
+        <svg><use xlink:href="#sun-icon"></use></svg>
+        Thème light
+      </li>
+      <li data-theme="dark">
+        <svg><use xlink:href="#moon-icon"></use></svg>
+        Thème dark
+      </li>
+      <li data-theme="system">
+        <svg><use xlink:href="#system-icon"></use></svg>
+        Thème système
+      </li>
+    </ul>
+  </div>
 </div>
 
-
 <style>
-    @keyframes fadeIn {
-      from { 
-            opacity: 0; 
-            transform: translateY(-5px);
-        }
-        to { 
-            opacity: 1; 
-            transform: translateY(0);
-        }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-5px);
     }
-
-    .theme-switcher-wrapper {
-        position: relative;
-
-        svg {
-            height: 28px;
-            width: 28px;
-        }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
+  }
 
-    .theme-switcher-popover {
-        display: none;
-        position: absolute;
-        top: 3rem;
-        right: 0rem;
-        background-color: #FFF;
-        min-width: 220px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        border: 1px solid #CCC;
-        animation: fadeIn 0.2s ease-out;
+  .theme-switcher-wrapper {
+    position: relative;
+
+    svg {
+      height: 28px;
+      width: 28px;
     }
+  }
 
-    .theme-switcher-popover.open {
-        display: block;
+  .theme-switcher-popover {
+    display: none;
+    position: absolute;
+    top: 3rem;
+    right: 0rem;
+    background-color: #fff;
+    min-width: 220px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  .theme-switcher-popover.open {
+    display: block;
+  }
+
+  .themes {
+    padding-left: 0;
+    list-style-type: none;
+    margin-bottom: 0;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .themes li {
+    padding: 0.6rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    &:hover {
+      background-color: #f0f0f0;
     }
-
-    .themes {
-        padding-left: 0;
-        list-style-type: none;
-        margin-bottom: 0;
-        padding-top: 8px;
-        padding-bottom: 8px;
-    }
-
-    .themes li {
-        padding: .6rem 1rem;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-
-        &:hover {
-            background-color: #f0f0f0;
-        }
-    }
+  }
 </style>
 
-
 <script>
-    const $themeSwitcherWrapper = document.querySelector(".theme-switcher-wrapper") as HTMLElement
-    const $themeIcon = document.querySelector(".theme-icon") as HTMLElement
-    const $themeSwitcherPopover = document.querySelector(".theme-switcher-popover") as HTMLElement
+  const $themeSwitcherWrapper = document.querySelector(
+    ".theme-switcher-wrapper",
+  ) as HTMLElement;
+  const $themeIcon = document.querySelector(".theme-icon") as HTMLElement;
+  const $themeSwitcherPopover = document.querySelector(
+    ".theme-switcher-popover",
+  ) as HTMLElement;
 
-    document.addEventListener("click", function(e) {
-        if (!$themeSwitcherWrapper.contains((e.target as HTMLElement)) && e.target !== $themeIcon) {
-            $themeSwitcherPopover.classList.remove("open")
-        }
-    })
+  document.addEventListener("click", function (e) {
+    if (
+      !$themeSwitcherWrapper.contains(e.target as HTMLElement) &&
+      e.target !== $themeIcon
+    ) {
+      $themeSwitcherPopover.classList.remove("open");
+    }
+  });
 
-    $themeIcon.addEventListener("click", function() {
-        $themeSwitcherPopover.classList.add("open")
-    })
+  $themeIcon.addEventListener("click", function () {
+    $themeSwitcherPopover.classList.add("open");
+  });
 </script>
