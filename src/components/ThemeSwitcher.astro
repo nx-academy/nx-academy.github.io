@@ -1,17 +1,17 @@
 <div class="theme-switcher-wrapper">
-  <svg class="theme-icon"><use xlink:href="#sun-icon"></use></svg>
+  <svg class="theme-button"><use xlink:href="#sun-icon"></use></svg>
 
   <div class="theme-switcher-popover">
     <ul class="themes">
-      <li data-theme="light">
+      <li data-theme="theme-light">
         <svg><use xlink:href="#sun-icon"></use></svg>
         Thème light
       </li>
-      <li data-theme="dark">
+      <li data-theme="theme-dark">
         <svg><use xlink:href="#moon-icon"></use></svg>
         Thème dark
       </li>
-      <li data-theme="system">
+      <li data-theme="theme-system">
         <svg><use xlink:href="#system-icon"></use></svg>
         Thème système
       </li>
@@ -45,11 +45,12 @@
     position: absolute;
     top: 3rem;
     right: 0rem;
-    background-color: #fff;
+    background-color: var(--backgroundColorSecondary);
     min-width: 220px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border: 1px solid #ccc;
+    border: 1px solid var(--borderPrimary);
     animation: fadeIn 0.2s ease-out;
+    color: var(--linkColor);
   }
 
   .theme-switcher-popover.open {
@@ -71,7 +72,7 @@
     gap: 12px;
 
     &:hover {
-      background-color: #f0f0f0;
+      background-color: var(--backgroundColorPrimary);
     }
   }
 </style>
@@ -80,7 +81,7 @@
   const $themeSwitcherWrapper = document.querySelector(
     ".theme-switcher-wrapper",
   ) as HTMLElement;
-  const $themeIcon = document.querySelector(".theme-icon") as HTMLElement;
+  const $themeBtn = document.querySelector(".theme-button") as HTMLElement;
   const $themeSwitcherPopover = document.querySelector(
     ".theme-switcher-popover",
   ) as HTMLElement;
@@ -88,13 +89,21 @@
   document.addEventListener("click", function (e) {
     if (
       !$themeSwitcherWrapper.contains(e.target as HTMLElement) &&
-      e.target !== $themeIcon
+      e.target !== $themeBtn
     ) {
       $themeSwitcherPopover.classList.remove("open");
     }
   });
 
-  $themeIcon.addEventListener("click", function () {
+  $themeBtn.addEventListener("click", function () {
     $themeSwitcherPopover.classList.add("open");
   });
+
+  $themeSwitcherPopover.addEventListener("click", function(e) {
+    const selectedTheme = (e.target as HTMLElement).getAttribute("data-theme")
+    if (selectedTheme) {
+        console.log(selectedTheme)
+        document.documentElement.className = selectedTheme
+    }
+  })
 </script>
