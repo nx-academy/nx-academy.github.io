@@ -8,15 +8,15 @@
   <div class="theme-switcher-popover">
     <ul class="themes">
       <li data-theme="theme-light">
-        <svg><use xlink:href="#sun-icon"></use></svg>
+        <svg aria-label="Changer pour le thème light"><use xlink:href="#sun-icon"></use></svg>
         Thème light
       </li>
       <li data-theme="theme-dark">
-        <svg><use xlink:href="#moon-icon"></use></svg>
+        <svg aria-label="Changer pour le thème dark"><use xlink:href="#moon-icon"></use></svg>
         Thème dark
       </li>
       <li data-theme="theme-system">
-        <svg><use xlink:href="#system-icon"></use></svg>
+        <svg aria-label="Changer pour le thème de votre système d'exploitation"><use xlink:href="#system-icon"></use></svg>
         Thème système
       </li>
     </ul>
@@ -136,6 +136,7 @@
 
   $themeSwitcherPopover.addEventListener("click", function (e) {
     const selectedTheme = (e.target as HTMLElement).getAttribute("data-theme");
+
     if (selectedTheme) {
       document.documentElement.className = selectedTheme;
 

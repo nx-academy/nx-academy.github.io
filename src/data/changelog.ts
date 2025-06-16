@@ -13,6 +13,10 @@ const juneTasks: LogTasks = {
   tasks: [
     {
       kind: "done",
+      content: "Ajout d'une popover changeant pour changer de thème. NX propose maintenant trois réglages : light, dark et système (autrement dit, il utilise automatiquement celui de votre système d'exploitation."
+    },
+    {
+      kind: "done",
       content:
         "Ajout d'un bouton pour changer de thème (et le garder en mémoire).",
     },
