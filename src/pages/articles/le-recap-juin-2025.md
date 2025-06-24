@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
 
-title: "Le récap #3 - June 2025"
+title: "Le récap #3 - Juin 2025"
 description: Description à changer
 
 imgAlt: Un vendeur de journaux dans un kiosque parisien, pixel art
@@ -13,11 +13,12 @@ draft: false
 publishedDate: 06/27/2025
 ---
     
-# Le récap #3 - June 2025
+# Le récap #3 - Juin 2025
 
 <img src="/images/articles/kiosque-journaux.webp" alt="Un vendeur de journaux dans un kiosque parisien, pixel art" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block; object-position: top" />
 
 <br>
+
 ## No Server, No Database: Smarter Related Posts in Astro with `transformers.js`
 <small>Alexander Opalic</small>
         
@@ -52,7 +53,7 @@ L'entreprise d'intelligence artificielle Builder.ai, fondée en 2016 par Sachin 
 ## OpenAI considers taking on Google with browser, the Information reports
 <small>Reuters</small>
         
-None
+L’article explique qu’OpenAI envisage de développer son propre navigateur web, intégrant potentiellement ChatGPT, pour concurrencer directement Google. Ce projet s’accompagne d’explorations de partenariats avec des plateformes comme Redfin, Eventbrite et Conde Nast afin d’améliorer les résultats de recherche intégrés à ChatGPT. L’initiative, encore à un stade précoce, pourrait bénéficier d’un contexte favorable si le département de la Justice contraint Google à se séparer de Chrome.
         
 [Lire l'article](https://www.reuters.com/technology/artificial-intelligence/openai-considers-taking-google-with-browser-information-reports-2024-11-21)
         
