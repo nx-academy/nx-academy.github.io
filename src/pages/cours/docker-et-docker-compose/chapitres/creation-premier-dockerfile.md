@@ -21,7 +21,6 @@ id: 4
 
 Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre [sur la branche `partie-2/chapitre-1-debut`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-1-debut). En plus de cette branche, nous allons utiliser [cette issue Github](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/1) comme problématique. Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
 
-
 ## Le Dockerfile, le squelette de votre application
 
 Dans les premiers chapitres, vous avez vu comment récupérer une image Node.js en utilisant la commande `docker image pull`. **Cette commande est bien pratique pour récupérer une image. Cela dit, elle montre rapidement ses limites quand on souhaite travailler avec**. En effet, une fois que vous avez récupéré l’image, vous allez voir lui ajouter des fichiers, installer des librairies, peut-être la préparer pour la production, etc. Chaque étape correspond à une instruction bien précise.

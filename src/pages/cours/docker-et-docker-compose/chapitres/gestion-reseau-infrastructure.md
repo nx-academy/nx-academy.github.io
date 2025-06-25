@@ -21,7 +21,6 @@ id: 6
 
 Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre [sur la branche `partie-2/chapitre-3-debut`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-3-debut). En plus de cette branche, nous allons utiliser [cette issue Github](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/3) comme problématique. Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
 
-
 ## Le port, un point central des réseaux informatiques
 
 Nous abordons un chapitre assez central du cours. Rassurez-vous, ce chapitre n’est pas très long. Il est aussi nettement moins dense que le chapitre précédent. L’objectif de ce chapitre est de vous présenter quelques notions de réseau de base. Nous allons voir ensemble les ports, sur votre machine hôte et dans votre conteneur Docker et comment les deux communiquent ensemble. Nous verrons aussi un peu les variables d’environnement et comment connaître celles présentes dans un conteneur Docker.
