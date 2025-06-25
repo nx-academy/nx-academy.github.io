@@ -17,7 +17,7 @@ id: 3
 
 # Prenez en main le projet fil rouge
 
-![Un superhero regardant une ville de nuit, pixel art](/docker-port.webp)
+![Un homme asiatique en train de lire un manuel de montage, pixel art](/images/cours/homme-lecture-manuel.webp)
 
 ## Découvrez le projet fil rouge
 
