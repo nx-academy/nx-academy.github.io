@@ -17,9 +17,9 @@ id: 5
 
 # Créez votre premier docker compose
 
-Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre[ sur la branche `partie-2/chapitre-2-debut`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-2-debut). En plus de cette branche, nous allons utiliser [cette issue Github](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/2) comme problématique. Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
-
 ![Un superhero regardant une ville de nuit, pixel art](/docker-port.webp)
+
+Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre[ sur la branche `partie-2/chapitre-2-debut`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-2-debut). En plus de cette branche, nous allons utiliser [cette issue Github](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/2) comme problématique. Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
 
 ## Le fichier `docker-compose`, le squelette de votre infrastructure
 
@@ -189,7 +189,7 @@ Je vous invite à suivre le screencast ci-dessous dans lequel vous allez voir co
 
 <br>
 
-**screencast**
+<iframe src="https://player.vimeo.com/video/1096176378?h=ef4af8e282&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 10 - Faites le lien entre votre Dockerfile et votre docker-compose"></iframe>
 
 <br>
 
@@ -214,7 +214,7 @@ Pour rappel, [voici la problématique](https://github.com/nx-academy/Conteneuris
 
 <br>
 
-**screencast**
+<iframe src="https://player.vimeo.com/video/1096176550?h=5c923c0f5e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 11 - Exercez-vous - Créez votre premier docker-compose"></iframe>
 
 <br>
 
