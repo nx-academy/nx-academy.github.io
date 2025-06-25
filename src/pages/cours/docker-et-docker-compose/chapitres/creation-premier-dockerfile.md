@@ -17,9 +17,10 @@ id: 4
 
 # Créez votre premier Dockerfile
 
+![Un superhero regardant une ville de nuit, pixel art](/docker-port.webp)
+
 Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre [sur la branche `partie-2/chapitre-1-debut`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-1-debut). En plus de cette branche, nous allons utiliser [cette issue Github](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/1) comme problématique. Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
 
-![Un superhero regardant une ville de nuit, pixel art](/docker-port.webp)
 
 ## Le Dockerfile, le squelette de votre application
 
@@ -102,7 +103,7 @@ Je vais profiter du screencast ci-dessous pour reprendre les concepts dont je vi
 
 <br>
 
-**screencast**
+<iframe src="https://player.vimeo.com/video/1096176132?h=b8ae3c080a&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 8 - Ajoutez des instructions sur votre Dockerfile"></iframe>
 
 <br>
 
@@ -228,7 +229,7 @@ Amusez-vous bien !
 
 <br>
 
-**screencast**
+<iframe src="https://player.vimeo.com/video/1096176274?h=a18d7b939e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 9 - Exercez vous - Créez votre premier Dockerfile"></iframe>
 
 <br>
 
