@@ -17,7 +17,7 @@ id: 2
 
 # Installez et configurez Docker Desktop
 
-![Un superhero regardant une ville de nuit, pixel art](/cours-docker/port-avec-conteneurs.png)
+![Un port avec des conteneurs, pixel art](/cours-docker/port-avec-conteneurs.png)
 
 ## Découvrez Docker Desktop
 
