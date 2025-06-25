@@ -17,9 +17,9 @@ id: 7
 
 # Installez et configurez des services avec docker compose
 
-Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre [sur la branche `partie-3/chapitre-1-debut`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-3/chapitre-1-debut). En plus de cette branche, nous allons utiliser [cette issue Github](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/4) comme problématique. Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
-
 ![Un superhero regardant une ville de nuit, pixel art](/docker-port.webp)
+
+Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre [sur la branche `partie-3/chapitre-1-debut`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-3/chapitre-1-debut). En plus de cette branche, nous allons utiliser [cette issue Github](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/4) comme problématique. Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
 
 ## Découvrez MongoDB
 
@@ -263,7 +263,7 @@ Pour rappel, [voici la problématique](https://github.com/nx-academy/Conteneuris
 
 <br>
 
-**screencast**
+<iframe src="https://player.vimeo.com/video/1096177208?h=67818b6603&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 14 - Exercez-vous - Installez et configurez des services avec docker-compose"></iframe>
 
 <br>
 

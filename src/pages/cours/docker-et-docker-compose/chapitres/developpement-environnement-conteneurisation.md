@@ -17,9 +17,9 @@ id: 8
 
 # Développez dans un environnement conteneurisé
 
-Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre [sur la branche `partie-3/chapitre-2-debut`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-3/chapitre-2-debut). En plus de cette branche, nous allons utiliser [cette issue Github](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/5) comme problématique. Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
-
 ![Un superhero regardant une ville de nuit, pixel art](/docker-port.webp)
+
+Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre [sur la branche `partie-3/chapitre-2-debut`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-3/chapitre-2-debut). En plus de cette branche, nous allons utiliser [cette issue Github](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/5) comme problématique. Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
 
 ## Utilisez VSCode pour développer dans votre conteneur
 
@@ -51,7 +51,7 @@ Dans ce screencast, je vais vous montrer comment installer et paramétrer l’ex
 
 <br>
 
-**screencast**
+<iframe src="https://player.vimeo.com/video/1096177694?h=f94055badf&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 15 - Installez et paramétrez l’extension DevContainer"></iframe>
 
 <br>
 
@@ -86,7 +86,7 @@ Pour l’instant, les deux éléments ne communiquent pas entre eux. C’est vot
 
 <br>
 
-**screencast**
+<iframe src="https://player.vimeo.com/video/1096177902?h=d6575a760b&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 16 - Découvrez les modifications apportées au projet fil rouge"></iframe>
 
 <br>
 
@@ -101,6 +101,14 @@ Maintenant que vous avez découvert l’ensemble du projet. Il est temps de clor
 ## Exercez-vous
 
 Pour rappel, [voici la problématique](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/5) que nous essayons de résoudre dans ce chapitre. Pensez bien à vous positionner [sur la branche `partie-3/chapitre-2/section-3`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-3/chapitre-2/section-3).
+
+<br>
+
+<iframe src="https://player.vimeo.com/video/1096177977?h=22f860521c&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 17 - Exercez-vous - Développez dans un environnement conteneurisé"></iframe>
+
+<br>
+
+Le code source contenant la solution de cet exercice se trouve [sur la branche `partie-3/chapitre-2-fin`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-3/chapitre-2-fin).
 
 ---
 
