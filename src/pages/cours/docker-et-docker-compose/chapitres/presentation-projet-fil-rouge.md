@@ -39,7 +39,7 @@ Vous allez maintenant cloner le projet fil rouge sur votre ordinateur.
 
 <br>
 
-![Un vigile à l'entrée d'une boite de nuit, pixel art](/homme-magasin-voiture.webp)
+![Un vigile à l'entrée d'une boite de nuit, pixel art](/images/cours/homme-dossier-armoire.webp)
 
 ## Clonez le projet fil rouge
 
