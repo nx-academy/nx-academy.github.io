@@ -39,9 +39,10 @@ Si ça vous intéresse d’en apprendre un peu plus sur le fonctionnement intern
 
 Dans ce screencast, vous allez voir comment installer Docker sur macOS. Vous verrez où et comment installer Docker Desktop, quelques commandes de base et vous en profiterez pour lancer votre premier conteneur.
 
-<br>
 
-<div style="padding:56.25% 0 0 0;position:relative;margin-bottom: 48px;"><iframe src="https://player.vimeo.com/video/1096175462?h=1c484564b2&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Screencast 1 - Installez Docker Desktop sur Mac"></iframe></div>
+
+<iframe src="https://player.vimeo.com/video/1096175462?h=1c484564b2&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 1 - Installez Docker Desktop sur Mac"></iframe>
+
 
 <br>
 
@@ -163,7 +164,7 @@ Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 
 <br>
 
-À ce stade du cours, il est possible que vous soyez encore perdu entre les images et les conteneurs. C’est parfaitement normal. On passe tous par cette étape (en tout cas, j’y suis passé ^^). Une image Docker est comme une empreinte digitale ou un moule ; souvenez-vous de l’exemple des gâteaux. Votre image est prête à l’emploi mais elle ne “tourne” pas.
+À ce stade du cours, il est possible que vous soyez encore perdu entre les images et les conteneurs. C’est parfaitement normal. On passe tous par cette étape (en tout cas, j’y suis passé ^^). **Une image Docker est comme une empreinte digitale ou un moule ; souvenez-vous de l’exemple des gâteaux. Votre image est prête à l’emploi mais elle ne “tourne” pas**.
 
 Pour exécuter le code ou le programme contenu dans votre image, vous avez besoin de la faire tourner dans un conteneur. La commande `docker run` permet donc de faire tourner l’image Docker dans un conteneur Docker. Le conteneur Docker correspond à votre gâteau 🙂.
 
@@ -171,11 +172,11 @@ Dernier point essentiel : la commande `docker run` est une abréviation de la co
 
 Durant tout le cours, je vais utiliser les commandes complètes, à savoir docker container run, docker container exec, docker image pull, etc. Cela devrait vous aider à accélérer votre apprentissage.
 
-<br>
+---
 
 On va se faire un premier screencast où je vais reprendre les notions dont je viens de parler. Vous verrez ensuite d’autres commandes de base de Docker.
 
-<div style="padding:56.25% 0 0 0;position:relative;margin-bottom:48px;"><iframe src="https://player.vimeo.com/video/1096175522?h=14cca2c1bf&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Screencast 2 - Appréhendez la ligne de commande de Docker"></iframe></div>
+<iframe src="https://player.vimeo.com/video/1096175522?h=14cca2c1bf&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 2 - Appréhendez la ligne de commande de Docker"></iframe>
 
 Maintenant que vous avez pris en main l’interface en ligne de commandes de Docker (le CLI), vous allez apprendre à récupérer une image Node.js depuis DockerHub.
 
@@ -227,11 +228,11 @@ hello-world   latest	46331d942d63   12 months ago   9.14kB
 
 J’ai deux images sur mon ordinateur : `node` et `hello-world`. J’ai leur taille, le nom du repository et leur tag. Sachez que nous reviendrons sur la notion de tag d’ici peu de temps 😉.
 
-<br>
+---
 
 Le screencast ci-dessous reprend ce que je viens de faire mais en vidéo. Encore une fois, cela devrait vous permettre d’apprendre un peu plus vite.
 
-<div style="padding:56.25% 0 0 0;position:relative;margin-bottom:48px;"><iframe src="https://player.vimeo.com/video/1096175632?h=22fce4fbb8&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Screencast 3 - Récupérez une image NodeJS"></iframe></div>
+<iframe src="https://player.vimeo.com/video/1096175632?h=22fce4fbb8&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 3 - Récupérez une image NodeJS"></iframe>
 
 ---
 
@@ -282,17 +283,68 @@ usr
 var
 ```
 
-Cette commande va vous permettre d'exécuter la commande ls à l’intérieur de votre conteneur. Vous êtes actuellement à la racine de votre linux. Pour afficher le contenu du répertoire bin, tapez docker container run node ls bin. Si vous connaissez un peu linux et la ligne de commandes, vous ne devriez pas être trop perdu.
+Cette commande va vous permettre d'exécuter la commande ls à l’intérieur de votre conteneur. Vous êtes actuellement à la racine de votre linux. Pour afficher le contenu du répertoire bin, tapez `docker container run node ls bin`. Si vous connaissez un peu linux et la ligne de commandes, vous ne devriez pas être trop perdu.
 
 <br>
 
-Admettons maintenant que vous souhaitez connaître la version de node de votre conteneur Docker. Vous pouvez le faire via la commande docker container run node node -v.
+Admettons maintenant que vous souhaitez connaître la version de node de votre conteneur Docker. Vous pouvez le faire via la commande `docker container run node node -v`.
 
 ```bash
 docker container run node node -v
 
 v19.8.1
 ```
+
+Vous verrez dans le projet fil rouge et les prochaines parties comment tirer parti de ces commandes. Concentrez-vous pour l’instant sur les commandes 🙂.
+
+<br>
+
+Bon, dernière commande pour la route : `docker container ls`. Cette commande va vous permettre d’afficher vos conteneurs. Votre résultat devrait être similaire au mien.
+
+```bash
+docker container ls
+
+
+CONTAINER ID   IMAGE 	COMMAND   CREATED   STATUS	PORTS 	NAMES
+```
+
+Je vous imagine derrière votre écran vous dire : mais attends, je viens de lancer des conteneurs Docker là. Comment ça se fait qu’aucun ne s’affiche ? En fait, c’est totalement normal. Vous vous souvenez que dans le chapitre précédent ?
+
+
+Je vous ai dit que les conteneurs étaient éphémères, notamment en comparaison des VM. C’est ce qui se passe ici. Votre conteneur se lance, exécute sa commande (il fait son job) et il s’arrête. Par contre, sachez qu’il est possible d’afficher tous vos conteneurs, y compris ceux à l’arrêt. Ce qui est une commande plutôt pratique quand on veut déboguer un conteneur. Regardez la documentation du CLI avant de regarder la solution.
+
+
+![Un meme de retour vers sur le futur portant sur les conteneurs Docker](/back-to-the-future-docker.jpg)
+
+
+Alors, vous avez trouvé ?
+
+La commande `docker container ls -a` ou `docker container ls –all`, vous permet d’afficher l’ensemble de vos conteneurs, y compris ceux à l’arrêt. Ce qui nous donne un résultat quand même beaucoup plus intéressant.
+
+```bash
+docker container ls -a
+
+
+CONTAINER ID   IMAGE     	COMMAND              	CREATED      	STATUS                  	PORTS 	NAMES
+8ce659fa530a   node      	"docker-entrypoint.s…"   11 minutes ago   Exited (0) 11 minutes ago         	admiring_roentgen
+a8454175cff9   node      	"docker-entrypoint.s…"   13 minutes ago   Exited (0) 13 minutes ago         	dazzling_meninsky
+6adc1b063ead   node      	"docker-entrypoint.s…"   13 minutes ago   Exited (0) 13 minutes ago         	vibrant_bassi
+369d9187d97f   node      	"docker-entrypoint.s…"   13 minutes ago   Exited (0) 13 minutes ago         	epic_bose
+10a827c26e38   node      	"docker-entrypoint.s…"   14 minutes ago   Exited (1) 13 minutes ago         	eager_lovelace
+ef32e268d09c   node      	"docker-entrypoint.s…"   14 minutes ago   Exited (0) 14 minutes ago         	sweet_hellman
+d8819a3a58cd   node      	"docker-entrypoint.s…"   14 minutes ago   Exited (0) 14 minutes ago         	charming_carson
+ffc50d5ff510   node      	"docker-entrypoint.s…"   16 minutes ago   Exited (0) 16 minutes ago         	pensive_mayer
+```
+
+Essayez de regarder comment supprimer les conteneurs à l’arrêt via le CLI. Ça vous permettra de prendre un peu d’avance sur les prochains chapitres.
+
+---
+
+Le screencast ci-dessous reprend ce que je viens de faire mais en vidéo. 
+
+<iframe src="https://player.vimeo.com/video/1096175756?h=c66b49952f&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 4 - Lancez et manipulez votre conteneur NodeJS"></iframe>
+
+Vous voici arrivé au terme de ce chapitre. Ce chapitre est clairement l’un des plus denses du cours. Je vous invite à revenir dessus une fois que vous aurez avancé un peu dans le cours. Il y a pas mal d’éléments qui vont se mettre en place les uns à la suite des autres. Comme toujours, pas d'inquiétude si tout ne fait pas sens immédiatement ou si vous oubliez certains éléments. C’est normal !
 
 ---
 
