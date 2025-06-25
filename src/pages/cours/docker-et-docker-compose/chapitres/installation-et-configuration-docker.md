@@ -39,13 +39,9 @@ Si ça vous intéresse d’en apprendre un peu plus sur le fonctionnement intern
 
 Dans ce screencast, vous allez voir comment installer Docker sur macOS. Vous verrez où et comment installer Docker Desktop, quelques commandes de base et vous en profiterez pour lancer votre premier conteneur.
 
-
-
 <iframe src="https://player.vimeo.com/video/1096175462?h=1c484564b2&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 1 - Installez Docker Desktop sur Mac"></iframe>
 
-
 <br>
-
 
 Félicitations, Docker Desktop est maintenant prêt à l’emploi sur votre ordinateur. La commande `docker run hello-world` est l’une des nombreuses commandes de Docker. Cette commande vous permet de lancer un conteneur avec l’image ayant le nom _hello-world_. Cette image est hébergée [sur ce repository DockerHub](https://hub.docker.com/_/hello-world).
 
@@ -310,12 +306,9 @@ CONTAINER ID   IMAGE 	COMMAND   CREATED   STATUS	PORTS 	NAMES
 
 Je vous imagine derrière votre écran vous dire : mais attends, je viens de lancer des conteneurs Docker là. Comment ça se fait qu’aucun ne s’affiche ? En fait, c’est totalement normal. Vous vous souvenez que dans le chapitre précédent ?
 
-
 Je vous ai dit que les conteneurs étaient éphémères, notamment en comparaison des VM. C’est ce qui se passe ici. Votre conteneur se lance, exécute sa commande (il fait son job) et il s’arrête. Par contre, sachez qu’il est possible d’afficher tous vos conteneurs, y compris ceux à l’arrêt. Ce qui est une commande plutôt pratique quand on veut déboguer un conteneur. Regardez la documentation du CLI avant de regarder la solution.
 
-
 ![Un meme de retour vers sur le futur portant sur les conteneurs Docker](/back-to-the-future-docker.jpg)
-
 
 Alors, vous avez trouvé ?
 
@@ -340,7 +333,7 @@ Essayez de regarder comment supprimer les conteneurs à l’arrêt via le CLI. �
 
 ---
 
-Le screencast ci-dessous reprend ce que je viens de faire mais en vidéo. 
+Le screencast ci-dessous reprend ce que je viens de faire mais en vidéo.
 
 <iframe src="https://player.vimeo.com/video/1096175756?h=c66b49952f&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 4 - Lancez et manipulez votre conteneur NodeJS"></iframe>
 
