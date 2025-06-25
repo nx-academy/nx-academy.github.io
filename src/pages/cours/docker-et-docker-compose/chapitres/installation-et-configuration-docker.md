@@ -39,7 +39,12 @@ Si ça vous intéresse d’en apprendre un peu plus sur le fonctionnement intern
 
 Dans ce screencast, vous allez voir comment installer Docker sur macOS. Vous verrez où et comment installer Docker Desktop, quelques commandes de base et vous en profiterez pour lancer votre premier conteneur.
 
-<iframe src="https://www.youtube.com/embed/SYMPIdMC2qo" frameborder="0"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br>
+
+<div style="padding:56.25% 0 0 0;position:relative;margin-bottom: 48px;"><iframe src="https://player.vimeo.com/video/1096175462?h=1c484564b2&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Screencast 1 - Installez Docker Desktop sur Mac"></iframe></div>
+
+<br>
+
 
 Félicitations, Docker Desktop est maintenant prêt à l’emploi sur votre ordinateur. La commande `docker run hello-world` est l’une des nombreuses commandes de Docker. Cette commande vous permet de lancer un conteneur avec l’image ayant le nom _hello-world_. Cette image est hébergée [sur ce repository DockerHub](https://hub.docker.com/_/hello-world).
 
@@ -170,7 +175,7 @@ Durant tout le cours, je vais utiliser les commandes complètes, à savoir docke
 
 On va se faire un premier screencast où je vais reprendre les notions dont je viens de parler. Vous verrez ensuite d’autres commandes de base de Docker.
 
-<iframe src="https://www.youtube.com/embed/SYMPIdMC2qo" frameborder="0"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div style="padding:56.25% 0 0 0;position:relative;margin-bottom:48px;"><iframe src="https://player.vimeo.com/video/1096175522?h=14cca2c1bf&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Screencast 2 - Appréhendez la ligne de commande de Docker"></iframe></div>
 
 Maintenant que vous avez pris en main l’interface en ligne de commandes de Docker (le CLI), vous allez apprendre à récupérer une image Node.js depuis DockerHub.
 
@@ -225,6 +230,8 @@ J’ai deux images sur mon ordinateur : `node` et `hello-world`. J’ai leur tai
 <br>
 
 Le screencast ci-dessous reprend ce que je viens de faire mais en vidéo. Encore une fois, cela devrait vous permettre d’apprendre un peu plus vite.
+
+<div style="padding:56.25% 0 0 0;position:relative;margin-bottom:48px;"><iframe src="https://player.vimeo.com/video/1096175632?h=22fce4fbb8&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Screencast 3 - Récupérez une image NodeJS"></iframe></div>
 
 ---
 
