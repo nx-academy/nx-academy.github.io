@@ -17,9 +17,10 @@ id: 6
 
 # Gérez le réseau de votre infrastructure
 
+![Un superhero regardant une ville de nuit, pixel art](/docker-port.webp)
+
 Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre [sur la branche `partie-2/chapitre-3-debut`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-3-debut). En plus de cette branche, nous allons utiliser [cette issue Github](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/3) comme problématique. Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
 
-![Un superhero regardant une ville de nuit, pixel art](/docker-port.webp)
 
 ## Le port, un point central des réseaux informatiques
 
@@ -210,7 +211,7 @@ Je vous propose qu’on fasse une petite pause sur le texte et qu’on regarde c
 
 <br>
 
-**screencast**
+<iframe src="https://player.vimeo.com/video/1096176773?h=512071f632&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 12 - Ajoutez des variables d_environnement à votre conteneur"></iframe>
 
 <br>
 
@@ -236,7 +237,7 @@ Pour rappel, [voici la problématique](https://github.com/nx-academy/Conteneuris
 
 <br>
 
-**screencast**
+<iframe src="https://player.vimeo.com/video/1096177015?h=1ec05b12f6&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 13 - Exercez-vous - Gérez le réseau de votre infrastructure"></iframe>
 
 <br>
 
