@@ -16,9 +16,9 @@ id: 9
 
 # Préparez votre application pour la production
 
-Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre [sur la branche partie-3/chapitre-3-debut](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-3/chapitre-3-debut). En plus de cette branche, nous allons utiliser [cette issue Github](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/6) comme problématique. Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
-
 ![Un superhero regardant une ville de nuit, pixel art](/docker-port.webp)
+
+Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre [sur la branche partie-3/chapitre-3-debut](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-3/chapitre-3-debut). En plus de cette branche, nous allons utiliser [cette issue Github](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/6) comme problématique. Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
 
 ## Différenciez les environnements de développement et de production
 
@@ -235,7 +235,7 @@ On se retrouve tout de suite pour le screencast !
 
 <br>
 
-**screencast**
+<iframe src="https://player.vimeo.com/video/1096178184?h=a9aa670684&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 18 - Découpez votre image web avec le multi staging"></iframe>
 
 <br>
 
@@ -253,7 +253,7 @@ Pour rappel, [voici la problématique](https://github.com/nx-academy/Conteneuris
 
 <br>
 
-**screencast**
+<iframe src="https://player.vimeo.com/video/1096178331?h=15dd6930ff&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 19 - Exercez-vous - Préparez votre application pour la production"></iframe>
 
 <br>
 
