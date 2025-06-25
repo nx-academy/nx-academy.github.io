@@ -103,6 +103,10 @@ D’ailleurs, Docker est particulièrement pratique quand vous reprennez un proj
 
 <br>
 
+---
+
+<br>
+
 Si vous avez bien compris la section précédente, vous vous dites peut-être qu’il est possible de réaliser la même chose avec des VM. J’installe un hyperviseur puis ma VM et je fais bosser toute l’équipe de développement dans une VM linux. Sachez que c’est totalement possible. Vous serez dans un environnement proche de celui de production et vous ne polluerez pas votre machine hôte. Seulement vous aurez quand même à gérer les montées de version sur l’ensemble du parc informatique. Autre point négatif, rappelez-vous que les VM consomment plus de ressources que les conteneurs.
 
 Avant de passer à la dernière section de ce premier chapitre, il y a un dernier point que je souhaite aborder : l’écosystème. **Si vous avez déjà utilisé VirtualBox, vous avez peut-être déjà eu des difficultés à trouver la bonne image**. Le plus souvent cette image est un fichier ISO. C’est en quelque sorte le disque d’installation de votre OS. Avec Docker, trouver la bonne image se fait très facilement [grâce à DockerHub](https://hub.docker.com/). Vous pouvez faire le parallèle avec GitHub.
