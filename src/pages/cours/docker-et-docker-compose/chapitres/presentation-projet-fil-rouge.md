@@ -57,13 +57,13 @@ Bien, maintenant que le projet est installé et tourne sur votre machine. Il est
 
 <br>
 
-![Un vigile à l'entrée d'une boite de nuit, pixel art](/homme-magasin-voiture.webp)
+![Un professeur de mathématique ayant un eureka, pixel art](/public/images/cours/prof-math-eureka.webp)
 
 ## Appréhendez le code du projet
 
 Pour éviter de trop complexifier votre apprentissage, je vous ai prévu un projet relativement simple niveau code. Il est composé :
 
-- D’un front-end en React. Ce front communique avec une API Rest via un endpoint :` /greetings`.
+- D’un front-end en React. Ce front communique avec une API Rest via un endpoint : `/greetings`.
 - Une API Rest utilisant Node.js et Express. Cette API communique avec une base de données MongoDB.
 
 Le front et le back utilisent tous deux une vieille version de Node.js, à savoir la 12. Dans le screencast ci-dessous, je vais prendre le temps de vous présenter le code plus en détail.
@@ -80,7 +80,7 @@ Bien, il ne me reste plus qu’à vous parler de la problématique globale du co
 
 <br>
 
-![Un vigile à l'entrée d'une boite de nuit, pixel art](/homme-magasin-voiture.webp)
+![Un groupe de personnes en train de jouer à un escape game, pixel art](/public/images/cours/groupe-escape-game.webp)
 
 ## Découvrez la problématique globale du cours
 
