@@ -347,7 +347,7 @@ Vous voici arrivé au terme de ce chapitre. Ce chapitre est clairement l’un de
 
 <br>
 
-![Un vendeur de journaux dans une rue, pixel art](/vendeur-journaux.webp)
+![Un vendeur de journaux dans la rue, pixel art](/images/cours/vendeur-journaux.webp)
 
 ## Résumé
 

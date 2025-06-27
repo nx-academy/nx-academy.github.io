@@ -98,7 +98,7 @@ Ce projet fil rouge est un cas classique d’utilisation de Docker. Il m’est d
 
 <br>
 
-![Un vendeur de journaux dans une rue, pixel art](/vendeur-journaux.webp)
+![Un vendeur de journaux dans la rue, pixel art](/images/cours/vendeur-journaux.webp)
 
 ## Résumé
 

@@ -90,7 +90,7 @@ Docker, grâce à docker-compose, vous apporte une solution clé en main. **Vous
 
 <br>
 
-![Un vigile à l'entrée d'une boite de nuit, pixel art](/homme-magasin-voiture.webp)
+![Un enfant en train de batir un chateau en lego, pixel art](/images/cours/enfant-chateau-lego.webp)
 
 ## Ajoutez des propriétés à votre fichier `docker-compose`
 
@@ -169,7 +169,7 @@ On va maintenant s’attaquer à créer le Docker Compose de notre projet.
 
 <br>
 
-![Un vigile à l'entrée d'une boite de nuit, pixel art](/homme-magasin-voiture.webp)
+![Une femme asiatique en train de brancher une rallonge électrique, pixel art](/images/cours/femme-asiatique-rallonge.webp)
 
 ## Faites le lien entre votre Dockerfile et votre docker-compose
 
