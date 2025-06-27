@@ -13,15 +13,16 @@ const juneTasks: LogTasks = {
   tasks: [
     {
       kind: "done",
-      content: "Choix d'un préstaraire d'hosting (= hébergement) pour les vidéos. J'ai décidé de passer par Vimeo. J'ai ajouté toutes les vidéos du cours sur Docker. Ca s'est fait très simplement."
+      content:
+        "Choix d'un préstaraire d'hosting (= hébergement) pour les vidéos. J'ai décidé de passer par Vimeo. J'ai ajouté toutes les vidéos du cours sur Docker. Ca s'est fait très simplement.",
     },
     {
       kind: "in-progress",
-      content: `Mise en ligne <a href="/cours/docker-et-docker-compose/chapitres/decouverte-docker" target="_blank">du cours sur Docker et Docker Compose</a>. Je suis actuellement en train d'ajouter des images pour chacun des chapitres. Les vidéos sont déjà en ligne.`
+      content: `Mise en ligne <a href="/cours/docker-et-docker-compose/chapitres/decouverte-docker" target="_blank">du cours sur Docker et Docker Compose</a>. Je suis actuellement en train d'ajouter des images pour chacun des chapitres. Les vidéos sont déjà en ligne.`,
     },
     {
       kind: "done",
-      content: `Création <a href="/articles/le-recap-juin-2025" target="_blank">du troisième recap</a>. Et oui, on poursuit sur la lancée.`
+      content: `Création <a href="/articles/le-recap-juin-2025" target="_blank">du troisième recap</a>. Et oui, on poursuit sur la lancée.`,
     },
     {
       kind: "done",
