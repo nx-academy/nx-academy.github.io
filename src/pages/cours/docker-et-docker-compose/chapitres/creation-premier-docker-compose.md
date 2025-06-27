@@ -17,7 +17,7 @@ id: 5
 
 # Créez votre premier docker compose
 
-![Un superhero regardant une ville de nuit, pixel art](/docker-port.webp)
+![Le plan d'une usine posé sur une table, pixel art](/images/cours/plan-usine.webp)
 
 Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre[ sur la branche `partie-2/chapitre-2-debut`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-2-debut). En plus de cette branche, nous allons utiliser [cette issue Github](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/2) comme problématique. Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
 
@@ -206,7 +206,7 @@ Votre code devrait maintenant correspondre [à celui de la branche `partie-2/cha
 
 <br>
 
-![Un vigile à l'entrée d'une boite de nuit, pixel art](/homme-magasin-voiture.webp)
+![Un enfant en train de s'entrainer à faire un avion en papier, pixel art](/images/cours/enfant-avion-papier.webp)
 
 ## Exercez-vous
 
@@ -226,7 +226,7 @@ L’application n’est pas encore accessible depuis l’extérieur de conteneur
 
 <br>
 
-![Un vigile à l'entrée d'une boite de nuit, pixel art](/homme-magasin-voiture.webp)
+![Un vendeur de journaux dans la rue, pixel art](/images/cours/vendeur-journaux.webp)
 
 ## Résumé
 

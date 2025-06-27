@@ -57,7 +57,7 @@ Bien, maintenant que le projet est installé et tourne sur votre machine. Il est
 
 <br>
 
-![Un professeur de mathématique ayant un eureka, pixel art](/public/images/cours/prof-math-eureka.webp)
+![Un professeur de mathématique ayant un eureka, pixel art](/images/cours/prof-math-eureka.webp)
 
 ## Appréhendez le code du projet
 
@@ -80,7 +80,7 @@ Bien, il ne me reste plus qu’à vous parler de la problématique globale du co
 
 <br>
 
-![Un groupe de personnes en train de jouer à un escape game, pixel art](/public/images/cours/groupe-escape-game.webp)
+![Un groupe de personnes en train de jouer à un escape game, pixel art](/images/cours/groupe-escape-game.webp)
 
 ## Découvrez la problématique globale du cours
 
