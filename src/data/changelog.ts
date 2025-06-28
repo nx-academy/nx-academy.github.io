@@ -12,6 +12,10 @@ const juneTasks: LogTasks = {
   month: "Juin",
   tasks: [
     {
+      kind: "done",
+      content: "Ajout des testimonials pour le cours sur Docker.",
+    },
+    {
       kind: "fix",
       content:
         "Fix d'un bug sur l'affichage des images : un max-width: 100%; déclaré globalement me donnait des affichages un peu bizarre.",
