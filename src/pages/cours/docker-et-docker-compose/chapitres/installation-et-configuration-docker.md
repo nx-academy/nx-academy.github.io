@@ -17,7 +17,7 @@ id: 2
 
 # Installez et configurez Docker Desktop
 
-![Un superhero regardant une ville de nuit, pixel art](/cours-docker/port-avec-conteneurs.png)
+![Un port avec des conteneurs, pixel art](/cours-docker/port-avec-conteneurs.png)
 
 ## Découvrez Docker Desktop
 
@@ -180,6 +180,8 @@ Maintenant que vous avez pris en main l’interface en ligne de commandes de Doc
 
 <br>
 
+![Une femme afro-américiane en train de choisir un produit dans un magasin, pixel art](/images/cours/choix-produit-magasin.webp)
+
 ## Récupérez une image Node.JS
 
 **Pour récupérer une image Docker NodeJS, la première est de savoir où et comment la récupérer**. Pour le “où”, normalement, vous ne devriez pas être surpris si je vous parle de Dockerhub. Allez [sur Dockerhub](https://hub.docker.com/) et tapez _Node_ dans la barre de recherche. Vous devriez avoir des résultats similaires à l’image ci-dessous.
@@ -233,6 +235,8 @@ Le screencast ci-dessous reprend ce que je viens de faire mais en vidéo. Encore
 ---
 
 <br>
+
+![Un afro-américain en train de faire du vélo pour la première fois, pixel art](/images/cours/enfant-velo-debutant.webp)
 
 ## Lancez et manipulez votre conteneur Node.js
 
@@ -343,7 +347,7 @@ Vous voici arrivé au terme de ce chapitre. Ce chapitre est clairement l’un de
 
 <br>
 
-![Un vendeur de journaux dans une rue, pixel art](/vendeur-journaux.webp)
+![Un vendeur de journaux dans la rue, pixel art](/images/cours/vendeur-journaux.webp)
 
 ## Résumé
 

@@ -64,8 +64,8 @@ const breadCrumbs: Breadcrumb[] = [
           <h1 class="course-title">{pageTitle}</h1>
           <img
             class="course-picture"
-            src="/images/cours/port-sous-neige.webp"
-            alt="Un port sous la neige, pixel art"
+            src="/images/cours/installation-portuaire.webp"
+            alt="Une installation portuaire, pixel art"
           />
           <p>
             Apprenez à utiliser Docker et Docker Compose par la pratique.
@@ -347,6 +347,8 @@ const breadCrumbs: Breadcrumb[] = [
 
   .course-picture {
     margin-bottom: 24px;
+    width: 100%;
+    object-fit: cover;
   }
 
   .skills-section {
@@ -387,6 +389,14 @@ const breadCrumbs: Breadcrumb[] = [
   .course-content-chapters {
     > li {
       margin-bottom: 16px;
+    }
+
+    a {
+      color: var(--textColor) !important;
+    }
+
+    a:hover {
+      color: var(--linkHoverColor) !important;
     }
   }
 

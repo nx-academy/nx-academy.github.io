@@ -12,6 +12,11 @@ const juneTasks: LogTasks = {
   month: "Juin",
   tasks: [
     {
+      kind: "fix",
+      content:
+        "Fix d'un bug sur l'affichage des images : un max-width: 100%; déclaré globalement me donnait des affichages un peu bizarre.",
+    },
+    {
       kind: "done",
       content:
         "Choix d'un préstaraire d'hosting (= hébergement) pour les vidéos. J'ai décidé de passer par Vimeo. J'ai ajouté toutes les vidéos du cours sur Docker. Ca s'est fait très simplement.",

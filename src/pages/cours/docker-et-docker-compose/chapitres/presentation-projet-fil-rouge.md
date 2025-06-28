@@ -17,7 +17,7 @@ id: 3
 
 # Prenez en main le projet fil rouge
 
-![Un superhero regardant une ville de nuit, pixel art](/docker-port.webp)
+![Un homme asiatique en train de lire un manuel de montage, pixel art](/images/cours/homme-lecture-manuel.webp)
 
 ## Découvrez le projet fil rouge
 
@@ -39,7 +39,7 @@ Vous allez maintenant cloner le projet fil rouge sur votre ordinateur.
 
 <br>
 
-![Un vigile à l'entrée d'une boite de nuit, pixel art](/homme-magasin-voiture.webp)
+![Un vigile à l'entrée d'une boite de nuit, pixel art](/images/cours/homme-dossier-armoire.webp)
 
 ## Clonez le projet fil rouge
 
@@ -57,13 +57,13 @@ Bien, maintenant que le projet est installé et tourne sur votre machine. Il est
 
 <br>
 
-![Un vigile à l'entrée d'une boite de nuit, pixel art](/homme-magasin-voiture.webp)
+![Un professeur de mathématique ayant un eureka, pixel art](/images/cours/prof-math-eureka.webp)
 
 ## Appréhendez le code du projet
 
 Pour éviter de trop complexifier votre apprentissage, je vous ai prévu un projet relativement simple niveau code. Il est composé :
 
-- D’un front-end en React. Ce front communique avec une API Rest via un endpoint :` /greetings`.
+- D’un front-end en React. Ce front communique avec une API Rest via un endpoint : `/greetings`.
 - Une API Rest utilisant Node.js et Express. Cette API communique avec une base de données MongoDB.
 
 Le front et le back utilisent tous deux une vieille version de Node.js, à savoir la 12. Dans le screencast ci-dessous, je vais prendre le temps de vous présenter le code plus en détail.
@@ -80,7 +80,7 @@ Bien, il ne me reste plus qu’à vous parler de la problématique globale du co
 
 <br>
 
-![Un vigile à l'entrée d'une boite de nuit, pixel art](/homme-magasin-voiture.webp)
+![Un groupe de personnes en train de jouer à un escape game, pixel art](/images/cours/groupe-escape-game.webp)
 
 ## Découvrez la problématique globale du cours
 
@@ -98,7 +98,7 @@ Ce projet fil rouge est un cas classique d’utilisation de Docker. Il m’est d
 
 <br>
 
-![Un vendeur de journaux dans une rue, pixel art](/vendeur-journaux.webp)
+![Un vendeur de journaux dans la rue, pixel art](/images/cours/vendeur-journaux.webp)
 
 ## Résumé
 

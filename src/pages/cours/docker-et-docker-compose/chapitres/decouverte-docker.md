@@ -161,7 +161,7 @@ Dans ce cours, on utilisera DockerHub mais sachez que les règles d’utilisatio
 
 <br>
 
-![Un vendeur de journaux dans une rue, pixel art](/vendeur-journaux.webp)
+![Un vendeur de journaux dans la rue, pixel art](/images/cours/vendeur-journaux.webp)
 
 ## Résumé
 
