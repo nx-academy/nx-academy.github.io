@@ -13,7 +13,8 @@ const juneTasks: LogTasks = {
   tasks: [
     {
       kind: "fix",
-      content: "Fix d'un bug sur l'affichage des images : un max-width: 100%; déclaré globalement me donnait des affichages un peu bizarre."
+      content:
+        "Fix d'un bug sur l'affichage des images : un max-width: 100%; déclaré globalement me donnait des affichages un peu bizarre.",
     },
     {
       kind: "done",
