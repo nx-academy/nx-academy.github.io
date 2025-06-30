@@ -93,51 +93,36 @@ const breadCrumbs: Breadcrumb[] = [
           <ul>
             <li>
               <svg
-                width="24px"
-                height="24px"
+                class="check-icon"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path
-                  d="M4 12.6111L8.92308 17.5L20 6.5"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path>
+                <use xlink:href="#check-icon"></use>
               </svg>
               Créer et personnaliser vos propres images Docker en choisissant la
               bonne base et en optimisant vos builds.
             </li>
             <li>
               <svg
-                width="24px"
-                height="24px"
+                class="check-icon"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path
-                  d="M4 12.6111L8.92308 17.5L20 6.5"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path>
+                <use xlink:href="#check-icon"></use>
               </svg>
               Mettre en place une architecture conteneurisée complète : base de données,
               back-end, front-end.
             </li>
             <li>
               <svg
-                width="24px"
-                height="24px"
+                class="check-icon"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path
-                  d="M4 12.6111L8.92308 17.5L20 6.5"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path>
+                <use xlink:href="#check-icon"></use>
               </svg>
               Préparer vos images pour la production grâce au multi-stage build.
             </li>
@@ -184,49 +169,34 @@ const breadCrumbs: Breadcrumb[] = [
           <ul class="course-goals">
             <li>
               <svg
-                width="24px"
-                height="24px"
+                class="check-icon"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path
-                  d="M4 12.6111L8.92308 17.5L20 6.5"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path>
+                <use xlink:href="#check-icon"></use>
               </svg>
               Créez vos propres images Docker
             </li>
             <li>
               <svg
-                width="24px"
-                height="24px"
+                class="check-icon"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path
-                  d="M4 12.6111L8.92308 17.5L20 6.5"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path>
+                <use xlink:href="#check-icon"></use>
               </svg>
               Déployez une app complète
             </li>
             <li>
               <svg
-                width="24px"
-                height="24px"
+                class="check-icon"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path
-                  d="M4 12.6111L8.92308 17.5L20 6.5"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"></path>
+                <use xlink:href="#check-icon"></use>
               </svg>
               Optimisez vos builds pour la prod
             </li>
@@ -244,7 +214,16 @@ const breadCrumbs: Breadcrumb[] = [
               href="/quiz/quiz-niveau-docker"
             />
           </div>
-          <p class="course-note">🔒 Gratuit, sans inscription</p>
+          <p class="course-note">
+            <svg
+                class="locker-icon"
+                viewBox="0 0 52 52"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <use xlink:href="#locker-icon"></use>
+            </svg>
+            Gratuit, sans inscription
+          </p>
         </div>
       </aside>
     </section>
@@ -363,11 +342,17 @@ const breadCrumbs: Breadcrumb[] = [
         position: absolute;
         left: -32px;
       }
-
-      path {
-        stroke: var(--buttonColorPrimary);
-      }
     }
+  }
+
+  .check-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .locker-icon {
+    height: 30px;
+    width: 30px;
   }
 
   .course-content-sections {
@@ -533,6 +518,11 @@ const breadCrumbs: Breadcrumb[] = [
         font-size: 0.85rem;
         color: var(--textColor);
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 0;
       }
     }
 
