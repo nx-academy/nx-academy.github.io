@@ -13,15 +13,12 @@ import "@fontsource/pixelify-sans";
 import "@fontsource/space-grotesk";
 import '@fontsource-variable/inter';
 
-// import "../styles/normalize.css"
-// import "../styles/reset.css"
-// import "../styles/theme.css"
-
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro"
-import ScrollToTopButton from "../components/ScrollToTopButton.astro"
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 import ResumeSnackbar from "../components/ResumeSnackbar"
+import ScrollToTopButton from "../components/ScrollToTopButton.astro"
+import SvgIcons from "../components/SvgIcons.astro"
 
 let { title, description, breadcrumbs, image, pubDate } = Astro.props
 const { pathname } = Astro.url
@@ -116,6 +113,7 @@ pubDate = pubDate ? new Date(pubDate).toLocaleDateString('fr-FR') : new Date().t
   </head>
   <body>
     <div class="page-wrapper">
+      <SvgIcons />
       <Header />
       {
         pathname !== "/" && <Breadcrumbs breadcrumbs={breadcrumbs} />
