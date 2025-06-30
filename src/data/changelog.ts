@@ -12,6 +12,11 @@ const juneTasks: LogTasks = {
   month: "Juin",
   tasks: [
     {
+      kind: "in-progress",
+      content:
+        "Pas mal de petites optimisations côté SEO et performances. Je suis passé par une technique assez cool d'optimisations de code pour les SVG. Je vais probablement bientôt écrire une fiche technique dessus.",
+    },
+    {
       kind: "done",
       content: "Ajout des testimonials pour le cours sur Docker.",
     },
