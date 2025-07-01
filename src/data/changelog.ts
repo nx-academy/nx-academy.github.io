@@ -8,16 +8,15 @@ type LogTasks = {
   tasks: Task[];
 };
 
-
 const julyTasks: LogTasks = {
   month: "Juillet",
   tasks: [
     {
       kind: "done",
-      content: `Sortie de la fiche technique <a href="/fiches/optimisation-images-docker" target="_blank">sur l'optimisation des images Docker</a>.`
-    }
-  ]
-}
+      content: `Sortie de la fiche technique <a href="/fiches/optimisation-images-docker" target="_blank">sur l'optimisation des images Docker</a>.`,
+    },
+  ],
+};
 
 const juneTasks: LogTasks = {
   month: "Juin",
