@@ -4,6 +4,9 @@ layout: ../../layouts/CheatSheetsLayout.astro
 title: Comment optimiser une image Docker ?
 description: Découvrez les bonnes pratiques pour optimiser une image Docker et réduire sa taille, accélérer le build et renforcer la sécurité sans changer votre code.
 
+imgAlt: Une vendeuse asiatique utilisant un balance dans un magasin, pixel art
+imgSrc: /images/cheatsheets/magasin-chinois.webp
+
 author: Thomas
 kind: Fiche technique
 level: intermediaire
@@ -14,7 +17,7 @@ publishedDate: 07/04/2025
 
 # Comment optimiser une image Docker ?
 
-![Une vendeuse asiatique utilisant un balancer dans un magasin, pixel art](/images/cheatsheets/magasin-chinois.webp)
+![Une vendeuse asiatique utilisant un balance dans un magasin, pixel art](/images/cheatsheets/magasin-chinois.webp)
 
 Ca y est : le cours sur Docker [est officiellement disponible](/cours/docker-et-docker-compose) ! Si ce n’est pas encore fait, je vous invite à le suivre avant d’attaquer cette fiche. J'y pose toutes les bases : images, conteneurs, Dockerfile, volumes, docker compose, etc.
 
