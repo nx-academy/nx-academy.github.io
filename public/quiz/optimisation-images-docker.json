@@ -1,0 +1,81 @@
+{
+  "data": [
+    {
+      "question": "Pourquoi l'optimisation des images Docker est-elle importante ?",
+      "options": [
+        "Elle réduit la taille de l'image",
+        "Elle améliore la sécurité des déploiements",
+        "Elle rend le processus de build plus rapide",
+        "Toutes les réponses précédentes"
+      ],
+      "answer": "Toutes les réponses précédentes",
+      "explanation": "Une image Docker optimisée est plus légère, plus sécurisée et plus rapide à construire, ce qui rend le déploiement plus efficace."
+    },
+    {
+      "question": "Que signifient les tags comme alpine, bullseye, buster, buster-slim sur DockerHub ?",
+      "options": [
+        "Ils indiquent la version du logiciel",
+        "Ils désignent la distribution Linux sur laquelle l’image est construite",
+        "Ils sont des noms aléatoires pour nommer les images",
+        "Ils indiquent le niveau de sécurité de l'image"
+      ],
+      "answer": "Ils désignent la distribution Linux sur laquelle l’image est construite",
+      "explanation": "Ces tags font référence aux différentes distributions Linux et peuvent affecter la taille, la compatibilité et les performances de l'image Docker."
+    },
+    {
+      "question": "Pourquoi devriez-vous utiliser un `.dockerignore` dans votre processus de build Docker ?",
+      "options": [
+        "Pour exécuter des scripts de nettoyage",
+        "Pour ajouter des dépendances à votre image",
+        "Pour exclure certains fichiers ou dossiers de votre contexte de build",
+        "Pour ajouter des fichiers de configuration à votre image"
+      ],
+      "answer": "Pour exclure certains fichiers ou dossiers de votre contexte de build",
+      "explanation": "Le fichier `.dockerignore` permet d'exclure certains fichiers ou dossiers de votre contexte de build, ce qui peut aider à réduire la taille de l'image finale."
+    },
+    {
+      "question": "Que signifie réduire le nombre de layers dans une image Docker ?",
+      "options": [
+        "Supprimer les logiciels inutiles de l'image",
+        "Réduire le nombre d'instructions dans un Dockerfile",
+        "Combiner plusieurs instructions en une seule pour réduire le nombre de layers",
+        "Réduire la quantité de mémoire utilisée par l'image"
+      ],
+      "answer": "Combiner plusieurs instructions en une seule pour réduire le nombre de layers",
+      "explanation": "Dans Docker, chaque instruction dans un Dockerfile crée un nouveau layer. En combinant plusieurs instructions en une seule, vous pouvez réduire le nombre de layers, ce qui peut aider à rendre l'image plus légère et plus rapide à construire."
+    },
+    {
+      "question": "Quelle est la différence entre les instructions `ADD` et `COPY` dans un Dockerfile ?",
+      "options": [
+        "Il n'y a aucune différence entre les deux",
+        "`ADD` est plus sécurisé que `COPY`",
+        "`COPY` est plus prévisible que `ADD`",
+        "`ADD` est plus rapide que `COPY`"
+      ],
+      "answer": "`COPY` est plus prévisible que `ADD`",
+      "explanation": "`ADD` a plus de fonctionnalités que `COPY`, mais ces fonctionnalités peuvent introduire des comportements inattendus. Si vous avez juste besoin de copier des fichiers, `COPY` est plus clair, plus prévisible et plus sécurisé."
+    },
+    {
+      "question": "Pourquoi est-il recommandé de faire un nettoyage après l'installation dans une image Docker ?",
+      "options": [
+        "Pour supprimer les fichiers temporaires",
+        "Pour réduire la taille de l'image",
+        "Pour supprimer les dépendances inutiles",
+        "Pour toutes ces raisons"
+      ],
+      "answer": "Pour toutes ces raisons",
+      "explanation": "Après l'installation de dépendances, l'image peut contenir des fichiers temporaires, des logs, de la documentation, etc. qui peuvent alourdir inutilement l'image."
+    },
+    {
+      "question": "Qu'est-ce qu'un 'layer' dans une image Docker ?",
+      "options": [
+        "Une instruction dans un Dockerfile",
+        "Un conteneur Docker",
+        "Une image Docker",
+        "Une distribution Linux"
+      ],
+      "answer": "Une instruction dans un Dockerfile",
+      "explanation": "Chaque fois que vous écrivez une instruction dans un Dockerfile (‘FROM’, ‘RUN’, ‘COPY’, ‘ADD’, etc.), Docker crée un nouveau layer. Plus il y a de layers, plus l'image est lourde."
+    }
+  ]
+}
