@@ -13,11 +13,12 @@ const julyTasks: LogTasks = {
   tasks: [
     {
       kind: "done",
-      content: `Génération <a href="/quiz/optimisation-images-docker/" target="_blank">du quiz</a> sur la fiche technique sur les images Docker.`
+      content: `Génération <a href="/quiz/optimisation-images-docker/" target="_blank">du quiz</a> sur la fiche technique sur les images Docker.`,
     },
     {
       kind: "fix",
-      content: "Mise à jour du changelog (sur la partie fiche technique sur les images Docker et son quiz)."
+      content:
+        "Mise à jour du changelog (sur la partie fiche technique sur les images Docker et son quiz).",
     },
     {
       kind: "done",
