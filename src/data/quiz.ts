@@ -10,6 +10,16 @@ type QuizMeta = {
 
 export const QUIZZES: readonly QuizMeta[] = [
   {
+    slug: "optimisation-images-docker",
+    title: "Comment optimiser une image Docker ?",
+    description:
+      "Testez vos connaissances sur l'optimisation des images Docker et vérifiez que vous avez bien compris comment alléger la taille de ces dernières. Parce qu'une image optimisée, c'est une image plus rapide à builder et à puller.",
+    level: "Moyen",
+    imgSrc: "/misc/quiz-hero.webp",
+    imgAlt: "Illustration Docker facile",
+    href: "quiz/optimisation-images-docker",
+  },
+  {
     slug: "quiz-niveau-docker",
     title: "Quiz de niveau Docker",
     description:
