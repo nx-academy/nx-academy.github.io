@@ -214,5 +214,4 @@ D'ici là, je vous invite
 - [How I Cut Docker Image Size by 90%: Best Practices for Lean Containers](https://medium.com/@ksaquib/how-i-cut-docker-image-size-by-90-best-practices-for-lean-containers-1f705cead02b)
 - [13 Ways to Optimize Docker Builds](https://overcast.blog/13-ways-to-optimize-docker-builds-ba1151b256f3)
 
-
 </article>
