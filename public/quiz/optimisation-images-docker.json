@@ -1,7 +1,7 @@
 {
     "data": [
         {
-            "question": "Pourquoi l'optimisation des images Docker est-elle importante?",
+            "question": "Pourquoi l'optimisation des images Docker est-elle importante ?",
             "options": [
                 "Elle réduit la taille de l'image",
                 "Elle améliore la sécurité des déploiements",
@@ -12,7 +12,7 @@
             "explanation": "Une image Docker optimisée est plus légère, plus sécurisée et plus rapide à construire, ce qui rend le déploiement plus efficace."
         },
         {
-            "question": "Que signifient les tags comme alpine, bullseye, buster, buster-slim sur DockerHub?",
+            "question": "Que signifient les tags comme alpine, bullseye, buster, buster-slim sur DockerHub ?",
             "options": [
                 "Ils indiquent la version du logiciel",
                 "Ils désignent la distribution Linux sur laquelle l’image est construite",
@@ -56,28 +56,6 @@
             "explanation": "`ADD` a plus de fonctionnalités que `COPY`, mais ces fonctionnalités peuvent introduire des comportements inattendus. Si vous avez juste besoin de copier des fichiers, `COPY` est plus clair, plus prévisible et plus sécurisé."
         },
         {
-            "question": "Pourquoi est-il important d'optimiser les images Docker ?",
-            "options": [
-                "Cela rend le build plus rapide",
-                "Cela réduit l'espace nécessaire pour stocker l'image",
-                "Cela rend l'image plus sécurisée",
-                "Toutes les réponses ci-dessus"
-            ],
-            "answer": "Toutes les réponses ci-dessus",
-            "explanation": "Une image Docker optimisée est plus rapide à construire, prend moins d'espace de stockage et est plus sécurisée à exécuter."
-        },
-        {
-            "question": "Quelle est l'influence des tags comme 'alpine', 'bullseye', 'buster', 'buster-slim' sur une image Docker ?",
-            "options": [
-                "Ils influencent la taille de l'image",
-                "Ils désignent la distribution Linux sur laquelle l'image est construite",
-                "Ils n'ont aucun impact",
-                "Ils influencent le nom de l'image"
-            ],
-            "answer": "Ils désignent la distribution Linux sur laquelle l'image est construite",
-            "explanation": "Ces tags désignent la distribution Linux sur laquelle l'image est construite, ce qui peut influencer sa taille, sa compatibilité et ses performances."
-        },
-        {
             "question": "Pourquoi est-il recommandé de faire un nettoyage après l'installation dans une image Docker ?",
             "options": [
                 "Pour supprimer les fichiers temporaires",
@@ -98,17 +76,6 @@
             ],
             "answer": "Une instruction dans un Dockerfile",
             "explanation": "Chaque fois que vous écrivez une instruction dans un Dockerfile (‘FROM’, ‘RUN’, ‘COPY’, ‘ADD’, etc.), Docker crée un nouveau layer. Plus il y a de layers, plus l'image est lourde."
-        },
-        {
-            "question": "Pourquoi est-il recommandé d'utiliser l'instruction 'COPY' plutôt que 'ADD' dans un Dockerfile ?",
-            "options": [
-                "Parce que 'COPY' est plus rapide",
-                "Parce que 'ADD' peut introduire des comportements inattendus",
-                "Parce que 'ADD' est obsolète",
-                "Parce que 'COPY' est plus sécurisé"
-            ],
-            "answer": "Parce que 'ADD' peut introduire des comportements inattendus",
-            "explanation": "L'instruction 'ADD' peut faire plus de choses comme décompresser une archive '.tar.gz' ou récupérer une URL distante, mais ces fonctionnalités ne sont pas toujours explicites et peuvent introduire des comportements inattendus."
         }
     ]
 }
