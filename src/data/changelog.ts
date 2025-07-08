@@ -12,6 +12,15 @@ const julyTasks: LogTasks = {
   month: "Juillet",
   tasks: [
     {
+      kind: "in-progress",
+      content:
+        "Je suis en train de réaliser le planning édito de NX pour jusqu'à fin décembre / début 2026. Une fois finalisé, je commencerais, normalemen dès demain un gros batch d'écriture d'articles, de fiches techniques ainsi que d'un nouveau cours.",
+    },
+    {
+      kind: "in-progress",
+      content: `Je suis en train de faire une grosse refactorisation <a href="https://github.com/nx-academy/nx-ai" target="_blank">sur le repo nx-ai</a>. Pour info, c'est le repo qui contient tous mes scripts qui fonctionnent avec les API de GPT. Je pense que j'en ai pour deux jours plein de boulot. L'idée est de cleaner (comprendre : améliorer la qualité du code) le repo pour pourvoir le faire évoluer plus facilement. Je ferais certainement bientôt un article sur Langchain et le mécanisme de RAG.`,
+    },
+    {
       kind: "done",
       content: `Génération <a href="/quiz/optimisation-images-docker/" target="_blank">du quiz</a> sur la fiche technique sur les images Docker.`,
     },
