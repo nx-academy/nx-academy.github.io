@@ -1,0 +1,26 @@
+{
+    "data": [
+        {
+            "question": "Qu'est-ce qu'un registry Docker ?",
+            "options": [
+                "Un service de stockage et de distribution d'images Docker.",
+                "Un outil de gestion des conteneurs Docker.",
+                "Un environnement de développement intégré pour Docker.",
+                "Un système de gestion de versions pour les images Docker."
+            ],
+            "answer": "Un service de stockage et de distribution d'images Docker.",
+            "explanation": "Un registry Docker est un service conçu pour stocker, versionner et distribuer des images Docker, similaire à GitHub pour le code source."
+        },
+        {
+            "question": "Quel est le registry Docker par défaut ?",
+            "options": [
+                "GitHub Container Registry",
+                "GitLab Container Registry",
+                "Docker Hub",
+                "Amazon ECR"
+            ],
+            "answer": "Docker Hub",
+            "explanation": "Docker Hub est le registry Docker par défaut, utilisé pour stocker et partager des images Docker."
+        }
+    ]
+}
