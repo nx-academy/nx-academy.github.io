@@ -29,10 +29,10 @@ Avant d'aller plus loin, je vais prendre le temps de définir un concept : celui
 Autrement dit, cette image Docker content notre code, nos dépendances, nos outils de compilation, nos fichiers temporaires ou de tests (pas franchement utile pour la production) et parfois même un `.git` ou un dossier `node_moduless`. Bref Tout est un peu mélangé : il y a des dépendances dont on va se servir en développement, d'autres uniquement pour la production.
 
 
-[Dans la fiche précédente](/fiches/optimisation-images-docker/), on a vu comment supprimer les fichiers inutiles. Mais que faire des dépendances de développement ? Des outils de build ? On en a forcément besoin à un moment, non ?
+[Dans ma fiche précédente](/fiches/optimisation-images-docker/), on a vu comment supprimer les fichiers inutiles. Mais que faire des dépendances de développement ? Des outils de build ? On en a forcément besoin à un moment, non ?
 
 
-On va prendre un exemple : vous codez une API REST en Node.JS. Pour être plus rigoureux, vous décidez d'utiliser TypeScript. Seulement, à la fin, le moteur d'excecution (le runtime) est du JavaScript. Vous avez besoin de `tsc` pour transcompiler mais ce transcompilateur n’a rien à faire dans l’image finale. Idem pour node_modules/dev.
+Prenons un exemple : vous codez une API REST en Node.js. Pour plus de rigueur, vous utilisez TypeScript. Mais à la fin, le code exécuté sera du JavaScript. Vous avez donc besoin de tsc pour transcompiler, mais ce transcompilateur n’a rien à faire dans l’image finale. Idem pour les node_modules de développement.
 
 
 Si vous ne séparez pas bien les étapes, vous risquez :
@@ -46,29 +46,41 @@ C’est là que le multi-stage build entre en jeu. Il vous permet de séparer pr
 
 ## Les principes de base du multi-stage
 
-- Un Dockerfile peut contenir plusieurs FROM. Souvenez-vous, l'instruction `FROM` correspond à (ajouter une petite phrase de définition).
-- Chaque bloc FROM va correspondre à un stage indépendant.
-- Vous pouvez copier ce qui vous intéresse d’un stage à l’autre avec COPY --from=.
+Un Dockerfile peut contenir plusieurs instructions `FROM`. Pour rappel, **`FROM` définit l’image de base à partir de laquelle on construit une image Docker**.
+
+Dans le cadre d’un multi-stage build, chaque `FROM` démarre un nouveau stage, complètement indépendant. On peut voir _les stages_ comme les étages d’un immeuble : chaque étage a sa propre fonction, et même s’il est possible de faire passer des éléments d’un étage à l’autre, chaque stage est isolé.
+
+L’instruction `COPY --from=` permet de copier ce qui vous intéresse d’un stage vers un autre. Voici un exemple simple :
+
+<br>
 
 ```dockerfile
-# Stage builder
+# Étape 1 : le stage de build
 FROM node:18 AS builder
 WORKDIR /app
 COPY . .
 RUN npm install && npm run build
 
-# Autre stage (sans nom)
+# Étape 2 : le stage d’exécution (plus léger)
 FROM node:18-slim
 WORKDIR /app
 
-# Ici, on copie l'app buildée depuis le stage builder.
+# On copie uniquement le résultat de la compilation
 COPY --from=builder /app/dist ./dist
 CMD ["node", "dist/index.js"]
 ```
 
-- AS builder : on nomme un stage pour y faire référence ;
-- On installe tout dans builder, on ne copie que le dist/ dans la deuxième image. Notez que les deux stages n'ont pas la même base d'image Node.JS : le stage builder a une plus grosse image.
-- Le runtime n’a pas besoin de node_modules, ni du code source non compilé
+<br>
+
+Dans cet exemple :
+- `AS builder` permet de nommer un stage. Cela nous permet d'y faire référence plus tard. Un peu comme une fonction ou une variable en programmation ;
+- dans le premier stage, on installe toutes les dépendances (y compris dev) et on compile l’application ;
+- dans le deuxième stage, on repart sur une image plus légère, ici `node:18-slim`, et on ne copie que le dossier `dist/` contenant l’app transcompilée.
+
+<br>
+
+Ainsi; l’image finale ne contient ni le code source, ni les `node_modules`, ni les outils de build. On garde uniquement ce qui est nécessaire à l’exécution et vous venez de gagner quelques précieuses dizaines (ou centaines) de Mo.
+
 
 ## Les avantages de cette technique
 
