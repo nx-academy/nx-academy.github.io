@@ -4,12 +4,20 @@ layout: ../../layouts/CheatSheetsLayout.astro
 title: Comment faire un multi-stage build ?
 description: Découvrez comment optimiser vos images Docker grâce au multi-stage build. Réduisez la taille de vos images, améliorez la sécurité et maîtrisez vos déploiements en production avec cette technique incontournable.
 
+imgAlt: Une scène d'immeubles avec 6 appartements où l'intérieur est visible, pixel art
+imgSrc: /images/cheatsheets/scene-immeuble.webp
 
+author: Thomas
+kind: Fiche technique
+level: Avancé
+publishedDate: 08/01/2025
 ---
 
 <article>
 
 # Comment faire <br> un multi-stage build ?
+
+![Une scène d'immeubles avec 6 appartements où l'intérieur est visible, pixel art](/images/cheatsheets/scene-immeuble.webp)
 
 Avant de commencer, sachez que [le cours sur Docker et Docker Compose](/cours/docker-et-docker-compose/) est actuellement disponible sur NX Academy. Je vais continuer à publier des fiches techniques sur Docker, tout en préparant progressivement la transition vers le prochain cours : les pipelines CI/CD avec GitHub Actions, prévu pour septembre/octobre.
 
