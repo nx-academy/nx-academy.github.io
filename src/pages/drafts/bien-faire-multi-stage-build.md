@@ -194,8 +194,8 @@ Le multi-stage build (ou multi-stagging) est un concept essentiel en Docker. Gr�
 Une fiche technique sur la mise en place d’un multi-stage build dans une pipeline CI pourrait bien arriver bientôt :).
 
 D’ici là :
-- faites le quiz pour valider vos acquis ;
-- commencez le cours sur Docker et Docker Compose si ce n’est pas déjà fait.
+- [faites le quiz](#) pour valider vos acquis ;
+- commencez [le cours sur Docker et Docker Compose](#) si ce n’est pas déjà fait.
 
 ## Ressources
 
