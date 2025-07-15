@@ -7,7 +7,7 @@ description: Une super description
 
 <article>
 
-# Comment faire un multi-stage build ?
+# Comment faire <br> un multi-stage build ?
 
 Avant de commencer, sachez que [le cours sur Docker et Docker Compose](/cours/docker-et-docker-compose/) est actuellement disponible sur NX Academy. Je vais continuer à publier des fiches techniques sur Docker, tout en préparant progressivement la transition vers le prochain cours : les pipelines CI/CD avec GitHub Actions, prévu pour septembre/octobre.
 
@@ -79,14 +79,30 @@ Dans cet exemple :
 
 <br>
 
-Ainsi; l’image finale ne contient ni le code source, ni les `node_modules`, ni les outils de build. On garde uniquement ce qui est nécessaire à l’exécution et vous venez de gagner quelques précieuses dizaines (ou centaines) de Mo.
+Ainsi, notre image finale ne contient ni le code source, ni les `node_modules`, ni les outils de build. On garde uniquement ce qui est nécessaire à l’exécution et vous venez de gagner quelques précieuses dizaines (ou centaines) de Mo.
 
 
 ## Les avantages de cette technique
 
-- Image plus petite (souvent 2 à 5 fois plus légère) ;
-- Moins de dépendances → meilleure sécurité
-- Séparation claire entre build et prod
+On va continuer avec notre comparaison sur les immeubles. Quand on déménage, on essaye la plupart du temps de garder l'essentiel et de jetter le reste (en tout cas, c'est que j'essaye de faire). **Le multi-stage build, c'est un peu pareil**. 
+
+On essaye de garder l'essentiel à chaque étape et d'éliminer le superflu. Cela nous donne plusieurs versions de nos images plus propres, plus légères et aussi plus sûres.
+
+### Des images plus légères
+
+En ne conservant que ce qui est nécessaire à l’exécution et pas les dépendances de dev, les outils de compilation ou les fichiers temporaires, on réduit considérablement la taille de l’image. Les images buildés avec du multi-stage build (on dit aussi multi-stagging) sont souvent 2 à 5 fois plus légère qu’une image "naïve".
+
+### Une meilleure sécurité
+
+Vous l'aurez compris mais moins de dépendances, c'est moins de surface d’attaque. En production, vous n’avez pas besoin de vos outils de tests, de git, ni de vos configs de dev. En les excluant, vous réduisez le risque d’introduire des vulnérabilités.
+
+
+### Une séparation claire entre les étapes
+
+Le multi-stage build permet de structurer votre Dockerfile. Vous allez avoir différents stages qui matchent vos différents environnements : un stage pour la partie build, un stage pour la partie dev, un pour les tests, un autre pour la pré-prod et enfin un pour la prod.
+
+Cette séparation rend votre pipeline de build plus lisible, plus maintenable et plus proche d’un workflow CI/CD propre.
+
 
 ## Quelques limites et pièges à éviter
 
@@ -109,5 +125,12 @@ Ainsi; l’image finale ne contient ni le code source, ni les `node_modules`, ni
 - Permet aussi d'éviter des commentaires : quand quelque chose est bien nommé, on a pas besoin de commentaires.
 
 ## Conclusion
+
+
+## Ressources
+
+- [Multistage Image Builds in Docker: A Comprehensive Guide from Basics to Mastery](https://medium.com/@lexitrainerph/multistage-image-builds-in-docker-a-comprehensive-guide-from-basics-to-mastery-5884b547950)
+- [How to Build Smaller Container Images: Docker Multi-Stage Builds](https://labs.iximiuz.com/tutorials/docker-multi-stage-builds)
+- [Docker Multi-Stage Builds: An In-depth Guide](https://ercanermis.com/docker-multi-stage-builds-an-in-depth-guide/)
 
 </article>
