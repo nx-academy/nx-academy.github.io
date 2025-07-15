@@ -156,11 +156,6 @@ Bref, ici, c'est important de centraliser tout dans un seul `Dockerfile`. Votre 
 
 ## Bonus - Nommez vos stages
 
-<!-- - COPY --from=builder
-- Possibilité d’avoir un stage test, un build, un prod
-- Debug : utiliser docker build --target builder pour s’arrêter à une étape
-- Permet aussi d'éviter des commentaires : quand quelque chose est bien nommé, on a pas besoin de commentaires. -->
-
 Nommez ces stages n'est pas obligatoire mais je vous le recommande fortement recommandé.
 
 ```dockerfile
