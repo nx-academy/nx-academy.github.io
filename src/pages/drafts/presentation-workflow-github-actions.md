@@ -55,28 +55,53 @@ Plutôt pratique, non ?
 
 ## Les déclencheurs les plus courants
 
-- Vous l'aurez compris, il n'existe pas un mais plusieurs déclencheurs. Je vais prendre le temps de les passer en revu et de vous les présenter.
+Vous l’aurez compris. Il n’existe pas un mais plusieurs déclencheurs avec les GitHub Actions. Chacun correspond à un type d’événement. On va donc prendre un moment pour les passer en revue avec à chaque fois un exemple concret et un petit retour d’expérience maison.
+
+<br>
 
 ### Le déclencheur `push`
+Le déclencheur push s’active à chaque fois que vous poussez du code (git push) sur une ou plusieurs branches définies.
 
-- Se déclenche à chaque `git push` sur une ou plusieurs branches.
-- Exemple
-- Cas d’usage : lancer les tests à chaque push sur la branche principale.
-- Typiquement sur NX, j'utilise ça pour deploy mon site en production (uniquement quand je push sur la branch main)
+```yml
+on:
+  push:
+    branches:
+      - main
+```
+
+Dans cet exemple, **le workflow se lance à chaque push sur la branche `main`**. C’est parfait pour lancer automatiquement des tests ou déployer une application.
+
+Typiquement sur NX, je l’utilise pour déployer le site en production. Chaque push sur la branche main déclenche le build et hop ! La nouvelle version est en ligne.
+
+<br>
 
 ### Le déclenceur `pull_request`
+Ce déclencheur s’active à l’ouverture ou à la mise à jour d’une pull request. Autrement dit, dès que quelqu’un propose du code à intégrer dans une branche, `main` par exemple.
 
-- Se déclenche à l'ouverture ET à la mise à jour du PR.
-- Exemple
-- Cas d’usage : lancer le linter uniquement lors des revues de code.
-- Typiquement sur NX, j'utilise ça pour faire passer mes tests, mon linter et prettier uniquement quand j'ouvre une PR (ce qui me permet de me concentrer uniquement sur le build and deploy sur ma branche de prod)
+```yml
+on:
+  pull_request:
+    branches:
+      - main
+```
+
+C’est très utile pour lancer automatiquement des vérifications avant la fusion d’une PR : linter, tests, formatage…
+
+Sur NX, je l’utilise pour lancer Prettier, ESLint et mes tests unitaires à chaque PR. Comme ça, je garde mon workflow de build et de déploiement proprement réservé à la branche main.
+
+<br>
 
 ### Le déclenceur `workflow_dispatch`
+Celui-ci est un peu à part : il permet de lancer manuellement un workflow depuis l’interface GitHub. En gros, en un clic, vous pouvez lancer directement le workflow depuis GitHub.
 
-- Déclenchement manuel via GitHub UI.
-- Exemple
-- Cas d’usage : déploiement déclenché à la main ou scripts ponctuels.
-- Sur NX, ça m'arrive relativement peu de le faire des déclenchements manuels. Les rares fois où ça m'arrive, c'est pour tes histoires de configuration de repo ou de DNS.
+```yml
+on:
+  workflow_dispatch:
+```
+
+Ce déclencheur est très pratique pour des actions ponctuelles comme un script de nettoyage, une génération de rapport ou une publication volontaire.
+
+Sur NX, pour être honnête, je l’utilise rarement. Cela dit, il m’a déjà dépanné pour des opérations manuelles liées à la configuration des repositories ou aux enregistrements DNS. Typiquement, ce sont des actions que je veux pouvoir lancer à la demande, sans qu’elles tournent automatiquement.
 
 ---
 
