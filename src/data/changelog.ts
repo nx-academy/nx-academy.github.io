@@ -14,6 +14,11 @@ const julyTasks: LogTasks = {
     {
       kind: "in-progress",
       content:
+        "Gros batch d'articles et de cheatsheets. Cela devrait me couvrir en terme de contenus jusqu'à décembre :).",
+    },
+    {
+      kind: "in-progress",
+      content:
         "Je suis en train de réaliser le planning édito de NX pour jusqu'à fin décembre / début 2026. Une fois finalisé, je commencerais, normalemen dès demain un gros batch d'écriture d'articles, de fiches techniques ainsi que d'un nouveau cours.",
     },
     {
