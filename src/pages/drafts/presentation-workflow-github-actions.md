@@ -2,7 +2,7 @@
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: Quand et comment déclencher un workflow GitHub Actions ?
-description: 
+description: Découvrez quand et comment déclencher un workflow GitHub Actions grâce aux principaux déclencheurs (push, pull_request, workflow_dispatch, schedule). Apprenez à configurer vos workflows, choisissez le bon déclencheur selon votre besoin et explorez des exemples concrets pour React et Flask. Fiche technique claire, accessible et à jour.
 
 imgAlt: 
 imgSrc: 
@@ -152,25 +152,148 @@ Je vais maintenant vous montrer quelques exemples de workflow complets histoire 
 
 ## Exemples de workflow complets 
 
+Pour aller un peu plus loin, je vous ai prévu deux exemples de workflows GitHub Actions utilisables tels quels. Ils vous permettront de vous inspirer selon votre stack.
+
+<br>
+
 ### Pour une application ReactJS
+
+<br>
+
+```yml
+name: CI - React App
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v4
+
+      - name: Installation de Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Installer les dépendances
+        run: npm install
+
+      - name: Lancer les tests
+        run: npm test
+
+      - name: Vérifier le format du code
+        run: npx prettier --check .
+```
+
+Ce workflow va :
+- s’exécuter à chaque push ou pull request sur la branche `main` ;
+- installer les dépendances ;
+- lancer les tests ;
+- et vérifier le format du code avec Prettier.
+
+<br>
 
 ### Pour une API Flask (Python)
 
-## Bonus – Le déclencheur CRON avec schedule
+<br>
 
-- Permet de planifier un workflow.
+```yml
+name: CI - Flask API
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
+
+      - name: Installer les dépendances
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Lancer les tests
+        run: pytest
+```
+
+Ce workflow va :
+- se déclencher à chaque push ou pull request sur main ;
+- installer Python ;
+- installer les dépendances via pip ;
+- lancer les tests avec pytest.
+
+
+---
+
+Ces deux exemples peuvent servir de base pour vos propres projets.
+Vous pouvez ensuite y ajouter des étapes de déploiement, de linting plus poussées ou même des artefacts (on en parlera très bientôt :)).
+
+## Bonus – Le déclencheur CRON avec `schedule`
+
+<!-- - Permet de planifier un workflow.
 - Exemple
 - Explication de la syntaxe CRON + lien utile.
 - Cas d’usage : générer un rapport, nettoyage, etc.
-- Typiquement sur NX, je pourrais m'en servir pour mon système de recap (que je fais pour le moment à la main). D'ailleurs, je crois que je vais bientôt implémenter ça en CRON :D.
+- Typiquement sur NX, je pourrais m'en servir pour mon système de recap (que je fais pour le moment à la main). D'ailleurs, je crois que je vais bientôt implémenter ça en CRON :D. -->
 
-## Conclusion
+Et si vous pouviez faire tourner un workflow automatiquement toutes les nuits ou chaque lundi matin (parce qu'on est souvent pas réveillé le lundi matin alors autant laisser l'ordinateur travailler pour nous) ? C’est justement ce que permet le déclencheur schedule.
 
-- Recap.
-- Teasing de la prochaine fiche
-- Lien vers le quiz
-- Lien vers le cours sur Docker (en attendant le cours sur les pipelines CI/CD).
+Il fonctionne avec la syntaxe CRON, bien connue de nos amis les sysadmins. Vous définissez une fréquence d’exécution et GitHub s’occupe du reste. 
+
+Voici un exemple très simple :
+
+```yml
+on:
+  schedule:
+    - cron: '0 8 * * 1'
+```
+
+Ce workflow sera lancé tous les lundis à 8h du matin (UTC). Vous pouvez bien sûr modifier l’heure ou la fréquence selon vos besoins. La syntaxe CRON peut sembler un peu obscure au début. Pour vous aider, je vous recommande ce site très pratique : [crontab.guru](https://crontab.guru).
+
+
+Typiquement sur NX, je pourrais très bien m’en servir pour automatiser la publication de mes recaps du mois. Pour l’instant, je le fais encore à la main mais il se pourrait bien que ça devienne mon tout premier job CRON GitHub Actions 😄.
+
+---
+
+Vous l’avez vu, un workflow GitHub Actions ne se déclenche jamais tout seul ! Il attend patiemment qu’un événement, tel qu'un push, une PR, un clic ou même un CRON, vienne lui dire : “Allez, au boulot.”
+
+Le champ `on:` est donc l'élément central de votre système d’automatisation quand on utilise les GitHub Actions. Bien choisir vos déclencheurs, c’est vous assurer que vos workflows tournent au bon moment et pour les bonnes raisons.
+
+Dans la prochaine fiche technique, on s'interessera aux artefacts.
+
+<br>
+
+En attendant :
+- faites le quiz pour valider vos acquis ;
+- (re)découvrez le cours sur Docker.
 
 ## Ressources
+
+- [Workflow syntax for GitHub Actions](https://docs.github.com/en/actions/reference/workflow-syntax-for-github-actions)
+- [Building a workflow with GitHub Actions](https://resources.github.com/learn/pathways/automation/essentials/building-a-workflow-with-github-actions/)
+- [Learn to Use GitHub Actions: a Step-by-Step Guide](https://www.freecodecamp.org/news/learn-to-use-github-actions-step-by-step-guide/)
 
 </article>
