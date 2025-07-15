@@ -17,19 +17,41 @@ publishedDate: 09/05/2025
 
 # Quand et comment déclencher un workflow GitHub Actions ?
 
-## Introduction - Pourquoi parle-t-on de déclencheurs ?
+Je vous l'avais promis ! Je commence à faire la transition vers un autre grand classique de la boîte à outils DevOps : les CI serveurs. 
 
-- C'était promis ! Je commence à faire la transition vers un autre élément clé de la boite à outils DevOps : les fameuses CI serveurs.
-- C'est l'un de mes points préférés dans le DevOps. Automatiser des tâches récurrents est toujours très satisfaisant. Ca me fait toujours beaucoup penser à des jeux vidéos d'usine type Factorio ou Satisfactory. C'est l'une des nombreuses raisons qui me font aimer et faire de l'informatique.
-- Dans cette fiche technique, on va s'intéresser à un concept essentiel des CI serveurs : les déclencheurs ! 
-- Parce que non, un workflow GitHub Actions ne tourne pas "magiquement". En effet, chaque workflow a besoin d’un ou plusieurs déclencheurs pour savoir quand s’exécuter.
+Personnellement, c’est l’un de mes aspects préférés. Automatiser des tâches récurrents est toujours très satisfaisant. Ca me fait toujours beaucoup penser à des jeux vidéos d'usine type Factorio ou Satisfactory. C'est l'une des nombreuses raisons qui me font aimer et faire de l'informatique.
 
-## C’est quoi un déclencheur dans GitHub Actions ?
+Dans cette fiche technique, **on va s’intéresser à un concept fondamental de ces outils d’automatisation : les déclencheurs**.
 
-- Définition du concept de déclencheur en quelques mots (pas besoin de faire 3 phrases dessus). Peut-être faire une comparaison avec les `addEventListener` côté JavaScript
-- Dans notre fichier de configuration CI, par exemple, `deploy.yml` chez moi, il est situé dans le champ `on`.
-- On peut définir un ou plusieurs déclencheurs.
-- Exemple de code générique contenant deux déclencheurs.
+Parce que non (hélas), un workflow GitHub Actions ne s’exécute pas tout seul. Chaque fichier `.yml` a besoin d’un ou plusieurs événements pour savoir quand il doit tourner. C’est justement pour ça qu’on parle de déclencheur.
+
+## C’est quoi un déclencheur ?
+
+Un déclencheur est l’événement qui active l’exécution d’un workflow. Si vous avez déjà codé un peu en JavaScript (normalement, oui, hein ?), pensez à la méthode `addEventListener`. C'est exactement le même principe. On écoute un événement, et dès qu’il se produit, on lance une action.
+
+Dans un fichier de configuration CI (comme `deploy.yml` chez moi), on les déclare dans le champ `on`. C’est ce champ qui permet de dire à GitHub Actions : _Fais tourner ce workflow quand il se passe ça_.
+
+Sachez qu'on peut combiner plusieurs déclencheurs dans un même workflow.
+
+```yml
+on:
+  # Premier déclencheur 
+  push:
+    branches:
+      - main
+  # Deuxième déclencheur 
+  pull_request:
+    branches:
+      - main
+```
+
+Dans cet exemple, le workflow se lancera :
+- à chaque git push sur la branche main ;
+- à chaque ouverture ou mise à jour d’une pull request vers main.
+
+<br>
+
+Plutôt pratique, non ?
 
 ## Les déclencheurs les plus courants
 
