@@ -4,8 +4,8 @@ layout: ../../layouts/CheatSheetsLayout.astro
 title: Quand et comment déclencher un workflow GitHub Actions ?
 description: Découvrez quand et comment déclencher un workflow GitHub Actions grâce aux principaux déclencheurs (push, pull_request, workflow_dispatch, schedule). Apprenez à configurer vos workflows, choisissez le bon déclencheur selon votre besoin et explorez des exemples concrets pour React et Flask. Fiche technique claire, accessible et à jour.
 
-imgAlt: 
-imgSrc: 
+imgAlt: Une scène avec des tapis roulants et des usines avec pour inspiration Satisfactory, pixel art
+imgSrc: /images/cheatsheets/usine-tapis-roulant.webp
 
 author: Thomas
 kind: Fiche technique
@@ -17,7 +17,9 @@ publishedDate: 09/05/2025
 
 # Quand et comment déclencher un workflow GitHub Actions ?
 
-Je vous l'avais promis ! Je commence à faire la transition vers un autre grand classique de la boîte à outils DevOps : les CI serveurs. 
+![Une scène avec des tapis roulants et des usines avec pour inspiration Satisfactory, pixel art](/images/cheatsheets/usine-tapis-roulant.webp)
+
+Je vous l'avais promis ! Je commence à faire la transition vers un autre grand classique de la boîte à outils DevOps : les CI serveurs.
 
 Personnellement, c’est l’un de mes aspects préférés. Automatiser des tâches récurrents est toujours très satisfaisant. Ca me fait toujours beaucoup penser à des jeux vidéos d'usine type Factorio ou Satisfactory. C'est l'une des nombreuses raisons qui me font aimer et faire de l'informatique.
 
@@ -35,17 +37,18 @@ Sachez qu'on peut combiner plusieurs déclencheurs dans un même workflow.
 
 ```yml
 on:
-  # Premier déclencheur 
+  # Premier déclencheur
   push:
     branches:
       - main
-  # Deuxième déclencheur 
+  # Deuxième déclencheur
   pull_request:
     branches:
       - main
 ```
 
 Dans cet exemple, le workflow se lancera :
+
 - à chaque git push sur la branche main ;
 - à chaque ouverture ou mise à jour d’une pull request vers main.
 
@@ -60,6 +63,7 @@ Vous l’aurez compris. Il n’existe pas un mais plusieurs déclencheurs avec l
 <br>
 
 ### Le déclencheur `push`
+
 Le déclencheur push s’active à chaque fois que vous poussez du code (git push) sur une ou plusieurs branches définies.
 
 ```yml
@@ -76,6 +80,7 @@ Typiquement sur NX, je l’utilise pour déployer le site en production. Chaque 
 <br>
 
 ### Le déclenceur `pull_request`
+
 Ce déclencheur s’active à l’ouverture ou à la mise à jour d’une pull request. Autrement dit, dès que quelqu’un propose du code à intégrer dans une branche, `main` par exemple.
 
 ```yml
@@ -92,6 +97,7 @@ Sur NX, je l’utilise pour lancer Prettier, ESLint et mes tests unitaires à ch
 <br>
 
 ### Le déclenceur `workflow_dispatch`
+
 Celui-ci est un peu à part : il permet de lancer manuellement un workflow depuis l’interface GitHub. En gros, en un clic, vous pouvez lancer directement le workflow depuis GitHub.
 
 ```yml
@@ -128,6 +134,7 @@ on:
 ```
 
 Ici, le workflow se déclenchera :
+
 - quand vous poussez du code sur la branche `main` ;
 - ou quand quelqu’un crée ou met à jour une pull request vers `main`.
 
@@ -137,20 +144,20 @@ Et pour vous aider à choisir le bon déclencheur selon votre contexte, je vous 
 
 <br>
 
-| **Besoin identifié**      | **Déclencheur conseillé**      |
-| ------------- | ------------- |
-| Lancer un test à chaque commit | `push` |
-| Vérifier le code avant de fusionner une pull request | `pull_request` |
-| Déclencher un script manuellement | `workflow_dispatch` |
-| Mutualiser un bloc d’actions dans plusieurs workflows | `workflow_call` (à venir) |
-| Lancer une tâche de manière régulière (ex : chaque nuit) | `schedule` (voir bonus) |
+| **Besoin identifié**                                     | **Déclencheur conseillé** |
+| -------------------------------------------------------- | ------------------------- |
+| Lancer un test à chaque commit                           | `push`                    |
+| Vérifier le code avant de fusionner une pull request     | `pull_request`            |
+| Déclencher un script manuellement                        | `workflow_dispatch`       |
+| Mutualiser un bloc d’actions dans plusieurs workflows    | `workflow_call` (à venir) |
+| Lancer une tâche de manière régulière (ex : chaque nuit) | `schedule` (voir bonus)   |
 
 <br>
 <br>
 
 Je vais maintenant vous montrer quelques exemples de workflow complets histoire que vous puissez vous faires une idée globale.
 
-## Exemples de workflow complets 
+## Exemples de workflow complets
 
 Pour aller un peu plus loin, je vous ai prévu deux exemples de workflows GitHub Actions utilisables tels quels. Ils vous permettront de vous inspirer selon votre stack.
 
@@ -195,6 +202,7 @@ jobs:
 ```
 
 Ce workflow va :
+
 - s’exécuter à chaque push ou pull request sur la branche `main` ;
 - installer les dépendances ;
 - lancer les tests ;
@@ -240,11 +248,11 @@ jobs:
 ```
 
 Ce workflow va :
+
 - se déclencher à chaque push ou pull request sur main ;
 - installer Python ;
 - installer les dépendances via pip ;
 - lancer les tests avec pytest.
-
 
 ---
 
@@ -261,18 +269,17 @@ Vous pouvez ensuite y ajouter des étapes de déploiement, de linting plus pouss
 
 Et si vous pouviez faire tourner un workflow automatiquement toutes les nuits ou chaque lundi matin (parce qu'on est souvent pas réveillé le lundi matin alors autant laisser l'ordinateur travailler pour nous) ? C’est justement ce que permet le déclencheur schedule.
 
-Il fonctionne avec la syntaxe CRON, bien connue de nos amis les sysadmins. Vous définissez une fréquence d’exécution et GitHub s’occupe du reste. 
+Il fonctionne avec la syntaxe CRON, bien connue de nos amis les sysadmins. Vous définissez une fréquence d’exécution et GitHub s’occupe du reste.
 
 Voici un exemple très simple :
 
 ```yml
 on:
   schedule:
-    - cron: '0 8 * * 1'
+    - cron: "0 8 * * 1"
 ```
 
 Ce workflow sera lancé tous les lundis à 8h du matin (UTC). Vous pouvez bien sûr modifier l’heure ou la fréquence selon vos besoins. La syntaxe CRON peut sembler un peu obscure au début. Pour vous aider, je vous recommande ce site très pratique : [crontab.guru](https://crontab.guru).
-
 
 Typiquement sur NX, je pourrais très bien m’en servir pour automatiser la publication de mes recaps du mois. Pour l’instant, je le fais encore à la main mais il se pourrait bien que ça devienne mon tout premier job CRON GitHub Actions 😄.
 
@@ -287,6 +294,7 @@ Dans la prochaine fiche technique, on s'interessera aux artefacts.
 <br>
 
 En attendant :
+
 - faites le quiz pour valider vos acquis ;
 - (re)découvrez le cours sur Docker.
 
