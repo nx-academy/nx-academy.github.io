@@ -29,6 +29,15 @@ Possibilité d’ajouter un article de blog libre (ex. IA, dev, coulisses) selon
 
 ---
 
+**Idées de fiches techniques** :
+- GitHub Actions versus GitLab CI
+- GitHub Actions versus Travis CI 
+- GitHub Actions versus Jenkins
+- Docker verus Podman
+- Migrer de Docker (Swarm) vers Kube
+
+---
+
 ## Recap mensuel – Veille technique
 
 | Mois    | Objectif                                      |
