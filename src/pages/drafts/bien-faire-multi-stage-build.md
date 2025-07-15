@@ -106,23 +106,60 @@ Cette séparation rend votre pipeline de build plus lisible, plus maintenable et
 
 ## Quelques limites et pièges à éviter
 
-- Copier trop de fichiers → recréer le problème
-- Mal structurer les étapes (ex: node_modules en prod)
-- Pas nécessaire pour les scripts simples ou mono-fichier
-- Il arrive parfois de voir des infras avec plusieurs fichiers Dockerfile pour le même projet. Par exemple, `prod.Dockerfile`, `stagging.Dockerfile` et `dev.Dockerfile`. C'est clairement une fausse bonne idée (c'est même un anti-pattern). Expliquer pourquoi.
+Vous l'aurez compris, le multi-stage build, c'est bien (c'est même très bien !). Il y a quelques petits pièges à éviter. Ils ne sont pas méchants. Pensez juste à les avoir en tête quand vous mettez en place votre image.
 
-## Exemples complémentaires
 
-### Python
+### Copier trop de fichiers
 
-### Php
+Le premier piège est de copier trop de fichiers depuis un stage précédent.
+Si vous copiez toute l’application, y compris les dépendances, fichiers de config ou de test, vous recréez exactement le problème que vous essayiez de résoudre. Vous allez vous retrouver avec une image trop lourde.
+
+Dans ce type de cas, soyez sélectif dans vos `COPY --from=`. Ne récupérez que ce dont votre runtime a réellement besoin ; souvent un dossier `dist/`, une binaire ou un ensemble de fichiers statiques.
+
+### Mal structurer les étapes
+
+L'autre écueil classique est mal structurer vos étapes, autrement dit de ne pas faire la bonne commande au bon moment. Je pense par exemple à :
+
+- installer les dépendances dans le stage de build et les recopier entièrement dans le stage final, y compris les dépendances de dev.
+- copier le dossier `node_modules` complet dev + prod.
+- lancer un `npm install` dans le mauvais stage.
+
+<br>
+
+Ici, il est important que vous adoptiez une structure claire. Dans le stage de build, installez tout. Dans le stage final, installez seulement ce qui est nécessaire. Vous pouvez utiliser la commande `npm ci --only=production` si besoin. Si cette commande ne vous parle pas, je vous invite [à lire cet  excellent thread](https://stackoverflow.com/questions/9268259/how-do-you-prevent-install-of-devdependencies-npm-modules-for-node-js-package) sur stackOverflow.
+
+### Pas utile pour les scripts simples
+
+Pas besoin de sortir l’artillerie lourde pour un simple script Python ou un petit projet en Bash. Si votre projet tient en un fichier ou deux, restez simple : un seul `FROM` suffira.
+
+Je sais qu'en informatique, on a souvent tendance à faire de l'overengineering (soit par ego, soit pour se rassurer sur son niveau). Honnêtement, faites simple ! **Simple is better than complex**.
+
+### Le piège des Dockerfiles multiples
+
+Il m'est parfois arrivé de voir des projets avec plusieurs Dockerfiles :
+
+```text
+Dockerfile.dev
+Dockerfile.staging
+Dockerfile.prod
+```
+
+Sur le papier, ça paraît propre. On se dit qu'on a un fichier Dockerfile par environnement. En réalité, c’est un anti-pattern.
+
+- On duplique beaucoup de code entre ces fichiers ;
+- les différences sont souvent minimes ; parfois juste une instruction ou deux ;
+- Et surtout, on introduit un risque de divergence : la prod ne reflète plus la réalité du build de dev et inversement.
+
+
+Bref, ici, c'est important de centraliser tout dans un seul `Dockerfile`. Votre image doit être la plus bête (on pourrait dire aussi stateless) possible. Tirez parti des arguments (ARG) ou des variables d’environnement (ENV) pour ajuster les comportements selon le contexte.
+
 
 ## Bonus - Nommez vos stages
 
-- COPY --from=builder
+<!-- - COPY --from=builder
 - Possibilité d’avoir un stage test, un build, un prod
 - Debug : utiliser docker build --target builder pour s’arrêter à une étape
-- Permet aussi d'éviter des commentaires : quand quelque chose est bien nommé, on a pas besoin de commentaires.
+- Permet aussi d'éviter des commentaires : quand quelque chose est bien nommé, on a pas besoin de commentaires. -->
 
 ## Conclusion
 
