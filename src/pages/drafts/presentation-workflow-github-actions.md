@@ -33,19 +33,59 @@ publishedDate: 09/05/2025
 
 ## Les déclencheurs les plus courants
 
+- Vous l'aurez compris, il n'existe pas un mais plusieurs déclencheurs. Je vais prendre le temps de les passer en revu et de vous les présenter.
+
 ### Le déclencheur `push`
+
+- Se déclenche à chaque `git push` sur une ou plusieurs branches.
+- Exemple
+- Cas d’usage : lancer les tests à chaque push sur la branche principale.
+- Typiquement sur NX, j'utilise ça pour deploy mon site en production (uniquement quand je push sur la branch main)
 
 ### Le déclenceur `pull_request`
 
+- Se déclenche à l'ouverture ET à la mise à jour du PR.
+- Exemple
+- Cas d’usage : lancer le linter uniquement lors des revues de code.
+- Typiquement sur NX, j'utilise ça pour faire passer mes tests, mon linter et prettier uniquement quand j'ouvre une PR (ce qui me permet de me concentrer uniquement sur le build and deploy sur ma branche de prod)
+
 ### Le déclenceur `workflow_dispatch`
+
+- Déclenchement manuel via GitHub UI.
+- Exemple
+- Cas d’usage : déploiement déclenché à la main ou scripts ponctuels.
+- Sur NX, ça m'arrive relativement peu de le faire des déclenchements manuels. Les rares fois où ça m'arrive, c'est pour tes histoires de configuration de repo ou de DNS.
+
+---
+
+Pour info, il existe `workflow_call` qui permet de mutualiser un bloc de tâches. Mais on y reviendra une autre fois.
 
 ## Comment bien les configurer ?
 
-## Quel déclencheur choisir selon le contexte ?
+- En réalité, c'est assez simple :). Vous pouvez soit faire un seul déclenceur, soit en combiné plusieurs.
+- Exemple de plusieurs déclencheurs.
+- Tableau du déclencheur en fonction du contexte.
+
+## Exemples de workflow complets 
+
+### Pour une application ReactJS
+
+### Pour une API Flask (Python)
 
 ## Bonus – Le déclencheur CRON avec schedule
 
+- Permet de planifier un workflow.
+- Exemple
+- Explication de la syntaxe CRON + lien utile.
+- Cas d’usage : générer un rapport, nettoyage, etc.
+- Typiquement sur NX, je pourrais m'en servir pour mon système de recap (que je fais pour le moment à la main). D'ailleurs, je crois que je vais bientôt implémenter ça en CRON :D.
+
 ## Conclusion
+
+- Recap.
+- Teasing de la prochaine fiche
+- Lien vers le quiz
+- Lien vers le cours sur Docker (en attendant le cours sur les pipelines CI/CD).
 
 ## Ressources
 
