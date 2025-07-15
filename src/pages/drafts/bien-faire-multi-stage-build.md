@@ -9,29 +9,40 @@ description: Une super description
 
 # Comment faire un multi-stage build ?
 
-## Introduction - une image trop grosse, encore ?
+Avant de commencer, sachez que [le cours sur Docker et Docker Compose](/cours/docker-et-docker-compose/) est actuellement disponible sur NX Academy. Je vais continuer à publier des fiches techniques sur Docker, tout en préparant progressivement la transition vers le prochain cours : les pipelines CI/CD avec GitHub Actions, prévu pour septembre/octobre.
 
-- Pour rappel, le cours sur Docker et docker compose est actuellement disponible.
-- Je continue petit à petit ma transition vers le prochain cours : celui sur les CI/CD avec GitHub Actions.
-- C'est une notion que j'aborde dans ce chapitre mais j'avais envie de revenir dessus plus en détails dans une fiche technique tant cela me semble une notion essentielle.
 
-- Vous avez buildé votre image et vous l'avez optimisé, notamment grâce à ma fiche technique mais elle pèse encore 1 Go. Vous avez des outils de dev, des fichiers de build, voire node_modules complet dans l’image finale ?
+**C’est justement à la croisée de ces deux sujets que se trouve le multi-stage build.**
 
-Dans cette fiche technique, vous allez voir comment séparer les étapes dans un Dockerfile pour ne garder que l’essentiel dans l’image finale.
+
+Vous avez suivi [mes conseils d’optimisation d’image Docker](/fiches/optimisation-images-docker/) mais malgré tout, votre image Docker dépasse encore le giga ? Vous retrouvez des outils de développement, des fichiers de build ou encore un dossier `node_modules` complet dans votre image finale ?
+
+Pas de panique, c'est normal ! **Il vous manque une étape essentielle : le multi-stage build**.
+
+Dans cette fiche technique, on va voir ensembles comment séparer les étapes de build et d’exécution dans votre Dockerfile. Notre Objectif ? Ne garder que l’essentiel dans l’image finale.
 
 
 ## Pourquoi faire un multi-stage build ?
 
-- Une image “naïve” contient tout : code, dépendances, outils de compilation, fichiers temporaires. On a certes vu comment enlever les fichiers temporaires dans ma précédente fiche technique mais que faire des dépendances de développement.
-- Après tout, si on veut utiliser notre image Docker aussi bien dans un environnement de développement que de production, on aura besoin à un moment d'avoir toutes nos dépendances, non ?
-- Idem pour une partie de notre code, notre runtime peut-être du Node.JS mais si on code en TypeScript, on aura besoin des deux. 
+Avant d'aller plus loin, je vais prendre le temps de définir un concept : celui d'image dite "naïve". Sachez qu'on parle d'image Docker naïve quand cette dernière contient tout ce qui a servi à la construire, sans distinction entre ce qui est nécessaire à l’exécution et ce qui ne l’est pas.
 
-- Cela nous amène à des problèmes tels que :
-  - une taille d'image inutilement grande (et donc plus longue à builder) ;
-  - des risques de sécurité (la fameuse surface d'attaque)
-  - moins de maîtrise sur le contenu
+Autrement dit, cette image Docker content notre code, nos dépendances, nos outils de compilation, nos fichiers temporaires ou de tests (pas franchement utile pour la production) et parfois même un `.git` ou un dossier `node_moduless`. Bref Tout est un peu mélangé : il y a des dépendances dont on va se servir en développement, d'autres uniquement pour la production.
 
-- Il est donc important de savoir séparer ce qui sert à build de ce qui sert à exécuter. C'est là que le multi-stage build rentre en jeu.
+
+[Dans la fiche précédente](/fiches/optimisation-images-docker/), on a vu comment supprimer les fichiers inutiles. Mais que faire des dépendances de développement ? Des outils de build ? On en a forcément besoin à un moment, non ?
+
+
+On va prendre un exemple : vous codez une API REST en Node.JS. Pour être plus rigoureux, vous décidez d'utiliser TypeScript. Seulement, à la fin, le moteur d'excecution (le runtime) est du JavaScript. Vous avez besoin de `tsc` pour transcompiler mais ce transcompilateur n’a rien à faire dans l’image finale. Idem pour node_modules/dev.
+
+
+Si vous ne séparez pas bien les étapes, vous risquez :
+- une image inutilement lourde (et donc plus lente à builder, pusher, puller) ;
+- une surface d’attaque plus grande (plus de dépendances = plus de failles potentielles) ;
+- un manque de maîtrise sur ce qui se retrouve réellement dans votre image.
+
+<br>
+
+C’est là que le multi-stage build entre en jeu. Il vous permet de séparer proprement les étapes de build (compilation, packaging, etc.) de l’environnement d’exécution.
 
 ## Les principes de base du multi-stage
 
