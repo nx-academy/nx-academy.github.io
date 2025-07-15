@@ -203,7 +203,7 @@ Et tout ça sans changer votre code ! Je vous invite à essayer d'adopter ces r�
 
 Il est prévu pour septembre. Vous y apprendrez à automatiser des pipelines de test, de build et de déploiement.
 
-D'ici là, je vous invite
+D'ici là, je vous invite :
 
 - [à faire le quiz](/quiz/optimisation-images-docker) pour valider vos acquis ;
 - [à commencer le cours sur Docker et docker compose](/cours/docker-et-docker-compose) si ce n'est pas déjà fait.

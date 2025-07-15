@@ -2,7 +2,9 @@
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: Comment faire un multi-stage build ?
-description: Une super description
+description: Découvrez comment optimiser vos images Docker grâce au multi-stage build. Réduisez la taille de vos images, améliorez la sécurité et maîtrisez vos déploiements en production avec cette technique incontournable.
+
+
 ---
 
 <article>
@@ -161,8 +163,39 @@ Bref, ici, c'est important de centraliser tout dans un seul `Dockerfile`. Votre 
 - Debug : utiliser docker build --target builder pour s’arrêter à une étape
 - Permet aussi d'éviter des commentaires : quand quelque chose est bien nommé, on a pas besoin de commentaires. -->
 
-## Conclusion
+Nommez ces stages n'est pas obligatoire mais je vous le recommande fortement recommandé. 
 
+```dockerfile
+FROM node:18 AS builder
+FROM node:18-slim AS runtime
+```
+
+En donnant à votre stage un nom explicite (builder, runtime, test, lint, etc.), on comprend instantanément le rôle de chaque étape. Plus besoin de commenter chaque `FROM`. Quand c’est bien nommé, le nom devient le commentaire.
+
+Idem pour les instructions `COPY --from=` qui deviennent tout de suite beaucoup plus claires :
+
+```docker
+# Avant
+COPY --from=0 /app/dist ./dist
+
+# Après
+COPY --from=builder /app/dist ./dist
+```
+
+Je nomme systématiquement mes stages dès que je travaille en multi-stage.
+
+---
+
+
+Voilà qui conclut cette fiche technique !
+
+Le multi-stage build (ou multi-stagging) est un concept essentiel en Docker. Grâce à lui, vous pouvez optimiser vos images et déployer des applications plus légères, plus sûres et plus maîtrisées.
+
+Une fiche technique sur la mise en place d’un multi-stage build dans une pipeline CI pourrait bien arriver bientôt :).
+
+D’ici là :
+- faites le quiz pour valider vos acquis ;
+- commencez le cours sur Docker et Docker Compose si ce n’est pas déjà fait.
 
 ## Ressources
 
