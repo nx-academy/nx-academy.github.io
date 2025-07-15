@@ -107,11 +107,48 @@ Sur NX, pour être honnête, je l’utilise rarement. Cela dit, il m’a déjà 
 
 Pour info, il existe `workflow_call` qui permet de mutualiser un bloc de tâches. Mais on y reviendra une autre fois.
 
-## Comment bien les configurer ?
+## Comment bien configurer ses déclencheurs ?
 
-- En réalité, c'est assez simple :). Vous pouvez soit faire un seul déclenceur, soit en combiné plusieurs.
+<!-- - En réalité, c'est assez simple :). Vous pouvez soit faire un seul déclenceur, soit en combiné plusieurs.
 - Exemple de plusieurs déclencheurs.
-- Tableau du déclencheur en fonction du contexte.
+- Tableau du déclencheur en fonction du contexte. -->
+
+Pour être honnête, configurer ses déclencheurs, c’est plutôt simple. Vous pouvez en utiliser un seul, comme `push`, ou bien en combiner plusieurs dans un même fichier yml.
+
+Voici un exemple combiné :
+
+```yml
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+```
+
+Ici, le workflow se déclenchera :
+- quand vous poussez du code sur la branche `main` ;
+- ou quand quelqu’un crée ou met à jour une pull request vers `main`.
+
+<br>
+
+Et pour vous aider à choisir le bon déclencheur selon votre contexte, je vous ai préparé un tableau récapitulatif :
+
+<br>
+
+| **Besoin identifié**      | **Déclencheur conseillé**      |
+| ------------- | ------------- |
+| Lancer un test à chaque commit | `push` |
+| Vérifier le code avant de fusionner une pull request | `pull_request` |
+| Déclencher un script manuellement | `workflow_dispatch` |
+| Mutualiser un bloc d’actions dans plusieurs workflows | `workflow_call` (à venir) |
+| Lancer une tâche de manière régulière (ex : chaque nuit) | `schedule` (voir bonus) |
+
+<br>
+<br>
+
+Je vais maintenant vous montrer quelques exemples de workflow complets histoire que vous puissez vous faires une idée globale.
 
 ## Exemples de workflow complets 
 
