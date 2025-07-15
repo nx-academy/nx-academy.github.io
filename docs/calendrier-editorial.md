@@ -21,8 +21,8 @@ Possibilité d’ajouter un article de blog libre (ex. IA, dev, coulisses) selon
 | Mai       | Comment (bien) utiliser les volumes Docker ?              | **DONE**   |
 | Juin      | Qu'est-ce qu'un registry Docker ?                         | **DONE**   |
 | Juillet   | Comment optimiser son image Docker ?                      | **DONE**   |
-| Août      | Comment faire un multi stagging ?                         | _En cours_ |
-| Septembre | Quand et comment déclencher un workflow GitHub Actions ?  | à faire    |
+| Août      | Comment faire un multi stagging ?                         | **DONE**   |
+| Septembre | Quand et comment déclencher un workflow GitHub Actions ?  | _en cours_ |
 | Octobre   | Qu'est-ce qu'un artefact dans GitHub Actions ?            | à faire    |
 | Novembre  | Comment déployer une image Docker depuis GitHub Actions ? | à faire    |
 | Décembre  | Comment optimiser vos workflows GitHub Actions ?          | à faire    |
@@ -42,13 +42,13 @@ Possibilité d’ajouter un article de blog libre (ex. IA, dev, coulisses) selon
 
 ## Articles
 
-| Mois      | Objectif                                                                | Status     |
-| --------- | ----------------------------------------------------------------------- | ---------- |
-| Mai       | Les coulisses de NX : comment fonctionne la génération de quiz par IA ? | _en cours_ |
-| Juin      | L'IA va-t-elle tuer internet (réponse rapide, non) ?                    | à faire    |
-| Juillet   | Comment bien utiliser les projets OpenAI ?                              | à faire    |
-| Août      | Astro, le futur du web ?                                                | à faire    |
-| Septembre | Les coulisses de NX : comment fonctionne le Recap ?                     | à faire    |
+| Mois      | Objectif                                                                | Status        |
+| --------- | ----------------------------------------------------------------------- | ------------- |
+| Mai       | Les coulisses de NX : comment fonctionne la génération de quiz par IA ? | **En retard** |
+| Juin      | L'IA va-t-elle tuer internet (réponse rapide, non) ?                    | à faire       |
+| Juillet   | Comment bien utiliser les projets OpenAI ?                              | à faire       |
+| Août      | Astro, le futur du web ?                                                | à faire       |
+| Septembre | Les coulisses de NX : comment fonctionne le Recap ?                     | à faire       |
 
 ## Misc (idées d'articles, de cours, de fiches techniques)
 
