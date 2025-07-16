@@ -14,8 +14,6 @@ publishedDate: 11/07/2025
 
 # Comment déployer une image Docker depuis les GitHub Actions ?
 
-## Introduction - Docker + GitHub Actions = Love
-
 On arrive à un moment passionnant en terme de pédagogie ! Un moment où deux concepts essentiels vont enfin se croiser : Docker d’un côté et les pipelines CI/CD de l’autre. Si vous avez suivi les cours sur NX (vous les avez suivi, hein ?), vous savez déjà manier les images Docker et déclencher un workflow GitHub Actions. Aujourd’hui, on va connecter les deux.
 
 C’est aussi un moment charnière pour NX car cette fiche marque le début de la transition vers le futur cours sur la mise en production. Autrement dit, on var sortir de l’environnement local pour se rapprocher de la vraie vie. Et je ne vais pas vous mentir : ça m’excite pas mal (je suis comme ça, moi : la mise en prod, je trouve ça excitant).
@@ -92,10 +90,14 @@ C’est clairement la manière recommandée pour gérer vos identifiants dans un
 
 ## Structurez votre workflow GitHub Actions
 
-- Fichier `.github/workflows/docker.yml`
+<!-- - Fichier `.github/workflows/docker.yml`
 - Déclencheur `on: push`
 - Utilisation d’une image officielle (Ubuntu)
-- Utilisation des actions officielles de Docker
+- Utilisation des actions officielles de Docker -->
+
+Maintenant que vos identifiants Docker Hub sont bien stockés sous forme de secrets, on va pouvoir écrire notre premier workflow GitHub Actions pour builder et pousser une image Docker automatiquement.
+
+
 
 ## Bonnes pratiques et limites (si pertinents)
 
