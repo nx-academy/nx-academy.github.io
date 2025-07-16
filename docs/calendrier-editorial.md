@@ -54,21 +54,28 @@
 
 | Mois      | Objectif                                                                | Status        |
 | --------- | ----------------------------------------------------------------------- | ------------- |
+| Août      | Astro, un sacré (bon) framework front                                   | à faire       |
+| Septembre | Comment bien utiliser les projets OpenAI ?                              | à faire       |
+| Octobre   | L'IA va-t-elle tuer Internet ?                                          | à faire       |
+| Novembre  | Quelle est la différence entre la pédagogie et la didactique ?          | à faire       |
+| Décembre  | Internet n'a jamais été aussi fermé                                     | à faire       |
 
+<br>
+
+**Les articles BONUS** :
+
+- Les coulisses de NX : comment fonctionne Le Récap ?
+- Les coulisses de NX : comment fonctionne la génération de quiz par IA ?
+- Les coulisses de NX : comment fonctionne mon système de news automatisé ?
+- Les coulisses de NX : pourquoi est-ce que je n'aime pas parler de moi ?
+
+<br>
 
 **Idées d'articles complémentaires** :
 
-- Astro, un sacré (bon) framework front
-- Les coulisses de NX : comment fonctionne Le Récap ?
-- Comment bien utiliser les projets OpenAI ?
-- Les coulisses de NX : comment fonctionne la génération de quiz par IA ?
-- L'IA va-t-elle tuer Internet ?
-- Quelle est la différence entre la pédagogie et la didactique ?
-- Internet n'a jamais été aussi fermé
 - JavaScript (React) / Python (FastAPI) - Le combo gagnant des startups IA ?
 - Pourquoi le travail d'informaticien est en train de redevenir passionant ?
-- Les coulisses de NX : comment fonctionne mon système de news automatisé ?
-- Les coulisses de NX : pourquoi est-ce que je n'aime pas parler de moi ?
+- Personne n'aime l'eau tiède
 
 
 <!-- ## Misc (idées d'articles, de cours, de fiches techniques)
