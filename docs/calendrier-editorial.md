@@ -1,7 +1,5 @@
 # Calendrier éditorial NX Academy – Avril à Décembre 2025
 
-<!-- Rythme prévu : **1 fiche technique + 1 recap mensuel + 1 article**
-Possibilité d’ajouter un article de blog libre (ex. IA, dev, coulisses) selon dispo. -->
 
 **Rythme mensuel** :
 - Une fiche technique
@@ -21,7 +19,12 @@ Possibilité d’ajouter un article de blog libre (ex. IA, dev, coulisses) selon
 | Décembre  | Mettez vos applications en production                 | à faire     |
 | TBD       | Monitorez vos applications avec Datadog               | à faire     |
 
----
+<br>
+
+**Idées de cours complémentaires** :
+
+- Développez des applications IA (Python + GPT)
+
 
 ## Fiches techniques prévues
 
@@ -46,7 +49,35 @@ Possibilité d’ajouter un article de blog libre (ex. IA, dev, coulisses) selon
 - Docker verus Podman
 - Migrer de Docker (Swarm) vers Kube
 
----
+
+## Articles prévus
+
+| Mois      | Objectif                                                                | Status        |
+| --------- | ----------------------------------------------------------------------- | ------------- |
+
+
+**Idées d'articles complémentaires** :
+
+- Astro, un sacré (bon) framework front
+- Les coulisses de NX : comment fonctionne Le Récap ?
+- Comment bien utiliser les projets OpenAI ?
+- Les coulisses de NX : comment fonctionne la génération de quiz par IA ?
+- L'IA va-t-elle tuer Internet ?
+- Quelle est la différence entre la pédagogie et la didactique ?
+- Internet n'a jamais été aussi fermé
+- JavaScript (React) / Python (FastAPI) - Le combo gagnant des startups IA ?
+- Pourquoi le travail d'informaticien est en train de redevenir passionant ?
+- Les coulisses de NX : comment fonctionne mon système de news automatisé ?
+- Les coulisses de NX : pourquoi est-ce que je n'aime pas parler de moi ?
+
+
+<!-- ## Misc (idées d'articles, de cours, de fiches techniques)
+
+- Commencer à réfléchir aux articles dédiés au mathématiques pour introduction la data science et le ML.
+  - Mathématiques essentielles pour comprendre l’IA
+  - Visualiser les vecteurs, matrices, fonctions
+  - Pourquoi l’algèbre linéaire est (vraiment) utile ?
+
 
 ## Recap mensuel – Veille technique
 
@@ -57,21 +88,4 @@ Possibilité d’ajouter un article de blog libre (ex. IA, dev, coulisses) selon
 | Juillet | Recap                                         |
 | Août    | Recap + teaser du cours CI/CD à venir         |
 
----
-
-## Articles
-
-| Mois      | Objectif                                                                | Status        |
-| --------- | ----------------------------------------------------------------------- | ------------- |
-| Mai       | Les coulisses de NX : comment fonctionne la génération de quiz par IA ? | **En retard** |
-| Juin      | L'IA va-t-elle tuer internet (réponse rapide, non) ?                    | à faire       |
-| Juillet   | Comment bien utiliser les projets OpenAI ?                              | à faire       |
-| Août      | Astro, le futur du web ?                                                | à faire       |
-| Septembre | Les coulisses de NX : comment fonctionne le Recap ?                     | à faire       |
-
-## Misc (idées d'articles, de cours, de fiches techniques)
-
-- Commencer à réfléchir aux articles dédiés au mathématiques pour introduction la data science et le ML.
-  - Mathématiques essentielles pour comprendre l’IA
-  - Visualiser les vecteurs, matrices, fonctions
-  - Pourquoi l’algèbre linéaire est (vraiment) utile ?
+--- -->
