@@ -25,10 +25,62 @@ Bref, à chaque fois qu’on veut mettre de côté un fichier produit pendant un
 
 ## Qu'est-ce qu'un artefact GitHub Actions ?
 
-- Définition : un artefact est un fichier ou dossier généré pendant un workflow GitHub Actions et mis à disposition en fin de job. Il peut être téléchargé ou utilisé dans un autre job.
-- Pourquoi on a besoin des artefacts dans nos applications ?
-- Exemple d'un artefact avec l'action `actions/upload-artifact`
-- Différence avec les logs, caches et secrets (optionnel)
+Quand on parle d'artefact avec les GitHub Actions, on pense à un fichier ou un dossier généré pendant un workflow que l’on souhaite conserver. 
+
+Ce dernier peut, ensuite, être téléchargé manuellement depuis l’interface de GitHub ou alors réutilisé dans un autre job.
+
+Par exemple, on peut avoir besoin d'un artefact pour :
+- un build frontend, le fameux dossier `dist/`, qu’on veut déployer dans un job suivant ;
+- un rapport de test qu’on veut analyser plus tard ;
+- un fichier zip, un binaire compilé ou un log personnalisé.
+
+<br>
+
+Pour créer un artefact, on utilise généralement l’action officielle [`actions/upload-artifact`](https://github.com/actions/upload-artifact).
+
+
+Ca donne quelque chose comme ceci :
+
+```yml
+- name: Upload build
+  uses: actions/upload-artifact@v4
+  with:
+    name: build
+    path: dist/
+```
+
+**Ce petit bloc va mettre de côté le dossier `dist/` sous le nom `build`**.
+
+---
+
+Typiquement sur NX, je passe par un artefact pour uploader mon site, développé en Astro, sur GitHub Pages. Voici le code contenant mon upload :
+
+```yml
+# Je Build mon app
+- name: Building project
+  run: npm run build
+
+# Je configure GitHub Pages
+- name: Setting up Pages
+  uses: actions/configure-pages@v3
+
+# J’uploade l’artefact généré par le build
+- name: Uploading artifact
+  uses: actions/upload-pages-artifact@v3
+  with:
+    path: "./dist"
+
+# Je déploie le tout sur GitHub Pages
+- name: Deploying to GitHub Pages
+  id: deployment
+  uses: actions/deploy-pages@v4
+
+# Le tout en prenant un café avec un collègue :D
+```
+
+<br>
+
+Plutôt pas mal, non ?
 
 
 ## Bonnes pratiques et pièges à éviter
@@ -99,5 +151,11 @@ Peut-être préciser à quoi sert la rétention ? Pourquoi voulons-nous garder u
 - À quoi ça sert : partager, réutiliser, archiver des résultats dans un workflow
 - Invitation à revenir sur le cours CI/CD
 - Invitation à faire le quiz pour valider la compréhension
+
+## Ressources
+
+- [Store and share data with workflow artifacts](https://docs.github.com/en/actions/tutorials/store-and-share-data)
+- [GitHub Actions Deep Dive - aCloudGuru](https://www.pluralsight.com/courses/github-actions-deep-dive)
+
 
 </article>
