@@ -14,12 +14,13 @@ publishedDate: 10/03/2025
 
 # Qu'est-ce qu'un artefact GitHub Actions ?
 
-## Introduction - Pourquoi parler des artefacts ?
+Ça y est, [le cours sur les pipelines CI/CD avec les GitHub Actions](/cours/ci-cd-github-actions/) est officiellement disponible sur NX ! À cette occasion, on va revenir sur un concept essentiel : les artefacts (ou _artifacts_ en anglais).
 
-- Ca y est le cours sur les pipelines CI/CD est officiellement disponible sur NX ! A cette occasion, on va revenir sur un concept essentiel : les artefacts.
-- Sans le savoir, si vous avez suivi le cours, vous vous en êtes servi en fin de cours pour déployer l'application ReactJS.
-- Vous allez voir que ce concept n'est pas si complexe à comprendre et voilà pouvoir les mettre en application très facilement.
-- Mise en contexte rapide (= à quel moment, on va avoir besoin d'un artefact ?)
+Si vous avez suivi le cours jusqu’au bout, vous vous en êtes peut-être servi sans le savoir. Je pense au moment où on déploye une application ReactJS. Vous allez voir que c’est un outil simple et pratique mais aussi très puissant.
+
+Sachez qu'on se sert des artefacts quand on souhaite conserver ou transférer un résultat généré par un job. Par résultat, vous pouvez penser à un dossier `dist/` pour une application front, un rapport de test, une archive et même une capture d’écran.
+
+Bref, à chaque fois qu’on veut mettre de côté un fichier produit pendant un workflow, l’artefact devient notre meilleur pote.
 
 
 ## Qu'est-ce qu'un artefact GitHub Actions ?
