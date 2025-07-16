@@ -229,12 +229,26 @@ Si vous vous demandez pourquoi il peut être intéressant de raccourir la durée
 Pour être honnête, je m'en sers assez peu sur NX, parce que je ne dépasse pas les cotas même quand je suis très actif dessus. Mais c'est quelque chose de bon à savoir.
 
 
-## Conclusion
+---
 
-- Récapitulatif de ce qu’est un artefact
-- À quoi ça sert : partager, réutiliser, archiver des résultats dans un workflow
-- Invitation à revenir sur le cours CI/CD
-- Invitation à faire le quiz pour valider la compréhension
+On ne parle pas assez des artefacts GitHub Actions et pourtant ils jouent un rôle essentiel dans nos workflows CI/CD. 
+
+Pour résumer, un artefact est un fichier ou un dossier généré par un job, que vous souhaitez partager, réutiliser ou archiver. Grâce à eux, vous pouvez :
+
+- stocker le résultat d’un build (comme un dist/) ;
+- générer un rapport de test consultable à tout moment ;
+- ou même passer un fichier d’un job à un autre.
+
+<br>
+
+Comme toujours, je vous invite maintenant à :
+
+- revenir (ou découvrir) le cours CI/CD si besoin ;
+- tester vos connaissances avec le quiz.
+
+<br>
+
+Codez bien !
 
 ## Ressources
 
