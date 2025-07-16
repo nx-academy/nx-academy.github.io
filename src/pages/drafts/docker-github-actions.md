@@ -16,11 +16,15 @@ publishedDate: 11/07/2025
 
 ## Introduction - Docker + GitHub Actions = Love
 
-- On arrive à un moment passionnant dans lequel on va pouvoir lier deux notions importants : Docker d'un côté et les pipelines CI/CD de l'autre.
-- Ce qui rend ce moment d'autant plus cool pour moi est que les deux cours sont disponibles sur NX et aussi que je commence à faire la transition vers le futur cours sur la mise en production.
-- Dans un sens, on arrive un peu à la croisée des chemins et je ne vais pas vous cacher que ça m'excite beaucoup ! Mais trève de bavardages, on va rentrer dans le vif du sujet.
-- Imaginez que vous avez une image Docker fonctionnelle ; vous vous en servi dans votre environnement de développement et vous aimeriez bien la partager facilement sur un registry Docker sans avoir à le faire manuellement.
-- Grâce à tout ce que vous avez vu sur les pipelines CI/CD, vous savez maintenant que c'est possible, et facilement. Allé, on est parti !
+On arrive à un moment passionnant en terme de pédagogie ! Un moment où deux concepts essentiels vont enfin se croiser : Docker d’un côté et les pipelines CI/CD de l’autre. Si vous avez suivi les cours sur NX (vous les avez suivi, hein ?), vous savez déjà manier les images Docker et déclencher un workflow GitHub Actions. Aujourd’hui, on va connecter les deux.
+
+C’est aussi un moment charnière pour NX car cette fiche marque le début de la transition vers le futur cours sur la mise en production. Autrement dit, on var sortir de l’environnement local pour se rapprocher de la vraie vie. Et je ne vais pas vous mentir : ça m’excite pas mal (je suis comme ça, moi : la mise en prod, je trouve ça excitant).
+
+Imaginez : vous avez une image Docker qui fonctionne parfaitement en local. Vous l’avez utilisée pendant votre développement, elle tourne bien et vous en êtes fier (et vous avez raison d'être fier !). Vous aimeriez maintenant la rendre disponible sur un registry Docker, pour pouvoir la déployer ailleurs et surtout, ne plus avoir à faire ça manuellement.
+
+Grâce à ce que vous avez appris sur les GitHub Actions, vous savez déjà qu’il est possible d’automatiser ce genre de tâches. Et vous avez raison. C’est non seulement possible, mais en plus, c’est simple.
+
+Allez, on entre dans le vif du sujet.
 
 
 ## Créez son token pour DockerHub
