@@ -29,10 +29,65 @@ Allez, on entre dans le vif du sujet.
 
 ## Créez son token pour DockerHub
 
-- Dans cette fiche technique, nous allons nous concentrer dans un premier temps sur Dockerhub.
-- Accès à hub.dockerhub.com
-- Création d'un Access Token (voir s'il y a des règles de sécurité et/ou des bonnes pratiques à avoir en tête quand on le fait).
-- Ajout des deux secrets dans GitHub : DOCKER_USERNAME et DOCKERHUB_TOKEN.
+Dans cette fiche technique, on va se concentrer dans un premier temps sur Docker Hub, le registry public par défaut de Docker. Pour que GitHub Actions puisse pousser une image à votre place, il faut lui donner les bons identifiants et idéalement de manière sécurisé.
+
+### Étape 1 – Connectez-vous à Docker Hub
+
+Commencez par vous render sur [hub.docker.com](https://hub.docker.com), connectez-vous à votre compte ou créez-en un si ce n’est pas encore fait. C'est rapide et gratuit !
+
+<br>
+
+
+### Étape 2 – Générez un Access Token
+
+Dans un cours normal, c’est là où je vous enregistre un petit screencast. Mais pour cette fois, je vais simplement vous décrire les étapes. (Peut-être que je repasserai plus tard sur cette fiche pour ajouter un GIF ou une vidéo.)
+
+Rendez-vous sur :
+
+
+```text
+https://app.docker.com/accounts/<votreUsername>/settings/personal-access-token
+```
+
+Puis cliquez sur **Generate new token**. Quelques conseils au passage :
+
+- donnez-lui un nom clair, par exemple `github-actions-nx-ai` ou `ci-myproject` ;
+- spécifiez une date d’expiration : 30 à 90 jours selon les cas. Évitez les tokens illimités, c’est une mauvaise habitude ;
+- cochez les droits **Read & Write**, ce qui permettra à GitHub Actions de lire et pousser vos images ;
+- copiez bien le token immédiatement, vous ne pourrez plus y accéder ensuite.
+
+<br>
+
+Il est maintenant temps de créer vos premiers secrets sur GitHub
+
+<br>
+
+### Étape 3 – Ajoutez vos secrets dans GitHub
+
+Retournez sur GitHub, ouvrez votre repository, puis cliquez sur :
+
+```text
+Settings → Secrets and variables → Actions → New repository secret
+```
+
+Ajoutez maintenant deux secrets :
+
+- `DOCKER_USERNAME` → votre identifiant Docker Hub ;
+- `DOCKERHUB_TOKEN` → le token que vous venez de générer.
+
+<br>
+
+Vous verrez parfois `DOCKER_USERNAME` ou `DOCKERHUB_TOKEN` déclarés directement dans le code du workflow comme variables d’environnement. Je vous déconseille fortement cette approche : ces valeurs seront visibles dans les logs si vous ne faites pas attention.
+
+GitHub propose justement le système de secrets pour éviter ce genre de fuites. Ces secrets sont :
+
+- chiffrés au repos et à la volée ;
+- non visibles dans les logs (à moins d’être affichés explicitement, ce qu’on évite) ;
+- réservés au scope du repo, ou définis à un niveau organisation si besoin.
+
+<br>
+
+C’est clairement la manière recommandée pour gérer vos identifiants dans un workflow GitHub Actions.
 
 
 ## Structurez votre workflow GitHub Actions
