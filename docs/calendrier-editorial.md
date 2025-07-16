@@ -16,16 +16,16 @@ Possibilité d’ajouter un article de blog libre (ex. IA, dev, coulisses) selon
 
 ## Fiches techniques prévues
 
-| Mois      | Sujet de la fiche technique                               | status   |
-| --------- | --------------------------------------------------------- | -------- |
-| Mai       | Comment (bien) utiliser les volumes Docker ?              | **DONE** |
-| Juin      | Qu'est-ce qu'un registry Docker ?                         | **DONE** |
-| Juillet   | Comment optimiser son image Docker ?                      | **DONE** |
-| Août      | Comment faire un multi stagging ?                         | **DONE** |
-| Septembre | Quand et comment déclencher un workflow GitHub Actions ?  | **DONE** |
-| Octobre   | Qu'est-ce qu'un artefact dans GitHub Actions ?            | à faire  |
-| Novembre  | Comment déployer une image Docker depuis GitHub Actions ? | à faire  |
-| Décembre  | Comment optimiser vos workflows GitHub Actions ?          | à faire  |
+| Mois      | Sujet de la fiche technique                               | status       |
+| --------- | --------------------------------------------------------- | ------------ |
+| Mai       | Comment (bien) utiliser les volumes Docker ?              | **DONE**     |
+| Juin      | Qu'est-ce qu'un registry Docker ?                         | **DONE**     |
+| Juillet   | Comment optimiser son image Docker ?                      | **DONE**     |
+| Août      | Comment faire un multi stagging ?                         | **DONE**     |
+| Septembre | Quand et comment déclencher un workflow GitHub Actions ?  | **DONE**     |
+| Octobre   | Qu'est-ce qu'un artefact dans GitHub Actions ?            | **DONE**     |
+| Novembre  | Comment déployer une image Docker depuis GitHub Actions ? | **en cours** |
+| Décembre  | Comment optimiser vos workflows GitHub Actions ?          | à faire      |
 
 ---
 
