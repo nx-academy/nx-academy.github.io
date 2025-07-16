@@ -23,7 +23,7 @@ Possibilité d’ajouter un article de blog libre (ex. IA, dev, coulisses) selon
 | Juillet   | Comment optimiser son image Docker ?                      | **DONE** |
 | Août      | Comment faire un multi stagging ?                         | **DONE** |
 | Septembre | Quand et comment déclencher un workflow GitHub Actions ?  | **DONE** |
-| Octobre   | Qu'est-ce qu'un artefact dans GitHub Actions ?            | à faire  |
+| Octobre   | Qu'est-ce qu'un artefact dans GitHub Actions ?            | **DONE**  |
 | Novembre  | Comment déployer une image Docker depuis GitHub Actions ? | à faire  |
 | Décembre  | Comment optimiser vos workflows GitHub Actions ?          | à faire  |
 

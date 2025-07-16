@@ -2,7 +2,10 @@
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: Qu'est-ce qu'un artefact GitHub Actions ?
-description:
+description: Découvrez à quoi sert un artefact GitHub Actions, comment en créer un avec l'action upload-artifact et quand l'utiliser dans un workflow CI/CD pour stocker vos fichiers, builds ou rapports de test.
+
+imgAlt: Des colis posés sur une étagère, pixel art
+imgSrc: /images/cheatsheets/colis-etagere.webp
 
 author: Thomas
 kind: Fiche technique
@@ -13,6 +16,8 @@ publishedDate: 10/03/2025
 <article>
 
 # Qu'est-ce qu'un artefact GitHub Actions ?
+
+![Des colis posés sur une étagère, pixel art](/images/cheatsheets/colis-etagere.webp)
 
 Ça y est, [le cours sur les pipelines CI/CD avec les GitHub Actions](/cours/ci-cd-github-actions/) est officiellement disponible sur NX ! À cette occasion, on va revenir sur un concept essentiel : les artefacts (ou _artifacts_ en anglais).
 
@@ -254,6 +259,7 @@ Codez bien !
 
 - [Store and share data with workflow artifacts](https://docs.github.com/en/actions/tutorials/store-and-share-data)
 - [GitHub Actions Deep Dive - aCloudGuru](https://www.pluralsight.com/courses/github-actions-deep-dive)
-
+- [Share artifacts between workflows / Github Actions - stackOverflow](https://stackoverflow.com/questions/60355925/share-artifacts-between-workflows-github-actions)
+- [How to Download GitHub Actions Artifacts - geeksForGeeks](https://www.geeksforgeeks.org/devops/download-github-actions-artifacts/)
 
 </article>
