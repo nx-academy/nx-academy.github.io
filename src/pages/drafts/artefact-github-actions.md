@@ -85,50 +85,119 @@ Plutôt pas mal, non ?
 
 ## Bonnes pratiques et pièges à éviter
 
-- Quand utiliser un artefact vs quand ne pas en utiliser un 
-- Ne pas abuser des artefacts pour stocker tout un projet
-- Éviter les fichiers trop volumineux (GitHub impose des quotas)
-- Bien nommer ses artefacts (ex : build-${{ github.sha }})
-- Ne pas confondre artefact temporaire (téléchargeable) et cache partagé (ex : node_modules)
+De manière générale, les artefacts sont des outils bien pratiques. Cela dit, il y a quelques bonnes pratiques à respecter histoire que tout se passe bien.
+
+**Mon conseil : n'abusez pas des artefacts pour stocker tout et n'importe quoi**. Dans le repo Astro de NX, par exemple, je ne stocke que le site dans sa version buildée, soit le dossier ``z``. Je n’ai pas besoin de tout garder :
+
+- le dossier `raw/` contient des images assez lourdes ;
+- le dossier `node_modules/` n’a aucun intérêt à être archivé dans un artefact.
+
+
+<br>
+
+Il est important de ne pas confondre artefact et cache :
+
+- un artefact est un fichier ou dossier téléchargeable, même une fois le job terminé. Il est pensé pour être consulté ou utilisé plus tard.
+- Un cache, lui, est réutilisé automatiquement dans les jobs ou workflows suivants. Il sert surtout à accélérer l’exécution, comme pour éviter de réinstaller les dépendances à chaque fois.
+
+<br>
+
+
+Sachez qu'il est possible, et même recommander ^^, de bien nommer, le nom de vos artefacts. Par exemple :
+
+```yml
+name: build-${{ github.sha }}
+```
+
+Cette ligne vous permet d’identifier clairement à quel commit correspond chaque artefact. Très utile quand on veut s’y retrouver dans l’historique.
+
+---
+
+Globalement, si vous suivez ces quelques règles, tout devrait bien se passer. Allé, on passe maintenant à quelques exemples.
 
 
 ## Exemple concret - Build d'un projet front
 
-Un job qui :
-- installe les dépendances (npm ci)
-- génère un dossier dist avec npm run build
-- utilise actions/upload-artifact pour uploader dist
+On va commencer avec un premier exemple complet. Admettons que vous souhaitiez déployer une application React et que vous souhaitez générer un build de production, histoire de l'archiver pour un déploiement ultérieur.
+
+Ici, on va créer un job GitHub Actions qui :
+- installe les dépendances ;
+- lance la commande `npm run build` pour générer le dossier `dist/` ;
+- uploade ce dossier comme artefact.
+
+<br>
+
+Voici le job complet :
 
 ```yml
-- name: Build frontend
-  run: npm run build
+jobs:
+  build-frontend:
+    runs-on: ubuntu-latest
 
-- name: Upload dist as artifact
-  uses: actions/upload-artifact@v4
-  with:
-    name: frontend-build
-    path: dist/
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build app
+        run: npm run build
+
+      - name: Upload build as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-build
+          path: build/
 ```
+
 
 ## Exemple concret - Génération d'un rapport de test
 
-Un job qui :
-- exécute des tests avec couverture
-- archive le fichier coverage/index.html ou l’ensemble du dossier coverage
+Autre cas d’usage courant : générer un rapport de couverture de test dans le but de le rendre disponible en tant qu’artefact.
+
+Ce genre de cas est particulièrement utile quand vous souhaitez :
+- vérifier la couverture après chaque push ;
+- conserver une trace de l’évolution de la qualité de vos tests ;
+- ou partager facilement le rapport avec un membre de l’équipe.
+
+<br>
+
+Voici un exemple de job complet :
 
 ```yml
-- name: Run tests
-  run: npm test -- --coverage
+jobs:
+  test-and-report:
+    runs-on: ubuntu-latest
 
-- name: Upload coverage report
-  uses: actions/upload-artifact@v4
-  with:
-    name: coverage-report
-    path: coverage/
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests with coverage
+        run: npm test -- --coverage
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/
 ```
 
-Ces rapports sont ensuite téléchargeables depuis l’interface GitHub.
+ Une fois le job terminé, le rapport sera disponible dans l’interface GitHub _sous l’onglet Summary_ du workflow dans la section _Artifacts_.
 
 ## Bonus - Limiter la durée de rétention d'un artefact
 
