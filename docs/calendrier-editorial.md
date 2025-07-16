@@ -55,9 +55,12 @@
 | Mois      | Objectif                                                                | Status        |
 | --------- | ----------------------------------------------------------------------- | ------------- |
 | Août      | Astro, un sacré (bon) framework front                                   | à faire       |
+| Août      | Annonce : cours Docker et Docker compose                                | à faire       |
 | Septembre | Comment bien utiliser les projets OpenAI ?                              | à faire       |
+| Septembre | Annonce : cours CI/CD                                                   | à faire       |
 | Octobre   | L'IA va-t-elle tuer Internet ?                                          | à faire       |
 | Novembre  | Quelle est la différence entre la pédagogie et la didactique ?          | à faire       |
+| Décembre  | Annonce : cours mise en production                                      | à faire       |
 | Décembre  | Internet n'a jamais été aussi fermé                                     | à faire       |
 
 <br>
@@ -77,22 +80,23 @@
 - Pourquoi le travail d'informaticien est en train de redevenir passionant ?
 - Personne n'aime l'eau tiède
 
+<br>
 
-<!-- ## Misc (idées d'articles, de cours, de fiches techniques)
+## Le Recap
 
-- Commencer à réfléchir aux articles dédiés au mathématiques pour introduction la data science et le ML.
-  - Mathématiques essentielles pour comprendre l’IA
-  - Visualiser les vecteurs, matrices, fonctions
-  - Pourquoi l’algèbre linéaire est (vraiment) utile ?
+| Mois      | Objectif                                              | status      |
+| --------- | ----------------------------------------------------- | ----------- |
+| Avril     | Recap                                                 | **DONE**    |
+| Mai       | Recap                                                 | **DONE**    |
+| Juin      | Recap + relai cours Docker                            | **DONE**    |
+| Juillet   | Recap                                                 | _en cours_  |
+| Août      | Recap + teaser cours CI/CD                            | à faire     |
+| Septembre | Recap + relai cours CI/CD                             | à faire     |
+| Octobre   | Recap                                                 | à faire     |
+| Novembre  | Recap + teaser cours mise en prod                     | à faire     |
+| Décembre      | Recap + relai cours mis en prod                   | à faire     |
 
 
-## Recap mensuel – Veille technique
+## Le menu
 
-| Mois    | Objectif                                      |
-| ------- | --------------------------------------------- |
-| Mai     | Recap                                         |
-| Juin    | Recap + relai du cours Docker s’il est public |
-| Juillet | Recap                                         |
-| Août    | Recap + teaser du cours CI/CD à venir         |
-
---- -->
+## Le Gif du mois
