@@ -87,7 +87,7 @@ Plutôt pas mal, non ?
 
 De manière générale, les artefacts sont des outils bien pratiques. Cela dit, il y a quelques bonnes pratiques à respecter histoire que tout se passe bien.
 
-**Mon conseil : n'abusez pas des artefacts pour stocker tout et n'importe quoi**. Dans le repo Astro de NX, par exemple, je ne stocke que le site dans sa version buildée, soit le dossier ``z``. Je n’ai pas besoin de tout garder :
+**Mon conseil : n'abusez pas des artefacts pour stocker tout et n'importe quoi**. Dans le repo Astro de NX, par exemple, je ne stocke que le site dans sa version buildée, soit le dossier `dist/`. Je n’ai pas besoin de tout garder :
 
 - le dossier `raw/` contient des images assez lourdes ;
 - le dossier `node_modules/` n’a aucun intérêt à être archivé dans un artefact.
@@ -199,9 +199,12 @@ jobs:
 
  Une fois le job terminé, le rapport sera disponible dans l’interface GitHub _sous l’onglet Summary_ du workflow dans la section _Artifacts_.
 
+
 ## Bonus - Limiter la durée de rétention d'un artefact
 
-GitHub permet de spécifier une durée personnalisée de rétention en jours :
+Par défaut, GitHub conserve vos artefacts pendant 90 jours. C’est pratique pour garder une trace mais, en pratique, ce n'est pas toujours nécessaire. Surtout sur des projets persos ou des artefacts temporaires.
+
+Sachez qu'il est possible de personnaliser cette durée avec le paramètre `retention-days` :
 
 ```yml
 with:
@@ -210,9 +213,21 @@ with:
   retention-days: 3
 ```
 
-Tu peux indiquer que par défaut, la rétention est de 90 jours, mais qu’il est recommandé de la baisser pour les fichiers non critiques (ex : artefacts temporaires d’un projet perso).
+Dans cet exemple, l’artefact sera supprimé automatiquement **au bout de 3 jours**.
 
-Peut-être préciser à quoi sert la rétention ? Pourquoi voulons-nous garder un artefact aussi longtemps ? Impact sur les coûts ?
+<br>
+
+Si vous vous demandez pourquoi il peut être intéressant de raccourir la durée de vie d'un artefact, sachez qu'on s'en sert principalement pour :
+
+- pour éviter de saturer votre quota de stockage ;
+- pour ne pas garder de fichiers inutiles à long terme (ex. : builds intermédiaires, rapports éphémères) ;
+- pour limiter les coûts sur des projets très actifs.
+
+
+<br>
+
+Pour être honnête, je m'en sers assez peu sur NX, parce que je ne dépasse pas les cotas même quand je suis très actif dessus. Mais c'est quelque chose de bon à savoir.
+
 
 ## Conclusion
 
