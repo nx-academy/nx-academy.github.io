@@ -10,6 +10,8 @@
 - Un article bonus (si envie et temps)
 
 
+
+
 ## Cours prévus
 
 | Mois      | Cours                                                 | status      |
@@ -19,11 +21,13 @@
 | Décembre  | Mettez vos applications en production                 | à faire     |
 | TBD       | Monitorez vos applications avec Datadog               | à faire     |
 
-<br>
+
 
 **Idées de cours complémentaires** :
 
 - Développez des applications IA (Python + GPT)
+
+
 
 
 ## Fiches techniques prévues
@@ -39,7 +43,7 @@
 | Novembre  | Comment déployer une image Docker depuis GitHub Actions ? | **en cours** |
 | Décembre  | Comment optimiser vos workflows GitHub Actions ?          | à faire      |
 
-<br>
+
 
 **Idées de fiches techniques complémentaires** :
 
@@ -48,6 +52,8 @@
 - GitHub Actions versus Jenkins
 - Docker verus Podman
 - Migrer de Docker (Swarm) vers Kube
+
+
 
 
 ## Articles prévus
@@ -63,7 +69,7 @@
 | Décembre  | Annonce : cours mise en production                                      | à faire       |
 | Décembre  | Internet n'a jamais été aussi fermé                                     | à faire       |
 
-<br>
+
 
 **Les articles BONUS** :
 
@@ -72,7 +78,7 @@
 - Les coulisses de NX : comment fonctionne mon système de news automatisé ?
 - Les coulisses de NX : pourquoi est-ce que je n'aime pas parler de moi ?
 
-<br>
+
 
 **Idées d'articles complémentaires** :
 
@@ -80,7 +86,8 @@
 - Pourquoi le travail d'informaticien est en train de redevenir passionant ?
 - Personne n'aime l'eau tiède
 
-<br>
+
+
 
 ## Le Recap
 
@@ -94,9 +101,74 @@
 | Septembre | Recap + relai cours CI/CD                             | à faire     |
 | Octobre   | Recap                                                 | à faire     |
 | Novembre  | Recap + teaser cours mise en prod                     | à faire     |
-| Décembre      | Recap + relai cours mis en prod                   | à faire     |
+| Décembre  | Recap + relai cours mis en prod                       | à faire     |
 
 
-## Le menu
 
-## Le Gif du mois
+## Le menu - format LinkedIn
+
+**A faire avant** : template à designer sur Canvas
+
+
+
+### Septembre
+
+| Type de contenu | Titre                                                   | Date de publication |
+| --------------- | ------------------------------------------------------- | ------------------- |
+| Fiche technique | Quand et comment déclencer un workflow GitHub Actions ? |                     |
+| Article         | Comment bien utiliser les projets OpenAI ?              |                     |
+| Relai de cours  | Maitrisez les pipelines CI/CD avec les GitHub Actions ? |                     |
+| Gif du mois     | C'est la rentrée !                                      |                     |
+| Le Recap        | Le Recap #6 - Septembre 2026                            |                     |
+
+
+
+### Octobre
+
+| Type de contenu | Titre                                                   | Date de publication |
+| --------------- | ------------------------------------------------------- | ------------------- |
+| Fiche technique | Quand et comment déclencer un workflow GitHub Actions ? |                     |
+| Article         | Comment bien utiliser les projets OpenAI ?              |                     |
+| Relai de cours  | Maitrisez les pipelines CI/CD avec les GitHub Actions ? |                     |
+| Gif du mois     | C'est la rentrée !                                      |                     |
+| Le Recap        | Le Recap #7 - Octobre 2026                              |                     |
+
+
+
+### Novembre
+
+| Type de contenu | Titre                                                   | Date de publication |
+| --------------- | ------------------------------------------------------- | ------------------- |
+| Fiche technique | Quand et comment déclencer un workflow GitHub Actions ? |                     |
+| Article         | Comment bien utiliser les projets OpenAI ?              |                     |
+| Relai de cours  | Maitrisez les pipelines CI/CD avec les GitHub Actions ? |                     |
+| Gif du mois     | C'est la rentrée !                                      |                     |
+| Le Recap        | Le Recap #8 - Novembre 2026                             |                     |
+
+
+
+### Décembre
+
+| Type de contenu | Titre                                                   | Date de publication |
+| --------------- | ------------------------------------------------------- | ------------------- |
+| Fiche technique | Quand et comment déclencer un workflow GitHub Actions ? |                     |
+| Article         | Comment bien utiliser les projets OpenAI ?              |                     |
+| Relai de cours  | Maitrisez les pipelines CI/CD avec les GitHub Actions ? |                     |
+| Gif du mois     | C'est la rentrée !                                      |                     |
+| Le Recap        | Le Recap #9 - Décembre 2026                             |                     |
+
+
+
+
+
+
+## Le Gif du mois - format LinkedIn
+
+| Mois      | Thème                       | Status     |
+| --------- | --------------------------- | ---------- |
+| Août      | C'est les vacances !        | **Généré** |
+| Septembre | C'est la rentrée !          | à faire    |
+| Octobre   | Halloween ?                 | à faire    |
+| Novembre  | Il neige (ou il fait froid) | à faire    |
+| Décembre  | C'est Nöel                  | à faire    |
+
