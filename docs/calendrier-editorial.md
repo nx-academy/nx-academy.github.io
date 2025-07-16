@@ -1,16 +1,25 @@
 # Calendrier éditorial NX Academy – Avril à Décembre 2025
 
-Rythme prévu : **1 fiche technique + 1 recap mensuel + 1 article**
-Possibilité d’ajouter un article de blog libre (ex. IA, dev, coulisses) selon dispo.
+<!-- Rythme prévu : **1 fiche technique + 1 recap mensuel + 1 article**
+Possibilité d’ajouter un article de blog libre (ex. IA, dev, coulisses) selon dispo. -->
+
+**Rythme mensuel** :
+- Une fiche technique
+- Un recap de veille tech
+- Un article de blog (coulisses, pédagogie, IA, etc.)
+- Un menu NX du mois ; chaque premier lundi du mois, LinkedIn perso
+- Un gif du mois
+- Un article bonus (si envie et temps)
+
 
 ## Cours prévus
 
-| Mois      | Cours                                                 |
-| --------- | ----------------------------------------------------- |
-| Juin      | Conteneurisez vos applications avec Docker            |
-| Septembre | Maîtrisez les pipelines CI/CD avec les GitHub Actions |
-| Décembre  | Mettez vos applications en production                 |
-| TBD       | Monitorez vos applications avec Datadog               |
+| Mois      | Cours                                                 | status      |
+| --------- | ----------------------------------------------------- | ----------- |
+| Juin      | Conteneurisez vos applications avec Docker            | **DONE**    |
+| Septembre | Maîtrisez les pipelines CI/CD avec les GitHub Actions | _en cours_  |
+| Décembre  | Mettez vos applications en production                 | à faire     |
+| TBD       | Monitorez vos applications avec Datadog               | à faire     |
 
 ---
 
@@ -27,9 +36,9 @@ Possibilité d’ajouter un article de blog libre (ex. IA, dev, coulisses) selon
 | Novembre  | Comment déployer une image Docker depuis GitHub Actions ? | **en cours** |
 | Décembre  | Comment optimiser vos workflows GitHub Actions ?          | à faire      |
 
----
+<br>
 
-**Idées de fiches techniques** :
+**Idées de fiches techniques complémentaires** :
 
 - GitHub Actions versus GitLab CI
 - GitHub Actions versus Travis CI
