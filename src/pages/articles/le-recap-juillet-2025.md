@@ -103,5 +103,3 @@ _Spoiler : oui, votre clavier peut améliorer votre posture… ou juste vous ren
 ---
 
 Bonne lecture, bonnes vacances et on se retrouve **au mois d'août** !
-
-
