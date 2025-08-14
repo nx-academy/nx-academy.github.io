@@ -1,0 +1,41 @@
+---
+interface Props {
+    content: string
+    date: string
+    title: string
+}
+
+import ParagraphSmall from "../components/ParagraphSmall.astro"
+import ParagraphExtraSmall from "../components/ParagraphExtraSmall.astro"
+import ParagraphLarge from "../components/ParagraphLarge.astro"
+
+const {
+    content,
+    date,
+    title
+} = Astro.props
+---
+
+<li class="wrapper">
+    <a href="#">
+        <ParagraphLarge content={title} />
+        <ParagraphSmall content={content} />
+        <ParagraphExtraSmall content={date} />
+    </a>
+</li>
+
+<style>
+    .wrapper a {
+        display: flex;
+        flex-direction: column;
+        gap: .5rem;
+
+        p:nth-of-type(1) {
+            font-weight: 700;
+        }
+
+        p:nth-of-type(2) {
+            font-weight: 400;
+        }
+    }
+</style>

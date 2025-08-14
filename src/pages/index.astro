@@ -8,6 +8,7 @@ import Hero from "../components/Hero.astro";
 import Card from "../components/Card.astro";
 import Heading2 from "../components/Heading2.astro";
 import Heading3 from "../components/Heading3.astro";
+import NewsCard from "../components/News.astro"
 
 type Article = {
   frontmatter: {
@@ -88,12 +89,7 @@ const heroContent = content.filter(
         <Heading3 content="Le Feed" />
         <ul class="news-feed">
           {
-            NEWS.map(news => (
-              <li class="news">
-                <p class="news-content">{news.content}</p>
-                <p class="news-date">Le {news.date}</p>
-              </li>
-            ))
+            NEWS.map(news => <NewsCard content={news.content} date={news.date} title={news.title} />)
           }
         </ul>
       </section>
@@ -162,5 +158,8 @@ const heroContent = content.filter(
   .feed-section ul {
     padding-left: 0;
     list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
 </style>
