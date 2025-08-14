@@ -1,5 +1,5 @@
 ---
-import { NEWS } from "../data/news"
+import { NEWS } from "../data/news";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -8,7 +8,7 @@ import Hero from "../components/Hero.astro";
 import Card from "../components/Card.astro";
 import Heading2 from "../components/Heading2.astro";
 import Heading3 from "../components/Heading3.astro";
-import NewsCard from "../components/News.astro"
+import NewsCard from "../components/News.astro";
 
 type Article = {
   frontmatter: {
@@ -69,6 +69,7 @@ const heroContent = content.filter(
                   new Date(item2.frontmatter.publishedDate).getTime() -
                   new Date(item1.frontmatter.publishedDate).getTime(),
               )
+              .slice(0, 8)
               .map((c) => (
                 <Card
                   kind={c.frontmatter.kind}
@@ -89,7 +90,13 @@ const heroContent = content.filter(
         <Heading3 content="Le Feed" />
         <ul class="news-feed">
           {
-            NEWS.map(news => <NewsCard content={news.content} date={news.date} title={news.title} />)
+            NEWS.map((news) => (
+              <NewsCard
+                content={news.content}
+                date={news.date}
+                title={news.title}
+              />
+            ))
           }
         </ul>
       </section>
@@ -110,12 +117,14 @@ const heroContent = content.filter(
 
     @media screen and (min-width: 48rem) {
       padding-top: 3rem;
+      display: grid;
+      gap: 24px;
+      grid-template-columns: 65% 35%;
     }
 
     @media screen and (min-width: 90rem) {
-      display: grid;
-      grid-template-columns: 65% 35%;
       gap: 28px;
+      grid-template-columns: 65% 35%;
     }
   }
 
@@ -131,10 +140,14 @@ const heroContent = content.filter(
 
   .cards-wrapper {
     display: grid;
-    gap: 2.5rem;
+    gap: 2rem;
 
     @media screen and (min-width: 48rem) {
       grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+    }
+
+    @media screen and (min-width: 90rem) {
       gap: 5rem;
     }
   }
