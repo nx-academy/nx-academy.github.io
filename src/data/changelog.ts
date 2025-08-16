@@ -8,6 +8,16 @@ type LogTasks = {
   tasks: Task[];
 };
 
+const augustTasks: LogTasks = {
+  month: "Août",
+  tasks: [
+    {
+      kind: "fix",
+      content: "Quelques mises à jour de dépendences, dont Astro",
+    },
+  ],
+};
+
 const julyTasks: LogTasks = {
   month: "Juillet",
   tasks: [
@@ -300,4 +310,10 @@ const aprilTasks: LogTasks = {
   ],
 };
 
-export const ALL_MONTHS = [julyTasks, juneTasks, mayTaks, aprilTasks];
+export const ALL_MONTHS = [
+  augustTasks,
+  julyTasks,
+  juneTasks,
+  mayTaks,
+  aprilTasks,
+];
