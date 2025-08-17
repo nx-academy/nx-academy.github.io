@@ -12,16 +12,14 @@ import ParagraphLarge from "../components/ParagraphLarge.astro";
 const { content, date, title } = Astro.props;
 ---
 
-<li class="wrapper">
-  <a href="#">
-    <ParagraphLarge content={title} />
-    <ParagraphSmall content={content} />
-    <ParagraphExtraSmall content={date} />
-  </a>
-</li>
+<a class="wrapper" href="#">
+  <ParagraphLarge content={title} />
+  <ParagraphSmall content={content} />
+  <ParagraphExtraSmall content={date} />
+</a>
 
 <style>
-  .wrapper a {
+  .wrapper {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;

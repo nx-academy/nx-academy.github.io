@@ -47,22 +47,4 @@ export const NEWS: News[] = [
       "La bêta de Next.js 15 introduit un système de routing repensé, des optimisations ISR et un nouveau moteur d’images.",
     date: "08/09/2025",
   },
-  {
-    title: "Bun 1.3 gagne en stabilité",
-    content:
-      "Bun 1.3 corrige plusieurs bugs critiques, améliore la compatibilité avec npm et réduit les temps d’installation des dépendances.",
-    date: "08/08/2025",
-  },
-  {
-    title: "Tailwind CSS 4.0 annoncé",
-    content:
-      "La nouvelle version apporte un système de design tokens natif et une meilleure compatibilité avec les frameworks front modernes.",
-    date: "08/07/2025",
-  },
-  {
-    title: "Deno introduit le support natif d’Express",
-    content:
-      "Deno 2.4 permet désormais d’exécuter du code Express.js sans modification, facilitant la migration depuis Node.js.",
-    date: "08/06/2025",
-  },
 ];

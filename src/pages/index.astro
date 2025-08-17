@@ -91,11 +91,13 @@ const heroContent = content.filter(
         <ul class="news-feed">
           {
             NEWS.map((news) => (
-              <NewsCard
-                content={news.content}
-                date={news.date}
-                title={news.title}
-              />
+              <li>
+                <NewsCard
+                  content={news.content}
+                  date={news.date}
+                  title={news.title}
+                />
+              </li>
             ))
           }
         </ul>
@@ -114,11 +116,13 @@ const heroContent = content.filter(
 
   .content-wrapper {
     padding-top: 2.5rem;
+    display: flex;
+    flex-direction: column-reverse;
 
     @media screen and (min-width: 48rem) {
       padding-top: 3rem;
       display: grid;
-      gap: 24px;
+      gap: 32px;
       grid-template-columns: 2fr 1fr;
     }
 
@@ -152,8 +156,6 @@ const heroContent = content.filter(
   }
 
   .feed-section {
-    display: none;
-
     h3 {
       margin-bottom: 1.5rem;
 
@@ -161,17 +163,27 @@ const heroContent = content.filter(
         margin-bottom: 2rem;
       }
     }
-
-    @media screen and (min-width: 48rem) {
-      display: initial;
-    }
   }
 
   .feed-section ul {
     padding-left: 0;
     list-style-type: none;
     display: flex;
-    flex-direction: column;
-    gap: 24px;
+    overflow: scroll;
+    gap: 32px;
+
+    @media screen and (min-width: 48rem) {
+      gap: 36px;
+      overflow: unset;
+      flex-direction: column;
+    }
+  }
+
+  .feed-section li {
+    min-width: 80%;
+
+    @media screen and (min-width: 48rem) {
+      min-width: unset;
+    }
   }
 </style>
