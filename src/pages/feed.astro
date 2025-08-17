@@ -1,71 +1,85 @@
 ---
-import { NEWS } from "../data/news"
+import { NEWS } from "../data/news";
 
-import BaseLayout from "../layouts/BaseLayout.astro"
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-
 <BaseLayout>
-    <main class="main-wrapper">
-        <h1>Le Feed</h1>
-        <div class="feed-description">
-            <p>Un peu de blabla</p>
-        </div>
-        <section class="feed-wrapper">
-            {
-                NEWS.map(news => (
-                    <div id={news.id} class="news-wrapper">
-                        <p class="news-title">{news.title}</p>
-                        <p class="news-content">{news.content}</p>
-                        <p class="news-date">{news.date}</p>
-                        <a href={news.url}>Lire la source</a>
-                    </div>
-                ))
-            }
-        </section>
-    </main>
+  <main class="main-wrapper">
+    <h1>Le Feed</h1>
+    <div class="feed-description">
+      <p>Un peu de blabla</p>
+    </div>
+    <section class="feed-wrapper">
+      {
+        NEWS.map((news) => (
+          <div id={news.id} class="news-wrapper">
+            <p class="news-title">{news.title}</p>
+            <p class="news-content">{news.content}</p>
+            <p class="news-date">{news.date}</p>
+            <a class="news-url" href={news.url}>
+              Lire la source
+            </a>
+          </div>
+        ))
+      }
+    </section>
+  </main>
 </BaseLayout>
 
 <style>
-    .main-wrapper {
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 1100px;
-        max-inline-size: 66ch;
-    }
+  .main-wrapper {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1100px;
+    max-inline-size: 66ch;
+  }
 
-    h1 {
-        margin-top: 0;
-    }
+  h1 {
+    margin-top: 0;
+    color: var(--titleColor);
+  }
 
-    .feed-description {
-        margin-bottom: 32px;
-    }
+  .feed-description {
+    margin-bottom: 32px;
+  }
 
-    .feed-wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-    }
+  .feed-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
 
-    .news-wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
+  .news-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--textColor);
+  }
 
-    .news-title {
-        font-size: 20px;
-        font-weight: 600;
-    }
+  .news-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--titleColor);
+  }
 
-    .news-content {
-        font-size: 16px;
-    }
+  .news-content {
+    font-size: 16px;
+  }
 
-    .news-date {
-        font-size: 12px;
-        font-weight: 700;
+  .news-date {
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .news-url {
+    color: var(--articleLinkColor);
+    text-decoration: none;
+    transition: 0.4s;
+
+    &:hover {
+      color: var(--articleLinkHoverColor);
     }
+  }
 </style>
