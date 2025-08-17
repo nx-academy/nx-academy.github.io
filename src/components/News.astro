@@ -1,5 +1,6 @@
 ---
 interface Props {
+  id: string;
   content: string;
   date: string;
   title: string;
@@ -9,10 +10,10 @@ import ParagraphSmall from "../components/ParagraphSmall.astro";
 import ParagraphExtraSmall from "../components/ParagraphExtraSmall.astro";
 import ParagraphLarge from "../components/ParagraphLarge.astro";
 
-const { content, date, title } = Astro.props;
+const { id, content, date, title } = Astro.props;
 ---
 
-<a class="wrapper" href="#">
+<a class="wrapper" href={`/feed#${id}`}>
   <ParagraphLarge content={title} />
   <ParagraphSmall content={content} />
   <ParagraphExtraSmall content={date} />

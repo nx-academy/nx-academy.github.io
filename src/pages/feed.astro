@@ -14,11 +14,11 @@ import BaseLayout from "../layouts/BaseLayout.astro"
         <section class="feed-wrapper">
             {
                 NEWS.map(news => (
-                    <div class="news-wrapper">
+                    <div id={news.id} class="news-wrapper">
                         <p class="news-title">{news.title}</p>
                         <p class="news-content">{news.content}</p>
                         <p class="news-date">{news.date}</p>
-                        <a href="#">Lire la source</a>
+                        <a href={news.url}>Lire la source</a>
                     </div>
                 ))
             }
