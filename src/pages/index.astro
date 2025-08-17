@@ -1,9 +1,14 @@
 ---
+import { NEWS } from "../data/news";
+
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 import Banner from "../components/Banner.astro";
 import Hero from "../components/Hero.astro";
 import Card from "../components/Card.astro";
+import Heading2 from "../components/Heading2.astro";
+import Heading3 from "../components/Heading3.astro";
+import NewsCard from "../components/News.astro";
 
 type Article = {
   frontmatter: {
@@ -49,32 +54,55 @@ const heroContent = content.filter(
       publishedDate={heroContent.frontmatter.publishedDate}
     />
     <Banner />
-    <section class="cards-wrapper">
-      {
-        content
-          .filter(
-            (c) =>
-              !c.frontmatter.draft && c.frontmatter.title !== heroContentTitle,
-          )
-          .sort(
-            (item1, item2) =>
-              new Date(item2.frontmatter.publishedDate).getTime() -
-              new Date(item1.frontmatter.publishedDate).getTime(),
-          )
-          .map((c) => (
-            <Card
-              kind={c.frontmatter.kind}
-              href={c.url!}
-              title={c.frontmatter.title}
-              description={c.frontmatter.description}
-              level={c.frontmatter.level}
-              imgAlt={c.frontmatter.imgAlt}
-              imgSrc={c.frontmatter.imgSrc}
-              author={c.frontmatter.author}
-              publishedDate={c.frontmatter.publishedDate}
-            />
-          ))
-      }
+    <section class="content-wrapper">
+      <section class="cards-section">
+        <Heading2 content="Nos derniers articles" />
+        <div class="cards-wrapper">
+          {
+            content
+              .filter(
+                (c) =>
+                  !c.frontmatter.draft &&
+                  c.frontmatter.title !== heroContentTitle,
+              )
+              .sort(
+                (item1, item2) =>
+                  new Date(item2.frontmatter.publishedDate).getTime() -
+                  new Date(item1.frontmatter.publishedDate).getTime(),
+              )
+              .slice(0, 8)
+              .map((c) => (
+                <Card
+                  kind={c.frontmatter.kind}
+                  href={c.url!}
+                  title={c.frontmatter.title}
+                  description={c.frontmatter.description}
+                  level={c.frontmatter.level}
+                  imgAlt={c.frontmatter.imgAlt}
+                  imgSrc={c.frontmatter.imgSrc}
+                  author={c.frontmatter.author}
+                  publishedDate={c.frontmatter.publishedDate}
+                />
+              ))
+          }
+        </div>
+      </section>
+      <section class="feed-section">
+        <Heading3 content="Le Feed" />
+        <ul class="news-feed">
+          {
+            NEWS.map((news) => (
+              <li>
+                <NewsCard
+                  content={news.content}
+                  date={news.date}
+                  title={news.title}
+                />
+              </li>
+            ))
+          }
+        </ul>
+      </section>
     </section>
   </main>
 </BaseLayout>
@@ -87,20 +115,76 @@ const heroContent = content.filter(
     width: 90%;
   }
 
-  .cards-wrapper {
-    display: grid;
-    gap: 2.5rem;
-    margin-top: 2.5rem;
+  .content-wrapper {
+    padding-top: 2.5rem;
+    display: flex;
+    flex-direction: column-reverse;
 
     @media screen and (min-width: 48rem) {
-      margin-top: 3rem;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 5rem;
+      padding-top: 3rem;
+      display: grid;
+      gap: 32px;
+      grid-template-columns: 2fr 1fr;
     }
 
     @media screen and (min-width: 90rem) {
-      margin-top: 3rem;
-      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+  }
+
+  .cards-section {
+    h2 {
+      margin-bottom: 1.5rem;
+
+      @media screen and (min-width: 48rem) {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  .cards-wrapper {
+    display: grid;
+    gap: 2rem;
+
+    @media screen and (min-width: 48rem) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+    }
+
+    @media screen and (min-width: 90rem) {
+      gap: 5rem;
+    }
+  }
+
+  .feed-section {
+    h3 {
+      margin-bottom: 1.5rem;
+
+      @media screen and (min-width: 90rem) {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+
+  .feed-section ul {
+    padding-left: 0;
+    list-style-type: none;
+    display: flex;
+    overflow: scroll;
+    gap: 32px;
+
+    @media screen and (min-width: 48rem) {
+      gap: 36px;
+      overflow: unset;
+      flex-direction: column;
+    }
+  }
+
+  .feed-section li {
+    min-width: 80%;
+
+    @media screen and (min-width: 48rem) {
+      min-width: unset;
     }
   }
 </style>
