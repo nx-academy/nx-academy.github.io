@@ -87,12 +87,18 @@ const heroContent = content.filter(
         </div>
       </section>
       <section class="feed-section">
-        <Heading3 content="Le Feed" />
+        <a class="feed-link" href="/feed">
+          <Heading3 content="Le Feed" />
+          <svg class="chevron-icon" viewBox="0 0 24 24">
+            <use xlink:href="#arrow-icon"></use>
+          </svg>
+        </a>
         <ul class="news-feed">
           {
             NEWS.map((news) => (
               <li>
                 <NewsCard
+                  id={news.id}
                   content={news.content}
                   date={news.date}
                   title={news.title}
@@ -155,14 +161,22 @@ const heroContent = content.filter(
     }
   }
 
-  .feed-section {
-    h3 {
-      margin-bottom: 1.5rem;
+  .feed-link {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap: 4px;
 
-      @media screen and (min-width: 90rem) {
-        margin-bottom: 2rem;
-      }
+    @media screen and (min-width: 90rem) {
+      margin-bottom: 2rem;
     }
+  }
+
+  .feed-link .chevron-icon {
+    height: 32px;
+    width: 32px;
+    fill: none;
+    stroke: var(--linkColor);
   }
 
   .feed-section ul {
