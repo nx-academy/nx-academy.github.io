@@ -1,5 +1,5 @@
 ---
-import { db, NewsFeed, desc } from "astro:db"
+import { db, NewsFeed, desc } from "astro:db";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -39,10 +39,11 @@ const heroContent = content.filter(
   (c) => c.frontmatter.title === heroContentTitle,
 )[0];
 
-const newsFeed = await db.select()
+const newsFeed = await db
+  .select()
   .from(NewsFeed)
   .orderBy(desc(NewsFeed.id))
-  .limit(8)
+  .limit(8);
 ---
 
 <BaseLayout>
@@ -100,7 +101,7 @@ const newsFeed = await db.select()
         </a>
         <ul class="news-feed">
           {
-            newsFeed.map(news => (
+            newsFeed.map((news) => (
               <li>
                 <NewsCard
                   content={news.content}

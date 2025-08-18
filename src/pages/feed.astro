@@ -1,11 +1,9 @@
 ---
-import { db, NewsFeed, desc } from "astro:db"
+import { db, NewsFeed, desc } from "astro:db";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const newsFeed = await db.select()
-  .from(NewsFeed)
-  .orderBy(desc(NewsFeed.id))
+const newsFeed = await db.select().from(NewsFeed).orderBy(desc(NewsFeed.id));
 ---
 
 <BaseLayout>
@@ -16,11 +14,13 @@ const newsFeed = await db.select()
     </div>
     <section class="feed-wrapper">
       {
-        newsFeed.map(news => (
+        newsFeed.map((news) => (
           <div id={news.slug} class="news-wrapper">
             <p class="news-title">{news.title}</p>
             <p class="news-content">{news.content}</p>
-            <p class="news-date">{news.published.toLocaleDateString("FR-fr")}</p>
+            <p class="news-date">
+              {news.published.toLocaleDateString("FR-fr")}
+            </p>
             <a class="news-url" href={news.url}>
               Lire la source
             </a>
