@@ -1,0 +1,114 @@
+{
+    "data": [
+        {
+            "question": "Qu'est-ce qu'un artefact dans le contexte de GitHub Actions ?",
+            "options": [
+                "Un fichier ou dossier généré pendant un workflow que l'on souhaite conserver",
+                "Un outil de déploiement continu",
+                "Un type de test automatisé",
+                "Un plugin pour GitHub"
+            ],
+            "answer": "Un fichier ou dossier généré pendant un workflow que l'on souhaite conserver",
+            "explanation": "Les artefacts sont des fichiers ou dossiers produits lors d'un workflow que l'on souhaite conserver ou transférer."
+        },
+        {
+            "question": "Quelle action GitHub est généralement utilisée pour créer un artefact ?",
+            "options": [
+                "actions/upload-artifact",
+                "actions/deploy-artifact",
+                "actions/create-artifact",
+                "actions/store-artifact"
+            ],
+            "answer": "actions/upload-artifact",
+            "explanation": "L'action officielle pour créer un artefact est 'actions/upload-artifact'."
+        },
+        {
+            "question": "Dans l'exemple donné, quel dossier est mis de côté sous le nom 'build' ?",
+            "options": [
+                "dist/",
+                "node_modules/",
+                "src/",
+                "public/"
+            ],
+            "answer": "dist/",
+            "explanation": "Le dossier 'dist/' est mis de côté sous le nom 'build' dans l'exemple fourni."
+        },
+        {
+            "question": "Quelle est la différence principale entre un artefact et un cache dans GitHub Actions ?",
+            "options": [
+                "Un artefact est réutilisé automatiquement, tandis qu'un cache est téléchargé manuellement",
+                "Un artefact est téléchargé manuellement, tandis qu'un cache est réutilisé automatiquement",
+                "Un artefact est un type de test automatisé, tandis qu'un cache est un outil de déploiement",
+                "Il n'y a pas de différence significative"
+            ],
+            "answer": "Un artefact est téléchargé manuellement, tandis qu'un cache est réutilisé automatiquement",
+            "explanation": "Un artefact est téléchargé manuellement, tandis qu'un cache est réutilisé automatiquement dans les jobs ou workflows suivants."
+        },
+        {
+            "question": "Pourquoi est-il recommandé de bien nommer les artefacts dans GitHub Actions ?",
+            "options": [
+                "Pour faciliter leur identification et leur gestion",
+                "Pour améliorer la sécurité des workflows",
+                "Pour augmenter la vitesse d'exécution des jobs",
+                "Pour réduire la taille des fichiers générés"
+            ],
+            "answer": "Pour faciliter leur identification et leur gestion",
+            "explanation": "Bien nommer les artefacts permet de les identifier clairement et de faciliter leur gestion dans l'historique."
+        },
+        {
+            "question": "Dans l'exemple donné, quel est le nom de l'organisation ou de l'utilisateur dans l'URL 'ghcr.io/mon-orga/mon-image:1.0.0' ?",
+            "options": [
+                "ghcr.io",
+                "mon-orga",
+                "mon-image",
+                "1.0.0"
+            ],
+            "answer": "mon-orga",
+            "explanation": "Dans l'URL 'ghcr.io/mon-orga/mon-image:1.0.0', 'mon-orga' est le nom de l'organisation ou de l'utilisateur."
+        },
+        {
+            "question": "Quel est le rôle principal d'un artefact dans un workflow GitHub Actions ?",
+            "options": [
+                "Accélérer l'exécution des jobs",
+                "Conserver ou transférer un résultat généré par un job",
+                "Gérer les dépendances du projet",
+                "Déployer l'application en production"
+            ],
+            "answer": "Conserver ou transférer un résultat généré par un job",
+            "explanation": "Les artefacts servent à conserver ou transférer un résultat généré par un job, comme un dossier 'dist/' ou un rapport de test."
+        },
+        {
+            "question": "Quelle commande est utilisée pour construire une image Docker localement ?",
+            "options": [
+                "docker build",
+                "docker image build",
+                "docker create",
+                "docker run"
+            ],
+            "answer": "docker image build",
+            "explanation": "La commande 'docker image build' est utilisée pour construire une image Docker localement."
+        },
+        {
+            "question": "Dans l'exemple donné, quel est le nom de l'image Docker taguée ?",
+            "options": [
+                "ghcr.io",
+                "mon-orga",
+                "mon-image",
+                "1.0.0"
+            ],
+            "answer": "mon-image",
+            "explanation": "Dans l'URL 'ghcr.io/mon-orga/mon-image:1.0.0', 'mon-image' est le nom de l'image Docker taguée."
+        },
+        {
+            "question": "Quel est le rôle principal d'un cache dans un workflow GitHub Actions ?",
+            "options": [
+                "Accélérer l'exécution des jobs en réutilisant des fichiers ou dossiers",
+                "Conserver ou transférer un résultat généré par un job",
+                "Gérer les dépendances du projet",
+                "Déployer l'application en production"
+            ],
+            "answer": "Accélérer l'exécution des jobs en réutilisant des fichiers ou dossiers",
+            "explanation": "Un cache est réutilisé automatiquement dans les jobs ou workflows suivants pour accélérer l'exécution en réutilisant des fichiers ou dossiers."
+        }
+    ]
+}
