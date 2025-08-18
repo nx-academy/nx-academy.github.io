@@ -5,6 +5,8 @@ import react from "@astrojs/react";
 
 import sitemap from "@astrojs/sitemap";
 
+import db from "@astrojs/db";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://nx.academy",
@@ -16,5 +18,6 @@ export default defineConfig({
       priority: 0.7,
       lastmod: new Date(),
     }),
+    db(),
   ],
 });

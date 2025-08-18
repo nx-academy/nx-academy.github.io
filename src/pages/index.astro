@@ -1,5 +1,5 @@
 ---
-import { NEWS } from "../data/news";
+import { db, NewsFeed, desc } from "astro:db";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -39,6 +39,12 @@ const content = cheatsheets.concat(articles);
 const heroContent = content.filter(
   (c) => c.frontmatter.title === heroContentTitle,
 )[0];
+
+const newsFeed = await db
+  .select()
+  .from(NewsFeed)
+  .orderBy(desc(NewsFeed.id))
+  .limit(8);
 ---
 
 <BaseLayout>
@@ -96,12 +102,12 @@ const heroContent = content.filter(
         </a>
         <ul class="news-feed">
           {
-            NEWS.map((news) => (
+            newsFeed.map((news) => (
               <li>
                 <NewsCard
-                  id={news.id}
                   content={news.content}
-                  date={news.date}
+                  date={news.published}
+                  slug={news.slug}
                   title={news.title}
                 />
               </li>
