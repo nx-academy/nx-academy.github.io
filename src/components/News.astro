@@ -1,8 +1,8 @@
 ---
 interface Props {
-  id: string;
   content: string;
-  date: string;
+  date: Date;
+  slug: string;
   title: string;
 }
 
@@ -10,13 +10,13 @@ import ParagraphSmall from "../components/ParagraphSmall.astro";
 import ParagraphExtraSmall from "../components/ParagraphExtraSmall.astro";
 import ParagraphLarge from "../components/ParagraphLarge.astro";
 
-const { id, content, date, title } = Astro.props;
+const { content, date, slug, title } = Astro.props;
 ---
 
-<a class="wrapper" href={`/feed#${id}`}>
+<a class="wrapper" href={`/feed#${slug}`}>
   <ParagraphLarge content={title} />
   <ParagraphSmall content={content} />
-  <ParagraphExtraSmall content={date} />
+  <ParagraphExtraSmall content={date.toLocaleDateString("FR-fr")} />
 </a>
 
 <style>
