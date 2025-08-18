@@ -16,7 +16,7 @@ const { content, date, slug, title } = Astro.props;
 <a class="wrapper" href={`/feed#${slug}`}>
   <ParagraphLarge content={title} />
   <ParagraphSmall content={content} />
-  <ParagraphExtraSmall content="foo" />
+  <ParagraphExtraSmall content={date.toLocaleDateString("FR-fr")} />
 </a>
 
 <style>
