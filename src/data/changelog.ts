@@ -13,15 +13,15 @@ const augustTasks: LogTasks = {
   tasks: [
     {
       kind: "in-progress",
-      content: `Je suis en train de travailler sur l'API de NX. Pour l'instant, rien d'incroyable : je suis en train de travailler sur un compteur de vues. Je vais le brancher à ma DB Turso. Par contre, l'infra derrière est un peu cool : je passe <a href="https://vercel.com/docs/functions" target="_blank" rel="noopener noreferrer">par des fonctions serverless de chez Vercel</a>. Pour l'instant, le repo nx-api n'est pas open-source. Je communiquerais dessus une fois que j'ai un peu avancé.`
+      content: `Je suis en train de travailler sur l'API de NX. Pour l'instant, rien d'incroyable : je suis en train de travailler sur un compteur de vues. Je vais le brancher à ma DB Turso. Par contre, l'infra derrière est un peu cool : je passe <a href="https://vercel.com/docs/functions" target="_blank" rel="noopener noreferrer">par des fonctions serverless de chez Vercel</a>. Pour l'instant, le repo nx-api n'est pas open-source. Je communiquerais dessus une fois que j'ai un peu avancé.`,
     },
     {
       kind: "in-progress",
-      content: `Je suis en train d'ajouter la prochaine grosse fonctionnalité à NX : un feed d'actualités en partie généré via de l'IA. La partie front <a href="https://github.com/nx-academy/nx-academy.github.io/pull/210" target="_blank">est quasiment terminé</a>. J'ai ajouté une base de données SQL pour <a href="https://turso.tech/" target="_blank" rel="noopener noreferrer">les news via Turso</a>. Pour l'instant, je suis plutôt satisfait du résultat.`
+      content: `Je suis en train d'ajouter la prochaine grosse fonctionnalité à NX : un feed d'actualités en partie généré via de l'IA. La partie front <a href="https://github.com/nx-academy/nx-academy.github.io/pull/210" target="_blank">est quasiment terminé</a>. J'ai ajouté une base de données SQL pour <a href="https://turso.tech/" target="_blank" rel="noopener noreferrer">les news via Turso</a>. Pour l'instant, je suis plutôt satisfait du résultat.`,
     },
     {
       kind: "done",
-      content: `J'ai fini de refactoriser <a target="_blank" href="https://github.com/nx-academy/nx-ai">mon repo avec mes scripts de RAG</a>. J'ai viré Langchain et Chroma DB pour ne passer que par les API de GPT. Prochaine étape : ajouter des tests et écrire la doc`
+      content: `J'ai fini de refactoriser <a target="_blank" href="https://github.com/nx-academy/nx-ai">mon repo avec mes scripts de RAG</a>. J'ai viré Langchain et Chroma DB pour ne passer que par les API de GPT. Prochaine étape : ajouter des tests et écrire la doc`,
     },
     {
       kind: "fix",
