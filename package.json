@@ -6,11 +6,13 @@
     "astro": "astro",
     "build": "astro check && astro build",
     "check": "astro check",
+    "db:push-schema": "astro db push --remote",
     "dev": "astro dev",
     "optimize-images": "node ./scripts/optimizeImages",
     "prettier:check": "prettier . --check",
     "prettier:format": "prettier . --write",
     "preview": "astro preview",
+    "stagging": "astro dev --remote",
     "start": "astro dev",
     "test": "vitest"
   },
