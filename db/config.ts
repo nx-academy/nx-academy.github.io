@@ -2,7 +2,10 @@ import { defineDb, defineTable, column } from "astro:db";
 
 const NewsFeed = defineTable({
   columns: {
-    id: column.number({ primaryKey: true }),
+    id: column.number({
+      primaryKey: true,
+      autoIncrement: true,
+    }),
     content: column.text(),
     published: column.date(),
     slug: column.text(),
