@@ -12,6 +12,14 @@ const augustTasks: LogTasks = {
   month: "Août",
   tasks: [
     {
+      kind: "done",
+      content: "Le Recap tourne maintenant dans un bot Discord avec le flow que je voulais depuis le début. Je lance la commande depuis Discord, je sélectionne les articles qui m'intéresse et tout le job tourne pour moi (extractions des données, création d'une branche, commit et création d'une PR"
+    },
+    {
+      kind: "in-progress",
+      content: "Mise en place d'un système de RAG pour générer des news et des recaps qui ont mon ton à moi (et pas un ton générique de GPT)"
+    },
+    {
       kind: "in-progress",
       content: `Je suis en train de travailler sur l'API de NX. Pour l'instant, rien d'incroyable : je suis en train de travailler sur un compteur de vues. Je vais le brancher à ma DB Turso. Par contre, l'infra derrière est un peu cool : je passe <a href="https://vercel.com/docs/functions" target="_blank" rel="noopener noreferrer">par des fonctions serverless de chez Vercel</a>. Pour l'instant, le repo nx-api n'est pas open-source. Je communiquerais dessus une fois que j'ai un peu avancé.`,
     },
