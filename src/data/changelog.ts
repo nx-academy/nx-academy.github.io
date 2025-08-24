@@ -13,6 +13,31 @@ const augustTasks: LogTasks = {
   tasks: [
     {
       kind: "in-progress",
+      content:
+        "Ecriture d'articles sur la gestion des émotions. Je reviendrais bientôt dessus :)",
+    },
+    {
+      kind: "done",
+      content:
+        "Mon bot Discord peut maintenant créer des news depuis un channel dédié, il me la met (lol) ensuite en PR et force un rebuild de mon site Astro. Ouais, il va y avoir un certain nombre de blog posts à écrire pour expliquer tout ça !",
+    },
+    {
+      kind: "done",
+      content:
+        "Création d'un premier agent IA qui utilise les fonctionnalités de recherche de GPT (Bing Search) pour me trouver des articles thématiques. Il se lance à la demande sur ma Guild Discord dans un channel dédié et me retrouve des news.",
+    },
+    {
+      kind: "done",
+      content:
+        "Le Recap tourne maintenant dans un bot Discord avec le flow que je voulais depuis le début. Je lance la commande depuis Discord, je sélectionne les articles qui m'intéresse et tout le job tourne pour moi (extractions des données, création d'une branche, commit et création d'une PR",
+    },
+    {
+      kind: "in-progress",
+      content:
+        "Mise en place d'un système de RAG pour générer des news et des recaps qui ont mon ton à moi (et pas un ton générique de GPT)",
+    },
+    {
+      kind: "in-progress",
       content: `Je suis en train de travailler sur l'API de NX. Pour l'instant, rien d'incroyable : je suis en train de travailler sur un compteur de vues. Je vais le brancher à ma DB Turso. Par contre, l'infra derrière est un peu cool : je passe <a href="https://vercel.com/docs/functions" target="_blank" rel="noopener noreferrer">par des fonctions serverless de chez Vercel</a>. Pour l'instant, le repo nx-api n'est pas open-source. Je communiquerais dessus une fois que j'ai un peu avancé.`,
     },
     {
