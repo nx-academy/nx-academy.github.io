@@ -12,7 +12,7 @@ author: Thomas
 draft: false
 publishedDate: 08/29/2025
 ---
-    
+
 # Le récap #5 - Août 2025
 
 <img src="/images/articles/kiosque-journaux.webp" alt="Un vendeur de journaux dans un kiosque parisien, pixel art" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block; object-position: top" />
@@ -20,6 +20,7 @@ publishedDate: 08/29/2025
 <br>
 
 ## Foot, athlétisme ou ménage : les images des premiers Jeux mondiaux d’humanoïdes
+
 <small>Courrier international</small>
 
 Les premiers Jeux mondiaux de robots humanoïdes ont eu lieu à Pékin, avec plus de 500 robots de 16 pays participant à 26 épreuves, telles que le football, l'athlétisme et le ménage. Bien que les performances aient été hésitantes, ces compétitions visent à tester les capacités des robots en matière de prise de décision, d'équilibre et d'interaction dans des environnements complexes, avec l'objectif de transposer ces compétences dans des applications quotidiennes. La Chine utilise cet événement pour démontrer ses ambitions dans le secteur en pleine expansion de la robotique humanoïde.
