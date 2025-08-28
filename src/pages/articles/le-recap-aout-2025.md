@@ -60,3 +60,5 @@ Cet article explore comment la suppression de la prise casque par Apple a provoq
 <br>
         
 ---
+
+Bonne lecture, bonne rentrée et on se retrouve **au mois de septembre** !

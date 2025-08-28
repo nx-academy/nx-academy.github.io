@@ -12,6 +12,10 @@ const augustTasks: LogTasks = {
   month: "Août",
   tasks: [
     {
+      kind: "done",
+      content: `Mise en ligne <a href="/articles/le-recap-aout-2025" target="_blank">du recap d'août 2025</a> - Et oui, on arrête pas !`,
+    },
+    {
       kind: "in-progress",
       content:
         "Ecriture d'articles sur la gestion des émotions. Je reviendrais bientôt dessus :)",
