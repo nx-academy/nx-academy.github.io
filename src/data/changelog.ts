@@ -8,6 +8,16 @@ type LogTasks = {
   tasks: Task[];
 };
 
+const septemberTasks: LogTasks = {
+  month: "Septembre",
+  tasks: [
+    {
+      kind: "done",
+      content: `<a href="/fiches/bien-faire-multi-stage-build" target="_blank">Sorti de la fiche technique</a> sur le multi stage build d'images Docker.`
+    }
+  ]
+}
+
 const augustTasks: LogTasks = {
   month: "Août",
   tasks: [
@@ -352,6 +362,7 @@ const aprilTasks: LogTasks = {
 };
 
 export const ALL_MONTHS = [
+  septemberTasks,
   augustTasks,
   julyTasks,
   juneTasks,
