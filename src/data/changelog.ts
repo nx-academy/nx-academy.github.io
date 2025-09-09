@@ -13,10 +13,10 @@ const septemberTasks: LogTasks = {
   tasks: [
     {
       kind: "done",
-      content: `<a href="/fiches/bien-faire-multi-stage-build" target="_blank">Sorti de la fiche technique</a> sur le multi stage build d'images Docker.`
-    }
-  ]
-}
+      content: `<a href="/fiches/bien-faire-multi-stage-build" target="_blank">Sorti de la fiche technique</a> sur le multi stage build d'images Docker.`,
+    },
+  ],
+};
 
 const augustTasks: LogTasks = {
   month: "Août",
