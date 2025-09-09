@@ -10,7 +10,7 @@ imgSrc: /images/cheatsheets/scene-immeuble.webp
 author: Thomas
 kind: Fiche technique
 level: Avancé
-publishedDate: 08/01/2025
+publishedDate: 09/12/2025
 ---
 
 <article>
