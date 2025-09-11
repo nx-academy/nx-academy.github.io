@@ -13,7 +13,8 @@ const septemberTasks: LogTasks = {
   tasks: [
     {
       kind: "fix",
-      content: "Quelques mises à jour de dépendances. Désolé, j'ai un peu ralenti sur le sortie de nouveautés entre Août et Septembre. Je reviendrais très bientôt pour vous dire pourquoi."
+      content:
+        "Quelques mises à jour de dépendances. Désolé, j'ai un peu ralenti sur le sortie de nouveautés entre Août et Septembre. Je reviendrais très bientôt pour vous dire pourquoi.",
     },
     {
       kind: "done",
