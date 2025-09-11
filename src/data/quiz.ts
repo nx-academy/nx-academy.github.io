@@ -10,6 +10,16 @@ type QuizMeta = {
 
 export const QUIZZES: readonly QuizMeta[] = [
   {
+    slug: "bien-faire-multi-stage-build",
+    title: "Comment faire un multi-stage build ?",
+    description:
+      "Testez vos connaissances sur le concept de multi stage build et découvez si vous êtes capable d'optimiser chaque étape de votre build facilement.",
+    level: "Difficile",
+    imgSrc: "/misc/quiz-hero.webp",
+    imgAlt: "Illustration Docker facile",
+    href: "quiz/optimisation-images-docker",
+  },
+  {
     slug: "optimisation-images-docker",
     title: "Comment optimiser une image Docker ?",
     description:

@@ -12,6 +12,10 @@ const septemberTasks: LogTasks = {
   month: "Septembre",
   tasks: [
     {
+      kind: "fix",
+      content: "Quelques mises à jour de dépendances. Désolé, j'ai un peu ralenti sur le sortie de nouveautés entre Août et Septembre. Je reviendrais très bientôt pour vous dire pourquoi."
+    },
+    {
       kind: "done",
       content: `<a href="/fiches/bien-faire-multi-stage-build" target="_blank">Sorti de la fiche technique</a> sur le multi stage build d'images Docker.`,
     },
