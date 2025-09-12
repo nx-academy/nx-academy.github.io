@@ -10,7 +10,7 @@ imgSrc: /images/cheatsheets/scene-immeuble.webp
 author: Thomas
 kind: Fiche technique
 level: Avancé
-publishedDate: 08/01/2025
+publishedDate: 09/12/2025
 ---
 
 <article>
@@ -187,8 +187,8 @@ Une fiche technique sur la mise en place d’un multi-stage build dans une pipel
 
 D’ici là :
 
-- [faites le quiz](#) pour valider vos acquis ;
-- commencez [le cours sur Docker et Docker Compose](#) si ce n’est pas déjà fait.
+- [faites le quiz](/quiz/bien-faire-multi-stage-build) pour valider vos acquis ;
+- commencez [le cours sur Docker et Docker Compose](/cours/docker-et-docker-compose) si ce n’est pas déjà fait.
 
 ## Ressources
 

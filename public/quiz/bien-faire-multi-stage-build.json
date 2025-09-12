@@ -1,0 +1,114 @@
+{
+  "data": [
+    {
+      "question": "Qu'est-ce qu'un multi-stage build en Docker ?",
+      "options": [
+        "Une technique permettant de créer plusieurs images Docker en une seule commande.",
+        "Une méthode pour séparer les étapes de construction et d'exécution dans un Dockerfile.",
+        "Un outil pour surveiller les performances des conteneurs Docker.",
+        "Une fonctionnalité permettant de déployer automatiquement des images Docker sur un serveur distant."
+      ],
+      "answer": "Une méthode pour séparer les étapes de construction et d'exécution dans un Dockerfile.",
+      "explanation": "Le multi-stage build permet de séparer les étapes de build (compilation, packaging) de l'environnement d'exécution, optimisant ainsi la taille et la sécurité de l'image finale."
+    },
+    {
+      "question": "Pourquoi utiliser un multi-stage build ?",
+      "options": [
+        "Pour augmenter la taille de l'image Docker.",
+        "Pour séparer les dépendances de développement et de production, réduisant ainsi la taille de l'image finale.",
+        "Pour faciliter le déploiement des images Docker sur des serveurs distants.",
+        "Pour améliorer la vitesse de compilation des images Docker."
+      ],
+      "answer": "Pour séparer les dépendances de développement et de production, réduisant ainsi la taille de l'image finale.",
+      "explanation": "En isolant les étapes de build et d'exécution, le multi-stage build permet de ne conserver que les éléments nécessaires à l'exécution, réduisant la taille de l'image et améliorant la sécurité."
+    },
+    {
+      "question": "Quelle instruction Docker est utilisée pour copier des fichiers d'un stage à un autre dans un multi-stage build ?",
+      "options": [
+        "COPY --from=",
+        "COPY --stage=",
+        "COPY --build=",
+        "COPY --to="
+      ],
+      "answer": "COPY --from=",
+      "explanation": "L'instruction COPY --from= permet de copier des fichiers d'un stage précédent vers le stage actuel dans un multi-stage build."
+    },
+    {
+      "question": "Dans l'exemple de multi-stage build donné, quel est le rôle du stage nommé 'builder' ?",
+      "options": [
+        "Installer les dépendances de production uniquement.",
+        "Compiler l'application et préparer les fichiers nécessaires à l'exécution.",
+        "Déployer l'application sur un serveur distant.",
+        "Créer une image Docker plus légère pour l'exécution."
+      ],
+      "answer": "Compiler l'application et préparer les fichiers nécessaires à l'exécution.",
+      "explanation": "Le stage 'builder' est responsable de l'installation des dépendances et de la compilation de l'application, produisant les fichiers nécessaires pour le stage d'exécution."
+    },
+    {
+      "question": "Quel est l'avantage principal d'utiliser une image de base plus légère, comme 'node:18-slim', dans le stage d'exécution ?",
+      "options": [
+        "Réduire la taille de l'image finale, améliorant ainsi les performances et la sécurité.",
+        "Augmenter la compatibilité avec toutes les versions de Node.js.",
+        "Faciliter le déploiement sur des serveurs distants.",
+        "Permettre l'utilisation de toutes les fonctionnalités de Node.js sans restrictions."
+      ],
+      "answer": "Réduire la taille de l'image finale, améliorant ainsi les performances et la sécurité.",
+      "explanation": "L'utilisation d'une image de base plus légère diminue la taille de l'image finale, ce qui améliore les performances et réduit la surface d'attaque potentielle."
+    },
+    {
+      "question": "Que contient une image Docker dite 'naïve' ?",
+      "options": [
+        "Uniquement le code source de l'application.",
+        "Le code source, les dépendances de développement, les outils de build et les fichiers temporaires.",
+        "Seulement les dépendances de production nécessaires à l'exécution.",
+        "Aucune donnée, uniquement des configurations par défaut."
+      ],
+      "answer": "Le code source, les dépendances de développement, les outils de build et les fichiers temporaires.",
+      "explanation": "Une image Docker 'naïve' inclut tout ce qui a servi à sa construction, sans distinction entre ce qui est nécessaire à l'exécution et ce qui ne l'est pas."
+    },
+    {
+      "question": "Quel est l'impact d'une image Docker trop volumineuse ?",
+      "options": [
+        "Elle améliore les performances du conteneur.",
+        "Elle facilite le déploiement sur des serveurs distants.",
+        "Elle peut ralentir les opérations de build, de push et de pull, et augmenter la surface d'attaque.",
+        "Elle est plus sécurisée en raison de sa taille."
+      ],
+      "answer": "Elle peut ralentir les opérations de build, de push et de pull, et augmenter la surface d'attaque.",
+      "explanation": "Une image trop volumineuse peut entraîner des ralentissements lors des opérations Docker et exposer davantage de vulnérabilités potentielles."
+    },
+    {
+      "question": "Dans l'exemple de multi-stage build, que fait l'instruction 'COPY --from=builder /app/dist ./dist' ?",
+      "options": [
+        "Elle copie tous les fichiers du dossier /app/dist du stage 'builder' vers le dossier ./dist du stage actuel.",
+        "Elle copie le code source de l'application du stage 'builder' vers le stage actuel.",
+        "Elle installe les dépendances de production dans le dossier ./dist.",
+        "Elle compile le code source de l'application dans le dossier ./dist."
+      ],
+      "answer": "Elle copie tous les fichiers du dossier /app/dist du stage 'builder' vers le dossier ./dist du stage actuel.",
+      "explanation": "Cette instruction transfère les fichiers compilés du stage 'builder' vers le stage d'exécution, permettant leur utilisation sans inclure les fichiers de développement."
+    },
+    {
+      "question": "Pourquoi est-il important de ne pas inclure les outils de build et les dépendances de développement dans l'image finale ?",
+      "options": [
+        "Pour réduire la taille de l'image et améliorer la sécurité en limitant les vulnérabilités potentielles.",
+        "Pour augmenter la compatibilité avec toutes les versions de Node.js.",
+        "Pour faciliter le déploiement sur des serveurs distants.",
+        "Pour permettre l'utilisation de toutes les fonctionnalités de Node.js sans restrictions."
+      ],
+      "answer": "Pour réduire la taille de l'image et améliorer la sécurité en limitant les vulnérabilités potentielles.",
+      "explanation": "En excluant les outils de build et les dépendances de développement, l'image finale est plus légère et moins sujette aux failles de sécurité."
+    },
+    {
+      "question": "Quel est le rôle principal du multi-stage build dans le processus de développement Docker ?",
+      "options": [
+        "Faciliter le déploiement des images Docker sur des serveurs distants.",
+        "Optimiser la taille et la sécurité des images Docker en séparant les étapes de build et d'exécution.",
+        "Améliorer la vitesse de compilation des images Docker.",
+        "Permettre l'utilisation de toutes les fonctionnalités de Node.js sans restrictions."
+      ],
+      "answer": "Optimiser la taille et la sécurité des images Docker en séparant les étapes de build et d'exécution.",
+      "explanation": "Le multi-stage build permet de créer des images Docker plus légères et sécurisées en isolant les étapes de construction et d'exécution."
+    }
+  ]
+}
