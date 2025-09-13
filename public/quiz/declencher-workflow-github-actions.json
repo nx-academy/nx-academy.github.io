@@ -1,0 +1,114 @@
+{
+    "data": [
+        {
+            "question": "Quel est le rôle principal d'un déclencheur dans un workflow GitHub Actions ?",
+            "options": [
+                "Définir les étapes du workflow",
+                "Déterminer quand le workflow doit s'exécuter",
+                "Gérer les erreurs du workflow",
+                "Surveiller les performances du workflow"
+            ],
+            "answer": "Déterminer quand le workflow doit s'exécuter",
+            "explanation": "Un déclencheur spécifie l'événement qui active l'exécution d'un workflow, comme un push ou une pull request."
+        },
+        {
+            "question": "Comment déclare-t-on un déclencheur dans un fichier de configuration CI pour GitHub Actions ?",
+            "options": [
+                "Dans le champ 'on'",
+                "Dans le champ 'trigger'",
+                "Dans le champ 'event'",
+                "Dans le champ 'start'"
+            ],
+            "answer": "Dans le champ 'on'",
+            "explanation": "Les déclencheurs sont déclarés sous le champ 'on' dans le fichier de configuration CI de GitHub Actions."
+        },
+        {
+            "question": "Quel déclencheur GitHub Actions est utilisé pour lancer un workflow lors d'un push sur une branche spécifique ?",
+            "options": [
+                "push",
+                "pull_request",
+                "workflow_dispatch",
+                "workflow_call"
+            ],
+            "answer": "push",
+            "explanation": "Le déclencheur 'push' s'active à chaque fois qu'un code est poussé sur une ou plusieurs branches définies."
+        },
+        {
+            "question": "Quel est l'utilité du déclencheur 'pull_request' dans GitHub Actions ?",
+            "options": [
+                "Lancer un workflow lors de l'ouverture ou de la mise à jour d'une pull request",
+                "Démarrer un workflow manuellement depuis l'interface GitHub",
+                "Activer un workflow lors d'un push sur une branche spécifique",
+                "Appeler un autre workflow depuis un workflow existant"
+            ],
+            "answer": "Lancer un workflow lors de l'ouverture ou de la mise à jour d'une pull request",
+            "explanation": "Le déclencheur 'pull_request' s'active lors de l'ouverture ou de la mise à jour d'une pull request, permettant d'exécuter des vérifications avant la fusion."
+        },
+        {
+            "question": "Que permet de faire le déclencheur 'workflow_dispatch' dans GitHub Actions ?",
+            "options": [
+                "Lancer manuellement un workflow depuis l'interface GitHub",
+                "Activer un workflow lors d'un push sur une branche spécifique",
+                "Démarrer un workflow lors de l'ouverture ou de la mise à jour d'une pull request",
+                "Appeler un autre workflow depuis un workflow existant"
+            ],
+            "answer": "Lancer manuellement un workflow depuis l'interface GitHub",
+            "explanation": "Le déclencheur 'workflow_dispatch' permet de démarrer un workflow manuellement depuis l'interface GitHub, utile pour des actions ponctuelles."
+        },
+        {
+            "question": "Comment combiner plusieurs déclencheurs dans un même fichier de configuration CI pour GitHub Actions ?",
+            "options": [
+                "En les listant sous le champ 'on'",
+                "En les séparant par des virgules dans le champ 'on'",
+                "En les déclarant dans des fichiers séparés",
+                "En les incluant dans des blocs 'if' conditionnels"
+            ],
+            "answer": "En les listant sous le champ 'on'",
+            "explanation": "Plusieurs déclencheurs peuvent être combinés en les listant sous le champ 'on' dans le fichier de configuration CI."
+        },
+        {
+            "question": "Quel est l'effet de la configuration suivante dans un fichier de workflow GitHub Actions :\n\n```yaml\non:\n  push:\n    branches:\n      - main\n  pull_request:\n    branches:\n      - main\n```",
+            "options": [
+                "Le workflow se déclenche lors d'un push ou d'une pull request sur la branche 'main'",
+                "Le workflow se déclenche uniquement lors d'un push sur la branche 'main'",
+                "Le workflow se déclenche uniquement lors d'une pull request sur la branche 'main'",
+                "Le workflow se déclenche lors de tout événement sur la branche 'main'"
+            ],
+            "answer": "Le workflow se déclenche lors d'un push ou d'une pull request sur la branche 'main'",
+            "explanation": "Cette configuration indique que le workflow s'exécute lors d'un push ou d'une pull request sur la branche 'main'."
+        },
+        {
+            "question": "Dans quel cas utiliseriez-vous le déclencheur 'workflow_call' dans GitHub Actions ?",
+            "options": [
+                "Pour appeler un autre workflow depuis un workflow existant",
+                "Pour lancer manuellement un workflow depuis l'interface GitHub",
+                "Pour activer un workflow lors d'un push sur une branche spécifique",
+                "Pour démarrer un workflow lors de l'ouverture ou de la mise à jour d'une pull request"
+            ],
+            "answer": "Pour appeler un autre workflow depuis un workflow existant",
+            "explanation": "Le déclencheur 'workflow_call' permet de mutualiser un bloc de tâches en appelant un autre workflow depuis un workflow existant."
+        },
+        {
+            "question": "Quel est l'objectif principal de l'utilisation des déclencheurs dans GitHub Actions ?",
+            "options": [
+                "Automatiser l'exécution de workflows en réponse à des événements spécifiques",
+                "Gérer les erreurs lors de l'exécution des workflows",
+                "Surveiller les performances des workflows",
+                "Définir les étapes spécifiques à exécuter dans un workflow"
+            ],
+            "answer": "Automatiser l'exécution de workflows en réponse à des événements spécifiques",
+            "explanation": "Les déclencheurs automatisent l'exécution de workflows en réponse à des événements tels que des push ou des pull requests."
+        },
+        {
+            "question": "Comment configurer un workflow GitHub Actions pour qu'il s'exécute lors d'un push sur la branche 'develop' ?",
+            "options": [
+                "En définissant 'branches: [develop]' sous le déclencheur 'push'",
+                "En définissant 'branches: develop' sous le déclencheur 'push'",
+                "En définissant 'branches: develop' sous le déclencheur 'pull_request'",
+                "En définissant 'branches: [develop]' sous le déclencheur 'pull_request'"
+            ],
+            "answer": "En définissant 'branches: [develop]' sous le déclencheur 'push'",
+            "explanation": "La configuration 'branches: [develop]' sous le déclencheur 'push' permet d'exécuter le workflow lors d'un push sur la branche 'develop'."
+        }
+    ]
+}
