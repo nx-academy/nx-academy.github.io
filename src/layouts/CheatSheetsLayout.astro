@@ -105,6 +105,12 @@ const breadCrumbs: Breadcrumb[] = [
     color: var(--titleColor);
   }
 
+  h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--titleColor);
+  }
+
   p {
     margin-bottom: 1.5rem;
     color: var(--textColor);
@@ -159,6 +165,27 @@ const breadCrumbs: Breadcrumb[] = [
     color: var(--textColor);
     margin-bottom: 2.5rem;
     display: block;
+  }
+
+  table {
+    border-collapse: collapse;
+    border: 2px solid var(--borderPrimary);
+    width: 100%;
+    text-align: left;
+  }
+
+  th,
+  td {
+    border: 1px solid var(--borderPrimary);
+    padding: 4px 8px;
+  }
+
+  thead {
+    background-color: var(--backgroundColorSecondary);
+  }
+
+  tbody > tr:nth-of-type(even) {
+    background-color: var(--backgroundColorSecondary);
   }
 </style>
 
