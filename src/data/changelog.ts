@@ -12,6 +12,26 @@ const septemberTasks: LogTasks = {
   month: "Septembre",
   tasks: [
     {
+      kind: "in-progress",
+      content:
+        "Je suis en train de préparer la sortie du cours sur les CI/CD. Pour l'instant, je m'occupe d'insérer le contenu dans Astro et d'uploader les vidéos.",
+    },
+    {
+      kind: "done",
+      content:
+        "J'ai mis en place la génération du recap et du quiz via mon système de bot Discord. Ça marche plutôt bien.",
+    },
+    {
+      kind: "fix",
+      content:
+        "J'ai fixé la taille de certaines polices (je pense aux balises h3) sur les fiches techniques.",
+    },
+    {
+      kind: "in-progress",
+      content:
+        "Pas mal de mises à jour pour le système de news automatisés. Je suis maintenant capable de récupérer plusieurs news issues de thématique différentes. Le tout est quasiment prêt à être deployé en prod.",
+    },
+    {
       kind: "fix",
       content:
         "Quelques mises à jour de dépendances. Désolé, j'ai un peu ralenti sur le sortie de nouveautés entre Août et Septembre. Je reviendrais très bientôt pour vous dire pourquoi.",
