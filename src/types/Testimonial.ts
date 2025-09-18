@@ -4,4 +4,3 @@ export type Testimonial = {
   name: string;
   picture: string;
 };
-

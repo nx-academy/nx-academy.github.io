@@ -1,6 +1,6 @@
 ---
 import type { Breadcrumb } from "../types/Breadcrumb";
-import type { Testimonial } from "../types/Testimonial"
+import type { Testimonial } from "../types/Testimonial";
 
 interface Props {
   srcPicture: string;
@@ -8,12 +8,12 @@ interface Props {
   courseTitle: string;
   courseDescription: string;
   courseUrl: string;
-  courseTestimonials: readonly Testimonial[]
+  courseTestimonials: readonly Testimonial[];
 }
 
 import BaseLayout from "./BaseLayout.astro";
 import Button from "../components/Button.astro";
-import TestimonialComponent from "../components/Testimonial.astro"
+import TestimonialComponent from "../components/Testimonial.astro";
 
 const breadCrumbs: Breadcrumb[] = [
   {
@@ -26,8 +26,14 @@ const breadCrumbs: Breadcrumb[] = [
   },
 ];
 
-const { altPicture, srcPicture, courseTitle, courseDescription, courseUrl, courseTestimonials } =
-  Astro.props;
+const {
+  altPicture,
+  srcPicture,
+  courseTitle,
+  courseDescription,
+  courseUrl,
+  courseTestimonials,
+} = Astro.props;
 ---
 
 <BaseLayout

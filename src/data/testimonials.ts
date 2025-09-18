@@ -1,4 +1,4 @@
-import type { Testimonial } from "../types/Testimonial"
+import type { Testimonial } from "../types/Testimonial";
 
 export const TESTIMONIALS: readonly Testimonial[] = [
   {
