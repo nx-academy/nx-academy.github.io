@@ -1,9 +1,4 @@
-type Testimonial = {
-  content: string;
-  job: string;
-  name: string;
-  picture: string;
-};
+import type { Testimonial } from "../types/Testimonial"
 
 export const TESTIMONIALS: readonly Testimonial[] = [
   {

@@ -1,5 +1,6 @@
 ---
 import type { Breadcrumb } from "../types/Breadcrumb";
+import type { Testimonial } from "../types/Testimonial"
 
 interface Props {
   srcPicture: string;
@@ -7,13 +8,12 @@ interface Props {
   courseTitle: string;
   courseDescription: string;
   courseUrl: string;
+  courseTestimonials: readonly Testimonial[]
 }
 
 import BaseLayout from "./BaseLayout.astro";
 import Button from "../components/Button.astro";
-import Testimonial from "../components/Testimonial.astro"
-
-import { TESTIMONIALS } from "../data/testimonials"
+import TestimonialComponent from "../components/Testimonial.astro"
 
 const breadCrumbs: Breadcrumb[] = [
   {
@@ -26,7 +26,7 @@ const breadCrumbs: Breadcrumb[] = [
   },
 ];
 
-const { altPicture, srcPicture, courseTitle, courseDescription, courseUrl } =
+const { altPicture, srcPicture, courseTitle, courseDescription, courseUrl, courseTestimonials } =
   Astro.props;
 ---
 
@@ -53,9 +53,9 @@ const { altPicture, srcPicture, courseTitle, courseDescription, courseUrl } =
       <h2>Testimonials</h2>
       <ul class="testimonials-list">
         {
-          TESTIMONIALS.map((testimonial) => (
+          courseTestimonials.map((testimonial) => (
             <li>
-              <Testimonial
+              <TestimonialComponent
                 content={testimonial.content}
                 job={testimonial.job}
                 name={testimonial.name}
