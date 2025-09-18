@@ -1,14 +1,80 @@
 ---
-import BaseLayout from "./BaseLayout.astro"
+import type { Breadcrumb } from "../types/Breadcrumb";
 
-const pageTitle = "Le titre de mon cours"
-const pageDescription = "La meta description du cours"
+interface Props {
+  srcPicture: string;
+  altPicture: string;
+  courseTitle: string;
+  courseDescription: string;
+}
+
+import BaseLayout from "./BaseLayout.astro";
+
+const breadCrumbs: Breadcrumb[] = [
+  {
+    pageName: "Accueil",
+    pageUrl: "/",
+  },
+  {
+    pageName: "Cours",
+    pageUrl: "/cours",
+  },
+];
+
+const { altPicture, srcPicture, courseTitle, courseDescription } = Astro.props;
 ---
 
 <BaseLayout
-    title={pageTitle}
-    description={pageDescription}
+  title={courseTitle}
+  description={courseDescription}
+  breadcrumbs={breadCrumbs}
 >
-  <h1>Hello, toto</h1>
+  <main class="main-wrapper">
+    <section class="main-section">
+      <div>
+        <section class="course-heading">
+          <h1 class="course-title">{courseTitle}</h1>
+          <img class="course-picture" src={srcPicture} alt={altPicture} />
+        </section>
+        <section></section>
+      </div>
+    </section>
+    <section class="testimonials-section"></section>
+  </main>
 </BaseLayout>
 
+<style>
+  .main-wrapper {
+    max-width: 1100px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .main-wrapper a {
+    color: var(--linkColor);
+    transition: 0.4s;
+
+    &:hover {
+      color: var(--linkHoverColor);
+    }
+  }
+
+  .course-heading {
+    margin-bottom: 48px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  .course-picture {
+    margin-bottom: 24px;
+    width: 100%;
+    object-fit: cover;
+  }
+</style>
