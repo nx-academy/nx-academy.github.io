@@ -1,7 +1,13 @@
 ---
+import type { Chapter } from "../../../types/Chapter"
+
 import CourseLandingLayout from "../../../layouts/CourseLandingLayout.astro";
 
 import { TESTIMONIALS } from "../../../data/testimonials.ts";
+
+const courseChapters = Object.values(
+  import.meta.glob("./chapitres/*.md", { eager: true }),
+) as Chapter[];
 ---
 
 <CourseLandingLayout
@@ -11,4 +17,6 @@ import { TESTIMONIALS } from "../../../data/testimonials.ts";
   courseDescription="Apprenez à utiliser Docker et Docker Compose par la pratique. Découvrez comment Docker peut faciliter le développement d'applications et leur mise en production."
   courseUrl="/cours/docker-et-docker-compose/chapitres/decouverte-docker"
   courseTestimonials={TESTIMONIALS}
+  quizUrl="/quiz/quiz-niveau-docker"
+  courseChapters={courseChapters}
 />

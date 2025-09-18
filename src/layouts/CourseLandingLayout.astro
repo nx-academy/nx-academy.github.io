@@ -1,6 +1,7 @@
 ---
 import type { Breadcrumb } from "../types/Breadcrumb";
 import type { Testimonial } from "../types/Testimonial";
+import type { Chapter } from "../types/Chapter"
 
 interface Props {
   srcPicture: string;
@@ -9,6 +10,8 @@ interface Props {
   courseDescription: string;
   courseUrl: string;
   courseTestimonials: readonly Testimonial[];
+  quizUrl: string,
+  courseChapters: Chapter[]
 }
 
 import BaseLayout from "./BaseLayout.astro";
@@ -33,7 +36,26 @@ const {
   courseDescription,
   courseUrl,
   courseTestimonials,
-} = Astro.props;
+  quizUrl,
+  courseChapters
+  } = Astro.props;
+
+const sortedChapters = [...courseChapters].sort((a, b) => {
+  if (a.frontmatter.sectionNumber === b.frontmatter.sectionNumber) {
+    return a.frontmatter.chapterNumber - b.frontmatter.chapterNumber;
+  }
+
+  return a.frontmatter.sectionNumber - b.frontmatter.sectionNumber;
+});
+
+const sections = new Map<number, Chapter[]>();
+for (const chapter of sortedChapters) {
+  const sectionNumber = chapter.frontmatter.sectionNumber;
+  if (!sections.has(sectionNumber)) {
+    sections.set(sectionNumber, []);
+  }
+  sections.get(sectionNumber)?.push(chapter);
+}
 ---
 
 <BaseLayout
@@ -53,7 +75,99 @@ const {
         <section class="skills-section">
           <h2>Objectifs pédagogiques</h2>
         </section>
+        <section class="course-content-section">
+          <h2>Contenu du cours</h2>
+          <ol class="course-content-sections">
+            {
+              Array.from(sections.entries()).map(
+                ([sectionNumber, chapters]) => (
+                  <li>
+                    <h3 class="course-content-section-title">
+                      {chapters[0].frontmatter.sectionTitle}
+                    </h3>
+                    <ol class="course-content-chapters">
+                      {chapters.map((chapter) => (
+                        <li>
+                          <a href={chapter.url}>{chapter.frontmatter.title}</a>
+                        </li>
+                      ))}
+                    </ol>
+                  </li>
+                ),
+              )
+            }
+          </ol>
+        </section>
       </div>
+      <aside class="course-information">
+        <div class="aside-wrapper">
+          <h2>Détails du cours</h2>
+
+          <div class="course-info">
+            <p><strong>Durée :</strong> 12 heures</p>
+            <p><strong>Niveau :</strong> Intermédiaire</p>
+          </div>
+
+          <ul class="course-goals">
+            <li>
+              <svg
+                class="check-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <use xlink:href="#check-icon"></use>
+              </svg>
+              Créez vos propres images Docker
+            </li>
+            <li>
+              <svg
+                class="check-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <use xlink:href="#check-icon"></use>
+              </svg>
+              Déployez une app complète
+            </li>
+            <li>
+              <svg
+                class="check-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <use xlink:href="#check-icon"></use>
+              </svg>
+              Optimisez vos builds pour la prod
+            </li>
+          </ul>
+
+          <div class="aside-wrapper-buttons">
+            <Button
+              label="Commencer le cours"
+              type="primary"
+              href="/cours/docker-et-docker-compose/chapitres/decouverte-docker"
+            />
+            <Button
+              label="Passer un quiz de niveau"
+              type="secondary"
+              href="/quiz/quiz-niveau-docker"
+            />
+          </div>
+          <p class="course-note">
+            <svg
+              class="locker-icon"
+              viewBox="0 0 52 52"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use xlink:href="#locker-icon"></use>
+            </svg>
+            Gratuit, sans inscription
+          </p>
+        </div>
+      </aside>
     </section>
     <section class="testimonials-section">
       <h2>Testimonials</h2>
@@ -71,6 +185,21 @@ const {
           ))
         }
       </ul>
+    </section>
+    <section class="banner-section">
+      <h2>Prêt.e à passer à l'action ?</h2>
+      <div class="banner-section-buttons">
+        <Button
+          label="Commencer le cours"
+          type="primary"
+          href={courseUrl}
+        />
+        <Button
+          label="Passer un quiz de niveau"
+          type="secondary"
+          href={quizUrl}
+        />
+      </div>
     </section>
   </main>
 </BaseLayout>
