@@ -6,9 +6,11 @@ interface Props {
   altPicture: string;
   courseTitle: string;
   courseDescription: string;
+  courseUrl: string;
 }
 
 import BaseLayout from "./BaseLayout.astro";
+import Button from "../components/Button.astro";
 
 const breadCrumbs: Breadcrumb[] = [
   {
@@ -21,7 +23,8 @@ const breadCrumbs: Breadcrumb[] = [
   },
 ];
 
-const { altPicture, srcPicture, courseTitle, courseDescription } = Astro.props;
+const { altPicture, srcPicture, courseTitle, courseDescription, courseUrl } =
+  Astro.props;
 ---
 
 <BaseLayout
@@ -35,6 +38,8 @@ const { altPicture, srcPicture, courseTitle, courseDescription } = Astro.props;
         <section class="course-heading">
           <h1 class="course-title">{courseTitle}</h1>
           <img class="course-picture" src={srcPicture} alt={altPicture} />
+          <p>{courseDescription}</p>
+          <Button label="Commencer le cours" type="primary" href={courseUrl} />
         </section>
         <section></section>
       </div>
