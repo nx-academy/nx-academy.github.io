@@ -14,6 +14,9 @@ interface Props {
   quizUrl: string;
   courseChapters: Chapter[];
   cheatsheets?: Cheatsheet[];
+  courseLevel: string;
+  courseDuration: number;
+  courseGoals: string[];
 }
 
 import BaseLayout from "./BaseLayout.astro";
@@ -42,6 +45,9 @@ const {
   quizUrl,
   courseChapters,
   cheatsheets,
+  courseLevel,
+  courseDuration,
+  courseGoals,
 } = Astro.props;
 
 const sortedChapters = [...courseChapters].sort((a, b) => {
@@ -109,44 +115,26 @@ for (const chapter of sortedChapters) {
           <h2>Détails du cours</h2>
 
           <div class="course-info">
-            <p><strong>Durée :</strong> 12 heures</p>
-            <p><strong>Niveau :</strong> Intermédiaire</p>
+            <p><strong>Durée :</strong> {courseDuration} heures</p>
+            <p><strong>Niveau :</strong> {courseLevel}</p>
           </div>
 
           <ul class="course-goals">
-            <li>
-              <svg
-                class="check-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <use xlink:href="#check-icon"></use>
-              </svg>
-              Créez vos propres images Docker
-            </li>
-            <li>
-              <svg
-                class="check-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <use xlink:href="#check-icon"></use>
-              </svg>
-              Déployez une app complète
-            </li>
-            <li>
-              <svg
-                class="check-icon"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <use xlink:href="#check-icon"></use>
-              </svg>
-              Optimisez vos builds pour la prod
-            </li>
+            {
+              courseGoals.map((goal) => (
+                <li>
+                  <svg
+                    class="check-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <use xlink:href="#check-icon" />
+                  </svg>
+                  {goal}
+                </li>
+              ))
+            }
           </ul>
 
           <div class="aside-wrapper-buttons">
