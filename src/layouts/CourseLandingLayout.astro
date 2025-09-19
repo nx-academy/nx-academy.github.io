@@ -2,6 +2,7 @@
 import type { Breadcrumb } from "../types/Breadcrumb";
 import type { Testimonial } from "../types/Testimonial";
 import type { Chapter } from "../types/Chapter";
+import type { Cheatsheet } from "../types/Cheatsheet";
 
 interface Props {
   srcPicture: string;
@@ -12,10 +13,12 @@ interface Props {
   courseTestimonials: readonly Testimonial[];
   quizUrl: string;
   courseChapters: Chapter[];
+  cheatsheets?: Cheatsheet[];
 }
 
 import BaseLayout from "./BaseLayout.astro";
 import Button from "../components/Button.astro";
+import Card from "../components/Card.astro";
 import TestimonialComponent from "../components/Testimonial.astro";
 
 const breadCrumbs: Breadcrumb[] = [
@@ -38,6 +41,7 @@ const {
   courseTestimonials,
   quizUrl,
   courseChapters,
+  cheatsheets,
 } = Astro.props;
 
 const sortedChapters = [...courseChapters].sort((a, b) => {
@@ -197,6 +201,38 @@ for (const chapter of sortedChapters) {
           href={quizUrl}
         />
       </div>
+    </section>
+    <section class="related-content-section">
+      <h2>Contenu associé</h2>
+      <ul class="related-content-list">
+        {
+          cheatsheets &&
+            cheatsheets
+              .filter((cheatsheet) =>
+                cheatsheet.frontmatter.title.includes("Docker"),
+              )
+              .sort(
+                (item1, item2) =>
+                  new Date(item2.frontmatter.publishedDate).getTime() -
+                  new Date(item1.frontmatter.publishedDate).getTime(),
+              )
+              .map((cheatsheet) => (
+                <li>
+                  <Card
+                    author={cheatsheet.frontmatter.author}
+                    description={cheatsheet.frontmatter.description}
+                    href={cheatsheet.url!}
+                    imgAlt={cheatsheet.frontmatter.imgAlt}
+                    imgSrc={cheatsheet.frontmatter.imgSrc}
+                    kind="Fiche Technique"
+                    level={cheatsheet.frontmatter.level}
+                    publishedDate={cheatsheet.frontmatter.publishedDate}
+                    title={cheatsheet.frontmatter.title}
+                  />
+                </li>
+              ))
+        }
+      </ul>
     </section>
   </main>
 </BaseLayout>

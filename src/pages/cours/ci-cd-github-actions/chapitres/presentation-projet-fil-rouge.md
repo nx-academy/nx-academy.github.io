@@ -9,6 +9,6 @@ nextChapterLink: prise-en-main-github-actions
 
 chapterNumber: 2
 sectionNumber: 1
-sectionTitle:  Partie 1 - Appréhendez les CI/CD 
+sectionTitle: Partie 1 - Appréhendez les CI/CD
 id: 2
 ---

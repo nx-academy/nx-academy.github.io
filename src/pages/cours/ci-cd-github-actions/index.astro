@@ -1,5 +1,6 @@
 ---
 import type { Chapter } from "../../../types/Chapter";
+import type Cheatsheet from "../../../types/Cheatsheet"
 
 import CourseLandingLayout from "../../../layouts/CourseLandingLayout.astro";
 
@@ -7,7 +8,10 @@ import { TESTIMONIALS } from "../../../data/testimonials.ts";
 
 const courseChapters = Object.values(
   import.meta.glob("./chapitres/*.md", { eager: true }),
-) as Chapter[];
+  ) as Chapter[];
+const cheatsheets = Object.values(
+  import.meta.glob("../../fiches/*.md", { eager: true }),
+) as Cheatsheet[];
 ---
 
 <CourseLandingLayout
@@ -19,6 +23,7 @@ const courseChapters = Object.values(
   courseTestimonials={TESTIMONIALS}
   quizUrl="/quiz/quiz-niveau-docker"
   courseChapters={courseChapters}
+  cheatsheets={cheatsheets}
   >
   <div slot="skills-section">
               <p>
