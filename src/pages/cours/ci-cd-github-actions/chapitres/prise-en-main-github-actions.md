@@ -9,5 +9,6 @@ nextChapterLink: bonnes-pratiques-workflow-complexe
 
 chapterNumber: 1
 sectionNumber: 2
+sectionTitle: Partie 2 - Découvrez les GitHub Actions
 id: 3
 ---

@@ -8,6 +8,7 @@ nextChapterLink: presentation-projet-fil-rouge
 
 chapterNumber: 1
 sectionNumber: 1
+sectionTitle:  Partie 1 - Appréhendez les CI/CD 
 id: 1
 ---
 

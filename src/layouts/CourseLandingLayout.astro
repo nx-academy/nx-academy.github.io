@@ -1,7 +1,7 @@
 ---
 import type { Breadcrumb } from "../types/Breadcrumb";
 import type { Testimonial } from "../types/Testimonial";
-import type { Chapter } from "../types/Chapter"
+import type { Chapter } from "../types/Chapter";
 
 interface Props {
   srcPicture: string;
@@ -10,8 +10,8 @@ interface Props {
   courseDescription: string;
   courseUrl: string;
   courseTestimonials: readonly Testimonial[];
-  quizUrl: string,
-  courseChapters: Chapter[]
+  quizUrl: string;
+  courseChapters: Chapter[];
 }
 
 import BaseLayout from "./BaseLayout.astro";
@@ -37,8 +37,8 @@ const {
   courseUrl,
   courseTestimonials,
   quizUrl,
-  courseChapters
-  } = Astro.props;
+  courseChapters,
+} = Astro.props;
 
 const sortedChapters = [...courseChapters].sort((a, b) => {
   if (a.frontmatter.sectionNumber === b.frontmatter.sectionNumber) {
@@ -189,11 +189,7 @@ for (const chapter of sortedChapters) {
     <section class="banner-section">
       <h2>Prêt.e à passer à l'action ?</h2>
       <div class="banner-section-buttons">
-        <Button
-          label="Commencer le cours"
-          type="primary"
-          href={courseUrl}
-        />
+        <Button label="Commencer le cours" type="primary" href={courseUrl} />
         <Button
           label="Passer un quiz de niveau"
           type="secondary"
