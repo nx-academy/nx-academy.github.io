@@ -9,5 +9,6 @@ nextChapterLink: decouverte-github-pages
 
 chapterNumber: 2
 sectionNumber: 2
+sectionTitle: Partie 2 - Découvrez les GitHub Actions
 id: 4
 ---

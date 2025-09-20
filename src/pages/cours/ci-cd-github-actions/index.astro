@@ -1,73 +1,98 @@
 ---
-import type { Breadcrumb } from "../../../types/Breadcrumb";
 import type { Chapter } from "../../../types/Chapter";
+import type { Cheatsheet } from "../../../types/Cheatsheet";
 
-import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CourseLandingLayout from "../../../layouts/CourseLandingLayout.astro";
 
-import Warning from "../../../components/Warning.astro";
-
-const pageTitle = "Maîtrisez les pipelines CI/CD avec les GitHub Actions";
-const pageDescription = "Une super description";
+import { TESTIMONIALS } from "../../../data/testimonials.ts";
 
 const courseChapters = Object.values(
   import.meta.glob("./chapitres/*.md", { eager: true }),
 ) as Chapter[];
-
-const breadCrumbs: Breadcrumb[] = [
-  {
-    pageName: "Accueil",
-    pageUrl: "/",
-  },
-  {
-    pageName: "Cours",
-    pageUrl: "/cours",
-  },
-];
+const cheatsheets = Object.values(
+  import.meta.glob("../../fiches/*.md", { eager: true }),
+) as Cheatsheet[];
 ---
 
-<BaseLayout
-  title={pageTitle}
-  description={pageDescription}
-  breadcrumbs={breadCrumbs}
+<CourseLandingLayout
+  srcPicture="/images/cours-ci-cd/usine-factorio-like.webp"
+  altPicture="Une installation portuaire, pixel art"
+  courseTitle="Maîtrisez les pipelines CI/CD avec les GitHub Actions"
+  courseDescription="Apprenez à utiliser Docker et Docker Compose par la pratique. Découvrez comment Docker peut faciliter le développement d'applications et leur mise en production."
+  courseUrl="/cours/docker-et-docker-compose/chapitres/decouverte-docker"
+  courseTestimonials={TESTIMONIALS}
+  quizUrl="/quiz/quiz-niveau-docker"
+  courseChapters={courseChapters}
+  cheatsheets={cheatsheets}
+  courseLevel="Intermédiaire"
+  courseDuration={12}
+  courseGoals={[
+    "Créez vos propres images Docker",
+    "Déployez une app complète",
+    "Optimisez vos builds pour la prod",
+  ]}
 >
-  <div class="main-wrapper">
-    <Warning />
-    <h1>{pageTitle}</h1>
-    <h2>Contenu du cours</h2>
+  <div slot="skills-section">
+    <p>
+      Docker est devenu un outil incontournable pour les développeurs. Longtemps
+      réservé aux administrateurs système et aux DevOps, il est désormais
+      demandé dans un grand nombre d'entreprises, quel que soit le rôle
+      technique.
+      <br />
+      <br />
+      Dans ce cours, vous apprendrez à utiliser Docker et Docker Compose pour conteneuriser
+      vos projets. Vous verrez comment simplifier vos déploiements, mieux collaborer
+      en équipe et préparer vos applications pour la production.
+    </p>
+    <p>À l’issue du cours, vous serez capable de :</p>
     <ul>
-      {
-        courseChapters
-          .sort(
-            (chapter1, chapter2) =>
-              chapter1.frontmatter.id - chapter2.frontmatter.id,
-          )
-          .map((chapter) => (
-            <li>
-              <a href={chapter.url}>{chapter.frontmatter.title}</a>
-            </li>
-          ))
-      }
+      <li>
+        <svg
+          class="check-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <use xlink:href="#check-icon"></use>
+        </svg>
+        Créer et personnaliser vos propres images Docker en choisissant la bonne
+        base et en optimisant vos builds.
+      </li>
+      <li>
+        <svg
+          class="check-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <use xlink:href="#check-icon"></use>
+        </svg>
+        Mettre en place une architecture conteneurisée complète : base de données,
+        back-end, front-end.
+      </li>
+      <li>
+        <svg
+          class="check-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <use xlink:href="#check-icon"></use>
+        </svg>
+        Préparer vos images pour la production grâce au multi-stage build.
+      </li>
     </ul>
+    <p>
+      <strong>Ce cours est résolument pratique</strong> : chaque notion est illustrée
+      par des mises en situation concrètes, accompagnées de screencasts et de corrections
+      détaillées.
+    </p>
   </div>
-</BaseLayout>
+</CourseLandingLayout>
 
 <style>
-  .main-wrapper {
-    max-width: 1100px;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  h1 {
-    margin-top: 0;
-  }
-
-  .main-wrapper a {
-    color: #bababa;
-
-    &:hover {
-      color: #4effa0;
-    }
+  .check-icon {
+    width: 24px;
+    height: 24px;
   }
 </style>
