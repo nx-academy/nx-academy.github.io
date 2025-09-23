@@ -76,7 +76,7 @@ Docker Compose va se charger de récupérer les images de [MariaDB](https://hub.
 
 <br>
 
-![Une capture d'écran de la page d'installation de WordPress](/wordpress-installer.png)
+![Une capture d'écran de la page d'installation de WordPress](/images/cours-docker-et-docker-compose/wordpress-installer.webp)
 
 <br>
 
