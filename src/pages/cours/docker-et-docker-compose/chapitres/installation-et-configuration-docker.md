@@ -312,7 +312,7 @@ Je vous imagine derrière votre écran vous dire : mais attends, je viens de lan
 
 Je vous ai dit que les conteneurs étaient éphémères, notamment en comparaison des VM. C’est ce qui se passe ici. Votre conteneur se lance, exécute sa commande (il fait son job) et il s’arrête. Par contre, sachez qu’il est possible d’afficher tous vos conteneurs, y compris ceux à l’arrêt. Ce qui est une commande plutôt pratique quand on veut déboguer un conteneur. Regardez la documentation du CLI avant de regarder la solution.
 
-![Un meme de retour vers sur le futur portant sur les conteneurs Docker](/back-to-the-future-docker.webp)
+![Un meme de retour vers sur le futur portant sur les conteneurs Docker](/images/cours-docker-et-docker-compose/back-to-the-future-docker.webp)
 
 Alors, vous avez trouvé ?
 
