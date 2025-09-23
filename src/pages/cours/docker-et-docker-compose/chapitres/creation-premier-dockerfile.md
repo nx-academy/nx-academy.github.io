@@ -29,7 +29,7 @@ Le schéma ci-dessous montre un enchaînement d’instructions assez courant.
 
 <br>
 
-![Le schéma d'une suite d'instructions d'un Dockerfile](/schema-instructions-docker.png)
+![Le schéma d'une suite d'instructions d'un Dockerfile](/images/cours-docker-et-docker-compose/schema-instructions-docker.webp)
 
 <br>
 
@@ -71,7 +71,7 @@ Créez un fichier appelé Dockerfile dans le dossier du projet fil rouge. Votre 
 
 <br>
 
-![Une capture d'écran de l'arborescence du projet sous VsCode](/arborescence-projet.png)
+![Une capture d'écran de l'arborescence du projet sous VsCode](/images/cours-docker-et-docker-compose/arborescence-projet.webp)
 
 <br>
 
