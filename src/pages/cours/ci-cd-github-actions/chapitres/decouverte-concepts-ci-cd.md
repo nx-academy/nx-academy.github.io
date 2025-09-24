@@ -16,7 +16,7 @@ id: 1
 
 # Découvrez les concepts de CI/CD
 
-![Un superhero regardant une ville de nuit, pixel art](/docker-port.webp)
+![Un superhero regardant une ville de nuit, pixel art]()
 
 ## Familiarisez-vous avec les termes CI/CD
 
@@ -58,7 +58,7 @@ Le plus souvent, un pipeline CI/CD suit le schéma suivant.
 
 <br>
 
-![](/cours-ci-cd/schema-pipeline.jpg)
+![](/images/cours-ci-cd-github-actions/schema-pipeline.webp)
 
 <br>
 
@@ -83,7 +83,7 @@ L’image suivante propose une représentation graphique des pipelines CI/CD.
 
 <br>
 
-![](/cours-ci-cd/cycle-ci-cd.png)
+![](/images/cours-ci-cd-github-actions/cycle-ci-cd.webp)
 
 <br>
 
@@ -95,7 +95,7 @@ Si vous avez déjà déployé manuellement un projet en utilisant un client ftp 
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+![Un élève en train de tricher dans une classe, pixel art]()
 
 ## Comprenez l’importance de ces technologies
 
@@ -108,7 +108,7 @@ Pour rappel,
 
 <br>
 
-![](/cours-ci-cd/manuel-commande-scp.png)
+![](/images/cours-ci-cd-github-actions/manuel-commande-scp.webp)
 
 <br>
 
