@@ -32,7 +32,7 @@ L’Intégration Continue (CI) est très orientée “code”. Son objectif est 
 
 <br>
 
-![](/cours-ci-cd/exemple-erreur-github-action.png)
+![](/images/cours-ci-cd-github-actions/exemple-erreur-github-action.webp)
 
 <br>
 
