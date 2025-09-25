@@ -53,7 +53,11 @@ Vous pouvez dès à présent récupérer le projet [sur ce repository GitHub](ht
 
 Pour vous faciliter la vie, je vous ai prévu ce screencast.
 
+<br>
+
 **SCREENCAST: Clonez et installez le projet fil rouge - MacOS**
+
+<br>
 
 Bien, maintenant que le projet est installé et tourne sur votre machine. Il est temps de s’intéresser au code du projet.
 
@@ -65,8 +69,47 @@ Bien, maintenant que le projet est installé et tourne sur votre machine. Il est
 
 ## Clonez et installez le projet sous Windows
 
+Vous pouvez dès à présent récupérer le projet [sur ce repository GitHub](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions). Clonez et suivez les étapes d’installation.
+
+Pour vous faciliter la vie, je vous ai prévu ce screencast.
+
+<br>
+
+**SCREENCAST: Clonez et installez le projet fil rouge - Windows**
+
+<br>
+
+Bien, maintenant que le projet est installé et tourne sur votre machine. Il est temps de s’intéresser au code du projet.
+
+---
+
+<br>
+
+![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
 
 ## Familiarisez-vous avec l’organisation du projet
+
+Pour rappel, le projet utilise ReactJS. Si vous avez déjà utilisé cette librairie, vous savez qu’il n’existe pas vraiment d’organisation du code à suivre. Quand je parle d’organisation du code, je parle de comment les dossiers et les fichiers sont nommés et agencés. Au fil des années, j’ai adopté une méthodologie en termes de nomage et de structuration des fichiers.
+
+Je vais prendre le temps de vous l’expliquer dans le screencast ci-dessous. Vous trouverez un résumé des points principaux de cette méthodologie aprés le screencast.
+
+Autre détail important, je vais prendre le temps de vous expliquer les librairies que j’ai installées et les scripts que vous pouvez exécuter. Vous ne devriez rien trouver de particulièrement bloquant.
+
+<br>
+
+**SCREENCAST: Familiarisez-vous avec l'organisation du projet**
+
+<br>
+
+Si on résume, voici ce que vous venez de voir :
+
+- Tout le code est contenu dans le dossier `src`.
+- Chaque composant est placé dans son propre dossier. Je nomme le fichier principal de chaque composant `index.js` pour faciliter sa localisation et son importation au sein du projet.
+- Chaque composant est également exporté par défaut. Cette pratique simplifie les importations, éliminant le besoin de déstructurer les importations ou de mémoriser les noms exacts des exportations.
+
+<br>
+
+En adoptant ces principes, je m'assure d'une structure et gestion de code optimisées, capables de s'adapter à l'évolution et à la complexification du projet.
 
 ## Contribuez !
 
