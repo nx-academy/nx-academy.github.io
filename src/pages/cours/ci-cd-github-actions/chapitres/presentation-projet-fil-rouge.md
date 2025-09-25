@@ -111,8 +111,21 @@ Si on résume, voici ce que vous venez de voir :
 
 En adoptant ces principes, je m'assure d'une structure et gestion de code optimisées, capables de s'adapter à l'évolution et à la complexification du projet.
 
+---
+
+<br>
+
+![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+
 ## Contribuez !
 
+Chaque projet de NX Academy est open-source. Cela signifie que vous pouvez non seulement le consulter et le partager de manière publique mais que vous pouvez aussi contribuer dessus.
+
+Pour ce projet, un bon exercice est de proposer la même base du projet mais avec un autre framework, tel qu’Angular ou Vue. Il est possible que je travaille dessus en 2024. Cela dit, si le chantier vous intéresse et que vous aimeriez y prendre part, n’hésitez surtout pas à me contacter via Discord ou en ouvrant une issue sur le projet.
+
+Autre chose. Si vous voyez des erreurs ou si quelque chose ne vous semble pas clair dans le cours (ça peut toujours arriver). Je vous invite à créer [une issue sur le projet](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/issues/new).
+
+Dernier point : si vous utilisez ce template pour réaliser votre portfolio, envoyez le moi. Je serais ravi de voir ce que vous avez réalisé :).
 
 ---
 
