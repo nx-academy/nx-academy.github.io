@@ -13,7 +13,7 @@ const septemberTasks: LogTasks = {
   tasks: [
     {
       kind: "done",
-      content: `Creation du recap de septembre 2025. Il est <a href="/articles/le-recap-septembre-2025" target="_blank">en ligne ici</a>. Bonne lecture :)`
+      content: `Creation du recap de septembre 2025. Il est <a href="/articles/le-recap-septembre-2025" target="_blank">en ligne ici</a>. Bonne lecture :)`,
     },
     {
       kind: "in-progress",

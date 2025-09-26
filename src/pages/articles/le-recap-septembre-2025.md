@@ -14,7 +14,7 @@ author: Thomas
 draft: false
 publishedDate: 09/26/2025
 ---
-    
+
 # Le récap #6 - Septembre 2025
 
 <img src="/images/articles/kiosque-journaux.webp" alt="Un vendeur de journaux dans un kiosque parisien, pixel art" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block; object-position: top" />
@@ -22,6 +22,7 @@ publishedDate: 09/26/2025
 <br>
 
 ## Aidez-nous à collecter 200 000 $ pour libérer JavaScript d'Oracle
+
 <small>Ryan Dahl</small>
 
 Deno a lancé une campagne de financement participatif pour collecter 200 000 $ afin de contester la marque déposée "JavaScript" détenue par Oracle. Cette action vise à démontrer que "JavaScript" est devenu un terme générique et ne devrait pas être la propriété exclusive d'une entreprise. Le financement soutiendra les frais juridiques et les expertises nécessaires pour libérer le terme "JavaScript" et le rendre accessible à tous les développeurs sans crainte de litiges.
@@ -34,7 +35,7 @@ Deno a lancé une campagne de financement participatif pour collecter 200 000 
 ## Attaque continue de la chaîne d'approvisionnement ciblant les packages npm de CrowdStrike
 <small>Kush Pandya, Peter van der Zee, Olivia Brown, Socket Research Team</small>
 
-Socket a détecté plusieurs packages npm de CrowdStrike compromis, poursuivant l'attaque de chaîne d'approvisionnement malveillante "Shai-Hulud" qui a déjà affecté près de 500 packages. Le malware, identique à celui des campagnes précédentes, inclut un script `bundle.js` qui télécharge et exécute TruffleHog, recherche des tokens et des identifiants cloud sur les systèmes hôtes, valide les identifiants découverts, crée des workflows GitHub Actions non autorisés dans les dépôts et exfiltre les données sensibles vers un point de terminaison webhook codé en dur. **Bref, c'est la merde !** Les packages affectés ont été rapidement supprimés du registre npm. Le malware inclut un fichier de workflow nommé `shai-hulud.yaml`, en référence aux vers des sables dans Dune, renforçant le fait que l'attaquant a délibérément nommé la campagne "Shai-Hulud". 
+Socket a détecté plusieurs packages npm de CrowdStrike compromis, poursuivant l'attaque de chaîne d'approvisionnement malveillante "Shai-Hulud" qui a déjà affecté près de 500 packages. Le malware, identique à celui des campagnes précédentes, inclut un script `bundle.js` qui télécharge et exécute TruffleHog, recherche des tokens et des identifiants cloud sur les systèmes hôtes, valide les identifiants découverts, crée des workflows GitHub Actions non autorisés dans les dépôts et exfiltre les données sensibles vers un point de terminaison webhook codé en dur. **Bref, c'est la merde !** Les packages affectés ont été rapidement supprimés du registre npm. Le malware inclut un fichier de workflow nommé `shai-hulud.yaml`, en référence aux vers des sables dans Dune, renforçant le fait que l'attaquant a délibérément nommé la campagne "Shai-Hulud".
 
 [Lire l'article](https://socket.dev/blog/ongoing-supply-chain-attack-targets-crowdstrike-npm-packages)
 
@@ -60,7 +61,7 @@ septembre 2025. Pour être parfaitement honnête, je suis un peu mal à l'aise
 avec le ton de l'article. À aucun moment, il ne parle des familles et des
 élèves qui ont dû s'endeter pour en faire parti. Je trouve assez limite. (Je ne
 vais pas me faire des amis en disant ça). Je vous invite à lire [cet autre
-article](https://www.vierzonitude.fr/2025/07/algosup-ferme-ses-portes.html) qui parle un peu des raisons. 
+article](https://www.vierzonitude.fr/2025/07/algosup-ferme-ses-portes.html) qui parle un peu des raisons.
 
 [Lire l'article](https://www.linkedin.com/pulse/game-over-franck-jeannin-lasse/)
 
@@ -69,4 +70,3 @@ article](https://www.vierzonitude.fr/2025/07/algosup-ferme-ses-portes.html) qui 
 ---
 
 Bonne lecture et on se retrouve **au mois d'octobre !**
-
