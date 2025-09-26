@@ -12,6 +12,10 @@ const septemberTasks: LogTasks = {
   month: "Septembre",
   tasks: [
     {
+      kind: "done",
+      content: `Creation du recap de septembre 2025. Il est <a href="/articles/le-recap-septembre-2025" target="_blank">en ligne ici</a>. Bonne lecture :)`
+    },
+    {
       kind: "in-progress",
       content:
         "Je suis en train de préparer la sortie du cours sur les CI/CD. Pour l'instant, je m'occupe d'insérer le contenu dans Astro et d'uploader les vidéos.",
