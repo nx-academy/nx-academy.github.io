@@ -15,7 +15,7 @@ id: 3
 
 <article>
 
-# Prenez en main les GitHub Actions 
+# Prenez en main les GitHub Actions
 
 ![Un superhero regardant une ville de nuit, pixel art]()
 
@@ -96,7 +96,6 @@ jobs:
 
 Un workflow consiste en une combinaison de tâches à réaliser (compiler le code, faire tourner des tests automatisés). Il est généralement constitué d’au moins trois grandes sections : `name`, `on` et `jobs`. `on` et `jobs` sont obligatoires et name est optionnelle (mais vivement recommandé).
 
-
 ```yml
 name: My First Workflow
 ```
@@ -160,7 +159,6 @@ Vous pouvez aussi voir que je lui ai donné un nom spécifique grâce à la prop
 
 Il peut être intéressant de faire tourner des jobs en parallèle. La parallélisation de jobs va vous permettre d’avoir une CI qui prend moins de temps à faire son cycle complet et donc de déployer plus rapidement. Rassurez-vous si c’est encore un peu abstrait. Je vous montrerai comment faire de la parallélisation de jobs dès le prochain chapitre.
 
-
 <br>
 
 ---
@@ -216,7 +214,7 @@ J’ai conscience que je viens de vous lâcher pas mal d’informations. Pour vo
 
 <br>
 
-**SCREENCAST: Familiarisez-vous avec le vocabulaire
+\*\*SCREENCAST: Familiarisez-vous avec le vocabulaire
 
 <br>
 
@@ -233,9 +231,9 @@ Si vous découvrez ce vocabulaire pour la première fois. Je vous invite à fair
 C’est bon, vous avez bien pris votre café ? Alors, on peut continuer. Comme promis, vous allez dans cette section créer et exécuter votre premier workflow. Ce workflow sera relativement simple : il affichera le mot Hello, World! dans la console de la CI.
 
 Il sera composé d’un seul job contenant lui-même deux steps :
-- la première step sera l’action actions/checkout@v3 ; 
-- la deuxième sera la commande echo “Hello, World!”. 
 
+- la première step sera l’action actions/checkout@v3 ;
+- la deuxième sera la commande echo “Hello, World!”.
 
 Je vous invite à regarder la documentation des GitHub Actions pour découvrir ce que fait l’action actions/checkout@v3. Cela vous permettra de vous habituer à lire la documentation et le code source des actions que vous utiliserez.
 
@@ -260,7 +258,7 @@ s’intéresser à la problématique du chapitre.
 
 ## Exercez-vous
 
-Pour rappel, voici la problématique que nous essayons de résoudre dans ce chapitre. Je vous invite à utiliser la branche partie-2/chapitre-1/section-3-fin. 
+Pour rappel, voici la problématique que nous essayons de résoudre dans ce chapitre. Je vous invite à utiliser la branche partie-2/chapitre-1/section-3-fin.
 
 <br>
 
@@ -283,7 +281,4 @@ Le code source contenant la solution de cet exercice se trouve sur la branche pa
 - Quand on utilise les GitHub Actions, il est important de connaître les termes `workflows`, `runners`, `jobs`, `steps` et `actions`. Il en existe d’autres que vous verrez plus tard dans le cours.
 - Les `actions` sont proches des fonctions en programmation. Ce sont des instructions réutilisables. Pour votre information, il existe des actions officielles et des actions de la communauté.
 
-
-
 </article>
-

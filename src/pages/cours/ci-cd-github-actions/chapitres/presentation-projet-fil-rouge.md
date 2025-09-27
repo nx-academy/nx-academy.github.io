@@ -15,7 +15,7 @@ id: 2
 
 <article>
 
-# Prenez en main le projet fil rouge 
+# Prenez en main le projet fil rouge
 
 ![Un superhero regardant une ville de nuit, pixel art]()
 
@@ -133,12 +133,10 @@ Dernier point : si vous utilisez ce template pour réaliser votre portfolio, env
 
 ![Un vendeur de journaux dans une rue, pixel art](/vendeur-journaux.webp)
 
-
 ## Résumé
 
 - Le projet fil rouge consiste à la mise en place du pipeline CI/CD complète pour une application utilisant React, TypeScript et Tailwind.
 - Ce projet est idéal comme base pour votre portfolio. Il vous permettra d’automatiser les déploiements de ce dernier et de pouvoir présenter vos compétences en entretien.
-- Vous êtes tout à fait libre d’utiliser une autre librairie front-end tel que NextJS, Astro ou Vue. Contactez-moi si le sujet vous intéresse. 
-
+- Vous êtes tout à fait libre d’utiliser une autre librairie front-end tel que NextJS, Astro ou Vue. Contactez-moi si le sujet vous intéresse.
 
 </article>
