@@ -222,6 +222,67 @@ J’ai conscience que je viens de vous lâcher pas mal d’informations. Pour vo
 
 Si vous découvrez ce vocabulaire pour la première fois. Je vous invite à faire une pause et à boire un café ou un thé. On se retrouve juste après votre pause. Je vous montrerais comment créer votre premier workflow.
 
+---
+
+<br>
+
+![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+
+## Créez un workflow simple
+
+C’est bon, vous avez bien pris votre café ? Alors, on peut continuer. Comme promis, vous allez dans cette section créer et exécuter votre premier workflow. Ce workflow sera relativement simple : il affichera le mot Hello, World! dans la console de la CI.
+
+Il sera composé d’un seul job contenant lui-même deux steps :
+- la première step sera l’action actions/checkout@v3 ; 
+- la deuxième sera la commande echo “Hello, World!”. 
+
+
+Je vous invite à regarder la documentation des GitHub Actions pour découvrir ce que fait l’action actions/checkout@v3. Cela vous permettra de vous habituer à lire la documentation et le code source des actions que vous utiliserez.
+
+Vous pouvez essayer de réaliser ce premier workflow de votre côté avant de regarder le screencast. À tout de suite !
+
+<br>
+
+**SCREENCAST: Clonez et installez le projet fil rouge - MacOS**
+
+<br>
+
+Le code de ce screencast se trouve sur la branche partie-2/chapitre-1/section-3-fin .
+
+Maintenant que vous avez créé votre premier workflow, on va pouvoir
+s’intéresser à la problématique du chapitre.
+
+---
+
+<br>
+
+![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+
+## Exercez-vous
+
+Pour rappel, voici la problématique que nous essayons de résoudre dans ce chapitre. Je vous invite à utiliser la branche partie-2/chapitre-1/section-3-fin. 
+
+<br>
+
+**SCREENCAST: Exercez-vous**
+
+<br>
+
+Le code source contenant la solution de cet exercice se trouve sur la branche partie-2/chapitre-1-fin.
+
+---
+
+<br>
+
+![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+
+## Résumé
+
+- Les GitHub Actions sont une fonctionnalité GitHub introduite en 2018. Elles permettent d’automatiser des tâches telles que le test et le déploiement d’applications directement depuis GitHub.
+- Les GitHub Actions utilisent le YAML. Elles sont situées dans le dossier `.github/workflows`. Vous pouvez avoir plusieurs workflows par repository GitHub.
+- Quand on utilise les GitHub Actions, il est important de connaître les termes `workflows`, `runners`, `jobs`, `steps` et `actions`. Il en existe d’autres que vous verrez plus tard dans le cours.
+- Les `actions` sont proches des fonctions en programmation. Ce sont des instructions réutilisables. Pour votre information, il existe des actions officielles et des actions de la communauté.
+
 
 
 </article>
