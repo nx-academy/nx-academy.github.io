@@ -93,9 +93,11 @@ Dans cette section, vous devrez analyser un workflow qui ne fonctionne pas. Vous
 
 Les cas traditionnels de bug de CI sont une librairie qui n’est pas installée ou un script qui n’est pas reconnu et/ou pas exécuté. Le défi principal réside souvent dans le débogage, surtout lorsque l'on est débutant en CI/CD. Cela dit, si vous suivez mes recommandations, vous devriez rapidement être capable d’affronter des bugs simples.
 
-Si vous avez déjà suivi mon cours sur les bugs côté front-end d’OpenClassrooms, il est probable que les phrases suivantes ne vous étonnent pas. Nous, les développeurs et développeuses, passons notre temps à résoudre des bugs et des erreurs. C’est une partie essentielle de notre travail et pour être tout à fait honnête, c’est l’une des parties qui me plaît le plus (avec la partie abstraction et architecture des solutions).
+Si vous avez déjà suivi [mon cours sur les bugs côté front-end d’OpenClassrooms](https://openclassrooms.com/fr/courses/7159296-deboguez-l-interface-de-votre-site-internet/7278716-adoptez-la-logique-de-debogage), il est probable que les phrases suivantes ne vous étonnent pas. Nous, les développeurs et développeuses, passons notre temps à résoudre des bugs et des erreurs. C’est une partie essentielle de notre travail et pour être tout à fait honnête, c’est l’une des parties qui me plaît le plus (avec la partie abstraction et architecture des solutions).
 
 Être capable de déboguer rapidement est une compétence essentielle pour tout développeur. C’est quelque chose qui s'acquiert avec le temps et l’expérience. Cela dit, il est possible d'accélérer l’apprentissage de cette compétence en suivant une méthodologie simple et structurée.
+
+<br>
 
 Cette méthode est composée de quatre étapes :
 
@@ -114,6 +116,52 @@ Dans le cadre des GitHub Actions, ce sont les logs émis par les actions elles-m
 
 <br>
 
-Les logs fournissent des données particulièrement importantes pour déboguer. Il existe différents types de logs : les applications logs, les systèmes logs, etc. Si vous souhaitez en apprendre plus sur le sujet, je vous invite à regarder cette conférence de Daniel Maher, un ancien de mes collègues de Datadog. Vous y trouverez des informations essentielles sur ce qui composent un log.
+Les logs fournissent des données particulièrement importantes pour déboguer. Il existe différents types de logs : les applications logs, les systèmes logs, etc. Si vous souhaitez en apprendre plus sur le sujet, je vous invite à regarder [cette conférence de Daniel Maher](https://www.youtube.com/watch?v=39oA9W4J37I), un ancien de mes collègues de Datadog. Vous y trouverez des informations essentielles sur ce qui composent un log.
 
+Dans le cadre des GitHub Actions, quand on exécute un workflow, chaque étape (souvenez-vous, les steps) génère ses propres logs, comme le montre la capture d’écran ci-dessous.
+
+<br>
+
+![](/images/cours-ci-cd-github-actions/exemples-log-ci-cd.webp)
+
+<br>
+
+Ces logs vont vous permettre d’observer le bug et d’en apprendre un peu plus sur celui-ci. Autrement dit, ils vont vous donner du contexte. Il est donc crucial de comprendre leur format et de savoir comment les interpréter. Les logs et erreurs seront signalisés en rouge comme le montre la capture d’écran suivante.
+
+<br>
+
+![](/images/cours-ci-cd-github-actions/workflows-erreurs.webp)
+
+<br>
+
+Ici, par exemple, vous pouvez voir les workflows qui sont « en succès » (comprendre : ceux qui sont allés à leur terme) et ceux qui sont en échec.
+
+<br>
+
+Quand un workflow est en échec, vous pouvez cliquer dessus pour avoir plus d’informations sur le job qui a échoué.
+
+<br>
+
+![](/images/cours-ci-cd-github-actions/log-erreur.webp)
+
+<br>
+
+Dans mon cas, en consultant les logs des GitHub Actions, je constate que le linter ESLint n'a pas fonctionné. C’est une information particulièrement importante pour déboguer. C’est la première étape de notre méthodologie de résolution de bugs.
+
+Pour le reproduire, vous avez deux options :
+
+- vous pouvez soit relancer le workflow. En effet, certaines erreurs sont parfois dues à des problèmes de réseaux ou à des dépendances indisponibles. Au final, c'est un peu comme redémarrer un ordinateur qui bugge ou supprimer le dossier node_modules avant de réinstaller les dépendances. Cependant, soyez prudent, car cela consomme des crédits GitHub Actions ;
+- Vous pouvez essayer de le reproduire en local. En essayant, par exemple, de lancer le script. Ici, le script est npm run lint. L’avantage de cette méthode est qu’elle ne vous coûtera rien. L'inconvénient est que l'environnement de la CI peut différer de celui de votre ordinateur local. Il existe une librairie nommée act qui reproduit l’environnement d'exécution des GitHub Actions sur votre ordinateur. Je n'ai pas encore eu l'occasion de l'essayer, mais si je le fais, je publierai certainement un article de blog à ce sujet.
+
+<br>
+
+Il ne vous reste plus qu’à essayer de résoudre cette erreur. Prenez le temps nécessaire pour résoudre cette erreur, car c'est une étape importante dans votre apprentissage. Le screencast ci-dessous vous montre la stratégie de débogage en actions.
+
+<br>
+
+**SCREENCAST: Gérez et déboguez vos erreurs**
+
+<br>
+
+Notre CI est de nouveau opérationnel. Sachez que la solution se trouve [sur la branche `partie-2/chapitre-2/section-2-fin`](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/tree/partie-2/chapitre-2/section-2-fin).
 </article>
