@@ -13,10 +13,9 @@ sectionTitle: Partie 3 - Mettez en place une pipeline CI/CD avec GitHub Pages et
 id: 5
 ---
 
-
 <article>
 
-# Initiez-vous à GitHub Pages 
+# Initiez-vous à GitHub Pages
 
 ![Un superhero regardant une ville de nuit, pixel art]()
 
