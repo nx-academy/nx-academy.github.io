@@ -130,6 +130,25 @@ Vous devriez maintenant être prêt pour résoudre la problématique de ce chapi
 
 ## Exercez-vous
 
+Pour rappel, [voici la problématique](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/issues/7) que nous essayons de résoudre dans ce chapitre. Pensez-bien à vous positionner [sur la branche `partie-3/chapitre-1-debut`](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/tree/partie-3/chapitre-1-debut).
 
+<br>
 
+**SCREENCAST: Exercez-vous**
+
+<br>
+
+Le code source contenant la solution de cet exercice se trouve [sur la branche `partie-3/chapitre-1-fin`](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/tree/partie-3/chapitre-1-fin).
+
+---
+
+<br>
+
+![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+
+## Résumé
+
+- GitHub Pages est un service d’hébergement gratuit offert par GitHub. Il permet de publier des sites statiques facilement. Un site statique est composé uniquement de HTML, CSS et de JavaScript.
+- GitHub Pages peut vous permettre d’héberger votre portfolio, votre documentation, votre blog et même une landing page dédiée à un événement.
+- Par défaut, le domaine qui vous est assigné par GitHub est nomDeDomaine.GitHub.io. En ajoutant un CNAME et en faisant quelques configurations côtés DNS, vous pouvez le transformer en un nom de domaine plus « classique ».
 </article>
