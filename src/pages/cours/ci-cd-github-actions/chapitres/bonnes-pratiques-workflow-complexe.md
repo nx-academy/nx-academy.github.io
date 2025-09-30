@@ -243,27 +243,27 @@ Commencez par regarder le code ci-dessous :
 name: A workflow with multiple jobs
 
 on:
-    push:
-        branches: ["partie-2/chapitre-2/section-4-fin"]
+  push:
+    branches: ["partie-2/chapitre-2/section-4-fin"]
 
 jobs:
-    first-job:
-        runs-on: ubuntu-latest
+  first-job:
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v2
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    second-job:
-        needs: first-job
-        runs-on: ubuntu-latest
+  second-job:
+    needs: first-job
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Another job
-              run: echo "Second job depends on first one"
+    steps:
+      - name: Another job
+        run: echo "Second job depends on first one"
 ```
 
-Ce workflow est composé de deux jobs. Ils ont chacun une étape (steps) et tournent sur des VM utilisant la dernière version d’ubuntu. À votre avis, que veut dire la propriété needs ? 
+Ce workflow est composé de deux jobs. Ils ont chacun une étape (steps) et tournent sur des VM utilisant la dernière version d’ubuntu. À votre avis, que veut dire la propriété needs ?
 
 <br>
 
@@ -278,7 +278,6 @@ Ce workflow est composé de deux jobs. Ils ont chacun une étape (steps) et tour
 La propriété needs permet de définir des dépendances entre des jobs au sein d’un même workflow. Autrement dit, needs vous permet de spécifier qu’un job ne peut se lancer tant que le job dont il dépend n’est pas terminé. Si le premier job échoue (on dit qu’il fail), le deuxième n’est jamais lancé.
 
 Je vais profiter du screencast ci-dessous pour reprendre ces informations et vous faire créer quelques exemples de workflow complexes. À tout de suite !
-
 
 <br>
 
