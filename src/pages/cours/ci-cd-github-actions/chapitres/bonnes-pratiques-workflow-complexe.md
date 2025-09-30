@@ -164,4 +164,158 @@ Il ne vous reste plus qu’à essayer de résoudre cette erreur. Prenez le temps
 <br>
 
 Notre CI est de nouveau opérationnel. Sachez que la solution se trouve [sur la branche `partie-2/chapitre-2/section-2-fin`](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/tree/partie-2/chapitre-2/section-2-fin).
+
+---
+
+<br>
+
+![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+
+## Suivez les bonnes pratiques de sécurité
+
+Quand on utilise les GitHub Actions, il y a souvent quelques règles de sécurité à respecter. La sécurité en informatique, c’est comme le brossage des dents. Ce n'est pas une garantie à 100 % contre les problèmes, mais ça réduit significativement les risques.
+
+En suivant des bonnes pratiques de sécurité, vous allez donc diminuer le risque de divulguer des informations confidentielles, telles que des clés d'API, des tokens ou des accès AWS. C’est quelque chose de très fréquent sur GitHub.
+
+L'un des éléments clés pour sécuriser vos GitHub Actions est le choix des actions que vous utilisez. Dans le chapitre précédent, au moment de vous présenter le vocabulaire, je vous ai parlé des actions.
+
+Souvenez-vous, elle avait la forme suivante :
+
+```yml
+- name: Checkout repository
+  uses: actions/checkout@v3
+```
+
+Pour rappel, une action se rapproche d’une fonction en programmation. C’est un bout de code réutilisable. Il existe deux catégories d’actions :
+
+- Les actions officielles - elles sont fournies et maintenues par GitHub et des partenaires de confiance. Elles sont généralement bien documentées, mises à jour régulièrement et sécurisées ;
+- Les actions tierces - elles sont créées et maintenues par des membres de la communauté. Elles n’ont pas été approuvées ou vérifiées par GitHub. La qualité et la sécurité de ces dernières peuvent donc varier grandement.
+
+<br>
+
+D’une manière générale, je vous invite à vous servir des actions officielles autant que possible. Vous pouvez en trouver [la majeure partie sur ce repository](https://github.com/actions/).
+
+<br>
+
+![](/images/cours-ci-cd-github-actions/github-actions-repo-officiel.webp)
+
+<br>
+
+Si vous décidez de passer par une action de la communauté, pensez bien à vérifier l’auteur et à lire le code source de l’action en question. Pensez aussi à demander l’avis de vos collègues et de vos pairs : ils auront certainement une solution à vous conseiller.
+
+Un autre élément crucial à prendre en compte est l'utilisation des secrets. Les secrets correspondent à des variables d’environnements. Elles vous permettent de stocker par exemple des clés d’API, des tokens, des mots de passe, etc.
+
+Vous pouvez les ajouter en vous rendant sur l’onglet Secrets and variables de la page Settings de votre repository.
+
+<br>
+
+![](/images/cours-ci-cd-github-actions/github-secrets.webp)
+
+<br>
+
+Puis, vous pouvez y accéder directement dans vos actions GitHub.
+
+```yml
+jobs:
+  example_job:
+    runs-on: ubuntu-latest
+    env:
+      MY_SECRET: ${{ secrets.MY_SECRET }}
+```
+
+Notre projet fil rouge n’utilise pas de secrets. Je ne peux donc pas vous montrer un exemple d’utilisation. Cependant, j’ai quelques contenus de prévu autour de ces notions pour 2024. Je mettrais à jour ce cours à ce moment 🙂.
+
+---
+
+<br>
+
+![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+
+## Créez un workflow complexe
+
+Nous allons maintenant nous intéresser à la création d’un workflow complexe. Le terme “complexe” ici ne veut pas dire que le job sera difficile à comprendre mais plutôt qu’il sera composé de plusieurs jobs. Cela va notamment nous permettre d’ajouter des dépendances entre les jobs. Autrement dit, qu’un job ne se lance pas avant qu’un autre soit terminé.
+
+À la fin de cette section, vous aurez couvert une grande partie des thématiques liés aux GitHub Actions. Il vous en restera certes d’autres à étudier, mais les bases seront là.
+
+Commencez par regarder le code ci-dessous :
+
+```yml
+name: A workflow with multiple jobs
+
+on:
+    push:
+        branches: ["partie-2/chapitre-2/section-4-fin"]
+
+jobs:
+    first-job:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+
+    second-job:
+        needs: first-job
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Another job
+              run: echo "Second job depends on first one"
+```
+
+Ce workflow est composé de deux jobs. Ils ont chacun une étape (steps) et tournent sur des VM utilisant la dernière version d’ubuntu. À votre avis, que veut dire la propriété needs ? 
+
+<br>
+
+---
+
+![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+
+---
+
+<br>
+
+La propriété needs permet de définir des dépendances entre des jobs au sein d’un même workflow. Autrement dit, needs vous permet de spécifier qu’un job ne peut se lancer tant que le job dont il dépend n’est pas terminé. Si le premier job échoue (on dit qu’il fail), le deuxième n’est jamais lancé.
+
+Je vais profiter du screencast ci-dessous pour reprendre ces informations et vous faire créer quelques exemples de workflow complexes. À tout de suite !
+
+
+<br>
+
+**SCREENCAST: Créez un workflow complexe**
+
+<br>
+
+Le code correspond à la fin de ce screencast se trouve [sur la branche `partie-2/chapitre-2/section-4-fin`](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/tree/partie-2/chapitre-2/section-4-fin).
+
+---
+
+<br>
+
+![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+
+## Exercez-vous
+
+Pour rappel, [voici la problématique](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/issues/6) que nous essayons de résoudre dans ce chapitre. N’oubliez pas de vous positionner [sur la branche `partie-2/chapitre-2/section-4-fin`](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/tree/partie-2/chapitre-2/section-4-fin).
+
+<br>
+
+**SCREENCAST: Exercez-vous**
+
+<br>
+
+Le code source contenant la solution de cet exercice se trouve [sur la branche `partie-2/chapitre-2-fin`](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/tree/partie-2/chapitre-2-fin).
+
+---
+
+<br>
+
+![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+
+## Résumé
+
+- Le système de tarification des GitHub Actions vous permet de les utiliser gratuitement. En fonction du compte GitHub dont vous disposez, vous pouvez exécuter un certain nombre de minutes gratuites par mois.
+- Faites bien attention à la consommation de vos pipelines CI/CD. Une fois la limite dépassée, des frais seront appliqués à la minute. N’oubliez pas que ce système de tarification dépend de si votre repository est public ou privé.
+- Pour débogguer une CI, essayez toujours de procéder de la manière suivante. Analysez les logs de votre CI, tentez de le reproduire et essayez ensuite de le corriger.
+- Tirez parti de la parallélisation des jobs pour faire des jobs plus courts et dédiés seulement à certaines tâches. Utilisez la propriété needs pour signaler une dépendance entre plusieurs jobs.
 </article>
