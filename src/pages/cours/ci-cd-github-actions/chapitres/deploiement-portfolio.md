@@ -16,7 +16,6 @@ id: 6
 
 # Déployez votre portfolio
 
-
 ![Un superhero regardant une ville de nuit, pixel art]()
 
 Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre [sur la branche `partie-3/chapitre-2-debut`](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/tree/partie-3/chapitre-2-debut). En plus de cette branche, nous allons utiliser [cette issue GitHub comme problématique](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/issues/8). Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
@@ -184,5 +183,5 @@ Entre temps, voici quelques sujets sur lesquels je vous invite à vous pencher :
 Comme toujours, n’hésitez pas à me faire un feedback sur le cours par mail ou sur Discord.
 
 Codez bien !
-</article>
 
+</article>
