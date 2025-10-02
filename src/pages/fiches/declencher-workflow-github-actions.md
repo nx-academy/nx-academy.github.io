@@ -10,7 +10,7 @@ imgSrc: /images/cheatsheets/usine-tapis-roulant.webp
 author: Thomas
 kind: Fiche technique
 level: Débutant
-publishedDate: 09/05/2025
+publishedDate: 10/02/2025
 ---
 
 <article>
