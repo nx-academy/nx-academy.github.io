@@ -17,7 +17,7 @@ id: 3
 
 # Prenez en main le projet fil rouge
 
-![Un homme asiatique en train de lire un manuel de montage, pixel art](/images/cours/homme-lecture-manuel.webp)
+![Un homme asiatique en train de lire un manuel de montage, pixel art](/images/cours-docker-et-docker-compose/homme-lecture-manuel.webp)
 
 ## Découvrez le projet fil rouge
 
@@ -39,7 +39,7 @@ Vous allez maintenant cloner le projet fil rouge sur votre ordinateur.
 
 <br>
 
-![Un vigile à l'entrée d'une boite de nuit, pixel art](/images/cours/homme-dossier-armoire.webp)
+![Un vigile à l'entrée d'une boite de nuit, pixel art](/images/cours-docker-et-docker-compose/homme-dossier-armoire.webp)
 
 ## Clonez le projet fil rouge
 
@@ -57,7 +57,7 @@ Bien, maintenant que le projet est installé et tourne sur votre machine. Il est
 
 <br>
 
-![Un professeur de mathématique ayant un eureka, pixel art](/images/cours/prof-math-eureka.webp)
+![Un professeur de mathématique ayant un eureka, pixel art](/images/cours-docker-et-docker-compose/prof-math-eureka.webp)
 
 ## Appréhendez le code du projet
 
@@ -80,7 +80,7 @@ Bien, il ne me reste plus qu’à vous parler de la problématique globale du co
 
 <br>
 
-![Un groupe de personnes en train de jouer à un escape game, pixel art](/images/cours/groupe-escape-game.webp)
+![Un groupe de personnes en train de jouer à un escape game, pixel art](/images/cours-docker-et-docker-compose/groupe-escape-game.webp)
 
 ## Découvrez la problématique globale du cours
 
@@ -98,7 +98,7 @@ Ce projet fil rouge est un cas classique d’utilisation de Docker. Il m’est d
 
 <br>
 
-![Un vendeur de journaux dans la rue, pixel art](/images/cours/vendeur-journaux.webp)
+![Un vendeur de journaux dans la rue, pixel art](/images/cours-docker-et-docker-compose/vendeur-journaux.webp)
 
 ## Résumé
 

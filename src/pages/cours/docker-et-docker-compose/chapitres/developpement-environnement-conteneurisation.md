@@ -17,7 +17,7 @@ id: 8
 
 # Développez dans un environnement conteneurisé
 
-![Un homme travaillant dans un porte conteneur, pixel art](/images/cours/travail-conteneur.webp)
+![Un homme travaillant dans un porte conteneur, pixel art](/images/cours-docker-et-docker-compose/travail-conteneur.webp)
 
 Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre [sur la branche `partie-3/chapitre-2-debut`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-3/chapitre-2-debut). En plus de cette branche, nous allons utiliser [cette issue Github](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/5) comme problématique. Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
 
@@ -29,7 +29,7 @@ En plus de cette extension, vous allez découvrir l’intégralité du code sour
 
 <br>
 
-![](/cours-docker/schema-devcontainer.png)
+![](/images/cours-docker-et-docker-compose/schema-devcontainer.webp)
 
 <br>
 
@@ -43,7 +43,7 @@ Sachez que je connais et utilise l’extension DevContainer depuis quelques ann�
 
 <br>
 
-![Un adolescent installant une carte graphique sur son ordinateur, pixel art](/images/cours/montage-pc.webp)
+![Un adolescent installant une carte graphique sur son ordinateur, pixel art](/images/cours-docker-et-docker-compose/montage-pc.webp)
 
 ## Installez et paramétrez l’extension DevContainer
 
@@ -65,7 +65,7 @@ Vous allez maintenant pouvoir faire fonctionner le projet fil rouge dans son int
 
 <br>
 
-![Un homme inspectant une voiture dans un garage, pixel art](/images/cours/inspect-voiture.webp)
+![Un homme inspectant une voiture dans un garage, pixel art](/images/cours-docker-et-docker-compose/inspect-voiture.webp)
 
 ## Découvrez les modifications apportées au projet fil rouge
 
@@ -96,7 +96,7 @@ Maintenant que vous avez découvert l’ensemble du projet. Il est temps de clor
 
 <br>
 
-![Un enfant en train de s'entrainer à faire un avion en papier, pixel art](/images/cours/enfant-avion-papier.webp)
+![Un enfant en train de s'entrainer à faire un avion en papier, pixel art](/images/cours-docker-et-docker-compose/enfant-avion-papier.webp)
 
 ## Exercez-vous
 
@@ -114,7 +114,7 @@ Le code source contenant la solution de cet exercice se trouve [sur la branche `
 
 <br>
 
-![Un vendeur de journaux dans la rue, pixel art](/images/cours/vendeur-journaux.webp)
+![Un vendeur de journaux dans la rue, pixel art](/images/cours-docker-et-docker-compose/vendeur-journaux.webp)
 
 ## Résumé
 
