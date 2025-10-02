@@ -157,7 +157,7 @@ Parmi les principales solutions de CI Servers, on peut donc citer Jenkins, Travi
 
 <br>
 
-![Un vendeur de journaux dans une rue, pixel art](/vendeur-journaux.webp)
+![Un vendeur de journaux dans une rue, pixel art](/images/misc/vendeur-journaux.webp)
 
 ## Résumé
 
