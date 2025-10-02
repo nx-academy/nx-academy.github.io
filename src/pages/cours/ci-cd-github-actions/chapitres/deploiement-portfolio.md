@@ -122,6 +122,67 @@ Chacune de ces stratégies a ses avantages et ses inconvénients. Comme souvent 
 
 Si le sujet vous intéresse, je vous invite [à lire ce papier blanc d’AWS](https://docs.aws.amazon.com/whitepapers/latest/introduction-devops-aws/deployment-strategies.html) dédié aux différentes stratégies de déploiement.
 
+---
 
+<br>
+
+![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+
+## Exercez-vous
+
+Pour rappel, [voici la problématique](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/issues/8) que nous essayons de résoudre dans ce chapitre.
+
+<br>
+
+**SCREENCAST: Exercez-vous**
+
+<br>
+
+Le code source contenant la solution de cet exercice se trouve [sur la branche `partie-3/chapitre-2-fin`](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/tree/partie-3/chapitre-2-fin).
+
+---
+
+<br>
+
+![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+
+## Résumé
+
+- Les GitHub Actions peuvent être utilisées pour déployer des applications React mais aussi des API REST en Node.JS et en Python.
+- Il est possible de déployer sur les principaux Cloud Providers via des actions spécifiques. Vous pouvez déployer votre API et même des fonctions Lambda directement depuis vos GitHub Actions.
+- Il existe différentes stratégies de déploiement. Nous les aborderons dans un futur cours 🙂.
+
+---
+
+<br>
+
+![Un homme en train de lire une histoire sur un fauteuil, pixel art](/images/cours-docker-et-docker-compose/lecture-histoire.webp)
+
+## Le mot de la fin
+
+Ce cours est maintenant terminé. J’espère que vous avez pris autant de plaisir à le suivre que j’ai pris de plaisir à le concevoir. Grâce à ce cours, vous devriez être capable :
+
+- De créer vos propres pipelines CI/CD avec GitHub Actions. Vous devriez être en mesure de faire tourner des tests, builder une application et la déployer en production sur GitHub Pages.
+- De déboguer plus facilement vos pipelines. Il y aura bien sur des cas que vous n’avez pas vu dans le cours mais c’est normal. L’important ici est que vous ayez des bases solides.
+- De savoir comment optimiser des pipelines notamment en créant plusieurs jobs. Vous devriez savoir comment paralléliser des jobs.
+
+<br>
+
+Il y a certains sujets, tels que les matrix et les conditionnels, que je n’ai pas abordés durant le cours. Je voulais que ce premier cours dédié au CI/CD soit à la fois accessible et utilisable par tous. La suite de ce cours abordera principalement la partie déploiement. Vous y verrez comment déployer des conteneurs Docker sur une infrastructure AWS. Sa sortie est prévue pour 2024.
+
+<br>
+
+Entre temps, voici quelques sujets sur lesquels je vous invite à vous pencher :
+
+- J’ai un peu parlé des artefacts (artifacts en anglais) durant les screencasts. Jetez un œil [à cette action](https://github.com/actions/upload-artifact) et essayez de l’implémenter 🙂.
+- Vous pouvez en profiter pour travailler sur votre portfolio. Vous avez toutes les cartes en main pour réaliser un portfolio qui se déploie automatiquement.
+- Essayez d'approfondir les CI/CD. Comme souvent, vous ne pourrez le faire que par la pratique. Autrement dit, c’est le moment de pratiquer et de faire des essais.
+- Essayez de déployer un portfolio sur Astro et/ou NextJS. Vous verrez que les étapes de la CI ne seront pas les mêmes.
+
+<br>
+
+Comme toujours, n’hésitez pas à me faire un feedback sur le cours par mail ou sur Discord.
+
+Codez bien !
 </article>
 
