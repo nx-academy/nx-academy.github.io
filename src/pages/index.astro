@@ -20,7 +20,8 @@ type Article = {
   url: string;
 };
 
-const heroContentTitle = "Quand et comment déclencher un workflow GitHub Actions ?";
+const heroContentTitle =
+  "Quand et comment déclencher un workflow GitHub Actions ?";
 
 const articles = Object.values(
   import.meta.glob("./articles/*.md", { eager: true }),
