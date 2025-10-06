@@ -10,6 +10,16 @@ type QuizMeta = {
 
 export const QUIZZES: readonly QuizMeta[] = [
   {
+    slug: "declencher-workflow-github-actions",
+    title: "Quand et comment déclencher un workflow GitHub Actions ?",
+    description:
+      "Dans ce quiz, vous allez mettre à l'épreuve vos connaissances sur les déclencheurs de CI, et plus particulièrement ceux des GitHub Actions !",
+    level: "Facile",
+    imgSrc: "/misc/quiz-hero.webp",
+    imgAlt: "Illustration Docker facile",
+    href: "quiz/declencher-workflow-github-actions",
+  },
+  {
     slug: "bien-faire-multi-stage-build",
     title: "Comment faire un multi-stage build ?",
     description:

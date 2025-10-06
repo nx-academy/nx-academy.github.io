@@ -10,7 +10,7 @@ imgSrc: /images/cheatsheets/usine-tapis-roulant.webp
 author: Thomas
 kind: Fiche technique
 level: Débutant
-publishedDate: 09/05/2025
+publishedDate: 10/02/2025
 ---
 
 <article>
@@ -295,8 +295,8 @@ Dans la prochaine fiche technique, on s'interessera aux artefacts.
 
 En attendant :
 
-- faites le quiz pour valider vos acquis ;
-- (re)découvrez le cours sur Docker.
+- [faites le quiz](/quiz/declencher-workflow-github-actions) pour valider vos acquis ;
+- (re)découvrez [le cours sur Docker](/cours/docker-et-docker-compose).
 
 ## Ressources
 

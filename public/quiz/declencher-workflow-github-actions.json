@@ -1,0 +1,104 @@
+{
+  "data": [
+    {
+      "question": "Quel est le rôle principal d'un déclencheur dans un workflow GitHub Actions ?",
+      "options": [
+        "Définir les étapes du workflow",
+        "Déterminer quand le workflow doit s'exécuter",
+        "Gérer les erreurs du workflow",
+        "Surveiller les performances du workflow"
+      ],
+      "answer": "Déterminer quand le workflow doit s'exécuter",
+      "explanation": "Un déclencheur spécifie l'événement qui active l'exécution d'un workflow, comme un push ou une pull request."
+    },
+    {
+      "question": "Comment déclare-t-on un déclencheur dans un fichier de configuration CI pour GitHub Actions ?",
+      "options": [
+        "Dans le champ 'on'",
+        "Dans le champ 'trigger'",
+        "Dans le champ 'event'",
+        "Dans le champ 'start'"
+      ],
+      "answer": "Dans le champ 'on'",
+      "explanation": "Les déclencheurs sont déclarés dans le champ 'on' du fichier de configuration CI."
+    },
+    {
+      "question": "Que se passe-t-il lorsqu'un événement spécifié dans le champ 'on' se produit ?",
+      "options": [
+        "Le workflow est désactivé",
+        "Le workflow est exécuté",
+        "Le workflow est mis en pause",
+        "Le workflow est supprimé"
+      ],
+      "answer": "Le workflow est exécuté",
+      "explanation": "Lorsque l'événement spécifié se produit, le workflow est automatiquement exécuté."
+    },
+    {
+      "question": "Quel déclencheur est utilisé pour lancer un workflow lors d'un push sur une branche spécifique ?",
+      "options": ["push", "pull_request", "workflow_dispatch", "workflow_call"],
+      "answer": "push",
+      "explanation": "Le déclencheur 'push' s'active lors d'un push sur une branche définie."
+    },
+    {
+      "question": "Quel déclencheur permet de lancer un workflow lors de l'ouverture ou de la mise à jour d'une pull request ?",
+      "options": ["push", "pull_request", "workflow_dispatch", "workflow_call"],
+      "answer": "pull_request",
+      "explanation": "Le déclencheur 'pull_request' s'active lors de l'ouverture ou de la mise à jour d'une pull request."
+    },
+    {
+      "question": "Quel est l'avantage d'utiliser le déclencheur 'workflow_dispatch' ?",
+      "options": [
+        "Il permet de lancer manuellement un workflow depuis l'interface GitHub",
+        "Il s'active lors d'un push sur une branche spécifique",
+        "Il s'active lors de l'ouverture d'une pull request",
+        "Il s'active lors de la fusion d'une pull request"
+      ],
+      "answer": "Il permet de lancer manuellement un workflow depuis l'interface GitHub",
+      "explanation": "Le déclencheur 'workflow_dispatch' permet de lancer manuellement un workflow depuis l'interface GitHub."
+    },
+    {
+      "question": "Comment combiner plusieurs déclencheurs dans un même fichier de configuration CI ?",
+      "options": [
+        "En les listant sous le champ 'on'",
+        "En les séparant par des virgules",
+        "En les déclarant dans des fichiers séparés",
+        "En les incluant dans des blocs 'if'"
+      ],
+      "answer": "En les listant sous le champ 'on'",
+      "explanation": "Plusieurs déclencheurs peuvent être combinés en les listant sous le champ 'on' dans le fichier de configuration CI."
+    },
+    {
+      "question": "Quel est l'objectif principal de l'utilisation des déclencheurs dans GitHub Actions ?",
+      "options": [
+        "Automatiser l'exécution de workflows en réponse à des événements spécifiques",
+        "Gérer les erreurs lors de l'exécution des workflows",
+        "Surveiller les performances des workflows",
+        "Définir les étapes d'un workflow"
+      ],
+      "answer": "Automatiser l'exécution de workflows en réponse à des événements spécifiques",
+      "explanation": "Les déclencheurs automatisent l'exécution de workflows en réponse à des événements spécifiques, comme un push ou une pull request."
+    },
+    {
+      "question": "Dans quel cas utiliseriez-vous le déclencheur 'pull_request' ?",
+      "options": [
+        "Pour lancer des tests ou des vérifications avant la fusion d'une pull request",
+        "Pour déployer une application en production",
+        "Pour installer des dépendances",
+        "Pour surveiller les performances du code"
+      ],
+      "answer": "Pour lancer des tests ou des vérifications avant la fusion d'une pull request",
+      "explanation": "Le déclencheur 'pull_request' est utilisé pour lancer des tests ou des vérifications avant la fusion d'une pull request."
+    },
+    {
+      "question": "Que permet de spécifier le champ 'branches' sous un déclencheur 'push' ?",
+      "options": [
+        "Les branches sur lesquelles le workflow doit s'exécuter",
+        "Les branches à ignorer lors de l'exécution du workflow",
+        "Les branches à surveiller pour les mises à jour",
+        "Les branches à fusionner automatiquement"
+      ],
+      "answer": "Les branches sur lesquelles le workflow doit s'exécuter",
+      "explanation": "Le champ 'branches' sous un déclencheur 'push' spécifie les branches sur lesquelles le workflow doit s'exécuter."
+    }
+  ]
+}
