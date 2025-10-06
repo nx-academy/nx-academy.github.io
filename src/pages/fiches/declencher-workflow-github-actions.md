@@ -295,8 +295,8 @@ Dans la prochaine fiche technique, on s'interessera aux artefacts.
 
 En attendant :
 
-- faites le quiz pour valider vos acquis ;
-- (re)découvrez le cours sur Docker.
+- [faites le quiz](/quiz/declencher-workflow-github-actions) pour valider vos acquis ;
+- (re)découvrez [le cours sur Docker](/cours/docker-et-docker-compose).
 
 ## Ressources
 
