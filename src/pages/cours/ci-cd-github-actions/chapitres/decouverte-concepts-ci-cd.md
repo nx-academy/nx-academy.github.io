@@ -16,7 +16,7 @@ id: 1
 
 # Découvrez les concepts de CI/CD
 
-![Un superhero regardant une ville de nuit, pixel art]()
+![](/images/cours-ci-cd-github-actions/scene-usine.webp)
 
 ## Familiarisez-vous avec les termes CI/CD
 
