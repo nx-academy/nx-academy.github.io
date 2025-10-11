@@ -17,7 +17,7 @@ id: 2
 
 # Prenez en main le projet fil rouge
 
-![Un superhero regardant une ville de nuit, pixel art]()
+![](/images/misc/enfant-jeu-de-constructions.webp)
 
 ## Découvrez le projet fil rouge
 
@@ -45,7 +45,7 @@ Vous allez maintenant cloner le projet fil rouge sur votre ordinateur.
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+![](/images/misc/installation-programme.webp)
 
 ## Clonez et installez le projet fil rouge sous MacOS
 
@@ -65,7 +65,7 @@ Bien, maintenant que le projet est installé et tourne sur votre machine. Il est
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+![](/images/misc/installation-programme.webp)
 
 ## Clonez et installez le projet sous Windows
 
@@ -85,7 +85,7 @@ Bien, maintenant que le projet est installé et tourne sur votre machine. Il est
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+![](/images/misc/visite-appartement.webp)
 
 ## Familiarisez-vous avec l’organisation du projet
 
@@ -115,7 +115,7 @@ En adoptant ces principes, je m'assure d'une structure et gestion de code optimi
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+![](/images/misc/personnes-travaillant-voiture.webp)
 
 ## Contribuez !
 
@@ -131,7 +131,7 @@ Dernier point : si vous utilisez ce template pour réaliser votre portfolio, env
 
 <br>
 
-![Un vendeur de journaux dans une rue, pixel art](/vendeur-journaux.webp)
+![](/images/misc/vendeur-journaux.webp)
 
 ## Résumé
 

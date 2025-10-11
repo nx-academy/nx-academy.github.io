@@ -163,7 +163,7 @@ Dans ce cours, on utilisera DockerHub mais sachez que les règles d’utilisatio
 
 <br>
 
-![Un vendeur de journaux dans la rue, pixel art](/images/cours-docker-et-docker-compose/vendeur-journaux.webp)
+![Un vendeur de journaux dans la rue, pixel art](/images/misc/vendeur-journaux.webp)
 
 ## Résumé
 
