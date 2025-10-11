@@ -44,7 +44,7 @@ En fonction de votre équipe et de votre projet, une CD peut complexifier votre 
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+![](/images/cours-ci-cd-github-actions/plan-usine.webp)
 
 ## Visualisez le fonctionnement d’une pipeline CI/CD
 
@@ -95,7 +95,7 @@ Si vous avez déjà déployé manuellement un projet en utilisant un client ftp 
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art]()
+![](/images/cours-ci-cd-github-actions/voitures-1980-2024.webp)
 
 ## Comprenez l’importance de ces technologies
 
@@ -140,7 +140,7 @@ Voilà pour les avantages et les inconvénients des pipelines CI/CD. On va maint
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+![](/images/cours-ci-cd-github-actions/concession-voitures.webp)
 
 ## Quelques exemples de CI Servers
 
