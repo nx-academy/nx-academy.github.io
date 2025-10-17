@@ -229,7 +229,7 @@ Notre projet fil rouge n’utilise pas de secrets. Je ne peux donc pas vous mont
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+![](/images/cours-ci-cd-github-actions/construction-usine-complexe.webp)
 
 ## Créez un workflow complexe
 

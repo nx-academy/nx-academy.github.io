@@ -125,7 +125,7 @@ Vous devriez maintenant être prêt pour résoudre la problématique de ce chapi
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+![](/images/misc/enfant-avion-papier.webp)
 
 ## Exercez-vous
 
@@ -143,7 +143,7 @@ Le code source contenant la solution de cet exercice se trouve [sur la branche `
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+![](/images/misc/vendeur-journaux.webp)
 
 ## Résumé
 
