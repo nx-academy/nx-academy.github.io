@@ -16,7 +16,7 @@ id: 6
 
 # Déployez votre portfolio
 
-![Un superhero regardant une ville de nuit, pixel art]()
+![](/images/cours-ci-cd-github-actions/decolage-fusee.webp)
 
 Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre [sur la branche `partie-3/chapitre-2-debut`](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/tree/partie-3/chapitre-2-debut). En plus de cette branche, nous allons utiliser [cette issue GitHub comme problématique](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/issues/8). Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
 
@@ -107,7 +107,7 @@ On va d’ailleurs en profiter pour parler un peu de déploiement !
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art]()
+![](/images/cours-ci-cd-github-actions/comparaison-fusees.webp)
 
 ## Appréhendez les différents modes de déploiement
 
