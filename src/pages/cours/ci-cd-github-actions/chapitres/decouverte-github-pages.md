@@ -17,7 +17,7 @@ id: 5
 
 # Initiez-vous à GitHub Pages
 
-![Un superhero regardant une ville de nuit, pixel art]()
+![](/images/cours-ci-cd-github-actions/femme-site-web.webp)
 
 Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre [sur la branche `partie-3/chapitre-1-debut`](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/tree/partie-3/chapitre-1-debut). En plus de cette branche, nous allons utiliser [cette issue Github](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/issues/7) comme problématique. Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
 
@@ -53,7 +53,7 @@ Je vous invite [à lire cet article du MDN](https://developer.mozilla.org/fr/doc
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art]()
+![](/images/cours-ci-cd-github-actions/homme-lecture-instruction.webp)
 
 ## Découvrez les cas d’utilisation de GitHub Pages
 
@@ -97,7 +97,7 @@ Ce qui est essentiel à retenir ici, vous pouvez utiliser GitHub Pages pour de n
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art]()
+![](/images/cours-ci-cd-github-actions/configuration-ordinateur.webp)
 
 ## Configurez GitHub Pages
 
@@ -125,7 +125,7 @@ Vous devriez maintenant être prêt pour résoudre la problématique de ce chapi
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+![](/images/misc/enfant-avion-papier.webp)
 
 ## Exercez-vous
 
@@ -143,7 +143,7 @@ Le code source contenant la solution de cet exercice se trouve [sur la branche `
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+![](/images/misc/vendeur-journaux.webp)
 
 ## Résumé
 
