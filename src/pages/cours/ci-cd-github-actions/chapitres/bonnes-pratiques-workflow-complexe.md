@@ -17,7 +17,7 @@ id: 4
 
 # Suivez les bonnes pratiques en créeant un workflow complexe
 
-![Un superhero regardant une ville de nuit, pixel art]()
+![](/images/cours-ci-cd-github-actions/comparaison-prix-produits.webp)
 
 Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre [sur la branche `partie-2/chapitre-2-debut`](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/tree/partie-2/chapitre-2-debut). En plus de cette branche, nous allons utiliser [cette issue Github](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/issues/6) comme problématique. Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
 
@@ -83,7 +83,7 @@ On va s’intéresser maintenant à la partie gestion des erreurs et débogage.
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art]()
+![](/images/cours-ci-cd-github-actions/enfant-puzzle.webp)
 
 ## Gérez et déboguez vos erreurs
 
@@ -169,7 +169,7 @@ Notre CI est de nouveau opérationnel. Sachez que la solution se trouve [sur la 
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+![](/images/cours-ci-cd-github-actions/consignes-securite.webp)
 
 ## Suivez les bonnes pratiques de sécurité
 
@@ -291,7 +291,7 @@ Le code correspond à la fin de ce screencast se trouve [sur la branche `partie-
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+![](/images/misc/enfant-avion-papier.webp)
 
 ## Exercez-vous
 
@@ -309,7 +309,7 @@ Le code source contenant la solution de cet exercice se trouve [sur la branche `
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+![](/images/misc/vendeur-journaux.webp)
 
 ## Résumé
 
