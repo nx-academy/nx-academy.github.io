@@ -17,7 +17,7 @@ id: 3
 
 # Prenez en main les GitHub Actions
 
-![Un superhero regardant une ville de nuit, pixel art]()
+![](/images/cours-ci-cd-github-actions/homme-lecture-livre.webp)
 
 Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre [sur la branche `partie-2/chapitre-1-debut`](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/tree/partie-2/chapitre-1-debut). En plus de cette branche, nous allons utiliser [cette issue Github](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/issues/5) comme problématique. Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
 
@@ -45,7 +45,7 @@ Dernier point important, les fichiers YAML se terminent par `.yml` ou `.yaml`. J
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+![](/images/cours-ci-cd-github-actions/scene-famille-dictionnaire.webp)
 
 ## Familiarisez-vous avec le vocabulaire
 
@@ -224,7 +224,7 @@ Si vous découvrez ce vocabulaire pour la première fois. Je vous invite à fair
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+![](/images/cours-ci-cd-github-actions/scene-construction-usine.webp)
 
 ## Créez un workflow simple
 
@@ -254,7 +254,7 @@ s’intéresser à la problématique du chapitre.
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+![](/images/misc/enfant-avion-papier.webp)
 
 ## Exercez-vous
 
@@ -272,7 +272,7 @@ Le code source contenant la solution de cet exercice se trouve sur la branche pa
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+![](/images/misc/vendeur-journaux.webp)
 
 ## Résumé
 
