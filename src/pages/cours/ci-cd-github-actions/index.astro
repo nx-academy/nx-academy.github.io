@@ -11,8 +11,10 @@ const courseChapters = Object.values(
 ) as Chapter[];
 let cheatsheets = Object.values(
   import.meta.glob("../../fiches/*.md", { eager: true }),
-  ) as Cheatsheet[];
-cheatsheets = cheatsheets.filter(cheatsheet => cheatsheet.frontmatter.title.includes("Github"))
+) as Cheatsheet[];
+cheatsheets = cheatsheets.filter((cheatsheet) =>
+  cheatsheet.frontmatter.title.includes("Github"),
+);
 ---
 
 <CourseLandingLayout
