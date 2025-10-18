@@ -30,21 +30,21 @@ const GITHUB_ACTIONS_TESTIMONIALS: readonly Testimonial[] = [
       "J’avais entendu parler du CI/CD sans vraiment savoir comment le mettre en pratique. Grâce au cours NX sur GitHub Actions, j’ai enfin compris comment automatiser mes tests et mes déploiements. Les explications claires et les exemples concrets m’ont permis de passer de la théorie à la pratique en un rien de temps.",
     job: "Développeur Front End",
     name: "Lionel",
-    picture: "/images/cours-docker-et-docker-compose/leslie.webp",
+    picture: "/images/cours-ci-cd-github-actions/lionel.webp",
   },
   {
     content:
       "Avant ce cours, le CI/CD me paraissait assez abstrait. Grâce à NX, j’ai enfin compris à quoi servent les workflows GitHub Actions et comment les utiliser pour automatiser un projet. Tout est expliqué simplement, étape par étape — c’est concret et motivant.",
     job: "Étudiant",
     name: "Remy",
-    picture: "/images/cours-docker-et-docker-compose/leslie.webp",
+    picture: "/images/cours-ci-cd-github-actions/remy.webp",
   },
   {
     content:
       "Ce cours m’a permis de franchir un vrai cap dans ma compréhension du CI/CD. J’ai appris à créer des workflows GitHub Actions solides et à structurer mes pipelines comme un pro. Les explications de Thomas m’ont aidé à adopter de bonnes pratiques que j’utilise déjà dans mes projets.",
     job: "DevOps en devenir",
     name: "Antoine",
-    picture: "/images/cours-docker-et-docker-compose/leslie.webp",
+    picture: "/images/cours-ci-cd-github-actions/oumar.webp",
   },
 ];
 
