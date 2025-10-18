@@ -196,9 +196,6 @@ for (const chapter of sortedChapters) {
         {
           cheatsheets &&
             cheatsheets
-              .filter((cheatsheet) =>
-                cheatsheet.frontmatter.title.includes("Docker"),
-              )
               .sort(
                 (item1, item2) =>
                   new Date(item2.frontmatter.publishedDate).getTime() -

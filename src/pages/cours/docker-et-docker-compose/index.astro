@@ -9,9 +9,10 @@ import { DOCKER_TESTIMONIALS } from "../../../data/testimonials";
 const courseChapters = Object.values(
   import.meta.glob("./chapitres/*.md", { eager: true }),
 ) as Chapter[];
-const cheatsheets = Object.values(
+let cheatsheets = Object.values(
   import.meta.glob("../../fiches/*.md", { eager: true }),
-) as Cheatsheet[];
+  ) as Cheatsheet[];
+cheatsheets = cheatsheets.filter(cheatsheet => cheatsheet.frontmatter.title.includes("Docker"))
 ---
 
 <CourseLandingLayout
