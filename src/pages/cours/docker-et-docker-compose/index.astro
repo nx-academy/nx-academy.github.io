@@ -4,14 +4,17 @@ import type { Cheatsheet } from "../../../types/Cheatsheet";
 
 import CourseLandingLayout from "../../../layouts/CourseLandingLayout.astro";
 
-import { TESTIMONIALS } from "../../../data/testimonials";
+import { DOCKER_TESTIMONIALS } from "../../../data/testimonials";
 
 const courseChapters = Object.values(
   import.meta.glob("./chapitres/*.md", { eager: true }),
 ) as Chapter[];
-const cheatsheets = Object.values(
+let cheatsheets = Object.values(
   import.meta.glob("../../fiches/*.md", { eager: true }),
 ) as Cheatsheet[];
+cheatsheets = cheatsheets.filter((cheatsheet) =>
+  cheatsheet.frontmatter.title.includes("Docker"),
+);
 ---
 
 <CourseLandingLayout
@@ -20,7 +23,7 @@ const cheatsheets = Object.values(
   courseTitle="Conteneurisez vos applications avec Docker"
   courseDescription="Apprenez à utiliser Docker et Docker Compose par la pratique. Découvrez comment Docker peut faciliter le développement d'applications et leur mise en production."
   courseUrl="/cours/docker-et-docker-compose/chapitres/decouverte-docker/"
-  courseTestimonials={TESTIMONIALS}
+  courseTestimonials={DOCKER_TESTIMONIALS}
   courseChapters={courseChapters}
   cheatsheets={cheatsheets}
   courseLevel="Intermédiaire"
