@@ -2,7 +2,7 @@
 layout: ../../../../layouts/ChapterLayout.astro
 
 title: Suivez les bonnes pratiques en créeant un workflow complexe
-description: Une super description liée à ce chapitre.
+description: "Apprenez à optimiser vos GitHub Actions : comprendre la tarification, déboguer efficacement, appliquer les bonnes pratiques de sécurité et créer des workflows complexes."
 
 previousChapterLink: prise-en-main-github-actions
 nextChapterLink: decouverte-github-pages
