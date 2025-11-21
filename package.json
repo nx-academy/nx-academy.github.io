@@ -16,15 +16,15 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.5",
-    "@astrojs/react": "^4.4.0",
-    "@astrojs/rss": "^4.0.12",
+    "@astrojs/react": "^4.4.2",
+    "@astrojs/rss": "^4.0.14",
     "@astrojs/sitemap": "^3.6.0",
     "@fontsource-variable/inter": "^5.2.5",
     "@fontsource/pixelify-sans": "^5.0.3",
     "@fontsource/space-grotesk": "^5.0.18",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.1",
-    "astro": "^5.14.8",
+    "astro": "^5.16.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "typescript": "^5.5.3"
