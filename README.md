@@ -18,8 +18,8 @@ Here are the key points you need to remember:
 
 ### Prerequisites
 
-- [Node.JS](https://nodejs.org/fr) - 20.10 is recommended (We tried Bun, it didn't work).
-- [Npm](https://nodejs.org/en/learn/getting-started/an-introduction-to-the-npm-package-manager) - 10.2 is recommended.
+- [Node.JS](https://nodejs.org/fr) - 24.11 is recommended (We tried Bun, it didn't work).
+- [Npm](https://nodejs.org/en/learn/getting-started/an-introduction-to-the-npm-package-manager) - 11.6 is recommended.
 
 ### Commands
 
