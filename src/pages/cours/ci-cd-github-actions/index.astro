@@ -13,7 +13,7 @@ let cheatsheets = Object.values(
   import.meta.glob("../../fiches/*.md", { eager: true }),
 ) as Cheatsheet[];
 cheatsheets = cheatsheets.filter((cheatsheet) =>
-  cheatsheet.frontmatter.title.includes("Github"),
+  cheatsheet.frontmatter.title.includes("GitHub"),
 );
 ---
 
