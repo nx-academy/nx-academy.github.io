@@ -1,7 +1,7 @@
 ---
 layout: ../../../../layouts/ChapterLayout.astro
 
-title: "Découvrez Docker : conteneurisation, VM vs conteneurs et cas d’usage"
+title: "Découvrez Docker"
 description: "Comprenez la conteneurisation avec Docker : images, conteneurs, différences avec les VM et usages clés. Une introduction claire pour bien débuter."
 
 nextChapterLink: installation-et-configuration-docker

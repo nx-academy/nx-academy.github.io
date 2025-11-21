@@ -1,7 +1,7 @@
 ---
 layout: ../../../../layouts/ChapterLayout.astro
 
-title: "Projet fil rouge : prenez en main le projet React, Node.js et MongoDB"
+title: Prenez en main le projet fil rouge
 description: "Découvrez le projet fil rouge du cours Docker : une application React, Node.js et MongoDB à cloner, configurer et préparer à la conteneurisation pas à pas."
 
 previousChapterLink: installation-et-configuration-docker

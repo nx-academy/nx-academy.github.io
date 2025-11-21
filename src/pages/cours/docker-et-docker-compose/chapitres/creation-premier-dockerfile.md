@@ -1,7 +1,7 @@
 ---
 layout: ../../../../layouts/ChapterLayout.astro
 
-title: "Créez votre premier Dockerfile : bases, instructions et bonnes pratiques"
+title: "Créez votre premier Dockerfile"
 description: "Apprenez à créer votre premier Dockerfile : comprendre les instructions clés, builder une image, choisir les bons tags et adopter les bonnes pratiques Docker."
 
 previousChapterLink: presentation-projet-fil-rouge

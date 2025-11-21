@@ -1,7 +1,7 @@
 ---
 layout: ../../../../layouts/ChapterLayout.astro
 
-title: "Installez et configurez des services avec Docker Compose : MongoDB, volumes et environnement"
+title: "Installez et configurez des services avec Docker Compose"
 description: "Apprenez à installer MongoDB avec Docker Compose, configurer vos services, gérer les architectures CPU et persister vos données grâce aux volumes Docker."
 
 previousChapterLink: gestion-reseau-infrastructure

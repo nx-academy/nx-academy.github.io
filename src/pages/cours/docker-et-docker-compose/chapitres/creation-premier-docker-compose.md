@@ -1,7 +1,7 @@
 ---
 layout: ../../../../layouts/ChapterLayout.astro
 
-title: "Créez votre premier docker-compose : services, infrastructures et bonnes pratiques"
+title: "Créez votre premier docker compose"
 description: "Apprenez à créer votre premier fichier docker-compose : définir des services, assembler une infrastructure complète et relier vos images Docker simplement."
 
 previousChapterLink: creation-premier-dockerfile

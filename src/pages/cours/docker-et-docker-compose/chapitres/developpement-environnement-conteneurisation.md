@@ -1,7 +1,7 @@
 ---
 layout: ../../../../layouts/ChapterLayout.astro
 
-title: "Développez dans un environnement conteneurisé : DevContainer VSCode, front-end & back-end Dockerisés"
+title: "Développez dans un environnement conteneurisé"
 description: Apprenez à développer directement dans un conteneur grâce à l’extension VSCode DevContainer et à intégrer front-end, back-end et base de données dans un projet full-stack Dockerisé.
 
 previousChapterLink: installation-et-configuration-services
