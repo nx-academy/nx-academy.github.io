@@ -2,7 +2,7 @@
 layout: ../../../../layouts/ChapterLayout.astro
 
 title: Découvrez les concepts de CI/CD
-description: Une super description liée à ce chapitre.
+description: Comprenez enfin les concepts de CI/CD, le rôle des pipelines, leurs étapes essentielles et les principaux CI Servers comme GitHub Actions. Un chapitre clair pour maîtriser les bases.
 
 nextChapterLink: presentation-projet-fil-rouge
 

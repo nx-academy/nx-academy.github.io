@@ -2,7 +2,9 @@
 layout: ../../../../layouts/ChapterLayout.astro
 
 title: Prenez en main les Github Actions
-description: Une super description liée à ce chapitre.
+description: "Apprenez à créer vos premières GitHub Actions : comprendre les
+workflows, jobs, runners et steps, écrire du YAML et construire un premier
+pipeline automatisé."
 
 previousChapterLink: presentation-projet-fil-rouge
 nextChapterLink: bonnes-pratiques-workflow-complexe

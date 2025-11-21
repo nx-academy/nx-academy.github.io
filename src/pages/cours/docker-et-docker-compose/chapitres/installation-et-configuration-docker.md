@@ -1,8 +1,8 @@
 ---
 layout: ../../../../layouts/ChapterLayout.astro
 
-title: Installez et configurez Docker Desktop
-description: Une nouvelle super description dédiée à Docker
+title: "Installez et configurez Docker Desktop"
+description: Installez Docker Desktop sur macOS ou Windows et apprenez à puller vos premières images. Découvrez les commandes Docker essentielles pour bien débuter.
 
 previousChapterLink: decouverte-docker
 nextChapterLink: presentation-projet-fil-rouge

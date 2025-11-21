@@ -1,8 +1,8 @@
 ---
 layout: ../../../../layouts/ChapterLayout.astro
 
-title: Découvrez Docker
-description: Une super description liée à ce chapitre.
+title: "Découvrez Docker"
+description: "Comprenez la conteneurisation avec Docker : images, conteneurs, différences avec les VM et usages clés. Une introduction claire pour bien débuter."
 
 nextChapterLink: installation-et-configuration-docker
 

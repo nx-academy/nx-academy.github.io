@@ -1,8 +1,8 @@
 ---
 layout: ../../../../layouts/ChapterLayout.astro
 
-title: Préparez votre application pour la production
-description: Une nouvelle super description dédiée à Docker
+title: "Préparez votre application Docker pour la production"
+description: "Apprenez à optimiser vos images Docker pour la production grâce au multi-staging, à différencier dev et prod et à structurer efficacement vos Dockerfile."
 
 previousChapterLink: developpement-environnement-conteneurisation
 

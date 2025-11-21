@@ -1,8 +1,8 @@
 ---
 layout: ../../../../layouts/ChapterLayout.astro
 
-title: Gérez le réseau de votre infrastructure
-description: Une nouvelle super description dédiée à Docker
+title: "Gérez le réseau de votre infrastructure Docker"
+description: "Comprenez le fonctionnement des ports Docker et configurez expose, ports et variables d’environnement. Apprenez à connecter votre conteneur à votre machine hôte."
 
 previousChapterLink: creation-premier-docker-compose
 nextChapterLink: installation-et-configuration-services

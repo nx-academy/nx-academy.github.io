@@ -2,7 +2,7 @@
 layout: ../../../../layouts/ChapterLayout.astro
 
 title: Prenez en main le projet fil rouge
-description: Une super description liée à ce chapitre.
+description: Clonez, installez et explorez le projet fil rouge utilisé dans ce cours CI/CD. Découvrez sa structure, ses librairies et préparez votre environnement pour la suite du parcours.
 
 previousChapterLink: decouverte-concepts-ci-cd
 nextChapterLink: prise-en-main-github-actions

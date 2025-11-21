@@ -2,7 +2,9 @@
 layout: ../../../../layouts/ChapterLayout.astro
 
 title: Déployez votre portfolio
-description: Une super description liée à ce chapitre.
+description: "Automatisez le déploiement de votre portfolio avec GitHub Actions
+: build, tests, déploiement sur GitHub Pages et introduction aux stratégies de
+déploiement modernes."
 
 previousChapterLink: decouverte-github-pages
 
