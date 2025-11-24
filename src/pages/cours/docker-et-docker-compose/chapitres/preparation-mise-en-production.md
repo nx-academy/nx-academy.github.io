@@ -1,8 +1,8 @@
 ---
 layout: ../../../../layouts/ChapterLayout.astro
 
-title: Préparez votre application pour la production
-description: Une nouvelle super description dédiée à Docker
+title: "Préparez votre application Docker pour la production"
+description: "Apprenez à optimiser vos images Docker pour la production grâce au multi-staging, à différencier dev et prod et à structurer efficacement vos Dockerfile."
 
 previousChapterLink: developpement-environnement-conteneurisation
 
@@ -16,7 +16,7 @@ id: 9
 
 # Préparez votre application pour la production
 
-![Une militaire qui va appuyer sur un bouton de lancement de missiles, pixel art](/images/cours/appuie-boutton.webp)
+![Une militaire qui va appuyer sur un bouton de lancement de missiles, pixel art](/images/cours-docker-et-docker-compose/appuie-boutton.webp)
 
 Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre [sur la branche partie-3/chapitre-3-debut](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-3/chapitre-3-debut). En plus de cette branche, nous allons utiliser [cette issue Github](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/6) comme problématique. Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
 
@@ -31,7 +31,7 @@ Qu’est-ce qui distingue un environnement de développement d’un environnemen
 
 <br>
 
-![](/cours-docker/meme-docker.png)
+![](/images/cours-docker-et-docker-compose/meme-docker.webp)
 
 <br>
 
@@ -47,7 +47,7 @@ Contrairement à un environnement de développement, un environnement de product
 
 <br>
 
-![Le même homme habillé dans différents contextes (au bureau en costume, à la maison en jean, en short à la plage), pixel art](/images/cours/homme-versatile.webp)
+![Le même homme habillé dans différents contextes (au bureau en costume, à la maison en jean, en short à la plage), pixel art](/images/cours-docker-et-docker-compose/homme-versatile.webp)
 
 ## Utilisez un seul Dockerfile pour plusieurs environnements
 
@@ -108,7 +108,7 @@ Mais du coup, le multi-staging, c’est quoi ?
 
 <br>
 
-![Une homme en train de couper une part de cake, pixel art](/images/cours/coupe-cake.webp)
+![Une homme en train de couper une part de cake, pixel art](/images/cours-docker-et-docker-compose/coupe-cake.webp)
 
 ## Découpez votre image `web` avec le multi staging
 
@@ -245,7 +245,7 @@ Le code source correspond à la fin du screencast se trouve [sur la branche `par
 
 <br>
 
-![Un enfant en train de s'entrainer à faire un avion en papier, pixel art](/images/cours/enfant-avion-papier.webp)
+![Un enfant en train de s'entrainer à faire un avion en papier, pixel art](/images/cours-docker-et-docker-compose/enfant-avion-papier.webp)
 
 ## Exercez-vous
 
@@ -263,7 +263,7 @@ Le code source contenant la solution de cet exercice se trouve [sur la branche p
 
 <br>
 
-![Un vendeur de journaux dans la rue, pixel art](/images/cours/vendeur-journaux.webp)
+![Un vendeur de journaux dans la rue, pixel art](/images/cours-docker-et-docker-compose/vendeur-journaux.webp)
 
 ## Résumé
 
@@ -275,7 +275,7 @@ Le code source contenant la solution de cet exercice se trouve [sur la branche p
 
 <br>
 
-![Un homme en train de lire une histoire sur un fauteuil, pixel art](/images/cours/lecture-histoire.webp)
+![Un homme en train de lire une histoire sur un fauteuil, pixel art](/images/cours-docker-et-docker-compose/lecture-histoire.webp)
 
 ## Le mot de la fin
 
@@ -307,6 +307,6 @@ Codez bien !
 
 <br>
 
-![Une mosaïque de développeurs en train de coder, pixel art](/images/cours/mosaique-developpeurs.webp)
+![Une mosaïque de développeurs en train de coder, pixel art](/images/cours-docker-et-docker-compose/mosaique-developpeurs.webp)
 
 </article>

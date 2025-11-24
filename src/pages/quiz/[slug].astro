@@ -13,7 +13,7 @@ export function getStaticPaths() {
 }
 const { slug } = Astro.params;
 
-const { title, description, level, imgSrc, imgAlt, href } = QUIZZES.filter(
+const { title, description, level, imgSrc, imgAlt } = QUIZZES.filter(
   (quiz) => quiz.slug === slug,
 )[0];
 

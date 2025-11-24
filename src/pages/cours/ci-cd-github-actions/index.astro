@@ -1,73 +1,104 @@
 ---
-import type { Breadcrumb } from "../../../types/Breadcrumb";
 import type { Chapter } from "../../../types/Chapter";
+import type { Cheatsheet } from "../../../types/Cheatsheet";
 
-import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CourseLandingLayout from "../../../layouts/CourseLandingLayout.astro";
 
-import Warning from "../../../components/Warning.astro";
-
-const pageTitle = "Maîtrisez les pipelines CI/CD avec les GitHub Actions";
-const pageDescription = "Une super description";
+import { GITHUB_ACTIONS_TESTIMONIALS } from "../../../data/testimonials.ts";
 
 const courseChapters = Object.values(
   import.meta.glob("./chapitres/*.md", { eager: true }),
 ) as Chapter[];
-
-const breadCrumbs: Breadcrumb[] = [
-  {
-    pageName: "Accueil",
-    pageUrl: "/",
-  },
-  {
-    pageName: "Cours",
-    pageUrl: "/cours",
-  },
-];
+let cheatsheets = Object.values(
+  import.meta.glob("../../fiches/*.md", { eager: true }),
+) as Cheatsheet[];
+cheatsheets = cheatsheets.filter((cheatsheet) =>
+  cheatsheet.frontmatter.title.includes("GitHub"),
+);
 ---
 
-<BaseLayout
-  title={pageTitle}
-  description={pageDescription}
-  breadcrumbs={breadCrumbs}
+<CourseLandingLayout
+  srcPicture="/images/cours-ci-cd-github-actions/usine-factorio-like.webp"
+  altPicture="Une usine à la Factorio, pixel art"
+  courseTitle="Maîtrisez les pipelines CI/CD avec les GitHub Actions"
+  courseDescription="Apprenez à créer, optimiser et automatiser des pipelines CI/CD avec GitHub Actions. De vos premiers workflows au déploiement complet d’un portfolio, maîtrisez chaque étape du processus."
+  courseUrl="/cours/ci-cd-github-actions/chapitres/decouverte-concepts-ci-cd"
+  courseTestimonials={GITHUB_ACTIONS_TESTIMONIALS}
+  quizUrl="/quiz/quiz-niveau-docker"
+  courseChapters={courseChapters}
+  cheatsheets={cheatsheets}
+  courseLevel="Intermédiaire"
+  courseDuration={12}
+  courseGoals={[
+    "Créer vos premiers workflows GitHub Actions",
+    "Déboguer et optimiser vos pipelines",
+    "Automatisez vos déploiements sur GitHub Pages",
+  ]}
 >
-  <div class="main-wrapper">
-    <Warning />
-    <h1>{pageTitle}</h1>
-    <h2>Contenu du cours</h2>
+  <div slot="skills-section">
+    <p>
+      Les pipelines CI/CD sont devenus des éléments clés du développement
+      moderne. Longtemps réservés aux équipes DevOps, ils sont aujourd’hui
+      essentiels pour les développeurs souhaitant livrer plus vite, plus
+      proprement et en toute confiance. Maîtriser GitHub Actions est un
+      véritable atout, tant en entreprise que lors d’entretiens.
+      <br />
+      <br />
+      Dans ce cours, vous apprendrez à créer, optimiser et automatiser vos propres
+      pipelines CI/CD directement depuis GitHub. Vous découvrirez comment tester
+      votre code, le builder, le déployer et mettre en place un véritable workflow
+      professionnel.
+    </p>
+    <p>À l’issue du cours, vous serez capable de :</p>
     <ul>
-      {
-        courseChapters
-          .sort(
-            (chapter1, chapter2) =>
-              chapter1.frontmatter.id - chapter2.frontmatter.id,
-          )
-          .map((chapter) => (
-            <li>
-              <a href={chapter.url}>{chapter.frontmatter.title}</a>
-            </li>
-          ))
-      }
+      <li>
+        <svg
+          class="check-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <use xlink:href="#check-icon"></use>
+        </svg>
+        Créer vos premiers workflows GitHub Actions et comprendre les notions clés
+        : workflows, jobs, runners, steps, actions.
+      </li>
+      <li>
+        <svg
+          class="check-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <use xlink:href="#check-icon"></use>
+        </svg>
+        Mettre en place une pipeline CI complète : installation des dépendances,
+        build du projet, exécution des tests automatisés.
+      </li>
+      <li>
+        <svg
+          class="check-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <use xlink:href="#check-icon"></use>
+        </svg>
+        Automatiser vos déploiements sur GitHub Pages pour publier un site ou un
+        portfolio professionnel en continu.
+      </li>
     </ul>
+    <p>
+      <strong>Ce cours est résolument pratique</strong> : chaque notion est illustrée
+      par des mises en situation concrètes, accompagnées de screencasts et de corrections
+      détaillées.
+    </p>
   </div>
-</BaseLayout>
+</CourseLandingLayout>
 
 <style>
-  .main-wrapper {
-    max-width: 1100px;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  h1 {
-    margin-top: 0;
-  }
-
-  .main-wrapper a {
-    color: #bababa;
-
-    &:hover {
-      color: #4effa0;
-    }
+  .check-icon {
+    width: 24px;
+    height: 24px;
   }
 </style>

@@ -1,8 +1,8 @@
 ---
 layout: ../../../../layouts/ChapterLayout.astro
 
-title: Gérez le réseau de votre infrastructure
-description: Une nouvelle super description dédiée à Docker
+title: "Gérez le réseau de votre infrastructure Docker"
+description: "Comprenez le fonctionnement des ports Docker et configurez expose, ports et variables d’environnement. Apprenez à connecter votre conteneur à votre machine hôte."
 
 previousChapterLink: creation-premier-docker-compose
 nextChapterLink: installation-et-configuration-services
@@ -17,7 +17,7 @@ id: 6
 
 # Gérez le réseau de votre infrastructure
 
-![Un parking de voitures, pixel art](/images/cours/parking-voitures.webp)
+![Un parking de voitures, pixel art](/images/cours-docker-et-docker-compose/parking-voitures.webp)
 
 Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre [sur la branche `partie-2/chapitre-3-debut`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-3-debut). En plus de cette branche, nous allons utiliser [cette issue Github](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/3) comme problématique. Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
 
@@ -88,7 +88,7 @@ Vous pouvez voir que Spotify occupe deux ports, respectivement le 57621 et le 50
 
 <br>
 
-![Une femme en train de montrer un place de bateau vide dans un port, pixel art](/images/cours/femme-port.webp)
+![Une femme en train de montrer un place de bateau vide dans un port, pixel art](/images/cours-docker-et-docker-compose/femme-port.webp)
 
 ## Exposez un port
 
@@ -144,7 +144,7 @@ Passons maintenant aux variables d'environnement.
 
 <br>
 
-![Une homme asiatique en train de se préparer un burger, pixel art](/images/cours/burger-homme-cuisine.webp)
+![Une homme asiatique en train de se préparer un burger, pixel art](/images/cours-docker-et-docker-compose/burger-homme-cuisine.webp)
 
 ## Ajoutez des variables d’environnement à votre conteneur
 
@@ -228,7 +228,7 @@ Votre code devrait maintenant correspondre à celui [de la branche `partie-2/cha
 
 <br>
 
-![Un enfant en train de s'entrainer à faire un avion en papier, pixel art](/images/cours/enfant-avion-papier.webp)
+![Un enfant en train de s'entrainer à faire un avion en papier, pixel art](/images/cours-docker-et-docker-compose/enfant-avion-papier.webp)
 
 ## Exercez-vous
 
@@ -246,7 +246,7 @@ Le code source contenant la solution de cet exercice se trouve [sur la branche `
 
 <br>
 
-![Un vendeur de journaux dans la rue, pixel art](/images/cours/vendeur-journaux.webp)
+![Un vendeur de journaux dans la rue, pixel art](/images/cours-docker-et-docker-compose/vendeur-journaux.webp)
 
 ## Résumé
 

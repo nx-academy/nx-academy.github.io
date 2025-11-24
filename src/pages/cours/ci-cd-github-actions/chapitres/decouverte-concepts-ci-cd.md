@@ -2,12 +2,13 @@
 layout: ../../../../layouts/ChapterLayout.astro
 
 title: Découvrez les concepts de CI/CD
-description: Une super description liée à ce chapitre.
+description: Comprenez enfin les concepts de CI/CD, le rôle des pipelines, leurs étapes essentielles et les principaux CI Servers comme GitHub Actions. Un chapitre clair pour maîtriser les bases.
 
 nextChapterLink: presentation-projet-fil-rouge
 
 chapterNumber: 1
 sectionNumber: 1
+sectionTitle: Partie 1 - Appréhendez les CI/CD
 id: 1
 ---
 
@@ -15,7 +16,7 @@ id: 1
 
 # Découvrez les concepts de CI/CD
 
-![Un superhero regardant une ville de nuit, pixel art](/docker-port.webp)
+![](/images/cours-ci-cd-github-actions/scene-usine.webp)
 
 ## Familiarisez-vous avec les termes CI/CD
 
@@ -31,7 +32,7 @@ L’Intégration Continue (CI) est très orientée “code”. Son objectif est 
 
 <br>
 
-![](/cours-ci-cd/exemple-erreur-github-action.png)
+![](/images/cours-ci-cd-github-actions/exemple-erreur-github-action.webp)
 
 <br>
 
@@ -43,7 +44,7 @@ En fonction de votre équipe et de votre projet, une CD peut complexifier votre 
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+![](/images/cours-ci-cd-github-actions/plan-usine.webp)
 
 ## Visualisez le fonctionnement d’une pipeline CI/CD
 
@@ -57,7 +58,7 @@ Le plus souvent, un pipeline CI/CD suit le schéma suivant.
 
 <br>
 
-![](/cours-ci-cd/schema-pipeline.jpg)
+![](/images/cours-ci-cd-github-actions/schema-pipeline.webp)
 
 <br>
 
@@ -82,7 +83,7 @@ L’image suivante propose une représentation graphique des pipelines CI/CD.
 
 <br>
 
-![](/cours-ci-cd/cycle-ci-cd.png)
+![](/images/cours-ci-cd-github-actions/cycle-ci-cd.webp)
 
 <br>
 
@@ -94,7 +95,7 @@ Si vous avez déjà déployé manuellement un projet en utilisant un client ftp 
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+![](/images/cours-ci-cd-github-actions/voitures-1980-2024.webp)
 
 ## Comprenez l’importance de ces technologies
 
@@ -107,7 +108,7 @@ Pour rappel,
 
 <br>
 
-![](/cours-ci-cd/manuel-commande-scp.png)
+![](/images/cours-ci-cd-github-actions/manuel-commande-scp.webp)
 
 <br>
 
@@ -139,7 +140,7 @@ Voilà pour les avantages et les inconvénients des pipelines CI/CD. On va maint
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+![](/images/cours-ci-cd-github-actions/concession-voitures.webp)
 
 ## Quelques exemples de CI Servers
 
@@ -156,7 +157,7 @@ Parmi les principales solutions de CI Servers, on peut donc citer Jenkins, Travi
 
 <br>
 
-![Un vendeur de journaux dans une rue, pixel art](/vendeur-journaux.webp)
+![Un vendeur de journaux dans une rue, pixel art](/images/misc/vendeur-journaux.webp)
 
 ## Résumé
 

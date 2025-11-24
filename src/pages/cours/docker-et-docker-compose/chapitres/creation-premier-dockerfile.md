@@ -1,8 +1,8 @@
 ---
 layout: ../../../../layouts/ChapterLayout.astro
 
-title: Créez votre premier Dockerfile
-description: Une nouvelle super description dédiée à Docker
+title: "Créez votre premier Dockerfile"
+description: "Apprenez à créer votre premier Dockerfile : comprendre les instructions clés, builder une image, choisir les bons tags et adopter les bonnes pratiques Docker."
 
 previousChapterLink: presentation-projet-fil-rouge
 nextChapterLink: creation-premier-docker-compose
@@ -17,7 +17,7 @@ id: 4
 
 # Créez votre premier Dockerfile
 
-![Une scientifique en train de donner des explications sur un squelette, pixel art](/images/cours/scientifique-squelette.webp)
+![Une scientifique en train de donner des explications sur un squelette, pixel art](/images/cours-docker-et-docker-compose/scientifique-squelette.webp)
 
 Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre [sur la branche `partie-2/chapitre-1-debut`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-1-debut). En plus de cette branche, nous allons utiliser [cette issue Github](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/1) comme problématique. Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
 
@@ -29,7 +29,7 @@ Le schéma ci-dessous montre un enchaînement d’instructions assez courant.
 
 <br>
 
-![Le schéma d'une suite d'instructions d'un Dockerfile](/schema-instructions-docker.png)
+![Le schéma d'une suite d'instructions d'un Dockerfile](/images/cours-docker-et-docker-compose/schema-instructions-docker.webp)
 
 <br>
 
@@ -43,7 +43,7 @@ Avant de découvrir ces instructions ensemble, je vous invite à télécharger [
 
 <br>
 
-![Une manageneuse en train de donner des instructions à une salariée, pixel art](/images/cours/manageuse-instructions.webp)
+![Une manageneuse en train de donner des instructions à une salariée, pixel art](/images/cours-docker-et-docker-compose/manageuse-instructions.webp)
 
 ## Ajoutez des instructions sur votre Dockerfile
 
@@ -71,7 +71,7 @@ Créez un fichier appelé Dockerfile dans le dossier du projet fil rouge. Votre 
 
 <br>
 
-![Une capture d'écran de l'arborescence du projet sous VsCode](/arborescence-projet.png)
+![Une capture d'écran de l'arborescence du projet sous VsCode](/images/cours-docker-et-docker-compose/arborescence-projet.webp)
 
 <br>
 
@@ -125,7 +125,7 @@ Bon, ça fait pas mal de choses ! Si vous voyez que tout ne rentre pas du premie
 
 <br>
 
-![Une enfant en train de choisir une paire de baskets, pixel art](/images/cours/ado-choix-basket.webp)
+![Une enfant en train de choisir une paire de baskets, pixel art](/images/cours-docker-et-docker-compose/ado-choix-basket.webp)
 
 ## Choisissez la bonne image Docker
 
@@ -218,7 +218,7 @@ En pratique, ce n’est pas vraiment une bonne idée. Admettons que vous utilise
 
 <br>
 
-![Un enfant en train de s'entrainer à faire un avion en papier, pixel art](/images/cours/enfant-avion-papier.webp)
+![Un enfant en train de s'entrainer à faire un avion en papier, pixel art](/images/cours-docker-et-docker-compose/enfant-avion-papier.webp)
 
 ## Exercez-vous
 
@@ -238,7 +238,7 @@ Le code source contenant la solution de cet exercice se trouve [sur la branche `
 
 <br>
 
-![Un vendeur de journaux dans la rue, pixel art](/images/cours/vendeur-journaux.webp)
+![Un vendeur de journaux dans la rue, pixel art](/images/cours-docker-et-docker-compose/vendeur-journaux.webp)
 
 ## Résumé
 

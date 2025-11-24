@@ -1,8 +1,8 @@
 ---
 layout: ../../../../layouts/ChapterLayout.astro
 
-title: Installez et configurez des services avec docker compose
-description: Une nouvelle super description dédiée à Docker
+title: "Installez et configurez des services avec Docker Compose"
+description: "Apprenez à installer MongoDB avec Docker Compose, configurer vos services, gérer les architectures CPU et persister vos données grâce aux volumes Docker."
 
 previousChapterLink: gestion-reseau-infrastructure
 nextChapterLink: developpement-environnement-conteneurisation
@@ -17,7 +17,7 @@ id: 7
 
 # Installez et configurez des services avec docker compose
 
-![Une homme configurant un service sous forme de hologrammes, pixel art](/images/cours/homme-hologramme.webp)
+![Une homme configurant un service sous forme de hologrammes, pixel art](/images/cours-docker-et-docker-compose/homme-hologramme.webp)
 
 Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre [sur la branche `partie-3/chapitre-1-debut`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-3/chapitre-1-debut). En plus de cette branche, nous allons utiliser [cette issue Github](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/4) comme problématique. Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
 
@@ -37,7 +37,7 @@ Les bases de données SQL sont intéressantes quand vous travaillez avec des str
 
 <br>
 
-![Une femme en train de paramétrer un ordinateur, pixel art](/images/cours/femme-configuration-ordinateur.webp)
+![Une femme en train de paramétrer un ordinateur, pixel art](/images/cours-docker-et-docker-compose/femme-configuration-ordinateur.webp)
 
 ## Configurez et connectez vos services
 
@@ -47,7 +47,7 @@ Si le sujet est obscur, je vous invite à lire [cet article Medium](https://medi
 
 <br>
 
-![](/cours-docker/dockerhub-mongo-home.png)
+![](/images/cours-docker-et-docker-compose/dockerhub-mongo-home.webp)
 
 <br>
 
@@ -55,7 +55,7 @@ Par exemple, les deux images ci-dessous sont compatibles avec les architectures 
 
 <br>
 
-![](/cours-docker/dockerhub-mongo-search.png)
+![](/images/cours-docker-et-docker-compose/dockerhub-mongo-search.webp)
 
 <br>
 
@@ -69,7 +69,7 @@ Je me souviens quand Apple a sorti ces ordinateurs avec les puces M1. Beaucoup d
 
 <br>
 
-![](/cours-docker/dockerhub-mongo-3.png)
+![](/images/cours-docker-et-docker-compose/dockerhub-mongo-3.webp)
 
 <br>
 
@@ -108,7 +108,7 @@ Amusez à créer un fichier docker-compose et à y copier/coller ce snippet de c
 
 <br>
 
-![](/cours-docker/mongo-express-admin.png)
+![](/images/cours-docker-et-docker-compose/mongo-express-admin.webp)
 
 <br>
 
@@ -120,7 +120,7 @@ Prenez maintenant le temps d’inspecter le fichier docker-compose que vous vene
 
 <br>
 
-![Une femme en train de sauvegarder un document sur une disquette, pixel art](/images/cours/femme-ordinateur-disquette.webp)
+![Une femme en train de sauvegarder un document sur une disquette, pixel art](/images/cours-docker-et-docker-compose/femme-ordinateur-disquette.webp)
 
 ## Persistez les données d’une base de données avec un volume
 
@@ -255,7 +255,7 @@ J’en profite pour vous donner quelques ressources à lire pour approfondir les
 
 <br>
 
-![Un enfant en train de s'entrainer à faire un avion en papier, pixel art](/images/cours/enfant-avion-papier.webp)
+![Un enfant en train de s'entrainer à faire un avion en papier, pixel art](/images/cours-docker-et-docker-compose/enfant-avion-papier.webp)
 
 ## Exercez-vous
 
@@ -273,7 +273,7 @@ Le code source contenant la solution de cet exercice se trouve [sur la branche `
 
 <br>
 
-![Un vendeur de journaux dans la rue, pixel art](/images/cours/vendeur-journaux.webp)
+![Un vendeur de journaux dans la rue, pixel art](/images/cours-docker-et-docker-compose/vendeur-journaux.webp)
 
 ## Résumé
 

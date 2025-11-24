@@ -1,8 +1,8 @@
 ---
 layout: ../../../../layouts/ChapterLayout.astro
 
-title: Installez et configurez Docker Desktop
-description: Une nouvelle super description dédiée à Docker
+title: "Installez et configurez Docker Desktop"
+description: Installez Docker Desktop sur macOS ou Windows et apprenez à puller vos premières images. Découvrez les commandes Docker essentielles pour bien débuter.
 
 previousChapterLink: decouverte-docker
 nextChapterLink: presentation-projet-fil-rouge
@@ -17,7 +17,7 @@ id: 2
 
 # Installez et configurez Docker Desktop
 
-![Un port avec des conteneurs, pixel art](/cours-docker/port-avec-conteneurs.png)
+![Un port avec des conteneurs, pixel art](/images/cours-docker-et-docker-compose/port-avec-conteneurs.webp)
 
 ## Découvrez Docker Desktop
 
@@ -33,7 +33,7 @@ Si ça vous intéresse d’en apprendre un peu plus sur le fonctionnement intern
 
 <br>
 
-![Un superhero regardant une ville de nuit, pixel art](/cours-docker/installation-logiciel.png)
+![](/images/cours-docker-et-docker-compose/installation-logiciel.webp)
 
 ## Installez Docker Desktop sur macOS
 
@@ -49,7 +49,7 @@ Félicitations, Docker Desktop est maintenant prêt à l’emploi sur votre ordi
 
 <br>
 
-![Un superhero regardant une ville de nuit, pixel art](/cours-docker/installation-logiciel.png)
+![](/images/cours-docker-et-docker-compose/installation-logiciel.webp)
 
 ## Installez Docker Desktop sur Windows
 
@@ -63,7 +63,7 @@ Félicitations, Docker Desktop est maintenant prêt à l’emploi sur votre ordi
 
 <br>
 
-![Un superhero regardant une ville de nuit, pixel art](/cours-docker/hacker-sombre.png)
+![](/images/cours-docker-et-docker-compose/hacker-sombre.webp)
 
 ## Appréhendez la ligne de commande de Docker
 
@@ -180,7 +180,7 @@ Maintenant que vous avez pris en main l’interface en ligne de commandes de Doc
 
 <br>
 
-![Une femme afro-américiane en train de choisir un produit dans un magasin, pixel art](/images/cours/choix-produit-magasin.webp)
+![Une femme afro-américiane en train de choisir un produit dans un magasin, pixel art](/images/cours-docker-et-docker-compose/choix-produit-magasin.webp)
 
 ## Récupérez une image Node.JS
 
@@ -188,7 +188,7 @@ Maintenant que vous avez pris en main l’interface en ligne de commandes de Doc
 
 <br>
 
-![La page de recherche de DockerHub quand vous tapez Node.JS dans la barre de recherche](/dockerhub-node.png)
+![La page de recherche de DockerHub quand vous tapez Node.JS dans la barre de recherche](/images/cours-docker-et-docker-compose/dockerhub-node.webp)
 
 <br>
 
@@ -196,7 +196,7 @@ Vous voyez le texte écrit en vert (en espérant que vous ne soyez pas daltonien
 
 <br>
 
-![Une capture d'écran montrant les avantages des images officielles selon Docker](/avantages-image-officielle-docker.png)
+![Une capture d'écran montrant les avantages des images officielles selon Docker](/images/cours-docker-et-docker-compose/avantages-image-officielle-docker.webp)
 
 <br>
 
@@ -204,7 +204,7 @@ Cliquez sur la page de Node, vous devriez là encore avoir un résultat similair
 
 <br>
 
-![Une capture d'écran de l'image officielle de Node.JS sur DockerHub](/image-officielle-node-js.png)
+![Une capture d'écran de l'image officielle de Node.JS sur DockerHub](/images/cours-docker-et-docker-compose/image-officielle-node-js.webp)
 
 <br>
 
@@ -236,7 +236,7 @@ Le screencast ci-dessous reprend ce que je viens de faire mais en vidéo. Encore
 
 <br>
 
-![Un afro-américain en train de faire du vélo pour la première fois, pixel art](/images/cours/enfant-velo-debutant.webp)
+![Un afro-américain en train de faire du vélo pour la première fois, pixel art](/images/cours-docker-et-docker-compose/enfant-velo-debutant.webp)
 
 ## Lancez et manipulez votre conteneur Node.js
 
@@ -312,7 +312,7 @@ Je vous imagine derrière votre écran vous dire : mais attends, je viens de lan
 
 Je vous ai dit que les conteneurs étaient éphémères, notamment en comparaison des VM. C’est ce qui se passe ici. Votre conteneur se lance, exécute sa commande (il fait son job) et il s’arrête. Par contre, sachez qu’il est possible d’afficher tous vos conteneurs, y compris ceux à l’arrêt. Ce qui est une commande plutôt pratique quand on veut déboguer un conteneur. Regardez la documentation du CLI avant de regarder la solution.
 
-![Un meme de retour vers sur le futur portant sur les conteneurs Docker](/back-to-the-future-docker.jpg)
+![Un meme de retour vers sur le futur portant sur les conteneurs Docker](/images/cours-docker-et-docker-compose/back-to-the-future-docker.webp)
 
 Alors, vous avez trouvé ?
 
@@ -347,7 +347,7 @@ Vous voici arrivé au terme de ce chapitre. Ce chapitre est clairement l’un de
 
 <br>
 
-![Un vendeur de journaux dans la rue, pixel art](/images/cours/vendeur-journaux.webp)
+![Un vendeur de journaux dans la rue, pixel art](/images/cours-docker-et-docker-compose/vendeur-journaux.webp)
 
 ## Résumé
 

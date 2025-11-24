@@ -1,8 +1,8 @@
 ---
 layout: ../../../../layouts/ChapterLayout.astro
 
-title: Découvrez Docker
-description: Une super description liée à ce chapitre.
+title: "Découvrez Docker"
+description: "Comprenez la conteneurisation avec Docker : images, conteneurs, différences avec les VM et usages clés. Une introduction claire pour bien débuter."
 
 nextChapterLink: installation-et-configuration-docker
 
@@ -16,7 +16,7 @@ id: 1
 
 # Découvrez Docker
 
-![Un superhero regardant une ville de nuit, pixel art](/docker-port.webp)
+![](/images/cours-docker-et-docker-compose/docker-port.webp)
 
 ## Familiarisez-vous avec la conteneurisation
 
@@ -45,7 +45,7 @@ Je vais maintenant vous parler de virtualisation et de conteneurisation. Vous al
 
 <br>
 
-![Un vigile à l'entrée d'une boite de nuit, pixel art](/homme-magasin-voiture.webp)
+![Un vigile à l'entrée d'une boite de nuit, pixel art](/images/cours-docker-et-docker-compose/homme-magasin-voiture.webp)
 
 ## Différenciez les VM des conteneurs
 
@@ -59,7 +59,7 @@ Pour les conteneurs, c’est exactement l’inverse. Tous les conteneurs partage
 
 <br>
 
-![Un schéma présentant de manière graphique les différences d'architecture entre une VM et une conteneur](/container-vs-vm.png)
+![Un schéma présentant de manière graphique les différences d'architecture entre une VM et une conteneur](/images/cours-docker-et-docker-compose/container-vs-vm.webp)
 
 <br>
 
@@ -71,7 +71,8 @@ Pour les conteneurs, c’est exactement l’inverse. Tous les conteneurs partage
 
 <br>
 
-![Un élève en train de tricher dans une classe, pixel art](/enfant-puzzle.webp)
+![Un élève en train de tricher dans une classe, pixel
+art](/images/cours-docker-et-docker-compose/enfant-puzzle.webp)
 
 ## Les problématiques résolues par Docker
 
@@ -83,7 +84,7 @@ On va donc profiter de cette section pour faire un essai. J’aimerais que vous 
 
 <br>
 
-![Un meme concernant Docker et OpenStack basé sur des images du film Inception](/meme-docker.jpg)
+![Un meme concernant Docker et OpenStack basé sur des images du film Inception](/images/cours-docker-et-docker-compose/meme-docker.webp)
 
 <br>
 
@@ -115,13 +116,14 @@ Sur GitHub, vous pouvez trouver le code de projets. Sur DockerHub, vous trouvez 
 
 Mais vous pouvez déjà faire un essai. Cherchez des images officielles pour Node.js ou MongoDB. Vous pourrez voir qu’il y existe beaucoup. Pour votre information, [c’est ici que nous récupérons nos images NodeJS](https://hub.docker.com/_/node).
 
-![La page officielle dédiée à Node.JS sur DockerHub](/nodejs-dockerhub.png)
+![La page officielle dédiée à Node.JS sur
+DockerHub](/images/cours-docker-et-docker-compose/nodejs-dockerhub.webp)
 
 <br>
 
 ---
 
-![Un serveur tenant un plateau dans un restaurant parisien, pixel art](/femme-manuel-utilisation.webp)
+![Un serveur tenant un plateau dans un restaurant parisien, pixel art](/images/cours-docker-et-docker-compose/femme-manuel-utilisation.webp)
 
 <br>
 
@@ -143,7 +145,7 @@ Ils vous permettront de créer ce qu’on appelle des clusters. Autrement dit, u
 
 <br>
 
-![Un schéma montrant un regroupant de conteneurs dans un orchestrateur](/orchestrateur-schema.png)
+![Un schéma montrant un regroupant de conteneurs dans un orchestrateur](/images/cours-docker-et-docker-compose/orchestrateur-schema.webp)
 
 <br>
 
@@ -161,7 +163,7 @@ Dans ce cours, on utilisera DockerHub mais sachez que les règles d’utilisatio
 
 <br>
 
-![Un vendeur de journaux dans la rue, pixel art](/images/cours/vendeur-journaux.webp)
+![Un vendeur de journaux dans la rue, pixel art](/images/misc/vendeur-journaux.webp)
 
 ## Résumé
 
