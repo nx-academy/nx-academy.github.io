@@ -13,12 +13,16 @@ interface Props {
 import Heading3 from "./Heading3.astro";
 
 const { headings, pageType } = Astro.props;
-
 const sectionsHeading = headings.filter((heading) => heading.depth === 2);
 ---
 
 <div class="wrapper" data-page={pageType}>
-  <Heading3 content="Contenu" />
+  <div class="heading-wrapper">
+    <Heading3 content="Contenu" />
+    <svg class="flip-backward-icon" viewBox="0 0 24 24">
+      <use xlink:href="#flip-backward-icon"></use>
+    </svg>
+  </div>
   <ul class="sections-heading">
     {
       sectionsHeading.map((heading) => (
@@ -33,6 +37,18 @@ const sectionsHeading = headings.filter((heading) => heading.depth === 2);
 </div>
 
 <style>
+  .heading-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .flip-backward-icon {
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+  }
+
   .sections-heading {
     margin-top: 1.75rem;
     list-style-type: none;
