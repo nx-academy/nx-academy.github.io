@@ -17,23 +17,28 @@ const sectionsHeading = headings.filter((heading) => heading.depth === 2);
 ---
 
 <div class="wrapper" data-page={pageType}>
-  <div class="heading-wrapper">
-    <Heading3 content="Contenu" />
-    <svg class="flip-backward-icon" viewBox="0 0 24 24">
-      <use xlink:href="#flip-backward-icon"></use>
-    </svg>
+  <div class="front-card">
+    <div class="heading-wrapper">
+      <Heading3 content="Contenu" />
+      <svg class="flip-backward-icon" viewBox="0 0 24 24">
+        <use xlink:href="#flip-backward-icon"></use>
+      </svg>
+    </div>
+    <ul class="sections-heading">
+      {
+        sectionsHeading.map((heading) => (
+          <li>
+            <a class="section-link" href={`#${heading.slug}`}>
+              {heading.text}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
   </div>
-  <ul class="sections-heading">
-    {
-      sectionsHeading.map((heading) => (
-        <li>
-          <a class="section-link" href={`#${heading.slug}`}>
-            {heading.text}
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+  <div class="back-card">
+    Coucou
+  </div>
 </div>
 
 <style>
@@ -80,6 +85,7 @@ const sectionsHeading = headings.filter((heading) => heading.depth === 2);
   const $pageType = (
     document.querySelector(".wrapper") as HTMLDivElement
   ).getAttribute("data-page");
+  const $wrapper = (document.querySelector(".aside-wrapper") as HTMLDivElement)
   const $flipBackwardIcon = (document.querySelector(".flip-backward-icon") as HTMLElement)
 
   function scrollToTitle() {
@@ -135,6 +141,7 @@ const sectionsHeading = headings.filter((heading) => heading.depth === 2);
   }
 
   $flipBackwardIcon.addEventListener("click", function() {
+    $wrapper.classList.toggle("is-flipped")
     console.log("=====")
     console.log("=====")
     console.log("=====")

@@ -121,6 +121,20 @@ const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`;
       padding: 24px;
       position: sticky;
       top: 24px;
+      perspective: 1200px;
+      transition: .4s;
+    }
+  }
+
+  .aside-wrapper.is-flipped {
+    transform: rotateY(180deg); 
+
+    > div {
+      transform: rotateY(180deg);
+    }
+
+    > div > div:first-child {
+      display: none;
     }
   }
 
