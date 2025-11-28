@@ -216,7 +216,7 @@ J’ai conscience que je viens de vous lâcher pas mal d’informations. Pour vo
 
 <br>
 
-\*\*SCREENCAST: Familiarisez-vous avec le vocabulaire
+<iframe src="https://player.vimeo.com/video/1140466111?h=1813f59d8b&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 5 - Découvrez le projet fil rouge"></iframe>
 
 <br>
 
@@ -243,7 +243,7 @@ Vous pouvez essayer de réaliser ce premier workflow de votre côté avant de re
 
 <br>
 
-**SCREENCAST: Clonez et installez le projet fil rouge - MacOS**
+<iframe src="https://player.vimeo.com/video/1140466207?h=db5d660db7&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 5 - Découvrez le projet fil rouge"></iframe>
 
 <br>
 
@@ -264,7 +264,7 @@ Pour rappel, voici la problématique que nous essayons de résoudre dans ce chap
 
 <br>
 
-**SCREENCAST: Exercez-vous**
+<iframe src="https://player.vimeo.com/video/1140466588?h=dc6167aa60&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 5 - Découvrez le projet fil rouge"></iframe>
 
 <br>
 
