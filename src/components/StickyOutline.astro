@@ -80,6 +80,7 @@ const sectionsHeading = headings.filter((heading) => heading.depth === 2);
   const $pageType = (
     document.querySelector(".wrapper") as HTMLDivElement
   ).getAttribute("data-page");
+  const $flipBackwardIcon = (document.querySelector(".flip-backward-icon") as HTMLElement)
 
   function scrollToTitle() {
     $sectionLinks.forEach((link) => {
@@ -132,6 +133,12 @@ const sectionsHeading = headings.filter((heading) => heading.depth === 2);
       }
     }
   }
+
+  $flipBackwardIcon.addEventListener("click", function() {
+    console.log("=====")
+    console.log("=====")
+    console.log("=====")
+  })
 
   window.addEventListener("scroll", function () {
     onScroll();
