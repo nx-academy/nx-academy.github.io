@@ -27,10 +27,18 @@ const { content, date, slug, title } = Astro.props;
 
     p:nth-of-type(1) {
       font-weight: 700;
+      color: var(--linkColor);
+      transition: .4s;
     }
 
     p:nth-of-type(2) {
       font-weight: 400;
+    }
+  }
+
+  .wrapper:hover {
+    p:nth-of-type(1) {
+      color: var(--linkHoverColor);
     }
   }
 </style>
