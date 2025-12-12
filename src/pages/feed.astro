@@ -4,25 +4,27 @@ import { db, NewsFeed, desc } from "astro:db";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const newsFeed = await db.select().from(NewsFeed).orderBy(desc(NewsFeed.id));
-const pageTitle = "Le Feed – Veille tech, brèves et actualités développement"
-const pageDescription = "Une veille technologique en continu : brèves, actualités développement, sécurité, cloud, DevOps et IA. Des liens sélectionnés, résumés et contextualisés par NX Academy."
+const pageTitle = "Le Feed – Veille tech, brèves et actualités développement";
+const pageDescription =
+  "Une veille technologique en continu : brèves, actualités développement, sécurité, cloud, DevOps et IA. Des liens sélectionnés, résumés et contextualisés par NX Academy.";
 ---
 
-<BaseLayout
-    title={pageTitle}
-    description={pageDescription}
->
+<BaseLayout title={pageTitle} description={pageDescription}>
   <main class="main-wrapper">
     <h1>Le Feed</h1>
     <div class="feed-description">
-      <p>Un flux de veille technologique : brèves, liens et actualités sélectionnées pour développeurs.</p>
-      <br>
       <p>
-        Lancé en décembre 2025, Le Feed a été pensé comme un format de veille rapide et efficace.
-        Il permet de suivre l’actualité tech sans avoir à lire des articles complets.
-        Le contenu est collecté à l’aide de scripts IA que je développe, puis relu et validé manuellement.
-        <br>
-        <br>
+        Un flux de veille technologique : brèves, liens et actualités
+        sélectionnées pour développeurs.
+      </p>
+      <br />
+      <p>
+        Lancé en décembre 2025, Le Feed a été pensé comme un format de veille
+        rapide et efficace. Il permet de suivre l’actualité tech sans avoir à
+        lire des articles complets. Le contenu est collecté à l’aide de scripts
+        IA que je développe, puis relu et validé manuellement.
+        <br />
+        <br />
         La page est volontairement simple pour l’instant et évoluera progressivement.
       </p>
     </div>
