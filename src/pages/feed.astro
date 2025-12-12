@@ -1,0 +1,110 @@
+---
+import { db, NewsFeed, desc } from "astro:db";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const newsFeed = await db.select().from(NewsFeed).orderBy(desc(NewsFeed.id));
+const pageTitle = "Le Feed – Veille tech, brèves et actualités développement";
+const pageDescription =
+  "Une veille technologique en continu : brèves, actualités développement, sécurité, cloud, DevOps et IA. Des liens sélectionnés, résumés et contextualisés par NX Academy.";
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <main class="main-wrapper">
+    <h1>Le Feed</h1>
+    <div class="feed-description">
+      <p>
+        Un flux de veille technologique : brèves, liens et actualités
+        sélectionnées pour développeurs.
+      </p>
+      <br />
+      <p>
+        Lancé en décembre 2025, Le Feed a été pensé comme un format de veille
+        rapide et efficace. Il permet de suivre l’actualité tech sans avoir à
+        lire des articles complets. Le contenu est collecté à l’aide de scripts
+        IA que je développe, puis relu et validé manuellement.
+        <br />
+        <br />
+        La page est volontairement simple pour l’instant et évoluera progressivement.
+      </p>
+    </div>
+    <section class="feed-wrapper">
+      {
+        newsFeed.map((news) => (
+          <div id={news.slug} class="news-wrapper">
+            <p class="news-title">{news.title}</p>
+            <p class="news-content">{news.content}</p>
+            <p class="news-date">
+              {news.published.toLocaleDateString("FR-fr")}
+            </p>
+            <a
+              target="_blank"
+              rel="noreferrer noopener"
+              class="news-url"
+              href={news.url}
+            >
+              Lire la source
+            </a>
+          </div>
+        ))
+      }
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .main-wrapper {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1100px;
+    max-inline-size: 66ch;
+  }
+
+  h1 {
+    margin-top: 0;
+    color: var(--titleColor);
+  }
+
+  .feed-description {
+    margin-bottom: 32px;
+  }
+
+  .feed-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .news-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: var(--textColor);
+  }
+
+  .news-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--titleColor);
+  }
+
+  .news-content {
+    font-size: 16px;
+  }
+
+  .news-date {
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .news-url {
+    color: var(--articleLinkColor);
+    text-decoration: none;
+    transition: 0.4s;
+
+    &:hover {
+      color: var(--articleLinkHoverColor);
+    }
+  }
+</style>

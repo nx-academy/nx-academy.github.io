@@ -15,14 +15,17 @@ permissions:
 jobs:
   test-and-check:
     runs-on: ubuntu-latest
+    env:
+      ASTRO_DB_REMOTE_URL: ${{ secrets.ASTRO_DB_REMOTE_URL }}
+      ASTRO_DB_APP_TOKEN: ${{ secrets.ASTRO_DB_APP_TOKEN }}
 
     steps:
       - name: Checking out
         uses: actions/checkout@v4
-      - name: Setting up Node 20
+      - name: Setting up Node 24
         uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 24
           cache: "npm"
       - name: Installing dependencies
         run: npm ci
