@@ -1,6 +1,7 @@
 # Roadmap NX Academy – Mai à Décembre 2025
 
-Cette feuille de route présente les fonctionnalités à venir sur NX, indépendamment du contenu éditorial.
+Cette feuille de route présente les fonctionnalités à venir sur NX,
+indépendamment du contenu éditorial.
 
 ---
 
@@ -44,22 +45,29 @@ Cette feuille de route présente les fonctionnalités à venir sur NX, indépend
 
 ## Backlog / idées à explorer
 
-Cette section regroupe les idées à fort potentiel mais non encore planifiées, à explorer selon le temps disponible, les retours utilisateurs ou les priorités stratégiques.
+Cette section regroupe les idées à fort potentiel mais non encore planifiées, à
+explorer selon le temps disponible, les retours utilisateurs ou les priorités
+stratégiques.
 
 ### Fonctionnalités principales à long terme
 
-- **Espace “Projets guidés”** : parcours semi-guidés avec étapes, livrables ou défis pratiques, pour structurer des apprentissages complets.
-- **Zone “NX pour formateurs”** : boîte à outils pédagogique pour exploiter les contenus NX en contexte éducatif (fiches imprimables, séquences, exports).
+- **Espace “Projets guidés”** : parcours semi-guidés avec étapes, livrables ou
+  défis pratiques, pour structurer des apprentissages complets.
+- **Zone “NX pour formateurs”** : boîte à outils pédagogique pour exploiter les
+  contenus NX en contexte éducatif (fiches imprimables, séquences, exports).
 
 ### Améliorations UX potentielles
 
-- **Sauvegarde locale de fiches ou articles** : via `localStorage`, avec icône flottante sticky pour retrouver l’historique ou “lire plus tard”.
-- **Système de gamification léger** : scoring basé sur les quiz et projets réalisés (profil ou classement local non connecté).
+- **Sauvegarde locale de fiches ou articles** : via `localStorage`, avec icône
+  flottante sticky pour retrouver l’historique ou “lire plus tard”.
+- **Système de gamification léger** : scoring basé sur les quiz et projets
+  réalisés (profil ou classement local non connecté).
 
 ### Quick wins à prévoir
 
 - **Favicon dynamique** : changement selon thème clair/sombre.
-- **Amélioration des `meta.title` et SEO** : mieux structurer les balises par type de contenu (cours, fiches, articles).
+- **Amélioration des `meta.title` et SEO** : mieux structurer les balises par
+  type de contenu (cours, fiches, articles).
 
 ---
 

@@ -2,7 +2,10 @@
 layout: ../../../../layouts/ChapterLayout.astro
 
 title: "Gérez le réseau de votre infrastructure Docker"
-description: "Comprenez le fonctionnement des ports Docker et configurez expose, ports et variables d’environnement. Apprenez à connecter votre conteneur à votre machine hôte."
+description:
+  "Comprenez le fonctionnement des ports Docker et configurez expose, ports et
+  variables d’environnement. Apprenez à connecter votre conteneur à votre
+  machine hôte."
 
 previousChapterLink: creation-premier-docker-compose
 nextChapterLink: installation-et-configuration-services
@@ -19,26 +22,68 @@ id: 6
 
 ![Un parking de voitures, pixel art](/images/cours-docker-et-docker-compose/parking-voitures.webp)
 
-Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre [sur la branche `partie-2/chapitre-3-debut`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-3-debut). En plus de cette branche, nous allons utiliser [cette issue Github](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/3) comme problématique. Je vous invite à en prendre connaissance avant de passer à la lecture du chapitre.
+Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre
+[sur la branche `partie-2/chapitre-3-debut`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-3-debut).
+En plus de cette branche, nous allons utiliser
+[cette issue Github](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/3)
+comme problématique. Je vous invite à en prendre connaissance avant de passer à
+la lecture du chapitre.
 
 ## Le port, un point central des réseaux informatiques
 
-Nous abordons un chapitre assez central du cours. Rassurez-vous, ce chapitre n’est pas très long. Il est aussi nettement moins dense que le chapitre précédent. L’objectif de ce chapitre est de vous présenter quelques notions de réseau de base. Nous allons voir ensemble les ports, sur votre machine hôte et dans votre conteneur Docker et comment les deux communiquent ensemble. Nous verrons aussi un peu les variables d’environnement et comment connaître celles présentes dans un conteneur Docker.
+Nous abordons un chapitre assez central du cours. Rassurez-vous, ce chapitre
+n’est pas très long. Il est aussi nettement moins dense que le chapitre
+précédent. L’objectif de ce chapitre est de vous présenter quelques notions de
+réseau de base. Nous allons voir ensemble les ports, sur votre machine hôte et
+dans votre conteneur Docker et comment les deux communiquent ensemble. Nous
+verrons aussi un peu les variables d’environnement et comment connaître celles
+présentes dans un conteneur Docker.
 
-Si on reprend [notre problématique du chapitre](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/2), nous avons en face de nous un problème “assez simple”. Nous avons configuré une API Node via Express et nous lui avons dit explicitement d’écouter le port 3000. Cela dit, à aucun moment, nous n’avons prévenu notre conteneur qu’il devait ouvrir le port 3000. Idem pour notre machine hôte : elle n’est pas au courant qu’elle doit connecter son port 3000 avec le port 3000 de notre conteneur.
+Si on reprend
+[notre problématique du chapitre](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/2),
+nous avons en face de nous un problème “assez simple”. Nous avons configuré une
+API Node via Express et nous lui avons dit explicitement d’écouter le port 3000.
+Cela dit, à aucun moment, nous n’avons prévenu notre conteneur qu’il devait
+ouvrir le port 3000. Idem pour notre machine hôte : elle n’est pas au courant
+qu’elle doit connecter son port 3000 avec le port 3000 de notre conteneur.
 
-Avant d’aller plus loin, j’ai envie de prendre un peu le temps de parler de cette notion de port en informatique. Les ports, et numéros de port, sont fortement liés aux réseaux informatiques. Les ports représentent des points d’entrée et de sortie dans vos communications réseaux. Ils vous permettent de contacter un service spécifique. Par exemple, le port 25 est associé au protocol SMTP (Simple Mail Transfer Protocol) qui est utilisé pour le courrier électronique. En Node.JS, on a tendance à utiliser le port 3000. Chaque port ne peut être occupé que par un service.
+Avant d’aller plus loin, j’ai envie de prendre un peu le temps de parler de
+cette notion de port en informatique. Les ports, et numéros de port, sont
+fortement liés aux réseaux informatiques. Les ports représentent des points
+d’entrée et de sortie dans vos communications réseaux. Ils vous permettent de
+contacter un service spécifique. Par exemple, le port 25 est associé au protocol
+SMTP (Simple Mail Transfer Protocol) qui est utilisé pour le courrier
+électronique. En Node.JS, on a tendance à utiliser le port 3000. Chaque port ne
+peut être occupé que par un service.
 
-En fait, **c’est un peu comme un gigantesque parking. Certaines places sont réservées (certains ports le sont aussi), d’autres sont à placement libre**. Par contre, une fois garée sur votre place, cette place ne peut plus être attribuée à quelqu’un d’autre. Du moins, tant que vous n’avez pas quitté la place. Pour les ports, cela fonctionne exactement de la même manière. Vous pouvez décider de vous attribuer un port pour votre application. Ce port restera indisponible tant que votre application l’utilisera. Pour info, c’est un grand parking : 65 535 numéros de port sont disponibles.
+En fait, **c’est un peu comme un gigantesque parking. Certaines places sont
+réservées (certains ports le sont aussi), d’autres sont à placement libre**. Par
+contre, une fois garée sur votre place, cette place ne peut plus être attribuée
+à quelqu’un d’autre. Du moins, tant que vous n’avez pas quitté la place. Pour
+les ports, cela fonctionne exactement de la même manière. Vous pouvez décider de
+vous attribuer un port pour votre application. Ce port restera indisponible tant
+que votre application l’utilisera. Pour info, c’est un grand parking : 65 535
+numéros de port sont disponibles.
 
-Les ports font partie de la couche 4 (la couche transport) du modèle OSI. Ce modèle définit les différentes couches de communication des protocoles réseaux et accessoirement d’Internet. Chaque couche a un rôle bien spécifique. Je vous invite fortement à lire ces deux articles de CloudFlare qui en parlent. Vous n’avez pas forcément à tout connaître en détail mais encore une fois, il est important de savoir que ça existe et d’avoir des notions de base du fonctionnement des réseaux informatiques.
+Les ports font partie de la couche 4 (la couche transport) du modèle OSI. Ce
+modèle définit les différentes couches de communication des protocoles réseaux
+et accessoirement d’Internet. Chaque couche a un rôle bien spécifique. Je vous
+invite fortement à lire ces deux articles de CloudFlare qui en parlent. Vous
+n’avez pas forcément à tout connaître en détail mais encore une fois, il est
+important de savoir que ça existe et d’avoir des notions de base du
+fonctionnement des réseaux informatiques.
 
-- [Qu’est-ce qu’un port ?](https://www.cloudflare.com/fr-fr/learning/network-layer/what-is-a-computer-port/) - Article en français qui explique bien les ports, qui vous parlent un peu du modèle OSI et donne quelques numéros de port classiques.
-- [Qu’est-ce que le modèle OSI ?](https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi/) - Article en anglais avec des schémas et de bonnes explications.
+- [Qu’est-ce qu’un port ?](https://www.cloudflare.com/fr-fr/learning/network-layer/what-is-a-computer-port/) -
+  Article en français qui explique bien les ports, qui vous parlent un peu du
+  modèle OSI et donne quelques numéros de port classiques.
+- [Qu’est-ce que le modèle OSI ?](https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi/) -
+  Article en anglais avec des schémas et de bonnes explications.
 
 <br>
 
-Il est maintenant possible que vous vous posiez la question de quel(s) port(s) sont utilisés sur votre ordinateur (en tout cas, moi, c’est la question que je me pose quand j’écris ces lignes ^^).
+Il est maintenant possible que vous vous posiez la question de quel(s) port(s)
+sont utilisés sur votre ordinateur (en tout cas, moi, c’est la question que je
+me pose quand j’écris ces lignes ^^).
 
 Lancez l’une des commandes suivantes :
 
@@ -82,7 +127,14 @@ Spotify   23548 family   63u  IPv4 0x64cf0533e956244d  	0t0  TCP *:50896 (LISTEN
 
 <br>
 
-Vous pouvez voir que Spotify occupe deux ports, respectivement le 57621 et le 50896, que Dropbox en a 4, etc. Pour votre information, je suis tombé [sur ce blog post](https://www.micahsmith.com/blog/2019/09/find-ports-in-use-on-macos/) pour la partie macOS et [ce blog post](https://www.howtogeek.com/28609/how-can-i-tell-what-is-listening-on-a-tcpip-port-in-windows/) pour la partie Windows. **Votre ordinateur, qu’il soit sous macOS ou Windows, a donc régulièrement des ports utilisés**. Après tout, c’est ce qui permet à votre ordinateur de communiquer, notamment avec le monde extérieur.
+Vous pouvez voir que Spotify occupe deux ports, respectivement le 57621 et le
+50896, que Dropbox en a 4, etc. Pour votre information, je suis tombé
+[sur ce blog post](https://www.micahsmith.com/blog/2019/09/find-ports-in-use-on-macos/)
+pour la partie macOS et
+[ce blog post](https://www.howtogeek.com/28609/how-can-i-tell-what-is-listening-on-a-tcpip-port-in-windows/)
+pour la partie Windows. **Votre ordinateur, qu’il soit sous macOS ou Windows, a
+donc régulièrement des ports utilisés**. Après tout, c’est ce qui permet à votre
+ordinateur de communiquer, notamment avec le monde extérieur.
 
 ---
 
@@ -92,17 +144,44 @@ Vous pouvez voir que Spotify occupe deux ports, respectivement le 57621 et le 50
 
 ## Exposez un port
 
-Le problème, dans notre cas, est que nous avons deux ordinateurs : notre machine hôte mais aussi notre conteneur Docker. Nous devons donc non seulement ouvrir le port 3000 de notre machine hôte et celui de notre conteneur mais nous devons aussi les raccorder ensemble.
+Le problème, dans notre cas, est que nous avons deux ordinateurs : notre machine
+hôte mais aussi notre conteneur Docker. Nous devons donc non seulement ouvrir le
+port 3000 de notre machine hôte et celui de notre conteneur mais nous devons
+aussi les raccorder ensemble.
 
-C’est là que deux propriétés de notre fichier docker-compose entrent en jeu : `expose` et `ports`. La propriété `expose` va ouvrir un port dans le conteneur mais pas dans la machine hôte. Autrement dit, le conteneur sera capable de dialoguer avec d’autres conteneurs, via le numéro de port, mais pas avec mon ordinateur.
+C’est là que deux propriétés de notre fichier docker-compose entrent en jeu :
+`expose` et `ports`. La propriété `expose` va ouvrir un port dans le conteneur
+mais pas dans la machine hôte. Autrement dit, le conteneur sera capable de
+dialoguer avec d’autres conteneurs, via le numéro de port, mais pas avec mon
+ordinateur.
 
-Vous vous demandez peut-être l’utilité de cette propriété. En fait, cette propriété est intéressante en termes de sécurité informatique. **De manière générale, il n’est jamais très sûr de laisser des ports ouverts pour rien**. Votre serveur de production se doit d’être le plus fermé possible. La propriété `ports` permet à l’hôte de communiquer avec le conteneur Docker. Vous pouvez regarder [la référence sur la documentation](https://docs.docker.com/compose/compose-file/compose-file-v3/#ports).
+Vous vous demandez peut-être l’utilité de cette propriété. En fait, cette
+propriété est intéressante en termes de sécurité informatique. **De manière
+générale, il n’est jamais très sûr de laisser des ports ouverts pour rien**.
+Votre serveur de production se doit d’être le plus fermé possible. La propriété
+`ports` permet à l’hôte de communiquer avec le conteneur Docker. Vous pouvez
+regarder
+[la référence sur la documentation](https://docs.docker.com/compose/compose-file/compose-file-v3/#ports).
 
-Il existe deux syntaxes mais pour l’instant concentrez-vous sur la syntaxe courte. Si on prend l’exemple ci-contre `3005:3000` en syntaxe courte, la partie gauche, avant les “:” correspond à la machine hôte ; le port 3005 de ma machine hôte sera réservé. La partie droite, après les “:”, correspond au port dans mon conteneur Docker ; le port 3000 de mon conteneur Docker sera réservé. Comme vous pouvez le voir, il est tout à fait possible d’allouer des numéros de port différents.
+Il existe deux syntaxes mais pour l’instant concentrez-vous sur la syntaxe
+courte. Si on prend l’exemple ci-contre `3005:3000` en syntaxe courte, la partie
+gauche, avant les “:” correspond à la machine hôte ; le port 3005 de ma machine
+hôte sera réservé. La partie droite, après les “:”, correspond au port dans mon
+conteneur Docker ; le port 3000 de mon conteneur Docker sera réservé. Comme vous
+pouvez le voir, il est tout à fait possible d’allouer des numéros de port
+différents.
 
-Il m’est arrivé un jour de devoir faire une migration complète d’infrastructure et de devoir dockeriser une grosse partie des services. Les ports étaient très mal configurés et ne passaient pas par des variables d'environnement. C’est absolument immonde ! Je me suis pas mal arraché les cheveux à l’époque pour faire fonctionner cette infrastructure, aussi bien en local qu’en production. Les variables d'environnement vont nous aider à avoir une bonne hygiène de serveurs. Cela dit, il est aussi important de rédiger de la documentation avec des schémas et des procédures.
+Il m’est arrivé un jour de devoir faire une migration complète d’infrastructure
+et de devoir dockeriser une grosse partie des services. Les ports étaient très
+mal configurés et ne passaient pas par des variables d'environnement. C’est
+absolument immonde ! Je me suis pas mal arraché les cheveux à l’époque pour
+faire fonctionner cette infrastructure, aussi bien en local qu’en production.
+Les variables d'environnement vont nous aider à avoir une bonne hygiène de
+serveurs. Cela dit, il est aussi important de rédiger de la documentation avec
+des schémas et des procédures.
 
-Bon, si l’on reprend l’exemple de notre docker-compose pour WordPress du chapitre précédent, il devrait faire beaucoup sens.
+Bon, si l’on reprend l’exemple de notre docker-compose pour WordPress du
+chapitre précédent, il devrait faire beaucoup sens.
 
 <br>
 
@@ -131,10 +210,14 @@ services:
 
 Vous pouvez voir que :
 
-- **Le service `db` utilise la propriété expose et ouvre deux ports dans le réseau interne de Docker**. Faites le test avec les commandes pour tester les ports ci-dessus, vous verrez que votre ordinateur ne les aura pas ouvert.
+- **Le service `db` utilise la propriété expose et ouvre deux ports dans le
+  réseau interne de Docker**. Faites le test avec les commandes pour tester les
+  ports ci-dessus, vous verrez que votre ordinateur ne les aura pas ouvert.
 - **Le service `wordpress` expose le port 80 de l’hôte ainsi que du conteneur**.
 
-Normalement, tout devrait commencer à se connecter dans votre tête 🙂. Si ce n’est pas le cas, n’hésitez pas à ouvrir une issue sur notre Github pour demander des précisions ou plus d’explications.
+Normalement, tout devrait commencer à se connecter dans votre tête 🙂. Si ce
+n’est pas le cas, n’hésitez pas à ouvrir une issue sur notre Github pour
+demander des précisions ou plus d’explications.
 
 <br>
 
@@ -169,17 +252,25 @@ DB_URL = os.environ.get("DB_URL")
 
 <br>
 
-Le premier snippet de code est du JavaScript, le deuxième du Python. **Ces deux snippets vous montrent comment récupérer des variables d'environnement**. Les variables d'environnement sont des variables qui sont propres à l’ensemble de votre système. Faites le test !
+Le premier snippet de code est du JavaScript, le deuxième du Python. **Ces deux
+snippets vous montrent comment récupérer des variables d'environnement**. Les
+variables d'environnement sont des variables qui sont propres à l’ensemble de
+votre système. Faites le test !
 
 - Si vous êtes sur macOS ou Linux, ouvrez votre terminal et tapez `env`.
 - Si vous êtes sur Windows, ouvrez PowerShell et tapez `Get-ChildItem Env`:
 
-Cette commande vous donne toutes les variables d'environnement de votre ordinateur. Vous pouvez faire pareil avec le projet fil rouge. Assurez-vous de bien être [sur la branche `partie-2/chapitre-3-debut`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-3-debut).
+Cette commande vous donne toutes les variables d'environnement de votre
+ordinateur. Vous pouvez faire pareil avec le projet fil rouge. Assurez-vous de
+bien être
+[sur la branche `partie-2/chapitre-3-debut`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-3-debut).
 
 - Lancez votre conteneur avec la commande `docker-compose up`.
-- Ouvrez un autre terminal et tapez la commande `docker-compose exec api bash`, puis une fois dans le conteneur , tapez `env`.
+- Ouvrez un autre terminal et tapez la commande `docker-compose exec api bash`,
+  puis une fois dans le conteneur , tapez `env`.
 
-Si je tape cette commande dans mon conteneur Docker, j’obtiens ce type de résultat.
+Si je tape cette commande dans mon conteneur Docker, j’obtiens ce type de
+résultat.
 
 <br>
 
@@ -202,11 +293,19 @@ root@1a8c6f91c8ab:/api#
 
 <br>
 
-Il y a pas mal d’informations intéressantes ici. Par exemple, vous pouvez voir que la version de Node utilisée est située dans les variables d'environnement. J’ai trouvé cet article [sur ce blog post Medium](https://medium.com/chingu/an-introduction-to-environment-variables-and-how-to-use-them-f602f66d15fa), vous pouvez lire les premières parties, il est plutôt intéressant 🙂. La bonne nouvelle, c’est que vous avez déjà vu dans les snippets de code du chapitre précédent comment ajouter des variables d'environnement.
+Il y a pas mal d’informations intéressantes ici. Par exemple, vous pouvez voir
+que la version de Node utilisée est située dans les variables d'environnement.
+J’ai trouvé cet article
+[sur ce blog post Medium](https://medium.com/chingu/an-introduction-to-environment-variables-and-how-to-use-them-f602f66d15fa),
+vous pouvez lire les premières parties, il est plutôt intéressant 🙂. La bonne
+nouvelle, c’est que vous avez déjà vu dans les snippets de code du chapitre
+précédent comment ajouter des variables d'environnement.
 
 <br>
 
-Je vous propose qu’on fasse une petite pause sur le texte et qu’on regarde comment ajouter des variables d'environnement dans le screencast ci-dessous. À tout de suite !
+Je vous propose qu’on fasse une petite pause sur le texte et qu’on regarde
+comment ajouter des variables d'environnement dans le screencast ci-dessous. À
+tout de suite !
 
 <br>
 
@@ -216,13 +315,23 @@ Je vous propose qu’on fasse une petite pause sur le texte et qu’on regarde c
 
 Pour récapituler, vous pouvez soit :
 
-- **Ajouter des variables d'environnement via la propriété `environment`**. Je vous invite à faire ça quand vous ne manipulez pas des informations sensibles, comme des codes d’accès à une base de données.
-- **Créer un fichier `.env`, bien vérifier qu’il soit ajouté dans un `.gitignore`, pour ne pas être indexé, puis [ajouter la propriété env_file](https://docs.docker.com/compose/compose-file/compose-file-v3/#env_file) avec le chemin vers votre fichier**. Vous pouvez créer ensuite un fichier `.example.env` pour indiquer à vos utilisateurs les variables d'environnement requises pour lancer votre projet.
-- **Vous pouvez aussi ajouter des variables d'environnement directement depuis votre fichier Dockerfile**. En pratique, je vous déconseille de le faire. Ce n’est pas forcément une bonne pratique, notamment niveau sécurité.
+- **Ajouter des variables d'environnement via la propriété `environment`**. Je
+  vous invite à faire ça quand vous ne manipulez pas des informations sensibles,
+  comme des codes d’accès à une base de données.
+- **Créer un fichier `.env`, bien vérifier qu’il soit ajouté dans un
+  `.gitignore`, pour ne pas être indexé, puis
+  [ajouter la propriété env_file](https://docs.docker.com/compose/compose-file/compose-file-v3/#env_file)
+  avec le chemin vers votre fichier**. Vous pouvez créer ensuite un fichier
+  `.example.env` pour indiquer à vos utilisateurs les variables d'environnement
+  requises pour lancer votre projet.
+- **Vous pouvez aussi ajouter des variables d'environnement directement depuis
+  votre fichier Dockerfile**. En pratique, je vous déconseille de le faire. Ce
+  n’est pas forcément une bonne pratique, notamment niveau sécurité.
 
 <br>
 
-Votre code devrait maintenant correspondre à celui [de la branche `partie-2/chapitre-3/section-3`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-3/section-3).
+Votre code devrait maintenant correspondre à celui
+[de la branche `partie-2/chapitre-3/section-3`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-3/section-3).
 
 ---
 
@@ -232,7 +341,10 @@ Votre code devrait maintenant correspondre à celui [de la branche `partie-2/cha
 
 ## Exercez-vous
 
-Pour rappel, [voici la problématique](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/3) que nous essayons de résoudre dans ce chapitre. Pensez bien [à partir de la branche `partie-2/chapitre-3/section-3`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-3/section-3).
+Pour rappel,
+[voici la problématique](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/3)
+que nous essayons de résoudre dans ce chapitre. Pensez bien
+[à partir de la branche `partie-2/chapitre-3/section-3`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-3/section-3).
 
 <br>
 
@@ -240,7 +352,8 @@ Pour rappel, [voici la problématique](https://github.com/nx-academy/Conteneuris
 
 <br>
 
-Le code source contenant la solution de cet exercice se trouve [sur la branche `partie-2/chapitre-3-fin`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-3-fin).
+Le code source contenant la solution de cet exercice se trouve
+[sur la branche `partie-2/chapitre-3-fin`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-3-fin).
 
 ---
 
@@ -250,9 +363,15 @@ Le code source contenant la solution de cet exercice se trouve [sur la branche `
 
 ## Résumé
 
-- Les ports, ou numéros de port, font partie de la couche 4 (la couche transport) du modèle OSI. Les ports représentent les points d’entrée et et de sortie dans vos communications réseaux.
-- Les propriétés expose et ports sont utilisées pour établir des numéros de port.
-- Vous pouvez assigner des variables d'environnement à un conteneur Docker soit via la propriété environment, soit un `env_file` avec un fichier de variables d'environnements.
-- Il est recommandé de créer un fichier `.example.env` pour préciser les variables d'environnement requises.
+- Les ports, ou numéros de port, font partie de la couche 4 (la couche
+  transport) du modèle OSI. Les ports représentent les points d’entrée et et de
+  sortie dans vos communications réseaux.
+- Les propriétés expose et ports sont utilisées pour établir des numéros de
+  port.
+- Vous pouvez assigner des variables d'environnement à un conteneur Docker soit
+  via la propriété environment, soit un `env_file` avec un fichier de variables
+  d'environnements.
+- Il est recommandé de créer un fichier `.example.env` pour préciser les
+  variables d'environnement requises.
 
 </article>

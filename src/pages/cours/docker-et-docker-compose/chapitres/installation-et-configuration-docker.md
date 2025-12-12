@@ -2,7 +2,10 @@
 layout: ../../../../layouts/ChapterLayout.astro
 
 title: "Installez et configurez Docker Desktop"
-description: Installez Docker Desktop sur macOS ou Windows et apprenez à puller vos premières images. Découvrez les commandes Docker essentielles pour bien débuter.
+description:
+  Installez Docker Desktop sur macOS ou Windows et apprenez à puller vos
+  premières images. Découvrez les commandes Docker essentielles pour bien
+  débuter.
 
 previousChapterLink: decouverte-docker
 nextChapterLink: presentation-projet-fil-rouge
@@ -21,13 +24,31 @@ id: 2
 
 ## Découvrez Docker Desktop
 
-Dans ce chapitre, vous allez prendre en main Docker Desktop. Je vous montrerais comment l’installer. Vous apprendrez à récupérer (on dit aussi “puller”) vos premières images. Ce chapitre me permettra aussi de vous montrer des commandes Docker indispensables.
+Dans ce chapitre, vous allez prendre en main Docker Desktop. Je vous montrerais
+comment l’installer. Vous apprendrez à récupérer (on dit aussi “puller”) vos
+premières images. Ce chapitre me permettra aussi de vous montrer des commandes
+Docker indispensables.
 
-Si vous êtes sur Linux, vous n’aurez pas besoin d’installer Docker Desktop. En effet, pour fonctionner Docker a besoin de Linux pour fonctionner. Donc, si vous êtes sur Linux, pas de problèmes : vous pouvez installer Docker directement. Par contre, si vous êtes sur Mac ou PC, vous aurez besoin d’une VM, VM qui tournera sur Linux. C’est Docker Desktop qui va se gérer d’installer et de tenir à jour cette VM pour vous.
+Si vous êtes sur Linux, vous n’aurez pas besoin d’installer Docker Desktop. En
+effet, pour fonctionner Docker a besoin de Linux pour fonctionner. Donc, si vous
+êtes sur Linux, pas de problèmes : vous pouvez installer Docker directement. Par
+contre, si vous êtes sur Mac ou PC, vous aurez besoin d’une VM, VM qui tournera
+sur Linux. C’est Docker Desktop qui va se gérer d’installer et de tenir à jour
+cette VM pour vous.
 
-Sachez que Docker Desktop est sur un modèle Freemium : l’outil est gratuit pour les particuliers et les entreprises de moins de 250 employés ou dont le chiffre d’affaires est inférieur à 10 millions de dollars. Ce changement tarifaire a eu lieu en août 2021 et a fait pas mal parlé de lui. Voici deux articles du monde informatique vous expliquant le pourquoi du comment : [le premier article](https://www.lemondeinformatique.fr/actualites/lire-docker-desktop-n-est-plus-gratuit-pour-les-entreprises%C2%A0-84012.html) et [le deuxième](https://www.lemondeinformatique.fr/actualites/lire-face-a-la-gronde-docker-justifie-la-fin-de-free-teams-89884.html).
+Sachez que Docker Desktop est sur un modèle Freemium : l’outil est gratuit pour
+les particuliers et les entreprises de moins de 250 employés ou dont le chiffre
+d’affaires est inférieur à 10 millions de dollars. Ce changement tarifaire a eu
+lieu en août 2021 et a fait pas mal parlé de lui. Voici deux articles du monde
+informatique vous expliquant le pourquoi du comment :
+[le premier article](https://www.lemondeinformatique.fr/actualites/lire-docker-desktop-n-est-plus-gratuit-pour-les-entreprises%C2%A0-84012.html)
+et
+[le deuxième](https://www.lemondeinformatique.fr/actualites/lire-face-a-la-gronde-docker-justifie-la-fin-de-free-teams-89884.html).
 
-Si ça vous intéresse d’en apprendre un peu plus sur le fonctionnement interne de Docker Desktop, vous pouvez lire [cet article](https://www.docker.com/blog/the-magic-behind-the-scenes-of-docker-desktop/) tiré du blog officiel de Docker.
+Si ça vous intéresse d’en apprendre un peu plus sur le fonctionnement interne de
+Docker Desktop, vous pouvez lire
+[cet article](https://www.docker.com/blog/the-magic-behind-the-scenes-of-docker-desktop/)
+tiré du blog officiel de Docker.
 
 ---
 
@@ -37,13 +58,19 @@ Si ça vous intéresse d’en apprendre un peu plus sur le fonctionnement intern
 
 ## Installez Docker Desktop sur macOS
 
-Dans ce screencast, vous allez voir comment installer Docker sur macOS. Vous verrez où et comment installer Docker Desktop, quelques commandes de base et vous en profiterez pour lancer votre premier conteneur.
+Dans ce screencast, vous allez voir comment installer Docker sur macOS. Vous
+verrez où et comment installer Docker Desktop, quelques commandes de base et
+vous en profiterez pour lancer votre premier conteneur.
 
 <iframe src="https://player.vimeo.com/video/1096175462?h=1c484564b2&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 1 - Installez Docker Desktop sur Mac"></iframe>
 
 <br>
 
-Félicitations, Docker Desktop est maintenant prêt à l’emploi sur votre ordinateur. La commande `docker run hello-world` est l’une des nombreuses commandes de Docker. Cette commande vous permet de lancer un conteneur avec l’image ayant le nom _hello-world_. Cette image est hébergée [sur ce repository DockerHub](https://hub.docker.com/_/hello-world).
+Félicitations, Docker Desktop est maintenant prêt à l’emploi sur votre
+ordinateur. La commande `docker run hello-world` est l’une des nombreuses
+commandes de Docker. Cette commande vous permet de lancer un conteneur avec
+l’image ayant le nom _hello-world_. Cette image est hébergée
+[sur ce repository DockerHub](https://hub.docker.com/_/hello-world).
 
 ---
 
@@ -53,11 +80,17 @@ Félicitations, Docker Desktop est maintenant prêt à l’emploi sur votre ordi
 
 ## Installez Docker Desktop sur Windows
 
-N’ayant actuellement pas d’ordinateur sur Windows me permettant de faire tourner Docker, je vous partage ce tuto Youtube. Dès que j’aurais un moyen simple de le faire, je mettrais à jour ce cours.
+N’ayant actuellement pas d’ordinateur sur Windows me permettant de faire tourner
+Docker, je vous partage ce tuto Youtube. Dès que j’aurais un moyen simple de le
+faire, je mettrais à jour ce cours.
 
 <iframe src="https://www.youtube.com/embed/SYMPIdMC2qo" frameborder="0"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Félicitations, Docker Desktop est maintenant prêt à l’emploi sur votre ordinateur. La commande `docker run hello-world` est l’une des nombreuses commandes de Docker. Cette commande vous permet de lancer un conteneur avec l’image ayant le nom _hello-world_. Cette image est hébergée [sur ce repository DockerHub](https://hub.docker.com/_/hello-world).
+Félicitations, Docker Desktop est maintenant prêt à l’emploi sur votre
+ordinateur. La commande `docker run hello-world` est l’une des nombreuses
+commandes de Docker. Cette commande vous permet de lancer un conteneur avec
+l’image ayant le nom _hello-world_. Cette image est hébergée
+[sur ce repository DockerHub](https://hub.docker.com/_/hello-world).
 
 ---
 
@@ -67,9 +100,12 @@ Félicitations, Docker Desktop est maintenant prêt à l’emploi sur votre ordi
 
 ## Appréhendez la ligne de commande de Docker
 
-Vous allez voir au fur et à mesure du cours qu’il y a beaucoup de commandes possibles avec Docker. Il y a des commandes dont vous vous servez quasiment tout le temps et d’autres un peu moins.
+Vous allez voir au fur et à mesure du cours qu’il y a beaucoup de commandes
+possibles avec Docker. Il y a des commandes dont vous vous servez quasiment tout
+le temps et d’autres un peu moins.
 
-Il existe une commande centrale : `docker —help`. Ouvrez votre terminal et tapez cette commande. Vous devriez avoir un résultat proche du mien.
+Il existe une commande centrale : `docker —help`. Ouvrez votre terminal et tapez
+cette commande. Vous devriez avoir un résultat proche du mien.
 
 ```bash
 docker --help
@@ -110,11 +146,17 @@ Commands:
 Run 'docker COMMAND --help' for more information on a command.
 ```
 
-Si vous n’avez pas l’habitude, je vous invite à utiliser l’argument `--help` sur tous les programmes en CLI que vous utilisez. C’est souvent votre meilleur ami pour apprendre comment une commande fonctionne. Vous pouvez aussi avoir plus d’informations sur une commande en particulier via la docker `COMMAND --help` (c.f. la dernière ligne du bout de code ci-dessus).
+Si vous n’avez pas l’habitude, je vous invite à utiliser l’argument `--help` sur
+tous les programmes en CLI que vous utilisez. C’est souvent votre meilleur ami
+pour apprendre comment une commande fonctionne. Vous pouvez aussi avoir plus
+d’informations sur une commande en particulier via la docker `COMMAND --help`
+(c.f. la dernière ligne du bout de code ci-dessus).
 
 <br>
 
-Vous avez précédemment lancé la commande docker run hello-world. Pour afficher l’aide de cette commande, tapez `docker run –help`. Vous devriez avoir un résultat semblable à celui ci-dessous.
+Vous avez précédemment lancé la commande docker run hello-world. Pour afficher
+l’aide de cette commande, tapez `docker run –help`. Vous devriez avoir un
+résultat semblable à celui ci-dessous.
 
 ```bash
 docker run --help
@@ -141,11 +183,16 @@ Options:
   -w, --workdir string             	Working directory inside the container
 ```
 
-Je sais ce que vous vous dites : ça fait beaucoup d’informations pour une simple commande. Vous n’avez pas besoin de tout savoir et de tout connaître. Il faut juste savoir que ça existe et comment accéder à cette information. Comme la description le précise, la commande `docker run` permet de lancer une commande dans un nouveau conteneur.
+Je sais ce que vous vous dites : ça fait beaucoup d’informations pour une simple
+commande. Vous n’avez pas besoin de tout savoir et de tout connaître. Il faut
+juste savoir que ça existe et comment accéder à cette information. Comme la
+description le précise, la commande `docker run` permet de lancer une commande
+dans un nouveau conteneur.
 
 <br>
 
-La partie Usage est particulièrement importante : elle vous permet de voir ce qui est requis et optionnel à votre commande.
+La partie Usage est particulièrement importante : elle vous permet de voir ce
+qui est requis et optionnel à votre commande.
 
 ```bash
 Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
@@ -153,28 +200,55 @@ Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 
 <br>
 
-- `[OPTIONS]` est optionnelle. Ce sont toutes les options que vous allez pouvoir passer à Docker et plus précisément, dans le cas ci-dessus, à une image Docker. Pour rappel la liste des options est affichée avec la commande `docker run –help`.
-- `IMAGE` est obligatoire. Cela correspond à l’image que vous allez utiliser pour votre conteneur Docker. Vous avez précédemment utilisé l’image hello-world.
-- `[COMMAND]` est optionnelle. C’est la commande que vous allez lancer dans votre conteneur Docker. Par exemple, yarn ou yarn dev ou ls. Vous verrez dans la dernière section quelques exemples de commandes.
-- `[ARG…]` est aussi optionnelle. Ce sont les arguments de votre commande. Par exemple, --help ou plus précisément yarn –help ou npm –help. Vous pourriez ainsi avoir une commande tel que `docker run my-image npm run dev –port 3000`, à savoir lancer un conteneur avec une image my-image où la commande pour lancer le projet est npm run dev.
+- `[OPTIONS]` est optionnelle. Ce sont toutes les options que vous allez pouvoir
+  passer à Docker et plus précisément, dans le cas ci-dessus, à une image
+  Docker. Pour rappel la liste des options est affichée avec la commande
+  `docker run –help`.
+- `IMAGE` est obligatoire. Cela correspond à l’image que vous allez utiliser
+  pour votre conteneur Docker. Vous avez précédemment utilisé l’image
+  hello-world.
+- `[COMMAND]` est optionnelle. C’est la commande que vous allez lancer dans
+  votre conteneur Docker. Par exemple, yarn ou yarn dev ou ls. Vous verrez dans
+  la dernière section quelques exemples de commandes.
+- `[ARG…]` est aussi optionnelle. Ce sont les arguments de votre commande. Par
+  exemple, --help ou plus précisément yarn –help ou npm –help. Vous pourriez
+  ainsi avoir une commande tel que `docker run my-image npm run dev –port 3000`,
+  à savoir lancer un conteneur avec une image my-image où la commande pour
+  lancer le projet est npm run dev.
 
 <br>
 
-À ce stade du cours, il est possible que vous soyez encore perdu entre les images et les conteneurs. C’est parfaitement normal. On passe tous par cette étape (en tout cas, j’y suis passé ^^). **Une image Docker est comme une empreinte digitale ou un moule ; souvenez-vous de l’exemple des gâteaux. Votre image est prête à l’emploi mais elle ne “tourne” pas**.
+À ce stade du cours, il est possible que vous soyez encore perdu entre les
+images et les conteneurs. C’est parfaitement normal. On passe tous par cette
+étape (en tout cas, j’y suis passé ^^). **Une image Docker est comme une
+empreinte digitale ou un moule ; souvenez-vous de l’exemple des gâteaux. Votre
+image est prête à l’emploi mais elle ne “tourne” pas**.
 
-Pour exécuter le code ou le programme contenu dans votre image, vous avez besoin de la faire tourner dans un conteneur. La commande `docker run` permet donc de faire tourner l’image Docker dans un conteneur Docker. Le conteneur Docker correspond à votre gâteau 🙂.
+Pour exécuter le code ou le programme contenu dans votre image, vous avez besoin
+de la faire tourner dans un conteneur. La commande `docker run` permet donc de
+faire tourner l’image Docker dans un conteneur Docker. Le conteneur Docker
+correspond à votre gâteau 🙂.
 
-Dernier point essentiel : la commande `docker run` est une abréviation de la commande `docker container run`. Vous allez voir qu’il existe beaucoup de commandes abrégées. J’avoue ne pas être très fan de ces commandes abrégées. Elles ont tendance à nous faire oublier ce qu’on manipule, à savoir un conteneur, une image, un réseau, etc.
+Dernier point essentiel : la commande `docker run` est une abréviation de la
+commande `docker container run`. Vous allez voir qu’il existe beaucoup de
+commandes abrégées. J’avoue ne pas être très fan de ces commandes abrégées.
+Elles ont tendance à nous faire oublier ce qu’on manipule, à savoir un
+conteneur, une image, un réseau, etc.
 
-Durant tout le cours, je vais utiliser les commandes complètes, à savoir docker container run, docker container exec, docker image pull, etc. Cela devrait vous aider à accélérer votre apprentissage.
+Durant tout le cours, je vais utiliser les commandes complètes, à savoir docker
+container run, docker container exec, docker image pull, etc. Cela devrait vous
+aider à accélérer votre apprentissage.
 
 ---
 
-On va se faire un premier screencast où je vais reprendre les notions dont je viens de parler. Vous verrez ensuite d’autres commandes de base de Docker.
+On va se faire un premier screencast où je vais reprendre les notions dont je
+viens de parler. Vous verrez ensuite d’autres commandes de base de Docker.
 
 <iframe src="https://player.vimeo.com/video/1096175522?h=14cca2c1bf&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 2 - Appréhendez la ligne de commande de Docker"></iframe>
 
-Maintenant que vous avez pris en main l’interface en ligne de commandes de Docker (le CLI), vous allez apprendre à récupérer une image Node.js depuis DockerHub.
+Maintenant que vous avez pris en main l’interface en ligne de commandes de
+Docker (le CLI), vous allez apprendre à récupérer une image Node.js depuis
+DockerHub.
 
 ---
 
@@ -184,7 +258,11 @@ Maintenant que vous avez pris en main l’interface en ligne de commandes de Doc
 
 ## Récupérez une image Node.JS
 
-**Pour récupérer une image Docker NodeJS, la première est de savoir où et comment la récupérer**. Pour le “où”, normalement, vous ne devriez pas être surpris si je vous parle de Dockerhub. Allez [sur Dockerhub](https://hub.docker.com/) et tapez _Node_ dans la barre de recherche. Vous devriez avoir des résultats similaires à l’image ci-dessous.
+**Pour récupérer une image Docker NodeJS, la première est de savoir où et
+comment la récupérer**. Pour le “où”, normalement, vous ne devriez pas être
+surpris si je vous parle de Dockerhub. Allez
+[sur Dockerhub](https://hub.docker.com/) et tapez _Node_ dans la barre de
+recherche. Vous devriez avoir des résultats similaires à l’image ci-dessous.
 
 <br>
 
@@ -192,7 +270,11 @@ Maintenant que vous avez pris en main l’interface en ligne de commandes de Doc
 
 <br>
 
-Vous voyez le texte écrit en vert (en espérant que vous ne soyez pas daltonien 😀) : “Docker Official Image”. **Quand vous choisissez votre image sur DockerHub, essayez de privilégier les images officielles**. C’est un signe de qualité (et de sécurité), autrement dit, vous pouvez y aller les yeux fermés. D’ailleurs, le site de DockerHub l’explique lui aussi :
+Vous voyez le texte écrit en vert (en espérant que vous ne soyez pas daltonien
+😀) : “Docker Official Image”. **Quand vous choisissez votre image sur
+DockerHub, essayez de privilégier les images officielles**. C’est un signe de
+qualité (et de sécurité), autrement dit, vous pouvez y aller les yeux fermés.
+D’ailleurs, le site de DockerHub l’explique lui aussi :
 
 <br>
 
@@ -200,7 +282,8 @@ Vous voyez le texte écrit en vert (en espérant que vous ne soyez pas daltonien
 
 <br>
 
-Cliquez sur la page de Node, vous devriez là encore avoir un résultat similaire à l’image ci-dessous.
+Cliquez sur la page de Node, vous devriez là encore avoir un résultat similaire
+à l’image ci-dessous.
 
 <br>
 
@@ -208,9 +291,15 @@ Cliquez sur la page de Node, vous devriez là encore avoir un résultat similair
 
 <br>
 
-Il y a beaucoup d’informations affichées à l’écran mais celle qui m’intéresse est située en haut à droite : `docker pull node`. **Cette commande va vous permettre de récupérer la dernière image de Node en date**. C’est l'abréviation de la commande `docker image pull node`. Ouvrez votre terminal et lancez cette commande. Cela va vous faire télécharger la dernière image Node, sauf si vous avez déjà récupéré cette image au préalable.
+Il y a beaucoup d’informations affichées à l’écran mais celle qui m’intéresse
+est située en haut à droite : `docker pull node`. **Cette commande va vous
+permettre de récupérer la dernière image de Node en date**. C’est l'abréviation
+de la commande `docker image pull node`. Ouvrez votre terminal et lancez cette
+commande. Cela va vous faire télécharger la dernière image Node, sauf si vous
+avez déjà récupéré cette image au préalable.
 
-Pour consulter les images présentes sur votre ordinateur, tapez la commande `docker image ls`.
+Pour consulter les images présentes sur votre ordinateur, tapez la commande
+`docker image ls`.
 
 <br>
 
@@ -224,11 +313,14 @@ hello-world   latest	46331d942d63   12 months ago   9.14kB
 
 <br>
 
-J’ai deux images sur mon ordinateur : `node` et `hello-world`. J’ai leur taille, le nom du repository et leur tag. Sachez que nous reviendrons sur la notion de tag d’ici peu de temps 😉.
+J’ai deux images sur mon ordinateur : `node` et `hello-world`. J’ai leur taille,
+le nom du repository et leur tag. Sachez que nous reviendrons sur la notion de
+tag d’ici peu de temps 😉.
 
 ---
 
-Le screencast ci-dessous reprend ce que je viens de faire mais en vidéo. Encore une fois, cela devrait vous permettre d’apprendre un peu plus vite.
+Le screencast ci-dessous reprend ce que je viens de faire mais en vidéo. Encore
+une fois, cela devrait vous permettre d’apprendre un peu plus vite.
 
 <iframe src="https://player.vimeo.com/video/1096175632?h=22fce4fbb8&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 3 - Récupérez une image NodeJS"></iframe>
 
@@ -264,11 +356,18 @@ Commands:
 Run 'docker container COMMAND --help' for more information on a command.
 ```
 
-Essayez de lire un peu ce que fait chacune des commandes. **Sachez qu’on utilise régulièrement les commandes** `docker container exec`, `docker container run`, `docker container ls` et `docker container kill`. Lisez un peu la documentation de chacune de ces commandes avec le _--help_. Pour être tout à fait honnête, je trouve la documentation du CLI de Docker particulièrement bien fournie et claire.
+Essayez de lire un peu ce que fait chacune des commandes. **Sachez qu’on utilise
+régulièrement les commandes** `docker container exec`, `docker container run`,
+`docker container ls` et `docker container kill`. Lisez un peu la documentation
+de chacune de ces commandes avec le _--help_. Pour être tout à fait honnête, je
+trouve la documentation du CLI de Docker particulièrement bien fournie et
+claire.
 
 <br>
 
-On va maintenant lancer notre premier conteneur Node.js. Vérifiez que vous avez bien l’image de Node sur votre ordinateur via la commande docker image ls. Puis, écrivez docker container run node ls dans votre terminal et appuyez sur entrer.
+On va maintenant lancer notre premier conteneur Node.js. Vérifiez que vous avez
+bien l’image de Node sur votre ordinateur via la commande docker image ls. Puis,
+écrivez docker container run node ls dans votre terminal et appuyez sur entrer.
 
 ```bash
 docker container run node ls
@@ -283,11 +382,17 @@ usr
 var
 ```
 
-Cette commande va vous permettre d'exécuter la commande ls à l’intérieur de votre conteneur. Vous êtes actuellement à la racine de votre linux. Pour afficher le contenu du répertoire bin, tapez `docker container run node ls bin`. Si vous connaissez un peu linux et la ligne de commandes, vous ne devriez pas être trop perdu.
+Cette commande va vous permettre d'exécuter la commande ls à l’intérieur de
+votre conteneur. Vous êtes actuellement à la racine de votre linux. Pour
+afficher le contenu du répertoire bin, tapez `docker container run node ls bin`.
+Si vous connaissez un peu linux et la ligne de commandes, vous ne devriez pas
+être trop perdu.
 
 <br>
 
-Admettons maintenant que vous souhaitez connaître la version de node de votre conteneur Docker. Vous pouvez le faire via la commande `docker container run node node -v`.
+Admettons maintenant que vous souhaitez connaître la version de node de votre
+conteneur Docker. Vous pouvez le faire via la commande
+`docker container run node node -v`.
 
 ```bash
 docker container run node node -v
@@ -295,11 +400,14 @@ docker container run node node -v
 v19.8.1
 ```
 
-Vous verrez dans le projet fil rouge et les prochaines parties comment tirer parti de ces commandes. Concentrez-vous pour l’instant sur les commandes 🙂.
+Vous verrez dans le projet fil rouge et les prochaines parties comment tirer
+parti de ces commandes. Concentrez-vous pour l’instant sur les commandes 🙂.
 
 <br>
 
-Bon, dernière commande pour la route : `docker container ls`. Cette commande va vous permettre d’afficher vos conteneurs. Votre résultat devrait être similaire au mien.
+Bon, dernière commande pour la route : `docker container ls`. Cette commande va
+vous permettre d’afficher vos conteneurs. Votre résultat devrait être similaire
+au mien.
 
 ```bash
 docker container ls
@@ -308,15 +416,25 @@ docker container ls
 CONTAINER ID   IMAGE 	COMMAND   CREATED   STATUS	PORTS 	NAMES
 ```
 
-Je vous imagine derrière votre écran vous dire : mais attends, je viens de lancer des conteneurs Docker là. Comment ça se fait qu’aucun ne s’affiche ? En fait, c’est totalement normal. Vous vous souvenez que dans le chapitre précédent ?
+Je vous imagine derrière votre écran vous dire : mais attends, je viens de
+lancer des conteneurs Docker là. Comment ça se fait qu’aucun ne s’affiche ? En
+fait, c’est totalement normal. Vous vous souvenez que dans le chapitre précédent
+?
 
-Je vous ai dit que les conteneurs étaient éphémères, notamment en comparaison des VM. C’est ce qui se passe ici. Votre conteneur se lance, exécute sa commande (il fait son job) et il s’arrête. Par contre, sachez qu’il est possible d’afficher tous vos conteneurs, y compris ceux à l’arrêt. Ce qui est une commande plutôt pratique quand on veut déboguer un conteneur. Regardez la documentation du CLI avant de regarder la solution.
+Je vous ai dit que les conteneurs étaient éphémères, notamment en comparaison
+des VM. C’est ce qui se passe ici. Votre conteneur se lance, exécute sa commande
+(il fait son job) et il s’arrête. Par contre, sachez qu’il est possible
+d’afficher tous vos conteneurs, y compris ceux à l’arrêt. Ce qui est une
+commande plutôt pratique quand on veut déboguer un conteneur. Regardez la
+documentation du CLI avant de regarder la solution.
 
 ![Un meme de retour vers sur le futur portant sur les conteneurs Docker](/images/cours-docker-et-docker-compose/back-to-the-future-docker.webp)
 
 Alors, vous avez trouvé ?
 
-La commande `docker container ls -a` ou `docker container ls –all`, vous permet d’afficher l’ensemble de vos conteneurs, y compris ceux à l’arrêt. Ce qui nous donne un résultat quand même beaucoup plus intéressant.
+La commande `docker container ls -a` ou `docker container ls –all`, vous permet
+d’afficher l’ensemble de vos conteneurs, y compris ceux à l’arrêt. Ce qui nous
+donne un résultat quand même beaucoup plus intéressant.
 
 ```bash
 docker container ls -a
@@ -333,7 +451,8 @@ d8819a3a58cd   node      	"docker-entrypoint.s…"   14 minutes ago   Exited (0)
 ffc50d5ff510   node      	"docker-entrypoint.s…"   16 minutes ago   Exited (0) 16 minutes ago         	pensive_mayer
 ```
 
-Essayez de regarder comment supprimer les conteneurs à l’arrêt via le CLI. Ça vous permettra de prendre un peu d’avance sur les prochains chapitres.
+Essayez de regarder comment supprimer les conteneurs à l’arrêt via le CLI. Ça
+vous permettra de prendre un peu d’avance sur les prochains chapitres.
 
 ---
 
@@ -341,7 +460,11 @@ Le screencast ci-dessous reprend ce que je viens de faire mais en vidéo.
 
 <iframe src="https://player.vimeo.com/video/1096175756?h=c66b49952f&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 4 - Lancez et manipulez votre conteneur NodeJS"></iframe>
 
-Vous voici arrivé au terme de ce chapitre. Ce chapitre est clairement l’un des plus denses du cours. Je vous invite à revenir dessus une fois que vous aurez avancé un peu dans le cours. Il y a pas mal d’éléments qui vont se mettre en place les uns à la suite des autres. Comme toujours, pas d'inquiétude si tout ne fait pas sens immédiatement ou si vous oubliez certains éléments. C’est normal !
+Vous voici arrivé au terme de ce chapitre. Ce chapitre est clairement l’un des
+plus denses du cours. Je vous invite à revenir dessus une fois que vous aurez
+avancé un peu dans le cours. Il y a pas mal d’éléments qui vont se mettre en
+place les uns à la suite des autres. Comme toujours, pas d'inquiétude si tout ne
+fait pas sens immédiatement ou si vous oubliez certains éléments. C’est normal !
 
 ---
 
@@ -351,8 +474,15 @@ Vous voici arrivé au terme de ce chapitre. Ce chapitre est clairement l’un de
 
 ## Résumé
 
-- Il est important de bien faire la différence entre une image et un conteneur Docker. Essayez, notamment au début, de toujours vous poser la question si vous manipulez une image ou un conteneur. Vous pouvez avoir 10, 20, 30 conteneurs qui utilisent la même image.
-- L’interface en ligne de commandes (le CLI) de Docker vous donne beaucoup d’informations sur comment utiliser Docker. Prenez l’habitude d’utiliser l’option `--help`. Par exemple, `docker –help`, `docker volume –help`, etc.
-- Essayez d’utiliser le moins possible les commandes abrégées. Par exemple, `docker container ls` au lieu de `docker ps`. Cela va vous permettre de mieux comprendre ce que vous manipulez.
+- Il est important de bien faire la différence entre une image et un conteneur
+  Docker. Essayez, notamment au début, de toujours vous poser la question si
+  vous manipulez une image ou un conteneur. Vous pouvez avoir 10, 20, 30
+  conteneurs qui utilisent la même image.
+- L’interface en ligne de commandes (le CLI) de Docker vous donne beaucoup
+  d’informations sur comment utiliser Docker. Prenez l’habitude d’utiliser
+  l’option `--help`. Par exemple, `docker –help`, `docker volume –help`, etc.
+- Essayez d’utiliser le moins possible les commandes abrégées. Par exemple,
+  `docker container ls` au lieu de `docker ps`. Cela va vous permettre de mieux
+  comprendre ce que vous manipulez.
 
 </article>
