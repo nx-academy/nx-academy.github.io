@@ -13,6 +13,9 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      ASTRO_DB_REMOTE_URL: ${{ secrets.ASTRO_DB_REMOTE_URL }}
+      ASTRO_DB_AUTH_TOKEN: ${{ secrets.ASTRO_DB_AUTH_TOKEN }}
 
     steps:
       - name: Checking out
