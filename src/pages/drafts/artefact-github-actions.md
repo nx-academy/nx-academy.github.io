@@ -2,7 +2,10 @@
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: Qu'est-ce qu'un artefact GitHub Actions ?
-description: Découvrez à quoi sert un artefact GitHub Actions, comment en créer un avec l'action upload-artifact et quand l'utiliser dans un workflow CI/CD pour stocker vos fichiers, builds ou rapports de test.
+description:
+  Découvrez à quoi sert un artefact GitHub Actions, comment en créer un avec
+  l'action upload-artifact et quand l'utiliser dans un workflow CI/CD pour
+  stocker vos fichiers, builds ou rapports de test.
 
 imgAlt: Des colis posés sur une étagère, pixel art
 imgSrc: /images/cheatsheets/colis-etagere.webp
@@ -19,29 +22,42 @@ publishedDate: 10/03/2025
 
 ![Des colis posés sur une étagère, pixel art](/images/cheatsheets/colis-etagere.webp)
 
-Ça y est, [le cours sur les pipelines CI/CD avec les GitHub Actions](/cours/ci-cd-github-actions/) est officiellement disponible sur NX ! À cette occasion, on va revenir sur un concept essentiel : les artefacts (ou _artifacts_ en anglais).
+Ça y est,
+[le cours sur les pipelines CI/CD avec les GitHub Actions](/cours/ci-cd-github-actions/)
+est officiellement disponible sur NX ! À cette occasion, on va revenir sur un
+concept essentiel : les artefacts (ou _artifacts_ en anglais).
 
-Si vous avez suivi le cours jusqu’au bout, vous vous en êtes peut-être servi sans le savoir. Je pense au moment où on déploye une application ReactJS. Vous allez voir que c’est un outil simple et pratique mais aussi très puissant.
+Si vous avez suivi le cours jusqu’au bout, vous vous en êtes peut-être servi
+sans le savoir. Je pense au moment où on déploye une application ReactJS. Vous
+allez voir que c’est un outil simple et pratique mais aussi très puissant.
 
-Sachez qu'on se sert des artefacts quand on souhaite conserver ou transférer un résultat généré par un job. Par résultat, vous pouvez penser à un dossier `dist/` pour une application front, un rapport de test, une archive et même une capture d’écran.
+Sachez qu'on se sert des artefacts quand on souhaite conserver ou transférer un
+résultat généré par un job. Par résultat, vous pouvez penser à un dossier
+`dist/` pour une application front, un rapport de test, une archive et même une
+capture d’écran.
 
-Bref, à chaque fois qu’on veut mettre de côté un fichier produit pendant un workflow, l’artefact devient notre meilleur pote.
+Bref, à chaque fois qu’on veut mettre de côté un fichier produit pendant un
+workflow, l’artefact devient notre meilleur pote.
 
 ## Qu'est-ce qu'un artefact GitHub Actions ?
 
-Quand on parle d'artefact avec les GitHub Actions, on pense à un fichier ou un dossier généré pendant un workflow que l’on souhaite conserver.
+Quand on parle d'artefact avec les GitHub Actions, on pense à un fichier ou un
+dossier généré pendant un workflow que l’on souhaite conserver.
 
-Ce dernier peut, ensuite, être téléchargé manuellement depuis l’interface de GitHub ou alors réutilisé dans un autre job.
+Ce dernier peut, ensuite, être téléchargé manuellement depuis l’interface de
+GitHub ou alors réutilisé dans un autre job.
 
 Par exemple, on peut avoir besoin d'un artefact pour :
 
-- un build frontend, le fameux dossier `dist/`, qu’on veut déployer dans un job suivant ;
+- un build frontend, le fameux dossier `dist/`, qu’on veut déployer dans un job
+  suivant ;
 - un rapport de test qu’on veut analyser plus tard ;
 - un fichier zip, un binaire compilé ou un log personnalisé.
 
 <br>
 
-Pour créer un artefact, on utilise généralement l’action officielle [`actions/upload-artifact`](https://github.com/actions/upload-artifact).
+Pour créer un artefact, on utilise généralement l’action officielle
+[`actions/upload-artifact`](https://github.com/actions/upload-artifact).
 
 Ca donne quelque chose comme ceci :
 
@@ -57,7 +73,8 @@ Ca donne quelque chose comme ceci :
 
 ---
 
-Typiquement sur NX, je passe par un artefact pour uploader mon site, développé en Astro, sur GitHub Pages. Voici le code contenant mon upload :
+Typiquement sur NX, je passe par un artefact pour uploader mon site, développé
+en Astro, sur GitHub Pages. Voici le code contenant mon upload :
 
 ```yml
 # Je Build mon app
@@ -87,9 +104,12 @@ Plutôt pas mal, non ?
 
 ## Bonnes pratiques et pièges à éviter
 
-De manière générale, les artefacts sont des outils bien pratiques. Cela dit, il y a quelques bonnes pratiques à respecter histoire que tout se passe bien.
+De manière générale, les artefacts sont des outils bien pratiques. Cela dit, il
+y a quelques bonnes pratiques à respecter histoire que tout se passe bien.
 
-**Mon conseil : n'abusez pas des artefacts pour stocker tout et n'importe quoi**. Dans le repo Astro de NX, par exemple, je ne stocke que le site dans sa version buildée, soit le dossier `dist/`. Je n’ai pas besoin de tout garder :
+**Mon conseil : n'abusez pas des artefacts pour stocker tout et n'importe
+quoi**. Dans le repo Astro de NX, par exemple, je ne stocke que le site dans sa
+version buildée, soit le dossier `dist/`. Je n’ai pas besoin de tout garder :
 
 - le dossier `raw/` contient des images assez lourdes ;
 - le dossier `node_modules/` n’a aucun intérêt à être archivé dans un artefact.
@@ -98,26 +118,34 @@ De manière générale, les artefacts sont des outils bien pratiques. Cela dit, 
 
 Il est important de ne pas confondre artefact et cache :
 
-- un artefact est un fichier ou dossier téléchargeable, même une fois le job terminé. Il est pensé pour être consulté ou utilisé plus tard.
-- Un cache, lui, est réutilisé automatiquement dans les jobs ou workflows suivants. Il sert surtout à accélérer l’exécution, comme pour éviter de réinstaller les dépendances à chaque fois.
+- un artefact est un fichier ou dossier téléchargeable, même une fois le job
+  terminé. Il est pensé pour être consulté ou utilisé plus tard.
+- Un cache, lui, est réutilisé automatiquement dans les jobs ou workflows
+  suivants. Il sert surtout à accélérer l’exécution, comme pour éviter de
+  réinstaller les dépendances à chaque fois.
 
 <br>
 
-Sachez qu'il est possible, et même recommander ^^, de bien nommer, le nom de vos artefacts. Par exemple :
+Sachez qu'il est possible, et même recommander ^^, de bien nommer, le nom de vos
+artefacts. Par exemple :
 
 ```yml
 name: build-${{ github.sha }}
 ```
 
-Cette ligne vous permet d’identifier clairement à quel commit correspond chaque artefact. Très utile quand on veut s’y retrouver dans l’historique.
+Cette ligne vous permet d’identifier clairement à quel commit correspond chaque
+artefact. Très utile quand on veut s’y retrouver dans l’historique.
 
 ---
 
-Globalement, si vous suivez ces quelques règles, tout devrait bien se passer. Allé, on passe maintenant à quelques exemples.
+Globalement, si vous suivez ces quelques règles, tout devrait bien se passer.
+Allé, on passe maintenant à quelques exemples.
 
 ## Exemple concret - Build d'un projet front
 
-On va commencer avec un premier exemple complet. Admettons que vous souhaitiez déployer une application React et que vous souhaitez générer un build de production, histoire de l'archiver pour un déploiement ultérieur.
+On va commencer avec un premier exemple complet. Admettons que vous souhaitiez
+déployer une application React et que vous souhaitez générer un build de
+production, histoire de l'archiver pour un déploiement ultérieur.
 
 Ici, on va créer un job GitHub Actions qui :
 
@@ -158,7 +186,8 @@ jobs:
 
 ## Exemple concret - Génération d'un rapport de test
 
-Autre cas d’usage courant : générer un rapport de couverture de test dans le but de le rendre disponible en tant qu’artefact.
+Autre cas d’usage courant : générer un rapport de couverture de test dans le but
+de le rendre disponible en tant qu’artefact.
 
 Ce genre de cas est particulièrement utile quand vous souhaitez :
 
@@ -197,13 +226,17 @@ jobs:
           path: coverage/
 ```
 
-Une fois le job terminé, le rapport sera disponible dans l’interface GitHub _sous l’onglet Summary_ du workflow dans la section _Artifacts_.
+Une fois le job terminé, le rapport sera disponible dans l’interface GitHub
+_sous l’onglet Summary_ du workflow dans la section _Artifacts_.
 
 ## Bonus - Limiter la durée de rétention d'un artefact
 
-Par défaut, GitHub conserve vos artefacts pendant 90 jours. C’est pratique pour garder une trace mais, en pratique, ce n'est pas toujours nécessaire. Surtout sur des projets persos ou des artefacts temporaires.
+Par défaut, GitHub conserve vos artefacts pendant 90 jours. C’est pratique pour
+garder une trace mais, en pratique, ce n'est pas toujours nécessaire. Surtout
+sur des projets persos ou des artefacts temporaires.
 
-Sachez qu'il est possible de personnaliser cette durée avec le paramètre `retention-days` :
+Sachez qu'il est possible de personnaliser cette durée avec le paramètre
+`retention-days` :
 
 ```yml
 with:
@@ -212,25 +245,32 @@ with:
   retention-days: 3
 ```
 
-Dans cet exemple, l’artefact sera supprimé automatiquement **au bout de 3 jours**.
+Dans cet exemple, l’artefact sera supprimé automatiquement **au bout de 3
+jours**.
 
 <br>
 
-Si vous vous demandez pourquoi il peut être intéressant de raccourir la durée de vie d'un artefact, sachez qu'on s'en sert principalement pour :
+Si vous vous demandez pourquoi il peut être intéressant de raccourir la durée de
+vie d'un artefact, sachez qu'on s'en sert principalement pour :
 
 - pour éviter de saturer votre quota de stockage ;
-- pour ne pas garder de fichiers inutiles à long terme (ex. : builds intermédiaires, rapports éphémères) ;
+- pour ne pas garder de fichiers inutiles à long terme (ex. : builds
+  intermédiaires, rapports éphémères) ;
 - pour limiter les coûts sur des projets très actifs.
 
 <br>
 
-Pour être honnête, je m'en sers assez peu sur NX, parce que je ne dépasse pas les cotas même quand je suis très actif dessus. Mais c'est quelque chose de bon à savoir.
+Pour être honnête, je m'en sers assez peu sur NX, parce que je ne dépasse pas
+les cotas même quand je suis très actif dessus. Mais c'est quelque chose de bon
+à savoir.
 
 ---
 
-On ne parle pas assez des artefacts GitHub Actions et pourtant ils jouent un rôle essentiel dans nos workflows CI/CD.
+On ne parle pas assez des artefacts GitHub Actions et pourtant ils jouent un
+rôle essentiel dans nos workflows CI/CD.
 
-Pour résumer, un artefact est un fichier ou un dossier généré par un job, que vous souhaitez partager, réutiliser ou archiver. Grâce à eux, vous pouvez :
+Pour résumer, un artefact est un fichier ou un dossier généré par un job, que
+vous souhaitez partager, réutiliser ou archiver. Grâce à eux, vous pouvez :
 
 - stocker le résultat d’un build (comme un dist/) ;
 - générer un rapport de test consultable à tout moment ;

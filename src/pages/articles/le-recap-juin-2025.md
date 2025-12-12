@@ -2,7 +2,11 @@
 layout: ../../layouts/BlogPostLayout.astro
 
 title: "Le récap #3 - Juin 2025"
-description: Bienvenue dans le récap du mois de juin 2025. Au sommaire, des recommandations d'articles intelligentes sur Astro, de la gestion de dates (pas le fruit) en JavaScript, le scandale builer.ai et OpenAI s'attaque aux navigateurs Internet.
+description:
+  Bienvenue dans le récap du mois de juin 2025. Au sommaire, des recommandations
+  d'articles intelligentes sur Astro, de la gestion de dates (pas le fruit) en
+  JavaScript, le scandale builer.ai et OpenAI s'attaque aux navigateurs
+  Internet.
 
 imgAlt: Un vendeur de journaux dans un kiosque parisien, pixel art
 imgSrc: /images/articles/kiosque-journaux.webp
@@ -23,7 +27,15 @@ publishedDate: 06/27/2025
 
 <small>Alexander Opalic</small>
 
-L'article explique comment utiliser `transformers.js` de Hugging Face pour créer des suggestions de publications liées plus intelligentes pour un blog Astro, le tout sans serveurs ni bases de données. Il détaille comment charger les fichiers Markdown, supprimer le formatage Markdown pour obtenir du texte brut, utiliser `transformers.js` pour créer des intégrations, calculer la similarité cosinus entre toutes les publications, trouver les 5 publications les plus liées pour chaque publication et enregistrer les résultats dans un fichier JSON. **Pour être honnête, je pense bientôt essayer de le mettre en place sur NX pour voir ce que ça donne :)**.
+L'article explique comment utiliser `transformers.js` de Hugging Face pour créer
+des suggestions de publications liées plus intelligentes pour un blog Astro, le
+tout sans serveurs ni bases de données. Il détaille comment charger les fichiers
+Markdown, supprimer le formatage Markdown pour obtenir du texte brut, utiliser
+`transformers.js` pour créer des intégrations, calculer la similarité cosinus
+entre toutes les publications, trouver les 5 publications les plus liées pour
+chaque publication et enregistrer les résultats dans un fichier JSON. **Pour
+être honnête, je pense bientôt essayer de le mettre en place sur NX pour voir ce
+que ça donne :)**.
 
 [Lire l'article](https://alexop.dev/posts/semantic-related-posts-astro-transformersjs/)
 

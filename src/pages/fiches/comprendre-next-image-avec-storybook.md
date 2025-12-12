@@ -2,9 +2,13 @@
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: Comprendre l'utilisation de module next-image avec Storybook & TypeScript
-description: Découvrez comment utiliser le composant "next/image" dans Storybook avec TypeScript, en configurant Storybook pour afficher correctement les images Next.js.
+description:
+  Découvrez comment utiliser le composant "next/image" dans Storybook avec
+  TypeScript, en configurant Storybook pour afficher correctement les images
+  Next.js.
 
-imgAlt: Un ingénieur travaillant sur le pontage de pipeline en extérieur, pixel art
+imgAlt:
+  Un ingénieur travaillant sur le pontage de pipeline en extérieur, pixel art
 imgSrc: /images/cheatsheets/ingenieur-pontage-pipeline.webp
 
 author: Lionel
@@ -21,19 +25,30 @@ publishedDate: 11/30/2024
 
 ## Problématique 🚨
 
-Lorsque j'ai débuté un projet NextJS avec TypeScript et Storybook, j'ai très vite été confronté à un soucis très embêtant lors du rendu de composant utilisant next/image dans Storybook.
+Lorsque j'ai débuté un projet NextJS avec TypeScript et Storybook, j'ai très
+vite été confronté à un soucis très embêtant lors du rendu de composant
+utilisant next/image dans Storybook.
 
-Storybook semble incapable de trouver l'image qui est importé statiquement depuis le dossier static **/public/images** dans l'arborescence de base de l'application.
+Storybook semble incapable de trouver l'image qui est importé statiquement
+depuis le dossier static **/public/images** dans l'arborescence de base de
+l'application.
 
-Ce qui génère ce problème est très simple, lorsque vous lancez Storybook avec la commande terminal `npm run storybook`sur le serveur qui lui attribué (6006 par défault), le processus de `build` de Storybook ne passe pas par le `build process`de NextJS durant lequel les `URLs` et `PATHs` sont créés et injectés dans le code.
+Ce qui génère ce problème est très simple, lorsque vous lancez Storybook avec la
+commande terminal `npm run storybook`sur le serveur qui lui attribué (6006 par
+défault), le processus de `build` de Storybook ne passe pas par le
+`build process`de NextJS durant lequel les `URLs` et `PATHs` sont créés et
+injectés dans le code.
 
-Vous obtenez donc un composant dépourvu d'image dans votre story ou une erreur de compilation lors du lancement de storybook.
+Vous obtenez donc un composant dépourvu d'image dans votre story ou une erreur
+de compilation lors du lancement de storybook.
 
-Ce petit désagrément m'a finalement pris la journée entière pour trouver une solution !
+Ce petit désagrément m'a finalement pris la journée entière pour trouver une
+solution !
 
 ## Bootstrapping 🚀
 
-Au moment de démarrer votre projet en suivant la documentation de NextJS et de Storybook, Votre configuration de base devrait ressembler à ceci :
+Au moment de démarrer votre projet en suivant la documentation de NextJS et de
+Storybook, Votre configuration de base devrait ressembler à ceci :
 
 ### Fichier main.ts dans votre dossier ./storybook/ 📄
 
@@ -82,19 +97,26 @@ const preview: Preview = {
 export default preview;
 ```
 
-En l'état actuel des choses, lorsque vous tenterez de `build` votre story, cela ne fonctionnera pas pour les raisons citées plus avant.
+En l'état actuel des choses, lorsque vous tenterez de `build` votre story, cela
+ne fonctionnera pas pour les raisons citées plus avant.
 
-Vous remarquerez que dans la configuration ⚙️ ci-dessus, il n'est pas explicitement clair dans les paramètres établis pour storybook comment gérer ce cas de figure.
+Vous remarquerez que dans la configuration ⚙️ ci-dessus, il n'est pas
+explicitement clair dans les paramètres établis pour storybook comment gérer ce
+cas de figure.
 
 > ... Comment on fait alors ? 🤔💭
 
 ## Override de next/image pour Storybook 🎯
 
-Pour régler ce problème, nous allons modifier les fichiers ./storybook/preview.ts & ./storybook/main.ts afin d'expliquer clairement à Storybook comment accéder aux images ciblées.
+Pour régler ce problème, nous allons modifier les fichiers
+./storybook/preview.ts & ./storybook/main.ts afin d'expliquer clairement à
+Storybook comment accéder aux images ciblées.
 
 ### Fichier main.ts dans votre dossier ./storybook/ 📄
 
-Nous allons d'abord spécifier à Storybook les chemins d'accès aux images en ajoutant le `path` cible directement dans le fichier main.ts. dans la propriéte `staticDirs`.
+Nous allons d'abord spécifier à Storybook les chemins d'accès aux images en
+ajoutant le `path` cible directement dans le fichier main.ts. dans la propriéte
+`staticDirs`.
 
 ```ts
 import type { StorybookConfig } from "@storybook/nextjs";
@@ -138,7 +160,9 @@ export default config;
 
 ### Fichier preview.ts dans votre dossier ./storybook/ 📄
 
-Nous allons ensuite importer au dessus du document les propriétés de `next/image` et ensuite vérifier si next/image.default est configurable et redéfinit pour permettre `l'override` de `next/image` pour Storybook.
+Nous allons ensuite importer au dessus du document les propriétés de
+`next/image` et ensuite vérifier si next/image.default est configurable et
+redéfinit pour permettre `l'override` de `next/image` pour Storybook.
 
 ```ts
 import React from "react";
@@ -173,13 +197,19 @@ export default preview;
 
 > ... Comment ça marche ??? 🔬
 
-Ce code remplace temporairement le composant next/image par une balise HTML native <img> dans Storybook. Cela permet de contourner le fonctionnement de base qui provoque le dysfonctionnement mentionné plus haut lorsque Storybook tente d'accéder aux images avec un processus de build ne lui permettant pas de gérer next/image nativement.
+Ce code remplace temporairement le composant next/image par une balise HTML
+native <img> dans Storybook. Cela permet de contourner le fonctionnement de base
+qui provoque le dysfonctionnement mentionné plus haut lorsque Storybook tente
+d'accéder aux images avec un processus de build ne lui permettant pas de gérer
+next/image nativement.
 
-Cette méthode nous permet également de ne pas devoir configurer des fonctions supplémentaires de Next.js.
+Cette méthode nous permet également de ne pas devoir configurer des fonctions
+supplémentaires de Next.js.
 
 ## Application dans votre story 🧩📕🪄
 
-Il ne vous reste plus qu'à spécifier le `path` adéquat de votre fichier `***.stories.tsx` dans la proriété `args` de votre `story`.
+Il ne vous reste plus qu'à spécifier le `path` adéquat de votre fichier
+`***.stories.tsx` dans la proriété `args` de votre `story`.
 
 ```ts
 import { Meta, StoryObj } from "@storybook/react";
@@ -211,7 +241,12 @@ export const Main: Story = {
 
 ## En résumé 📝
 
-L'utilisation de next/image avec Storybook nécessite une configuration supplémentaire, car Storybook n'utilise pas le processus de build de Next.js. En configurant les fichiers Storybook et en remplaçant next/image par une balise <img>, vous pouvez faire en sorte que les images soient correctement rendues. Cette approche réduit les conflits et les erreurs de compilation dans Storybook lors du développement de composants utilisant des images statiques.
+L'utilisation de next/image avec Storybook nécessite une configuration
+supplémentaire, car Storybook n'utilise pas le processus de build de Next.js. En
+configurant les fichiers Storybook et en remplaçant next/image par une balise
+<img>, vous pouvez faire en sorte que les images soient correctement rendues.
+Cette approche réduit les conflits et les erreurs de compilation dans Storybook
+lors du développement de composants utilisant des images statiques.
 
 ## Ressources
 
