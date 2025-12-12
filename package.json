@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "astro": "astro",
-    "build": "astro check && astro build",
+    "build": "astro check && astro build --remote",
     "check": "astro check",
     "db:push-schema": "astro db push --remote",
     "dev": "astro dev",
