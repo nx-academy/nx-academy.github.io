@@ -44,7 +44,7 @@ const newsFeed = await db
   .select()
   .from(NewsFeed)
   .orderBy(desc(NewsFeed.id))
-  .limit(8);
+  .limit(4);
 ---
 
 <BaseLayout>
