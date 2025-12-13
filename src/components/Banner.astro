@@ -7,10 +7,16 @@ import ParagraphSmall from "./ParagraphSmall.astro";
 <div class="main-wrapper">
   <div class="content-wrapper">
     <Heading3 content="Le cours sur les pipelines CI/CD est sorti !" />
-    <ParagraphSmall content="Découvrez comment utiliser les GitHub Actions pour automatiser vos tests et vos mises en production." />
+    <ParagraphSmall
+      content="Découvrez comment utiliser les GitHub Actions pour automatiser vos tests et vos mises en production."
+    />
   </div>
   <div class="buttons-wrapper">
-    <Button href="/cours/ci-cd-github-actions" label="Commencer le cours" type="primary" />
+    <Button
+      href="/cours/ci-cd-github-actions"
+      label="Commencer le cours"
+      type="primary"
+    />
     <Button href="/cours" label="Voir les autres cours" type="secondary" />
   </div>
 </div>
@@ -32,7 +38,7 @@ import ParagraphSmall from "./ParagraphSmall.astro";
     @media screen and (min-width: 48rem) {
       display: flex;
       flex-direction: column;
-      gap: .5rem;
+      gap: 0.5rem;
     }
   }
 
