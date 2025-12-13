@@ -187,9 +187,11 @@ const newsFeed = await db
   }
 
   .feed-section {
-    position: sticky;
-    top: 2rem;
-    height: min-content;
+    @media screen and (min-width: 48rem) {
+      position: sticky;
+      top: 2rem;
+      height: min-content;
+    }
   }
 
   .feed-section ul {
