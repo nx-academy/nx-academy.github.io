@@ -1,13 +1,23 @@
 ---
 import Button from "./Button.astro";
-import Heading2 from "./Heading2.astro";
+import Heading3 from "./Heading3.astro";
+import ParagraphSmall from "./ParagraphSmall.astro";
 ---
 
 <div class="main-wrapper">
-  <Heading2 content="Nouveau sur le site ?" />
+  <div class="content-wrapper">
+    <Heading3 content="Le cours sur les pipelines CI/CD est sorti !" />
+    <ParagraphSmall
+      content="Découvrez comment utiliser les GitHub Actions pour automatiser vos tests et vos mises en production."
+    />
+  </div>
   <div class="buttons-wrapper">
-    <Button href="/manifeste" label="Découvrir NX Academy" type="primary" />
-    <Button href="/changelog" label="Voir les mises à jour" type="secondary" />
+    <Button
+      href="/cours/ci-cd-github-actions"
+      label="Commencer le cours"
+      type="primary"
+    />
+    <Button href="/cours" label="Voir les autres cours" type="secondary" />
   </div>
 </div>
 
@@ -16,8 +26,20 @@ import Heading2 from "./Heading2.astro";
     background-color: var(--backgroundColorSecondary);
     border-radius: 8px;
     display: grid;
-    gap: 1.5rem;
+    gap: 2rem;
     padding: 2rem 1.5rem;
+
+    @media screen and (min-width: 48rem) {
+      gap: 3rem;
+    }
+  }
+
+  .content-wrapper {
+    @media screen and (min-width: 48rem) {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
   }
 
   .buttons-wrapper {
