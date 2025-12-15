@@ -76,40 +76,6 @@ pubDate = pubDate ? new Date(pubDate).toLocaleDateString('fr-FR') : new Date().t
       title="NX Academy"
       href={new URL("rss.xml", Astro.site)}
     />
-
-    <!-- prettier-ignore-start -->
-    {
-      import.meta.env.PROD && <script>
-        (function(h,o,u,n,d) {
-          // @ts-ignore
-          h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}}
-          // @ts-ignore
-          d=o.createElement(u);d.async=1;d.src=n // prettier-ignore
-          // @ts-ignore
-          n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n)
-        })(window,document,'script','https://www.datadoghq-browser-agent.com/eu1/v6/datadog-rum.js','DD_RUM')
-        // @ts-ignore
-        window.DD_RUM.onReady(function() {
-          // @ts-ignore
-        window.DD_RUM.init({
-          clientToken: 'pub7662c92e1ecc427c59eda2d0034f7bc7',
-          applicationId: 'a1998a8c-a21e-4944-a708-9f628663f454',
-          // `site` refers to the Datadog site parameter of your organization
-          // see https://docs.datadoghq.com/getting_started/site/
-          site: 'datadoghq.eu',
-          service: 'nx-academy-website',
-          env: 'prod',
-          // Specify a version number to identify the deployed version of your application in Datadog
-          version: '1.0.0',
-          sessionSampleRate: 100,
-          sessionReplaySampleRate: 20,
-          defaultPrivacyLevel: 'mask-user-input',
-        });
-      })</script>  
-    }
-    <!-- prettier-ignore-end -->
-    
-
   </head>
   <body>
     <div class="page-wrapper">
