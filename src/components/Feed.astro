@@ -1,11 +1,5 @@
 ---
-type News = {
-  content: string
-  published: Date
-  slug: string
-  title: string
-}
-
+import type { News } from "../types/News"
 interface Props {
   newsFeed: News[]
 }
@@ -29,7 +23,7 @@ const { newsFeed } = Astro.props
       <li>
         <NewsCard
           content={news.content}
-          date={news.published}
+          published={news.published}
           slug={news.slug}
           title={news.title}
         />

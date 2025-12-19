@@ -1,22 +1,18 @@
 ---
-interface Props {
-  content: string;
-  date: Date;
-  slug: string;
-  title: string;
-}
+import type { News } from "../types/News"
+interface Props extends News {}
 
 import ParagraphSmall from "../components/ParagraphSmall.astro";
 import ParagraphExtraSmall from "../components/ParagraphExtraSmall.astro";
 import ParagraphLarge from "../components/ParagraphLarge.astro";
 
-const { content, date, slug, title } = Astro.props;
+const { content, published, slug, title } = Astro.props;
 ---
 
 <a class="wrapper" href={`/feed#${slug}`}>
   <ParagraphLarge content={title} />
   <ParagraphSmall content={content} />
-  <ParagraphExtraSmall content={date.toLocaleDateString("FR-fr")} />
+  <ParagraphExtraSmall content={published.toLocaleDateString("FR-fr")} />
 </a>
 
 <style>
