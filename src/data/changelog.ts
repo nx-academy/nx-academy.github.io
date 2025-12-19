@@ -8,6 +8,57 @@ type LogTasks = {
   tasks: Task[];
 };
 
+const decemberTasks: LogTasks = {
+  month: "Décembre",
+  tasks: [
+    {
+      kind: "done",
+      content: `Sortie <a href="/feed" target="_blank">du Feed de news</a> : j'avais pas mal bossé dessus cet été et je vais prendre le temps de revenir dessus dans un article (parce que c'est assez intéressant ce que j'ai fait niveau techno. Le Feed va me permettre de mettre à jour le site plus souvent et de petit à petit transformer NX en un petit média indépendant.`,
+    },
+    {
+      kind: "fix",
+      content: "Fix du sticky du feed notamment sur les téléphones portables.",
+    },
+    {
+      kind: "done",
+      content: "Suppression de Datadog Rum pour traquer les bugs",
+    },
+    {
+      kind: "fix",
+      content:
+        "Pas mal de petites améliorations côté UI avec des couleurs de hoover et un peu de refactoring",
+    },
+    {
+      kind: "in-progress",
+      content:
+        "Je suis en train de préparer un article de bilan de l'année ainsi qu'une série de fiches techniques. En fonction du temps que j'ai, je verrais si j'attaque aussi la préparation de mon futur cours.",
+    },
+  ],
+};
+
+const novemberTasks: LogTasks = {
+  month: "Novembre",
+  tasks: [
+    {
+      kind: "fix",
+      content: "MAJ des dépendances (security update)",
+    },
+    {
+      kind: "fix",
+      content: "MAJ du projet pour Node.JS 24",
+    },
+    {
+      kind: "done",
+      content: `Sortie <a href="/cours/ci-cd-github-actions/" target="_blank">du cours sur les pipelines CI/CD</a> + l'upload des screencasts`,
+    },
+    {
+      kind: "in-progress",
+      content:
+        "Migration du bot Discord d'IA vers un serveur MCP pour une meilleur intégration avec les LLM.",
+    },
+  ],
+};
+
 const septemberTasks: LogTasks = {
   month: "Septembre",
   tasks: [
@@ -391,6 +442,8 @@ const aprilTasks: LogTasks = {
 };
 
 export const ALL_MONTHS = [
+  decemberTasks,
+  novemberTasks,
   septemberTasks,
   augustTasks,
   julyTasks,
