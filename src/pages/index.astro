@@ -170,7 +170,6 @@ const newsFeed = await db
 
   .feed-link {
     display: flex;
-    align-items: center;
     margin-bottom: 1.5rem;
     gap: 4px;
 
@@ -184,6 +183,12 @@ const newsFeed = await db
     width: 32px;
     fill: none;
     stroke: var(--linkColor);
+  }
+
+  .feed-link:hover {
+    h3 {
+      color: var(--linkHoverColor);
+    }
   }
 
   .feed-section {
