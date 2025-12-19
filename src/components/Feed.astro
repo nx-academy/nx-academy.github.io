@@ -56,15 +56,8 @@ const { newsFeed } = Astro.props
     }
   }
 
-  .feed-section {
-    @media screen and (min-width: 48rem) {
-      position: sticky;
-      top: 2rem;
-      height: min-content;
-    }
-  }
 
-  .feed-section ul {
+  ul {
     padding-left: 0;
     list-style-type: none;
     display: flex;
@@ -80,7 +73,7 @@ const { newsFeed } = Astro.props
     }
   }
 
-  .feed-section li {
+  li {
     min-width: 80%;
 
     @media screen and (min-width: 48rem) {
