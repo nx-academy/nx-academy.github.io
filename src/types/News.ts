@@ -3,4 +3,4 @@ export type News = {
   published: Date;
   slug: string;
   title: string;
-}
+};

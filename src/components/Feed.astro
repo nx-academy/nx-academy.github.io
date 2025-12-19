@@ -1,15 +1,14 @@
 ---
-import type { News } from "../types/News"
+import type { News } from "../types/News";
 interface Props {
-  newsFeed: News[]
+  newsFeed: News[];
 }
 
-import Heading3 from "./Heading3.astro"
-import NewsCard from "./News.astro"
+import Heading3 from "./Heading3.astro";
+import NewsCard from "./News.astro";
 
-const { newsFeed } = Astro.props
+const { newsFeed } = Astro.props;
 ---
-
 
 <a class="feed-link" href="/feed">
   <Heading3 content="Le Feed" />
@@ -56,7 +55,6 @@ const { newsFeed } = Astro.props
     }
   }
 
-
   ul {
     padding-left: 0;
     list-style-type: none;
@@ -81,4 +79,3 @@ const { newsFeed } = Astro.props
     }
   }
 </style>
-
