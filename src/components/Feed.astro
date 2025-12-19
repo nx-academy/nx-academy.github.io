@@ -1,0 +1,81 @@
+---
+import type { News } from "../types/News";
+interface Props {
+  newsFeed: News[];
+}
+
+import Heading3 from "./Heading3.astro";
+import NewsCard from "./News.astro";
+
+const { newsFeed } = Astro.props;
+---
+
+<a class="feed-link" href="/feed">
+  <Heading3 content="Le Feed" />
+  <svg class="chevron-icon" viewBox="0 0 24 24">
+    <use xlink:href="#arrow-icon"></use>
+  </svg>
+</a>
+<ul class="news-feed">
+  {
+    newsFeed.map((news) => (
+      <li>
+        <NewsCard
+          content={news.content}
+          published={news.published}
+          slug={news.slug}
+          title={news.title}
+        />
+      </li>
+    ))
+  }
+</ul>
+
+<style>
+  .feed-link {
+    display: flex;
+    margin-bottom: 1.5rem;
+    gap: 4px;
+
+    @media screen and (min-width: 90rem) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .feed-link .chevron-icon {
+    height: 32px;
+    width: 32px;
+    fill: none;
+    stroke: var(--linkColor);
+  }
+
+  .feed-link:hover {
+    h3 {
+      color: var(--linkHoverColor);
+    }
+  }
+
+  ul {
+    padding-left: 0;
+    list-style-type: none;
+    display: flex;
+    overflow: scroll;
+    gap: 32px;
+
+    @media screen and (min-width: 48rem) {
+      gap: 36px;
+      overflow: unset;
+      flex-direction: column;
+      border-left: 1px solid var(--borderPrimary);
+      padding-left: 16px;
+    }
+  }
+
+  li {
+    min-width: 80%;
+
+    @media screen and (min-width: 48rem) {
+      min-width: unset;
+    }
+  }
+</style>
