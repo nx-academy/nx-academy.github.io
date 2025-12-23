@@ -38,9 +38,7 @@ publishedDate: 01/01/2026
 - Sans tarder, on peut aller dans les details !
 
 
-## Il s'est passé quoi en 2025 ?
-
-### Deux cours ont été publiés sur la plateforme : Docker et CI/CD.
+## Deux cours ont été publiés sur la plateforme : Docker et CI/CD.
 
 - J'avais prévu de sortir initialement un cours en 2025 : le cours sur Docker
   et docker-compose. Pour info, vous pouvez le trouver
@@ -61,7 +59,7 @@ publishedDate: 01/01/2026
   des cours (et ce manière quasiment automatisé).
 
 
-### La fonctionnalité des quiz est sorti
+## La fonctionnalité des quiz est sorti
 
 - Pour etre honnete, j'avais totalement zappé que j'avais prévu de sortir cette
   fonctionnalité en 2025. Alors qu'honnetement, cette fonctionnalité fonctionne
@@ -80,7 +78,7 @@ publishedDate: 01/01/2026
   dans les plans pour 2026.
 
 
-### Le Recap a été lancé
+## Le Recap a été lancé
 
 - On continue dans les taches semi-automatisées avec de l'IA. Je les ai lancé
   en avril 2025. Je n'ai pas pensé à le lancer depuis deux mois (j'ai commencé
@@ -98,9 +96,26 @@ publishedDate: 01/01/2026
   longtemps.
 
 
-### Le Feed a été lancé
+## Le Feed a été lancé
 
+- C'est l'une de mes plus grosses fièrtés de cette année ! Je n'avais pas
+  forcément prévu de le faire mais c'est en prod et je m'en suis déjà servi
+  plusieurs.
 
+- Pour faire simple, le principe du Feed est de pouvoir créer des news
+  rapidement depuis mon back office et de les mettre en prod, là encore
+  rapidement. Chaque news feed contient un titre, un résumé et un lien.
+
+- Pour créer une news, je passe par mon back office sur Discord, je génère une
+  news via GPT et je lance ensuite une commande pour créer une news. Une fois
+  les informations de cette news rentrées sur Discord, je vais insérer la
+  donnée dans une base de données TursoDB puis regener un build de mon app pour
+  pouvoir l'utiliser cote Astro. J'irais plus dans le detail dans l'article que
+  je vais prendre le temps d'écrire durant les fetes.
+
+- Bon, par contre, je l'ai mise en prod mais je n'ai pas pris le temps encore
+  de faire un article dessus sur le site. Vous l'aurez compris, c'est
+  clairement l'une des choses que je vais tenter d'améliorer pour 2026.
 
 ---
 
@@ -113,6 +128,15 @@ publishedDate: 01/01/2026
 
 **transition** : NX se transforme petit à petit en media specialisé.
 
+**Vous pouvez suivre les évolutions de NX via le changelog, que j'ai aussi
+lancé cette anneé**.
 
-## J'ai prévu quoi pour 2026 ?
+J'avais initialement prévu de faire un article qui comprend à la fois 2025 et
+2026. Cela dit, devant le contenu de l'année de 2025, je vais prendre le temps
+d'écrire un article dédié à 2026 ! 
+
+On se retrouve l'année prochaine.
+
+Thomas
+
 
