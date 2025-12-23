@@ -42,18 +42,74 @@ publishedDate: 01/01/2026
 
 ### Deux cours ont été publiés sur la plateforme : Docker et CI/CD.
 
+- J'avais prévu de sortir initialement un cours en 2025 : le cours sur Docker
+  et docker-compose. Pour info, vous pouvez le trouver
+  [ici](/cours/docker-et-docker-compose). Au final, j'ai été capable d'en
+  sortir deux. Je ne pensep pas avoir été très bon niveau communication : je
+  pense que j'aurais du en parler un peu plus sur les reseaux, notamment sur
+  LinkedIn. Cela dit, je les ai quand meme sorti.
+
+- C'etait des cours qui étaient déjà présents sur la version 1 de NX
+  (Teachable). Cela dit, j'ai du fait un travail assez important coté code en
+  créant notamment un Layout adapté à la landing page des cours. Autrement dit,
+  il m'a fallu crée (designé et codé) une page de cours visuellement sympa et
+  réutilisable coté code. Pour etre honnete, et sans vouloir me jeter trop de
+  fleurs, je la trouve plutot pas mal.
+
+- Pour info, j'ai aussi sorti 5 fiches dédiées servant de complément à ces
+  cours. Ces fiches se retrouvent d'ailleurs sur la page d'accueil de chacun
+  des cours (et ce manière quasiment automatisé).
 
 
 ### La fonctionnalité des quiz est sorti
 
+- Pour etre honnete, j'avais totalement zappé que j'avais prévu de sortir cette
+  fonctionnalité en 2025. Alors qu'honnetement, cette fonctionnalité fonctionne
+  très bien et est très dans l'esprit du web en 2025.
+
+- Elle m'a demandé de mettre en place un système de RAG (du Document based RAG)
+  pour etre précis qui va aller lire mon site. J'ai donc mis en place un agent
+  IA (vous pouvez le retrouver sur ce repository). Cet agent lit le contenu de
+  ma fiche technique, puis génère des questions et des réponses au format JSON.
+  Je prends ce JSON et je crée automatiquement une PR sur mon repository. Je
+  réalise ensuite une relecture de mon cote avant de merger le code. 
+
+- C'est l'une des premières fonctionnalités qui utilisent l'IA sur NX ; j'en ai
+  d'autres depuis. Ca fait des mois que je dois faire un article de blog
+  dessus. C'est clairement l'un des points que je dois améliorer. On y viendra
+  dans les plans pour 2026.
+
 
 ### Le Recap a été lancé
+
+- On continue dans les taches semi-automatisées avec de l'IA. Je les ai lancé
+  en avril 2025. Je n'ai pas pensé à le lancer depuis deux mois (j'ai commencé
+  un nouveau travail : j'y reviendrais plus tard). Cela dit, ce workflow
+  semi-automatisé fonctionne très bien.
+
+- Via un bot discord que j'ai codé, et qui me fait office de back office, je
+  vais coller 4 articles que j'ai repéré dans le mois. Ce bot va ensuite
+  envoyer l'URL de l'article aux APIs de GPT où ils vont être scrappés, puis
+  résumé. Une fois résumé, je crée une PR sur mon repo que je relis de mon cote
+  avant de la mettre en prod.
+
+- J'ai fait pas mal de taches via de l'IA de ce type en 2025 et pour être, ca a
+  été l'un des trucs les plus excitant qui m'a été donné de réaliser depuis
+  longtemps.
 
 
 ### Le Feed a été lancé
 
 
+
 ---
+
+**Au final** :
+- 2 cours ont été publiés
+- 5 fiches techniques ont été publiés
+- 9 articles ont été publiés
+- 12 quiz ont été crées.
+- 7 news feed ont été mises en ligne.
 
 **transition** : NX se transforme petit à petit en media specialisé.
 
