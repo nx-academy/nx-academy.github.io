@@ -39,99 +39,112 @@ Sans tarder, entrons dans le détail.
 
 ## Deux cours ont été publiés sur la plateforme : Docker et CI/CD.
 
-- J'avais prévu de sortir initialement un cours en 2025 : le cours sur Docker et
-  docker-compose. Pour info, vous pouvez le trouver
-  [ici](/cours/docker-et-docker-compose). Au final, j'ai été capable d'en sortir
-  deux. Je ne pensep pas avoir été très bon niveau communication : je pense que
-  j'aurais du en parler un peu plus sur les reseaux, notamment sur LinkedIn.
-  Cela dit, je les ai quand meme sorti.
+À l’origine, j’avais prévu de sortir un seul cours en 2025 : le cours sur Docker
+et docker-compose. Il est disponible [ici](/cours/docker-et-docker-compose). Au
+final, j’ai réussi à en sortir [deux](/cours).
 
-- C'etait des cours qui étaient déjà présents sur la version 1 de NX
-  (Teachable). Cela dit, j'ai du fait un travail assez important coté code en
-  créant notamment un Layout adapté à la landing page des cours. Autrement dit,
-  il m'a fallu crée (designé et codé) une page de cours visuellement sympa et
-  réutilisable coté code. Pour etre honnete, et sans vouloir me jeter trop de
-  fleurs, je la trouve plutot pas mal.
+Je n’ai probablement pas été très bon côté communication : j’aurais clairement
+dû en parler davantage sur les réseaux, notamment sur LinkedIn mais l’essentiel
+est là. Les cours sont sortis.
 
-- Pour info, j'ai aussi sorti 5 fiches dédiées servant de complément à ces
-  cours. Ces fiches se retrouvent d'ailleurs sur la page d'accueil de chacun des
-  cours (et ce manière quasiment automatisé).
+Ces contenus existaient déjà sur la version 1 de NX (hébergée à l’époque sur
+Teachable) mais ils ont nécessité un vrai travail côté code. J’ai notamment créé
+un layout dédié aux pages de cours : design, intégration, réutilisabilité… bref,
+une vraie landing page de cours, pensée pour durer. Sans vouloir trop me jeter
+des fleurs, je suis plutôt content du résultat.
 
-## La fonctionnalité des quiz est sorti
+À noter également : j’ai publié 5 fiches techniques complémentaires à ces cours.
+Elles sont d’ailleurs automatiquement mises en avant sur les pages d’accueil des
+cours concernés, ce qui était un objectif important pour moi.
 
-- Pour etre honnete, j'avais totalement zappé que j'avais prévu de sortir cette
-  fonctionnalité en 2025. Alors qu'honnetement, cette fonctionnalité fonctionne
-  très bien et est très dans l'esprit du web en 2025.
-
-- Elle m'a demandé de mettre en place un système de RAG (du Document based RAG)
-  pour etre précis qui va aller lire mon site. J'ai donc mis en place un agent
-  IA (vous pouvez le retrouver sur ce repository). Cet agent lit le contenu de
-  ma fiche technique, puis génère des questions et des réponses au format JSON.
-  Je prends ce JSON et je crée automatiquement une PR sur mon repository. Je
-  réalise ensuite une relecture de mon cote avant de merger le code.
-
-- C'est l'une des premières fonctionnalités qui utilisent l'IA sur NX ; j'en ai
-  d'autres depuis. Ca fait des mois que je dois faire un article de blog dessus.
-  C'est clairement l'un des points que je dois améliorer. On y viendra dans les
-  plans pour 2026.
-
-## Le Recap a été lancé
-
-- On continue dans les taches semi-automatisées avec de l'IA. Je les ai lancé en
-  avril 2025. Je n'ai pas pensé à le lancer depuis deux mois (j'ai commencé un
-  nouveau travail : j'y reviendrais plus tard). Cela dit, ce workflow
-  semi-automatisé fonctionne très bien.
-
-- Via un bot discord que j'ai codé, et qui me fait office de back office, je
-  vais coller 4 articles que j'ai repéré dans le mois. Ce bot va ensuite envoyer
-  l'URL de l'article aux APIs de GPT où ils vont être scrappés, puis résumé. Une
-  fois résumé, je crée une PR sur mon repo que je relis de mon cote avant de la
-  mettre en prod.
-
-- J'ai fait pas mal de taches via de l'IA de ce type en 2025 et pour être, ca a
-  été l'un des trucs les plus excitant qui m'a été donné de réaliser depuis
-  longtemps.
-
-## Le Feed a été lancé
-
-- C'est l'une de mes plus grosses fièrtés de cette année ! Je n'avais pas
-  forcément prévu de le faire mais c'est en prod et je m'en suis déjà servi
-  plusieurs.
-
-- Pour faire simple, le principe du Feed est de pouvoir créer des news
-  rapidement depuis mon back office et de les mettre en prod, là encore
-  rapidement. Chaque news feed contient un titre, un résumé et un lien.
-
-- Pour créer une news, je passe par mon back office sur Discord, je génère une
-  news via GPT et je lance ensuite une commande pour créer une news. Une fois
-  les informations de cette news rentrées sur Discord, je vais insérer la donnée
-  dans une base de données TursoDB puis regener un build de mon app pour pouvoir
-  l'utiliser cote Astro. J'irais plus dans le detail dans l'article que je vais
-  prendre le temps d'écrire durant les fetes.
-
-- Bon, par contre, je l'ai mise en prod mais je n'ai pas pris le temps encore de
-  faire un article dessus sur le site. Vous l'aurez compris, c'est clairement
-  l'une des choses que je vais tenter d'améliorer pour 2026.
 
 ---
 
-**Au final** :
 
-- 2 cours ont été publiés
-- 5 fiches techniques ont été publiés
-- 9 articles ont été publiés
-- 12 quiz ont été crées.
-- 7 news feed ont été mises en ligne.
+## La fonctionnalité des quiz est sorti
 
-**transition** : NX se transforme petit à petit en media specialisé.
+Pour être honnête, j’avais totalement oublié que j’avais prévu de sortir cette
+fonctionnalité en 2025. Et pourtant, avec le recul, elle fonctionne très bien et
+correspond assez bien à l’esprit du web en 2025.
 
-**Vous pouvez suivre les évolutions de NX via le changelog, que j'ai aussi lancé
-cette anneé**.
+Sa mise en place m’a demandé de travailler sur un système de RAG et plus
+précisément du document-based RAG. J’ai donc développé un agent IA qui va lire
+le contenu d’une fiche technique, générer automatiquement des questions et
+réponses au format JSON, puis créer une pull request sur le repository de NX. De
+mon côté, je relis, j’ajuste si besoin, puis je merge.
 
-J'avais initialement prévu de faire un article qui comprend à la fois 2025
-et 2026. Cela dit, devant le contenu de l'année de 2025, je vais prendre le
-temps d'écrire un article dédié à 2026 !
+C’est l’une des premières fonctionnalités de NX à utiliser de l’IA de manière
+assez poussée. Depuis, d’autres ont suivi. Ça fait des mois que je me dis qu’il
+faudrait que j’écrive un article détaillé sur le sujet. Clairement, c’est un
+point que je dois améliorer et j’y reviendrai dans les plans pour 2026.
 
-On se retrouve l'année prochaine.
 
-Thomas
+---
+
+
+## Le Recap a été lancé
+
+On continue dans la lignée des tâches semi-automatisées avec de l’IA. Le Recap a
+été lancé en avril 2025. Je n’ai pas pensé à le publier ces deux derniers mois —
+j’ai changé de travail entre-temps, j’y reviendrai plus tard — mais le workflow
+fonctionne très bien.
+
+Concrètement, via un bot Discord que j’ai développé (et qui me sert de
+back-office), je colle chaque mois quatre articles que j’ai repérés. Le bot
+envoie ensuite les URLs aux APIs de GPT : les articles sont analysés, puis
+résumés. Une fois le recap généré, une PR est automatiquement créée sur le
+repository. Je relis, j’ajuste si nécessaire puis je mets en production.
+
+J’ai mis en place pas mal de workflows de ce type en 2025, et, pour être
+honnête, c’est probablement l’une des choses les plus excitantes que j’ai eu
+l’occasion de construire depuis longtemps.
+
+
+---
+
+
+## Le Feed a été lancé
+
+C’est sans doute l’une de mes plus grosses fiertés de l’année. Ce n’était pas
+forcément prévu au départ, mais le Feed est aujourd’hui en production et je m’en
+suis déjà servi plusieurs fois.
+
+L’idée est simple : pouvoir créer et publier des brèves rapidement. Chaque news
+du Feed contient un titre, un résumé et un lien vers la source.
+
+Là encore, tout passe par mon back-office Discord. Je génère une news via GPT,
+je valide les informations, puis une commande permet d’insérer la donnée dans
+une base TursoDB avant de relancer un build de l’application pour l’exploiter
+côté Astro. Je prendrai le temps de détailler tout ça dans un article dédié que
+je compte écrire pendant les fêtes.
+
+Évidemment, comme souvent, j’ai mis la fonctionnalité en production… sans encore
+avoir écrit l’article qui va avec. Vous l’aurez compris : c’est clairement l’un
+des axes d’amélioration pour 2026.
+
+---
+
+## L'année 2025 en quelques chiffres
+
+Sur l’année 2025, NX, c’est :
+
+- 2 cours publiés ;
+- 5 fiches techniques publiées ;
+- 9 articles publiés ;
+- 12 quiz créés ;
+- 7 news du Feed mises en ligne.
+
+<br>
+
+Petit à petit, NX est en train de se transformer en un média spécialisé, au-delà
+d’une simple plateforme de cours. Je ne sais pas si ça marchera ou pas ou si c'est une bonne chose mais en tout cas, ça me ressemble :).
+Vous pouvez suivre l’évolution du projet via le changelog que j’ai également lancé cette année.
+
+J’avais initialement prévu de faire un article couvrant à la fois 2025 et 2026.
+Vu la densité de cette année, je préfère finalement prendre le temps d’écrire un
+article dédié à ce qui arrive en 2026.
+
+On se retrouve l’année prochaine.
+
+<br>
+<span class="author">Thomas</span>
