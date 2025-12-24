@@ -1,8 +1,9 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
 
-title: "Quels projets pour NX en 2026 ?"
-description:
+title: "Quels projets pour NX en 2026 ? Cours, médias et IA"
+description: "Tour d’horizon des projets NX pour 2026 : nouveaux cours, projets
+pédagogiques, évolution vers un média tech et expérimentations autour de l’IA."
 
 imgAlt: Un développeur en train de coder un Père Noel, pixel art
 imgSrc: /images/articles/dev-pere-noel.webp
