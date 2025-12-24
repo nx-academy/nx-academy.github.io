@@ -5,8 +5,8 @@ title: "Quels projets pour NX en 2026 ? Cours, médias et IA"
 description: "Tour d’horizon des projets NX pour 2026 : nouveaux cours, projets
 pédagogiques, évolution vers un média tech et expérimentations autour de l’IA."
 
-imgAlt: Un développeur en train de coder un Père Noel, pixel art
-imgSrc: /images/articles/dev-pere-noel.webp
+imgAlt: Une bande de dévelloppeurs en train de jouer sur un télé, pixel art
+imgSrc: /images/articles/dev-fetes-fin-annee.webp
 
 kind: Articles
 author: Thomas
@@ -16,7 +16,7 @@ publishedDate: 12/29/2025
 
 # Quels projets pour NX en 2026 ?
 
-![Un développeur en train de coder un Père Noel, pixel art](/images/articles/dev-pere-noel.webp)
+![Une bande de dévelloppeurs en train de jouer sur un télé, pixel art](/images/articles/dev-fetes-fin-annee.webp)
 
 Ça y est, nous sommes en 2026. Avant toute chose, **je vous souhaite une
 excellente année**. J’espère qu’elle sera à la hauteur de vos attentes, qu’elle
