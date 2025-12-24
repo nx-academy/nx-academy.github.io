@@ -6,18 +6,18 @@ description:
   "Bilan de l’année 2025 de NX : cours Docker et CI/CD, quiz générés par IA,
   recap automatisé, feed de veille et évolution de la plateforme."
 
-imgAlt: Des personnes faisant une réunion dans une salle, pixel art
-imgSrc: /images/articles/reunion-point.webp
+imgAlt: Un développeur en train de coder un Père Noel, pixel art
+imgSrc: /images/articles/dev-pere-noel.webp
 
 kind: Articles
 author: Thomas
 draft: false
-publishedDate: 01/01/2026
+publishedDate: 12/29/2025
 ---
 
 # Bilan de l'année 2025 de NX
 
-![Des personnes faisant une réunion dans une salle, pixel art](/images/articles/reunion-point.webp)
+![Un développeur en train de coder un Père Noel, pixel art](/images/articles/dev-pere-noel.webp)
 
 Comme l’année dernière, j’ai décidé de profiter des fêtes de fin d’année pour
 dresser le bilan de NX en 2025. C’est un exercice auquel je vais essayer de me
