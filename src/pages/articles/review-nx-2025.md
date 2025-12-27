@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
 
-title: "Bilan 2025 de NX Academy = du contenus, de l'IA et de l'automatisation"
+title: "Bilan 2025 de NX Academy"
 description:
   "Bilan de l’année 2025 de NX : cours Docker et CI/CD, quiz générés par IA,
   recap automatisé, feed de veille et évolution de la plateforme."
