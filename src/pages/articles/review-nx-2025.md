@@ -12,7 +12,7 @@ imgSrc: /images/articles/dev-pere-noel.webp
 kind: Articles
 author: Thomas
 draft: false
-publishedDate: 12/29/2025
+publishedDate: 12/27/2025
 ---
 
 # Bilan de l'année 2025 de NX
