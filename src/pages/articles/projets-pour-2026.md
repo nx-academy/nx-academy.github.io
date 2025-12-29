@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
 
-title: "Quels projets pour NX en 2026 ? Cours, médias et IA"
+title: "Quels projets pour NX en 2026 ?"
 description: "Tour d’horizon des projets NX pour 2026 : nouveaux cours, projets
 pédagogiques, évolution vers un média tech et expérimentations autour de l’IA."
 
@@ -11,7 +11,7 @@ imgSrc: /images/articles/dev-fetes-fin-annee.webp
 kind: Articles
 author: Thomas
 draft: false
-publishedDate: 12/29/2025
+publishedDate: 01/03/2026
 ---
 
 # Quels projets pour NX en 2026 ?
