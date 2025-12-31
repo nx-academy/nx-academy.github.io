@@ -12,6 +12,10 @@ const decemberTasks: LogTasks = {
   month: "Décembre",
   tasks: [
     {
+      kind: "fix",
+      content: "Quelques mises à jour pour le sticky du feed sur la home page. J'ai décidé de ne mettre que les 3 dernières news. On verra à l'utilisation si c'est bien ou pas."
+    },
+    {
       kind: "in-progress",
       content: "Je suis en train de travailler sur le calendrier éditorial de l'année 2026. Pour info, je prévois de faire 3 articles par mois où je mixe du contenu technique, des articles de fond et des recaps."
     },
