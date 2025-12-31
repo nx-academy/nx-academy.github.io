@@ -12,6 +12,14 @@ const decemberTasks: LogTasks = {
   month: "Décembre",
   tasks: [
     {
+      kind: "in-progress",
+      content: "Je suis en train de travailler sur le calendrier éditorial de l'année 2026. Pour info, je prévois de faire 3 articles par mois où je mixe du contenu technique, des articles de fond et des recaps."
+    },
+    {
+      kind: "done",
+      content: `Écriture et <a href="/articles/review-nx-2025" target="_blank">mise en ligne</a> de l'article de bilan de l'année 2025.`
+    },
+    {
       kind: "done",
       content: `Sortie <a href="/feed" target="_blank">du Feed de news</a> : j'avais pas mal bossé dessus cet été et je vais prendre le temps de revenir dessus dans un article (parce que c'est assez intéressant ce que j'ai fait niveau techno. Le Feed va me permettre de mettre à jour le site plus souvent et de petit à petit transformer NX en un petit média indépendant.`,
     },
