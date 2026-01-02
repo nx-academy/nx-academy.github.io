@@ -11,7 +11,7 @@ imgSrc: /images/articles/dev-fetes-fin-annee.webp
 kind: Articles
 author: Thomas
 draft: false
-publishedDate: 01/03/2026
+publishedDate: 01/01/2026
 ---
 
 # Quels projets pour NX en 2026 ?
