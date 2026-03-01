@@ -13,10 +13,11 @@ const februaryTasks: LogTasks = {
   tasks: [
     {
       kind: "fix",
-      content: "Mis à jour des dépendances du projet et optimisation des performances."
-    }
-  ]
-}
+      content:
+        "Mis à jour des dépendances du projet et optimisation des performances.",
+    },
+  ],
+};
 
 const decemberTasks: LogTasks = {
   month: "Décembre",
