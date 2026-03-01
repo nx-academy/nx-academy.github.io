@@ -8,6 +8,17 @@ type LogTasks = {
   tasks: Task[];
 };
 
+const februaryTasks: LogTasks = {
+  month: "Février",
+  tasks: [
+    {
+      kind: "fix",
+      content:
+        "Mis à jour des dépendances du projet et optimisation des performances.",
+    },
+  ],
+};
+
 const decemberTasks: LogTasks = {
   month: "Décembre",
   tasks: [
@@ -456,6 +467,7 @@ const aprilTasks: LogTasks = {
 };
 
 export const ALL_MONTHS = [
+  februaryTasks,
   decemberTasks,
   novemberTasks,
   septemberTasks,
