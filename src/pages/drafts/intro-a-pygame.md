@@ -31,6 +31,8 @@ On va construire ensemble un petit idle game. Un compteur qui s'incrémente
 automatiquement, un clic pour accélérer le score. Simple, mais suffisant pour
 comprendre comment un jeu fonctionne vraiment sous le capot.
 
+<br>
+
 ## Pygame, c'est une bibliothèque, pas un framework!
 
 Avant d'écrire la moindre ligne de code, il y a une chose importante à
@@ -83,7 +85,7 @@ Lancez ce code et vous obtiendrez une fenêtre noire de 800x600 pixels. Bon, ok,
 vu comme ça, ce n'st pas très excitant mais, le fait est, qu'il se passe déjà
 beaucoup de choses ici. On va décortiquer ça dans la section suivante.
 
----
+<br>
 
 ## Focus sur la Game Loop
 
@@ -126,7 +128,7 @@ paraît fluide à l'œil humain. En dessous de 30 FPS, on commence à percevoir 
 saccades. Entre 30 et 60, c'est acceptable. À 60, c'est fluide. Pour un jeu
 Pygame, c'est le bon équilibre.
 
----
+<br>
 
 ## Update et Draw : deux responsabilités distinctes
 
@@ -178,7 +180,7 @@ while True:
 Simple, propre et déjà prêt à grandir. Dans la section suivante, on va remplir
 ces deux blocs et construire notre idle game.
 
----
+<br>
 
 ## Construire un idle game
 
@@ -241,8 +243,8 @@ sys.exit()
 
 Décryptage des nouveaux éléments :
 
-- `dt` (delta time) correspond au temps écoulé depuis la dernière frame, en
-  secondes. Plutôt que de compter des frames, on raisonne en temps réel. Votre
+- `dt` (delta time) correspond, en secondes, au temps écoulé depuis la dernière
+  frames. Plutôt que de compter des frames, on raisonne en temps réel. Votre
   logique devient ainsi indépendante du frame rate et se comporte de manière
   identique sur toutes les machines.
 - `timer` est un _simple accumulateur_. À chaque frame, on y ajoute `dt`. Quand
@@ -252,8 +254,42 @@ Décryptage des nouveaux éléments :
   commence par transformer le texte en surface avec `font.render`, puis on la
   colle sur l'écran à la position souhaitée.
 
-En moins de 50 lignes de code, vous avez un idle game fonctionnel qui illustre
-la game loop, le pattern update/draw, le delta time et la gestion des
-événements.
+**Et voilà !** En moins de 50 lignes de code, vous avez un idle game fonctionnel
+qui illustre la game loop, le pattern update/draw, le delta time et la gestion
+des événements.
+
+<br>
+
+## Bonus - Testez votre Game Loop en changeant ses FPS
+
+Vous pouvez facilement vérifier que votre logique est bien indépendante du frame
+rate en changeant la valeur passée à clock.tick() :
+
+```python
+clock.tick(30)  # Essayez avec 30 FPS au lieu de 60
+```
+
+Si votre score s'incrémente toujours à la même vitesse, c'est que votre delta
+time est correctement implémenté. Si le score ralentit, c'est que vous comptez
+des frames quelque part au lieu de raisonner en temps réel. C'est un petit test
+rapide mais très utile pour s'assurer que tout est bien en ordre.
+
+---
+
+Vous avez maintenant les bases pour démarrer avec Pygame. Dans les prochaines
+fiches, on ira plus loin : gestion des sprites, système de caméra, et comment
+structurer un projet qui dépasse les 50 lignes.
+
+D'ici là, le code complet de cet article est disponible
+[sur GitHub](https://github.com/tdimnet/learn-pygame-by-doing) avec les
+instructions d'installation pour macOS, Linux et Windows.
+
+<br>
+
+## Ressources
+
+- [La documentation officielle de Pygame](https://www.pygame.org/docs/)
+- [Game Programming Patterns — Bob Nystrom](https://gameprogrammingpatterns.com/game-loop.html)
+- [Code the Classics — Raspberry Pi Foundation](https://codeclassics.raspberrypi.com/)
 
 </article>
