@@ -34,22 +34,26 @@ comprendre comment un jeu fonctionne vraiment sous le capot.
 ## Pygame, c'est une bibliothèque, pas un framework!
 
 Avant d'écrire la moindre ligne de code, il y a une chose importante à
-comprendre sur Pygame : c'est une bibliothèque, pas un framework.
+comprendre sur Pygame : **c'est une bibliothèque, pas un framework**.
 
 Si vous venez du développement web, vous êtes probablement habitués à des
-frameworks comme Django ou Laravel. Un framework vous donne une structure : il
-vous dit où mettre vos fichiers, comment organiser votre code, quand telle ou
-telle fonction est appelée. Vous suivez ses conventions, il s'occupe du reste.
+frameworks comme Django ou Laravel. Un framework, ça vous donne une structure.
+Ca vous dit où mettre vos fichiers, comment organiser votre code et/ou quand
+telle ou telle fonction est appelée. Vous suivez ses conventions, il s'occupe du
+reste.
 
-Pygame ne fait rien de tout ça. C'est plus proche de React : vous décidez
-comment organiser votre code. Et si vous ne le faites pas bien, ça peut vite
-devenir le bazar.
+Pygame ne fait rien de tout ça. En fait, **c'est plus proche de React dans
+l'esprit**. Vous décidez comment organiser votre code. Et si vous ne le faites
+pas bien, ça peut vite devenir le bazar.
 
-Concrètement, Pygame est une collection d'outils — des fonctions pour ouvrir une
-fenêtre, dessiner des formes, jouer des sons, détecter les entrées clavier et
-souris. Il s'appuie sur SDL (Simple DirectMedia Layer) en arrière-plan, une
-bibliothèque C qui donne accès à l'audio, au clavier, à la souris et à
-l'affichage. Pygame est simplement une surcouche Python par-dessus tout ça.
+Concrètement, Pygame est une collection d'outils. Vous allez trouver des
+fonctions pour ouvrir une fenêtre, dessiner des formes, jouer des sons et
+détecter des événements au clavier et à la souris. Il s'appuie
+[sur SDL (Simple DirectMedia Layer)](https://www.libsdl.org/) en arrière-plan,
+une bibliothèque C qui donne accès à l'audio, au clavier, à la souris et à
+l'affichage. Pygame est _simplement_ une surcouche Python par-dessus tout ça.
+
+<br>
 
 Voici à quoi ressemble le programme Pygame le plus simple possible :
 
@@ -75,8 +79,10 @@ while True:
     clock.tick(60)
 ```
 
-Lancez ce code, et vous obtiendrez une fenêtre noire de 800x600 pixels. Pas très
-excitant pour l'instant — mais il se passe déjà beaucoup de choses ici. On va
-décortiquer ça dans la section suivante.
+Lancez ce code et vous obtiendrez une fenêtre noire de 800x600 pixels. Bon, ok,
+vu comme ça, ce n'st pas très excitant mais, le fait est, qu'il se passe déjà
+beaucoup de choses ici. On va décortiquer ça dans la section suivante.
+
+---
 
 </article>
