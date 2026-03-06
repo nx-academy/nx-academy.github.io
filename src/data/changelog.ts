@@ -16,6 +16,15 @@ const februaryTasks: LogTasks = {
       content:
         "Mis à jour des dépendances du projet et optimisation des performances.",
     },
+    {
+      kind: "fix",
+      content: "Second set de mises à jour de sécurité.",
+    },
+    {
+      kind: "in-progress",
+      content:
+        "J'ai commencé à écrire de nouveaux articles en rapport avec Pygame.",
+    },
   ],
 };
 
