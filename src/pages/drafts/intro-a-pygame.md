@@ -85,4 +85,101 @@ beaucoup de choses ici. On va décortiquer ça dans la section suivante.
 
 ---
 
+## Focus sur la Game Loop
+
+Vous voyez le `while True` dans le code précédent ? C'est la game loop. **Et
+c'est probablement l'un des concepts les plus importants du développement de
+jeux.**
+
+Dans une application web, votre code s'exécute quand quelque chose se passe : un
+utilisateur envoie une requête, vous la traitez, vous renvoyez une réponse et
+votre code s'arrête. C'est le modèle Request/Response. Le serveur attend. Rien
+ne se passe tant que personne ne frappe à la porte.
+
+Un jeu fonctionne complètement différemment. **Votre code tourne en continu, 60
+fois par seconde, qu'il se passe quelque chose ou non**. À chaque frame, le jeu
+vérifie les entrées, met à jour son état et redessine l'écran. C'est ça, la game
+loop. Elle tourne jusqu'à ce que le joueur ferme la fenêtre.
+
+Pensez à un
+[flipbook ou _foloscope en francais (j'ai appris un mot ^^)_](https://fr.wikipedia.org/wiki/Folioscope).
+Chaque page est légèrement différente de la précédente. Feuilletez-le assez
+vite, et vous obtenez l'illusion du mouvement. La game loop, c'est ce qui tourne
+les pages.
+
+<br>
+
+Sa structure, en clair :
+
+```python
+while le_jeu_tourne:
+    # 1. Vérifier les événements (clavier, souris, fermeture...)
+    # 2. Mettre à jour l'état du jeu
+    # 3. Tout dessiner à l'écran
+    # 4. Attendre la prochaine frame
+```
+
+<br>
+
+Mais alors, **pourquoi 60 FPS** ? C'est le seuil à partir duquel le mouvement
+paraît fluide à l'œil humain. En dessous de 30 FPS, on commence à percevoir des
+saccades. Entre 30 et 60, c'est acceptable. À 60, c'est fluide. Pour un jeu
+Pygame, c'est le bon équilibre.
+
+---
+
+## Update et Draw : deux responsabilités distinctes
+
+Maintenant que vous avez vu la game loop, parlons de ce qui se passe à
+l'intérieur. **À chaque frame, votre jeu fait deux choses : il met à jour son
+état et il dessine cet état à l'écran**. Ce sont deux responsabilités bien
+distinctes et les garder séparées est l'une des meilleures habitudes à prendre
+dès le début.
+
+**L'Update, c'est là que vit votre logique**. C'est ici que vous déplacez des
+personnages, incrémentez des compteurs, détectez des collisions et gérez les
+entrées. Vous ne touchez pas à l'écran ici. Vous modifiez uniquement les données
+qui décrivent votre monde.
+
+**Draw, c'est là que vous prenez ces données et que vous les rendez visibles**.
+Vous effacez l'écran, vous dessinez tout en fonction de l'état actuel et vous
+affichez le résultat. Rien d'autre.
+
+Ok, alors, pourquoi cette séparation est-elle si importante ? Imaginez que vous
+mélangez les deux : vous déplacez un personnage et vous le dessinez dans le même
+bloc de code. Ça fonctionne au début. Mais dès que votre jeu grossit. Par
+exemple, en ajoutant des animations, une interface ou meme des overlays de
+debug, vous ne savez plus où s'arrête la logique et où commence le rendu. Ça
+devient vite ingérable.
+
+<br>
+
+En code, ça ressemble à ça :
+
+```python
+while True:
+    # 1. Événements
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+    # 2. Update
+    # (la logique du jeu va ici)
+
+    # 3. Draw
+    screen.fill((30, 30, 30))
+    # (le rendu va ici)
+    pygame.display.flip()
+
+    clock.tick(60)
+```
+
+Simple, propre et déjà prêt à grandir. Dans la section suivante, on va remplir
+ces deux blocs et construire notre idle game.
+
+---
+
+## asd
+
 </article>
