@@ -180,6 +180,80 @@ ces deux blocs et construire notre idle game.
 
 ---
 
-## asd
+## Construire un idle game
+
+On va maintenant tout assembler. **L'objectif : un compteur qui s'incrémente
+automatiquement et un clic pour accélérer le score.**
+
+<br>
+
+Voici le code complet :
+
+```python
+import sys
+import pygame
+
+pygame.init()
+
+screen = pygame.display.set_mode((800, 600))
+pygame.display.set_caption("My First Game")
+
+clock = pygame.time.Clock()
+font = pygame.font.SysFont("Arial", 32)
+
+# État du jeu
+score = 0
+auto_increment = 1
+click_bonus = 10
+timer = 0.0
+increment_interval = 1.0  # en secondes
+
+running = True
+while running:
+    dt = clock.tick(60) / 1000.0  # delta time en secondes
+
+    # 1. Événements
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            score += click_bonus
+
+    # 2. Update
+    timer += dt
+    if timer >= increment_interval:
+        score += auto_increment
+        timer = 0.0
+
+    # 3. Draw
+    screen.fill((30, 30, 30))
+    score_text = font.render(f"Score: {score}", True, (255, 255, 255))
+    hint_text = font.render("Cliquez pour gagner des points bonus !", True, (180, 180, 180))
+    screen.blit(score_text, (300, 250))
+    screen.blit(hint_text, (220, 320))
+    pygame.display.flip()
+
+pygame.quit()
+sys.exit()
+```
+
+<br>
+
+Décryptage des nouveaux éléments :
+
+- `dt` (delta time) correspond au temps écoulé depuis la dernière frame, en
+  secondes. Plutôt que de compter des frames, on raisonne en temps réel. Votre
+  logique devient ainsi indépendante du frame rate et se comporte de manière
+  identique sur toutes les machines.
+- `timer` est un _simple accumulateur_. À chaque frame, on y ajoute `dt`. Quand
+  il atteint `increment_interval`, on incrémente le score et on le remet à zéro.
+  C'est tout ce qu'il y a derrière un timer dans un jeu.
+- `screen.blit` permet de dessiner du texte (ou des images) sur l'écran. On
+  commence par transformer le texte en surface avec `font.render`, puis on la
+  colle sur l'écran à la position souhaitée.
+
+En moins de 50 lignes de code, vous avez un idle game fonctionnel qui illustre
+la game loop, le pattern update/draw, le delta time et la gestion des
+événements.
 
 </article>
