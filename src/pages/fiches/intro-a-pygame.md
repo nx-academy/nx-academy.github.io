@@ -2,7 +2,10 @@
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: Comment bien débuter avec Pygame ?
-description: Découvrez comment fonctionne une game loop avec Pygame. Apprenez à séparer update et draw, gérer le delta time et construire votre premier idle game en Python.
+description:
+  Découvrez comment fonctionne une game loop avec Pygame. Apprenez à séparer
+  update et draw, gérer le delta time et construire votre premier idle game en
+  Python.
 
 imgAlt: Un développeur devant de nombreux écrans, pixel art
 imgSrc: /images/cheatsheets/developpeur-devant-ecrans.webp
