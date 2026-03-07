@@ -25,6 +25,10 @@ const februaryTasks: LogTasks = {
       content:
         "J'ai commencé à écrire de nouveaux articles en rapport avec Pygame.",
     },
+    {
+      kind: "done",
+      content: `Sortie de la fiche <a href="/fiches/intro-a-pygame" target="_blank">Comment débuter avec Pygame ?</a>`,
+    },
   ],
 };
 
