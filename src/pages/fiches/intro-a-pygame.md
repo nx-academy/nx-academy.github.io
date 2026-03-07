@@ -1,18 +1,23 @@
 ---
 layout: ../../layouts/CheatSheetsLayout.astro
 
-title: "Comment débuter avec Pygame ?"
-description: Le Game loop et le pattern update/draw
+title: Comment bien débuter avec Pygame ?
+description: Découvrez comment fonctionne une game loop avec Pygame. Apprenez à séparer update et draw, gérer le delta time et construire votre premier idle game en Python.
+
+imgAlt: Un développeur devant de nombreux écrans, pixel art
+imgSrc: /images/cheatsheets/developpeur-devant-ecrans.webp
 
 author: Thomas
 kind: Fiche technique
-level: debutant
+level: Débutant
 publishedDate: 03/07/2026
 ---
 
 <article>
 
 # Comment débuter avec Pygame ?
+
+![Un développeur devant de nombreux écrans, pixel art](/images/cheatsheets/developpeur-devant-ecrans.webp)
 
 Si vous avez lu [mon bilan](/articles/review-nx-2025) ou mes
 [projets pour 2026](/articles/projets-pour-2026), vous avez peut-être remarqué
