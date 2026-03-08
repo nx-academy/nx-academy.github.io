@@ -1,0 +1,13 @@
+---
+import type { LogTasks } from "../types/LogTasks"
+interface Props {
+    monthlyChangelog: LogTasks[],
+    year: string
+}
+
+const {
+    monthlyChangelog,
+    year
+} = Astro.props
+---
+

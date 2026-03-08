@@ -1,12 +1,4 @@
-type Task = {
-  kind: "in-progress" | "done" | "fix";
-  content: string;
-};
-
-type LogTasks = {
-  month: string;
-  tasks: Task[];
-};
+import type { LogTasks } from "../types/LogTasks"
 
 const februaryTasks: LogTasks = {
   month: "Février",
