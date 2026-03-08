@@ -11,3 +11,88 @@ const {
 } = Astro.props
 ---
 
+{
+    monthlyChangelog.map((month) => (
+    <section class="monthly-section">
+        <h2>{month.month} {year}</h2>
+        <section class="kind-section">
+        <h3>🟢 Les nouveautés et mises à jour du mois</h3>
+        <ul class="logs-list">
+            {month.tasks
+            .filter((task) => task.kind === "done")
+            .map((task) => (
+                <li set:html={task.content} />
+            ))}
+        </ul>
+        </section>
+        <section class="kind-section">
+        <h3>🟡 Les projets en cours</h3>
+        <ul class="logs-list">
+            {month.tasks
+            .filter((task) => task.kind === "in-progress")
+            .map((task) => (
+                <li set:html={task.content} />
+            ))}
+        </ul>
+        </section>
+        <section class="kind-section">
+        <h3>🔴 Les corrections de bugs</h3>
+        <ul class="logs-list">
+            {month.tasks
+            .filter((task) => task.kind === "fix")
+            .map((task) => (
+                <li set:html={task.content} />
+            ))}
+        </ul>
+        </section>
+    </section>
+    ))
+}
+
+<style>
+h2 {
+margin-bottom: 24px;
+}
+
+h3 {
+margin-bottom: 8px;
+}
+
+p,
+li {
+margin-bottom: 24px;
+color: var(--textColor);
+font-size: clamp(0.875rem, 0.75rem + 1.5vw, 1.125rem);
+}
+
+a {
+color: var(--articleLinkColor);
+
+&:hover {
+    color: var(--articleLinkHoverColor);
+}
+}
+
+.monthly-section {
+margin-bottom: 80px;
+}
+
+.kind-section {
+margin-bottom: 40px;
+}
+
+.logs-list li {
+margin-bottom: 8px;
+
+    a {
+        text-decoration: none;
+        color: var(--articleLinkColor);
+        font-weight: 500;
+        transition: 0.4s color;
+
+        &:hover {
+            color: var(--articleLinkHoverColor);
+        }
+    }
+}
+</style>
