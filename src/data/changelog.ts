@@ -479,8 +479,7 @@ const aprilTasks: LogTasks = {
   ],
 };
 
-export const ALL_MONTHS = [
-  februaryTasks,
+export const MONTHS_2025 = [
   decemberTasks,
   novemberTasks,
   septemberTasks,
