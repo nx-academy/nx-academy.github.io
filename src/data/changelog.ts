@@ -1,11 +1,18 @@
-type Task = {
-  kind: "in-progress" | "done" | "fix";
-  content: string;
-};
+import type { LogTasks } from "../types/LogTasks";
 
-type LogTasks = {
-  month: string;
-  tasks: Task[];
+const marchTasks: LogTasks = {
+  month: "Mars",
+  tasks: [
+    {
+      kind: "fix",
+      content: "Mise à jour du changelog pour 2026",
+    },
+    {
+      kind: "in-progress",
+      content:
+        "Mise à jour de mon back office Discord pour migrer vers un back office MCP",
+    },
+  ],
 };
 
 const februaryTasks: LogTasks = {
@@ -479,8 +486,9 @@ const aprilTasks: LogTasks = {
   ],
 };
 
-export const ALL_MONTHS = [
-  februaryTasks,
+export const MONTHS_2026 = [marchTasks, februaryTasks];
+
+export const MONTHS_2025 = [
   decemberTasks,
   novemberTasks,
   septemberTasks,

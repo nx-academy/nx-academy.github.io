@@ -5,7 +5,9 @@ const pageTitle = "Changelog";
 const pageDescription =
   "NX Academy est regulièrement mis à jour. J'utilise cette page pour vous tenir au courant des derniers fixes et fonctionnalités.";
 
-import { ALL_MONTHS } from "../data/changelog";
+import { MONTHS_2025, MONTHS_2026 } from "../data/changelog";
+
+import MontlyChangelog from "../components/Changelog.astro";
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
@@ -29,43 +31,9 @@ import { ALL_MONTHS } from "../data/changelog";
       </p>
       <p>Bonne lecture 🙂 !</p>
     </div>
-    {
-      ALL_MONTHS.map((month) => (
-        <section class="monthly-section">
-          <h2>{month.month} 2025</h2>
-          <section class="kind-section">
-            <h3>🟢 Les nouveautés et mises à jour du mois</h3>
-            <ul class="logs-list">
-              {month.tasks
-                .filter((task) => task.kind === "done")
-                .map((task) => (
-                  <li set:html={task.content} />
-                ))}
-            </ul>
-          </section>
-          <section class="kind-section">
-            <h3>🟡 Les projets en cours</h3>
-            <ul class="logs-list">
-              {month.tasks
-                .filter((task) => task.kind === "in-progress")
-                .map((task) => (
-                  <li set:html={task.content} />
-                ))}
-            </ul>
-          </section>
-          <section class="kind-section">
-            <h3>🔴 Les corrections de bugs</h3>
-            <ul class="logs-list">
-              {month.tasks
-                .filter((task) => task.kind === "fix")
-                .map((task) => (
-                  <li set:html={task.content} />
-                ))}
-            </ul>
-          </section>
-        </section>
-      ))
-    }
+    <MontlyChangelog monthlyChangelog={MONTHS_2026} year=" 2026" />
+    <hr />
+    <MontlyChangelog monthlyChangelog={MONTHS_2025} year=" 2025" />
   </main>
 </BaseLayout>
 
@@ -107,29 +75,6 @@ import { ALL_MONTHS } from "../data/changelog";
 
     &:hover {
       color: var(--articleLinkHoverColor);
-    }
-  }
-
-  .monthly-section {
-    margin-bottom: 80px;
-  }
-
-  .kind-section {
-    margin-bottom: 40px;
-  }
-
-  .logs-list li {
-    margin-bottom: 8px;
-
-    a {
-      text-decoration: none;
-      color: var(--articleLinkColor);
-      font-weight: 500;
-      transition: 0.4s color;
-
-      &:hover {
-        color: var(--articleLinkHoverColor);
-      }
     }
   }
 </style>
