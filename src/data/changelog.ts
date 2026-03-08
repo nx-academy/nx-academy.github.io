@@ -1,4 +1,4 @@
-import type { LogTasks } from "../types/LogTasks"
+import type { LogTasks } from "../types/LogTasks";
 
 const februaryTasks: LogTasks = {
   month: "Février",
