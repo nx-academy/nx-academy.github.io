@@ -5,7 +5,10 @@ const pageTitle = "Changelog";
 const pageDescription =
   "NX Academy est regulièrement mis à jour. J'utilise cette page pour vous tenir au courant des derniers fixes et fonctionnalités.";
 
-import { MONTHS_2025 } from "../data/changelog";
+import { 
+  MONTHS_2025,
+  MONTHS_2026
+} from "../data/changelog";
 
 import MontlyChangelog from "../components/Changelog.astro";
 ---
@@ -31,6 +34,8 @@ import MontlyChangelog from "../components/Changelog.astro";
       </p>
       <p>Bonne lecture 🙂 !</p>
     </div>
+    <MontlyChangelog monthlyChangelog={MONTHS_2026} year=" 2026" />
+    <hr />
     <MontlyChangelog monthlyChangelog={MONTHS_2025} year=" 2025" />
   </main>
 </BaseLayout>

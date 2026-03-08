@@ -471,6 +471,10 @@ const aprilTasks: LogTasks = {
   ],
 };
 
+export const MONTHS_2026 = [
+  februaryTasks
+]
+
 export const MONTHS_2025 = [
   decemberTasks,
   novemberTasks,
