@@ -12,6 +12,10 @@ const marchTasks: LogTasks = {
       content:
         "Mise à jour de mon back office Discord pour migrer vers un back office MCP",
     },
+    {
+      kind: "done",
+      content: "Migration du système de news vers mon serveur MCP"
+    }
   ],
 };
 
