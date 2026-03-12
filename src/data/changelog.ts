@@ -14,8 +14,8 @@ const marchTasks: LogTasks = {
     },
     {
       kind: "done",
-      content: "Migration du système de news vers mon serveur MCP"
-    }
+      content: "Migration du système de news vers mon serveur MCP",
+    },
   ],
 };
 
