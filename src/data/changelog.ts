@@ -5,27 +5,30 @@ const marchTasks: LogTasks = {
   tasks: [
     {
       kind: "in-progress",
-      content: "Je vais ajouter une page jeu vidéo au menu de navigation."
+      content: "Je vais ajouter une page jeu vidéo au menu de navigation.",
     },
     {
       kind: "in-progress",
-      content: "Je suis en train d'écrire quelques articles : ils sont princalement en lien avec Python"
+      content:
+        "Je suis en train d'écrire quelques articles : ils sont princalement en lien avec Python",
     },
     {
       kind: "in-progress",
-      content: "Je suis en train de réinstaller mdx sur le projet pour mieux gérer les vidéos avec Vimeo"
+      content:
+        "Je suis en train de réinstaller mdx sur le projet pour mieux gérer les vidéos avec Vimeo",
     },
     {
       kind: "in-progress",
-      content: "Je prépare doucement mon nouveau format : un dev log sur la création de mes jeux vidéos."
+      content:
+        "Je prépare doucement mon nouveau format : un dev log sur la création de mes jeux vidéos.",
     },
     {
       kind: "fix",
-      content: "Migration vers astro 6"
+      content: "Migration vers astro 6",
     },
     {
       kind: "fix",
-      content: "Pas mal de mises à jour de sécurité"
+      content: "Pas mal de mises à jour de sécurité",
     },
     {
       kind: "fix",
