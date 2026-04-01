@@ -1,0 +1,41 @@
+---
+import type { GameStatus } from "../types/Game";
+
+import Heading3 from "./Heading3.astro";
+import ParagraphLarge from "./ParagraphLarge.astro";
+import ParagraphSmall from "./ParagraphSmall.astro";
+import ParagraphExtraSmall from "./ParagraphExtraSmall.astro";
+
+interface Props {
+  title: string
+  description: string
+  imgSrc: string
+  imgAlt: string
+  status: GameStatus
+  slug: string
+}
+
+const {
+  title,
+  description,
+  imgSrc,
+  imgAlt,
+  status,
+  slug
+} = Astro.props
+
+const statusLabels: Record<GameStatus, string> = {
+  release: "Disponible",
+  "in-progress": "En développement",
+  "coming-soon": "Bientôt disponible"
+}
+---
+
+<a href={`/jeux/${slug}`}>
+  <img loading="lazy" class="image" src={imgSrc} alt={imgAlt} />
+  <ParagraphLarge content="Jeu" />
+  <Heading3 content={title} />
+  <ParagraphExtraSmall content={statusLabels[status]} />
+  <ParagraphSmall content={description} />
+</a>
+
