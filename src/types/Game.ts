@@ -9,9 +9,9 @@ export type Game = {
   imgAlt: string
   status: GameStatus
   platforms: GamePlatform[]
-  githubUrl: string?
-  steamUrl: string?
-  itchioUrl: string?
+  githubUrl?: string
+  steamUrl?: string
+  itchioUrl?: string
   slug: string
 }
 
