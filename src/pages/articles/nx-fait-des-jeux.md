@@ -6,8 +6,8 @@ description:
   "Du clone de Wolfenstein 3D à un city builder sur Steam. Pourquoi je code des
   jeux vidéo et ce que ça change dans ma façon d'apprendre et d'enseigner."
 
-imgAlt: ""
-imgSrc: ""
+imgAlt: Un joueur en train jouer à un city builder, pixel art
+imgSrc: /images/articles/city-builder-player.webp
 
 kind: Articles
 author: Thomas
@@ -16,6 +16,11 @@ publishedDate: 04/01/2026
 ---
 
 # Comment je suis tombé dans le développement de jeux vidéo
+
+![Un joueur en train jouer à un city builder, pixel art](/images/articles/city-builder-player.webp)
+
+
+## NX Academy se met aux jeux vidéo
 
 Voilà un article qui est assez peu difficile à expliquer et à introduire. Non
 pas parce que j'annonce une mauvaise nouvelle. Au contraire, je dirais que je
