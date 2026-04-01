@@ -1,8 +1,8 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
 
-title: NX Academy se met aux jeux vidéo
-description: ""
+title: Comment je suis tombé dans le développement de jeux vidéo
+description: "Du clone de Wolfenstein 3D à un city builder sur Steam. Pourquoi je code des jeux vidéo et ce que ça change dans ma façon d'apprendre et d'enseigner."
 
 imgAlt: ""
 imgSrc: ""
@@ -13,7 +13,8 @@ draft: false
 publishedDate: 04/01/2026
 ---
 
-# NX se met
+# Comment je suis tombé dans le développement de jeux vidéo
+
 
 Voilà un article qui est assez peu difficile à expliquer et à introduire. Non pas parce que j'annonce une mauvaise nouvelle. Au contraire, je dirais que je suis plutôt en train d'annoncer quelque chose qui me fait très plaisir. Disons juste que je ne sais pas forcément par où commencer.
 
