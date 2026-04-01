@@ -39,3 +39,28 @@ const statusLabels: Record<GameStatus, string> = {
   <ParagraphSmall content={description} />
 </a>
 
+<style>
+  a {
+    border-radius: 16px;
+    display: grid;
+    gap: .5rem;
+    transition: .4s;
+    color: var(--linkColor);
+    text-decoration: none;
+  }
+
+  a:hover :global(h3) {
+    color: var(--linkHoverColor);
+  }
+
+  .image {
+    border-radius: 16px;
+    transition: .4s;
+    aspect-ratio: 1792 / 1024;
+    object-fit: cover;
+    object-position: top;
+    width: 100%;
+    display: block;
+  }
+</style>
+
