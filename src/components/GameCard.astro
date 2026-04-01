@@ -7,28 +7,21 @@ import ParagraphSmall from "./ParagraphSmall.astro";
 import ParagraphExtraSmall from "./ParagraphExtraSmall.astro";
 
 interface Props {
-  title: string
-  description: string
-  imgSrc: string
-  imgAlt: string
-  status: GameStatus
-  slug: string
+  title: string;
+  description: string;
+  imgSrc: string;
+  imgAlt: string;
+  status: GameStatus;
+  slug: string;
 }
 
-const {
-  title,
-  description,
-  imgSrc,
-  imgAlt,
-  status,
-  slug
-} = Astro.props
+const { title, description, imgSrc, imgAlt, status, slug } = Astro.props;
 
 const statusLabels: Record<GameStatus, string> = {
   release: "Disponible",
   "in-progress": "En développement",
-  "coming-soon": "Bientôt disponible"
-}
+  "coming-soon": "Bientôt disponible",
+};
 ---
 
 <a href={`/jeux/${slug}`}>
@@ -43,8 +36,8 @@ const statusLabels: Record<GameStatus, string> = {
   a {
     border-radius: 16px;
     display: grid;
-    gap: .5rem;
-    transition: .4s;
+    gap: 0.5rem;
+    transition: 0.4s;
     color: var(--linkColor);
     text-decoration: none;
   }
@@ -55,7 +48,7 @@ const statusLabels: Record<GameStatus, string> = {
 
   .image {
     border-radius: 16px;
-    transition: .4s;
+    transition: 0.4s;
     aspect-ratio: 1792 / 1024;
     object-fit: cover;
     object-position: top;
@@ -63,4 +56,3 @@ const statusLabels: Record<GameStatus, string> = {
     display: block;
   }
 </style>
-
