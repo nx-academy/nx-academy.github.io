@@ -19,7 +19,6 @@ publishedDate: 04/01/2026
 
 ![Un joueur en train jouer à un city builder, pixel art](/images/articles/city-builder-player.webp)
 
-
 ## NX Academy se met aux jeux vidéo
 
 Voilà un article qui est assez peu difficile à expliquer et à introduire. Non
