@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import GameCard from "../../components/GameCard.astro"
+
+import { GAMES } from "../../data/games"
+
+
+const title = "Nos jeux"
+const description = "Retrouvez les jeux développés par NX Academy. Des projets open source et commerciaux, tous codés avec passion."
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="wrapper">
+    <section>
+      <h1>Nos jeux</h1>
+      <p>
+        Jeux open source, expérimentations et projets commerciaux. Du code, des pixels et beaucoup de café.
+      </p>
+
+      <div class="cards-wrapper">
+        {
+        GAMES.map(game => (
+          <GameCard
+            title={game.title}
+            description={game.description}
+            imgSrc={game.imgSrc}
+            imgAlt={game.imgAlt}
+            status={game.status}
+            slug={game.slug}
+          />
+        ))
+        }
+      </div>
+    </section>
+  </div> 
+</BaseLayout>
