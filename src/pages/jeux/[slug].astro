@@ -1,0 +1,164 @@
+---
+import type { Breadcrumb } from "../../types/Breadcrumb";
+import type { Game } from "../../types/Game";
+
+import { GAMES } from "../../data/games";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Button from "../../components/Button.astro";
+import ParagraphExtraSmall from "../../components/ParagraphExtraSmall.astro";
+
+export function getStaticPaths() {
+  return GAMES.map((game) => ({
+    params: { slug: game.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const game = GAMES.find((g) => g.slug === slug) as Game;
+
+const {
+  title,
+  description,
+  imgSrc,
+  imgAlt,
+  status,
+  stack,
+  githubUrl,
+  steamUrl,
+} = game;
+
+const statusLabels: Record<string, string> = {
+  release: "Disponible",
+  "in-progress": "En développement",
+  "coming-soon": "Bientôt disponible",
+};
+
+const breadcrumbs: Breadcrumb[] = [
+  {
+    pageName: "Accueil",
+    pageUrl: "/",
+  },
+  {
+    pageName: "Jeux",
+    pageUrl: "/jeux",
+  },
+];
+---
+
+<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+  <main class="main-wrapper">
+    <div class="game-header">
+      <img class="game-picture" src={imgSrc} alt={imgAlt} />
+      <div class="game-content">
+        <h1>{title}</h1>
+        <ParagraphExtraSmall content={statusLabels[status]} />
+        <p>{description}</p>
+
+        <div class="stack-wrapper">
+          {stack.map((tech: string) => <span class="stack-badge">{tech}</span>)}
+        </div>
+
+        <div class="buttons-wrapper">
+          {
+            githubUrl && (
+              <Button
+                label="Voir sur GitHub"
+                type="primary"
+                href={githubUrl}
+                external
+              />
+            )
+          }
+          {
+            steamUrl && (
+              <Button
+                label="Voir sur Steam"
+                type="primary"
+                href={steamUrl}
+                external
+              />
+            )
+          }
+        </div>
+      </div>
+    </div>
+
+    <slot />
+  </main>
+</BaseLayout>
+
+<style>
+  .main-wrapper {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1100px;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .game-header {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @media screen and (min-width: 1024px) {
+      flex-direction: row;
+      gap: 3rem;
+      align-items: flex-start;
+    }
+  }
+
+  .game-picture {
+    border-radius: 8px;
+    aspect-ratio: 1792 / 1024;
+    object-fit: cover;
+    object-position: top;
+    width: 100%;
+    display: block;
+
+    @media screen and (min-width: 1024px) {
+      width: 50%;
+    }
+  }
+
+  .game-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .stack-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .stack-badge {
+    background-color: var(--backgroundColorSecondary);
+    border: 1px solid var(--borderPrimary);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    text-transform: uppercase;
+  }
+
+  .buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    @media screen and (min-width: 1024px) {
+      flex-direction: row;
+    }
+  }
+</style>
