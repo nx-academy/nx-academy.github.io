@@ -87,5 +87,44 @@ const breadcrumbs: Breadcrumb[] = [
       width: 50%;
     }
   }
+
+  .game-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .stack-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    margin-top: .5rem;
+  }
+
+  .stack-badge {
+    background-color: var(--backgroundColorSecondary);
+    border: 1px solid var(--borderPrimary);
+    border-radius: 4px;
+    font-size: .75rem;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    text-transform: uppercase;
+  }
+
+  .buttons-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    @media screen and (min-width: 1024px) {
+      flex-direction: row;
+    }
+  }
 </style>
 
