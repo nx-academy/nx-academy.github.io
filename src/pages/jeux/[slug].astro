@@ -25,31 +25,65 @@ const {
   stack,
   githubUrl,
   steamUrl,
-  } = game;
+} = game;
 
-const statusLabels = {
-  release: "Disponible",
+const statusLabels: Record<string, string> = {
+  "release": "Disponible",
   "in-progress": "En développement",
-  "coming-soon": "Bientôt disponible"
-}
+  "coming-soon": "Bientôt disponible",
+};
 
 const breadcrumbs: Breadcrumb[] = [
   {
     pageName: "Accueil",
-    pageUrl: "/"
+    pageUrl: "/",
   },
   {
     pageName: "Jeux",
-    pageUrl: "/jeux"
-  }
-]
+    pageUrl: "/jeux",
+  },
+];
 ---
 
 <BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
   <main class="main-wrapper">
     <div class="game-header">
       <img class="game-picture" src={imgSrc} alt={imgAlt} />
+      <div class="game-content">
+        <h1>{title}</h1>
+        <ParagraphExtraSmall content={statusLabels[status]} />
+        <p>{description}</p>
+
+        <div class="stack-wrapper">
+          {stack.map((tech: string) => <span class="stack-badge">{tech}</span>)}
+        </div>
+
+        <div class="buttons-wrapper">
+          {
+            githubUrl && (
+              <Button
+                label="Voir sur GitHub"
+                type="primary"
+                href={githubUrl}
+                external
+              />
+            )
+          }
+          {
+            steamUrl && (
+              <Button
+                label="Voir sur Steam"
+                type="primary"
+                href={steamUrl}
+                external
+              />
+            )
+          }
+        </div>
+      </div>
     </div>
+
+    <slot />
   </main>
 </BaseLayout>
 
@@ -83,7 +117,7 @@ const breadcrumbs: Breadcrumb[] = [
     width: 100%;
     display: block;
 
-    @media screen  and (min-width: 1024px) {
+    @media screen and (min-width: 1024px) {
       width: 50%;
     }
   }
@@ -102,15 +136,15 @@ const breadcrumbs: Breadcrumb[] = [
   .stack-wrapper {
     display: flex;
     flex-wrap: wrap;
-    gap: .5rem;
-    margin-top: .5rem;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
   }
 
   .stack-badge {
     background-color: var(--backgroundColorSecondary);
     border: 1px solid var(--borderPrimary);
     border-radius: 4px;
-    font-size: .75rem;
+    font-size: 0.75rem;
     letter-spacing: 1px;
     padding: 4px 10px;
     text-transform: uppercase;
@@ -127,4 +161,3 @@ const breadcrumbs: Breadcrumb[] = [
     }
   }
 </style>
-
