@@ -29,11 +29,12 @@ juste que je ne sais pas forcément par où commencer.
 Bon, si vous avez capté le titre, ou que si vous avez vu mes posts sur LinkedIn
 dernièrement, vous l'avez compris : **j'ai commencé à me mettre sur mon temps
 libre au développement de jeux vidéo**. C'est quelque chose qui est venu assez
-naturellement. Il y a quelques années, j'ai acheté un bouquin : [Code the
-classics](https://www.amazon.com/Code-Classics-I-David-Crookes/dp/1916868193). Le principe était de refaire les classiques du jeu vidéo, genre Pong
-ou Streets of rage, avec Python et Pygame. Petit à petit, j'ai commencé à
-vouloir aller plus loin et j'ai donc commencé à vouloir coder mes propres jeux
-vidéo sans passer par le bouquin.
+naturellement. Il y a quelques années, j'ai acheté un bouquin :
+[Code the classics](https://www.amazon.com/Code-Classics-I-David-Crookes/dp/1916868193).
+Le principe était de refaire les classiques du jeu vidéo, genre Pong ou Streets
+of rage, avec Python et Pygame. Petit à petit, j'ai commencé à vouloir aller
+plus loin et j'ai donc commencé à vouloir coder mes propres jeux vidéo sans
+passer par le bouquin.
 
 Et bon, voilà, comme d'hab avec moi, je suis tombé la tête la première dedans.
 
@@ -50,15 +51,15 @@ jeux, comme Hitman, Soldier of Fortune, Call of Duty, etc. J'avais une situation
 familiale qui n'était pas simple et disons que ça me donnait un peu un
 échappatoire.
 
-Avec du recul, ce que je trouve dommage, **c'est que je n'ai pas compris plus tôt
-que c'était la programmation qui m'intéressait**. Mais bref, la vie a fait son
-chemin et je me suis quand même retrouvé développeur. Et on peut dire que j'ai
-pas mal codé au fil des années. Et donc, dernièrement, j'ai commencé à
-m'intéresser au développement de jeux vidéo (en partie grâce à l'IA). **Coder des
-jeux, c'est donc, en quelque sorte, un retour aux sources**. C'est quelque chose
-qui me permet de comprendre un peu comment les jeux sont faits, comment ils
-tournent et du coup, comment j'aime enseigner, pouvoir aussi prendre le temps de
-l'expliquer.
+Avec du recul, ce que je trouve dommage, **c'est que je n'ai pas compris plus
+tôt que c'était la programmation qui m'intéressait**. Mais bref, la vie a fait
+son chemin et je me suis quand même retrouvé développeur. Et on peut dire que
+j'ai pas mal codé au fil des années. Et donc, dernièrement, j'ai commencé à
+m'intéresser au développement de jeux vidéo (en partie grâce à l'IA). **Coder
+des jeux, c'est donc, en quelque sorte, un retour aux sources**. C'est quelque
+chose qui me permet de comprendre un peu comment les jeux sont faits, comment
+ils tournent et du coup, comment j'aime enseigner, pouvoir aussi prendre le
+temps de l'expliquer.
 
 ---
 
@@ -79,10 +80,11 @@ bons et moins convainquants). Mais comme souvent avec moi, j'ai pris le problèm
 
 Le principal challenge que je me suis fixé est de ne passer que par des outils
 orientés code. Pour l'instant, je travaille principalement avec Python et
-[Pygame](https://www.pygame.org/news). Je pense que dans le futur, j'irais m'intéresser à [Monogame](https://monogame.net/) (C'est du
-C# et c'est un _vrai framework_). Ce que j'aime bien avec ces deux outils, c'est leur approche. On code les
-jeux vidéos sans passer par un éditeur. On le crée uniquement via des lignes de
-code et je pense que c'est là que je vais le mieux progresser.
+[Pygame](https://www.pygame.org/news). Je pense que dans le futur, j'irais
+m'intéresser à [Monogame](https://monogame.net/) (C'est du C# et c'est un _vrai
+framework_). Ce que j'aime bien avec ces deux outils, c'est leur approche. On
+code les jeux vidéos sans passer par un éditeur. On le crée uniquement via des
+lignes de code et je pense que c'est là que je vais le mieux progresser.
 
 Il faut savoir qu'avec un jeu, et particulièrement avec un jeu en Python sans
 moteur, vous êtes rapidement confronté aux fondamentaux. Je pense principalement
@@ -106,11 +108,11 @@ peut-être un système de formule. Mais j'y reviendrais en temps et en heure.
 Pour votre information, tous les jeux que je développe et que je vais
 développer, ne vont pas suivre pas le même modèle de distribution. Par
 distribution, j'entends comment vous allez pouvoir y jouer (si vous voulez y
-jouer). Par exemple, **le clone de Wolfenstein 3D est entièrement open source**. Le
-code est disponible sur GitHub, vous pouvez le lire, le faire tourner sur votre
-machine, vous en inspirer. C'est cohérent avec l'ADN de NX : partager, expliquer
-et rendre accessible. J'ai aussi prévu de faire quelques vidéos dessus mais j'y
-reviendrais dans un futur article.
+jouer). Par exemple, **le clone de Wolfenstein 3D est entièrement open source**.
+Le code est disponible sur GitHub, vous pouvez le lire, le faire tourner sur
+votre machine, vous en inspirer. C'est cohérent avec l'ADN de NX : partager,
+expliquer et rendre accessible. J'ai aussi prévu de faire quelques vidéos dessus
+mais j'y reviendrais dans un futur article.
 
 D'autres projets, comme le city builder sur lequel je travaille en ce moment,
 auront un modèle différent. Vous pourrez l'acheter sur Stream. Je suis en train
@@ -118,13 +120,13 @@ de travailler sur la release du demo en ce moment même. J'ai pas mal réfléchi
 cet aspect commercial. D'ailleurs, aussi bien celui de NX que celui des jeux que
 je développe.
 
-**J'en suis arrivé à la conclusion qui si je ne faisais pas payer NX
-(ou certaines parties de NX) ou mes jeux, c'est que je ne me sentais pas
-forcément légitime**. Mais aussi, comme c'était pour de la passion, je me
-permettais certains raccouris. Et au final, ça m'enlevait une partie de la
-pression nécessaire à la création de quelque chose de plus qualitatif. C'est
-assez difficile à expliquer comme ça mais je crois que faire payer une partie de
-mon travail, ça me force à être plus rigoureux.
+**J'en suis arrivé à la conclusion qui si je ne faisais pas payer NX (ou
+certaines parties de NX) ou mes jeux, c'est que je ne me sentais pas forcément
+légitime**. Mais aussi, comme c'était pour de la passion, je me permettais
+certains raccouris. Et au final, ça m'enlevait une partie de la pression
+nécessaire à la création de quelque chose de plus qualitatif. C'est assez
+difficile à expliquer comme ça mais je crois que faire payer une partie de mon
+travail, ça me force à être plus rigoureux.
 
 Dans tous les cas, je vais faire coexister les deux. Je pense que c'est sain et
 je pense que c'est nécessaire.
@@ -138,9 +140,8 @@ terminés. Pour chacun, vous trouverez une description, son statut actuel et les
 liens vers le code ou la page Steam selon le cas. C'est un espace qui va
 évoluer. Il y a des projets en cours, d'autres en réflexion.
 
-Je publierai des
-mises à jour au fil du temps. Si vous avez des questions sur un projet, une
-curiosité technique ou envie d'échanger, vous pouvez me retrouver
+Je publierai des mises à jour au fil du temps. Si vous avez des questions sur un
+projet, une curiosité technique ou envie d'échanger, vous pouvez me retrouver
 [sur LinkedIn](https://www.linkedin.com/in/thomas-dimnet-4114a4147/).
 
 Bonne exploration. <br> <span class="author">Thomas</span>
