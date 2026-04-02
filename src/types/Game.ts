@@ -13,5 +13,5 @@ export type Game = {
   steamUrl?: string;
   itchioUrl?: string;
   slug: string;
-  stack: string[]
+  stack: string[];
 };

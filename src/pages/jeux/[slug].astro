@@ -1,0 +1,33 @@
+---
+import type { Breadcrumb } from "../../types/Breadcrumb";
+
+import { GAMES } from "../../data/games";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Button from "../../components/Button.astro";
+import ParagraphExtraSmall from "../../components/ParagraphExtraSmall.astro";
+
+export function getStaticPaths() {
+  return GAMES.map((game) => ({
+    params: { slug: game.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const game = GAMES.find((g) => g.slug === slug);
+
+const {
+  title,
+  description,
+  imgSrc,
+  imgAlt,
+  status,
+  stack,
+  githubUrl,
+  steamUrl,
+} = game;
+---
+
+<BaseLayout>
+  <h1>fooo</h1>
+</BaseLayout>

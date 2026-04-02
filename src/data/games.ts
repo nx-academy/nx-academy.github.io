@@ -11,7 +11,7 @@ export const GAMES: Game[] = [
     platforms: ["github"],
     githubUrl: "https://google.fr",
     slug: "wolfenstein-3d",
-    stack: ["Python", "Pygame"]
+    stack: ["Python", "Pygame"],
   },
   {
     title: "Buildings",
@@ -23,6 +23,6 @@ export const GAMES: Game[] = [
     platforms: ["steam"],
     githubUrl: "https://google.fr",
     slug: "buildings",
-    stack: ["Python", "Pygame"]
+    stack: ["Python", "Pygame"],
   },
 ];
