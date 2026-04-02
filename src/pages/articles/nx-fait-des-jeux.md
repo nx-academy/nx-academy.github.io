@@ -27,15 +27,17 @@ suis plutôt en train d'annoncer quelque chose qui me fait très plaisir. Disons
 juste que je ne sais pas forcément par où commencer.
 
 Bon, si vous avez capté le titre, ou que si vous avez vu mes posts sur LinkedIn
-dernièrement, vous l'avez compris : j'ai commencé à me mettre sur mon temps
-libre au développement de jeux vidéo. C'est quelque chose qui est venu assez
-naturellement. Il y a quelques années, j'ai acheté un bouquin : Code the
-classics. Le principe était de refaire les classiques du jeu vidéo, genre Pong
+dernièrement, vous l'avez compris : **j'ai commencé à me mettre sur mon temps
+libre au développement de jeux vidéo**. C'est quelque chose qui est venu assez
+naturellement. Il y a quelques années, j'ai acheté un bouquin : [Code the
+classics](https://www.amazon.com/Code-Classics-I-David-Crookes/dp/1916868193). Le principe était de refaire les classiques du jeu vidéo, genre Pong
 ou Streets of rage, avec Python et Pygame. Petit à petit, j'ai commencé à
 vouloir aller plus loin et j'ai donc commencé à vouloir coder mes propres jeux
 vidéo sans passer par le bouquin.
 
 Et bon, voilà, comme d'hab avec moi, je suis tombé la tête la première dedans.
+
+---
 
 ## Pourquoi des jeux ?
 
@@ -129,6 +131,6 @@ liens vers le code ou la page Steam selon le cas. C'est un espace qui va
 évoluer. Il y a des projets en cours, d'autres en réflexion. Je publierai des
 mises à jour au fil du temps. Si vous avez des questions sur un projet, une
 curiosité technique ou envie d'échanger, vous pouvez me retrouver
-[sur LinkedIn](https://www.linkedin.com/company/nx-academy-france).
+[sur LinkedIn](https://www.linkedin.com/in/thomas-dimnet-4114a4147/).
 
 Bonne exploration. <br> <span class="author">Thomas</span>
