@@ -1,5 +1,34 @@
 import type { LogTasks } from "../types/LogTasks";
 
+const newAprilTasks: LogTasks = {
+  month: "Avril",
+  tasks: [
+    {
+      kind: "done",
+      content: `J'ai sorti <a href="/jeux" target="_blank">la page jeu vidéo</a> ainsi que des pages dédiées à chacun des jeux. Ça va clairement encore évoluer mais c'est un bon début.`,
+    },
+    {
+      kind: "done",
+      content: `J'ai écrit <a href="/articles/nx-fait-des-jeux/" target="_blank">un nouvel article</a> en lien avec le 'changement' chez NX où je précise que je commence à faire des jeux.`,
+    },
+    {
+      kind: "in-progress",
+      content:
+        "Je suis en train de préparer un nouveau format cette fois plus orienté vidéo. Je pense shooter la première le premier week-end d'avril. Je reviendrais dessus plus tard.",
+    },
+    {
+      kind: "in-progress",
+      content:
+        "Je suis en train de faire une grosse prise en main de Claude Code et de Codex sur des projets persos. J'en profiterais certainement pour faire quelques fiches techniques dessus.",
+    },
+    {
+      kind: "fix",
+      content:
+        "Pas mal de petits fixes et de mises à jour de sécurité. Le mois de Mars a été un peu infernal en terme de brèches informatiques.",
+    },
+  ],
+};
+
 const marchTasks: LogTasks = {
   month: "Mars",
   tasks: [
@@ -517,7 +546,7 @@ const aprilTasks: LogTasks = {
   ],
 };
 
-export const MONTHS_2026 = [marchTasks, februaryTasks];
+export const MONTHS_2026 = [newAprilTasks, marchTasks, februaryTasks];
 
 export const MONTHS_2025 = [
   decemberTasks,
