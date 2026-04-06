@@ -4,6 +4,10 @@ const newAprilTasks: LogTasks = {
   month: "Avril",
   tasks: [
     {
+      kind: "fix",
+      content: "Encore des fixes de vulnérabilité. Décidemment, c'est la fête en ce moment !"
+    },
+    {
       kind: "done",
       content: `J'ai sorti <a href="/jeux" target="_blank">la page jeu vidéo</a> ainsi que des pages dédiées à chacun des jeux. Ça va clairement encore évoluer mais c'est un bon début.`,
     },
