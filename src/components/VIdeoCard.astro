@@ -1,0 +1,68 @@
+---
+import type { VideoKind } from "../types/Video"
+
+import Heading3 from "./Heading3.astro"
+import ParagraphLarge from "./ParagraphLarge.astro"
+import ParagraphSmall from "./ParagraphSmall.astro"
+import ParagraphExtraSmall from "./ParagraphExtraSmall.astro"
+
+interface Props {
+    title: string
+    description: string
+    imgSrc: string
+    imgAlt: string
+    kind: VideoKind
+    publishedDate: string
+    slug: string
+}
+
+const {
+    title,
+    description,
+    imgSrc,
+    imgAlt,
+    kind,
+    publishedDate,
+    slug
+} = Astro.props
+
+const kindLabels: Record<VideoKind, string> = {
+    devlog: "Dev Log",
+    "ice-breaker": "L'Ice Breaker",
+    "going-further": "Going Further"
+}
+---
+
+<a href={`/videos/${slug}`}>
+    <img loading="lazy" class="image" src={imgSrc} alt={imgAlt}>
+    <ParagraphLarge content={kindLabels[kind]} />
+    <Heading3 content={title} />
+    <ParagraphExtraSmall content={new Date(publishedDate).toLocaleDateString("fr-FR")} />
+    <ParagraphSmall content={description} />
+</a>
+
+
+<style>
+    a {
+        border-radius: 16px;
+        display: grid;
+        gap: .5rem;
+        transition: .4s;
+        color: var(--linkColor);
+        text-decoration: none;
+    }
+
+    a:hover :global(h3) {
+        color: var(--linkHoverColor);
+    }
+
+    image {
+        border-radius: 16px;
+        transition: .4s;
+        aspect-ratio: 1792 / 1024;
+        object-fit: cover;
+        object-position: top;
+        width: 100%;
+        display: block;
+    }
+</style>
