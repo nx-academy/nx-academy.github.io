@@ -5,7 +5,8 @@ const newAprilTasks: LogTasks = {
   tasks: [
     {
       kind: "fix",
-      content: "Encore des fixes de vulnérabilité. Décidemment, c'est la fête en ce moment !"
+      content:
+        "Encore des fixes de vulnérabilité. Décidemment, c'est la fête en ce moment !",
     },
     {
       kind: "done",
