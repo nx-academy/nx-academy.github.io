@@ -37,3 +37,32 @@ const description = "Dev Logs, explications techniques et compléments de cours.
   </div>
 </BaseLayout>
 
+<style>
+  .wrapper {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  section {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1100px;
+  }
+
+  .cards-wrapper {
+    display: grid;
+    gap: 2.5rem;
+
+    @media screen and (min-width: 48rem) {
+      margin-top: 3rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5rem
+    }
+
+    @media screen and (min-width: 90rem) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
+
