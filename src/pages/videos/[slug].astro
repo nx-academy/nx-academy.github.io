@@ -1,0 +1,43 @@
+---
+import type { Breadcrumb } from "../../types/Breadcrumb.ts"
+import { VIDEOS } from "../../data/videos"
+
+import BaseLayout from "../../layouts/BaseLayout.astro"
+
+export function getStaticPaths() {
+return VIDEOS.map(video => ({
+params: { slug: video.slug }
+}))
+}
+
+const { slug } = Astro.params
+
+const video = VIDEOS.find(v => v.slug === slug)!
+
+const {
+title,
+description,
+vimeoId,
+kind,
+publishedDate,
+relatedGameSlug,
+relatedCourseSLug
+} = video
+
+const kindLabels = {
+devlog: "Le Dev Log",
+"ice-breaker": "L'Ice Breaker",
+"going-further": "Going Further"
+}
+
+const breadCrumbs: Breadcrumb[] = [
+  {
+  pageName: "Accueil",
+  pageUrl: "/"
+  },
+  {
+  pageName: "Vidéos",
+  pageUrl: "/videos"
+  }
+]
+---
