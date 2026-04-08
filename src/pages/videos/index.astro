@@ -1,0 +1,71 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import VideoCard from "../../components/VIdeoCard.astro";
+
+import { VIDEOS } from "../../data/videos";
+
+const title = "Nos vidéos";
+const description =
+  "Dev Logs, explications techniques et compléments de cours. Retrouvez toutes les vidéos de NX Academy.";
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="wrapper">
+    <section>
+      <h1>Nos vidéos</h1>
+      <p>
+        Des Dev Logs pour suivre l'avancement de mes projets, des explications
+        techniques et des compléments aux cours et fiches techniques.
+      </p>
+
+      <div class="cards-wrapper">
+        {
+          VIDEOS.sort(
+            (a, b) =>
+              new Date(b.publishedDate).getTime() -
+              new Date(a.publishedDate).getTime(),
+          ).map((video) => (
+            <VideoCard
+              title={video.title}
+              description={video.description}
+              imgSrc={video.imgSrc}
+              imgAlt={video.imgAlt}
+              kind={video.kind}
+              publishedDate={video.publishedDate}
+              slug={video.slug}
+            />
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .wrapper {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  section {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1100px;
+  }
+
+  .cards-wrapper {
+    display: grid;
+    gap: 2.5rem;
+
+    @media screen and (min-width: 48rem) {
+      margin-top: 3rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 5rem;
+    }
+
+    @media screen and (min-width: 90rem) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
