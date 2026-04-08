@@ -1,11 +1,12 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro"
-import VideoCard from "../../components/VIdeoCard.astro"
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import VideoCard from "../../components/VIdeoCard.astro";
 
-import { VIDEOS } from "../../data/videos"
+import { VIDEOS } from "../../data/videos";
 
-const title = "Nos vidéos"
-const description = "Dev Logs, explications techniques et compléments de cours. Retrouvez toutes les vidéos de NX Academy.";
+const title = "Nos vidéos";
+const description =
+  "Dev Logs, explications techniques et compléments de cours. Retrouvez toutes les vidéos de NX Academy.";
 ---
 
 <BaseLayout title={title} description={description}>
@@ -13,24 +14,27 @@ const description = "Dev Logs, explications techniques et compléments de cours.
     <section>
       <h1>Nos vidéos</h1>
       <p>
-        Des Dev Logs pour suivre l'avancement de mes projets, des explications techniques et des compléments aux cours et fiches techniques.
+        Des Dev Logs pour suivre l'avancement de mes projets, des explications
+        techniques et des compléments aux cours et fiches techniques.
       </p>
 
       <div class="cards-wrapper">
         {
-          VIDEOS
-            .sort((a, b) => new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime())
-            .map(video => (
-              <VideoCard
-                title={video.title}
-                description={video.description}
-                imgSrc={video.imgSrc}
-                imgAlt={video.imgAlt}
-                kind={video.kind}
-                publishedDate={video.publishedDate}
-                slug={video.slug}
-              />
-            ))
+          VIDEOS.sort(
+            (a, b) =>
+              new Date(b.publishedDate).getTime() -
+              new Date(a.publishedDate).getTime(),
+          ).map((video) => (
+            <VideoCard
+              title={video.title}
+              description={video.description}
+              imgSrc={video.imgSrc}
+              imgAlt={video.imgAlt}
+              kind={video.kind}
+              publishedDate={video.publishedDate}
+              slug={video.slug}
+            />
+          ))
         }
       </div>
     </section>
@@ -57,7 +61,7 @@ const description = "Dev Logs, explications techniques et compléments de cours.
     @media screen and (min-width: 48rem) {
       margin-top: 3rem;
       grid-template-columns: repeat(2, 1fr);
-      gap: 5rem
+      gap: 5rem;
     }
 
     @media screen and (min-width: 90rem) {
@@ -65,4 +69,3 @@ const description = "Dev Logs, explications techniques et compléments de cours.
     }
   }
 </style>
-

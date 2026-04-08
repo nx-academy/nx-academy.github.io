@@ -1,45 +1,45 @@
 ---
-import type { Breadcrumb } from "../../types/Breadcrumb.ts"
-import { VIDEOS } from "../../data/videos"
+import type { Breadcrumb } from "../../types/Breadcrumb.ts";
+import { VIDEOS } from "../../data/videos";
 
-import BaseLayout from "../../layouts/BaseLayout.astro"
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 export function getStaticPaths() {
-return VIDEOS.map(video => ({
-params: { slug: video.slug }
-}))
+  return VIDEOS.map((video) => ({
+    params: { slug: video.slug },
+  }));
 }
 
-const { slug } = Astro.params
+const { slug } = Astro.params;
 
-const video = VIDEOS.find(v => v.slug === slug)!
+const video = VIDEOS.find((v) => v.slug === slug)!;
 
 const {
-title,
-description,
-vimeoId,
-kind,
-publishedDate,
-relatedGameSlug,
-relatedCourseSlug
-} = video
+  title,
+  description,
+  vimeoId,
+  kind,
+  publishedDate,
+  relatedGameSlug,
+  relatedCourseSlug,
+} = video;
 
 const kindLabels = {
-devlog: "Le Dev Log",
-"ice-breaker": "L'Ice Breaker",
-"going-further": "Going Further"
-}
+  devlog: "Le Dev Log",
+  "ice-breaker": "L'Ice Breaker",
+  "going-further": "Going Further",
+};
 
 const breadCrumbs: Breadcrumb[] = [
   {
-  pageName: "Accueil",
-  pageUrl: "/"
+    pageName: "Accueil",
+    pageUrl: "/",
   },
   {
-  pageName: "Vidéos",
-  pageUrl: "/videos"
-  }
-]
+    pageName: "Vidéos",
+    pageUrl: "/videos",
+  },
+];
 ---
 
 <BaseLayout title={title} description={description} breadcrumbs={breadCrumbs}>
@@ -55,39 +55,32 @@ const breadCrumbs: Breadcrumb[] = [
     <div class="video-embed">
       <iframe
         src={`https://player.vimeo/com/video/${vimeoId}`}
-        allow="autoplay; fullscreen; picture-in-picture"
+        allow="fullscreen; picture-in-picture"
         allowfullscreen
-        title={title}
-      />
+        title={title}></iframe>
     </div>
 
     <div class="video-body">
       <p>{description}</p>
 
-           {
+      {
         (relatedGameSlug || relatedCourseSlug) && (
           <div class="related-links">
             <p class="related-title">Aller plus loin</p>
             {relatedGameSlug && (
-              <a href={`/jeux/${relatedGameSlug}`}>
-                Voir la page du jeu →
-              </a>
+              <a href={`/jeux/${relatedGameSlug}`}>Voir la page du jeu →</a>
             )}
             {relatedCourseSlug && (
-              <a href={`/cours/${relatedCourseSlug}`}>
-                Voir le cours →
-              </a>
+              <a href={`/cours/${relatedCourseSlug}`}>Voir le cours →</a>
             )}
           </div>
         )
       }
 
-
       <slot />
     </div>
   </main>
 </BaseLayout>
-
 
 <style>
   .main-wrapper {
