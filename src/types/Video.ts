@@ -10,5 +10,5 @@ export type Video = {
     imgSrc: string
     imgAlt: string
     relatedGameSlug?: string
-    relatedCourseSLug?: string
+    relatedCourseSlug?: string
 }

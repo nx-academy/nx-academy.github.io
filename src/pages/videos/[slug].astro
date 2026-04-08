@@ -21,7 +21,7 @@ vimeoId,
 kind,
 publishedDate,
 relatedGameSlug,
-relatedCourseSLug
+relatedCourseSlug
 } = video
 
 const kindLabels = {
@@ -41,3 +41,128 @@ const breadCrumbs: Breadcrumb[] = [
   }
 ]
 ---
+
+<BaseLayout title={title} description={description} breadcrumbs={breadCrumbs}>
+  <main class="main-wrapper">
+    <div class="video-header">
+      <p class="video-kind">{kindLabels[kind]}</p>
+      <h1>{title}</h1>
+      <p class="video-date">
+        {new Date(publishedDate).toLocaleDateString("fr-FR")}
+      </p>
+    </div>
+
+    <div class="video-embed">
+      <iframe
+        src={`https://player.vimeo/com/video/${vimeoId}`}
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+        title={title}
+      />
+    </div>
+
+    <div class="video-body">
+      <p>{description}</p>
+
+           {
+        (relatedGameSlug || relatedCourseSlug) && (
+          <div class="related-links">
+            <p class="related-title">Aller plus loin</p>
+            {relatedGameSlug && (
+              <a href={`/jeux/${relatedGameSlug}`}>
+                Voir la page du jeu →
+              </a>
+            )}
+            {relatedCourseSlug && (
+              <a href={`/cours/${relatedCourseSlug}`}>
+                Voir le cours →
+              </a>
+            )}
+          </div>
+        )
+      }
+
+
+      <slot />
+    </div>
+  </main>
+</BaseLayout>
+
+
+<style>
+  .main-wrapper {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1100px;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .video-header {
+    margin-bottom: 2rem;
+
+    h1 {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .video-kind {
+    font-size: 0.875rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--textColor);
+    margin: 0;
+  }
+
+  .video-date {
+    font-size: 0.875rem;
+    color: var(--textColor);
+    margin: 0;
+  }
+
+  .video-embed {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  }
+
+  .video-body {
+    max-width: 720px;
+  }
+
+  .related-links {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .related-title {
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .related-links a {
+    color: var(--linkColor);
+    text-decoration: none;
+    transition: 0.4s;
+
+    &:hover {
+      color: var(--linkHoverColor);
+    }
+  }
+</style>
