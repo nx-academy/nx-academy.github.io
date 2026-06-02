@@ -12,6 +12,9 @@ interface Props {
     title: string;
     description: string;
     imgSrc?: string;
+    imgAlt?: string;
+    author?: string;
+    publishedDate?: string;
   };
   headings: Heading[];
 }
@@ -20,7 +23,7 @@ import BaseLayout from "./BaseLayout.astro";
 import StickyOutline from "../components/StickyOutline.astro";
 
 const {
-  frontmatter: { title, description, imgSrc },
+  frontmatter: { title, description, imgSrc, imgAlt, author, publishedDate },
   headings,
 } = Astro.props;
 
@@ -40,6 +43,10 @@ const breadCrumbs: Breadcrumb[] = [
   breadcrumbs={breadCrumbs}
   description={description}
   image={imgSrc}
+  imageAlt={imgAlt}
+  author={author}
+  pubDate={publishedDate}
+  pageType="article"
   title={title}
 >
   <main>

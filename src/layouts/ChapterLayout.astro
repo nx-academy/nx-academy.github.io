@@ -33,7 +33,12 @@ const previousFullChapterLink = `${baseUrl}/chapitres/${previousChapterLink}`;
 const nextFullChapterLink = `${baseUrl}/chapitres/${nextChapterLink}`;
 ---
 
-<BaseLayout title={title} description={description} breadcrumbs={breadcrumbs}>
+<BaseLayout
+  title={title}
+  description={description}
+  pageType="article"
+  breadcrumbs={breadcrumbs}
+>
   <div class="main-wrapper">
     <section>
       <slot />

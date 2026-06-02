@@ -1,0 +1,173 @@
+---
+import type { Breadcrumb } from "../types/Breadcrumb";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  imageAlt?: string;
+  pageType?: "website" | "article";
+  pubDate?: string;
+  author?: string;
+  noindex?: boolean;
+  breadcrumbs?: Breadcrumb[];
+  /** Donnees structurees additionnelles (ex: Course) a injecter en JSON-LD. */
+  schemas?: Record<string, unknown>[];
+}
+
+const SITE_URL = "https://nx.academy";
+const SITE_NAME = "NX Academy";
+const DEFAULT_TITLE =
+  "Passez au niveau supérieur en programmation avec NX Academy";
+const DEFAULT_DESCRIPTION =
+  "Avec NX Academy, suivez gratuitement des cours en ligne et améliorez vos compétences en programmation et devops. Aucun compte n'est requis.";
+const DEFAULT_IMAGE = "/images/misc/vendeur-journaux.webp";
+
+const {
+  title: rawTitle,
+  description: rawDescription,
+  image: rawImage,
+  imageAlt,
+  pageType = "website",
+  pubDate,
+  author,
+  noindex = false,
+  breadcrumbs,
+  schemas = [],
+} = Astro.props;
+
+const { pathname } = Astro.url;
+
+const pageTitle = rawTitle ? rawTitle : null;
+const title = pageTitle ? `${pageTitle} - ${SITE_NAME}` : DEFAULT_TITLE;
+const description = rawDescription ? rawDescription : DEFAULT_DESCRIPTION;
+const image = `${SITE_URL}${rawImage ? rawImage : DEFAULT_IMAGE}`;
+const canonicalURL = `${SITE_URL}${pathname}`;
+
+// Date de publication au format ISO 8601 (pour Open Graph + JSON-LD).
+let publishedISO: string | undefined;
+if (pubDate) {
+  const parsed = new Date(pubDate);
+  if (!Number.isNaN(parsed.getTime())) {
+    publishedISO = parsed.toISOString();
+  }
+}
+
+// --- Donnees structurees (Schema.org / JSON-LD) ---
+const organization = {
+  "@type": "Organization",
+  "@id": `${SITE_URL}/#organization`,
+  name: SITE_NAME,
+  url: SITE_URL,
+  logo: `${SITE_URL}/favicons/android-chrome-512x512.png`,
+  sameAs: [
+    "https://github.com/nx-academy",
+    "https://www.linkedin.com/company/nx-academy-france",
+  ],
+};
+
+const jsonLdGraph: Record<string, unknown>[] = [organization];
+
+// WebSite uniquement sur la page d'accueil.
+if (pathname === "/") {
+  jsonLdGraph.push({
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    name: SITE_NAME,
+    url: SITE_URL,
+    inLanguage: "fr-FR",
+    publisher: { "@id": `${SITE_URL}/#organization` },
+  });
+}
+
+// Fil d'Ariane : on reprend les ancetres + la page courante.
+if (breadcrumbs && breadcrumbs.length > 0) {
+  const items = breadcrumbs.map((crumb, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: crumb.pageName,
+    item: `${SITE_URL}${crumb.pageUrl}`,
+  }));
+
+  if (pageTitle) {
+    items.push({
+      "@type": "ListItem",
+      position: items.length + 1,
+      name: pageTitle,
+      item: canonicalURL,
+    });
+  }
+
+  jsonLdGraph.push({
+    "@type": "BreadcrumbList",
+    itemListElement: items,
+  });
+}
+
+// Article / BlogPosting pour les contenus editoriaux.
+if (pageType === "article" && pageTitle) {
+  jsonLdGraph.push({
+    "@type": "BlogPosting",
+    headline: pageTitle,
+    description,
+    image,
+    ...(author ? { author: { "@type": "Person", name: author } } : {}),
+    ...(publishedISO
+      ? { datePublished: publishedISO, dateModified: publishedISO }
+      : {}),
+    mainEntityOfPage: { "@type": "WebPage", "@id": canonicalURL },
+    publisher: { "@id": `${SITE_URL}/#organization` },
+    inLanguage: "fr-FR",
+  });
+}
+
+// Schemas additionnels fournis par la page (ex: Course).
+for (const schema of schemas) {
+  jsonLdGraph.push(schema);
+}
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": jsonLdGraph,
+};
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+
+{noindex && <meta name="robots" content="noindex, follow" />}
+
+<!-- Open Graph -->
+<meta property="og:type" content={pageType} />
+<meta property="og:site_name" content={SITE_NAME} />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+{imageAlt && <meta property="og:image:alt" content={imageAlt} />}
+{
+  pageType === "article" && publishedISO && (
+    <meta property="article:published_time" content={publishedISO} />
+  )
+}
+{
+  pageType === "article" && author && (
+    <meta property="article:author" content={author} />
+  )
+}
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image} />
+{imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
+
+<!-- Donnees structurees -->
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(jsonLd)}
+  is:inline
+/>
