@@ -103,6 +103,43 @@ html.theme-light {
   --articleLinkHoverColor: #4d4dffcc;
 }
 
+/* Thème été : plage, sable et mer */
+html.theme-summer {
+  --backgroundColorPrimary: #fdf6e3;
+  --backgroundColorSecondary: #f4e7c5;
+
+  --backgroundColorMobileNav: rgba(253, 246, 227, 0.92);
+
+  --borderPrimary: #e3d3a8;
+  --borderSecondary: #ee6c4d;
+
+  --titleColor: #1b3a4b;
+  --textColor: #3d5a68;
+
+  --linkColor: #1b3a4b;
+  --linkHoverColor: #0a9396;
+
+  --burgerColor: #1b3a4b;
+  --burgerHoverColor: #0a9396;
+
+  --buttonColorPrimary: #0a9396;
+  --buttonColorPrimaryHover: #0a9396cc;
+  --buttonColorPrimaryText: #fdf6e3;
+
+  --buttonColorSecondary: #ee6c4d;
+  --buttonColorSecondaryHover: #ee6c4dcc;
+  --buttonColorSecondaryText: #fdf6e3;
+
+  --codeBackgroundColor: #1b3a4b;
+  --codeTextColor: #fdf6e3;
+
+  --articleLinkColor: #0a7d80;
+  --articleLinkHoverColor: #ee6c4d;
+
+  --quiz-title-right: #0a9396;
+  --quiz-title-wrong: #d1495b;
+}
+
 /* @media (prefers-color-scheme: light) {
   :root {
     --backgroundColorPrimary: #fff;
