@@ -84,6 +84,13 @@
           stroke-width="1.5"
           stroke-linecap="round"></path>
       </svg>
+      <svg
+        class="summer-icon"
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <use xlink:href="#beach-icon"></use>
+      </svg>
     </div>
 
     <div class="burger" aria-label="Menu mobile" aria-expanded="false">
@@ -100,6 +107,11 @@
       <a href="/jeux">Jeux video</a>
       <a href="/quiz">Quiz</a>
     </nav>
+  </div>
+
+  <div class="summer-waves" aria-hidden="true">
+    <div class="wave wave-1"></div>
+    <div class="wave wave-2"></div>
   </div>
 </header>
 
@@ -152,12 +164,23 @@
     display: none;
   }
 
-  html.theme-dark .sun-icon {
+  .moon-icon,
+  .sun-icon,
+  .summer-icon {
     display: none;
   }
 
-  html.theme-light .moon-icon {
-    display: none;
+  html.theme-dark .moon-icon {
+    display: block;
+  }
+
+  html.theme-light .sun-icon {
+    display: block;
+  }
+
+  html.theme-summer .summer-icon {
+    display: block;
+    fill: var(--titleColor);
   }
 
   .theme-btn {
@@ -250,6 +273,73 @@
       display: none !important;
     }
   }
+
+  /* Décor de vagues — uniquement en thème été */
+  .summer-waves {
+    display: none;
+  }
+
+  html.theme-summer .summer-waves {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 10px;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  html.theme-summer .summer-waves .wave {
+    position: absolute;
+    bottom: 0;
+    left: -50%;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat-x;
+    will-change: transform;
+  }
+
+  html.theme-summer .summer-waves .wave-1 {
+    background-image: radial-gradient(
+      circle at 10px -4px,
+      transparent 10px,
+      #0a9396 11px
+    );
+    background-size: 20px 10px;
+    opacity: 0.55;
+    animation: summer-wave-move 7s linear infinite;
+  }
+
+  html.theme-summer .summer-waves .wave-2 {
+    background-image: radial-gradient(
+      circle at 12px -4px,
+      transparent 12px,
+      #94d2bd 13px
+    );
+    background-size: 24px 10px;
+    opacity: 0.4;
+    animation: summer-wave-move-2 11s linear infinite reverse;
+  }
+
+  @keyframes summer-wave-move {
+    to {
+      transform: translate3d(-20px, 0, 0);
+    }
+  }
+
+  @keyframes summer-wave-move-2 {
+    to {
+      transform: translate3d(-24px, 0, 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html.theme-summer .summer-waves .wave {
+      animation: none;
+    }
+  }
 </style>
 
 <script>
@@ -259,16 +349,17 @@
 
   const $themeBtn = document.querySelector(".theme-btn") as HTMLElement;
 
+  const THEMES = ["theme-light", "theme-dark", "theme-summer"];
+
   $themeBtn.addEventListener("click", function () {
-    if (document.documentElement.classList.contains("theme-light")) {
-      document.documentElement.classList.remove("theme-light");
-      document.documentElement.classList.add("theme-dark");
-      localStorage.setItem("theme", "theme-dark");
-    } else {
-      document.documentElement.classList.remove("theme-dark");
-      document.documentElement.classList.add("theme-light");
-      localStorage.setItem("theme", "theme-light");
-    }
+    const root = document.documentElement;
+    const current =
+      THEMES.find((t) => root.classList.contains(t)) ?? "theme-light";
+    const next = THEMES[(THEMES.indexOf(current) + 1) % THEMES.length];
+
+    root.classList.remove(...THEMES);
+    root.classList.add(next);
+    localStorage.setItem("theme", next);
   });
 
   $burger.addEventListener("click", () => {

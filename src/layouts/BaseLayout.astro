@@ -58,7 +58,7 @@ const { pathname } = Astro.url
 
     <script is:inline>
       (function() {
-        const validTheme = ["theme-light", "theme-dark"]
+        const validTheme = ["theme-light", "theme-dark", "theme-summer"]
         const userTheme = localStorage.getItem("theme")
 
         if (validTheme.includes(userTheme)) {
