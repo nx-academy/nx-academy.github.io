@@ -10,7 +10,10 @@ type Heading = {
 interface Props {
   frontmatter: {
     title?: string;
+    description?: string;
     imgSrc?: string;
+    imgAlt?: string;
+    author?: string;
     publishedDate?: string;
   };
   headings: Heading[];
@@ -20,7 +23,7 @@ import BaseLayout from "./BaseLayout.astro";
 import StickyOutline from "../components/StickyOutline.astro";
 
 const {
-  frontmatter: { title, imgSrc, publishedDate },
+  frontmatter: { title, description, imgSrc, imgAlt, author, publishedDate },
   headings,
 } = Astro.props;
 
@@ -38,8 +41,12 @@ const breadCrumbs: Breadcrumb[] = [
 
 <BaseLayout
   title={title}
+  description={description}
   image={imgSrc}
+  imageAlt={imgAlt}
+  author={author}
   pubDate={publishedDate}
+  pageType="article"
   breadcrumbs={title === "Le manifeste" || title === "Changelog"
     ? []
     : breadCrumbs}

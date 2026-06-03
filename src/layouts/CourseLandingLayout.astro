@@ -66,12 +66,40 @@ for (const chapter of sortedChapters) {
   }
   sections.get(sectionNumber)?.push(chapter);
 }
+
+const SITE_URL = "https://nx.academy";
+
+const courseSchema = {
+  "@type": "Course",
+  name: courseTitle,
+  description: courseDescription,
+  url: `${SITE_URL}${courseUrl}`,
+  image: `${SITE_URL}${srcPicture}`,
+  inLanguage: "fr-FR",
+  educationalLevel: courseLevel,
+  teaches: courseGoals,
+  provider: { "@id": `${SITE_URL}/#organization` },
+  offers: {
+    "@type": "Offer",
+    category: "Free",
+    price: 0,
+    priceCurrency: "EUR",
+  },
+  hasCourseInstance: {
+    "@type": "CourseInstance",
+    courseMode: "online",
+    courseWorkload: `PT${courseDuration}H`,
+  },
+};
 ---
 
 <BaseLayout
   title={courseTitle}
   description={courseDescription}
+  image={srcPicture}
+  imageAlt={altPicture}
   breadcrumbs={breadCrumbs}
+  schemas={[courseSchema]}
 >
   <main class="main-wrapper">
     <section class="main-section">

@@ -5,9 +5,13 @@ import QuizCard from "../../components/QuizCard.astro";
 import Warning from "../../components/Warning.astro";
 
 import { QUIZZES } from "../../data/quiz";
+
+const pageTitle = "Nos quiz";
+const pageDescription =
+  "Testez vos connaissances en programmation et en devops avec les quiz gratuits de NX Academy. Évaluez votre niveau, sans inscription.";
 ---
 
-<BaseLayout>
+<BaseLayout title={pageTitle} description={pageDescription}>
   <main>
     <h1>Nos derniers quiz</h1>
     <Warning />
