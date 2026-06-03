@@ -47,6 +47,7 @@
   padding: 18px 22px;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 16px;
   margin-bottom: 26px;
 }
@@ -74,6 +75,16 @@
   font-size: 1rem;
   animation: arc-blink 1.1s steps(1) infinite;
   white-space: nowrap;
+}
+/* On narrow screens the coin drops below the title and may wrap its text
+   instead of overflowing the marquee. */
+@media (max-width: 560px) {
+  .arc-coin {
+    margin-left: 0;
+    flex-basis: 100%;
+    font-size: 0.85rem;
+    white-space: normal;
+  }
 }
 @keyframes arc-blink {
   50% {
