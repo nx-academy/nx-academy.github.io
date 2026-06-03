@@ -1,0 +1,779 @@
+/* ============================================================================
+   NX Arcade — pixel/arcade quiz skin. Scoped under .nx-arcade.
+   Theme-aware: built on the real theme.css tokens (public/styles/theme.css) so
+   it keeps working across theme-dark / theme-light / theme-summer. Arcade
+   treatment: pixel font for chrome (Pixelify Sans), sharp corners, chunky
+   borders, hard offset shadows, a reacting mushroom mascot, score popups and
+   CRT scanlines.
+   ============================================================================ */
+
+.nx-arcade {
+  /* arcade-local helpers built on the real theme tokens */
+  --arc-ink: var(--titleColor);
+  --arc-edge: var(--linkHoverColor);
+  --arc-panel: var(--backgroundColorSecondary);
+
+  /* fixed, theme-independent difficulty colours */
+  --diff-facile: #2ec27e;
+  --diff-moyen: #f0a14e;
+  --diff-difficile: #ee6c4d;
+
+  /* fonts (all repo dependencies, loaded by BaseLayout) */
+  --font-display: "Pixelify Sans", sans-serif;
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "Inter Variable", sans-serif;
+
+  font-family: var(--font-body);
+  position: relative;
+}
+.nx-arcade .pix {
+  font-family: var(--font-display);
+  letter-spacing: 0.5px;
+}
+
+/* centered column, like the rest of the site */
+.nx-arcade.nx-container {
+  width: 90%;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- Marquee header ---------- */
+.arc-marquee {
+  border: 3px solid var(--arc-ink);
+  background: var(--arc-panel);
+  box-shadow: 6px 6px 0 var(--arc-edge);
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 26px;
+}
+.arc-marquee img {
+  width: 46px;
+  height: 46px;
+  image-rendering: pixelated;
+}
+.arc-marquee .mq-title {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  color: var(--arc-ink);
+  line-height: 1;
+  margin: 0;
+}
+.arc-marquee .mq-sub {
+  color: var(--textColor);
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+.arc-coin {
+  margin-left: auto;
+  font-family: var(--font-display);
+  color: var(--arc-edge);
+  font-size: 1rem;
+  animation: arc-blink 1.1s steps(1) infinite;
+  white-space: nowrap;
+}
+@keyframes arc-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ---------- Filters ---------- */
+.arc-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+  align-items: center;
+}
+.arc-filters .lbl {
+  font-family: var(--font-display);
+  color: var(--textColor);
+  font-size: 0.8rem;
+  margin-right: 4px;
+}
+.arc-chip {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  padding: 7px 14px;
+  border: 2px solid var(--arc-ink);
+  background: transparent;
+  color: var(--arc-ink);
+  cursor: pointer;
+  transition: 0.15s;
+  line-height: 1;
+}
+.arc-chip:hover {
+  background: var(--arc-ink);
+  color: var(--backgroundColorPrimary);
+}
+.arc-chip.on {
+  background: var(--arc-edge);
+  border-color: var(--arc-edge);
+  color: var(--buttonColorPrimaryText);
+}
+
+/* ---------- Cartridge grid ---------- */
+.arc-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 640px) {
+  .arc-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1000px) {
+  .arc-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.arc-cart {
+  border: 3px solid var(--arc-ink);
+  background: var(--arc-panel);
+  box-shadow: 5px 5px 0 var(--arc-ink);
+  padding: 16px;
+  cursor: pointer;
+  transition:
+    transform 0.12s,
+    box-shadow 0.12s;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 184px;
+  text-align: left;
+  width: 100%;
+  font: inherit;
+  color: inherit;
+}
+.arc-cart:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 var(--arc-edge);
+}
+.arc-cart:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--arc-edge);
+}
+.arc-cart .row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.arc-topic {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  color: var(--textColor);
+  border: 2px solid var(--borderPrimary);
+  padding: 3px 8px;
+}
+.arc-cart h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--arc-ink);
+  font-size: 1.12rem;
+  line-height: 1.2;
+  margin: 2px 0 0;
+}
+.arc-cart .blurb {
+  color: var(--textColor);
+  font-size: 0.85rem;
+  line-height: 1.45;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.arc-cart .foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+.arc-qcount {
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  color: var(--textColor);
+}
+.arc-hi {
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  color: var(--arc-edge);
+}
+.arc-play {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  color: var(--arc-ink);
+}
+
+/* difficulty badge */
+.arc-badge {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  padding: 3px 8px;
+  color: #10231c;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  line-height: 1;
+  white-space: nowrap;
+}
+.arc-badge.facile {
+  background: var(--diff-facile);
+}
+.arc-badge.moyen {
+  background: var(--diff-moyen);
+}
+.arc-badge.difficile {
+  background: var(--diff-difficile);
+  color: #2a0f08;
+}
+
+/* ---------- Game screen (round + result) ---------- */
+.arc-screen {
+  border: 3px solid var(--arc-ink);
+  background: var(--arc-panel);
+  box-shadow: 6px 6px 0 var(--arc-edge);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+.arc-screen.crt::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  background: repeating-linear-gradient(
+    rgba(0, 0, 0, 0.1) 0 1px,
+    transparent 1px 3px
+  );
+}
+.arc-screen.crt::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+  background: radial-gradient(
+    120% 120% at 50% 50%,
+    transparent 62%,
+    rgba(0, 0, 0, 0.18) 100%
+  );
+}
+
+/* HUD */
+.arc-hud {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 12px 16px;
+  border-bottom: 3px solid var(--arc-ink);
+  background: var(--backgroundColorPrimary);
+  font-family: var(--font-display);
+}
+.arc-hud .stat {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+.arc-hud .stat .k {
+  font-size: 0.62rem;
+  color: var(--textColor);
+}
+.arc-hud .stat .v {
+  font-size: 1.05rem;
+  color: var(--arc-ink);
+}
+.arc-hud .stat .v.hi {
+  color: var(--arc-edge);
+}
+.arc-hud .lives {
+  margin-left: 0;
+  display: flex;
+  gap: 4px;
+}
+.arc-hud .lives img {
+  width: 18px;
+  height: 18px;
+  image-rendering: pixelated;
+}
+.arc-hud .lives img.lost {
+  filter: grayscale(1) brightness(0.5);
+  opacity: 0.5;
+}
+.arc-hud .stage {
+  color: var(--textColor);
+  font-size: 0.8rem;
+}
+.arc-hud .mute {
+  margin-left: auto;
+  border: 2px solid var(--arc-ink);
+  background: transparent;
+  color: var(--arc-ink);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  padding: 5px 9px;
+  cursor: pointer;
+}
+.arc-hud .mute:hover {
+  background: var(--arc-ink);
+  color: var(--backgroundColorPrimary);
+}
+
+/* progress */
+.arc-progress {
+  height: 8px;
+  background: var(--backgroundColorPrimary);
+  border-bottom: 3px solid var(--arc-ink);
+  position: relative;
+}
+.arc-progress > span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--arc-edge);
+  transition: width 0.3s ease;
+}
+
+/* round body */
+.arc-body {
+  padding: 22px 22px 26px;
+  position: relative;
+}
+.arc-q {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--arc-ink);
+  font-size: 1.4rem;
+  line-height: 1.3;
+  margin: 0 0 20px;
+}
+.arc-options {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+@media (min-width: 620px) {
+  .arc-options {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.arc-opt {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  border: 2px solid var(--arc-ink);
+  background: var(--backgroundColorPrimary);
+  color: var(--textColor);
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: 0.12s;
+  font-size: 0.98rem;
+  width: 100%;
+  font-family: var(--font-body);
+}
+.arc-opt:hover:not(.locked) {
+  transform: translateX(2px);
+  box-shadow: -3px 3px 0 var(--arc-edge);
+}
+.arc-opt .key {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  color: var(--backgroundColorPrimary);
+  background: var(--arc-ink);
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.arc-opt.locked {
+  cursor: default;
+}
+.arc-opt.correct {
+  border-color: var(--diff-facile);
+  background: color-mix(
+    in oklab,
+    var(--diff-facile) 16%,
+    var(--backgroundColorPrimary)
+  );
+  color: var(--arc-ink);
+}
+.arc-opt.correct .key {
+  background: var(--diff-facile);
+  color: #10231c;
+}
+.arc-opt.wrong {
+  border-color: var(--diff-difficile);
+  background: color-mix(
+    in oklab,
+    var(--diff-difficile) 14%,
+    var(--backgroundColorPrimary)
+  );
+  color: var(--arc-ink);
+}
+.arc-opt.wrong .key {
+  background: var(--diff-difficile);
+  color: #2a0f08;
+}
+.arc-opt.flash {
+  animation: arc-flash 0.3s steps(2) 2;
+}
+@keyframes arc-flash {
+  50% {
+    filter: brightness(1.6);
+  }
+}
+
+/* explanation */
+.arc-explain {
+  margin-top: 18px;
+  border-left: 4px solid var(--arc-edge);
+  padding: 4px 0 4px 14px;
+}
+.arc-explain .et {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  margin: 0 0 5px;
+}
+.arc-explain .et.good {
+  color: var(--diff-facile);
+}
+.arc-explain .et.bad {
+  color: var(--diff-difficile);
+}
+.arc-explain p {
+  color: var(--textColor);
+  margin: 0;
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+
+/* mascot + bubble */
+.arc-mascot {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+.arc-mascot img {
+  width: 64px;
+  height: 64px;
+  image-rendering: pixelated;
+  transform-origin: 50% 100%;
+}
+.arc-mascot.idle img {
+  animation: arc-bob 2.6s ease-in-out infinite;
+}
+.arc-mascot.happy img {
+  animation: arc-hop 0.5s ease;
+}
+.arc-mascot.hurt img {
+  animation: arc-shake 0.4s ease;
+}
+@keyframes arc-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+@keyframes arc-hop {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  30% {
+    transform: translateY(-14px) scale(1.05, 0.95);
+  }
+  60% {
+    transform: translateY(0) scale(0.95, 1.05);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes arc-shake {
+  0%,
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+  20% {
+    transform: translateX(-5px) rotate(-6deg);
+  }
+  40% {
+    transform: translateX(5px) rotate(6deg);
+  }
+  60% {
+    transform: translateX(-4px) rotate(-4deg);
+  }
+  80% {
+    transform: translateX(4px) rotate(4deg);
+  }
+}
+.arc-bubble {
+  position: relative;
+  border: 2px solid var(--arc-ink);
+  background: var(--backgroundColorPrimary);
+  color: var(--arc-ink);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  padding: 8px 12px;
+  max-width: 240px;
+}
+.arc-bubble::after {
+  content: "";
+  position: absolute;
+  left: -9px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-right-color: var(--arc-ink);
+}
+
+/* score popup */
+.arc-pop {
+  position: absolute;
+  right: 22px;
+  top: 12px;
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--diff-facile);
+  pointer-events: none;
+  z-index: 6;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.25);
+  animation: arc-pop 1s ease forwards;
+}
+.arc-pop.oneup {
+  color: var(--arc-edge);
+}
+@keyframes arc-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.8);
+  }
+  18% {
+    opacity: 1;
+    transform: translateY(0) scale(1.1);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-26px) scale(1);
+  }
+}
+
+/* ---------- Start / Result screens ---------- */
+.arc-center {
+  text-align: center;
+  padding: 30px 24px 34px;
+}
+.arc-center .big {
+  font-family: var(--font-display);
+  color: var(--arc-ink);
+  font-size: 2rem;
+  margin: 14px 0 6px;
+  line-height: 1.05;
+}
+.arc-center .big.clear {
+  color: var(--diff-facile);
+}
+.arc-center .big.over {
+  color: var(--diff-difficile);
+}
+.arc-center .mascot-lg {
+  width: 88px;
+  height: 88px;
+  image-rendering: pixelated;
+}
+.arc-center .mascot-lg.cheer {
+  animation: arc-hop 0.6s ease infinite;
+}
+.arc-press {
+  font-family: var(--font-display);
+  color: var(--arc-edge);
+  margin-top: 10px;
+  animation: arc-blink 1s steps(1) infinite;
+}
+.arc-rank {
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  line-height: 1;
+  margin: 6px 0;
+}
+.arc-rank.s {
+  color: var(--arc-edge);
+}
+.arc-rank.a {
+  color: var(--diff-facile);
+}
+.arc-rank.b {
+  color: var(--diff-moyen);
+}
+.arc-rank.c,
+.arc-rank.d {
+  color: var(--diff-difficile);
+}
+.arc-scoreline {
+  font-family: var(--font-display);
+  color: var(--arc-ink);
+  font-size: 1.2rem;
+  margin: 4px 0 2px;
+}
+.arc-hiline {
+  font-family: var(--font-display);
+  color: var(--textColor);
+  font-size: 0.85rem;
+}
+
+/* review list */
+.arc-review {
+  text-align: left;
+  margin: 20px auto 0;
+  max-width: 560px;
+  display: grid;
+  gap: 8px;
+}
+.arc-review .ri {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  border: 2px solid var(--borderPrimary);
+  padding: 10px 12px;
+  background: var(--backgroundColorPrimary);
+}
+.arc-review .ri .mk {
+  font-family: var(--font-display);
+  flex-shrink: 0;
+}
+.arc-review .ri.ok .mk {
+  color: var(--diff-facile);
+}
+.arc-review .ri.ko .mk {
+  color: var(--diff-difficile);
+}
+.arc-review .ri .qt {
+  color: var(--arc-ink);
+  font-size: 0.9rem;
+  margin: 0 0 2px;
+  font-weight: 600;
+}
+.arc-review .ri .ex {
+  color: var(--textColor);
+  font-size: 0.82rem;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* pixel buttons */
+.arc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 22px;
+}
+.arc-btn {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  padding: 11px 20px;
+  cursor: pointer;
+  border: 2px solid var(--arc-ink);
+  background: var(--backgroundColorPrimary);
+  color: var(--arc-ink);
+  transition: 0.12s;
+  box-shadow: 3px 3px 0 var(--arc-ink);
+  line-height: 1;
+}
+.arc-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--arc-edge);
+}
+.arc-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--arc-edge);
+}
+.arc-btn.primary {
+  background: var(--arc-edge);
+  border-color: var(--arc-edge);
+  color: var(--buttonColorPrimaryText);
+  box-shadow: 3px 3px 0 var(--arc-ink);
+}
+.arc-btn.next {
+  margin-top: 20px;
+}
+
+/* vertically center the start / round / result panels "in the room" */
+.nx-arcade-stage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100vh - 250px);
+  padding: 16px 0 28px;
+}
+
+/* easter-egg mascot on the start screen */
+.arc-center .mascot-lg.poke {
+  cursor: pointer;
+}
+.arc-center .mascot-lg.idlebob {
+  animation: arc-bob 2.6s ease-in-out infinite;
+}
+.arc-center .mascot-lg.hop {
+  animation: arc-hop 0.5s ease;
+}
+.arc-center .mascot-lg.super {
+  transform: scale(1.6) !important;
+  transition: transform 0.25s cubic-bezier(0.2, 1.4, 0.4, 1);
+  filter: drop-shadow(0 0 12px var(--arc-edge));
+}
+.arc-egg-bubble {
+  display: inline-block;
+  margin-top: 12px;
+  border: 2px solid var(--arc-ink);
+  background: var(--backgroundColorPrimary);
+  color: var(--arc-ink);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  padding: 7px 12px;
+}
+
+/* loading / empty states */
+.arc-loading {
+  font-family: var(--font-display);
+  color: var(--arc-edge);
+  text-align: center;
+  padding: 60px 0;
+  animation: arc-blink 1.1s steps(1) infinite;
+}
+.arc-empty {
+  color: var(--textColor);
+  font-size: 0.95rem;
+  margin-top: 20px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arc-coin,
+  .arc-press,
+  .arc-loading,
+  .arc-mascot img,
+  .arc-pop,
+  .arc-center .mascot-lg.cheer,
+  .arc-center .mascot-lg.idlebob,
+  .arc-center .mascot-lg.hop {
+    animation: none !important;
+  }
+}
