@@ -84,7 +84,11 @@
           stroke-width="1.5"
           stroke-linecap="round"></path>
       </svg>
-      <svg class="summer-icon" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+      <svg
+        class="summer-icon"
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <use xlink:href="#beach-icon"></use>
       </svg>
     </div>
@@ -349,7 +353,8 @@
 
   $themeBtn.addEventListener("click", function () {
     const root = document.documentElement;
-    const current = THEMES.find((t) => root.classList.contains(t)) ?? "theme-light";
+    const current =
+      THEMES.find((t) => root.classList.contains(t)) ?? "theme-light";
     const next = THEMES[(THEMES.indexOf(current) + 1) % THEMES.length];
 
     root.classList.remove(...THEMES);
