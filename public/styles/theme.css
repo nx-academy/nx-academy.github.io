@@ -8,6 +8,8 @@
   --borderPrimary: #333;
   --borderSecondary: #fe7600;
 
+  --accent: #fe7600;
+
   --titleColor: #fff;
   --textColor: #bababa;
 
@@ -44,6 +46,8 @@ html.theme-dark {
   --borderPrimary: #333;
   --borderSecondary: #fe7600;
 
+  --accent: #fe7600;
+
   --titleColor: #fff;
   --textColor: #bababa;
 
@@ -79,6 +83,8 @@ html.theme-light {
 
   --borderPrimary: #ddd;
 
+  --accent: #4d4dff;
+
   --titleColor: #333;
   --textColor: #656565;
 
@@ -112,6 +118,8 @@ html.theme-summer {
 
   --borderPrimary: #e3d3a8;
   --borderSecondary: #ee6c4d;
+
+  --accent: #ee6c4d;
 
   --titleColor: #1b3a4b;
   --textColor: #3d5a68;

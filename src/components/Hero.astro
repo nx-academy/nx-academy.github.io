@@ -10,76 +10,92 @@ interface Props {
   publishedDate: string;
 }
 
-import ParagraphLarge from "./ParagraphLarge.astro";
-import ParagraphSmall from "./ParagraphSmall.astro";
-
-const {
-  description,
-  href,
-  imgAlt,
-  imgSrc,
-  title,
-  kind,
-  author,
-  publishedDate,
-} = Astro.props;
+const { description, href, imgAlt, imgSrc, title, kind, author, publishedDate } =
+  Astro.props;
 ---
 
-<a class="hero-wrapper" href={href}>
-  <img class="main-img" src={imgSrc} alt={imgAlt} />
-  <div class="hero-content">
-    <ParagraphLarge content={kind} />
+<a class="hero" href={href}>
+  <div class="hero-media">
+    <img class="main-img" src={imgSrc} alt={imgAlt} />
+  </div>
+  <div class="hero-body">
+    <p class="kicker">À la une · {kind}</p>
     <h1 class="title">{title}</h1>
-    <ParagraphSmall content={description} />
-    <ParagraphSmall
-      content={`Par ${author} - ${new Date(publishedDate).toLocaleDateString("fr-FR")}`}
-    />
+    <p class="lead">{description}</p>
+    <p class="byline">
+      Par {author} — le {new Date(publishedDate).toLocaleDateString("fr-FR")}
+    </p>
   </div>
 </a>
 
 <style>
-  .hero-wrapper {
-    display: block;
-    margin-top: 1.5rem;
-    margin-bottom: 2.5rem;
+  .hero {
+    align-items: center;
     display: grid;
-    gap: 0.75rem;
+    gap: 1.25rem;
+    margin: 1.5rem 0 2.5rem;
 
     @media screen and (min-width: 48rem) {
-      grid-template-columns: 40% auto;
+      grid-template-columns: 1.15fr 1fr;
       gap: 2.5rem;
-    }
-
-    @media screen and (min-width: 90rem) {
-      gap: 5rem;
-    }
-
-    h1 {
-      transition: 0.4s;
-      color: var(--linkColor);
-    }
-
-    &:hover h1 {
-      color: var(--linkHoverColor);
+      margin: 2.5rem 0 3rem;
     }
   }
 
   .main-img {
-    height: 100%;
     aspect-ratio: 1792 / 1024;
+    border-radius: 16px;
+    display: block;
     object-fit: cover;
     object-position: top;
     width: 100%;
-    display: block;
   }
 
-  .hero-content {
-    display: grid;
-    gap: 0.75rem;
+  .kicker {
+    align-items: center;
+    color: var(--accent);
+    display: inline-flex;
+    font-size: 0.8rem;
+    font-weight: 600;
+    gap: 8px;
+    letter-spacing: 0.04em;
+    margin: 0 0 0.85rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .kicker::before {
+    background: var(--accent);
+    content: "";
+    display: inline-block;
+    height: 2px;
+    width: 22px;
   }
 
   .title {
-    font-size: 2.25rem;
-    margin-bottom: 0;
+    color: var(--titleColor);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: clamp(1.9rem, 1.5rem + 1.4vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.14;
+    margin: 0 0 1.15rem;
+    transition: color 0.4s ease;
+  }
+
+  .hero:hover .title {
+    color: var(--linkHoverColor);
+  }
+
+  .lead {
+    color: var(--textColor);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    margin: 0 0 1.5rem;
+  }
+
+  .byline {
+    color: var(--textColor);
+    font-size: 0.8rem;
+    margin: 0;
   }
 </style>
