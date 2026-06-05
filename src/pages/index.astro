@@ -8,6 +8,7 @@ import Hero from "../components/Hero.astro";
 import Card from "../components/Card.astro";
 import Heading2 from "../components/Heading2.astro";
 import Feed from "../components/Feed.astro";
+import NowNote from "../components/NowNote.astro";
 
 type Article = {
   frontmatter: {
@@ -93,6 +94,7 @@ const newsFeed = await db
         </div>
       </section>
       <section class="feed-section">
+        <NowNote />
         <Feed newsFeed={newsFeed} />
       </section>
     </section>
