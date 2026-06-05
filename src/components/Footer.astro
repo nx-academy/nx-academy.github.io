@@ -6,9 +6,9 @@
 
     <nav class="footer-nav">
       <a href="/manifeste">À propos</a>
-      -
+      <span class="sep">·</span>
       <a href="/mentions-legales">Mentions légales</a>
-      -
+      <span class="sep">·</span>
       <a href="/changelog">Mises à jour</a>
     </nav>
 
@@ -52,9 +52,8 @@
   .footer-wrapper {
     border-top: 1px solid var(--borderPrimary);
     text-align: center;
-    padding-top: 2rem;
+    padding: 2.5rem 0;
     margin-top: 4rem;
-    margin-bottom: 3rem;
   }
 
   .footer-content {
@@ -84,6 +83,12 @@
     &:hover {
       color: var(--linkHoverColor);
     }
+  }
+
+  .footer-nav .sep {
+    color: var(--textColor);
+    opacity: 0.6;
+    margin: 0 0.4rem;
   }
 
   .social-links {

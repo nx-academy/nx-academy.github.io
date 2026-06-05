@@ -4,52 +4,85 @@ import Heading3 from "./Heading3.astro";
 import ParagraphSmall from "./ParagraphSmall.astro";
 ---
 
-<div class="main-wrapper">
-  <div class="content-wrapper">
+<div class="banner">
+  <div class="banner-text">
+    <p class="eyebrow">Nouveau chez NX</p>
     <Heading3 content="NX va proposer des jeux vidéo !" />
     <ParagraphSmall
-      content="Depuis bientôt un an, je développe des jeux dans mon coin. Je vais bientôt créer pas mal de contenus en rapport."
+      content="Depuis bientôt un an, je développe des jeux dans mon coin. Je vais bientôt créer pas mal de contenus en rapport — toujours en pixel art, évidemment."
     />
+    <div class="banner-btns">
+      <Button href="/jeux" label="Voir les jeux" type="primary" />
+      <Button
+        href="/articles/nx-fait-des-jeux"
+        label="En savoir plus"
+        type="ghost"
+      />
+    </div>
   </div>
-  <div class="buttons-wrapper">
-    <Button href="/jeux" label="Voir les jeux" type="primary" />
-    <Button
-      href="/articles/nx-fait-des-jeux"
-      label="En savoir plus"
-      type="secondary"
+  <div class="banner-art">
+    <img
+      src="/images/articles/dev-fetes-fin-annee.webp"
+      alt="Développeur codant un jeu en pixel art pendant les fêtes de fin d'année"
     />
   </div>
 </div>
 
 <style>
-  .main-wrapper {
+  .banner {
+    align-items: center;
     background-color: var(--backgroundColorSecondary);
-    border-radius: 8px;
+    border: 1px solid var(--borderPrimary);
+    border-radius: 16px;
     display: grid;
     gap: 2rem;
+    margin-bottom: 3.5rem;
     padding: 2rem 1.5rem;
 
     @media screen and (min-width: 48rem) {
-      gap: 3rem;
+      gap: 2.5rem;
+      grid-template-columns: 1.4fr 1fr;
+      padding: 2.25rem 2.5rem;
     }
   }
 
-  .content-wrapper {
-    @media screen and (min-width: 48rem) {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
+  .banner-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
   }
 
-  .buttons-wrapper {
+  .eyebrow {
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  .banner-btns {
     display: grid;
-    gap: 1.5rem;
+    gap: 1rem;
+    margin-top: 0.85rem;
     text-align: center;
 
     @media screen and (min-width: 48rem) {
-      gap: 2rem;
+      gap: 0.85rem;
       grid-template-columns: max-content max-content;
+    }
+  }
+
+  .banner-art {
+    aspect-ratio: 1792 / 1024;
+    border-radius: 12px;
+    overflow: hidden;
+
+    img {
+      display: block;
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
     }
   }
 </style>
