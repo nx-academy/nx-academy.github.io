@@ -9,6 +9,7 @@ import Card from "../components/Card.astro";
 import Heading2 from "../components/Heading2.astro";
 import Feed from "../components/Feed.astro";
 import NowNote from "../components/NowNote.astro";
+import StartHere from "../components/StartHere.astro";
 
 type Article = {
   frontmatter: {
@@ -45,6 +46,40 @@ const newsFeed = await db
   .from(NewsFeed)
   .orderBy(desc(NewsFeed.id))
   .limit(3);
+
+// Parcours "Commence par là" : présentation → activité récente → pratique.
+// Le récap pointe vers le plus récent pour rester à jour automatiquement.
+const latestRecap = articles
+  .filter((a) => a.url?.includes("le-recap"))
+  .sort(
+    (a, b) =>
+      new Date(b.frontmatter.publishedDate).getTime() -
+      new Date(a.frontmatter.publishedDate).getTime(),
+  )[0];
+
+const startHereItems = [
+  {
+    num: "01",
+    title: "Le manifeste",
+    why: "Comprendre NX : la vision, et pourquoi tout est gratuit et open-source.",
+    tag: "Manifeste",
+    href: "/manifeste",
+  },
+  {
+    num: "02",
+    title: "Le récap du mois",
+    why: "Voir ce qui bouge en ce moment, et où en est le projet.",
+    tag: "Article",
+    href: latestRecap?.url ?? "/articles",
+  },
+  {
+    num: "03",
+    title: "Conteneurisez vos applications avec Docker",
+    why: "Passer à la pratique, avec un vrai projet fil rouge.",
+    tag: "Cours · Intermédiaire",
+    href: "/cours/docker-et-docker-compose",
+  },
+];
 ---
 
 <BaseLayout>
@@ -59,6 +94,7 @@ const newsFeed = await db
       author={heroContent.frontmatter.author}
       publishedDate={heroContent.frontmatter.publishedDate}
     />
+    <StartHere items={startHereItems} />
     <Banner />
     <section class="content-wrapper">
       <section class="cards-section">
