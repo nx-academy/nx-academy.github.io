@@ -10,8 +10,16 @@ interface Props {
   publishedDate: string;
 }
 
-const { description, href, imgAlt, imgSrc, title, kind, author, publishedDate } =
-  Astro.props;
+const {
+  description,
+  href,
+  imgAlt,
+  imgSrc,
+  title,
+  kind,
+  author,
+  publishedDate,
+} = Astro.props;
 ---
 
 <a class="hero" href={href}>
