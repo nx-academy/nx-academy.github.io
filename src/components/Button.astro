@@ -1,7 +1,7 @@
 ---
 interface Props {
   label: string;
-  type: "primary" | "secondary";
+  type: "primary" | "secondary" | "ghost";
   href: string;
   external?: boolean;
 }
@@ -32,11 +32,22 @@ const { label, type, href, external } = Astro.props;
 
   .primary {
     color: var(--buttonColorPrimaryText);
-    border: 1px solid var(----buttonColorPrimary);
+    border: 1px solid var(--buttonColorPrimary);
     background-color: var(--buttonColorPrimary);
 
     &:hover {
       background-color: var(--buttonColorPrimaryHover);
+    }
+  }
+
+  .ghost {
+    background-color: transparent;
+    border: 1px solid var(--borderPrimary);
+    color: var(--linkColor);
+
+    &:hover {
+      border-color: var(--linkHoverColor);
+      color: var(--linkHoverColor);
     }
   }
 

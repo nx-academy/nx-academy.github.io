@@ -1,0 +1,150 @@
+---
+// "Nouveau ici ? — Commence par là" : parcours d'entrée pour les nouveaux venus.
+// Chemin volontairement stable (présentation → activité récente → pratique) qui ne
+// dépend pas du volume de contenu. Idéalement épinglé côté admin plus tard.
+type StartHereItem = {
+  num: string;
+  title: string;
+  why: string;
+  tag: string;
+  href: string;
+};
+
+interface Props {
+  items: StartHereItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="starthere">
+  <div class="starthere-head">
+    <div>
+      <p class="kicker2">Nouveau ici ?</p>
+      <h2>Commencez par là</h2>
+    </div>
+    <p class="note">Trois contenus pour démarrer sans vous perdre.</p>
+  </div>
+  <div class="sh-grid">
+    {
+      items.map((item) => (
+        <a class="sh-card" href={item.href}>
+          <span class="sh-num">{item.num}</span>
+          <div>
+            <h3>{item.title}</h3>
+            <p class="sh-why">{item.why}</p>
+            <span class="sh-tag">{item.tag}</span>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .starthere {
+    background: var(--backgroundColorSecondary);
+    border: 1px solid var(--borderPrimary);
+    border-radius: 16px;
+    margin: 0 0 3rem;
+    padding: 1.5rem;
+
+    @media screen and (min-width: 48rem) {
+      padding: 1.8rem 2rem;
+    }
+  }
+
+  .starthere-head {
+    align-items: flex-end;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    margin-bottom: 1.4rem;
+  }
+
+  .kicker2 {
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.4rem;
+    text-transform: uppercase;
+  }
+
+  .starthere-head h2 {
+    color: var(--titleColor);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .note {
+    color: var(--textColor);
+    font-size: 0.88rem;
+    margin: 0;
+  }
+
+  .sh-grid {
+    display: grid;
+    gap: 1rem;
+
+    @media screen and (min-width: 48rem) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .sh-card {
+    align-items: start;
+    background: var(--backgroundColorPrimary);
+    border: 1px solid var(--borderPrimary);
+    border-radius: 12px;
+    display: grid;
+    gap: 0.9rem;
+    grid-template-columns: auto 1fr;
+    padding: 1.05rem 1.1rem;
+    transition: border-color 0.3s ease;
+  }
+
+  .sh-card:hover {
+    border-color: var(--textColor);
+  }
+
+  .sh-num {
+    color: var(--linkHoverColor);
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+
+  .sh-card h3 {
+    color: var(--linkColor);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.02rem;
+    font-weight: 600;
+    line-height: 1.22;
+    margin: 0 0 0.35rem;
+    transition: color 0.4s ease;
+  }
+
+  .sh-card:hover h3 {
+    color: var(--linkHoverColor);
+  }
+
+  .sh-why {
+    color: var(--textColor);
+    font-size: 0.82rem;
+    line-height: 1.45;
+    margin: 0 0 0.6rem;
+  }
+
+  .sh-tag {
+    border: 1px solid var(--borderPrimary);
+    border-radius: 999px;
+    color: var(--titleColor);
+    font-size: 0.68rem;
+    padding: 2px 9px;
+    white-space: nowrap;
+  }
+</style>

@@ -11,7 +11,10 @@ const { newsFeed } = Astro.props;
 ---
 
 <a class="feed-link" href="/feed">
-  <Heading3 content="Le Feed" />
+  <span class="feed-title">
+    <Heading3 content="Le Feed" />
+    <span class="live">En direct</span>
+  </span>
   <svg class="chevron-icon" viewBox="0 0 24 24">
     <use xlink:href="#arrow-icon"></use>
   </svg>
@@ -33,13 +36,35 @@ const { newsFeed } = Astro.props;
 
 <style>
   .feed-link {
+    align-items: center;
     display: flex;
-    margin-bottom: 1.5rem;
     gap: 4px;
+    margin-bottom: 1.5rem;
 
     @media screen and (min-width: 90rem) {
       margin-bottom: 2rem;
     }
+  }
+
+  .feed-title {
+    align-items: center;
+    display: inline-flex;
+    gap: 0.55rem;
+  }
+
+  .feed-title :global(h3) {
+    white-space: nowrap;
+  }
+
+  .live {
+    border: 1px solid var(--borderSecondary);
+    border-radius: 999px;
+    color: var(--accent);
+    font-size: 0.62rem;
+    letter-spacing: 0.07em;
+    padding: 2px 7px;
+    text-transform: uppercase;
+    white-space: nowrap;
   }
 
   .feed-link .chevron-icon {

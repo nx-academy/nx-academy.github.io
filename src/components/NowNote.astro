@@ -1,0 +1,123 @@
+---
+// "En ce moment" — note perso de Thomas, en haut du rail.
+// Contenu en dur pour l'instant ; à brancher plus tard sur la base Turso DB
+// (modélisé comme un seul objet { text, updatedAt, href }).
+interface Props {
+  href?: string;
+  updatedAt?: string;
+}
+
+const { href = "https://github.com/nx-academy", updatedAt = "05/06/2026" } =
+  Astro.props;
+---
+
+<section class="carnet" aria-label="En ce moment">
+  <div class="carnet-head">
+    <span class="dot"></span>
+    <span class="carnet-title">En ce moment</span>
+  </div>
+  <p>
+    Je prends en main <b>Claude Design</b> et <b>Claude Code</b> pour de bon, et
+    je continue à développer des <b>jeux vidéo</b> dans mon coin — une fiche dédiée
+    arrive bientôt.
+  </p>
+  <div class="carnet-foot">
+    <span class="upd">Mis à jour le {updatedAt}</span>
+    <a href={href} target="_blank" rel="noopener noreferrer">
+      Suivre sur GitHub →
+    </a>
+  </div>
+</section>
+
+<style>
+  .carnet {
+    background: var(--backgroundColorSecondary);
+    border: 1px solid var(--borderPrimary);
+    border-radius: 14px;
+    margin-bottom: 2rem;
+    padding: 1.3rem 1.4rem;
+  }
+
+  .carnet-head {
+    align-items: center;
+    display: flex;
+    gap: 0.55rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .carnet-head .dot {
+    animation: nx-pulse 2.2s ease-out infinite;
+    background: var(--linkHoverColor);
+    border-radius: 999px;
+    flex: 0 0 auto;
+    height: 9px;
+    width: 9px;
+  }
+
+  @keyframes nx-pulse {
+    0% {
+      box-shadow: 0 0 0 0
+        color-mix(in srgb, var(--linkHoverColor) 45%, transparent);
+    }
+    70% {
+      box-shadow: 0 0 0 9px
+        color-mix(in srgb, var(--linkHoverColor) 0%, transparent);
+    }
+    100% {
+      box-shadow: 0 0 0 0
+        color-mix(in srgb, var(--linkHoverColor) 0%, transparent);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .carnet-head .dot {
+      animation: none;
+    }
+  }
+
+  .carnet-title {
+    color: var(--titleColor);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.08rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .carnet p {
+    color: var(--textColor);
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin: 0 0 1rem;
+  }
+
+  .carnet p b {
+    color: var(--titleColor);
+    font-weight: 600;
+  }
+
+  .carnet-foot {
+    align-items: center;
+    border-top: 1px solid var(--borderPrimary);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: space-between;
+    padding-top: 0.85rem;
+  }
+
+  .carnet-foot .upd {
+    color: var(--textColor);
+    font-size: 0.7rem;
+    opacity: 0.85;
+  }
+
+  .carnet-foot a {
+    color: var(--articleLinkColor);
+    font-size: 0.78rem;
+    transition: color 0.4s ease;
+  }
+
+  .carnet-foot a:hover {
+    color: var(--articleLinkHoverColor);
+  }
+</style>
