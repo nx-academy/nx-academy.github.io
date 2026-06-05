@@ -11,55 +11,112 @@ interface Props {
   title: string;
 }
 
-import Heading3 from "./Heading3.astro";
-import ParagraphExtraSmall from "./ParagraphExtraSmall.astro";
-import ParagraphLarge from "./ParagraphLarge.astro";
-import ParagraphSmall from "./ParagraphSmall.astro";
-
 const {
+  author,
   description,
   href,
   imgAlt,
   imgSrc,
-  level,
-  title,
   kind,
-  author,
+  level,
   publishedDate,
+  title,
 } = Astro.props;
+
+// Règle de contenu NX : le niveau est une propriété des Fiches techniques et
+// des Cours uniquement. Les Articles n'ont jamais de niveau.
+const isArticle = kind.trim().toLowerCase().startsWith("article");
+const showLevel = !isArticle && Boolean(level);
+const formattedDate = new Date(publishedDate).toLocaleDateString("fr-FR");
 ---
 
-<a href={href}>
-  <img loading="lazy" class="image" src={`${imgSrc}`} alt={imgAlt} />
-  <ParagraphLarge content={kind} />
-  <Heading3 content={title} />
-  {level && <ParagraphExtraSmall content={`Niveau : ${level}`} />}
-  <ParagraphSmall content={description} />
-  <ParagraphExtraSmall
-    content=`Par ${author} - le ${new Date(publishedDate).toLocaleDateString('fr-FR')}`
-  />
+<a class="card" href={href}>
+  <img loading="lazy" class="image" src={imgSrc} alt={imgAlt} />
+  <p class="kind">{kind}</p>
+  <h3>{title}</h3>
+  <p class="desc">{description}</p>
+  <p class="meta">
+    {
+      showLevel && (
+        <Fragment>
+          <span class="lvl">{level}</span>
+          <span class="dot" aria-hidden="true" />
+        </Fragment>
+      )
+    }
+    Par {author} — {formattedDate}
+  </p>
 </a>
 
 <style>
-  a {
-    border-radius: 16px;
-    display: grid;
-    gap: 0.5rem;
-    transition: 0.4s;
+  .card {
+    align-content: start;
     color: var(--linkColor);
-  }
-
-  a:hover :global(h3) {
-    color: var(--linkHoverColor);
+    display: grid;
+    gap: 0.55rem;
   }
 
   .image {
-    border-radius: 16px;
-    transition: 0.4s;
     aspect-ratio: 1792 / 1024;
+    border-radius: 16px;
+    display: block;
     object-fit: cover;
     object-position: top;
     width: 100%;
-    display: block;
+  }
+
+  .kind {
+    color: var(--textColor);
+    font-size: 0.8rem;
+    margin: 0.35rem 0 0;
+  }
+
+  h3 {
+    color: var(--linkColor);
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.25;
+    margin: 0;
+    transition: color 0.4s ease;
+  }
+
+  .card:hover h3 {
+    color: var(--linkHoverColor);
+  }
+
+  .desc {
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    color: var(--textColor);
+    display: -webkit-box;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .meta {
+    align-items: center;
+    color: var(--textColor);
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 0.72rem;
+    gap: 0.5rem;
+    margin: 0;
+  }
+
+  .lvl {
+    color: var(--titleColor);
+  }
+
+  .dot {
+    background: var(--textColor);
+    border-radius: 999px;
+    display: inline-block;
+    flex: 0 0 auto;
+    height: 3px;
+    opacity: 0.6;
+    width: 3px;
   }
 </style>
