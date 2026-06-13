@@ -1,7 +1,15 @@
-import { db, NewsFeed } from "astro:db";
+import { db, NewsFeed, NowNoteFeed } from "astro:db";
 
 // https://astro.build/db/seed
 export default async function seed() {
+  await db.insert(NowNoteFeed).values([
+    {
+      id: 1,
+      content: "This is a nice first test",
+      published: new Date("2025-07-29"),
+    }
+  ])
+
   await db.insert(NewsFeed).values([
     {
       id: 1,
