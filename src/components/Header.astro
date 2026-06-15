@@ -410,7 +410,10 @@
     $burger.classList.toggle("active", isOpen);
     $mobileNav.classList.toggle("active", isOpen);
     $burger.setAttribute("aria-expanded", String(isOpen));
-    $burger.setAttribute("aria-label", isOpen ? "Fermer le menu" : "Ouvrir le menu");
+    $burger.setAttribute(
+      "aria-label",
+      isOpen ? "Fermer le menu" : "Ouvrir le menu",
+    );
     $mobileNav.setAttribute("aria-hidden", String(!isOpen));
 
     if (isOpen) {
