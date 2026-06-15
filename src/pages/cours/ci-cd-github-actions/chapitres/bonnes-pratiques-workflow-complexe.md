@@ -20,7 +20,7 @@ id: 4
 
 # Suivez les bonnes pratiques en créeant un workflow complexe
 
-![](/images/cours-ci-cd-github-actions/comparaison-prix-produits.webp)
+![Pixel art d'une personne comparant des aspirateurs en rayon avec leurs étiquettes de prix](/images/cours-ci-cd-github-actions/comparaison-prix-produits.webp)
 
 Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre
 [sur la branche `partie-2/chapitre-2-debut`](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/tree/partie-2/chapitre-2-debut).
@@ -57,7 +57,7 @@ est visible par tous. Par exemple, le code de ce cours est public.
 
 <br>
 
-![](/images/cours-ci-cd-github-actions/repository-publique-du-cours.webp)
+![En-tête GitHub du repository public nx-academy du cours avec ses onglets Code, Issues, Actions](/images/cours-ci-cd-github-actions/repository-publique-du-cours.webp)
 
 <br>
 
@@ -79,7 +79,7 @@ mois. Pour votre information, je m’appuie
 
 <br>
 
-![](/images/cours-ci-cd-github-actions/github-actions-prix.webp)
+![Grille tarifaire GitHub : plans Free, Team et Enterprise avec leurs minutes CI/CD mensuelles](/images/cours-ci-cd-github-actions/github-actions-prix.webp)
 
 <br>
 
@@ -107,7 +107,7 @@ d'exécution. Jetez un œil à la capture d’écran ci-dessous.
 
 <br>
 
-![](/images/cours-ci-cd-github-actions/paiement-gh-actions.webp)
+![Tableau des tarifs GitHub Actions à la minute selon le système d'exploitation et le nombre de vCPU](/images/cours-ci-cd-github-actions/paiement-gh-actions.webp)
 
 <br>
 
@@ -134,7 +134,7 @@ On va s’intéresser maintenant à la partie gestion des erreurs et débogage.
 
 <br>
 
-![](/images/cours-ci-cd-github-actions/enfant-puzzle.webp)
+![Pixel art d'un enfant concentré assemblant un puzzle sur une table en bois](/images/cours-ci-cd-github-actions/enfant-puzzle.webp)
 
 ## Gérez et déboguez vos erreurs
 
@@ -193,7 +193,7 @@ un événement a eu lieu) ainsi que son niveau de gravité.
 
 <br>
 
-![](/images/cours-ci-cd-github-actions/journal-logs.webp)
+![Terminal affichant des logs de démarrage d'une base de données MySQL horodatés](/images/cours-ci-cd-github-actions/journal-logs.webp)
 
 <br>
 
@@ -210,7 +210,7 @@ d’écran ci-dessous.
 
 <br>
 
-![](/images/cours-ci-cd-github-actions/exemples-log-ci-cd.webp)
+![Détail d'un job GitHub Actions en succès montrant les logs de chaque étape, dont le checkout](/images/cours-ci-cd-github-actions/exemples-log-ci-cd.webp)
 
 <br>
 
@@ -221,7 +221,7 @@ erreurs seront signalisés en rouge comme le montre la capture d’écran suivan
 
 <br>
 
-![](/images/cours-ci-cd-github-actions/workflows-erreurs.webp)
+![Liste de commits GitHub avec des coches vertes pour les workflows réussis et des croix rouges pour ceux en échec](/images/cours-ci-cd-github-actions/workflows-erreurs.webp)
 
 <br>
 
@@ -235,7 +235,7 @@ d’informations sur le job qui a échoué.
 
 <br>
 
-![](/images/cours-ci-cd-github-actions/log-erreur.webp)
+![Job Linting en échec dans GitHub Actions : l'étape Run linter affiche l'erreur eslint not found, exit code 127](/images/cours-ci-cd-github-actions/log-erreur.webp)
 
 <br>
 
@@ -279,7 +279,7 @@ Notre CI est de nouveau opérationnel. Sachez que la solution se trouve
 
 <br>
 
-![](/images/cours-ci-cd-github-actions/consignes-securite.webp)
+![Pixel art d'un responsable casqué présentant une affiche Safety First à des ouvriers dans une usine](/images/cours-ci-cd-github-actions/consignes-securite.webp)
 
 ## Suivez les bonnes pratiques de sécurité
 
@@ -321,7 +321,7 @@ autant que possible. Vous pouvez en trouver
 
 <br>
 
-![](/images/cours-ci-cd-github-actions/github-actions-repo-officiel.webp)
+![Profil GitHub vérifié de l'organisation GitHub Actions avec ses dépôts officiels épinglés comme starter-workflows et setup-node](/images/cours-ci-cd-github-actions/github-actions-repo-officiel.webp)
 
 <br>
 
@@ -339,7 +339,7 @@ page Settings de votre repository.
 
 <br>
 
-![](/images/cours-ci-cd-github-actions/github-secrets.webp)
+![Page GitHub Actions secrets and variables des Settings du dépôt, sans aucun secret enregistré](/images/cours-ci-cd-github-actions/github-secrets.webp)
 
 <br>
 
@@ -361,7 +361,7 @@ autour de ces notions pour 2024. Je mettrais à jour ce cours à ce moment 🙂.
 
 <br>
 
-![](/images/cours-ci-cd-github-actions/construction-usine-complexe.webp)
+![Pixel art d'un opérateur supervisant depuis un pupitre une grande usine aux nombreuses cuves et tuyauteries](/images/cours-ci-cd-github-actions/construction-usine-complexe.webp)
 
 ## Créez un workflow complexe
 
@@ -436,7 +436,7 @@ Le code correspond à la fin de ce screencast se trouve
 
 <br>
 
-![](/images/misc/enfant-avion-papier.webp)
+![Pixel art d'un enfant pliant un avion en papier jaune sur une table près d'une fenêtre](/images/misc/enfant-avion-papier.webp)
 
 ## Exercez-vous
 
@@ -459,7 +459,7 @@ Le code source contenant la solution de cet exercice se trouve
 
 <br>
 
-![](/images/misc/vendeur-journaux.webp)
+![Pixel art d'un jeune vendeur de journaux criant Extra ! dans un mégaphone au coin d'une rue](/images/misc/vendeur-journaux.webp)
 
 ## Résumé
 

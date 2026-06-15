@@ -87,7 +87,7 @@ architectures ARM, il est important de regarder la partie tags de vos images.
 
 <br>
 
-![](/images/cours-docker-et-docker-compose/dockerhub-mongo-home.webp)
+![Page DockerHub de l'image officielle mongo, onglet Tags affichant les versions, architectures et tailles des images](/images/cours-docker-et-docker-compose/dockerhub-mongo-home.webp)
 
 <br>
 
@@ -97,7 +97,7 @@ compatible avec les serveurs Windows.
 
 <br>
 
-![](/images/cours-docker-et-docker-compose/dockerhub-mongo-search.webp)
+![Recherche du tag 2.2 sur DockerHub pour mongo, le seul résultat 2.2.7 n'est disponible qu'en architecture amd64](/images/cours-docker-et-docker-compose/dockerhub-mongo-search.webp)
 
 <br>
 
@@ -116,7 +116,7 @@ incompatibles avec les puces. Ce qui est un réel problème !
 
 <br>
 
-![](/images/cours-docker-et-docker-compose/dockerhub-mongo-3.webp)
+![Recherche du tag 3.7.9 sur DockerHub pour mongo, disponible en architectures linux amd64 et arm64](/images/cours-docker-et-docker-compose/dockerhub-mongo-3.webp)
 
 <br>
 
@@ -162,7 +162,7 @@ avec l’url [http://localhost:8081](http://localhost:8081/).
 
 <br>
 
-![](/images/cours-docker-et-docker-compose/mongo-express-admin.webp)
+![Interface Mongo Express listant les bases de données admin, config et local avec des boutons View et Del](/images/cours-docker-et-docker-compose/mongo-express-admin.webp)
 
 <br>
 

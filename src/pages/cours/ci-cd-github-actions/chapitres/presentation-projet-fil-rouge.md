@@ -20,7 +20,7 @@ id: 2
 
 # Prenez en main le projet fil rouge
 
-![](/images/misc/enfant-jeu-de-constructions.webp)
+![Enfant assis par terre montrant la boîte d'un jeu de construction de maison, pixel art](/images/misc/enfant-jeu-de-constructions.webp)
 
 ## Découvrez le projet fil rouge
 
@@ -66,7 +66,7 @@ Vous allez maintenant cloner le projet fil rouge sur votre ordinateur.
 
 <br>
 
-![](/images/misc/installation-programme.webp)
+![Personne devant un vieil ordinateur affichant une fenêtre d'installation en cours, pixel art](/images/misc/installation-programme.webp)
 
 ## Clonez et installez le projet fil rouge sous MacOS
 
@@ -89,7 +89,7 @@ temps de s’intéresser au code du projet.
 
 <br>
 
-![](/images/misc/installation-programme.webp)
+![Personne devant un vieil ordinateur affichant une fenêtre d'installation en cours, pixel art](/images/misc/installation-programme.webp)
 
 ## Clonez et installez le projet sous Windows
 
@@ -112,7 +112,7 @@ temps de s’intéresser au code du projet.
 
 <br>
 
-![](/images/misc/visite-appartement.webp)
+![Agente immobilière faisant visiter un appartement vide à un couple, pixel art](/images/misc/visite-appartement.webp)
 
 ## Familiarisez-vous avec l’organisation du projet
 
@@ -156,7 +156,7 @@ projet.
 
 <br>
 
-![](/images/misc/personnes-travaillant-voiture.webp)
+![Trois personnes réparant ensemble le moteur d'une voiture, capot ouvert, pixel art](/images/misc/personnes-travaillant-voiture.webp)
 
 ## Contribuez !
 
@@ -181,7 +181,7 @@ envoyez le moi. Je serais ravi de voir ce que vous avez réalisé :).
 
 <br>
 
-![](/images/misc/vendeur-journaux.webp)
+![Jeune vendeur de journaux criant dans un porte-voix dans une rue, pixel art](/images/misc/vendeur-journaux.webp)
 
 ## Résumé
 

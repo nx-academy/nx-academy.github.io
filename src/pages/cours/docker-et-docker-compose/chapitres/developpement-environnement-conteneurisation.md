@@ -48,7 +48,7 @@ partager ce projet avec vos collègues en sachant qu’il fonctionnera partout.
 
 <br>
 
-![](/images/cours-docker-et-docker-compose/schema-devcontainer.webp)
+![Schéma du fonctionnement de DevContainer : VS Code local relié via un port exposé au serveur VS Code dans le conteneur, code source partagé par volume](/images/cours-docker-et-docker-compose/schema-devcontainer.webp)
 
 <br>
 

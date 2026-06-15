@@ -18,7 +18,7 @@ id: 6
 
 # Déployez votre portfolio
 
-![](/images/cours-ci-cd-github-actions/decolage-fusee.webp)
+![Fusée décollant d'un pas de tir dans un nuage de flammes, pixel art](/images/cours-ci-cd-github-actions/decolage-fusee.webp)
 
 Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre
 [sur la branche `partie-3/chapitre-2-debut`](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/tree/partie-3/chapitre-2-debut).
@@ -136,7 +136,7 @@ On va d’ailleurs en profiter pour parler un peu de déploiement !
 
 <br>
 
-![](/images/cours-ci-cd-github-actions/comparaison-fusees.webp)
+![Quatre fusées de tailles et de modèles différents alignées sur leurs pas de tir, pixel art](/images/cours-ci-cd-github-actions/comparaison-fusees.webp)
 
 ## Appréhendez les différents modes de déploiement
 
@@ -174,7 +174,7 @@ dédié aux différentes stratégies de déploiement.
 
 <br>
 
-![](/images/misc/enfant-avion-papier.webp)
+![Enfant concentré pliant un avion en papier sur une table, pixel art](/images/misc/enfant-avion-papier.webp)
 
 ## Exercez-vous
 
@@ -195,7 +195,7 @@ Le code source contenant la solution de cet exercice se trouve
 
 <br>
 
-![](/images/misc/vendeur-journaux.webp)
+![Jeune vendeur de journaux criant dans un porte-voix dans une rue, pixel art](/images/misc/vendeur-journaux.webp)
 
 ## Résumé
 

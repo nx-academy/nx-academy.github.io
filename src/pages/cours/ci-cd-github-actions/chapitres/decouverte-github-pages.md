@@ -19,7 +19,7 @@ id: 5
 
 # Initiez-vous à GitHub Pages
 
-![](/images/cours-ci-cd-github-actions/femme-site-web.webp)
+![Une femme de dos consultant un site web sur un écran d'ordinateur à son bureau, pixel art](/images/cours-ci-cd-github-actions/femme-site-web.webp)
 
 Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre
 [sur la branche `partie-3/chapitre-1-debut`](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/tree/partie-3/chapitre-1-debut).
@@ -40,7 +40,7 @@ dans les chapitres précédents.
 
 <br>
 
-![](/images/cours-ci-cd-github-actions/home-github-pages.webp)
+![Capture de la page d'accueil de GitHub Pages, titrée « Websites for you and your projects »](/images/cours-ci-cd-github-actions/home-github-pages.webp)
 
 <br>
 
@@ -88,7 +88,7 @@ pour prendre un peu d’avance 🙂.
 
 <br>
 
-![](/images/cours-ci-cd-github-actions/homme-lecture-instruction.webp)
+![Un homme attablé lisant un manuel d'instructions marqué « Manual » avec un pictogramme d'information, pixel art](/images/cours-ci-cd-github-actions/homme-lecture-instruction.webp)
 
 ## Découvrez les cas d’utilisation de GitHub Pages
 
@@ -138,7 +138,7 @@ commentaires via Disqus.
 
 <br>
 
-![](/images/cours-ci-cd-github-actions/home-jekyll.webp)
+![Capture de la page d'accueil de Jekyll : « Transform your plain text into static websites and blogs »](/images/cours-ci-cd-github-actions/home-jekyll.webp)
 
 <br>
 
@@ -160,7 +160,7 @@ même un site vitrine.
 
 <br>
 
-![](/images/cours-ci-cd-github-actions/configuration-ordinateur.webp)
+![Un homme devant un écran affichant une fenêtre de préférences avec des options à configurer, pixel art](/images/cours-ci-cd-github-actions/configuration-ordinateur.webp)
 
 ## Configurez GitHub Pages
 
@@ -200,7 +200,7 @@ Vous devriez maintenant être prêt pour résoudre la problématique de ce chapi
 
 <br>
 
-![](/images/misc/enfant-avion-papier.webp)
+![Un enfant attablé pliant un avion en papier jaune près d'une fenêtre, pixel art](/images/misc/enfant-avion-papier.webp)
 
 ## Exercez-vous
 
@@ -222,7 +222,7 @@ Le code source contenant la solution de cet exercice se trouve
 
 <br>
 
-![](/images/misc/vendeur-journaux.webp)
+![Un jeune vendeur de journaux criant dans un porte-voix dans une rue de ville, pixel art](/images/misc/vendeur-journaux.webp)
 
 ## Résumé
 

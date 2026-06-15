@@ -18,7 +18,7 @@ id: 1
 
 # Découvrez Docker
 
-![](/images/cours-docker-et-docker-compose/docker-port.webp)
+![Un docker debout devant un port maritime rempli de conteneurs et de grues, pixel art](/images/cours-docker-et-docker-compose/docker-port.webp)
 
 ## Familiarisez-vous avec la conteneurisation
 

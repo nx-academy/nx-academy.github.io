@@ -49,7 +49,7 @@ recherche rapide sur Internet.
 
 <br>
 
-![](/images/cours-docker-et-docker-compose/meme-docker.webp)
+![Mème Docker : "It works on my machine", "Then we'll ship your machine", "And that is how Docker was born"](/images/cours-docker-et-docker-compose/meme-docker.webp)
 
 <br>
 
