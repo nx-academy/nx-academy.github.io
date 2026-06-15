@@ -92,13 +92,19 @@
       </svg>
     </button>
 
-    <div class="burger" aria-label="Menu mobile" aria-expanded="false">
+    <button
+      class="burger"
+      type="button"
+      aria-label="Ouvrir le menu"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+    >
       <span></span>
       <span></span>
       <span></span>
-    </div>
+    </button>
 
-    <nav class="mobile-nav" aria-hidden="true">
+    <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
       <a href="/fiches">Fiches techniques</a>
       <a href="/articles">Articles</a>
       <!-- <a href="/videos">Vidéos</a> -->
@@ -229,6 +235,9 @@
     height: 24px;
     cursor: pointer;
     z-index: 1001;
+    background: none;
+    border: none;
+    padding: 0;
   }
 
   .burger span {
@@ -266,9 +275,11 @@
     backdrop-filter: blur(6px);
     transform: translateX(100%);
     opacity: 0;
+    visibility: hidden;
     transition:
       transform 0.3s ease,
-      opacity 0.3s ease;
+      opacity 0.3s ease,
+      visibility 0s linear 0.3s;
     z-index: 1000;
     padding: 5rem 2rem;
     display: flex;
@@ -279,6 +290,11 @@
   .mobile-nav.active {
     transform: translateX(0);
     opacity: 1;
+    visibility: visible;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease,
+      visibility 0s linear 0s;
   }
 
   @media screen and (min-width: 1024px) {
@@ -371,7 +387,7 @@
 </style>
 
 <script>
-  const $burger = document.querySelector(".burger") as HTMLDivElement;
+  const $burger = document.querySelector(".burger") as HTMLButtonElement;
   const $mobileNav = document.querySelector(".mobile-nav") as HTMLElement;
   const $body = document.body as HTMLBodyElement;
 
@@ -390,11 +406,11 @@
     localStorage.setItem("theme", next);
   });
 
-  $burger.addEventListener("click", () => {
-    const isOpen = $burger.classList.toggle("active");
-
-    $mobileNav.classList.toggle("active");
+  function setMenu(isOpen: boolean) {
+    $burger.classList.toggle("active", isOpen);
+    $mobileNav.classList.toggle("active", isOpen);
     $burger.setAttribute("aria-expanded", String(isOpen));
+    $burger.setAttribute("aria-label", isOpen ? "Fermer le menu" : "Ouvrir le menu");
     $mobileNav.setAttribute("aria-hidden", String(!isOpen));
 
     if (isOpen) {
@@ -403,6 +419,17 @@
     } else {
       $body.style.overflow = "";
       $body.style.height = "";
+    }
+  }
+
+  $burger.addEventListener("click", () => {
+    setMenu(!$burger.classList.contains("active"));
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && $burger.classList.contains("active")) {
+      setMenu(false);
+      $burger.focus();
     }
   });
 </script>

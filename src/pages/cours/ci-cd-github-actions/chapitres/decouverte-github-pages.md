@@ -102,16 +102,6 @@ Cela dit, il existe d’autres cas d’utilisation pour GitHub Pages et j’ai b
 envie de vous faire chercher la réponse. Je vous mets au défi : ouvrez un nouvel
 onglet et cherchez d'autres utilisations courantes de GitHub Pages.
 
-<br>
-
----
-
-![Un élève en train de tricher dans une classe, pixel art]()
-
----
-
-<br>
-
 Alors, qu'avez-vous trouvé ?
 
 En plus du portfolio, il existe deux autres utilisations fréquentes de GitHub
