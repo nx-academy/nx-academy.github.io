@@ -82,13 +82,14 @@ const { pathname } = Astro.url
     />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Aller au contenu</a>
     <div class="page-wrapper">
       <SvgIcons />
       <Header />
       {
         pathname !== "/" && <Breadcrumbs breadcrumbs={breadcrumbs} />
       }
-      <div style="flex: 1;">
+      <div id="main-content" tabindex="-1" style="flex: 1;">
         <slot />
       </div>
       <Footer />
@@ -121,5 +122,26 @@ const { pathname } = Astro.url
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+  }
+
+  #main-content:focus {
+    outline: none;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 8px;
+    top: -100px;
+    z-index: 1000;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: var(--buttonColorPrimary);
+    color: var(--buttonColorPrimaryText);
+    text-decoration: none;
+    transition: top 0.2s ease;
+  }
+
+  .skip-link:focus {
+    top: 8px;
   }
 </style>

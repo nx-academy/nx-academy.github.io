@@ -19,7 +19,7 @@ id: 1
 
 # Découvrez les concepts de CI/CD
 
-![](/images/cours-ci-cd-github-actions/scene-usine.webp)
+![Un homme de dos contemplant une usine aux cheminées fumantes, pixel art](/images/cours-ci-cd-github-actions/scene-usine.webp)
 
 ## Familiarisez-vous avec les termes CI/CD
 
@@ -61,7 +61,7 @@ de son exécution.
 
 <br>
 
-![](/images/cours-ci-cd-github-actions/exemple-erreur-github-action.webp)
+![Capture GitHub d'une liste de commits avec une infobulle « Some checks were not successful » : un check de linting en échec parmi les jobs](/images/cours-ci-cd-github-actions/exemple-erreur-github-action.webp)
 
 <br>
 
@@ -83,7 +83,7 @@ qu’il faudra prévoir des plans de retour en arrière. Il est important de pre
 
 <br>
 
-![](/images/cours-ci-cd-github-actions/plan-usine.webp)
+![Un homme penché sur un grand plan d'usine bleu étalé sur une table, pixel art](/images/cours-ci-cd-github-actions/plan-usine.webp)
 
 ## Visualisez le fonctionnement d’une pipeline CI/CD
 
@@ -106,7 +106,7 @@ Le plus souvent, un pipeline CI/CD suit le schéma suivant.
 
 <br>
 
-![](/images/cours-ci-cd-github-actions/schema-pipeline.webp)
+![Schéma d'une pipeline : du code et du commit vers l'intégration continue (build, tests unitaires et d'intégration) puis la livraison continue (review, staging, production)](/images/cours-ci-cd-github-actions/schema-pipeline.webp)
 
 <br>
 
@@ -171,7 +171,7 @@ L’image suivante propose une représentation graphique des pipelines CI/CD.
 
 <br>
 
-![](/images/cours-ci-cd-github-actions/cycle-ci-cd.webp)
+![Boucle infinie du cycle CI/CD : plan, code, build, test, release, deploy, operate et monitor](/images/cours-ci-cd-github-actions/cycle-ci-cd.webp)
 
 <br>
 
@@ -190,7 +190,7 @@ découvrirez ensuite les problématiques résolues par ces technologies.
 
 <br>
 
-![](/images/cours-ci-cd-github-actions/voitures-1980-2024.webp)
+![Une vieille berline orange des années 1980 côte à côte avec une voiture blanche moderne, pixel art](/images/cours-ci-cd-github-actions/voitures-1980-2024.webp)
 
 ## Comprenez l’importance de ces technologies
 
@@ -214,7 +214,7 @@ Pour rappel,
 
 <br>
 
-![](/images/cours-ci-cd-github-actions/manuel-commande-scp.webp)
+![Capture d'un terminal affichant la page du manuel (man) de la commande scp, OpenSSH secure file copy](/images/cours-ci-cd-github-actions/manuel-commande-scp.webp)
 
 <br>
 
@@ -286,7 +286,7 @@ maintenant regarder de plus près quelques CI Servers connues.
 
 <br>
 
-![](/images/cours-ci-cd-github-actions/concession-voitures.webp)
+![Trois voitures, jaune, rouge et bleue, exposées dans un hall de concession automobile, pixel art](/images/cours-ci-cd-github-actions/concession-voitures.webp)
 
 ## Quelques exemples de CI Servers
 
