@@ -1,0 +1,35 @@
+---
+// Affiche une section "Questions fréquentes" visible sur la page.
+// Le contenu provient du frontmatter (champ `faq`) et alimente aussi le
+// JSON-LD FAQPage : on garde ainsi une source unique, et le schema reste
+// conforme aux regles de Google (le contenu balise doit etre visible).
+interface Props {
+  items?: { question: string; answer: string }[];
+}
+
+const { items } = Astro.props;
+---
+
+{
+  items && items.length > 0 && (
+    <section class="faq">
+      <h2>Questions fréquentes</h2>
+      {items.map((item) => (
+        <div class="faq-item">
+          <h3>{item.question}</h3>
+          <p>{item.answer}</p>
+        </div>
+      ))}
+    </section>
+  )
+}
+
+<style>
+  .faq {
+    margin-top: 2.5rem;
+  }
+
+  .faq-item {
+    margin-bottom: 1.5rem;
+  }
+</style>

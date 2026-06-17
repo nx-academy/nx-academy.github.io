@@ -3,17 +3,53 @@ layout: ../../layouts/CheatSheetsLayout.astro
 
 title: Créer un premier jeu simple avec PICO-8
 description:
-  Tutoriel PICO-8 pour débutants : créez votre premier mini-jeu en Lua. Déplacer
-  un personnage avec btn(), dessiner avec circfill() et spr(), ramasser des
-  objets, gérer un score et coder une collision simple. Code commenté pas à pas.
+  "Tutoriel PICO-8 pour débutants : créez votre premier mini-jeu en Lua.
+  Déplacer un personnage avec btn(), dessiner avec circfill() et spr(), ramasser
+  des objets, gérer un score et coder une collision simple. Code commenté pas à
+  pas."
 
-imgAlt: Un petit personnage pixel qui ramasse une pièce dorée à l'écran, pixel art
+imgAlt:
+  Un petit personnage pixel qui ramasse une pièce dorée à l'écran, pixel art
 imgSrc: /images/cheatsheets/premier-jeu-simple-pico-8.webp
 
 author: Thomas
 kind: Fiche technique
 level: Débutant
 publishedDate: 06/17/2026
+
+faq:
+  - question: Faut-il déjà savoir coder pour faire un jeu PICO-8 ?
+    answer:
+      "Non, quelques notions de base suffisent. Si vous savez ce qu'est une
+      variable et une condition, vous pouvez suivre ce tutoriel de bout en bout."
+  - question: Comment déplacer un personnage en PICO-8 ?
+    answer:
+      "On lit les touches directionnelles avec la fonction btn(b), où b vaut 0
+      pour gauche, 1 pour droite, 2 pour haut et 3 pour bas, puis on met à jour
+      la position du personnage dans la fonction _update."
+  - question: Comment détecter une collision simple en PICO-8 ?
+    answer:
+      "La méthode la plus simple consiste à mesurer la distance entre les
+      centres des deux objets. Si elle est inférieure à un petit seuil, c'est
+      qu'ils se touchent."
+
+howTo:
+  name: Créer un premier jeu simple avec PICO-8
+  steps:
+    - name: Afficher et déplacer le joueur
+      text:
+        Placez un carré au centre de l'écran et déplacez-le avec les flèches
+        grâce à la fonction btn().
+    - name: Faire apparaître une pièce
+      text:
+        Dessinez une pièce à une position aléatoire avec circfill(), rnd() et
+        flr().
+    - name: Détecter la collision et compter les points
+      text:
+        Mesurez la distance entre le joueur et la pièce, et incrémentez le score
+        au contact.
+    - name: Afficher le score
+      text: Affichez le score à l'écran avec la fonction print().
 ---
 
 <article>

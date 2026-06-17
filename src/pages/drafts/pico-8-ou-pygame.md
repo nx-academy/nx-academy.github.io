@@ -14,6 +14,22 @@ kind: Articles
 author: Thomas
 draft: true
 publishedDate: 06/17/2026
+
+faq:
+  - question: Vaut-il mieux commencer par PICO-8 ou Pygame ?
+    answer:
+      "Si vous débutez complètement, PICO-8 offre un plaisir immédiat et un
+      cadre qui aide à finir ses jeux. Si vous apprenez Python ou voulez une
+      liberté totale, Pygame est un excellent choix."
+  - question: PICO-8 et Pygame sont-ils gratuits ?
+    answer:
+      "Pygame est gratuit et open source. PICO-8 est payant (environ 15 $) mais
+      propose une édition éducation gratuite dans le navigateur."
+  - question: Quelle est la principale différence entre PICO-8 et Pygame ?
+    answer:
+      "PICO-8 est un studio tout-en-un sous contraintes (code, sprites, son,
+      export navigateur), tandis que Pygame est une bibliothèque Python libre
+      que l'on intègre à son propre environnement, sans contrainte imposée."
 ---
 
 # PICO-8 ou Pygame : quel outil pour créer votre premier jeu ?

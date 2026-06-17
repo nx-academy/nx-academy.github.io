@@ -16,6 +16,27 @@ kind: Articles
 author: Thomas
 draft: true
 publishedDate: 06/17/2026
+
+faq:
+  - question: PICO-8 est-il gratuit ?
+    answer:
+      "La version complète de PICO-8 est payante (autour de 15 $) sur le site de
+      Lexaloffle. Il existe aussi une édition éducation gratuite, jouable
+      directement dans le navigateur."
+  - question: En quel langage programme-t-on sur PICO-8 ?
+    answer:
+      "Les jeux PICO-8 se codent en Lua, un langage léger et très lisible qu'on
+      prend en main rapidement."
+  - question: Quelles sont les limites techniques de PICO-8 ?
+    answer:
+      "Un écran de 128×128 pixels, une palette fixe de 16 couleurs et un code
+      limité à 8192 tokens par cartouche. Ces contraintes sont volontaires et
+      font partie de l'esprit de la console."
+  - question: Peut-on faire un vrai jeu commercial avec PICO-8 ?
+    answer:
+      "Oui. PICO-8 est idéal pour prototyper, et certains prototypes sont
+      devenus des jeux complets : Celeste, par exemple, a démarré comme un jeu
+      PICO-8 avant sa version commerciale."
 ---
 
 # Découvrir PICO-8 : la console fantastique pour créer des jeux

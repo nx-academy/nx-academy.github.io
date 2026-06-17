@@ -3,18 +3,53 @@ layout: ../../layouts/CheatSheetsLayout.astro
 
 title: Comment prendre en main PICO-8 ? Installation et premiers pas
 description:
-  Apprenez à prendre en main PICO-8 pas à pas : installation, version gratuite
+  "Apprenez à prendre en main PICO-8 pas à pas : installation, version gratuite
   dans le navigateur, commandes du shell (load, run, save, splore), éditeurs
   intégrés et le trio _init/_update/_draw. Fiche technique débutant pour lancer
-  votre première cartouche.
+  votre première cartouche."
 
-imgAlt: Une console rétro posée sur un bureau avec un curseur clignotant, pixel art
+imgAlt:
+  Une console rétro posée sur un bureau avec un curseur clignotant, pixel art
 imgSrc: /images/cheatsheets/prendre-en-main-pico-8.webp
 
 author: Thomas
 kind: Fiche technique
 level: Débutant
 publishedDate: 06/17/2026
+
+faq:
+  - question: Comment installer PICO-8 ?
+    answer:
+      "Deux options : acheter la version complète (environ 15 $) sur le site de
+      Lexaloffle, ou utiliser gratuitement l'édition éducation directement dans
+      le navigateur sur pico-8-edu.com."
+  - question: Faut-il payer pour essayer PICO-8 ?
+    answer:
+      "Non. L'édition éducation est gratuite et tourne dans le navigateur, ce
+      qui suffit largement pour découvrir l'outil et suivre cette fiche."
+  - question: Comment lancer un jeu sur PICO-8 ?
+    answer:
+      "Depuis le shell, tapez `load nomdujeu` pour charger une cartouche, puis
+      `run` pour la lancer. La touche ESC fait l'aller-retour entre le shell et
+      l'éditeur de code."
+
+howTo:
+  name: Lancer votre première cartouche PICO-8
+  steps:
+    - name: Ouvrir l'éditeur de code
+      text:
+        Lancez PICO-8 puis appuyez sur ESC pour passer du shell à l'éditeur de
+        code.
+    - name: Écrire le squelette du jeu
+      text: Recopiez les trois fonctions _init, _update et _draw dans l'éditeur.
+    - name: Revenir au shell
+      text: Appuyez à nouveau sur ESC pour revenir au shell de commande.
+    - name: Lancer le jeu
+      text: Tapez la commande run puis Entrée pour exécuter votre cartouche.
+    - name: Sauvegarder la cartouche
+      text:
+        Revenez au shell avec ESC et tapez save mon-premier-jeu pour enregistrer
+        votre travail.
 ---
 
 <article>

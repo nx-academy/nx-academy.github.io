@@ -14,6 +14,23 @@ kind: Articles
 author: Thomas
 draft: true
 publishedDate: 06/17/2026
+
+faq:
+  - question: Quel est le jeu PICO-8 le plus connu ?
+    answer:
+      "Celeste Classic fait l'unanimité : ce platformer de précision, créé en
+      quatre jours en 2015, est le prototype à l'origine du jeu Celeste sorti en
+      2018."
+  - question: Celeste a-t-il vraiment été créé avec PICO-8 ?
+    answer:
+      "Oui. La version originale, aujourd'hui appelée Celeste Classic, a été
+      développée sous PICO-8 par Maddy Thorson et Noel Berry avant la version
+      commerciale."
+  - question: Où jouer aux jeux PICO-8 ?
+    answer:
+      "La plupart se jouent gratuitement dans le navigateur sur le BBS officiel
+      de Lexaloffle. Depuis la console, la commande splore permet aussi de
+      parcourir les cartouches de la communauté."
 ---
 
 # Les 10 jeux PICO-8 les plus connus (et pourquoi ils sont cultes)
