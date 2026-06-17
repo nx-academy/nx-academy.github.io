@@ -1,23 +1,27 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
 
-title: "Découvrir PICO-8 : la fantasy console pour créer des jeux"
-description:
-  "PICO-8 est une fantasy console pour créer de petits jeux rétro. Retour
+title: Découvrir PICO-8, la fantasy console pour créer des jeux
+description: "PICO-8 est une fantasy console pour créer de petits jeux rétro. Retour
   d'expérience d'un dev : ce que c'est, ce qu'on peut en faire, ses contraintes
   et pourquoi j'adore cet outil."
 
-imgAlt:
-  PICO-8, la fantasy console pour créer des jeux rétro, illustration pixel art
+imgAlt: PICO-8, la fantasy console pour créer des jeux rétro, illustration pixel art
 imgSrc: /images/articles/decouvrir-pico-8.webp
 
 kind: Articles
 author: Thomas
-draft: true
-publishedDate: 17/06/2026
+draft: false
+publishedDate: 06/17/2026
 ---
 
-# Découvrir PICO-8 : la fantasy console pour créer des jeux
+# Découvrir PICO-8, la fantasy console pour créer des jeux
+
+
+![PICO-8, la fantasy console pour créer des jeux rétro, illustration pixel art](/images/articles/decouvrir-pico-8.webp)
+
+
+## Comment j'ai découvert PICO-8 ?
 
 Il y a quelques semaines, j'ai participé à ma première game jam sur itch.io. Je
 ne vais pas trop m'étendre ici : j'y reviendrai dans un autre article. Mais pour
@@ -104,7 +108,9 @@ seule et même idée, donc, qui tient parfaitement la route en version PICO-8 et
 qui a servi de tremplin vers un jeu autrement plus ambitieux. Les deux à la
 fois.
 
-## Pourquoi je trouve ça intéressant
+---
+
+## Pourquoi je trouve ça intéressant ?
 
 PICO-8 me permet de me concentrer sur l'essence même du jeu vidéo, à savoir le
 game design (j'ai beaucoup lu dessus dernièrement et je vais revenir dessus
@@ -136,6 +142,8 @@ les mains dedans, à les faire soi-même. Et honnêtement ? Je trouve ça génia
 travail manuel, c'est précisément ce qui donne à un jeu sa personnalité et sa
 patte.
 
+---
+
 ## Les contraintes (et pourquoi c'est une force)
 
 Pour moi, ce sont les contraintes qui font naître les meilleurs jeux. C'est
@@ -164,6 +172,8 @@ le plafond de tokens — et il faut alors soit optimiser l'existant, soit porter
 le jeu vers une plateforme plus large (on retombe sur le chemin évoqué plus
 haut). Mais pour ce que PICO-8 vise, à savoir des petits jeux qui ont du
 caractère, ces limites ne sont pas un obstacle. Elles sont le terrain de jeu.
+
+---
 
 ## Un petit aperçu du code
 
@@ -206,7 +216,9 @@ L'idée à retenir ici, c'est cette séparation : d'un côté ce qui _change_
 (`_update`), de l'autre ce qui _s'affiche_ (`_draw`). Vous n'écrivez jamais la
 boucle de jeu vous-même. Vous remplissez ces trois cases et le moteur se charge
 du rythme. Une fois qu'on tient ça, on tient le fil de presque tous les jeux
-PICO-8.
+PICAO-8.
+
+---
 
 ## Et maintenant ?
 
