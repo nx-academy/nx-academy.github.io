@@ -3,9 +3,9 @@ layout: ../../layouts/BlogPostLayout.astro
 
 title: "Découvrir PICO-8 : la fantasy console pour créer des jeux"
 description:
-  PICO-8 est une fantasy console pour créer de petits jeux rétro. Retour
+  "PICO-8 est une fantasy console pour créer de petits jeux rétro. Retour
   d'expérience d'un dev : ce que c'est, ce qu'on peut en faire, ses contraintes
-  et pourquoi j'adore cet outil.
+  et pourquoi j'adore cet outil."
 
 imgAlt: PICO-8, la fantasy console pour créer des jeux rétro, illustration pixel art
 imgSrc: /images/articles/decouvrir-pico-8.webp
@@ -40,6 +40,8 @@ qui découvre PICO-8 et qui a envie de partager pourquoi il trouve l'outil aussi
 malin. Si vous êtes curieux de game dev, débutant, ou simplement quelqu'un qui
 aimerait enfin _finir_ un jeu, vous devriez y trouver votre compte.
 
+---
+
 ## Qu'est-ce que PICO-8 ?
 
 PICO-8 est ce qu'on appelle une _fantasy console_. En gros, c'est une console de
@@ -67,6 +69,8 @@ Pour le coup, je ne l'ai pas testée, j'ai directement craqué.
 Côté code, on programme ses jeux en Lua. Je trouve ce langage de programmation
 très lisible. Pour vous donner un repère, dans l'esprit ça m'a un peu rappelé
 Ruby. Rien d'intimidant : c'est un langage léger qu'on prend en main vite.
+
+---
 
 ## Quel genre de jeux ça permet de faire ?
 
@@ -157,7 +161,7 @@ Soyons honnêtes une seconde : ce cadre a aussi son revers. PICO-8 n'est pas fai
 pour des jeux tentaculaires. Sur un projet ambitieux, vous finissez par toucher
 le plafond de tokens — et il faut alors soit optimiser l'existant, soit porter
 le jeu vers une plateforme plus large (on retombe sur le chemin évoqué plus
-haut). Mais pour ce que PICO-8 vise — de petits jeux qui ont du caractère —, ces
+haut). Mais pour ce que PICO-8 vise, à savoir des petits jeux qui ont du caractère, ces
 limites ne sont pas un obstacle. Elles sont le terrain de jeu.
 
 ## Un petit aperçu du code
