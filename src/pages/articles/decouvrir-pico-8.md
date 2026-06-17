@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
 
-title: "Découvrir PICO-8 : la console fantastique pour créer des jeux"
+title: "Découvrir PICO-8, la fantasy console pour créer des jeux"
 description:
   "PICO-8, c'est quoi ? Une console fantastique pour créer de petits jeux rétro.
   Carnet de bord d'un développeur : ce que c'est, ce qu'on peut en faire, ses
@@ -40,6 +40,11 @@ faq:
 ---
 
 # Découvrir PICO-8 : la console fantastique pour créer des jeux
+
+![PICO-8, la fantasy console pour créer des jeux rétro, illustration pixel
+art](/images/articles/decouvrir-pico-8.webp)
+
+## Comment j’ai découvert PICO-8 ?
 
 Il y a quelques semaines, j'ai participé à ma toute première game jam sur
 itch.io. Je ne vais pas trop m'étendre dessus ici : j'y reviendrai dans un autre
