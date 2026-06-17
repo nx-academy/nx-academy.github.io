@@ -2,10 +2,9 @@
 layout: ../../layouts/BlogPostLayout.astro
 
 title: "Discovering PICO-8: a fantasy console for making games"
-description:
-  PICO-8 is a fantasy console for making small retro games. A developer's
+description: "PICO-8 is a fantasy console for making small retro games. A developer's
   logbook: what it is, what you can build with it, its constraints, and why I
-  love this tool.
+  love this tool."
 
 imgAlt: PICO-8, a fantasy console for making retro games, pixel art illustration
 imgSrc: /images/articles/decouvrir-pico-8.webp
