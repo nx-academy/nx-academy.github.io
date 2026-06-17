@@ -239,3 +239,6 @@ commencent les plus belles histoires.
 - Le manuel officiel, qui couvre toute l'API ainsi que les fonctions des
   éditeurs intégrés :
   [le manuel PICO-8](https://www.lexaloffle.com/dl/docs/pico-8_manual.html).
+
+<br>
+<span class="author">Thomas</span>
