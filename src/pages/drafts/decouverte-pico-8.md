@@ -7,7 +7,8 @@ description:
   d'expérience d'un dev : ce que c'est, ce qu'on peut en faire, ses contraintes
   et pourquoi j'adore cet outil."
 
-imgAlt: PICO-8, la fantasy console pour créer des jeux rétro, illustration pixel art
+imgAlt:
+  PICO-8, la fantasy console pour créer des jeux rétro, illustration pixel art
 imgSrc: /images/articles/decouvrir-pico-8.webp
 
 kind: Articles
@@ -161,8 +162,8 @@ Soyons honnêtes une seconde : ce cadre a aussi son revers. PICO-8 n'est pas fai
 pour des jeux tentaculaires. Sur un projet ambitieux, vous finissez par toucher
 le plafond de tokens — et il faut alors soit optimiser l'existant, soit porter
 le jeu vers une plateforme plus large (on retombe sur le chemin évoqué plus
-haut). Mais pour ce que PICO-8 vise, à savoir des petits jeux qui ont du caractère, ces
-limites ne sont pas un obstacle. Elles sont le terrain de jeu.
+haut). Mais pour ce que PICO-8 vise, à savoir des petits jeux qui ont du
+caractère, ces limites ne sont pas un obstacle. Elles sont le terrain de jeu.
 
 ## Un petit aperçu du code
 
