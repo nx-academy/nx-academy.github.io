@@ -2,11 +2,13 @@
 layout: ../../layouts/BlogPostLayout.astro
 
 title: Découvrir PICO-8, la fantasy console pour créer des jeux
-description: "PICO-8 est une fantasy console pour créer de petits jeux rétro. Retour
+description:
+  "PICO-8 est une fantasy console pour créer de petits jeux rétro. Retour
   d'expérience d'un dev : ce que c'est, ce qu'on peut en faire, ses contraintes
   et pourquoi j'adore cet outil."
 
-imgAlt: PICO-8, la fantasy console pour créer des jeux rétro, illustration pixel art
+imgAlt:
+  PICO-8, la fantasy console pour créer des jeux rétro, illustration pixel art
 imgSrc: /images/articles/decouvrir-pico-8.webp
 
 kind: Articles
@@ -17,9 +19,7 @@ publishedDate: 06/17/2026
 
 # Découvrir PICO-8, la fantasy console pour créer des jeux
 
-
 ![PICO-8, la fantasy console pour créer des jeux rétro, illustration pixel art](/images/articles/decouvrir-pico-8.webp)
-
 
 ## Comment j'ai découvert PICO-8 ?
 
