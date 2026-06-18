@@ -46,67 +46,71 @@ art](/images/articles/decouvrir-pico-8.webp)
 
 ## Comment j’ai découvert PICO-8 ?
 
-Il y a quelques semaines, j'ai participé à ma toute première game jam sur
-itch.io. Je ne vais pas trop m'étendre dessus ici : j'y reviendrai dans un autre
-article. Mais pour faire court : j'ai adoré, et j'ai appris énormément en très
+Il y a quelques semaines, j'ai participé à ma toute première game jam [sur
+itch.io](https://itch.io/jam/campfire-creators-jam-2). Je ne vais pas trop m'étendre dessus ici. J'ai prévu de revenir dessus dans un autre
+article. Mais rapidement, je peux vous dire que j'ai adoré et j'ai appris énormément en très
 peu de temps.
 
-J'avais construit mon jeu avec MonoGame. C'est un framework C# plutôt sympa. Il
-permet de faire beaucoup de choses, mais c'est un gros outil. Pour sortir le
-jeu, je me suis vite retrouvé à jongler avec plusieurs autres programmes à côté
-: Aseprite pour les sprites et les spritesheets, et Sonic Pi pour la musique. Ce
+J'ai décidé d'utiliser MonoGame pour créer mon jeu. C'est un framework C# plutôt intéressant. Il
+permet de faire beaucoup de choses mais ça reste un framework (comprendre : c'est assez lourd et verbeux). Pour sortir le
+jeu, je me suis vite retrouvé à jongler avec plusieurs autres programmes à
+côté. Je pense notamment à Aseprite pour les sprites et les spritesheets et Sonic Pi pour la musique. Ce
 n'était pas insurmontable mais, honnêtement, ça faisait beaucoup de pièces à
 assembler avant même d'écrire la première ligne de gameplay.
 
-C'est en cherchant à alléger tout ça, après la jam, que je suis tombé sur
-PICO-8. Et là, ça a fait tilt. En quelques minutes, j'ai compris le potentiel de
-l'outil : tout est au même endroit. On code, on dessine, on compose, on joue, le
-tout sans jamais quitter le programme.
+Après la jam, j'ai cherché une autre solution possible et je suis tombé sur
+PICO-8. Et ça a été un déclic. J'ai rapidement compris le potentiel de
+l'outil où tout se trouve au même endroit. On code, on dessine, on compose et on joue, le
+tout sans jamais quitter le programme (PICO-8 est un programme qu'on installe sur sa machine).
 
-Petite précision : cet article n'est ni un tutoriel ni une référence technique.
-Pour l'instant, c'est plutôt un « carnet de bord » — autrement dit les notes de
+Petite précision avant d'aller plus loin. Cet article n'est ni un tutoriel ni une fiche technique.
+Pour l'instant, c'est plutôt un « carnet de bord », autrement dit **les notes de
 terrain d'un développeur qui découvre PICO-8 et qui a envie de partager pourquoi
-il trouve l'outil si malin. Si vous êtes curieux de game dev, débutant, ou
+il trouve l'outil si malin**. Si vous êtes curieux de game dev, débutant, ou
 simplement quelqu'un qui aimerait enfin _terminer_ un jeu, vous devriez y
 trouver votre compte.
 
+---
+
 ## C'est quoi PICO-8 ?
 
-PICO-8 est ce qu'on appelle une _console fantastique_ (_fantasy console_). En
+PICO-8 est ce qu'on appelle une _console fantastique_ ( ou _fantasy console_). En
 gros, c'est une console de jeu qui n'a jamais existé. Personne n'a jamais
-fabriqué la machine. Son créateur en a simplement inventé les caractéristiques —
-un écran minuscule, une poignée de couleurs, une quantité de mémoire dérisoire —
-avec l'idée de recréer l'esprit des vieilles consoles. Le côté « rétro » de la
-console n'est pas un accident lié à l'âge ; c'est un véritable choix de design,
+fabriqué la machine. Son créateur en a simplement inventé les caractéristiques, c'est-à-dire 
+un écran minuscule, une poignée de couleurs, une quantité de mémoire dérisoire,
+avec l'idée de recréer l'esprit des vieilles consoles. **Le côté « rétro » de la
+console n'est pas un accident lié à l'âge**. C'est un véritable choix de design,
 assumé de bout en bout.
 
-Quand vous lancez PICO-8, vous atterrissez dans un petit environnement où tout
+Quand vous lancez PICO-8, vous atterrissez dans un environnement où tout
 est réuni. Vous pouvez lancer des jeux, coder les vôtres, dessiner vos sprites,
-construire vos maps et composer votre musique. Tout ça au même endroit, sans
-installer le moindre outil supplémentaire. PICO-8 embarque directement les
+construire vos maps et composer votre musique. Tout ça au même endroit et sans
+avoir à installer le moindre outil supplémentaire. PICO-8 embarque directement les
 éditeurs de code, de musique, de son, de sprites et de map. C'est un peu comme
-un IDE pour le jeu vidéo : un environnement unique qui centralise tout.
+un IDE pour le jeu vidéo.
 
-Pour l'utiliser, j'ai acheté la version payante sur le site officiel. C'est un
+Pour l'utiliser, j'ai acheté la version payante sur le site officiel. **C'est un
 logiciel qui tourne sur votre ordinateur (Windows, Mac ou Linux) pour environ 15
-$. Si vous voulez juste tester l'outil avant de sortir la carte bleue, sachez
-qu'il existe aussi une édition éducation gratuite — une version allégée de
+$**. Si vous voulez juste tester l'outil avant de sortir la carte bleue, sachez
+qu'il existe aussi une édition éducation gratuite. C'est une version allégée de
 PICO-8 réalisée officiellement par Lexaloffle, jouable directement dans le
-navigateur. Pour ma part, je ne l'ai pas testée ; je me suis lancé à fond tout
-de suite.
+navigateur. Pour info, je ne l'ai pas testée. J'ai directement décidé
+de l'acheter.
 
-Côté code, on programme ses jeux en Lua. Je trouve ce langage très lisible. Pour
+**Côté code, on programme ses jeux en Lua**. Je trouve ce langage très lisible. Pour
 vous donner un point de repère, dans l'esprit il m'a un peu rappelé Ruby. Rien
 d'intimidant : c'est un langage léger qu'on prend en main rapidement.
 
+---
+
 ## Quels types de jeux peut-on faire ?
 
-Pas mal de choses, en réalité, tant qu'on reste sur de petits formats. On peut
+En vra, on peut faire pas mal de choses tant qu'on reste sur de petits formats. On peut
 faire des plateformers, des puzzles, des shoot'em up, de petits roguelikes ou
-des mini-RPG, par exemple. Ici, le dénominateur commun n'est pas le genre, c'est
-l'échelle. PICO-8 est pensé pour des jeux courts et complets : le genre de jeu
+des mini-RPG. Ici, le dénominateur commun n'est pas le genre, c'est
+l'échelle. PICO-8 est pensé pour des jeux courts et complets. En gros, le genre de jeu
 qu'on finit en une session et, surtout, qu'on _finit tout court_. Comme la
-taille du code est volontairement limitée, les jeux restent compacts : on peut y
+taille du code est volontairement limitée, les jeux restent compacts. On peut y
 jouer et les terminer d'une traite.
 
 Tout ce petit monde vit dans un écosystème déjà bien fourni. PICO-8 embarque un
@@ -115,38 +119,40 @@ plus de ça, la plupart de ces jeux se jouent directement dans le navigateur.
 Difficile de rendre le partage ou la découverte d'un jeu plus simple.
 
 Personnellement, je vois surtout PICO-8 comme un formidable outil de
-prototypage. L'idée : assembler rapidement un prototype jouable, le partager,
-récolter des retours, et commencer à construire une communauté autour de son
+prototypage. On va pouvoir créer rapidement un prototype jouable, le partager,
+récolter des retours et commencer à construire une communauté autour de son
 concept. Si le potentiel est là, rien n'empêche ensuite de passer à une
 toolchain plus costaude (MonoGame, Aseprite et compagnie) pour en faire une
 version « commerciale » plus ambitieuse.
 
-L'exemple parfait ici, c'est Celeste. Le jeu original (aujourd'hui appelé
-Celeste Classic) a été développé sous PICO-8 par Maddy Thorson et Noel Berry en
-seulement quatre jours, dans le cadre d'une game jam, en 2016. Ce petit
+L'exemple parfait ici, c'est [Celeste](https://en.wikipedia.org/wiki/Celeste_(video_game)). Le jeu original, aujourd'hui appelé
+Celeste Classic, a été développé sous PICO-8 par Maddy Thorson et Noel Berry en
+seulement quatre jours en 2016. Le 
 prototype est ensuite devenu l'un des plateformers indé les plus acclamés de son
-époque : le jeu complet est sorti en janvier 2018, cette fois redéveloppé en C#.
-Une seule et même idée, donc — qui tient parfaitement debout en tant que jeu
-PICO-8, et qui a servi de tremplin vers un jeu bien plus ambitieux. Les deux à
+époque. Le jeu complet est sorti en janvier 2018, cette fois redéveloppé en C#.
+Une seule et même idée, donc, qui tient parfaitement debout en tant que jeu
+PICO-8 et qui a servi de tremplin vers un jeu bien plus ambitieux. Les deux à
 la fois.
 
-## Pourquoi je trouve ça intéressant
+---
+
+## Pourquoi je trouve ça intéressant ?
 
 PICO-8 me permet de me concentrer sur l'essence même du jeu vidéo : le game
 design (j'ai beaucoup lu là-dessus ces derniers temps, et j'y reviendrai
 bientôt). Il est tout à fait possible de faire un mignon petit jeu et de
-peaufiner ses pixels. Mais surtout, l'outil pousse à travailler le _game feel_ —
+peaufiner ses pixels. Mais l'outil pousse à travailler le _game feel_, soit
 la façon dont un saut répond, dont le déplacement procure une sensation nerveuse
 et satisfaisante, dont la difficulté monte. Tout le reste compte moins. Ne reste
-que la seule question qui compte vraiment : est-ce que c'est agréable à jouer ?
+que la seule question qui compte vraiment. Est-ce que c'est agréable à jouer ?
 
 Pouvoir se concentrer sur le game design tient, en grande partie, au fait que
 tout est centralisé. Pas de toolchain à mettre en place, pas d'allers-retours
 entre cinq programmes. Avec PICO-8, je code, je dessine, je compose, le tout au
-même endroit. Résultat : j'avance beaucoup plus vite et je me prends bien moins
-la tête. Mieux encore : comme on revient aux fondamentaux — la game loop, les
-sprites, les collisions — sans gros framework à dompter, la boucle de feedback
-est quasi instantanée ! Je modifie une ligne, je relance, et je vois le résultat
+même endroit. J'avance donc beaucoup plus vite et je me prends bien moins
+la tête. De plus, comme on revient aux fondamentaux (comprendre : la game loop, les
+sprites, les collisions) sans gros framework à dompter, la boucle de feedback
+est quasi instantanée ! Je modifie une ligne, je relance et je vois le résultat
 en moins d'une seconde.
 
 Il y a aussi un point que je trouve loin d'être négligeable : la distribution.
@@ -162,34 +168,37 @@ mettre les mains dans le cambouis et de les faire soi-même. Et honnêtement ? J
 trouve ça génial. Ce travail manuel, c'est précisément ce qui donne à un jeu sa
 personnalité et son caractère.
 
+---
+
 ## Les contraintes (et pourquoi c'est une force)
 
 Pour moi, ce sont les contraintes qui font naître les meilleurs jeux. C'est en
 partie pour ça que je me suis mis aux game jams. J'aime créer sous contrainte,
-un peu comme en cuisine, quand il faut faire avec ce qu'on a sous la main plutôt
-qu'avec un garde-manger infini. Avoir un cadre, c'est ce qui débloque ma
+un peu comme en cuisine. Avoir un cadre, c'est ce qui débloque ma
 créativité.
 
 Et des contraintes, PICO-8 n'en manque pas. L'écran est une petite grille de
 128×128 pixels, la palette est fixée à 16 couleurs, et le code lui-même est
-limité : une cartouche (un fichier de jeu) ne peut pas dépasser 8192 _tokens_.
+limité. Une cartouche (un fichier de jeu) ne peut pas dépasser 8192 _tokens_.
 En gros, chaque mot, chiffre, parenthèse ou signe de ponctuation compte. On n'a
 donc tout simplement pas la place de s'éparpiller.
 
 C'est précisément là que la contrainte devient une force. Quand l'espace est
 compté, on arrête de tergiverser entre mille options et on va à l'essentiel. Ça
 ramène au cœur du jeu vidéo, à se concentrer sur le game design sans s'encombrer
-l'esprit avec tout ce qui est superflu. Mieux encore : devoir faire tenir ses
+l'esprit avec tout ce qui est superflu. Mieux encore. Devoir faire tenir ses
 idées dans si peu d'espace apprend à écrire du code plus efficace et à aborder
-chaque problème avec créativité. La limite ne bride pas l'inventivité — elle la
+chaque problème avec créativité. La limite ne bride pas l'inventivité, elle la
 nourrit.
 
-Soyons honnêtes une seconde : ce cadre a aussi son revers. PICO-8 n'est pas fait
+Cela dit, PICO-8 n'est pas fait
 pour les jeux tentaculaires. Sur un projet ambitieux, vous finirez par taper le
-plafond des tokens — et là, il faudra soit optimiser l'existant, soit porter le
+plafond des tokens et là, il faudra soit optimiser l'existant, soit porter le
 jeu sur une plateforme plus grande (retour au chemin évoqué plus haut). Mais
-pour ce que vise PICO-8 — de petits jeux avec du caractère — ces limites ne sont
+pour ce que vise PICO-8, soit des petits jeux avec du caractère,ces limites ne sont
 pas un obstacle. C'est le terrain de jeu.
+
+---
 
 ## Un coup d'œil rapide au code
 
@@ -218,7 +227,7 @@ end
 Ce minuscule programme affiche le texte « hello pico-8! » qui dérive doucement
 vers la droite. Et il illustre tout le modèle mental :
 
-- `_init()` est appelée une seule fois, au démarrage. C'est là qu'on met en
+- `_init()` est appelée une seule fois. C'est là qu'on met en
   place l'état initial. Dans notre cas, on fixe la variable `x` à 0.
 - `_update()` est appelée à chaque frame, 30 fois par seconde. C'est le cœur
   logique du jeu : c'est là qu'on fait évoluer l'état. Ici, on incrémente `x`,
@@ -228,11 +237,13 @@ vers la droite. Et il illustre tout le modèle mental :
   affiche notre message à la position `x` sur l'axe horizontal, à 60 pixels du
   haut.
 
-Ce qu'il faut retenir ici, c'est cette séparation : d'un côté ce qui _change_
+Ce qu'il faut retenir ici, c'est cette séparation. D'un côté ce qui _change_
 (`_update`), de l'autre ce qui _s'affiche_ (`_draw`). Vous n'écrivez jamais la
 game loop vous-même. Vous remplissez ces trois cases et le moteur s'occupe du
 timing. Une fois que vous avez ça, vous tenez le fil de presque tous les jeux
 PICO-8.
+
+---
 
 ## Et maintenant ?
 
