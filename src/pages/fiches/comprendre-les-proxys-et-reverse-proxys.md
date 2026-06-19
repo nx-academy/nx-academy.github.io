@@ -198,4 +198,3 @@ performances grâce à la mise en cache des données.
 Installé au sein de l'architecture serveur, il distribue les requêtes entre
 plusieurs serveurs, améliore la sécurité en cachant les serveurs principaux, et
 optimise les performances globales de l'application.
-

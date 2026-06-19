@@ -202,4 +202,3 @@ console.log("Le total de la commande est : " + totalCommande + " euros.");
 - [Le mot-clé "return" (FR) - MDN](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Statements/return)
 - [JavaScript Functions (EN) - W3Schools](https://www.w3schools.com/js/js_functions.asp)
 - [JavaScript Return Statement (EN) - W3Schools](https://www.w3schools.com/jsref/jsref_return.asp)
-

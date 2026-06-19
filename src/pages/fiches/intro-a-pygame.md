@@ -293,4 +293,3 @@ instructions d'installation pour macOS, Linux et Windows.
 - [La documentation officielle de Pygame](https://www.pygame.org/docs/)
 - [Game Programming Patterns — Bob Nystrom](https://gameprogrammingpatterns.com/game-loop.html)
 - [Code the Classics — Raspberry Pi Foundation](https://codeclassics.raspberrypi.com/)
-

@@ -202,7 +202,11 @@
   letter-spacing: 0.02em;
   cursor: pointer;
   color: var(--textColor);
-  background: color-mix(in srgb, var(--backgroundColorPrimary) 80%, transparent);
+  background: color-mix(
+    in srgb,
+    var(--backgroundColorPrimary) 80%,
+    transparent
+  );
   border: 1px solid var(--borderPrimary);
   border-radius: 6px;
   padding: 4px 9px;

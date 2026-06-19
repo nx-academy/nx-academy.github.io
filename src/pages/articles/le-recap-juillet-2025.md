@@ -17,7 +17,6 @@ draft: false
 publishedDate: 07/25/2025
 ---
 
-
 ## ECMAScript 2025 : ce qui arrive bientôt en JavaScript
 
 <small>Axel Rauschmayer</small>

@@ -15,7 +15,6 @@ draft: false
 publishedDate: 09/26/2025
 ---
 
-
 ## Aidez-nous à collecter 200 000 $ pour libérer JavaScript d'Oracle
 
 <small>Ryan Dahl</small>

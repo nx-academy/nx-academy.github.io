@@ -62,7 +62,10 @@ const currentUrl = Astro.url.pathname;
 const normalize = (path: string) => path.replace(/\/+$/, "");
 const allFiches = Object.values(
   import.meta.glob("../pages/fiches/*.md", { eager: true }),
-) as { frontmatter: { draft?: boolean; publishedDate: string }; url?: string }[];
+) as {
+  frontmatter: { draft?: boolean; publishedDate: string };
+  url?: string;
+}[];
 const latest = allFiches
   .filter((fiche) => !fiche.frontmatter.draft && fiche.url)
   .sort(

@@ -35,9 +35,8 @@ const articlesGlob = import.meta.glob("../pages/articles/*.md", {
 const fichesGlob = import.meta.glob("../pages/fiches/*.md", { eager: true });
 
 const isFiches = source === "fiches";
-const items = Object.values(
-  isFiches ? fichesGlob : articlesGlob,
-) as (Item & (Article | Cheatsheet))[];
+const items = Object.values(isFiches ? fichesGlob : articlesGlob) as (Item &
+  (Article | Cheatsheet))[];
 const kindLabel = isFiches ? "Fiche technique" : "Articles";
 
 const related = items

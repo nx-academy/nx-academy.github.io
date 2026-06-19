@@ -199,4 +199,3 @@ les pizzas et le code fluide ! 🍕💻
 - [Différences entre les callbacks, les promises et async/await - Blog de Flavio Copes](https://flaviocopes.com/javascript-async-await/)
 - [JavaScript: The Good Parts - Eloquent JavaScript (Chapitre sur les Promises)](https://eloquentjavascript.net/11_async.html)
 - [Exploration de l'Event Loop avec des exemples interactifs - Loupe](http://latentflip.com/loupe/)
-

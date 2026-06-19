@@ -4,32 +4,34 @@
 // Adapté de la référence de design `article-shared.js`, en TypeScript.
 
 function addCopyButtons(): void {
-  document.querySelectorAll<HTMLPreElement>("[data-prose] pre").forEach((pre) => {
-    if (pre.querySelector(".nx-copy")) return;
+  document
+    .querySelectorAll<HTMLPreElement>("[data-prose] pre")
+    .forEach((pre) => {
+      if (pre.querySelector(".nx-copy")) return;
 
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "nx-copy";
-    btn.textContent = "Copier";
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "nx-copy";
+      btn.textContent = "Copier";
 
-    btn.addEventListener("click", () => {
-      const code = pre.querySelector("code") ?? pre;
-      if (!navigator.clipboard) return;
+      btn.addEventListener("click", () => {
+        const code = pre.querySelector("code") ?? pre;
+        if (!navigator.clipboard) return;
 
-      navigator.clipboard
-        .writeText((code.textContent ?? "").trim())
-        .then(() => {
-          btn.textContent = "Copié ✓";
-          btn.classList.add("copied");
-          setTimeout(() => {
-            btn.textContent = "Copier";
-            btn.classList.remove("copied");
-          }, 1600);
-        });
+        navigator.clipboard
+          .writeText((code.textContent ?? "").trim())
+          .then(() => {
+            btn.textContent = "Copié ✓";
+            btn.classList.add("copied");
+            setTimeout(() => {
+              btn.textContent = "Copier";
+              btn.classList.remove("copied");
+            }, 1600);
+          });
+      });
+
+      pre.appendChild(btn);
     });
-
-    pre.appendChild(btn);
-  });
 }
 
 function pageProgress(): number {

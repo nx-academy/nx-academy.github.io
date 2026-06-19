@@ -165,4 +165,3 @@ projets :).
 - [Modern Fluid Typography Using CSS Clamp](https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/)
 - [CSS math functions min(), max() and clamp()](https://caniuse.com/css-math-functions)
 - [An accessible fluid type generator](https://fluid.style/type?min=1&max=1.125&min-bp=2&max-bp=90&unit=%22rem%22)
-

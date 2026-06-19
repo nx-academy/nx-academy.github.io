@@ -20,7 +20,11 @@ const sectionsHeading = headings.filter((heading) => heading.depth === 2);
 const NSEG = 12;
 ---
 
-<div class="wrapper" data-page={pageType} class:list={[{ numbered, "with-progress": progress }]}>
+<div
+  class="wrapper"
+  data-page={pageType}
+  class:list={[{ numbered, "with-progress": progress }]}
+>
   <Heading3 content="Contenu" />
   <ul class="sections-heading">
     {
@@ -135,7 +139,11 @@ const NSEG = 12;
     flex: 1;
     height: 10px;
     border-radius: 2px;
-    background: color-mix(in srgb, var(--backgroundColorPrimary) 70%, transparent);
+    background: color-mix(
+      in srgb,
+      var(--backgroundColorPrimary) 70%,
+      transparent
+    );
     border: 1px solid var(--borderPrimary);
     transition:
       background var(--transition),
@@ -144,7 +152,8 @@ const NSEG = 12;
   .outline-seg.on {
     background: var(--buttonColorPrimary);
     border-color: var(--buttonColorPrimary);
-    box-shadow: 0 0 8px color-mix(in srgb, var(--buttonColorPrimary) 50%, transparent);
+    box-shadow: 0 0 8px
+      color-mix(in srgb, var(--buttonColorPrimary) 50%, transparent);
   }
 </style>
 

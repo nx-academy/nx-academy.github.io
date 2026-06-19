@@ -315,4 +315,3 @@ avez bien compris ce qu'on vient de voir.
 - [Docker push – Référence CLI](https://docs.docker.com/reference/cli/docker/image/push/)
 - [Docker tag – Référence CLI](https://docs.docker.com/reference/cli/docker/image/tag/)
 - [Configurer un registry privé Docker](https://devopssec.fr/article/deployer-manipuler-securiser-un-serveur-registry-docker-prive)
-

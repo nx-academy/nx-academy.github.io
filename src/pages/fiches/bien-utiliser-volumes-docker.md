@@ -179,4 +179,3 @@ registries Docker !
 - [La documentation officielle sur les volumes Docker](https://docs.docker.com/engine/storage/volumes/)
 - [Travailler avec les volumes Docker - LabEx](https://labex.io/fr/tutorials/docker-working-with-docker-volumes-389189)
 - [La documentation officielle sur les bind mounts Docker](https://docs.docker.com/get-started/workshop/06_bind_mounts/)
-

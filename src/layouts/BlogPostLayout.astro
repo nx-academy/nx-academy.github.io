@@ -62,7 +62,10 @@ const currentUrl = Astro.url.pathname;
 const normalize = (path: string) => path.replace(/\/+$/, "");
 const allArticles = Object.values(
   import.meta.glob("../pages/articles/*.md", { eager: true }),
-) as { frontmatter: { draft?: boolean; publishedDate: string }; url?: string }[];
+) as {
+  frontmatter: { draft?: boolean; publishedDate: string };
+  url?: string;
+}[];
 const latest = allArticles
   .filter((article) => !article.frontmatter.draft && article.url)
   .sort(
@@ -113,7 +116,7 @@ const breadCrumbs: Breadcrumb[] = [
     : breadCrumbs}
   schemas={schemas}
 >
-  {isArticle && <div class="nx-progress-top" data-progress></div>}
+  {isArticle && <div class="nx-progress-top" data-progress />}
 
   <main class="main-wrapper" class:list={[{ "is-article": isArticle }]}>
     <section>
