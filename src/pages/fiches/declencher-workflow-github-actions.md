@@ -20,12 +20,6 @@ level: Débutant
 publishedDate: 10/02/2025
 ---
 
-<article>
-
-# Quand et comment déclencher un workflow GitHub Actions ?
-
-![Une scène avec des tapis roulants et des usines avec pour inspiration Satisfactory, pixel art](/images/cheatsheets/usine-tapis-roulant.webp)
-
 Je vous l'avais promis ! Je commence à faire la transition vers un autre grand
 classique de la boîte à outils DevOps : les CI serveurs.
 
@@ -364,4 +358,3 @@ En attendant :
 - [Building a workflow with GitHub Actions](https://resources.github.com/learn/pathways/automation/essentials/building-a-workflow-with-github-actions/)
 - [Learn to Use GitHub Actions: a Step-by-Step Guide](https://www.freecodecamp.org/news/learn-to-use-github-actions-step-by-step-guide/)
 
-</article>

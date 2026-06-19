@@ -16,7 +16,9 @@ interface Props {
     description: string;
     imgSrc?: string;
     imgAlt?: string;
+    kind?: string;
     author?: string;
+    level?: string;
     publishedDate?: string;
     faq?: FaqItem[];
     howTo?: HowToData;
@@ -24,9 +26,15 @@ interface Props {
   headings: Heading[];
 }
 
+import "../styles/article-content.css";
+
 import BaseLayout from "./BaseLayout.astro";
 import StickyOutline from "../components/StickyOutline.astro";
+import EditorialHeader from "../components/EditorialHeader.astro";
 import Faq from "../components/Faq.astro";
+import AuthorCard from "../components/AuthorCard.astro";
+import RelatedContent from "../components/RelatedContent.astro";
+import ShareButtons from "../components/ShareButtons.astro";
 
 const {
   frontmatter: {
@@ -34,13 +42,42 @@ const {
     description,
     imgSrc,
     imgAlt,
+    kind,
     author,
+    level,
     publishedDate,
     faq,
     howTo,
   },
   headings,
 } = Astro.props;
+
+const formattedDate = publishedDate
+  ? new Date(publishedDate).toLocaleDateString("fr-FR")
+  : "";
+const currentUrl = Astro.url.pathname;
+
+// Le kicker « À la une » n'est affiché que sur la dernière fiche publiée ;
+// les autres affichent seulement leur `kind` (« Fiche technique »).
+const normalize = (path: string) => path.replace(/\/+$/, "");
+const allFiches = Object.values(
+  import.meta.glob("../pages/fiches/*.md", { eager: true }),
+) as { frontmatter: { draft?: boolean; publishedDate: string }; url?: string }[];
+const latest = allFiches
+  .filter((fiche) => !fiche.frontmatter.draft && fiche.url)
+  .sort(
+    (a, b) =>
+      new Date(b.frontmatter.publishedDate).getTime() -
+      new Date(a.frontmatter.publishedDate).getTime(),
+  )[0];
+const isLatest = Boolean(
+  latest && latest.url && normalize(latest.url) === normalize(currentUrl),
+);
+const kindLabel = kind ?? "Fiche technique";
+const kicker = isLatest ? `À la une · ${kindLabel}` : kindLabel;
+
+// La chip de l'en-tête reprend le niveau de la fiche (les fiches n'ont pas de tags).
+const chips = level ? [level] : undefined;
 
 // JSON-LD genere a partir du frontmatter : HowTo (tutoriels pas a pas) et
 // FAQPage (cf. composant Faq, dont le contenu reste visible sur la page).
@@ -91,14 +128,45 @@ const breadCrumbs: Breadcrumb[] = [
   title={title}
   schemas={schemas}
 >
-  <main>
+  <div class="nx-progress-top" data-progress></div>
+
+  <main class="main-wrapper is-article">
     <section>
-      <slot />
-      <Faq items={faq} />
+      <article class="article-col">
+        <EditorialHeader
+          kicker={kicker}
+          title={title}
+          description={description}
+          author={author}
+          formattedDate={formattedDate}
+          chips={chips}
+          imgSrc={imgSrc}
+          imgAlt={imgAlt}
+        />
+
+        <div class="prose" data-prose>
+          <slot />
+        </div>
+
+        <ShareButtons title={title} />
+        <p class="article-signoff">Bonne lecture, {author}</p>
+        <Faq items={faq} />
+        <AuthorCard
+          author={author}
+          ctaHref="/fiches"
+          ctaLabel="Voir toutes les fiches"
+        />
+        <RelatedContent currentUrl={currentUrl} source="fiches" />
+      </article>
     </section>
     <aside>
       <div class="aside-wrapper">
-        <StickyOutline headings={headings} pageType="fiche" />
+        <StickyOutline
+          headings={headings}
+          pageType="fiche"
+          numbered={true}
+          progress={true}
+        />
       </div>
     </aside>
   </main>
@@ -108,138 +176,47 @@ const breadCrumbs: Breadcrumb[] = [
   main {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-    width: 90%;
-    max-width: 1100px;
+    width: var(--container-width);
+    max-width: var(--container-max);
     margin-left: auto;
     margin-right: auto;
 
     @media screen and (min-width: 1024px) {
       display: grid;
-      grid-template-columns: 65% 30%;
-      gap: 64px;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 56px;
     }
+  }
+
+  /* Fond papier pointillé (repris de la maquette V3) sur la colonne article */
+  main.is-article .article-col {
+    background-image: radial-gradient(
+      color-mix(in srgb, var(--borderPrimary) 65%, transparent) 1px,
+      transparent 1px
+    );
+    background-size: 24px 24px;
+    background-position: -2px -2px;
   }
 
   .aside-wrapper {
     display: none;
 
     @media screen and (min-width: 1024px) {
-      background-color: var(--backgroundColorSecondary);
-      border-radius: 4px;
-      border: 1px solid var(--borderPrimary);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       display: block;
-      padding: 24px;
       position: sticky;
-      top: 24px;
+      top: 88px;
+      background: var(--backgroundColorSecondary);
+      border: 1px solid var(--borderPrimary);
+      border-radius: var(--radius-md);
+      padding: 22px 22px 20px;
     }
-  }
-</style>
-
-<style is:global>
-  img {
-    max-width: 100%;
-    border-radius: 8px;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-    color: var(--titleColor);
-  }
-
-  h2 {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-    color: var(--titleColor);
-  }
-
-  h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    color: var(--titleColor);
-  }
-
-  p {
-    margin-bottom: 1.5rem;
-    color: var(--textColor);
-    font-size: clamp(0.875rem, 0.75rem + 1.5vw, 1.125rem);
-  }
-
-  ul {
-    color: var(--textColor);
-    margin-bottom: 2.5rem;
-  }
-
-  li {
-    /* margin-bottom: 1rem; */
-    color: var(--textColor);
-    font-size: clamp(0.875rem, 0.75rem + 1.5vw, 1.125rem);
-  }
-
-  hr {
-    margin-bottom: 3rem;
-    margin-top: 2rem;
-  }
-
-  a {
-    text-decoration: none;
-    color: var(--articleLinkColor);
-    font-weight: 500;
-    transition: 0.4s color;
-
-    &:hover {
-      color: var(--articleLinkHoverColor);
-    }
-  }
-
-  p > code {
-    background-color: var(--codeBackgroundColor);
-    padding: 0.25rem;
-    color: var(--codeTextColor);
-  }
-
-  pre,
-  ul {
-    margin-bottom: 2rem;
-  }
-
-  blockquote {
-    padding-left: 2rem;
-    font-style: italic;
-  }
-
-  small {
-    font-size: 14px;
-    color: var(--textColor);
-    margin-bottom: 2.5rem;
-    display: block;
-  }
-
-  table {
-    border-collapse: collapse;
-    border: 2px solid var(--borderPrimary);
-    width: 100%;
-    text-align: left;
-  }
-
-  th,
-  td {
-    border: 1px solid var(--borderPrimary);
-    padding: 4px 8px;
-  }
-
-  thead {
-    background-color: var(--backgroundColorSecondary);
-  }
-
-  tbody > tr:nth-of-type(even) {
-    background-color: var(--backgroundColorSecondary);
   }
 </style>
 
 <script>
   import handleReadingTime from "../utils/estimateReadingTime";
+  import initArticleEnhancements from "../utils/articleEnhancements";
+
   handleReadingTime();
+  initArticleEnhancements();
 </script>

@@ -17,12 +17,6 @@ author: Yacine
 publishedDate: 10/03/2024
 ---
 
-<article>
-
-# Comprendre les proxys et reverses proxys
-
-![Un serveur dans un café parisien, pixel art](/images/cheatsheets/serveur-parisien.webp)
-
 En informatique, un proxy et un reverse proxy sont des types de serveurs. Pour
 bien comprendre ce qu’est un proxy et un reverse proxy, il faut d'abord
 comprendre globalement ce qu’est un serveur et un client.
@@ -205,4 +199,3 @@ Installé au sein de l'architecture serveur, il distribue les requêtes entre
 plusieurs serveurs, améliore la sécurité en cachant les serveurs principaux, et
 optimise les performances globales de l'application.
 
-</article>

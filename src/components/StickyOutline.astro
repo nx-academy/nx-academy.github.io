@@ -157,7 +157,11 @@ const NSEG = 12;
 
   // Offset de défilement sous le header sticky selon le type de page.
   const scrollOffset =
-    $pageType === "cours" ? 500 : $pageType === "article" ? 88 : 0;
+    $pageType === "cours"
+      ? 500
+      : $pageType === "article" || $pageType === "fiche"
+        ? 88
+        : 0;
 
   function scrollToTitle() {
     $sectionLinks.forEach((link) => {

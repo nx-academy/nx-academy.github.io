@@ -15,12 +15,6 @@ level: Intermédiaire
 publishedDate: 05/02/2025
 ---
 
-<article>
-
-# Comment (bien) utiliser les volumes Docker ?
-
-![Une femme en train de brancher une clé USB dans un ordinateur, pixel art](/images/cheatsheets/femme-cle-usb.webp)
-
 La sortie du cours sur Docker approche à grand pas. Pour cette occasion, sachez
 que **les quatre prochaines fiches techniques seront dédiées à cet outil**.
 C'est, selon moi, un indispensable à connaître.
@@ -186,4 +180,3 @@ registries Docker !
 - [Travailler avec les volumes Docker - LabEx](https://labex.io/fr/tutorials/docker-working-with-docker-volumes-389189)
 - [La documentation officielle sur les bind mounts Docker](https://docs.docker.com/get-started/workshop/06_bind_mounts/)
 
-</article>

@@ -11,15 +11,9 @@ imgSrc: /images/cheatsheets/magasin-chinois.webp
 
 author: Thomas
 kind: Fiche technique
-level: intermediaire
+level: Intermédiaire
 publishedDate: 07/04/2025
 ---
-
-<article>
-
-# Comment optimiser une image Docker ?
-
-![Une vendeuse asiatique utilisant un balance dans un magasin, pixel art](/images/cheatsheets/magasin-chinois.webp)
 
 Ca y est : le cours sur Docker
 [est officiellement disponible](/cours/docker-et-docker-compose) ! Si ce n’est
@@ -299,4 +293,3 @@ D'ici là, je vous invite :
 - [How I Cut Docker Image Size by 90%: Best Practices for Lean Containers](https://medium.com/@ksaquib/how-i-cut-docker-image-size-by-90-best-practices-for-lean-containers-1f705cead02b)
 - [13 Ways to Optimize Docker Builds](https://overcast.blog/13-ways-to-optimize-docker-builds-ba1151b256f3)
 
-</article>

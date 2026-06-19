@@ -20,12 +20,6 @@ author: Oumar
 publishedDate: 10/18/2024
 ---
 
-<article>
-
-# Les retours de fonction en Javascript
-
-![un jeune programmeur assis devant un ordinateur rétro, en train de coder des valeurs de retour en javaScript, pixel art](/images/cheatsheets/jeune-programmeur-code.webp)
-
 A nos débuts en Javascript après avoir compris les types de données primitifs
 (Number, String, Boolean, undefined et Null), on a tendance à se jeter sur les
 fonctions et les manipuler directement sans vraiment comprendre une notion clé
@@ -209,4 +203,3 @@ console.log("Le total de la commande est : " + totalCommande + " euros.");
 - [JavaScript Functions (EN) - W3Schools](https://www.w3schools.com/js/js_functions.asp)
 - [JavaScript Return Statement (EN) - W3Schools](https://www.w3schools.com/jsref/jsref_return.asp)
 
-</article>

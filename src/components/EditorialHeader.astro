@@ -1,0 +1,179 @@
+---
+// En-tête éditorial partagé (articles + fiches techniques) : kicker, titre,
+// chapô, byline avec pastille de temps de lecture, rangée de chips, image hero.
+// Les données viennent du frontmatter, transmises par le layout.
+interface Props {
+  kicker?: string;
+  title?: string;
+  description?: string;
+  author?: string;
+  formattedDate?: string;
+  chips?: string[];
+  imgSrc?: string;
+  imgAlt?: string;
+}
+
+const {
+  kicker,
+  title,
+  description,
+  author,
+  formattedDate,
+  chips,
+  imgSrc,
+  imgAlt,
+} = Astro.props;
+---
+
+<header class="article-head">
+  {kicker && <p class="kicker">{kicker}</p>}
+  <h1 class="article-title">{title}</h1>
+  {description && <p class="lead">{description}</p>}
+  <div class="byline">
+    <img class="byline-avatar" src="/logo-mark.png" alt="" />
+    <span class="byline-who">Par {author}</span>
+    <span class="byline-dot" aria-hidden="true"></span>
+    <span class="byline-date">le {formattedDate}</span>
+    <span class="reading-pill">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <circle cx="12" cy="12" r="9"></circle>
+        <path d="M12 7v5l3 2"></path>
+      </svg>
+      <b data-reading-min>—</b> de lecture
+    </span>
+  </div>
+  {
+    chips && chips.length > 0 && (
+      <div class="tags">
+        {chips.map((chip) => (
+          <span class="chip">{chip}</span>
+        ))}
+      </div>
+    )
+  }
+  {imgSrc && <img class="hero" src={imgSrc} alt={imgAlt} />}
+</header>
+
+<style>
+  .article-head {
+    margin-bottom: 0.4rem;
+  }
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--accent);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0 0 1rem;
+  }
+  .kicker::before {
+    content: "";
+    width: 22px;
+    height: 2px;
+    background: var(--accent);
+  }
+  .article-title {
+    font-family: var(--font-heading);
+    color: var(--titleColor);
+    font-weight: 700;
+    font-size: clamp(2.1rem, 1.5rem + 2vw, 3rem);
+    line-height: 1.1;
+    margin: 0 0 1.1rem;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .lead {
+    font-size: 1.2rem;
+    line-height: 1.55;
+    color: var(--textColor);
+    margin: 0 0 1.3rem;
+    max-width: 44ch;
+  }
+  .byline {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 0 0 1.2rem;
+  }
+  .byline-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: var(--radius-pill);
+    image-rendering: pixelated;
+    background: var(--backgroundColorSecondary);
+    border: 1px solid var(--borderPrimary);
+    padding: 3px;
+    margin: 0;
+  }
+  .byline-who {
+    color: var(--titleColor);
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+  .byline-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: var(--radius-pill);
+    background: var(--textColor);
+    opacity: 0.6;
+  }
+  .byline-date {
+    color: var(--textColor);
+    font-size: 0.88rem;
+  }
+  .reading-pill {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-pill);
+    padding: 5px 12px;
+    color: var(--textColor);
+    font-size: 0.82rem;
+  }
+  .reading-pill svg {
+    width: 14px;
+    height: 14px;
+  }
+  .reading-pill b {
+    color: var(--titleColor);
+    font-weight: 600;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 0 0 1.8rem;
+  }
+  .chip {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--buttonColorPrimary);
+    border: 1px solid var(--borderSecondary, var(--borderPrimary));
+    border-radius: var(--radius-sm);
+    padding: 3px 8px;
+  }
+  .hero {
+    aspect-ratio: 1792 / 1024;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+    border-radius: var(--radius-lg);
+    margin: 0 0 2.4rem;
+  }
+</style>

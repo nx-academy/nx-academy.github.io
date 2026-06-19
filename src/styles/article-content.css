@@ -1,0 +1,238 @@
+/* ============================================================================
+   Styles de lecture partagés entre les articles (BlogPostLayout) et les fiches
+   techniques (CheatSheetsLayout). Fidèles à la maquette V1+, pilotés par les
+   tokens du dépôt → compatibles dark / light / summer. Importé globalement par
+   les deux layouts ; tout est scopé à `.prose` (contenu markdown) ou aux
+   utilitaires d'article, pour ne pas déteindre sur le reste du site.
+   ============================================================================ */
+
+/* --- Barre de progression fine (haut de page) ----------------------------- */
+.nx-progress-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 200;
+  background: transparent;
+  pointer-events: none;
+}
+.nx-progress-top::after {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform: scaleX(var(--p, 0));
+  transform-origin: 0 50%;
+  background: var(--buttonColorPrimary);
+  transition: transform 0.08s linear;
+}
+
+/* --- Signature de fin d'article ------------------------------------------- */
+.article-signoff {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--titleColor);
+  margin: 2rem 0 0;
+}
+
+/* ==========================================================================
+   Typographie de lecture (.prose)
+   ========================================================================== */
+.prose h2 {
+  font-family: var(--font-heading);
+  color: var(--titleColor);
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 1.9rem);
+  line-height: 1.2;
+  margin: 0 0 1.1rem;
+  scroll-margin-top: 88px;
+}
+.prose h3 {
+  font-family: var(--font-heading);
+  color: var(--titleColor);
+  font-size: 1.25rem;
+  line-height: 1.3;
+  margin: 1.6rem 0 0.6rem;
+}
+.prose p {
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.12rem);
+  line-height: 1.7;
+  margin: 0 0 1.35rem;
+  color: var(--textColor);
+  text-wrap: pretty;
+}
+.prose p strong,
+.prose li strong {
+  color: var(--titleColor);
+  font-weight: 600;
+}
+.prose a {
+  color: var(--articleLinkColor);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid
+    color-mix(in srgb, var(--articleLinkColor) 35%, transparent);
+  transition:
+    color var(--transition),
+    border-color var(--transition);
+}
+.prose a:hover {
+  color: var(--articleLinkHoverColor);
+  border-color: var(--articleLinkHoverColor);
+}
+.prose ul {
+  margin: 0 0 1.6rem;
+  padding-left: 1.1rem;
+}
+.prose li {
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.12rem);
+  line-height: 1.65;
+  margin-bottom: 0.6rem;
+  color: var(--textColor);
+}
+.prose li::marker {
+  color: var(--buttonColorPrimary);
+}
+.prose em {
+  font-style: italic;
+}
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--borderPrimary);
+  margin: 2rem 0;
+}
+.prose img {
+  width: 100%;
+  border-radius: var(--radius-md);
+  margin: 0 0 1.5rem;
+}
+
+/* Code en ligne — remplissage néon plein (signature NX) */
+.prose :not(pre) > code {
+  font-family: var(--font-mono);
+  background: var(--codeBackgroundColor);
+  color: var(--codeTextColor);
+  padding: 0.1em 0.4em;
+  border-radius: var(--radius-sm);
+  font-size: 0.88em;
+}
+/* Bloc de code */
+.prose pre {
+  position: relative;
+  background: color-mix(
+    in srgb,
+    var(--backgroundColorSecondary) 55%,
+    var(--backgroundColorPrimary)
+  );
+  border: 1px solid var(--borderPrimary);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  overflow: auto;
+  margin: 0 0 1.6rem;
+}
+.prose pre code {
+  font-family: var(--font-mono);
+  color: var(--titleColor);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  background: none;
+  padding: 0;
+  white-space: pre;
+}
+
+/* Citation en exergue (reprise de la maquette V2) */
+.prose blockquote {
+  position: relative;
+  border-left: none;
+  margin: 2.4rem 0;
+  padding: 0.5rem 0 0.5rem 3rem;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  line-height: 1.42;
+  color: var(--titleColor);
+  font-style: normal;
+}
+.prose blockquote::before {
+  content: "\201C";
+  position: absolute;
+  left: -2px;
+  top: -0.5rem;
+  font-family: var(--font-heading);
+  font-size: 4rem;
+  color: var(--accent);
+  line-height: 1;
+}
+.prose blockquote p {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+/* Tableaux (surtout utiles aux fiches techniques) */
+.prose table {
+  border-collapse: collapse;
+  border: 2px solid var(--borderPrimary);
+  width: 100%;
+  text-align: left;
+  margin: 0 0 1.6rem;
+  font-size: 0.95rem;
+}
+.prose th,
+.prose td {
+  border: 1px solid var(--borderPrimary);
+  padding: 6px 10px;
+  color: var(--textColor);
+}
+.prose thead {
+  background-color: var(--backgroundColorSecondary);
+}
+.prose thead th {
+  color: var(--titleColor);
+}
+.prose tbody > tr:nth-of-type(even) {
+  background-color: var(--backgroundColorSecondary);
+}
+
+/* Bouton « copier » injecté dans les blocs de code */
+.nx-copy {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  color: var(--textColor);
+  background: color-mix(in srgb, var(--backgroundColorPrimary) 80%, transparent);
+  border: 1px solid var(--borderPrimary);
+  border-radius: 6px;
+  padding: 4px 9px;
+  opacity: 0;
+  transition:
+    opacity var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+.prose pre:hover .nx-copy,
+.nx-copy:focus-visible {
+  opacity: 1;
+}
+.nx-copy:hover,
+.nx-copy.copied {
+  color: var(--buttonColorPrimary);
+  border-color: var(--buttonColorPrimary);
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+  }
+  .nx-progress-top::after {
+    transition: none;
+  }
+}

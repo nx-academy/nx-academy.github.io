@@ -1,28 +1,49 @@
 ---
 import type { Article } from "../types/Article";
+import type { Cheatsheet } from "../types/Cheatsheet";
+
+type Item = {
+  frontmatter: {
+    draft?: boolean;
+    title: string;
+    imgSrc: string;
+    imgAlt: string;
+    author: string;
+    publishedDate: string;
+    level?: string;
+  };
+  url?: string;
+};
 
 interface Props {
   currentUrl: string;
+  source?: "articles" | "fiches";
   limit?: number;
 }
 
-const { currentUrl, limit = 3 } = Astro.props;
+const { currentUrl, source = "articles", limit = 3 } = Astro.props;
 
 const normalize = (path: string) => path.replace(/\/+$/, "");
 const current = normalize(currentUrl);
 
-// Sélection automatique : les derniers articles publiés, hors draft et hors
-// article courant. (À terme : recommandation par pertinence.)
-const articles = Object.values(
-  import.meta.glob("../pages/articles/*.md", { eager: true }),
-) as Article[];
+// `import.meta.glob` exige un chemin littéral statique : on glob les deux
+// dossiers et on choisit la source ensuite. (À terme : recommandation par
+// pertinence.)
+const articlesGlob = import.meta.glob("../pages/articles/*.md", {
+  eager: true,
+});
+const fichesGlob = import.meta.glob("../pages/fiches/*.md", { eager: true });
 
-const related = articles
+const isFiches = source === "fiches";
+const items = Object.values(
+  isFiches ? fichesGlob : articlesGlob,
+) as (Item & (Article | Cheatsheet))[];
+const kindLabel = isFiches ? "Fiche technique" : "Articles";
+
+const related = items
   .filter(
-    (article) =>
-      !article.frontmatter.draft &&
-      article.url &&
-      normalize(article.url) !== current,
+    (item) =>
+      !item.frontmatter.draft && item.url && normalize(item.url) !== current,
   )
   .sort(
     (a, b) =>
@@ -37,18 +58,24 @@ const related = articles
     <section class="art-related">
       <h2 class="rl-head">À lire ensuite</h2>
       <div class="rl-grid">
-        {related.map((article) => (
-          <a class="rl-card" href={article.url}>
+        {related.map((item) => (
+          <a class="rl-card" href={item.url}>
             <img
               loading="lazy"
-              src={article.frontmatter.imgSrc}
-              alt={article.frontmatter.imgAlt}
+              src={item.frontmatter.imgSrc}
+              alt={item.frontmatter.imgAlt}
             />
-            <p class="rl-kind">Articles</p>
-            <h4>{article.frontmatter.title}</h4>
+            <p class="rl-kind">{kindLabel}</p>
+            <h4>{item.frontmatter.title}</h4>
             <p class="rl-meta">
-              Par {article.frontmatter.author} —{" "}
-              {new Date(article.frontmatter.publishedDate).toLocaleDateString(
+              {isFiches && item.frontmatter.level && (
+                <>
+                  <span class="rl-lvl">{item.frontmatter.level}</span>
+                  <span class="rl-dot" aria-hidden="true" />
+                </>
+              )}
+              Par {item.frontmatter.author} —{" "}
+              {new Date(item.frontmatter.publishedDate).toLocaleDateString(
                 "fr-FR",
               )}
             </p>
@@ -118,5 +145,15 @@ const related = articles
     color: var(--textColor);
     font-size: 0.72rem;
     margin: 0;
+  }
+  .rl-lvl {
+    color: var(--titleColor);
+  }
+  .rl-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: var(--radius-pill);
+    background: var(--textColor);
+    opacity: 0.6;
   }
 </style>

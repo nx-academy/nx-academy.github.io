@@ -16,12 +16,6 @@ level: Débutant
 publishedDate: 03/07/2026
 ---
 
-<article>
-
-# Comment débuter avec Pygame ?
-
-![Un développeur devant de nombreux écrans, pixel art](/images/cheatsheets/developpeur-devant-ecrans.webp)
-
 Si vous avez lu [mon bilan](/articles/review-nx-2025) ou mes
 [projets pour 2026](/articles/projets-pour-2026), vous avez peut-être remarqué
 que je n'en avais pas parlé. Et pourtant, depuis octobre 2025, je code des jeux
@@ -300,4 +294,3 @@ instructions d'installation pour macOS, Linux et Windows.
 - [Game Programming Patterns — Bob Nystrom](https://gameprogrammingpatterns.com/game-loop.html)
 - [Code the Classics — Raspberry Pi Foundation](https://codeclassics.raspberrypi.com/)
 
-</article>

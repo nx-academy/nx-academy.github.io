@@ -17,12 +17,6 @@ level: Intermédiaire
 publishedDate: 11/30/2024
 ---
 
-<article>
-
-# Utilisation du composant "next/image" avec Storybook et TypeScript 📕🛠️📘
-
-![Un ingénieur travaillant sur le pontage de pipeline en extérieur, pixel art](/images/cheatsheets/ingenieur-pontage-pipeline.webp)
-
 ## Problématique 🚨
 
 Lorsque j'ai débuté un projet NextJS avec TypeScript et Storybook, j'ai très
