@@ -18,17 +18,17 @@ const NowNoteFeed = defineTable({
   columns: {
     id: column.number({
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     }),
     content: column.text(),
-    published: column.date()
-  }
-})
+    published: column.date(),
+  },
+});
 
 // https://astro.build/db/config
 export default defineDb({
   tables: {
     NewsFeed,
-    NowNoteFeed
+    NowNoteFeed,
   },
 });

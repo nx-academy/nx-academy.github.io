@@ -1,4 +1,4 @@
 export type Now = {
-    content: string;
-    published: Date;
+  content: string;
+  published: Date;
 };

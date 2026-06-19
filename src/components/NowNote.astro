@@ -1,18 +1,14 @@
 ---
-import type { Now } from "../types/Now"
+import type { Now } from "../types/Now";
 interface Props {
   href?: string;
-  nowContent: Now
+  nowContent: Now;
 }
 
 const {
   href = "https://github.com/nx-academy",
-  nowContent: {
-    content,
-    published
-  }
-} =
-  Astro.props;
+  nowContent: { content, published },
+} = Astro.props;
 ---
 
 <section class="carnet" aria-label="En ce moment">
