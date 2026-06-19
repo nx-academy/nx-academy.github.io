@@ -168,7 +168,10 @@ const breadCrumbs: Breadcrumb[] = [
 
         {
           isArticle && (
-            <p class="article-signoff author">Bonne lecture. — {author}</p>
+            <>
+              <ShareButtons title={title} />
+              <p class="article-signoff author">Bonne lecture, {author}</p>
+            </>
           )
         }
         <Faq items={faq} />
@@ -177,7 +180,6 @@ const breadCrumbs: Breadcrumb[] = [
             <>
               <AuthorCard author={author} />
               <RelatedArticles currentUrl={currentUrl} />
-              <ShareButtons title={title} />
             </>
           )
         }
@@ -363,6 +365,10 @@ const breadCrumbs: Breadcrumb[] = [
       display: block;
       position: sticky;
       top: 88px;
+      background: var(--backgroundColorSecondary);
+      border: 1px solid var(--borderPrimary);
+      border-radius: var(--radius-md);
+      padding: 22px 22px 20px;
     }
   }
 </style>
