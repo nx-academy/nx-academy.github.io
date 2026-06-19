@@ -5,8 +5,8 @@ export default async function seed() {
   await db.insert(NowNoteFeed).values([
     {
       id: 1,
-      content: "This is a nice first test",
-      published: new Date("2025-07-29"),
+      content: " Je continue à tester les limites de l'intégration entre Claude Design et Claude Code et je m'amuse avec PICO-8 côté jeux vidéos. ",
+      published: new Date("2026-06-19"),
     }
   ])
 

@@ -22,7 +22,7 @@ const {
   </div>
   <p>{content}</p>
   <div class="carnet-foot">
-    <span class="upd">Mis à jour le {published}</span>
+    <span class="upd">Mis à jour le {published.toLocaleDateString("FR")}</span>
     <a href={href} target="_blank" rel="noopener noreferrer">
       Suivre sur GitHub →
     </a>
