@@ -1,13 +1,17 @@
 ---
-// "En ce moment" — note perso de Thomas, en haut du rail.
-// Contenu en dur pour l'instant ; à brancher plus tard sur la base Turso DB
-// (modélisé comme un seul objet { text, updatedAt, href }).
+import type { Now } from "../types/Now"
 interface Props {
   href?: string;
-  updatedAt?: string;
+  nowContent: Now
 }
 
-const { href = "https://github.com/nx-academy", updatedAt = "05/06/2026" } =
+const {
+  href = "https://github.com/nx-academy",
+  nowContent: {
+    content,
+    published
+  }
+} =
   Astro.props;
 ---
 
@@ -16,13 +20,9 @@ const { href = "https://github.com/nx-academy", updatedAt = "05/06/2026" } =
     <span class="dot"></span>
     <span class="carnet-title">En ce moment</span>
   </div>
-  <p>
-    Je prends en main <b>Claude Design</b> et <b>Claude Code</b> pour de bon, et
-    je continue à développer des <b>jeux vidéo</b> dans mon coin — une fiche dédiée
-    arrive bientôt.
-  </p>
+  <p>{content}</p>
   <div class="carnet-foot">
-    <span class="upd">Mis à jour le {updatedAt}</span>
+    <span class="upd">Mis à jour le {published}</span>
     <a href={href} target="_blank" rel="noopener noreferrer">
       Suivre sur GitHub →
     </a>

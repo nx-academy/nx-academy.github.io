@@ -1,5 +1,5 @@
 ---
-import { db, NewsFeed, desc } from "astro:db";
+import { db, NewsFeed, NowNoteFeed, desc } from "astro:db";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -47,6 +47,12 @@ const newsFeed = await db
   .orderBy(desc(NewsFeed.id))
   .limit(3);
 
+const nowNoteFeed = await db
+  .select()
+  .from(NowNoteFeed)
+  .orderBy(desc(NowNoteFeed.id))
+  .limit(1);
+
 // Parcours "Commence par là" : présentation → activité récente → pratique.
 // Le récap pointe vers le plus récent pour rester à jour automatiquement.
 const latestRecap = articles
@@ -61,14 +67,14 @@ const startHereItems = [
   {
     num: "01",
     title: "Le manifeste",
-    why: "Comprendre NX : la vision, et pourquoi tout est gratuit et open-source.",
+    why: "Comprendre NX : la vision et pourquoi tout est gratuit et open-source.",
     tag: "Manifeste",
     href: "/manifeste",
   },
   {
     num: "02",
     title: "Le récap du mois",
-    why: "Voir ce qui bouge en ce moment, et où en est le projet.",
+    why: "Voir ce qui bouge en ce moment et où en est le projet.",
     tag: "Article",
     href: latestRecap?.url ?? "/articles",
   },
@@ -129,7 +135,7 @@ const startHereItems = [
         </div>
       </section>
       <section class="feed-section">
-        <NowNote />
+        <NowNote nowContent={nowNoteFeed[0]} />
         <Feed newsFeed={newsFeed} />
       </section>
     </section>
