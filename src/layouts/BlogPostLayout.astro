@@ -54,6 +54,24 @@ const formattedDate = publishedDate
   : "";
 const currentUrl = Astro.url.pathname;
 
+// Le kicker « À la une » n'est affiché que sur le dernier article publié ;
+// les autres articles affichent seulement leur `kind` (ex. « Articles »).
+const normalize = (path: string) => path.replace(/\/+$/, "");
+const allArticles = Object.values(
+  import.meta.glob("../pages/articles/*.md", { eager: true }),
+) as { frontmatter: { draft?: boolean; publishedDate: string }; url?: string }[];
+const latest = allArticles
+  .filter((article) => !article.frontmatter.draft && article.url)
+  .sort(
+    (a, b) =>
+      new Date(b.frontmatter.publishedDate).getTime() -
+      new Date(a.frontmatter.publishedDate).getTime(),
+  )[0];
+const isLatest = Boolean(
+  latest && latest.url && normalize(latest.url) === normalize(currentUrl),
+);
+const kicker = isLatest ? `À la une · ${kind}` : kind;
+
 // JSON-LD FAQPage genere a partir du frontmatter (cf. composant Faq).
 const schemas: Record<string, unknown>[] = [];
 if (faq && faq.length > 0) {
@@ -96,11 +114,11 @@ const breadCrumbs: Breadcrumb[] = [
 
   <main class="main-wrapper" class:list={[{ "is-article": isArticle }]}>
     <section>
-      <article class:list={[{ prose: isArticle }]} data-prose={isArticle ? "" : null}>
+      <article class:list={[{ "article-col": isArticle }]}>
         {
           isArticle && (
             <header class="article-head">
-              <p class="kicker">À la une · {kind}</p>
+              <p class="kicker">{kicker}</p>
               <h1 class="article-title">{title}</h1>
               {description && <p class="lead">{description}</p>}
               <div class="byline">
@@ -138,7 +156,15 @@ const breadCrumbs: Breadcrumb[] = [
           )
         }
 
-        <slot />
+        {
+          isArticle ? (
+            <div class="prose" data-prose>
+              <slot />
+            </div>
+          ) : (
+            <slot />
+          )
+        }
 
         {
           isArticle && (
@@ -183,12 +209,11 @@ const breadCrumbs: Breadcrumb[] = [
       display: grid;
       grid-template-columns: minmax(0, 1fr) 320px;
       gap: 56px;
-      align-items: start;
     }
   }
 
   /* Fond papier pointillé (repris de la maquette V3) sur la colonne article */
-  main.is-article .prose {
+  main.is-article .article-col {
     background-image: radial-gradient(
       color-mix(in srgb, var(--borderPrimary) 65%, transparent) 1px,
       transparent 1px
