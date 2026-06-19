@@ -70,15 +70,10 @@
   color: var(--articleLinkColor);
   text-decoration: none;
   font-weight: 500;
-  border-bottom: 1px solid
-    color-mix(in srgb, var(--articleLinkColor) 35%, transparent);
-  transition:
-    color var(--transition),
-    border-color var(--transition);
+  transition: color var(--transition);
 }
 .prose a:hover {
   color: var(--articleLinkHoverColor);
-  border-color: var(--articleLinkHoverColor);
 }
 .prose ul {
   margin: 0 0 1.6rem;
