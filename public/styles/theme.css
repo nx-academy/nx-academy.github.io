@@ -1,3 +1,26 @@
+/* Tokens partagés, constants quel que soit le thème (rayons, layout, motion,
+   polices). Les couleurs restent pilotées par thème ci-dessous. */
+:root {
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  --container-max: 1100px;
+  --container-width: 90%;
+
+  --transition: 0.4s ease;
+  --transition-fast: 0.3s ease;
+
+  --font-display: "Pixelify Sans", sans-serif;
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-body: "Inter Variable", sans-serif;
+  --font-mono: ui-monospace, Menlo, Consolas, "Liberation Mono", monospace;
+
+  --fs-brand: 1.4rem;
+  --fs-xs: 0.72rem;
+}
+
 /* By default, NX is in dark mode */
 :root {
   --backgroundColorPrimary: #151515;

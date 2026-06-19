@@ -15,12 +15,6 @@ level: Débutant
 publishedDate: 08/22/2024
 ---
 
-<article>
-
-# Comprendre le mot clef "this"
-
-![Deux personnes dans une cuisine séparée, pixel art](/images/cheatsheets/scene-duo-ambiance.webp)
-
 J'ai récemment été confronté à l'utilisation du mot clé this
 [dans un cours sur le JavaScript sur Udemy](https://www.udemy.com/course/pro-javascript/).
 Le cours proposait de réaliser un jeu de Puissance 4 en programmation orienté
@@ -493,4 +487,3 @@ compréhension de ce petit mot si crucial !
 - [Articles JavaScript - GeeksforGeeks](https://www.geeksforgeeks.org/)
 - [Guide sur `this` et l'orientation objet - JavaScript.info](https://javascript.info/object-methods#method-this)
 - [Tutoriels JavaScript - Dyma](https://dyma.fr/cours/javascript)
-</article>

@@ -17,12 +17,6 @@ level: Intermédiaire
 publishedDate: 06/06/2025
 ---
 
-<article>
-
-# Qu'est-ce qu'un registry Docker?
-
-![Une installation portuaire où un bateau est en train d'être déchargé de ses conteneurs, pixel art](/images/cheatsheets/registry-docker.webp)
-
 On continue notre série dédiée à Docker avec les registries Docker. Je me suis
 rendu compte que j'avais abordé ce concept dans le cours sans vraiment faire un
 chapitre dédié. Cette fiche technique est l'occasion de revenir sur cette notion
@@ -321,5 +315,3 @@ avez bien compris ce qu'on vient de voir.
 - [Docker push – Référence CLI](https://docs.docker.com/reference/cli/docker/image/push/)
 - [Docker tag – Référence CLI](https://docs.docker.com/reference/cli/docker/image/tag/)
 - [Configurer un registry privé Docker](https://devopssec.fr/article/deployer-manipuler-securiser-un-serveur-registry-docker-prive)
-
-</article>

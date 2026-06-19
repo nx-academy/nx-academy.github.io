@@ -16,12 +16,6 @@ draft: false
 publishedDate: 05/31/2025
 ---
 
-# Le récap #2 - Mai 2025
-
-<img src="/images/articles/kiosque-journaux.webp" alt="Un vendeur de journaux dans un kiosque parisien, pixel art" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block; object-position: top" />
-
-<br>
-
 ## My Experience with Next.js Why It's Bad (And Getting Worse)
 
 <small>Bharathvaj Ganesan</small>

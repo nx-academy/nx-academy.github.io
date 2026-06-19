@@ -16,12 +16,6 @@ author: Thomas
 publishedDate: 07/17/2024
 ---
 
-<article>
-
-# Comprendre la fonction CSS Clamp
-
-![Quelqu'un mesurant un salon avec un mètre, pixel art](/images/cheatsheets/homme-mesure-salon.webp)
-
 J'ai récemment travaillé sur un projet
 [dans le cadre du parcours "Building Responsive Layouts"](https://www.frontendmentor.io/learning-paths/building-responsive-layouts--z1qCXVqkD)
 de Frontend Mentor. Comme tous les parcours de Frontend Mentor, celui-ci inclut
@@ -171,5 +165,3 @@ projets :).
 - [Modern Fluid Typography Using CSS Clamp](https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/)
 - [CSS math functions min(), max() and clamp()](https://caniuse.com/css-math-functions)
 - [An accessible fluid type generator](https://fluid.style/type?min=1&max=1.125&min-bp=2&max-bp=90&unit=%22rem%22)
-
-</article>

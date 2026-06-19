@@ -17,12 +17,6 @@ draft: false
 publishedDate: 07/25/2025
 ---
 
-# Le récap #4 - Juillet 2025
-
-<img src="/images/articles/kiosque-journaux.webp" alt="Un vendeur de journaux dans un kiosque parisien, pixel art" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block; object-position: top" />
-
-<br>
-
 ## ECMAScript 2025 : ce qui arrive bientôt en JavaScript
 
 <small>Axel Rauschmayer</small>

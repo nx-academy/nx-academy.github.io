@@ -17,6 +17,12 @@ author: Thomas
 draft: true
 publishedDate: 06/17/2026
 
+tags:
+  - Game dev
+  - PICO-8
+  - Carnet de bord
+  - Rétro
+
 faq:
   - question: PICO-8 est-il gratuit ?
     answer:
@@ -38,11 +44,6 @@ faq:
       devenus des jeux complets : Celeste, par exemple, a démarré comme un jeu
       PICO-8 avant sa version commerciale."
 ---
-
-# Découvrir PICO-8, la fantasy console pour créer des jeux
-
-![PICO-8, la fantasy console pour créer des jeux rétro, illustration pixel
-art](/images/articles/decouvrir-pico-8.webp)
 
 ## Comment j’ai découvert PICO-8 ?
 
@@ -281,6 +282,3 @@ commencent les plus belles histoires.
 - Le manuel officiel, qui couvre toute l'API ainsi que les fonctions des
   éditeurs intégrés :
   [le manuel PICO-8](https://www.lexaloffle.com/dl/docs/pico-8_manual.html).
-
-<br>
-<span class="author">Thomas</span>

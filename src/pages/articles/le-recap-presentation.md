@@ -18,10 +18,6 @@ draft: false
 publishedDate: 04/25/2025
 ---
 
-# Facilitez votre veille technologique avec Le Recap
-
-<img src="/images/articles/scene-journalistes-journal.webp" alt="Une scène de rédaction dans un journal, des journalises sont occupés à écrire des articles, pixel art" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block; object-position: top" />
-
 Décidément, en ce moment, NX est bien vivant !
 
 Après plusieurs mois d’hibernation (six, pour être honnête mais, hein, c’était

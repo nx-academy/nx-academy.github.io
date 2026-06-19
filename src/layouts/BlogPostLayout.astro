@@ -15,16 +15,24 @@ interface Props {
     description?: string;
     imgSrc?: string;
     imgAlt?: string;
+    kind?: string;
     author?: string;
     publishedDate?: string;
+    tags?: string[];
     faq?: FaqItem[];
   };
   headings: Heading[];
 }
 
+import "../styles/article-content.css";
+
 import BaseLayout from "./BaseLayout.astro";
 import StickyOutline from "../components/StickyOutline.astro";
+import EditorialHeader from "../components/EditorialHeader.astro";
 import Faq from "../components/Faq.astro";
+import AuthorCard from "../components/AuthorCard.astro";
+import RelatedContent from "../components/RelatedContent.astro";
+import ShareButtons from "../components/ShareButtons.astro";
 
 const {
   frontmatter: {
@@ -32,12 +40,43 @@ const {
     description,
     imgSrc,
     imgAlt,
+    kind,
     author,
     publishedDate,
+    tags,
     faq,
   },
   headings,
 } = Astro.props;
+
+// L'en-tête éditorial et les blocs de fin ne s'appliquent qu'aux vrais articles
+// (tous ont `kind`). Les pages sans `kind` (ex. le manifeste) gardent leur rendu.
+const isArticle = Boolean(kind);
+const formattedDate = publishedDate
+  ? new Date(publishedDate).toLocaleDateString("fr-FR")
+  : "";
+const currentUrl = Astro.url.pathname;
+
+// Le kicker « À la une » n'est affiché que sur le dernier article publié ;
+// les autres articles affichent seulement leur `kind` (ex. « Articles »).
+const normalize = (path: string) => path.replace(/\/+$/, "");
+const allArticles = Object.values(
+  import.meta.glob("../pages/articles/*.md", { eager: true }),
+) as {
+  frontmatter: { draft?: boolean; publishedDate: string };
+  url?: string;
+}[];
+const latest = allArticles
+  .filter((article) => !article.frontmatter.draft && article.url)
+  .sort(
+    (a, b) =>
+      new Date(b.frontmatter.publishedDate).getTime() -
+      new Date(a.frontmatter.publishedDate).getTime(),
+  )[0];
+const isLatest = Boolean(
+  latest && latest.url && normalize(latest.url) === normalize(currentUrl),
+);
+const kicker = isLatest ? `À la une · ${kind}` : kind;
 
 // JSON-LD FAQPage genere a partir du frontmatter (cf. composant Faq).
 const schemas: Record<string, unknown>[] = [];
@@ -77,16 +116,63 @@ const breadCrumbs: Breadcrumb[] = [
     : breadCrumbs}
   schemas={schemas}
 >
-  <main class="main-wrapper">
+  {isArticle && <div class="nx-progress-top" data-progress />}
+
+  <main class="main-wrapper" class:list={[{ "is-article": isArticle }]}>
     <section>
-      <article>
-        <slot />
+      <article class:list={[{ "article-col": isArticle }]}>
+        {
+          isArticle && (
+            <EditorialHeader
+              kicker={kicker}
+              title={title}
+              description={description}
+              author={author}
+              formattedDate={formattedDate}
+              chips={tags}
+              imgSrc={imgSrc}
+              imgAlt={imgAlt}
+            />
+          )
+        }
+
+        {
+          isArticle ? (
+            <div class="prose" data-prose>
+              <slot />
+            </div>
+          ) : (
+            <slot />
+          )
+        }
+
+        {
+          isArticle && (
+            <>
+              <ShareButtons title={title} />
+              <p class="article-signoff">Bonne lecture, {author}</p>
+            </>
+          )
+        }
         <Faq items={faq} />
+        {
+          isArticle && (
+            <>
+              <AuthorCard author={author} />
+              <RelatedContent currentUrl={currentUrl} source="articles" />
+            </>
+          )
+        }
       </article>
     </section>
     <aside>
       <div class="aside-wrapper">
-        <StickyOutline headings={headings} pageType="fiche" />
+        <StickyOutline
+          headings={headings}
+          pageType="article"
+          numbered={isArticle}
+          progress={isArticle}
+        />
       </div>
     </aside>
   </main>
@@ -96,88 +182,93 @@ const breadCrumbs: Breadcrumb[] = [
   main {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-    width: 90%;
-    max-width: 1100px;
+    width: var(--container-width);
+    max-width: var(--container-max);
     margin-left: auto;
     margin-right: auto;
 
     @media screen and (min-width: 1024px) {
       display: grid;
-      grid-template-columns: 65% 35%;
-      gap: 64px;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 56px;
     }
+  }
+
+  /* Fond papier pointillé (repris de la maquette V3) sur la colonne article */
+  main.is-article .article-col {
+    background-image: radial-gradient(
+      color-mix(in srgb, var(--borderPrimary) 65%, transparent) 1px,
+      transparent 1px
+    );
+    background-size: 24px 24px;
+    background-position: -2px -2px;
   }
 
   .aside-wrapper {
     display: none;
 
     @media screen and (min-width: 1024px) {
-      background-color: var(--backgroundColorSecondary);
-      border-radius: 4px;
-      border: 1px solid var(--borderPrimary);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       display: block;
-      padding: 24px;
       position: sticky;
-      top: 24px;
+      top: 88px;
+      background: var(--backgroundColorSecondary);
+      border: 1px solid var(--borderPrimary);
+      border-radius: var(--radius-md);
+      padding: 22px 22px 20px;
     }
   }
 </style>
 
 <style is:global>
-  h1 {
+  /* Styles génériques pour les pages non-article rendues par ce layout
+     (ex. le manifeste, sans `kind`). Le contenu d'article est, lui, stylé via
+     `.prose` (article-content.css). */
+  article:not(.article-col) h1 {
     font-size: clamp(2.5rem, 0.75rem + 1.5vw, 4rem);
     margin-top: 0;
     margin-bottom: 1rem;
     color: var(--titleColor);
   }
 
-  h2 {
+  article:not(.article-col) h2 {
     font-size: 1.75rem;
     margin-bottom: 1rem;
     color: var(--titleColor);
   }
 
-  img {
+  article:not(.article-col) img {
     width: 100%;
     margin-bottom: 1rem;
     border-radius: 8px;
   }
 
-  p {
+  article:not(.article-col) p {
     margin-bottom: 1.5rem;
     color: var(--textColor);
     font-size: clamp(0.875rem, 0.75rem + 1.5vw, 1.125rem);
   }
 
-  hr {
-    color: var(--borderPrimary);
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  a {
-    text-decoration: none;
-    color: var(--articleLinkColor);
-    font-weight: 500;
-    transition: 0.4s color;
-
-    &:hover {
-      color: var(--articleLinkHoverColor);
-    }
-  }
-
-  ul {
+  article:not(.article-col) ul {
     color: var(--textColor);
     margin-bottom: 2.5rem;
   }
 
-  li {
+  article:not(.article-col) li {
     color: var(--textColor);
     font-size: clamp(0.875rem, 0.75rem + 1.5vw, 1.125rem);
   }
 
-  blockquote {
+  article:not(.article-col) a {
+    text-decoration: none;
+    color: var(--articleLinkColor);
+    font-weight: 500;
+    transition: 0.4s color;
+  }
+  article:not(.article-col) a:hover {
+    color: var(--articleLinkHoverColor);
+  }
+
+  article:not(.article-col) blockquote {
     margin-top: 2rem;
     margin-bottom: 2rem;
     padding-left: 2rem;
@@ -203,5 +294,8 @@ const breadCrumbs: Breadcrumb[] = [
 
 <script>
   import handleReadingTime from "../utils/estimateReadingTime";
+  import initArticleEnhancements from "../utils/articleEnhancements";
+
   handleReadingTime();
+  initArticleEnhancements();
 </script>

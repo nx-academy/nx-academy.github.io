@@ -15,10 +15,6 @@ draft: false
 publishedDate: 08/24/2024
 ---
 
-# Découvrez les fiches techniques
-
-![Quelqu'un assis dans un jardin au printemps, pixel art](/images/articles/triche-classe-exam.webp)
-
 ## La recherche du bon format
 
 Depuis l'annonce de la nouvelle version de NX, j'ai été un peu avare en
@@ -131,5 +127,3 @@ N'hésitez surtout pas à nous faire un retour via GitHub -
 permettra d'ouvrir une issue sur notre repository GitHub.
 
 ---
-
-Bonne lecture. <br> <span class="author">Thomas</span>

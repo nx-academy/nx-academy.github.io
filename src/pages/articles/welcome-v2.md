@@ -15,10 +15,6 @@ draft: false
 publishedDate: 03/21/2024
 ---
 
-# Bienvenue sur la V2
-
-![Quelqu'un assis dans un jardin au printemps, pixel art](/images/articles/jardin-printemps.webp)
-
 ## Comme un parfum de printemps.
 
 Il y a maintenant un an (**edit d'avril 2025 : ça fait maintenant 2 ans !**), je
@@ -121,4 +117,3 @@ remontent.
 ---
 
 Bienvenue sur la nouvelle version de <span class="brand-name">NX Academy</span>.
-<br> <span class="author">Thomas</span>

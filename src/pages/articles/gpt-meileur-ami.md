@@ -16,10 +16,6 @@ draft: false
 publishedDate: 02/09/2025
 ---
 
-# ChatGPT devient son meilleur ami, découvrez pourquoi
-
-![Un adolescent discutant dans sa chambre avec une IA, pixel art](/images/articles/ado-dialogue-ia.webp)
-
 Avouez-le, le titre de cet article vous a donné envie de cliquer ! Vous vous
 êtes sûrement dit : Quoi ? Mais comment peut-on lâcher ses amis pour ChatGPT ?
 

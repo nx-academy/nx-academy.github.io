@@ -15,10 +15,6 @@ draft: false
 publishedDate: 01/25/2025
 ---
 
-# On fait le bilan ?
-
-![Des personnes faisant une réunion dans une salle, pixel art](/images/articles/reunion-point.webp)
-
 Bonne année 2025 à toutes et à tous ! Oui, je sais, on est déjà à la fin du mois
 de janvier, mais comme on dit : _il n’est jamais trop tard pour bien faire_. Et
 quoi de mieux que ce début d’année pour prendre un peu de recul, faire le point
@@ -176,6 +172,3 @@ Un grand merci pour votre soutien tout au long de cette aventure avec NX.
 
 On se retrouve très bientôt avec un nouvel article (allez, cette fois, on y
 croit vraiment !). En attendant, prenez soin de vous et surtout… codez bien !
-
-<br>
-<span class="author">Thomas</span>

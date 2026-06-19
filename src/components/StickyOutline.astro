@@ -8,28 +8,54 @@ type Heading = {
 interface Props {
   headings: Heading[];
   pageType: string;
+  numbered?: boolean;
+  progress?: boolean;
 }
 
 import Heading3 from "./Heading3.astro";
 
-const { headings, pageType } = Astro.props;
+const { headings, pageType, numbered = false, progress = false } = Astro.props;
 
 const sectionsHeading = headings.filter((heading) => heading.depth === 2);
+const NSEG = 12;
 ---
 
-<div class="wrapper" data-page={pageType}>
+<div
+  class="wrapper"
+  data-page={pageType}
+  class:list={[{ numbered, "with-progress": progress }]}
+>
   <Heading3 content="Contenu" />
   <ul class="sections-heading">
     {
-      sectionsHeading.map((heading) => (
+      sectionsHeading.map((heading, index) => (
         <li>
           <a class="section-link" href={`#${heading.slug}`}>
-            {heading.text}
+            {numbered && (
+              <span class="oi-num">{String(index + 1).padStart(2, "0")}</span>
+            )}
+            <span class="oi-label">{heading.text}</span>
           </a>
         </li>
       ))
     }
   </ul>
+
+  {
+    progress && (
+      <div class="outline-progress">
+        <div class="op-head">
+          <span>Progression</span>
+          <span class="outline-pct">0%</span>
+        </div>
+        <div class="outline-segs">
+          {Array.from({ length: NSEG }).map(() => (
+            <span class="outline-seg" />
+          ))}
+        </div>
+      </div>
+    )
+  }
 </div>
 
 <style>
@@ -56,6 +82,79 @@ const sectionsHeading = headings.filter((heading) => heading.depth === 2);
   .active {
     color: var(--linkHoverColor);
   }
+
+  /* --- Variante article : entrées numérotées + état actif à filet gauche --- */
+  .numbered .sections-heading li {
+    margin-bottom: 0;
+  }
+  .numbered .section-link {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    padding: 7px 0 7px 12px;
+    border-left: 2px solid transparent;
+    margin-left: -2px;
+    font-size: 0.9rem;
+    line-height: 1.35;
+    transition:
+      color var(--transition),
+      border-color var(--transition);
+  }
+  .numbered .section-link.active {
+    color: var(--linkHoverColor);
+    border-left-color: var(--buttonColorPrimary);
+  }
+  .numbered .oi-num {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    opacity: 0.6;
+    min-width: 18px;
+  }
+
+  /* --- Barre de progression à segments (reprise de la maquette V4) -------- */
+  .outline-progress {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--borderPrimary);
+  }
+  .op-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--textColor);
+  }
+  .outline-pct {
+    color: var(--titleColor);
+  }
+  .outline-segs {
+    display: flex;
+    gap: 3px;
+  }
+  .outline-seg {
+    flex: 1;
+    height: 10px;
+    border-radius: 2px;
+    background: color-mix(
+      in srgb,
+      var(--backgroundColorPrimary) 70%,
+      transparent
+    );
+    border: 1px solid var(--borderPrimary);
+    transition:
+      background var(--transition),
+      box-shadow var(--transition);
+  }
+  .outline-seg.on {
+    background: var(--buttonColorPrimary);
+    border-color: var(--buttonColorPrimary);
+    box-shadow: 0 0 8px
+      color-mix(in srgb, var(--buttonColorPrimary) 50%, transparent);
+  }
 </style>
 
 <script>
@@ -63,7 +162,15 @@ const sectionsHeading = headings.filter((heading) => heading.depth === 2);
   const $sectionLinks = document.querySelectorAll(".section-link");
   const $pageType = (
     document.querySelector(".wrapper") as HTMLDivElement
-  ).getAttribute("data-page");
+  )?.getAttribute("data-page");
+
+  // Offset de défilement sous le header sticky selon le type de page.
+  const scrollOffset =
+    $pageType === "cours"
+      ? 500
+      : $pageType === "article" || $pageType === "fiche"
+        ? 88
+        : 0;
 
   function scrollToTitle() {
     $sectionLinks.forEach((link) => {
@@ -77,29 +184,28 @@ const sectionsHeading = headings.filter((heading) => heading.depth === 2);
         if (target) {
           const top = target.getBoundingClientRect().top + window.scrollY;
 
-          // cours contents have an image at the beginning of each section
-          const offset = $pageType === "cours" ? 500 : 0;
-
           window.scrollTo({
-            top: top - offset,
+            top: top - scrollOffset,
             behavior: "smooth",
           });
+
+          history.replaceState(null, "", href);
         }
       });
     });
   }
 
   function onScroll() {
-    let closestSection = null;
+    let closestSection: HTMLElement | null = null;
     let minDistance = Infinity;
 
     $sectionsTitle.forEach((section) => {
       const rect = section.getBoundingClientRect();
-      const distance = Math.abs(rect.top);
+      const distance = Math.abs(rect.top - 110);
 
-      if (rect.top <= window.innerHeight && distance < minDistance) {
+      if (rect.top - 200 <= 0 && distance < minDistance) {
         minDistance = distance;
-        closestSection = section;
+        closestSection = section as HTMLElement;
       }
     });
 
@@ -117,11 +223,10 @@ const sectionsHeading = headings.filter((heading) => heading.depth === 2);
     }
   }
 
-  window.addEventListener("scroll", function () {
-    onScroll();
-  });
-
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
   window.addEventListener("DOMContentLoaded", function () {
     scrollToTitle();
+    onScroll();
   });
 </script>

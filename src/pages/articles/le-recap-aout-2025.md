@@ -17,12 +17,6 @@ draft: false
 publishedDate: 08/29/2025
 ---
 
-# Le récap #5 - Août 2025
-
-<img src="/images/articles/kiosque-journaux.webp" alt="Un vendeur de journaux dans un kiosque parisien, pixel art" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block; object-position: top" />
-
-<br>
-
 ## Foot, athlétisme ou ménage : les images des premiers Jeux mondiaux d’humanoïdes
 
 <small>Courrier international</small>

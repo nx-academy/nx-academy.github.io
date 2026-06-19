@@ -14,15 +14,9 @@ imgSrc: /images/cheatsheets/asynchrone-js.webp
 
 author: Lionel
 kind: Fiche technique
-level: Intémediaire
+level: Intermédiaire
 publishedDate: 09/15/2024
 ---
-
-<article>
-
-# Comprendre l'Asynchrone en JavaScript 🚀
-
-![Une personne multitâche au bureau avec un symbole de boucle infinie, pixel art](/images/cheatsheets/asynchrone-js.webp)
 
 ## JavaScript est-il asynchrone ? ⏱️
 
@@ -205,5 +199,3 @@ les pizzas et le code fluide ! 🍕💻
 - [Différences entre les callbacks, les promises et async/await - Blog de Flavio Copes](https://flaviocopes.com/javascript-async-await/)
 - [JavaScript: The Good Parts - Eloquent JavaScript (Chapitre sur les Promises)](https://eloquentjavascript.net/11_async.html)
 - [Exploration de l'Event Loop avec des exemples interactifs - Loupe](http://latentflip.com/loupe/)
-
- </article>

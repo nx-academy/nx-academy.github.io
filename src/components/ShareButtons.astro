@@ -1,0 +1,121 @@
+---
+interface Props {
+  title?: string;
+}
+
+const { title = "" } = Astro.props;
+---
+
+<section class="art-share" data-share-title={title}>
+  <span class="sh-label">Partager</span>
+
+  <a
+    class="sh-btn"
+    data-share="linkedin"
+    href="#"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Partager sur LinkedIn"
+  >
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path
+        d="M18.72 4H5.37A1.37 1.37 0 0 0 4 5.25v13.38A1.37 1.37 0 0 0 5.37 20h13.35A1.3 1.3 0 0 0 20 18.63V5.25A1.31 1.31 0 0 0 18.72 4ZM9 17.34H6.67v-7.13H9ZM7.89 9.13A1.35 1.35 0 1 1 9.13 7.9a1.29 1.29 0 0 1-1.24 1.23Zm9.45 8.21H15v-3.9c0-.93-.33-1.57-1.16-1.57a1.25 1.25 0 0 0-1.17.84 1.6 1.6 0 0 0-.08.56v4.07h-2.3v-7.13h2.3v1a2.3 2.3 0 0 1 2.1-1.15c1.51 0 2.65 1 2.65 3.13Z"
+      ></path>
+    </svg>
+  </a>
+
+  <button
+    class="sh-btn"
+    type="button"
+    data-share="copy"
+    aria-label="Copier le lien de l'article"
+  >
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+      ></path>
+      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+      ></path>
+    </svg>
+  </button>
+</section>
+
+<style>
+  .art-share {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 2.4rem;
+  }
+  .sh-label {
+    font-size: 0.85rem;
+    color: var(--textColor);
+    margin-right: 0.3rem;
+  }
+  .sh-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--borderPrimary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--linkColor);
+    background: transparent;
+    cursor: pointer;
+    transition:
+      color var(--transition),
+      border-color var(--transition);
+  }
+  .sh-btn svg {
+    width: 17px;
+    height: 17px;
+  }
+  .sh-btn:hover,
+  .sh-btn.copied {
+    color: var(--linkHoverColor);
+    border-color: var(--linkHoverColor);
+  }
+</style>
+
+<script>
+  const section = document.querySelector<HTMLElement>(".art-share");
+  if (section) {
+    const url = window.location.href;
+    const title = section.getAttribute("data-share-title") ?? "";
+
+    const linkedin = section.querySelector<HTMLAnchorElement>(
+      '[data-share="linkedin"]',
+    );
+    if (linkedin) {
+      linkedin.href = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+    }
+
+    const copyBtn = section.querySelector<HTMLButtonElement>(
+      '[data-share="copy"]',
+    );
+    if (copyBtn) {
+      copyBtn.addEventListener("click", () => {
+        if (!navigator.clipboard) return;
+        navigator.clipboard.writeText(url).then(() => {
+          copyBtn.classList.add("copied");
+          copyBtn.setAttribute("aria-label", "Lien copié ✓");
+          setTimeout(() => {
+            copyBtn.classList.remove("copied");
+            copyBtn.setAttribute("aria-label", "Copier le lien de l'article");
+          }, 1600);
+        });
+      });
+    }
+
+    // `title` est réservé pour de futurs réseaux (X, Bluesky…).
+    void title;
+  }
+</script>
