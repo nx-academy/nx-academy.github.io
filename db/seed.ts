@@ -1,7 +1,16 @@
-import { db, NewsFeed } from "astro:db";
+import { db, NewsFeed, NowNoteFeed } from "astro:db";
 
 // https://astro.build/db/seed
 export default async function seed() {
+  await db.insert(NowNoteFeed).values([
+    {
+      id: 1,
+      content:
+        " Je continue à tester les limites de l'intégration entre Claude Design et Claude Code et je m'amuse avec PICO-8 côté jeux vidéos. ",
+      published: new Date("2026-06-19"),
+    },
+  ]);
+
   await db.insert(NewsFeed).values([
     {
       id: 1,
