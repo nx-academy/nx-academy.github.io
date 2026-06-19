@@ -1,0 +1,94 @@
+---
+import Button from "./Button.astro";
+
+interface Props {
+  author?: string;
+}
+
+const { author = "Thomas" } = Astro.props;
+---
+
+<aside class="art-author">
+  <img class="aa-avatar" src="/logo-mark.png" alt="" />
+  <div class="aa-body">
+    <p class="aa-eyebrow">L'auteur</p>
+    <h4>{author}</h4>
+    <p class="aa-bio">
+      Créateur de NX Academy. J'écris sur le développement, le jeu vidéo et les
+      outils qui me passionnent — entre carnets de bord et fiches pratiques.
+    </p>
+    <div class="aa-links">
+      <span class="aa-btn">
+        <Button
+          label="Suivre sur GitHub"
+          type="primary"
+          href="https://github.com/nx-academy"
+          external
+        />
+      </span>
+      <span class="aa-btn">
+        <Button label="Voir tous les articles" type="ghost" href="/articles" />
+      </span>
+    </div>
+  </div>
+</aside>
+
+<style>
+  .art-author {
+    display: flex;
+    gap: 1.3rem;
+    align-items: flex-start;
+    background: var(--backgroundColorSecondary);
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-lg);
+    padding: 1.6rem 1.8rem;
+    margin-top: 2.8rem;
+  }
+  .aa-avatar {
+    width: 64px;
+    height: 64px;
+    flex: 0 0 auto;
+    image-rendering: pixelated;
+    border-radius: 12px;
+    background: var(--backgroundColorPrimary);
+    padding: 6px;
+    border: 1px solid var(--borderPrimary);
+    margin: 0;
+  }
+  .aa-body {
+    flex: 1;
+  }
+  .aa-eyebrow {
+    color: var(--accent);
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0 0 0.3rem;
+  }
+  .aa-body h4 {
+    font-family: var(--font-heading);
+    color: var(--titleColor);
+    font-size: 1.3rem;
+    margin: 0 0 0.5rem;
+  }
+  .aa-bio {
+    margin: 0 0 1rem;
+    color: var(--textColor);
+    line-height: 1.6;
+    font-size: 0.96rem;
+  }
+  .aa-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+  }
+  /* Le composant Button occupe 100 % ; on borne sa largeur dans la carte. */
+  .aa-btn {
+    display: inline-flex;
+  }
+  .aa-btn :global(a) {
+    width: auto;
+    font-size: 0.92rem;
+  }
+</style>

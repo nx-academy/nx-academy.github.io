@@ -15,11 +15,6 @@ draft: false
 publishedDate: 09/26/2025
 ---
 
-# Le récap #6 - Septembre 2025
-
-<img src="/images/articles/kiosque-journaux.webp" alt="Un vendeur de journaux dans un kiosque parisien, pixel art" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block; object-position: top" />
-
-<br>
 
 ## Aidez-nous à collecter 200 000 $ pour libérer JavaScript d'Oracle
 

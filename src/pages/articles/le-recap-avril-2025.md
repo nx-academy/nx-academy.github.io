@@ -15,12 +15,6 @@ draft: false
 publishedDate: 04/25/2025
 ---
 
-# Le récap #1 - Avril 2025
-
-<img src="/images/articles/kiosque-journaux.webp" alt="Un vendeur de journaux dans un kiosque parisien, pixel art" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block; object-position: top" />
-
-<br>
-
 ## Le lancement du récap sur NX
 
 <small>Par NX Academy</small>

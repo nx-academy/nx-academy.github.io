@@ -1,0 +1,122 @@
+---
+import type { Article } from "../types/Article";
+
+interface Props {
+  currentUrl: string;
+  limit?: number;
+}
+
+const { currentUrl, limit = 3 } = Astro.props;
+
+const normalize = (path: string) => path.replace(/\/+$/, "");
+const current = normalize(currentUrl);
+
+// Sélection automatique : les derniers articles publiés, hors draft et hors
+// article courant. (À terme : recommandation par pertinence.)
+const articles = Object.values(
+  import.meta.glob("../pages/articles/*.md", { eager: true }),
+) as Article[];
+
+const related = articles
+  .filter(
+    (article) =>
+      !article.frontmatter.draft &&
+      article.url &&
+      normalize(article.url) !== current,
+  )
+  .sort(
+    (a, b) =>
+      new Date(b.frontmatter.publishedDate).getTime() -
+      new Date(a.frontmatter.publishedDate).getTime(),
+  )
+  .slice(0, limit);
+---
+
+{
+  related.length > 0 && (
+    <section class="art-related">
+      <h2 class="rl-head">À lire ensuite</h2>
+      <div class="rl-grid">
+        {related.map((article) => (
+          <a class="rl-card" href={article.url}>
+            <img
+              loading="lazy"
+              src={article.frontmatter.imgSrc}
+              alt={article.frontmatter.imgAlt}
+            />
+            <p class="rl-kind">Articles</p>
+            <h4>{article.frontmatter.title}</h4>
+            <p class="rl-meta">
+              Par {article.frontmatter.author} —{" "}
+              {new Date(article.frontmatter.publishedDate).toLocaleDateString(
+                "fr-FR",
+              )}
+            </p>
+          </a>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+<style>
+  .art-related {
+    margin-top: 2.8rem;
+  }
+  .rl-head {
+    font-family: var(--font-heading);
+    color: var(--titleColor);
+    font-size: 1.4rem;
+    margin: 0 0 1.3rem;
+  }
+  .rl-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+
+    @media screen and (min-width: 640px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .rl-card {
+    text-decoration: none;
+    display: grid;
+    gap: 0.45rem;
+    align-content: start;
+    color: var(--linkColor);
+  }
+  .rl-card img {
+    aspect-ratio: 1792 / 1024;
+    object-fit: cover;
+    object-position: top;
+    border-radius: var(--radius-lg);
+    width: 100%;
+    margin: 0;
+  }
+  .rl-kind {
+    color: var(--textColor);
+    font-size: 0.78rem;
+    margin: 0.3rem 0 0;
+  }
+  .rl-card h4 {
+    font-family: var(--font-heading);
+    color: var(--linkColor);
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1.25;
+    margin: 0;
+    transition: color var(--transition);
+  }
+  .rl-card:hover h4 {
+    color: var(--linkHoverColor);
+  }
+  .rl-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    color: var(--textColor);
+    font-size: 0.72rem;
+    margin: 0;
+  }
+</style>

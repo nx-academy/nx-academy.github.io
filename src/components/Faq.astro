@@ -1,5 +1,5 @@
 ---
-// Affiche une section "Questions fréquentes" visible sur la page.
+// Affiche une section "Questions fréquentes" en accordéon (<details>/<summary>).
 // Le contenu provient du frontmatter (champ `faq`) et alimente aussi le
 // JSON-LD FAQPage : on garde ainsi une source unique, et le schema reste
 // conforme aux regles de Google (le contenu balise doit etre visible).
@@ -12,24 +12,73 @@ const { items } = Astro.props;
 
 {
   items && items.length > 0 && (
-    <section class="faq">
+    <section class="art-faq">
       <h2>Questions fréquentes</h2>
       {items.map((item) => (
-        <div class="faq-item">
-          <h3>{item.question}</h3>
+        <details class="faq-item">
+          <summary>
+            <span>{item.question}</span>
+            <span class="faq-chev" aria-hidden="true" />
+          </summary>
           <p>{item.answer}</p>
-        </div>
+        </details>
       ))}
     </section>
   )
 }
 
 <style>
-  .faq {
-    margin-top: 2.5rem;
+  .art-faq {
+    margin-top: 2.8rem;
+    border-top: 1px solid var(--borderPrimary);
+    padding-top: 1.8rem;
   }
-
+  .art-faq h2 {
+    font-family: var(--font-heading);
+    color: var(--titleColor);
+    font-size: 1.5rem;
+    margin: 0 0 1.2rem;
+  }
   .faq-item {
-    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--borderPrimary);
+  }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    font-family: var(--font-heading);
+    font-weight: 500;
+    color: var(--titleColor);
+    font-size: 1.05rem;
+    transition: color var(--transition);
+  }
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-item summary:hover {
+    color: var(--linkHoverColor);
+  }
+  .faq-chev {
+    width: 11px;
+    height: 11px;
+    flex: 0 0 auto;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+    transition: transform var(--transition);
+    margin-right: 4px;
+  }
+  .faq-item[open] .faq-chev {
+    transform: rotate(-135deg);
+  }
+  .faq-item p {
+    margin: 0 0 1.1rem;
+    color: var(--textColor);
+    line-height: 1.65;
+    font-size: 1rem;
   }
 </style>

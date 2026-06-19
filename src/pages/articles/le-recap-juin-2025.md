@@ -17,12 +17,6 @@ draft: false
 publishedDate: 06/27/2025
 ---
 
-# Le récap #3 - Juin 2025
-
-<img src="/images/articles/kiosque-journaux.webp" alt="Un vendeur de journaux dans un kiosque parisien, pixel art" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block; object-position: top" />
-
-<br>
-
 ## No Server, No Database: Smarter Related Posts in Astro with `transformers.js`
 
 <small>Alexander Opalic</small>

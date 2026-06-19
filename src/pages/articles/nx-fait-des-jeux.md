@@ -15,10 +15,6 @@ draft: false
 publishedDate: 04/01/2026
 ---
 
-# Comment je suis tombé dans le développement de jeux vidéo
-
-![Un joueur en train jouer à un city builder, pixel art](/images/articles/city-builder-player.webp)
-
 ## NX Academy se met aux jeux vidéo
 
 Voilà un article qui est assez peu difficile à expliquer et à introduire. Non
@@ -143,5 +139,3 @@ liens vers le code ou la page Steam selon le cas. C'est un espace qui va
 Je publierai des mises à jour au fil du temps. Si vous avez des questions sur un
 projet, une curiosité technique ou envie d'échanger, vous pouvez me retrouver
 [sur LinkedIn](https://www.linkedin.com/in/thomas-dimnet-4114a4147/).
-
-Bonne exploration. <br> <span class="author">Thomas</span>

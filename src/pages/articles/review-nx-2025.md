@@ -15,10 +15,6 @@ draft: false
 publishedDate: 12/27/2025
 ---
 
-# Bilan de l'année 2025 de NX
-
-![Un développeur en train de coder un Père Noel, pixel art](/images/articles/dev-pere-noel.webp)
-
 Comme l’année dernière, j’ai décidé de profiter des fêtes de fin d’année pour
 dresser le bilan de NX en 2025. C’est un exercice auquel je vais essayer de me
 plier tous les ans. A la fois parce que je pense que ça peut être intéressant
@@ -144,6 +140,3 @@ Vu la densité de cette année, je préfère finalement prendre le temps d’éc
 article dédié à ce qui arrive en 2026.
 
 On se retrouve l’année prochaine.
-
-<br>
-<span class="author">Thomas</span>

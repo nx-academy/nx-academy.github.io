@@ -5,8 +5,11 @@ export type Article = {
     draft: boolean;
     imgAlt: string;
     imgSrc: string;
+    kind?: string;
     publishedDate: string;
     title: string;
+    tags?: string[];
+    faq?: { question: string; answer: string }[];
   };
   url: string;
 };

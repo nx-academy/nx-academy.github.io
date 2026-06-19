@@ -15,8 +15,10 @@ interface Props {
     description?: string;
     imgSrc?: string;
     imgAlt?: string;
+    kind?: string;
     author?: string;
     publishedDate?: string;
+    tags?: string[];
     faq?: FaqItem[];
   };
   headings: Heading[];
@@ -25,6 +27,9 @@ interface Props {
 import BaseLayout from "./BaseLayout.astro";
 import StickyOutline from "../components/StickyOutline.astro";
 import Faq from "../components/Faq.astro";
+import AuthorCard from "../components/AuthorCard.astro";
+import RelatedArticles from "../components/RelatedArticles.astro";
+import ShareButtons from "../components/ShareButtons.astro";
 
 const {
   frontmatter: {
@@ -32,12 +37,22 @@ const {
     description,
     imgSrc,
     imgAlt,
+    kind,
     author,
     publishedDate,
+    tags,
     faq,
   },
   headings,
 } = Astro.props;
+
+// L'en-tête éditorial et les blocs de fin ne s'appliquent qu'aux vrais articles
+// (tous ont `kind`). Les pages sans `kind` (ex. le manifeste) gardent leur rendu.
+const isArticle = Boolean(kind);
+const formattedDate = publishedDate
+  ? new Date(publishedDate).toLocaleDateString("fr-FR")
+  : "";
+const currentUrl = Astro.url.pathname;
 
 // JSON-LD FAQPage genere a partir du frontmatter (cf. composant Faq).
 const schemas: Record<string, unknown>[] = [];
@@ -77,16 +92,79 @@ const breadCrumbs: Breadcrumb[] = [
     : breadCrumbs}
   schemas={schemas}
 >
-  <main class="main-wrapper">
+  {isArticle && <div class="nx-progress-top" data-progress></div>}
+
+  <main class="main-wrapper" class:list={[{ "is-article": isArticle }]}>
     <section>
-      <article>
+      <article class:list={[{ prose: isArticle }]} data-prose={isArticle ? "" : null}>
+        {
+          isArticle && (
+            <header class="article-head">
+              <p class="kicker">À la une · {kind}</p>
+              <h1 class="article-title">{title}</h1>
+              {description && <p class="lead">{description}</p>}
+              <div class="byline">
+                <img class="byline-avatar" src="/logo-mark.png" alt="" />
+                <span class="byline-who">Par {author}</span>
+                <span class="byline-dot" aria-hidden="true" />
+                <span class="byline-date">le {formattedDate}</span>
+                <span class="reading-pill">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <circle cx="12" cy="12" r="9" />
+                    <path d="M12 7v5l3 2" />
+                  </svg>
+                  <b data-reading-min>—</b> de lecture
+                </span>
+              </div>
+              {tags && tags.length > 0 && (
+                <div class="tags">
+                  {tags.map((tag) => (
+                    <span class="chip">{tag}</span>
+                  ))}
+                </div>
+              )}
+              {imgSrc && (
+                <img class="hero" src={imgSrc} alt={imgAlt} />
+              )}
+            </header>
+          )
+        }
+
         <slot />
+
+        {
+          isArticle && (
+            <p class="article-signoff author">Bonne lecture. — {author}</p>
+          )
+        }
         <Faq items={faq} />
+        {
+          isArticle && (
+            <>
+              <AuthorCard author={author} />
+              <RelatedArticles currentUrl={currentUrl} />
+              <ShareButtons title={title} />
+            </>
+          )
+        }
       </article>
     </section>
     <aside>
       <div class="aside-wrapper">
-        <StickyOutline headings={headings} pageType="fiche" />
+        <StickyOutline
+          headings={headings}
+          pageType="article"
+          numbered={isArticle}
+          progress={isArticle}
+        />
       </div>
     </aside>
   </main>
@@ -96,36 +174,189 @@ const breadCrumbs: Breadcrumb[] = [
   main {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-    width: 90%;
-    max-width: 1100px;
+    width: var(--container-width);
+    max-width: var(--container-max);
     margin-left: auto;
     margin-right: auto;
 
     @media screen and (min-width: 1024px) {
       display: grid;
-      grid-template-columns: 65% 35%;
-      gap: 64px;
+      grid-template-columns: minmax(0, 1fr) 320px;
+      gap: 56px;
+      align-items: start;
     }
+  }
+
+  /* Fond papier pointillé (repris de la maquette V3) sur la colonne article */
+  main.is-article .prose {
+    background-image: radial-gradient(
+      color-mix(in srgb, var(--borderPrimary) 65%, transparent) 1px,
+      transparent 1px
+    );
+    background-size: 24px 24px;
+    background-position: -2px -2px;
+  }
+
+  /* --- Barre de progression fine (haut de page) --------------------------- */
+  .nx-progress-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    z-index: 200;
+    background: transparent;
+    pointer-events: none;
+  }
+  .nx-progress-top::after {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    transform: scaleX(var(--p, 0));
+    transform-origin: 0 50%;
+    background: var(--buttonColorPrimary);
+    transition: transform 0.08s linear;
+  }
+
+  /* --- En-tête éditorial -------------------------------------------------- */
+  .article-head {
+    margin-bottom: 0.4rem;
+  }
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--accent);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0 0 1rem;
+  }
+  .kicker::before {
+    content: "";
+    width: 22px;
+    height: 2px;
+    background: var(--accent);
+  }
+  .lead {
+    font-size: 1.2rem;
+    line-height: 1.55;
+    color: var(--textColor);
+    margin: 0 0 1.3rem;
+    max-width: 44ch;
+  }
+  .byline {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 0 0 1.2rem;
+  }
+  .byline-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: var(--radius-pill);
+    image-rendering: pixelated;
+    background: var(--backgroundColorSecondary);
+    border: 1px solid var(--borderPrimary);
+    padding: 3px;
+    margin: 0;
+  }
+  .byline-who {
+    color: var(--titleColor);
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+  .byline-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: var(--radius-pill);
+    background: var(--textColor);
+    opacity: 0.6;
+  }
+  .byline-date {
+    color: var(--textColor);
+    font-size: 0.88rem;
+  }
+  .reading-pill {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-pill);
+    padding: 5px 12px;
+    color: var(--textColor);
+    font-size: 0.82rem;
+  }
+  .reading-pill svg {
+    width: 14px;
+    height: 14px;
+  }
+  .reading-pill b {
+    color: var(--titleColor);
+    font-weight: 600;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 0 0 1.8rem;
+  }
+  .chip {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--buttonColorPrimary);
+    border: 1px solid var(--borderSecondary, var(--borderPrimary));
+    border-radius: var(--radius-sm);
+    padding: 3px 8px;
+  }
+  .hero {
+    aspect-ratio: 1792 / 1024;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+    border-radius: var(--radius-lg);
+    margin: 0 0 2.4rem;
+  }
+
+  .article-signoff {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--titleColor);
+    margin: 2rem 0 0;
   }
 
   .aside-wrapper {
     display: none;
 
     @media screen and (min-width: 1024px) {
-      background-color: var(--backgroundColorSecondary);
-      border-radius: 4px;
-      border: 1px solid var(--borderPrimary);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       display: block;
-      padding: 24px;
       position: sticky;
-      top: 24px;
+      top: 88px;
     }
   }
 </style>
 
 <style is:global>
-  h1 {
+  /* En-tête : le titre est rendu par le layout (.article-title). */
+  .article-title {
+    font-family: var(--font-heading);
+    color: var(--titleColor);
+    font-weight: 700;
+    font-size: clamp(2.1rem, 1.5rem + 2vw, 3rem);
+    line-height: 1.1;
+    margin: 0 0 1.1rem;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  /* h1 des pages non-article (ex. manifeste) : style historique conservé. */
+  article:not(.prose) h1 {
     font-size: clamp(2.5rem, 0.75rem + 1.5vw, 4rem);
     margin-top: 0;
     margin-bottom: 1rem;
@@ -144,16 +375,26 @@ const breadCrumbs: Breadcrumb[] = [
     border-radius: 8px;
   }
 
+  hr {
+    color: var(--borderPrimary);
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
   p {
     margin-bottom: 1.5rem;
     color: var(--textColor);
     font-size: clamp(0.875rem, 0.75rem + 1.5vw, 1.125rem);
   }
 
-  hr {
-    color: var(--borderPrimary);
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+  ul {
+    color: var(--textColor);
+    margin-bottom: 2.5rem;
+  }
+
+  li {
+    color: var(--textColor);
+    font-size: clamp(0.875rem, 0.75rem + 1.5vw, 1.125rem);
   }
 
   a {
@@ -165,16 +406,6 @@ const breadCrumbs: Breadcrumb[] = [
     &:hover {
       color: var(--articleLinkHoverColor);
     }
-  }
-
-  ul {
-    color: var(--textColor);
-    margin-bottom: 2.5rem;
-  }
-
-  li {
-    color: var(--textColor);
-    font-size: clamp(0.875rem, 0.75rem + 1.5vw, 1.125rem);
   }
 
   blockquote {
@@ -199,9 +430,176 @@ const breadCrumbs: Breadcrumb[] = [
     margin-bottom: 2.5rem;
     display: block;
   }
+
+  /* ======================================================================
+     Typographie de lecture des articles (.prose) — fidèle à la maquette V1+,
+     pilotée par les tokens du dépôt (compatible dark / light / summer).
+     ====================================================================== */
+  .prose h2 {
+    font-family: var(--font-heading);
+    color: var(--titleColor);
+    font-size: clamp(1.5rem, 1.2rem + 1vw, 1.9rem);
+    line-height: 1.2;
+    margin: 0 0 1.1rem;
+    scroll-margin-top: 88px;
+  }
+  .prose p {
+    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.12rem);
+    line-height: 1.7;
+    margin: 0 0 1.35rem;
+    color: var(--textColor);
+    text-wrap: pretty;
+  }
+  .prose p strong,
+  .prose li strong {
+    color: var(--titleColor);
+    font-weight: 600;
+  }
+  .prose a {
+    color: var(--articleLinkColor);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid
+      color-mix(in srgb, var(--articleLinkColor) 35%, transparent);
+    transition:
+      color var(--transition),
+      border-color var(--transition);
+  }
+  .prose a:hover {
+    color: var(--articleLinkHoverColor);
+    border-color: var(--articleLinkHoverColor);
+  }
+  .prose ul {
+    margin: 0 0 1.6rem;
+    padding-left: 1.1rem;
+  }
+  .prose li {
+    font-size: clamp(1rem, 0.95rem + 0.25vw, 1.12rem);
+    line-height: 1.65;
+    margin-bottom: 0.6rem;
+    color: var(--textColor);
+  }
+  .prose li::marker {
+    color: var(--buttonColorPrimary);
+  }
+  .prose em {
+    font-style: italic;
+  }
+
+  /* Code en ligne — remplissage néon plein (signature NX) */
+  .prose :not(pre) > code {
+    font-family: var(--font-mono);
+    background: var(--codeBackgroundColor);
+    color: var(--codeTextColor);
+    padding: 0.1em 0.4em;
+    border-radius: var(--radius-sm);
+    font-size: 0.88em;
+  }
+  /* Bloc de code */
+  .prose pre {
+    position: relative;
+    background: color-mix(
+      in srgb,
+      var(--backgroundColorSecondary) 55%,
+      var(--backgroundColorPrimary)
+    );
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-md);
+    padding: 18px 20px;
+    overflow: auto;
+    margin: 0 0 1.6rem;
+  }
+  .prose pre code {
+    font-family: var(--font-mono);
+    color: var(--titleColor);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    background: none;
+    padding: 0;
+    white-space: pre;
+  }
+
+  /* Citation en exergue (reprise de la maquette V2) */
+  .prose blockquote {
+    position: relative;
+    border-left: none;
+    margin: 2.4rem 0;
+    padding: 0.5rem 0 0.5rem 3rem;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    line-height: 1.42;
+    color: var(--titleColor);
+    font-style: normal;
+  }
+  .prose blockquote::before {
+    content: "\201C";
+    position: absolute;
+    left: -2px;
+    top: -0.5rem;
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .prose blockquote p {
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+  }
+
+  /* Bouton « copier » injecté dans les blocs de code */
+  .nx-copy {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    color: var(--textColor);
+    background: color-mix(
+      in srgb,
+      var(--backgroundColorPrimary) 80%,
+      transparent
+    );
+    border: 1px solid var(--borderPrimary);
+    border-radius: 6px;
+    padding: 4px 9px;
+    opacity: 0;
+    transition:
+      opacity var(--transition-fast),
+      color var(--transition-fast),
+      border-color var(--transition-fast);
+  }
+  .prose pre:hover .nx-copy,
+  .nx-copy:focus-visible {
+    opacity: 1;
+  }
+  .nx-copy:hover,
+  .nx-copy.copied {
+    color: var(--buttonColorPrimary);
+    border-color: var(--buttonColorPrimary);
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      scroll-behavior: auto !important;
+    }
+    .nx-progress-top::after {
+      transition: none;
+    }
+  }
 </style>
 
 <script>
   import handleReadingTime from "../utils/estimateReadingTime";
+  import initArticleEnhancements from "../utils/articleEnhancements";
+
   handleReadingTime();
+  initArticleEnhancements();
 </script>

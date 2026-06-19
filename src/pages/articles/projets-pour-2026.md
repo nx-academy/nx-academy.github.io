@@ -14,10 +14,6 @@ draft: false
 publishedDate: 01/01/2026
 ---
 
-# Quels projets pour NX en 2026 ?
-
-![Une bande de dévelloppeurs en train de jouer sur un télé, pixel art](/images/articles/dev-fetes-fin-annee.webp)
-
 Ça y est, nous sommes en 2026. Avant toute chose, **je vous souhaite une
 excellente année**. J’espère qu’elle sera à la hauteur de vos attentes, qu’elle
 vous apportera de la joie, et surtout du plaisir dans ce que vous ferez.
@@ -170,6 +166,3 @@ j’y aurai pris beaucoup de plaisir — et c’est probablement le plus importa
 pour moi.
 
 On se retrouve très bientôt !
-
-<br>
-<span class="author">Thomas</span>

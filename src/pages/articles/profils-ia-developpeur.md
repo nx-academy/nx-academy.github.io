@@ -18,10 +18,6 @@ draft: false
 publishedDate: 03/29/2025
 ---
 
-# Le Moine, le Vape Coder, le Debugger & le Learner
-
-<img src="/images/articles/quatre-hommes-pose.webp" alt="Un moine, un jeune avec une capuche, un bucheron et un adolescent posant sur une photo, pixel art" style="aspect-ratio: 1792 / 1024; object-fit: cover; width: 100%; display: block; object-position: top" />
-
 Vous vous êtes déjà demandé le type de développeur que vous étiez ? Par exemple,
 est-ce que vous êtes le genre de dev qui accorde plus d’importance à la
 lisibilité du code ? Ou selon vous, la performance doit toujours passer en
