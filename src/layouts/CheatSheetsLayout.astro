@@ -7,6 +7,9 @@ type Heading = {
   text: string;
 };
 
+type FaqItem = { question: string; answer: string };
+type HowToData = { name?: string; steps: { name: string; text: string }[] };
+
 interface Props {
   frontmatter: {
     title: string;
@@ -15,17 +18,55 @@ interface Props {
     imgAlt?: string;
     author?: string;
     publishedDate?: string;
+    faq?: FaqItem[];
+    howTo?: HowToData;
   };
   headings: Heading[];
 }
 
 import BaseLayout from "./BaseLayout.astro";
 import StickyOutline from "../components/StickyOutline.astro";
+import Faq from "../components/Faq.astro";
 
 const {
-  frontmatter: { title, description, imgSrc, imgAlt, author, publishedDate },
+  frontmatter: {
+    title,
+    description,
+    imgSrc,
+    imgAlt,
+    author,
+    publishedDate,
+    faq,
+    howTo,
+  },
   headings,
 } = Astro.props;
+
+// JSON-LD genere a partir du frontmatter : HowTo (tutoriels pas a pas) et
+// FAQPage (cf. composant Faq, dont le contenu reste visible sur la page).
+const schemas: Record<string, unknown>[] = [];
+if (howTo && howTo.steps.length > 0) {
+  schemas.push({
+    "@type": "HowTo",
+    name: howTo.name ?? title,
+    step: howTo.steps.map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+    })),
+  });
+}
+if (faq && faq.length > 0) {
+  schemas.push({
+    "@type": "FAQPage",
+    mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  });
+}
 
 const breadCrumbs: Breadcrumb[] = [
   {
@@ -48,10 +89,12 @@ const breadCrumbs: Breadcrumb[] = [
   pubDate={publishedDate}
   pageType="article"
   title={title}
+  schemas={schemas}
 >
   <main>
     <section>
       <slot />
+      <Faq items={faq} />
     </section>
     <aside>
       <div class="aside-wrapper">

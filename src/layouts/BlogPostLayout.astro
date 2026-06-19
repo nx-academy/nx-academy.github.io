@@ -7,6 +7,8 @@ type Heading = {
   text: string;
 };
 
+type FaqItem = { question: string; answer: string };
+
 interface Props {
   frontmatter: {
     title?: string;
@@ -15,17 +17,40 @@ interface Props {
     imgAlt?: string;
     author?: string;
     publishedDate?: string;
+    faq?: FaqItem[];
   };
   headings: Heading[];
 }
 
 import BaseLayout from "./BaseLayout.astro";
 import StickyOutline from "../components/StickyOutline.astro";
+import Faq from "../components/Faq.astro";
 
 const {
-  frontmatter: { title, description, imgSrc, imgAlt, author, publishedDate },
+  frontmatter: {
+    title,
+    description,
+    imgSrc,
+    imgAlt,
+    author,
+    publishedDate,
+    faq,
+  },
   headings,
 } = Astro.props;
+
+// JSON-LD FAQPage genere a partir du frontmatter (cf. composant Faq).
+const schemas: Record<string, unknown>[] = [];
+if (faq && faq.length > 0) {
+  schemas.push({
+    "@type": "FAQPage",
+    mainEntity: faq.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: { "@type": "Answer", text: item.answer },
+    })),
+  });
+}
 
 const breadCrumbs: Breadcrumb[] = [
   {
@@ -50,11 +75,13 @@ const breadCrumbs: Breadcrumb[] = [
   breadcrumbs={title === "Le manifeste" || title === "Changelog"
     ? []
     : breadCrumbs}
+  schemas={schemas}
 >
   <main class="main-wrapper">
     <section>
       <article>
         <slot />
+        <Faq items={faq} />
       </article>
     </section>
     <aside>

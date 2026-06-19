@@ -19,7 +19,7 @@ id: 3
 
 # Prenez en main les GitHub Actions
 
-![](/images/cours-ci-cd-github-actions/homme-lecture-livre.webp)
+![Homme lisant un livre dans un fauteuil près d'une bibliothèque, ambiance feutrée, pixel art](/images/cours-ci-cd-github-actions/homme-lecture-livre.webp)
 
 Avant de poursuivre la lecture de ce chapitre, veuillez vous mettre
 [sur la branche `partie-2/chapitre-1-debut`](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/tree/partie-2/chapitre-1-debut).
@@ -82,7 +82,7 @@ soyez pas surpris si vous voyez l’un ou l’autre.
 
 <br>
 
-![](/images/cours-ci-cd-github-actions/scene-famille-dictionnaire.webp)
+![Grand-père et enfant lisant ensemble un dictionnaire sur un canapé, pixel art](/images/cours-ci-cd-github-actions/scene-famille-dictionnaire.webp)
 
 ## Familiarisez-vous avec le vocabulaire
 
@@ -305,7 +305,7 @@ Je vous montrerais comment créer votre premier workflow.
 
 <br>
 
-![](/images/cours-ci-cd-github-actions/scene-construction-usine.webp)
+![Usine en construction dans un paysage verdoyant avec un bouton « BUILD », pixel art](/images/cours-ci-cd-github-actions/scene-construction-usine.webp)
 
 ## Créez un workflow simple
 
@@ -342,7 +342,7 @@ Maintenant que vous avez créé votre premier workflow, on va pouvoir s’intér
 
 <br>
 
-![](/images/misc/enfant-avion-papier.webp)
+![Enfant concentré pliant un avion en papier sur une table, pixel art](/images/misc/enfant-avion-papier.webp)
 
 ## Exercez-vous
 
@@ -363,7 +363,7 @@ partie-2/chapitre-1-fin.
 
 <br>
 
-![](/images/misc/vendeur-journaux.webp)
+![Jeune vendeur de journaux criant dans un porte-voix dans une rue, pixel art](/images/misc/vendeur-journaux.webp)
 
 ## Résumé
 

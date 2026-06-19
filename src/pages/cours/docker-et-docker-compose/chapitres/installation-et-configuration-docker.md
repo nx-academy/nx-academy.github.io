@@ -54,7 +54,7 @@ tiré du blog officiel de Docker.
 
 <br>
 
-![](/images/cours-docker-et-docker-compose/installation-logiciel.webp)
+![Personne devant un vieil ordinateur affichant une fenêtre "Installing software" avec une barre de progression, pixel art](/images/cours-docker-et-docker-compose/installation-logiciel.webp)
 
 ## Installez Docker Desktop sur macOS
 
@@ -76,7 +76,7 @@ l’image ayant le nom _hello-world_. Cette image est hébergée
 
 <br>
 
-![](/images/cours-docker-et-docker-compose/installation-logiciel.webp)
+![Personne devant un vieil ordinateur affichant une fenêtre "Installing software" avec une barre de progression, pixel art](/images/cours-docker-et-docker-compose/installation-logiciel.webp)
 
 ## Installez Docker Desktop sur Windows
 
@@ -96,7 +96,7 @@ l’image ayant le nom _hello-world_. Cette image est hébergée
 
 <br>
 
-![](/images/cours-docker-et-docker-compose/hacker-sombre.webp)
+![Silhouette encapuchonnée de dos devant trois écrans verts affichant du code et un écran de connexion, pixel art](/images/cours-docker-et-docker-compose/hacker-sombre.webp)
 
 ## Appréhendez la ligne de commande de Docker
 

@@ -125,7 +125,7 @@ function Component({ slug }) {
             </p>
             <p className="question">{quizData[questionNumber].question}</p>
             {isAnswerSubmit && (
-              <>
+              <div role="status" aria-live="polite">
                 {answer === quizData[questionNumber].answer ? (
                   <p className="explanation-title explanation-title-right">
                     Bonne réponse !
@@ -138,7 +138,7 @@ function Component({ slug }) {
                 <p className="explanation">
                   {quizData[questionNumber].explanation}
                 </p>
-              </>
+              </div>
             )}
           </div>
           <div className="options-container">
@@ -146,7 +146,17 @@ function Component({ slug }) {
               {quizData[questionNumber].options.map((option) => (
                 <li
                   className={`answer ${option === answer ? "active" : ""} ${answer === quizData[questionNumber].answer && option === answer && isAnswerSubmit ? "correct-answer" : ""} ${answer !== quizData[questionNumber].answer && option === answer && isAnswerSubmit ? "wrong-answer" : ""}`}
+                  role="button"
+                  tabIndex={isAnswerSubmit ? -1 : 0}
+                  aria-pressed={option === answer}
+                  aria-disabled={isAnswerSubmit}
                   onClick={() => onSelectAnswer(option)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      onSelectAnswer(option);
+                    }
+                  }}
                   key={option}
                 >
                   {option}
