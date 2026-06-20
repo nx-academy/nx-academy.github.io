@@ -61,8 +61,8 @@ fraises) est devenu le prototype du Celeste commercial sorti en 2018, l'un des
 platformers indé les plus acclamés de la décennie.
 
 C'est l'exemple parfait de ce que je raconte dans
-[mon article de découverte](/articles/decouvrir-pico-8) : PICO-8 comme tremplin. À
-[jouer absolument](https://maddymakesgamesinc.itch.io/celesteclassic), ne
+[mon article de découverte](/articles/decouvrir-pico-8) : PICO-8 comme tremplin.
+À [jouer absolument](https://maddymakesgamesinc.itch.io/celesteclassic), ne
 serait-ce que pour mesurer le chemin parcouru.
 
 ## 2. Celeste Classic 2 : Lani's Trek — la suite anniversaire

@@ -53,9 +53,9 @@ howTo:
 ---
 
 Si vous avez lu
-[mon article sur la découverte de PICO-8](/articles/decouvrir-pico-8), vous savez
-déjà pourquoi j'aime autant cet outil : tout est réuni au même endroit et on
-peut passer de l'idée au prototype jouable en une soirée.
+[mon article sur la découverte de PICO-8](/articles/decouvrir-pico-8), vous
+savez déjà pourquoi j'aime autant cet outil : tout est réuni au même endroit et
+on peut passer de l'idée au prototype jouable en une soirée.
 
 Cette fois, **on passe à la pratique**. L'objectif de cette fiche est simple : à
 la fin, vous saurez installer PICO-8, vous repérer dans son environnement, taper
