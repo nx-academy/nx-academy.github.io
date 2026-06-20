@@ -15,6 +15,11 @@ author: Thomas
 draft: true
 publishedDate: 06/17/2026
 
+tags:
+  - Game dev
+  - PICO-8
+  - Rétro
+
 faq:
   - question: Quel est le jeu PICO-8 le plus connu ?
     answer:
@@ -33,9 +38,7 @@ faq:
       parcourir les cartouches de la communauté."
 ---
 
-# Les 10 jeux PICO-8 les plus connus (et pourquoi ils sont cultes)
-
-Depuis que je me suis mis à [PICO-8](/drafts/decouvrir-pico-8), j'ai pris
+Depuis que je me suis mis à [PICO-8](/articles/decouvrir-pico-8), j'ai pris
 l'habitude de fouiller dans les cartouches des autres pour voir ce que la
 communauté arrive à faire tenir dans 128×128 pixels et 16 couleurs. Et
 croyez-moi, on tombe vite sur des pépites.
@@ -58,7 +61,7 @@ fraises) est devenu le prototype du Celeste commercial sorti en 2018, l'un des
 platformers indé les plus acclamés de la décennie.
 
 C'est l'exemple parfait de ce que je raconte dans
-[mon article de découverte](/drafts/decouvrir-pico-8) : PICO-8 comme tremplin. À
+[mon article de découverte](/articles/decouvrir-pico-8) : PICO-8 comme tremplin. À
 [jouer absolument](https://maddymakesgamesinc.itch.io/celesteclassic), ne
 serait-ce que pour mesurer le chemin parcouru.
 
@@ -153,7 +156,7 @@ console. Le [BBS officiel de Lexaloffle](https://www.lexaloffle.com/bbs/?cat=7)
 permet, lui, de jouer à tout ça dans le navigateur.
 
 Et si toutes ces pépites vous donnent envie de créer la vôtre, je vous invite à
-suivre le fil : [découvrez PICO-8](/drafts/decouvrir-pico-8), puis
+suivre le fil : [découvrez PICO-8](/articles/decouvrir-pico-8), puis
 [prenez l'outil en main](/drafts/prendre-en-main-pico-8) et lancez-vous avec
 [votre premier jeu simple](/drafts/premier-jeu-simple-pico-8). Si vous venez de
 Python, j'ai aussi comparé [PICO-8 et Pygame](/drafts/pico-8-ou-pygame) pour
@@ -169,6 +172,3 @@ Allez, à vous de jouer. Et codez bien !
   découvrir la console fantastique.
 - [Celeste Classic sur itch.io](https://maddymakesgamesinc.itch.io/celesteclassic)
   — le prototype qui a tout déclenché.
-
-<br>
-<span class="author">Thomas</span>

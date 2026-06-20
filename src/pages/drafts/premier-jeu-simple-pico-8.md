@@ -52,12 +52,6 @@ howTo:
       text: Affichez le score à l'écran avec la fonction print().
 ---
 
-<article>
-
-# Créer un premier jeu simple avec PICO-8
-
-![Un petit personnage pixel qui ramasse une pièce dorée à l'écran, pixel art](/images/cheatsheets/premier-jeu-simple-pico-8.webp)
-
 Dans la fiche précédente, on a vu
 [comment prendre en main PICO-8](/drafts/prendre-en-main-pico-8) : l'installer,
 naviguer entre les éditeurs et lancer une cartouche. Mais un cercle qui bouge
@@ -289,7 +283,7 @@ de pistes s'ouvrent pour vous entraîner :
 - faites **bouger la pièce** pour corser la difficulté.
 
 Si vous découvrez tout juste l'outil, (re)lisez d'abord
-[l'article de découverte de PICO-8](/drafts/decouvrir-pico-8) et la fiche
+[l'article de découverte de PICO-8](/articles/decouvrir-pico-8) et la fiche
 [prendre en main PICO-8](/drafts/prendre-en-main-pico-8). Et si vous venez
 plutôt de Python, jetez un œil à [ma fiche sur Pygame](/fiches/intro-a-pygame) :
 vous retrouverez exactement le même pattern update/draw.
@@ -302,5 +296,3 @@ vous retrouverez exactement le même pattern update/draw.
   gratuitement dans le navigateur.
 - [Site officiel de PICO-8](https://www.lexaloffle.com/pico-8.php) — la version
   complète de l'outil.
-
-</article>

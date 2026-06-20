@@ -52,14 +52,8 @@ howTo:
         votre travail.
 ---
 
-<article>
-
-# Comment prendre en main PICO-8 ?
-
-![Une console rétro posée sur un bureau avec un curseur clignotant, pixel art](/images/cheatsheets/prendre-en-main-pico-8.webp)
-
 Si vous avez lu
-[mon article sur la découverte de PICO-8](/drafts/decouvrir-pico-8), vous savez
+[mon article sur la découverte de PICO-8](/articles/decouvrir-pico-8), vous savez
 déjà pourquoi j'aime autant cet outil : tout est réuni au même endroit et on
 peut passer de l'idée au prototype jouable en une soirée.
 
@@ -232,5 +226,3 @@ y gère les entrées clavier, on affiche un score et on ramasse des objets.
   dans le navigateur.
 - [Le manuel officiel PICO-8](https://www.lexaloffle.com/dl/docs/pico-8_manual.html)
   — toute l'API et les éditeurs intégrés.
-
-</article>
