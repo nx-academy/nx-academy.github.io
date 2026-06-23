@@ -57,26 +57,33 @@ Si vous avez lu
 savez déjà pourquoi j'aime autant cet outil. Tout est réuni au même endroit et
 on peut passer de l'idée au prototype jouable en une soirée.
 
-Cette fois, **on va passer à la pratique**. L'objectif de cette fiche de vous aider à installer PICO-8 sur votre ordinateur, à vous repérer dans son environnement, taper les commandes essentielles et lancer votre toute première cartouche. Au final, ça fait déjà pas mal d'étapes pour une première fiche technique.
+Cette fois, **on va passer à la pratique**. L'objectif de cette fiche de vous
+aider à installer PICO-8 sur votre ordinateur, à vous repérer dans son
+environnement, taper les commandes essentielles et lancer votre toute première
+cartouche. Au final, ça fait déjà pas mal d'étapes pour une première fiche
+technique.
 
-Il n'y a pas besoin d'expérience en Game Dev. Si vous savez ce qu'est une variable et que vous savez installer un programme sur votre ordinateur, vous
+Il n'y a pas besoin d'expérience en Game Dev. Si vous savez ce qu'est une
+variable et que vous savez installer un programme sur votre ordinateur, vous
 avez largement de quoi suivre cette fiche.
 
 ---
 
 ## C'est quoi PICO-8, en une phrase ?
 
-PICO-8 est une _fantasy console_, autrement dit c'est un environnement tout-en-un qui regroupe
-un éditeur de code (en Lua), un éditeur de sprites, un éditeur de map et un
-éditeur de son. On se sert de cet environnement pour créer de "petits" jeux rétro et y jouer directement.
+PICO-8 est une _fantasy console_, autrement dit c'est un environnement
+tout-en-un qui regroupe un éditeur de code (en Lua), un éditeur de sprites, un
+éditeur de map et un éditeur de son. On se sert de cet environnement pour créer
+de "petits" jeux rétro et y jouer directement.
 
-Concrètement, vous n'installez qu'un seul logiciel. Pas de toolchain à
-installer et à configurer, pas de cinq programmes à faire dialoguer entre eux.
+Concrètement, vous n'installez qu'un seul logiciel. Pas de toolchain à installer
+et à configurer, pas de cinq programmes à faire dialoguer entre eux.
 
 ---
 
-
 ## Comment installer PICO-8 ?
+
+<br>
 
 ![L'écran d'accueil de PICO-8](/images/cheatsheets/pico8-accueil.webp)
 
@@ -85,23 +92,27 @@ vraiment.
 
 ### Option 1 : essayer gratuitement dans le navigateur
 
-
 Le plus rapide pour commencer sans rien dépenser, c'est l'**édition éducation**
 de PICO-8. C'est une version allégée, officielle, jouable directement dans le
-navigateur. Idéale pour suivre cette fiche sans installer quoi que ce soit. Au moment de craquer sur PICO-8, je ne l'avais pas essayé. J'ai pris le temps de le faire depuis et vraiment, ça fonctionne super bien.
+navigateur. Idéale pour suivre cette fiche sans installer quoi que ce soit. Au
+moment de craquer sur PICO-8, je ne l'avais pas essayé. J'ai pris le temps de le
+faire depuis et vraiment, ça fonctionne super bien.
 
-Rendez-vous sur [www.pico-8-edu.com](https://www.pico-8-edu.com) et vous avez
-la console sous les yeux en quelques secondes.
+Rendez-vous sur [www.pico-8-edu.com](https://www.pico-8-edu.com) et vous avez la
+console sous les yeux en quelques secondes.
 
 ### Option 2 : acheter la version complète
 
-Pour aller plus loin (export HTML, sauvegarde de cartouches en local et navigateur
-de jeux intégré), il faut la version payante, autour de **15 $** sur le
-[site officiel de Lexaloffle](https://www.lexaloffle.com/pico-8.php). Elle
-tourne sur Windows, Mac et Linux. J'ai vu qu'il y avait quelques petites tweaks à faire sur MacOS. Vous pouvez trouver plus d'informations [sur le forum officiel](https://www.lexaloffle.com/bbs/?tid=142395).
+Pour aller plus loin (export HTML, sauvegarde de cartouches en local et
+navigateur de jeux intégré), il faut la version payante, autour de **15 $** sur
+le [site officiel de Lexaloffle](https://www.lexaloffle.com/pico-8.php). Elle
+tourne sur Windows, Mac et Linux. J'ai vu qu'il y avait quelques petites tweaks
+à faire sur MacOS. Vous pouvez trouver plus d'informations
+[sur le forum officiel](https://www.lexaloffle.com/bbs/?tid=142395).
 
-C'est cette version que j'utilise chez moi. Elle tourne comme un charme sur mon ordinateur Windows. 
-Sachez que le reste de la fiche fonctionne avec les deux versions.
+C'est cette version que j'utilise chez moi. Elle tourne comme un charme sur mon
+ordinateur Windows. Sachez que le reste de la fiche fonctionne avec les deux
+versions.
 
 <br>
 
@@ -116,14 +127,26 @@ Sachez que le reste de la fiche fonctionne avec les deux versions.
 
 ## L'environnement : un shell et des éditeurs
 
+<br>
 
+![Le shell d'accueil de PICO-8](/images/cheatsheets/pico8-shell.webp)
 
-Au lancement, PICO-8 vous accueille sur un **shell** : une ligne de commande
-avec un curseur clignotant. C'est le point de départ de tout. C'est ici qu'on
-tape les commandes pour charger, lancer ou sauvegarder un jeu.
+Au lancement, PICO-8 vous accueille sur une ligne de commande avec un curseur
+clignotant. C'est ce qu'on appelle un **shell** et c'est le point de départ de
+tout. C'est ici qu'on tape les commandes pour charger, lancer ou sauvegarder un
+jeu.
 
-Derrière ce shell se cachent plusieurs **éditeurs**, qu'on atteint avec une
-seule touche. Pour basculer entre eux, on utilise les touches de fonction :
+C'est l'un des points auquels je m'attendais le moins quand j'ai commencé à
+travailler PICO-8. Avoir une ligne de commandes rend le tout plus geeky et puis
+intéressant. Vous pouvez taper la commande `help` pour connaître les commandes
+possibles.
+
+Pour revenir à notre shell, derrière cette interface en ligne de commande se
+cache plusieurs **éditeurs** avec lesquels on communique via la commande `ESC`.
+
+<br>
+
+Pour basculer entre eux, on utilise les touches de fonction :
 
 <br>
 
@@ -142,6 +165,8 @@ Pour passer d'un éditeur à l'autre, cliquez sur les onglets en haut à droite,
 utilisez les touches du clavier. Et pour revenir au shell à tout moment, c'est
 `ESC`.
 
+---
+
 ## Les commandes du shell à connaître
 
 Voici les quelques commandes qui couvrent 90 % de votre quotidien sur PICO-8.
@@ -151,6 +176,7 @@ Tapez-les directement dans le shell, puis `Entrée`.
 
 | **Commande**    | **Ce qu'elle fait**                                  |
 | --------------- | ---------------------------------------------------- |
+| `help`          | Pour afficher l'aide des commandes                   |
 | `run`           | Lance le jeu actuellement en mémoire                 |
 | `load nomdujeu` | Charge une cartouche (`.p8`) en mémoire              |
 | `save nomdujeu` | Sauvegarde la cartouche en mémoire sous ce nom       |
@@ -161,10 +187,16 @@ Tapez-les directement dans le shell, puis `Entrée`.
 <br>
 
 Le couple gagnant au démarrage, c'est `load` puis `run`. Pendant qu'un jeu
-tourne, appuyez sur `ESC` pour revenir à l'éditeur de code, et à nouveau `ESC`
+tourne, appuyez sur `ESC` pour revenir à l'éditeur de code et à nouveau `ESC`
 pour revenir au shell.
 
+---
+
 ## Le squelette d'un jeu : \_init, \_update, \_draw
+
+<br>
+
+![L'éditeur de code de PICO-8](/images/cheatsheets/pico8-editeur-de-code.webp)
 
 C'est le concept le plus important de toute cette fiche. Un jeu PICO-8 repose
 sur **trois fonctions** que vous définissez et que la console appelle pour vous.
@@ -200,7 +232,13 @@ La règle d'or à retenir : on sépare ce qui **change** (`_update`) de ce qui
 retrouve ailleurs en game dev, par exemple dans
 [ma fiche sur Pygame](/fiches/intro-a-pygame).
 
+---
+
 ## Lancer votre première cartouche
+
+![L'éditeur de code de PICO-8](/images/cheatsheets/pico8-premier-jeu.webp)
+
+<br>
 
 Mettons tout bout à bout. Voici la marche à suivre pour voir quelque chose
 bouger à l'écran :
@@ -218,9 +256,13 @@ Pour la sauvegarder, revenez au shell (`ESC`) et tapez `save mon-premier-jeu`.
 PICO-8 crée un fichier `mon-premier-jeu.p8` que vous pourrez recharger plus tard
 avec `load mon-premier-jeu`.
 
+---
+
+<br>
+
 ## Et ensuite ?
 
-Vous savez maintenant installer PICO-8, naviguer entre le shell et les éditeurs,
+Vous savez maintenant installer PICO-8, naviguer entre le shell et les éditeurs
 et lancer une cartouche. La prochaine étape logique, c'est de transformer ce
 cercle qui bouge tout seul en un vrai petit jeu où **vous** contrôlez l'action.
 
