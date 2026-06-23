@@ -15,6 +15,12 @@ author: Thomas
 draft: true
 publishedDate: 06/17/2026
 
+tags:
+  - Game dev
+  - PICO-8
+  - Pygame
+  - Python
+
 faq:
   - question: Vaut-il mieux commencer par PICO-8 ou Pygame ?
     answer:
@@ -32,11 +38,9 @@ faq:
       que l'on intègre à son propre environnement, sans contrainte imposée."
 ---
 
-# PICO-8 ou Pygame : quel outil pour créer votre premier jeu ?
-
 Depuis quelques mois, je code des jeux vidéo. J'ai commencé avec
 [Pygame](/fiches/intro-a-pygame) en Python, puis je suis tombé sur
-[PICO-8](/drafts/decouvrir-pico-8), une console fantastique qui m'a tout de
+[PICO-8](/articles/decouvrir-pico-8), une console fantastique qui m'a tout de
 suite séduit. Forcément, la question revient souvent quand j'en parle autour de
 moi : **par lequel commencer ?**
 
@@ -157,7 +161,7 @@ de l'autre.
 
 Quel que soit votre choix, j'ai de quoi vous lancer pas à pas :
 
-- Côté PICO-8 : [découvrir l'outil](/drafts/decouvrir-pico-8), puis
+- Côté PICO-8 : [découvrir l'outil](/articles/decouvrir-pico-8), puis
   [le prendre en main](/drafts/prendre-en-main-pico-8) et enfin
   [créer un premier jeu simple](/drafts/premier-jeu-simple-pico-8).
 - Côté Pygame : [comment bien débuter avec Pygame](/fiches/intro-a-pygame).
@@ -173,6 +177,3 @@ jeux. Alors lancez-vous, et codez bien !
   documentation et ses exemples.
 - [PICO-8 Education Edition](https://www.pico-8-edu.com) — pour tester PICO-8
   gratuitement dans le navigateur.
-
-<br>
-<span class="author">Thomas</span>

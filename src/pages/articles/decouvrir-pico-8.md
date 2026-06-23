@@ -14,7 +14,7 @@ imgSrc: /images/articles/decouvrir-pico-8.webp
 
 kind: Articles
 author: Thomas
-draft: true
+draft: false
 publishedDate: 06/17/2026
 
 tags:
