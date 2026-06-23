@@ -54,48 +54,54 @@ howTo:
 
 Si vous avez lu
 [mon article sur la découverte de PICO-8](/articles/decouvrir-pico-8), vous
-savez déjà pourquoi j'aime autant cet outil : tout est réuni au même endroit et
+savez déjà pourquoi j'aime autant cet outil. Tout est réuni au même endroit et
 on peut passer de l'idée au prototype jouable en une soirée.
 
-Cette fois, **on passe à la pratique**. L'objectif de cette fiche est simple : à
-la fin, vous saurez installer PICO-8, vous repérer dans son environnement, taper
-les commandes essentielles et lancer votre toute première cartouche.
+Cette fois, **on va passer à la pratique**. L'objectif de cette fiche de vous aider à installer PICO-8 sur votre ordinateur, à vous repérer dans son environnement, taper les commandes essentielles et lancer votre toute première cartouche. Au final, ça fait déjà pas mal d'étapes pour une première fiche technique.
 
-Pas besoin d'expérience en game dev. Si vous savez ce qu'est une variable, vous
-avez largement de quoi suivre.
+Il n'y a pas besoin d'expérience en Game Dev. Si vous savez ce qu'est une variable et que vous savez installer un programme sur votre ordinateur, vous
+avez largement de quoi suivre cette fiche.
+
+---
 
 ## C'est quoi PICO-8, en une phrase ?
 
-PICO-8 est une _console fantastique_ : un environnement tout-en-un qui regroupe
+PICO-8 est une _fantasy console_, autrement dit c'est un environnement tout-en-un qui regroupe
 un éditeur de code (en Lua), un éditeur de sprites, un éditeur de map et un
-éditeur de son, pour créer de petits jeux rétro et les jouer directement.
+éditeur de son. On se sert de cet environnement pour créer de "petits" jeux rétro et y jouer directement.
 
 Concrètement, vous n'installez qu'un seul logiciel. Pas de toolchain à
-configurer, pas de cinq programmes à faire dialoguer entre eux.
+installer et à configurer, pas de cinq programmes à faire dialoguer entre eux.
+
+---
+
 
 ## Comment installer PICO-8 ?
+
+![L'écran d'accueil de PICO-8](/images/cheatsheets/pico8-accueil.webp)
 
 Vous avez deux options selon que vous voulez juste tester ou vous lancer
 vraiment.
 
 ### Option 1 : essayer gratuitement dans le navigateur
 
+
 Le plus rapide pour commencer sans rien dépenser, c'est l'**édition éducation**
 de PICO-8. C'est une version allégée, officielle, jouable directement dans le
-navigateur. Idéale pour suivre cette fiche sans installer quoi que ce soit.
+navigateur. Idéale pour suivre cette fiche sans installer quoi que ce soit. Au moment de craquer sur PICO-8, je ne l'avais pas essayé. J'ai pris le temps de le faire depuis et vraiment, ça fonctionne super bien.
 
-Rendez-vous sur [www.pico-8-edu.com](https://www.pico-8-edu.com), et vous avez
+Rendez-vous sur [www.pico-8-edu.com](https://www.pico-8-edu.com) et vous avez
 la console sous les yeux en quelques secondes.
 
 ### Option 2 : acheter la version complète
 
-Pour aller plus loin (export HTML, sauvegarde de cartouches en local, navigateur
-de jeux intégré…), il faut la version payante, autour de **15 $** sur le
+Pour aller plus loin (export HTML, sauvegarde de cartouches en local et navigateur
+de jeux intégré), il faut la version payante, autour de **15 $** sur le
 [site officiel de Lexaloffle](https://www.lexaloffle.com/pico-8.php). Elle
-tourne sur Windows, Mac et Linux.
+tourne sur Windows, Mac et Linux. J'ai vu qu'il y avait quelques petites tweaks à faire sur MacOS. Vous pouvez trouver plus d'informations [sur le forum officiel](https://www.lexaloffle.com/bbs/?tid=142395).
 
-C'est celle que j'utilise. Le reste de la fiche fonctionne avec les deux
-versions.
+C'est cette version que j'utilise chez moi. Elle tourne comme un charme sur mon ordinateur Windows. 
+Sachez que le reste de la fiche fonctionne avec les deux versions.
 
 <br>
 
@@ -106,7 +112,11 @@ versions.
 | Exporter son jeu en HTML/binaire             | Version complète        |
 | Parcourir les jeux de la communauté (SPLORE) | Version complète        |
 
+---
+
 ## L'environnement : un shell et des éditeurs
+
+
 
 Au lancement, PICO-8 vous accueille sur un **shell** : une ligne de commande
 avec un curseur clignotant. C'est le point de départ de tout. C'est ici qu'on
