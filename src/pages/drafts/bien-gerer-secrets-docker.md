@@ -50,10 +50,10 @@ ENV DB_PASSWORD=super-mot-de-passe
 
 <br>
 
-Le problème ? **Ce mot de passe est gravé dans l'image, dans un layer.** N'importe
-qui ayant accès à l'image peut le récupérer avec une simple commande
-`docker history` ou `docker image inspect`. Et si vous poussez cette image sur un
-registry public, votre secret est exposé au monde entier.
+Le problème ? **Ce mot de passe est gravé dans l'image, dans un layer.**
+N'importe qui ayant accès à l'image peut le récupérer avec une simple commande
+`docker history` ou `docker image inspect`. Et si vous poussez cette image sur
+un registry public, votre secret est exposé au monde entier.
 
 ### Passer un secret via un ARG au build
 
@@ -200,11 +200,11 @@ moment du build.
 
 Trois méthodes, trois contextes. Voici comment choisir :
 
-| Méthode | Quand l'utiliser | Sécurité |
-|---|---|---|
-| **Variables d'environnement** | Projets simples, secrets peu sensibles | Correcte |
-| **Docker secrets** | Secrets sensibles à l'exécution, contexte Swarm | Bonne |
-| **Secrets BuildKit** | Secret nécessaire uniquement pendant le build | Bonne |
+| Méthode                       | Quand l'utiliser                                | Sécurité |
+| ----------------------------- | ----------------------------------------------- | -------- |
+| **Variables d'environnement** | Projets simples, secrets peu sensibles          | Correcte |
+| **Docker secrets**            | Secrets sensibles à l'exécution, contexte Swarm | Bonne    |
+| **Secrets BuildKit**          | Secret nécessaire uniquement pendant le build   | Bonne    |
 
 <br>
 

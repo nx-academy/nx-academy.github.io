@@ -146,14 +146,14 @@ service.
 
 Concrètement, peu importe la machine du cluster que vous contactez sur le port
 3000, votre requête est automatiquement redirigée vers une réplique disponible.
-Vous avez donc un **répartiteur de charge intégré**, sans rien installer de plus.
-C'est exactement ce qu'on cherche quand on veut tenir la charge.
+Vous avez donc un **répartiteur de charge intégré**, sans rien installer de
+plus. C'est exactement ce qu'on cherche quand on veut tenir la charge.
 
 ## Les rolling updates (et le rollback)
 
-Déployer une nouvelle version sans coupure de service, c'est natif avec Swarm. On
-parle de **rolling update** : Swarm remplace les répliques **une par une**, en
-s'assurant qu'il en reste toujours assez en ligne.
+Déployer une nouvelle version sans coupure de service, c'est natif avec Swarm.
+On parle de **rolling update** : Swarm remplace les répliques **une par une**,
+en s'assurant qu'il en reste toujours assez en ligne.
 
 ```bash
 docker service update --image mon-api:2.0.0 api
@@ -208,9 +208,8 @@ secrets:
 <br>
 
 Vous remarquerez qu'on réutilise ici tout ce qu'on a vu dans les fiches
-précédentes : un réseau
-[`overlay`](/fiches/bien-gerer-reseaux-docker/) pour faire communiquer les
-services entre machines, et un
+précédentes : un réseau [`overlay`](/fiches/bien-gerer-reseaux-docker/) pour
+faire communiquer les services entre machines, et un
 [secret](/fiches/bien-gerer-secrets-docker/) distribué de façon sécurisée par le
 cluster. Tout se déploie en une commande :
 
@@ -220,23 +219,23 @@ docker stack deploy -c docker-compose.yml mon-app
 
 <br>
 
-C'est exactement l'astuce qu'on évoquait dans la première fiche : le travail fait
-avec Compose se réutilise tel quel sur un cluster.
+C'est exactement l'astuce qu'on évoquait dans la première fiche : le travail
+fait avec Compose se réutilise tel quel sur un cluster.
 
 ## Les commandes Swarm à retenir
 
 Pour vous y retrouver, voici les commandes que vous taperez le plus souvent :
 
-| Commande | Rôle |
-|---|---|
-| `docker swarm init` | Initialiser un cluster (devient manager) |
-| `docker swarm join` | Rattacher une machine au cluster |
-| `docker node ls` | Lister les nodes du cluster |
-| `docker service create` | Créer un service |
-| `docker service ls` | Lister les services |
-| `docker service scale` | Ajuster le nombre de répliques |
+| Commande                | Rôle                                      |
+| ----------------------- | ----------------------------------------- |
+| `docker swarm init`     | Initialiser un cluster (devient manager)  |
+| `docker swarm join`     | Rattacher une machine au cluster          |
+| `docker node ls`        | Lister les nodes du cluster               |
+| `docker service create` | Créer un service                          |
+| `docker service ls`     | Lister les services                       |
+| `docker service scale`  | Ajuster le nombre de répliques            |
 | `docker service update` | Mettre à jour un service (rolling update) |
-| `docker stack deploy` | Déployer une stack depuis un compose |
+| `docker stack deploy`   | Déployer une stack depuis un compose      |
 
 <br>
 
@@ -258,15 +257,16 @@ deploy:
 
 <br>
 
-Ici, le service ne tournera **que sur des workers**, jamais sur un manager. C'est
-une bonne pratique pour garder vos managers dédiés à leur rôle d'orchestration.
+Ici, le service ne tournera **que sur des workers**, jamais sur un manager.
+C'est une bonne pratique pour garder vos managers dédiés à leur rôle
+d'orchestration.
 
 <hr>
 
 Et voilà, vous avez fait le tour de Docker Swarm ! Vous savez initialiser un
 cluster, déployer des services répliqués, les scaler, faire des mises à jour
-sans coupure et déployer une stack complète. C'est une porte d'entrée idéale vers
-l'orchestration, plus simple à prendre en main que Kubernetes.
+sans coupure et déployer une stack complète. C'est une porte d'entrée idéale
+vers l'orchestration, plus simple à prendre en main que Kubernetes.
 
 Cette fiche clôt la première vague de notre série Docker. La suite ? On
 continuera à explorer l'écosystème, avec peut-être un comparatif Swarm vs

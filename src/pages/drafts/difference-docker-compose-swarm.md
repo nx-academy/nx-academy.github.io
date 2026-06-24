@@ -18,10 +18,10 @@ level: Débutant
 publishedDate: 24/06/2026
 ---
 
-On démarre aujourd'hui une nouvelle série de fiches techniques dédiées à
-Docker. Après les volumes, les registries ou encore le multi-stage build, j'ai
-eu envie de revenir à un sujet plus fondamental, mais qui revient _tout le
-temps_ dans les questions qu'on me pose.
+On démarre aujourd'hui une nouvelle série de fiches techniques dédiées à Docker.
+Après les volumes, les registries ou encore le multi-stage build, j'ai eu envie
+de revenir à un sujet plus fondamental, mais qui revient _tout le temps_ dans
+les questions qu'on me pose.
 
 **Docker, Docker Compose, Docker Swarm : c'est quoi la différence ?**
 
@@ -51,8 +51,8 @@ Voici la façon la plus simple de se les représenter :
 <br>
 
 Vous pouvez les voir comme trois zooms successifs : on part d'un conteneur, puis
-d'une application complète sur un poste, puis d'une infrastructure distribuée sur
-un parc de serveurs. On va dérouler chacun de ces trois niveaux.
+d'une application complète sur un poste, puis d'une infrastructure distribuée
+sur un parc de serveurs. On va dérouler chacun de ces trois niveaux.
 
 ## Docker : faire tourner un conteneur
 
@@ -90,16 +90,16 @@ C'est parfait pour tester une image ou lancer un service isolé. Mais dès que
 votre application a besoin de plusieurs conteneurs (un serveur web, une base de
 données, un cache Redis…), ça se complique. Vous allez devoir lancer chaque
 conteneur à la main, gérer les ports, créer un réseau pour qu'ils communiquent,
-re-taper toutes ces commandes à chaque redémarrage… Bref, c'est vite
-ingérable.
+re-taper toutes ces commandes à chaque redémarrage… Bref, c'est vite ingérable.
 
 C'est exactement le problème que Docker Compose vient résoudre.
 
 ## Docker Compose : plusieurs conteneurs sur une machine
 
-Docker Compose permet de décrire **toute votre application dans un seul fichier**
-: le fameux `docker-compose.yml`. Au lieu de lancer vos conteneurs un par un,
-vous les déclarez une fois et vous démarrez le tout avec une seule commande.
+Docker Compose permet de décrire **toute votre application dans un seul
+fichier** : le fameux `docker-compose.yml`. Au lieu de lancer vos conteneurs un
+par un, vous les déclarez une fois et vous démarrez le tout avec une seule
+commande.
 
 <br>
 
@@ -191,8 +191,8 @@ Ce que Swarm apporte par rapport à Compose :
   automatiquement les conteneurs ailleurs ;
 - **le scaling** : besoin de plus de puissance ? Une commande suffit pour passer
   de 3 à 10 répliques ;
-- **les mises à jour progressives** (_rolling updates_) : on déploie une nouvelle
-  version sans coupure de service.
+- **les mises à jour progressives** (_rolling updates_) : on déploie une
+  nouvelle version sans coupure de service.
 
 <br>
 
@@ -204,14 +204,14 @@ et à maintenir.
 
 Pour y voir clair en un coup d'œil :
 
-| | Docker | Docker Compose | Docker Swarm |
-|---|---|---|---|
-| **Échelle** | 1 conteneur | Plusieurs conteneurs | Plusieurs machines |
-| **Fichier** | — (commandes) | `docker-compose.yml` | `docker-compose.yml` (stack) |
-| **Usage typique** | Test, service isolé | Dev local, petit serveur | Production, haute dispo |
-| **Répartition de charge** | ❌ | ❌ | ✅ |
-| **Tolérance aux pannes** | ❌ | ❌ | ✅ |
-| **Complexité** | Faible | Moyenne | Élevée |
+|                           | Docker              | Docker Compose           | Docker Swarm                 |
+| ------------------------- | ------------------- | ------------------------ | ---------------------------- |
+| **Échelle**               | 1 conteneur         | Plusieurs conteneurs     | Plusieurs machines           |
+| **Fichier**               | — (commandes)       | `docker-compose.yml`     | `docker-compose.yml` (stack) |
+| **Usage typique**         | Test, service isolé | Dev local, petit serveur | Production, haute dispo      |
+| **Répartition de charge** | ❌                  | ❌                       | ✅                           |
+| **Tolérance aux pannes**  | ❌                  | ❌                       | ✅                           |
+| **Complexité**            | Faible              | Moyenne                  | Élevée                       |
 
 ## Alors, lequel choisir ?
 

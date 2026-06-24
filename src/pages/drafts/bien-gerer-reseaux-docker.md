@@ -3,9 +3,9 @@ layout: ../../layouts/CheatSheetsLayout.astro
 
 title: "Comment bien gérer les réseaux Docker ?"
 description:
-  Bridge, host, overlay, réseaux personnalisés, DNS interne et isolation :
-  découvrez comment fonctionnent les réseaux Docker et comment faire
-  communiquer (ou cloisonner) vos conteneurs proprement.
+  "Bridge, host, overlay, réseaux personnalisés, DNS interne et isolation :
+  découvrez comment fonctionnent les réseaux Docker et comment faire communiquer
+  (ou cloisonner) vos conteneurs proprement."
 
 imgAlt:
   Un standard téléphonique vintage avec une opératrice qui branche des câbles,
@@ -24,14 +24,16 @@ on s'attaque à un sujet qu'on a tendance à survoler : **les réseaux Docker**.
 
 Dans
 [le chapitre réseau du cours](/cours/docker-et-docker-compose/chapitres/gestion-reseau-infrastructure),
-on a vu comment exposer un port avec `ports` et `expose`. Mais sous ce
-mécanisme se cache toute une mécanique : à chaque fois que vous lancez un
-conteneur, Docker le branche sur un **réseau**. Et selon le réseau choisi, vos
-conteneurs vont pouvoir se parler… ou pas.
+on a vu comment exposer un port avec `ports` et `expose`. Mais sous ce mécanisme
+se cache toute une mécanique : à chaque fois que vous lancez un conteneur,
+Docker le branche sur un **réseau**. Et selon le réseau choisi, vos conteneurs
+vont pouvoir se parler… ou pas.
 
 Dans cette fiche, on va voir quels sont les différents types de réseaux, comment
 les créer, et surtout comment faire communiquer proprement vos conteneurs entre
 eux.
+
+---
 
 ## Pourquoi Docker a besoin de réseaux ?
 
@@ -65,6 +67,8 @@ xxxxxxxxxxxx   none      none      local
 
 Ces trois-là correspondent aux trois drivers que vous croiserez le plus souvent.
 On va les passer en revue.
+
+---
 
 ## Les principaux drivers réseau
 
@@ -117,18 +121,20 @@ Swarm.
 
 Pour y voir clair en un coup d'œil :
 
-| Driver | Portée | Quand l'utiliser |
-|---|---|---|
-| **bridge** | Une machine | Cas par défaut : plusieurs conteneurs qui dialoguent sur un même hôte |
-| **host** | Une machine | Performance maximale, quand l'isolation réseau n'est pas nécessaire |
-| **none** | Une machine | Conteneur totalement isolé, sans aucun accès réseau |
-| **overlay** | Plusieurs machines | Communication entre services d'un cluster Swarm |
-| **macvlan** | Réseau physique | Donner une vraie IP du réseau local à un conteneur (cas avancé) |
+| Driver      | Portée             | Quand l'utiliser                                                      |
+| ----------- | ------------------ | --------------------------------------------------------------------- |
+| **bridge**  | Une machine        | Cas par défaut : plusieurs conteneurs qui dialoguent sur un même hôte |
+| **host**    | Une machine        | Performance maximale, quand l'isolation réseau n'est pas nécessaire   |
+| **none**    | Une machine        | Conteneur totalement isolé, sans aucun accès réseau                   |
+| **overlay** | Plusieurs machines | Communication entre services d'un cluster Swarm                       |
+| **macvlan** | Réseau physique    | Donner une vraie IP du réseau local à un conteneur (cas avancé)       |
 
 <br>
 
 Dans 90 % des cas en local comme sur un petit serveur, vous resterez sur du
 `bridge`. C'est pourquoi on va s'y attarder un peu plus.
+
+---
 
 ## Le réseau bridge par défaut n'est pas le meilleur
 
@@ -167,6 +173,8 @@ eux. Sur le réseau `bridge` par défaut, à l'inverse, tous les conteneurs se
 retrouvent mélangés sur le même réseau, ce qui est rarement ce que vous voulez.
 Bref, prenez l'habitude de toujours créer un réseau dédié à votre projet.
 
+---
+
 ## Les commandes réseau à connaître
 
 Quelques commandes utiles pour piloter tout ça au quotidien :
@@ -195,6 +203,8 @@ La commande `docker network inspect` est particulièrement précieuse pour
 debugger : elle vous montre exactement quels conteneurs sont branchés et avec
 quelles adresses.
 
+---
+
 ## Les réseaux en Docker Compose
 
 Bonne nouvelle : avec Docker Compose, tout ce travail est fait pour vous. Quand
@@ -217,6 +227,8 @@ services:
 
 Ici, pas besoin de déclarer quoi que ce soit : le DNS interne fonctionne tout
 seul parce que Compose utilise un réseau bridge personnalisé sous le capot.
+
+---
 
 ## Astuce bonus - Cloisonnez vos services avec plusieurs réseaux
 
@@ -271,8 +283,8 @@ Et voilà ! Les réseaux Docker n'ont (presque) plus de secret pour vous. Retene
 surtout deux choses : **créez toujours un réseau personnalisé** pour profiter du
 DNS interne, et **cloisonnez vos services** dès que la sécurité l'exige.
 
-Dans la prochaine fiche, on enchaînera justement sur un sujet voisin et
-sensible : **la gestion des secrets en Docker**. À très vite 😉.
+Dans la prochaine fiche, on enchaînera justement sur un sujet voisin et sensible
+: **la gestion des secrets en Docker**. À très vite 😉.
 
 D'ici là, je vous invite :
 
