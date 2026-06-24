@@ -1,0 +1,1290 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Le manifeste";
+const description =
+  "NX Academy, plateforme de cours en programmation et DevOps, gratuite et open source. Le manifeste de Thomas Dimnet : un contrat de confiance avec le lecteur.";
+
+const breadcrumbs = [{ pageName: "Accueil", pageUrl: "/" }];
+
+// Donnees structurees additionnelles, en plus de l'Organization et du fil
+// d'Ariane deja generes par le composant Seo.
+const ORG_ID = "https://nx.academy/#organization";
+const PERSON_ID = "https://nx.academy/#thomas-dimnet";
+
+const schemas = [
+  {
+    "@type": "AboutPage",
+    name: "Le manifeste — NX Academy",
+    description,
+    url: "https://nx.academy/manifeste",
+    inLanguage: "fr-FR",
+    isPartOf: { "@id": ORG_ID },
+    about: { "@id": ORG_ID },
+    mainEntity: { "@id": PERSON_ID },
+  },
+  {
+    "@type": "Person",
+    "@id": PERSON_ID,
+    name: "Thomas Dimnet",
+    jobTitle: "Créateur, développeur et professeur d'informatique",
+    description:
+      "Créateur, développeur et professeur, à l'origine de NX Academy.",
+    url: "https://nx.academy/manifeste",
+    worksFor: { "@id": ORG_ID },
+    sameAs: [
+      "https://www.linkedin.com/in/thomas-dimnet-4114a4147/",
+      "https://github.com/nx-academy",
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  breadcrumbs={breadcrumbs}
+  pageType="website"
+  author="Thomas Dimnet"
+  schemas={schemas}
+>
+  <main class="manifeste wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <img
+        class="mush"
+        src="/logo-mark.png"
+        width="88"
+        height="88"
+        alt="La mascotte champignon de NX Academy, en pixel art"
+        data-reveal
+      />
+      <div data-reveal class="d1">
+        <span class="kicker">Le manifeste · maj. juin 2026</span>
+      </div>
+      <h1 data-reveal class="d1">Bienvenue sur <em>NX Academy</em>.</h1>
+      <p class="lead d2" data-reveal>
+        Un <b>contrat de confiance</b> entre vous, lecteur, et moi. Voici ce
+        qu'est NX, pourquoi je le construis, et ce que vous y trouverez — sans
+        détour.
+      </p>
+
+      <div class="stats" data-reveal>
+        <div class="stat">
+          <div class="num" data-count="2">0</div>
+          <div class="lbl">cours complets</div>
+        </div>
+        <div class="stat">
+          <div class="num" data-count="30" data-suffix="+">0</div>
+          <div class="lbl">fiches &amp; articles</div>
+        </div>
+        <div class="stat">
+          <div class="num" data-count="100" data-suffix="%">0</div>
+          <div class="lbl">open source</div>
+        </div>
+        <div class="stat">
+          <div class="num"><small>0&nbsp;€</small></div>
+          <div class="lbl">pour toujours</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POURQUOI -->
+    <section class="blk">
+      <div class="head" data-reveal>
+        <p class="k">Pourquoi NX&nbsp;?</p>
+        <h2>Trois principes, jamais négociés.</h2>
+        <p>
+          Prof d'informatique et développeur, NX réunit mes deux passions. Mais
+          au fond, il tient à une idée simple&nbsp;: le partage libre du savoir —
+          ce principe fondateur du web qu'on a un peu laissé filer.
+        </p>
+      </div>
+      <div class="values">
+        <div class="vcard" data-reveal>
+          <div class="ic">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 2L2 7l10 5 10-5z"></path>
+              <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <h3>Gratuit &amp; open source</h3>
+          <p>
+            Tout est public — le site, les cours, les outils. Le code est ouvert,
+            lisible, réutilisable.
+          </p>
+          <p class="more">→ Pas de paywall. Le savoir circule.</p>
+        </div>
+        <div class="vcard d1" data-reveal>
+          <div class="ic">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M13 2L3 14h7l-1 8 10-12h-7z"></path>
+            </svg>
+          </div>
+          <h3>Léger &amp; accessible</h3>
+          <p>
+            Construit avec Astro, le moins de JavaScript possible. Rapide, sobre,
+            utilisable par le plus grand monde.
+          </p>
+          <p class="more">→ Perf &amp; accessibilité d'abord.</p>
+        </div>
+        <div class="vcard d2" data-reveal>
+          <div class="ic">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M22 10L12 5 2 10l10 5 10-5z"></path>
+              <path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5"></path>
+            </svg>
+          </div>
+          <h3>Pensé pour apprendre</h3>
+          <p>
+            Des supports clairs, cohérents avec la classe — pour s'entraîner,
+            approfondir et tester, à son rythme.
+          </p>
+          <p class="more">→ Concret, expliqué pas à pas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="blk">
+      <div class="head" data-reveal>
+        <p class="k">Il y a quoi sur NX&nbsp;?</p>
+        <h2>Le chemin de NX, étape par étape.</h2>
+        <p>
+          Je développe NX activement — pas toujours avec autant de temps que je
+          voudrais, mais l'envie ne manque pas. Voici où en est le projet,
+          honnêtement.
+        </p>
+      </div>
+      <div class="timeline" id="timeline">
+        <div class="spine"></div>
+        <div class="tnode live" data-reveal>
+          <div class="marker"><i></i></div>
+          <div class="card">
+            <div class="row">
+              <h3>Actuellement en ligne</h3>
+              <span class="nx-pill p-live"><span class="d"></span>Disponible</span
+              >
+            </div>
+            <ul>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg
+                ><b>Des <a href="/articles">articles</a></b> sur le métier de dev
+                — le marché, les technos, des sujets de fond.
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg
+                ><b>Des <a href="/fiches">fiches techniques</a></b>, entre la cheat
+                sheet et le cours condensé. Un concept par fiche.
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg
+                ><b>Deux cours complets</b> —
+                <a href="/cours/docker-et-docker-compose">Docker</a> et
+                <a href="/cours/ci-cd-github-actions">CI/CD GitHub Actions</a> (théorie,
+                pratique, projet fil rouge, screencasts).
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="tnode soon" data-reveal>
+          <div class="marker"><i></i></div>
+          <div class="card">
+            <div class="row">
+              <h3>En cours de release</h3>
+              <span class="nx-pill p-soon"><span class="d"></span>En cours</span>
+            </div>
+            <ul>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  ><path d="M12 2v6m0 8v6M2 12h6m8 0h6"></path></svg
+                ><b>Des <a href="/quiz">quiz</a></b> pour tester vos connaissances,
+                intégrés peu à peu aux chapitres des cours.
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  ><path d="M12 2v6m0 8v6M2 12h6m8 0h6"></path></svg
+                ><b>Un cours sur le Cloud Computing</b>, en cours d'écriture.
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  ><path d="M12 2v6m0 8v6M2 12h6m8 0h6"></path></svg
+                ><b>Un cours de création de jeux vidéo</b> avec PICO-8.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="tnode" data-reveal>
+          <div class="marker"><i></i></div>
+          <div class="card">
+            <div class="row">
+              <h3>Dans les cartons</h3>
+              <span class="nx-pill p-later"
+                ><span class="d"></span>En préparation</span
+              >
+            </div>
+            <ul>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg
+                ><b>Des exercices corrigés</b> — conteneuriser une app Python, configurer
+                PHP/Apache… énoncés concrets, solutions commentées.
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg
+                ><b>Des projets complets</b> avec maquette Figma et infra à monter,
+                proches de situations réelles.
+              </li>
+              <li>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg
+                ><b>Des jeux vidéo maison</b>, accompagnés de <b>devlogs vidéo</b>
+                qui racontent leur création.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ALUMNI band -->
+    <section class="alumni" data-reveal>
+      <p class="cap">Mes ancien·nes élèves travaillent aujourd'hui chez…</p>
+      <div class="marquee">
+        <div class="track">
+          <span>Datadog</span><span>Odoo</span><span>LeBonCoin</span><span
+            >Meilleurs&nbsp;Agents</span
+          ><span>Meetic</span><span>Hub&nbsp;One</span><span>Dior</span><span
+            >Wemanity</span
+          >
+          <span aria-hidden="true">Datadog</span><span aria-hidden="true"
+            >Odoo</span
+          ><span aria-hidden="true">LeBonCoin</span><span aria-hidden="true"
+            >Meilleurs&nbsp;Agents</span
+          ><span aria-hidden="true">Meetic</span><span aria-hidden="true"
+            >Hub&nbsp;One</span
+          ><span aria-hidden="true">Dior</span><span aria-hidden="true"
+            >Wemanity</span
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="blk">
+      <div class="head" data-reveal>
+        <p class="k">Ils sont passés par là</p>
+        <h2>Ce qu'en disent mes élèves.</h2>
+        <p>Quelques retours d'ancien·nes élèves, à titre d'exemple.</p>
+      </div>
+      <div class="quotes">
+        <div class="quote" data-reveal>
+          <span class="star" aria-hidden="true">★★★★★</span>
+          <p>
+            « Tout est expliqué simplement, étape par étape. C'est concret,
+            motivant — ça m'a vraiment débloquée pendant ma reconversion. »
+          </p>
+          <div class="who">
+            <span class="av" aria-hidden="true">M</span>
+            <div><b>Maëlle R.</b><span>Reconversion → dev back</span></div>
+          </div>
+        </div>
+        <div class="quote d1" data-reveal>
+          <span class="star" aria-hidden="true">★★★★★</span>
+          <p>
+            « J'aime que tout soit ouvert et sans fioritures. On va à
+            l'essentiel, et on réutilise direct au boulot. »
+          </p>
+          <div class="who">
+            <span class="av" aria-hidden="true">K</span>
+            <div><b>Karim B.</b><span>DevOps junior</span></div>
+          </div>
+        </div>
+        <div class="quote d2" data-reveal>
+          <span class="star" aria-hidden="true">★★★★★</span>
+          <p>
+            « Les fiches techniques sont devenues mes antisèches du quotidien.
+            Claires, justes, sans bla-bla. Merci Thomas. »
+          </p>
+          <div class="who">
+            <span class="av" aria-hidden="true">S</span>
+            <div><b>Sofia L.</b><span>Étudiante en informatique</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUTHOR -->
+    <section class="blk">
+      <div class="author" data-reveal>
+        <img
+          src="/images/articles/bucheron-ordinateur.webp"
+          width="96"
+          height="96"
+          loading="lazy"
+          alt="Portrait pixel art de Thomas Dimnet devant son ordinateur"
+        />
+        <div>
+          <p class="nm">Thomas Dimnet</p>
+          <p class="role">
+            Créateur, développeur &amp; prof — derrière chaque ligne de NX
+          </p>
+          <p class="bio">
+            Si vous êtes arrivé jusqu'ici, c'est peut-être grâce à un cours suivi
+            sur OpenClassrooms. NX, c'est la suite&nbsp;: un endroit à moi pour
+            continuer à transmettre, tester de nouvelles technos, et rester
+            utile.
+          </p>
+          <div class="taught">
+            <p class="tl">J'ai formé pour</p>
+            <div class="schools">
+              <span>OpenClassrooms</span><span>Eden&nbsp;School</span><span
+                >Simplon</span
+              ><span>Ironhack</span>
+            </div>
+          </div>
+          <div class="links">
+            <a
+              class="btn btn-primary"
+              href="https://github.com/nx-academy"
+              target="_blank"
+              rel="noopener"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+                ><path
+                  d="M12 1C5.9 1 1 5.9 1 12c0 4.9 3.2 9 7.6 10.5.6.1.8-.2.8-.5v-1.8c-3.1.7-3.7-1.3-3.7-1.3-.5-1.3-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 1.7 2.6 1.2 3.2.9.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.2-5.1-5.5 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1.9-.2 1.8-.4 2.7-.4.9 0 1.8.1 2.7.4 2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.3-2.6 5.2-5.1 5.5.4.3.8 1 .8 2.1v3.1c0 .3.2.6.8.5C19.8 21 23 16.9 23 12c0-6.1-4.9-11-11-11z"
+                ></path></svg
+              >Voir le code</a
+            >
+            <a
+              class="btn"
+              href="https://www.linkedin.com/in/thomas-dimnet-4114a4147/"
+              target="_blank"
+              rel="noopener"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+                ><path
+                  d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.3a1.75 1.75 0 110-3.5 1.75 1.75 0 010 3.5zM19 19h-3v-4.7c0-1.1 0-2.5-1.5-2.5S13 13 13 14.2V19h-3v-9h2.9v1.2h.04A3.2 3.2 0 0116 9.6c3 0 3.6 2 3.6 4.6z"
+                ></path></svg
+              >LinkedIn</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING -->
+    <section class="blk closing" data-reveal>
+      <h2>Si le projet vous parle…</h2>
+      <p>
+        …ajoutez une étoile sur GitHub, ou parlez-en autour de vous. Je ne suis
+        pas très présent sur les réseaux, mais si ce site vous aide — ou aide
+        quelqu'un d'autre — c'est déjà beaucoup.
+      </p>
+      <a
+        class="btn btn-primary"
+        href="https://github.com/nx-academy/nx-academy.github.io"
+        target="_blank"
+        rel="noopener"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
+          ><path
+            d="M12 1l3.1 6.9 7.5.7-5.6 5 1.6 7.4L12 17.3 5.4 21l1.6-7.4-5.6-5 7.5-.7z"
+          ></path></svg
+        >Mettre une étoile</a
+      >
+      <p class="sig">Merci d'avoir lu — à bientôt sur NX. 🍄</p>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  /* ── Layout container (tokens du theme NX) ───────────────────────────── */
+  .manifeste.wrap {
+    max-width: var(--container-max);
+    width: var(--container-width);
+    margin: 0 auto;
+  }
+  .manifeste a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* ── Hero ─────────────────────────────────────────────────────────────── */
+  .hero {
+    text-align: center;
+    padding: 4rem 0 2.5rem;
+    position: relative;
+  }
+  .hero .mush {
+    width: 88px;
+    height: auto;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 12px 26px rgba(0, 0, 0, 0.35));
+    animation: float 5s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  .hero .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 1.6rem 0 1.2rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    border: 1px solid var(--borderSecondary, var(--accent));
+    border-radius: var(--radius-pill);
+    padding: 5px 14px;
+  }
+  .hero h1 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--titleColor);
+    letter-spacing: -0.5px;
+    font-size: clamp(2.3rem, 1.5rem + 3vw, 3.6rem);
+    line-height: 1.05;
+    margin: 0 auto 1.3rem;
+    max-width: 16ch;
+  }
+  .hero h1 em {
+    font-style: normal;
+    color: var(--buttonColorPrimary);
+  }
+  .hero .lead {
+    font-size: 1.18rem;
+    line-height: 1.65;
+    margin: 0 auto;
+    max-width: 56ch;
+    color: var(--textColor);
+  }
+  .hero .lead b {
+    color: var(--titleColor);
+    font-weight: 600;
+  }
+
+  /* ── Stats strip ──────────────────────────────────────────────────────── */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--borderPrimary);
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin: 3.5rem 0 1rem;
+  }
+  .stat {
+    background: var(--backgroundColorPrimary);
+    padding: 1.7rem 1.2rem;
+    text-align: center;
+  }
+  .stat .num {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--titleColor);
+    font-size: 2.4rem;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat .num small {
+    color: var(--buttonColorPrimary);
+    font-size: 1.6rem;
+  }
+  .stat .lbl {
+    font-size: 0.82rem;
+    color: var(--textColor);
+    margin-top: 0.6rem;
+  }
+
+  /* ── Section scaffolding ──────────────────────────────────────────────── */
+  section.blk {
+    margin: 6rem 0;
+  }
+  .head {
+    text-align: center;
+    max-width: 60ch;
+    margin: 0 auto 3rem;
+  }
+  .head .k {
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0 0 0.7rem;
+  }
+  .head h2 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--titleColor);
+    letter-spacing: -0.3px;
+    font-size: clamp(1.7rem, 1.3rem + 1.7vw, 2.4rem);
+    margin: 0 0 0.9rem;
+  }
+  .head p {
+    font-size: 1.075rem;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--textColor);
+  }
+  .head p a {
+    color: var(--articleLinkColor);
+    transition: color var(--transition);
+  }
+  .head p a:hover {
+    color: var(--articleLinkHoverColor);
+  }
+
+  /* ── Values — interactive ─────────────────────────────────────────────── */
+  .values {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
+  }
+  .vcard {
+    position: relative;
+    background: var(--backgroundColorSecondary);
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-lg);
+    padding: 1.9rem;
+    overflow: hidden;
+    transition:
+      transform var(--transition),
+      border-color var(--transition);
+  }
+  .vcard::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--buttonColorPrimary);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.45s ease;
+  }
+  .vcard:hover {
+    transform: translateY(-6px);
+  }
+  .vcard:hover::after {
+    transform: scaleY(1);
+  }
+  .vcard .ic {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--backgroundColorPrimary);
+    border: 1px solid var(--borderPrimary);
+    display: grid;
+    place-items: center;
+    color: var(--buttonColorPrimary);
+    margin-bottom: 1.2rem;
+    transition:
+      background var(--transition),
+      color var(--transition);
+  }
+  .vcard:hover .ic {
+    background: var(--buttonColorPrimary);
+    color: var(--backgroundColorPrimary);
+  }
+  .vcard .ic svg {
+    width: 22px;
+    height: 22px;
+  }
+  .vcard h3 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--titleColor);
+    font-size: 1.2rem;
+    margin: 0 0 0.7rem;
+  }
+  .vcard p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+    color: var(--textColor);
+  }
+  .vcard .more {
+    font-size: 0.85rem;
+    color: var(--buttonColorPrimary);
+    margin-top: 1rem;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition:
+      max-height 0.45s ease,
+      opacity 0.35s ease,
+      margin 0.45s ease;
+  }
+  .vcard:hover .more {
+    max-height: 80px;
+    opacity: 1;
+  }
+
+  /* ── Timeline ─────────────────────────────────────────────────────────── */
+  .timeline {
+    position: relative;
+    padding-left: 2.6rem;
+  }
+  .timeline .spine {
+    position: absolute;
+    left: 11px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: var(--borderPrimary);
+  }
+  .timeline .spine::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      var(--buttonColorPrimary),
+      var(--accent)
+    );
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 1.4s ease;
+  }
+  .timeline.in .spine::after {
+    transform: scaleY(1);
+  }
+  .tnode {
+    position: relative;
+    padding: 0 0 2.6rem;
+  }
+  .tnode:last-child {
+    padding-bottom: 0;
+  }
+  .tnode .marker {
+    position: absolute;
+    left: calc(-2.6rem + 4px);
+    top: 2px;
+    width: 18px;
+    height: 18px;
+    border-radius: var(--radius-pill);
+    background: var(--backgroundColorPrimary);
+    border: 2px solid var(--borderPrimary);
+    display: grid;
+    place-items: center;
+  }
+  .tnode .marker i {
+    width: 7px;
+    height: 7px;
+    border-radius: var(--radius-pill);
+    background: var(--borderPrimary);
+    display: block;
+    transition: background var(--transition);
+  }
+  .tnode.live .marker {
+    border-color: var(--accent);
+  }
+  .tnode.live .marker i {
+    background: var(--accent);
+    animation: pulse 2.2s ease-in-out infinite;
+  }
+  .tnode.soon .marker {
+    border-color: var(--buttonColorPrimary);
+  }
+  .tnode.soon .marker i {
+    background: var(--buttonColorPrimary);
+  }
+  @keyframes pulse {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0
+        color-mix(in srgb, var(--accent) 45%, transparent);
+    }
+    50% {
+      box-shadow: 0 0 0 6px transparent;
+    }
+  }
+  .tnode .card {
+    background: var(--backgroundColorSecondary);
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-lg);
+    padding: 1.7rem 1.9rem;
+    transition: border-color var(--transition);
+  }
+  .tnode .card:hover {
+    border-color: var(--borderSecondary, var(--accent));
+  }
+  .tnode .row {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  .tnode h3 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--titleColor);
+    font-size: 1.25rem;
+    margin: 0;
+  }
+  .nx-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid;
+    border-radius: var(--radius-pill);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+  }
+  .nx-pill .d {
+    width: 6px;
+    height: 6px;
+    border-radius: var(--radius-pill);
+    background: currentColor;
+  }
+  .p-live {
+    border-color: var(--borderSecondary, var(--accent));
+    color: var(--accent);
+  }
+  .p-soon {
+    border-color: var(--buttonColorPrimary);
+    color: var(--buttonColorPrimary);
+  }
+  .p-later {
+    border-color: var(--borderPrimary);
+    color: var(--textColor);
+  }
+  .tnode ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.75rem;
+  }
+  .tnode li {
+    font-size: 0.96rem;
+    line-height: 1.55;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--textColor);
+  }
+  .tnode li svg {
+    position: absolute;
+    left: 0;
+    top: 0.2em;
+    width: 15px;
+    height: 15px;
+    color: var(--buttonColorPrimary);
+  }
+  .tnode li b {
+    color: var(--titleColor);
+    font-weight: 600;
+  }
+  .tnode li a {
+    color: var(--articleLinkColor);
+    transition: color var(--transition);
+  }
+  .tnode li a:hover {
+    color: var(--articleLinkHoverColor);
+  }
+
+  /* ── Alumni marquee ───────────────────────────────────────────────────── */
+  .alumni {
+    border-top: 1px solid var(--borderPrimary);
+    border-bottom: 1px solid var(--borderPrimary);
+    padding: 2.6rem 0;
+    margin: 5rem 0;
+    text-align: center;
+  }
+  .alumni .cap {
+    font-size: 0.8rem;
+    color: var(--textColor);
+    letter-spacing: 0.04em;
+    margin: 0 0 1.6rem;
+    text-transform: uppercase;
+  }
+  .marquee {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent,
+      #000 12%,
+      #000 88%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      90deg,
+      transparent,
+      #000 12%,
+      #000 88%,
+      transparent
+    );
+  }
+  .marquee .track {
+    display: inline-flex;
+    gap: 3.2rem;
+    white-space: nowrap;
+    animation: scroll 26s linear infinite;
+  }
+  .marquee:hover .track {
+    animation-play-state: paused;
+  }
+  .marquee span {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: var(--titleColor);
+    opacity: 0.5;
+    transition:
+      opacity var(--transition-fast),
+      color var(--transition-fast);
+  }
+  .marquee span:hover {
+    opacity: 1;
+    color: var(--buttonColorPrimary);
+  }
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* ── Testimonials ─────────────────────────────────────────────────────── */
+  .quotes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
+  }
+  .quote {
+    background: var(--backgroundColorSecondary);
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-lg);
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    transition:
+      transform var(--transition),
+      border-color var(--transition);
+  }
+  .quote:hover {
+    transform: translateY(-5px);
+    border-color: var(--borderSecondary, var(--accent));
+  }
+  .quote .star {
+    color: var(--buttonColorPrimary);
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+  }
+  .quote p {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: var(--titleColor);
+    margin: 0;
+  }
+  .quote .who {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: auto;
+  }
+  .quote .av {
+    width: 34px;
+    height: 34px;
+    border-radius: var(--radius-pill);
+    background: var(--backgroundColorPrimary);
+    border: 1px solid var(--borderPrimary);
+    display: grid;
+    place-items: center;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--buttonColorPrimary);
+    font-size: 0.9rem;
+  }
+  .quote .who b {
+    color: var(--titleColor);
+    font-size: 0.88rem;
+    display: block;
+  }
+  .quote .who span {
+    font-size: 0.76rem;
+    color: var(--textColor);
+  }
+
+  /* ── Author ───────────────────────────────────────────────────────────── */
+  .author {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    align-items: center;
+    background: var(--backgroundColorSecondary);
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-lg);
+    padding: 2.4rem;
+  }
+  .author img {
+    width: 96px;
+    height: 96px;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+    object-position: top;
+    border: 1px solid var(--borderPrimary);
+  }
+  .author .nm {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--titleColor);
+    font-size: 1.35rem;
+    margin: 0 0 0.2rem;
+  }
+  .author .role {
+    font-size: 0.88rem;
+    color: var(--accent);
+    margin: 0 0 1rem;
+  }
+  .author p.bio {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0 0 1.3rem;
+    max-width: 60ch;
+    color: var(--textColor);
+  }
+  .author .taught {
+    margin: 0 0 1.4rem;
+  }
+  .author .taught .tl {
+    font-size: 0.72rem;
+    color: var(--textColor);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0 0 0.65rem;
+  }
+  .author .schools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .author .schools span {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.88rem;
+    color: var(--titleColor);
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-pill);
+    padding: 0.32rem 0.85rem;
+    opacity: 0.8;
+    transition:
+      color var(--transition-fast),
+      border-color var(--transition-fast),
+      opacity var(--transition-fast);
+  }
+  .author .schools span:hover {
+    opacity: 1;
+    color: var(--buttonColorPrimary);
+    border-color: var(--buttonColorPrimary);
+  }
+  .links {
+    display: flex;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: var(--radius-md);
+    padding: 0.6rem 1.1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition:
+      background var(--transition-fast),
+      color var(--transition-fast),
+      border-color var(--transition-fast);
+    cursor: pointer;
+    border: 1px solid var(--borderPrimary);
+    color: var(--titleColor);
+    background: none;
+  }
+  .btn:hover {
+    border-color: var(--buttonColorPrimary);
+    color: var(--buttonColorPrimary);
+  }
+  .btn-primary {
+    background: var(--buttonColorPrimary);
+    color: var(--buttonColorPrimaryText);
+    border-color: var(--buttonColorPrimary);
+  }
+  .btn-primary:hover {
+    background: var(--buttonColorPrimaryHover);
+    color: var(--buttonColorPrimaryText);
+    border-color: transparent;
+  }
+  .btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* ── Closing ──────────────────────────────────────────────────────────── */
+  .closing {
+    text-align: center;
+    padding: 1rem 0;
+  }
+  .closing h2 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--titleColor);
+    font-size: clamp(1.7rem, 1.3rem + 1.6vw, 2.3rem);
+    margin: 0 0 1rem;
+  }
+  .closing p {
+    font-size: 1.075rem;
+    line-height: 1.65;
+    max-width: 54ch;
+    margin: 0 auto 1.8rem;
+    color: var(--textColor);
+  }
+  .closing .btn-primary {
+    margin: 0 auto;
+  }
+  .closing .sig {
+    font-family: var(--font-display);
+    color: var(--buttonColorPrimary);
+    font-size: 1.5rem;
+    margin-top: 1.6rem;
+  }
+
+  /* ── Reveal on scroll ─────────────────────────────────────────────────── */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s ease;
+  }
+  [data-reveal].in {
+    opacity: 1;
+    transform: none;
+  }
+  [data-reveal].d1 {
+    transition-delay: 0.08s;
+  }
+  [data-reveal].d2 {
+    transition-delay: 0.16s;
+  }
+  [data-reveal].d3 {
+    transition-delay: 0.24s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal] {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+    .hero .mush {
+      animation: none !important;
+    }
+    .marquee .track {
+      animation: none !important;
+    }
+    .timeline .spine::after {
+      transform: scaleY(1) !important;
+    }
+    .tnode.live .marker i {
+      animation: none !important;
+    }
+  }
+
+  @media (max-width: 820px) {
+    .stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .values,
+    .quotes {
+      grid-template-columns: 1fr;
+    }
+    .author {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    const els = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-reveal]"),
+    );
+    const tl = document.getElementById("timeline");
+
+    function animateCount(el: HTMLElement) {
+      const target = Number(el.dataset.count);
+      const suffix = el.dataset.suffix || "";
+      const dur = 1100;
+      let start: number | null = null;
+      function step(t: number) {
+        if (start === null) start = t;
+        const p = Math.min((t - start) / dur, 1);
+        const e = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(e * target) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    function runCounts(scope: ParentNode) {
+      scope
+        .querySelectorAll<HTMLElement>("[data-count]")
+        .forEach(animateCount);
+    }
+
+    // Etat final immediat si l'utilisateur prefere moins d'animation.
+    if (reduce) {
+      els.forEach((e) => e.classList.add("in"));
+      if (tl) tl.classList.add("in");
+      document
+        .querySelectorAll<HTMLElement>("[data-count]")
+        .forEach((el) => {
+          el.textContent = (el.dataset.count || "") + (el.dataset.suffix || "");
+        });
+      return;
+    }
+
+    function show(e: HTMLElement) {
+      if (e.classList.contains("in")) return;
+      e.classList.add("in");
+      if (e.querySelector("[data-count]")) runCounts(e);
+    }
+
+    // IntersectionObserver natif (fiable hors iframe), avec filet de securite.
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              show(entry.target as HTMLElement);
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { rootMargin: "0px 0px -8% 0px" },
+      );
+      els.forEach((e) => io.observe(e));
+
+      if (tl) {
+        const tlio = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in");
+                tlio.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: "0px 0px -15% 0px" },
+        );
+        tlio.observe(tl);
+      }
+    } else {
+      els.forEach(show);
+      if (tl) tl.classList.add("in");
+    }
+
+    // Filet de securite : si rien ne s'est declenche, tout reveler.
+    window.setTimeout(() => {
+      els.forEach(show);
+      if (tl) tl.classList.add("in");
+    }, 1600);
+  })();
+</script>
