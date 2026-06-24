@@ -15,7 +15,7 @@ imgSrc: /images/cheatsheets/prendre-en-main-pico-8.webp
 author: Thomas
 kind: Fiche technique
 level: Débutant
-publishedDate: 06/17/2026
+publishedDate: 06/23/2026
 
 faq:
   - question: Comment installer PICO-8 ?
