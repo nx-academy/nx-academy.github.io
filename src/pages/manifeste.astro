@@ -5,8 +5,6 @@ const title = "Le manifeste";
 const description =
   "NX Academy, plateforme de cours en programmation et DevOps, gratuite et open source. Le manifeste de Thomas Dimnet : un contrat de confiance avec le lecteur.";
 
-const breadcrumbs = [{ pageName: "Accueil", pageUrl: "/" }];
-
 // Donnees structurees additionnelles, en plus de l'Organization et du fil
 // d'Ariane deja generes par le composant Seo.
 const ORG_ID = "https://nx.academy/#organization";
@@ -43,7 +41,6 @@ const schemas = [
 <BaseLayout
   title={title}
   description={description}
-  breadcrumbs={breadcrumbs}
   pageType="website"
   author="Thomas Dimnet"
   schemas={schemas}
@@ -64,9 +61,8 @@ const schemas = [
       </div>
       <h1 data-reveal class="d1">Bienvenue sur <em>NX Academy</em>.</h1>
       <p class="lead d2" data-reveal>
-        Un <b>contrat de confiance</b> entre vous, lecteur, et moi. Voici ce
-        qu'est NX, pourquoi je le construis, et ce que vous y trouverez — sans
-        détour.
+        Un <b>contrat de confiance</b> entre vous, lecteur, et moi. Voici ce qu'est
+        NX, pourquoi je le construis, et ce que vous y trouverez — sans détour.
       </p>
 
       <div class="stats" data-reveal>
@@ -96,8 +92,8 @@ const schemas = [
         <h2>Trois principes, jamais négociés.</h2>
         <p>
           Prof d'informatique et développeur, NX réunit mes deux passions. Mais
-          au fond, il tient à une idée simple&nbsp;: le partage libre du savoir —
-          ce principe fondateur du web qu'on a un peu laissé filer.
+          au fond, il tient à une idée simple&nbsp;: le partage libre du savoir
+          — ce principe fondateur du web qu'on a un peu laissé filer.
         </p>
       </div>
       <div class="values">
@@ -117,8 +113,8 @@ const schemas = [
           </div>
           <h3>Gratuit &amp; open source</h3>
           <p>
-            Tout est public — le site, les cours, les outils. Le code est ouvert,
-            lisible, réutilisable.
+            Tout est public — le site, les cours, les outils. Le code est
+            ouvert, lisible, réutilisable.
           </p>
           <p class="more">→ Pas de paywall. Le savoir circule.</p>
         </div>
@@ -137,8 +133,8 @@ const schemas = [
           </div>
           <h3>Léger &amp; accessible</h3>
           <p>
-            Construit avec Astro, le moins de JavaScript possible. Rapide, sobre,
-            utilisable par le plus grand monde.
+            Construit avec Astro, le moins de JavaScript possible. Rapide,
+            sobre, utilisable par le plus grand monde.
           </p>
           <p class="more">→ Perf &amp; accessibilité d'abord.</p>
         </div>
@@ -184,7 +180,8 @@ const schemas = [
           <div class="card">
             <div class="row">
               <h3>Actuellement en ligne</h3>
-              <span class="nx-pill p-live"><span class="d"></span>Disponible</span
+              <span class="nx-pill p-live"
+                ><span class="d"></span>Disponible</span
               >
             </div>
             <ul>
@@ -207,8 +204,8 @@ const schemas = [
                   stroke-width="2.4"
                   stroke-linecap="round"
                   stroke-linejoin="round"><path d="M20 6L9 17l-5-5"></path></svg
-                ><b>Des <a href="/fiches">fiches techniques</a></b>, entre la cheat
-                sheet et le cours condensé. Un concept par fiche.
+                ><b>Des <a href="/fiches">fiches techniques</a></b>, entre la
+                cheat sheet et le cours condensé. Un concept par fiche.
               </li>
               <li>
                 <svg
@@ -231,7 +228,8 @@ const schemas = [
           <div class="card">
             <div class="row">
               <h3>En cours de release</h3>
-              <span class="nx-pill p-soon"><span class="d"></span>En cours</span>
+              <span class="nx-pill p-soon"><span class="d"></span>En cours</span
+              >
             </div>
             <ul>
               <li>
@@ -288,7 +286,8 @@ const schemas = [
                   stroke="currentColor"
                   stroke-width="2.4"
                   stroke-linecap="round"
-                  stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg
+                  stroke-linejoin="round"
+                  ><path d="M12 5v14M5 12h14"></path></svg
                 ><b>Des exercices corrigés</b> — conteneuriser une app Python, configurer
                 PHP/Apache… énoncés concrets, solutions commentées.
               </li>
@@ -299,7 +298,8 @@ const schemas = [
                   stroke="currentColor"
                   stroke-width="2.4"
                   stroke-linecap="round"
-                  stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg
+                  stroke-linejoin="round"
+                  ><path d="M12 5v14M5 12h14"></path></svg
                 ><b>Des projets complets</b> avec maquette Figma et infra à monter,
                 proches de situations réelles.
               </li>
@@ -310,8 +310,11 @@ const schemas = [
                   stroke="currentColor"
                   stroke-width="2.4"
                   stroke-linecap="round"
-                  stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg
-                ><b>Des jeux vidéo maison</b>, accompagnés de <b>devlogs vidéo</b>
+                  stroke-linejoin="round"
+                  ><path d="M12 5v14M5 12h14"></path></svg
+                ><b>Des jeux vidéo maison</b>, accompagnés de <b
+                  >devlogs vidéo</b
+                >
                 qui racontent leur création.
               </li>
             </ul>
@@ -403,9 +406,9 @@ const schemas = [
             Créateur, développeur &amp; prof — derrière chaque ligne de NX
           </p>
           <p class="bio">
-            Si vous êtes arrivé jusqu'ici, c'est peut-être grâce à un cours suivi
-            sur OpenClassrooms. NX, c'est la suite&nbsp;: un endroit à moi pour
-            continuer à transmettre, tester de nouvelles technos, et rester
+            Si vous êtes arrivé jusqu'ici, c'est peut-être grâce à un cours
+            suivi sur OpenClassrooms. NX, c'est la suite&nbsp;: un endroit à moi
+            pour continuer à transmettre, tester de nouvelles technos, et rester
             utile.
           </p>
           <div class="taught">
@@ -479,7 +482,6 @@ const schemas = [
     margin: 0 auto;
   }
   .manifeste a {
-    color: inherit;
     text-decoration: none;
   }
 
@@ -495,6 +497,9 @@ const schemas = [
     image-rendering: pixelated;
     filter: drop-shadow(0 12px 26px rgba(0, 0, 0, 0.35));
     animation: float 5s ease-in-out infinite;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 24px;
   }
   @keyframes float {
     0%,
@@ -725,10 +730,7 @@ const schemas = [
     top: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-      var(--buttonColorPrimary),
-      var(--accent)
-    );
+    background: linear-gradient(var(--buttonColorPrimary), var(--accent));
     transform: scaleY(0);
     transform-origin: top;
     transition: transform 1.4s ease;
@@ -779,8 +781,7 @@ const schemas = [
   @keyframes pulse {
     0%,
     100% {
-      box-shadow: 0 0 0 0
-        color-mix(in srgb, var(--accent) 45%, transparent);
+      box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 45%, transparent);
     }
     50% {
       box-shadow: 0 0 0 6px transparent;
@@ -1224,20 +1225,16 @@ const schemas = [
     }
 
     function runCounts(scope: ParentNode) {
-      scope
-        .querySelectorAll<HTMLElement>("[data-count]")
-        .forEach(animateCount);
+      scope.querySelectorAll<HTMLElement>("[data-count]").forEach(animateCount);
     }
 
     // Etat final immediat si l'utilisateur prefere moins d'animation.
     if (reduce) {
       els.forEach((e) => e.classList.add("in"));
       if (tl) tl.classList.add("in");
-      document
-        .querySelectorAll<HTMLElement>("[data-count]")
-        .forEach((el) => {
-          el.textContent = (el.dataset.count || "") + (el.dataset.suffix || "");
-        });
+      document.querySelectorAll<HTMLElement>("[data-count]").forEach((el) => {
+        el.textContent = (el.dataset.count || "") + (el.dataset.suffix || "");
+      });
       return;
     }
 
