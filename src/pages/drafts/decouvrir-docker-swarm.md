@@ -3,9 +3,9 @@ layout: ../../layouts/CheatSheetsLayout.astro
 
 title: "Docker Swarm : déployer sur un cluster"
 description:
-  Découvrez Docker Swarm, l'orchestrateur intégré à Docker : initialisez un
+  "Découvrez Docker Swarm, l'orchestrateur intégré à Docker : initialisez un
   cluster, déployez des services répliqués, profitez du load balancing, des
-  rolling updates et déployez une stack complète depuis un docker-compose.yml.
+  rolling updates et déployez une stack complète depuis un docker-compose.yml."
 
 imgAlt:
   Un essaim d'abeilles organisé autour d'une ruche en pixel art, chaque abeille
@@ -32,6 +32,8 @@ Dans cette fiche, on va monter un cluster de A à Z : l'initialiser, y déployer
 des services répliqués, et profiter de tout ce que Swarm apporte (load
 balancing, tolérance aux pannes, mises à jour sans coupure).
 
+---
+
 ## Le vocabulaire de Swarm
 
 Avant de taper la moindre commande, posons trois mots de vocabulaire. Ils
@@ -47,6 +49,8 @@ reviennent en permanence dès qu'on parle de Swarm :
 Un node peut être manager, worker, ou les deux. Pour un vrai cluster de
 production, on recommande d'avoir plusieurs managers (en nombre impair) pour
 tolérer les pannes. Pour découvrir, une seule machine suffit largement.
+
+---
 
 ## Initialiser un cluster
 
@@ -78,6 +82,8 @@ docker node ls
 <br>
 
 Et voilà, votre cluster est prêt. Toute la suite se pilote depuis un manager.
+
+---
 
 ## Déployer un service répliqué
 
@@ -120,6 +126,8 @@ où vous décrivez plutôt _comment_ lancer les conteneurs. Avec Swarm, vous
 décrivez le _résultat_ attendu, et l'orchestrateur s'occupe du reste. C'est
 exactement cette logique qu'on retrouve, en plus poussé, dans Kubernetes.
 
+---
+
 ## Scaler en une commande
 
 Besoin de plus de puissance pour absorber un pic de trafic ? Une seule commande
@@ -135,6 +143,8 @@ Swarm crée les répliques manquantes et les distribue sur le cluster. Pour
 revenir à 3, même logique. C'est cette élasticité qui fait toute la force de
 l'orchestration.
 
+---
+
 ## Le load balancing intégré
 
 Voici une fonctionnalité qu'on adore une fois qu'on la comprend : le **routing
@@ -148,6 +158,8 @@ Concrètement, peu importe la machine du cluster que vous contactez sur le port
 3000, votre requête est automatiquement redirigée vers une réplique disponible.
 Vous avez donc un **répartiteur de charge intégré**, sans rien installer de
 plus. C'est exactement ce qu'on cherche quand on veut tenir la charge.
+
+---
 
 ## Les rolling updates (et le rollback)
 
@@ -172,6 +184,8 @@ docker service rollback api
 
 On retrouve là des mécanismes dignes des grandes plateformes, mais accessibles
 avec une seule ligne de commande.
+
+---
 
 ## Déployer une stack depuis un docker-compose.yml
 
@@ -222,6 +236,8 @@ docker stack deploy -c docker-compose.yml mon-app
 C'est exactement l'astuce qu'on évoquait dans la première fiche : le travail
 fait avec Compose se réutilise tel quel sur un cluster.
 
+---
+
 ## Les commandes Swarm à retenir
 
 Pour vous y retrouver, voici les commandes que vous taperez le plus souvent :
@@ -241,6 +257,8 @@ Pour vous y retrouver, voici les commandes que vous taperez le plus souvent :
 
 Avec ces quelques commandes, vous couvrez déjà l'essentiel de la gestion d'un
 cluster au quotidien.
+
+---
 
 ## Astuce bonus - Placez vos conteneurs avec des contraintes
 

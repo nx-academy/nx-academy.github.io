@@ -3,9 +3,9 @@ layout: ../../layouts/CheatSheetsLayout.astro
 
 title: "Docker, Docker Compose et Docker Swarm : quelles différences ?"
 description:
-  Comprenez enfin la différence entre Docker, Docker Compose et Docker Swarm.
+  "Comprenez enfin la différence entre Docker, Docker Compose et Docker Swarm.
   Un conteneur, plusieurs conteneurs sur une machine ou une infrastructure
-  répartie sur plusieurs serveurs : on démêle tout ça ensemble.
+  répartie sur plusieurs serveurs : on démêle tout ça ensemble."
 
 imgAlt:
   Trois bateaux porte-conteneurs de tailles différentes alignés dans un port,

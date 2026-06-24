@@ -3,9 +3,9 @@ layout: ../../layouts/CheatSheetsLayout.astro
 
 title: "Comment bien gérer les secrets en Docker ?"
 description:
-  Mots de passe, tokens, clés d'API : découvrez comment gérer vos secrets en
-  Docker sans les exposer dans vos images, vos logs ou votre dépôt Git, avec
-  les variables d'environnement, les Docker secrets et BuildKit.
+  "Mots de passe, tokens, clés d'API : découvrez comment gérer vos secrets en
+  Docker sans les exposer dans vos images, vos logs ou votre dépôt Git, avec les
+  variables d'environnement, les Docker secrets et BuildKit."
 
 imgAlt:
   Un coffre-fort ancien entrouvert d'où s'échappe une lueur dorée, pixel art
@@ -33,6 +33,8 @@ nouveau. Autant prendre les bons réflexes dès le départ.
 
 Dans cette fiche, on va voir ce qu'il ne faut **jamais** faire, puis les bonnes
 méthodes pour gérer vos secrets proprement, du build jusqu'à l'exécution.
+
+---
 
 ## Ce qu'il ne faut surtout pas faire
 
@@ -77,6 +79,8 @@ suppression. Pensez toujours à l'ajouter à votre `.gitignore`.
 La règle d'or à retenir : **un secret ne doit jamais se retrouver dans une image
 ni dans un dépôt Git**. Voyons maintenant comment faire correctement.
 
+---
+
 ## Méthode 1 - Les variables d'environnement à l'exécution
 
 La méthode la plus simple consiste à injecter les secrets **au lancement** du
@@ -105,6 +109,8 @@ C'est suffisant pour beaucoup de projets, mais soyons honnêtes sur les limites 
 les variables d'environnement restent **visibles** via `docker inspect`, peuvent
 fuiter dans les logs ou les rapports d'erreur, et sont héritées par les
 processus enfants. Pour des secrets vraiment sensibles, on peut faire mieux.
+
+---
 
 ## Méthode 2 - Les Docker secrets
 
@@ -166,6 +172,8 @@ version `_FILE`.
 > cluster avec `docker secret create`. En Compose simple, ils restent un bon
 > moyen d'éviter les variables d'environnement en clair.
 
+---
+
 ## Méthode 3 - Les secrets au build avec BuildKit
 
 Parfois, vous avez besoin d'un secret **pendant le build** : par exemple un
@@ -196,6 +204,8 @@ instruction `RUN`** et ne laisse **aucune trace** dans les layers de l'image
 finale. C'est la méthode à privilégier dès que vous avez besoin d'un secret au
 moment du build.
 
+---
+
 ## Tableau récapitulatif
 
 Trois méthodes, trois contextes. Voici comment choisir :
@@ -213,6 +223,8 @@ utiliser BuildKit pour récupérer un paquet privé au build, et des Docker secr
 pour injecter le mot de passe de la base à l'exécution. L'important est de
 toujours se poser la question : _à quel moment ai-je besoin de ce secret, et qui
 pourrait le lire ensuite ?_
+
+---
 
 ## Astuce bonus - Pensez aux gestionnaires de secrets
 
