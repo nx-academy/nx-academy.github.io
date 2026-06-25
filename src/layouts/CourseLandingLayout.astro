@@ -4,6 +4,24 @@ import type { Testimonial } from "../types/Testimonial";
 import type { Chapter } from "../types/Chapter";
 import type { Cheatsheet } from "../types/Cheatsheet";
 
+interface Objective {
+  icon: string;
+  title: string;
+  text: string;
+}
+
+interface ProjetFilRouge {
+  title: string;
+  text: string;
+  imgSrc: string;
+  imgAlt: string;
+}
+
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
 interface Props {
   srcPicture: string;
   altPicture: string;
@@ -11,29 +29,19 @@ interface Props {
   courseDescription: string;
   courseUrl: string;
   courseTestimonials: readonly Testimonial[];
-  quizUrl: string;
+  quizUrl?: string;
   courseChapters: Chapter[];
   cheatsheets?: Cheatsheet[];
   courseLevel: string;
   courseDuration: number;
-  courseGoals: string[];
+  courseAuthor: string;
+  courseUpdatedDate: string;
+  objectives: Objective[];
+  projetFilRouge: ProjetFilRouge;
+  faq: FaqItem[];
 }
 
 import BaseLayout from "./BaseLayout.astro";
-import Button from "../components/Button.astro";
-import Card from "../components/Card.astro";
-import TestimonialComponent from "../components/Testimonial.astro";
-
-const breadCrumbs: Breadcrumb[] = [
-  {
-    pageName: "Accueil",
-    pageUrl: "/",
-  },
-  {
-    pageName: "Cours",
-    pageUrl: "/cours",
-  },
-];
 
 const {
   altPicture,
@@ -42,13 +50,22 @@ const {
   courseDescription,
   courseUrl,
   courseTestimonials,
-  quizUrl,
   courseChapters,
   cheatsheets,
   courseLevel,
   courseDuration,
-  courseGoals,
+  courseAuthor,
+  courseUpdatedDate,
+  objectives,
+  projetFilRouge,
+  faq,
 } = Astro.props;
+
+const breadCrumbs: Breadcrumb[] = [
+  { pageName: "Accueil", pageUrl: "/" },
+  { pageName: "Cours", pageUrl: "/cours" },
+  { pageName: courseTitle, pageUrl: courseUrl },
+];
 
 const sortedChapters = [...courseChapters].sort((a, b) => {
   if (a.frontmatter.sectionNumber === b.frontmatter.sectionNumber) {
@@ -67,6 +84,35 @@ for (const chapter of sortedChapters) {
   sections.get(sectionNumber)?.push(chapter);
 }
 
+// Retire le préfixe "Partie N - " du titre de section pour ne garder que l'intitulé.
+const cleanSectionTitle = (title: string) =>
+  title.replace(/^Partie\s+\d+\s*[-–—]\s*/i, "");
+
+const sortedCheatsheets = (cheatsheets ?? [])
+  .slice()
+  .sort(
+    (item1, item2) =>
+      new Date(item2.frontmatter.publishedDate).getTime() -
+      new Date(item1.frontmatter.publishedDate).getTime(),
+  )
+  .slice(0, 3);
+
+// Jeu d'icônes (contenu interne du <svg>) sélectionné par la clé `icon` des objectifs.
+const OBJECTIVE_ICONS: Record<string, string> = {
+  cube: '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>',
+  package:
+    '<path d="M4 7l8-4 8 4v10l-8 4-8-4z"/><path d="M4 7l8 4 8-4M12 11v10"/>',
+  activity: '<path d="M3 12h4l3 8 4-16 3 8h4"/>',
+  rocket:
+    '<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>',
+  branch:
+    '<line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/>',
+  zap: '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>',
+  server:
+    '<rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>',
+  check: '<path d="M20 6L9 17l-5-5"/>',
+};
+
 const SITE_URL = "https://nx.academy";
 
 const courseSchema = {
@@ -77,7 +123,7 @@ const courseSchema = {
   image: `${SITE_URL}${srcPicture}`,
   inLanguage: "fr-FR",
   educationalLevel: courseLevel,
-  teaches: courseGoals,
+  teaches: objectives.map((objective) => objective.title),
   provider: { "@id": `${SITE_URL}/#organization` },
   offers: {
     "@type": "Offer",
@@ -91,6 +137,20 @@ const courseSchema = {
     courseWorkload: `PT${courseDuration}H`,
   },
 };
+
+const faqSchema =
+  faq.length > 0
+    ? {
+        "@type": "FAQPage",
+        mainEntity: faq.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: { "@type": "Answer", text: item.answer },
+        })),
+      }
+    : null;
+
+const schemas = faqSchema ? [courseSchema, faqSchema] : [courseSchema];
 ---
 
 <BaseLayout
@@ -99,405 +159,833 @@ const courseSchema = {
   image={srcPicture}
   imageAlt={altPicture}
   breadcrumbs={breadCrumbs}
-  schemas={[courseSchema]}
+  schemas={schemas}
 >
-  <main class="main-wrapper">
-    <section class="main-section">
-      <div>
-        <section class="course-heading">
-          <h1 class="course-title">{courseTitle}</h1>
-          <img class="course-picture" src={srcPicture} alt={altPicture} />
-          <p>{courseDescription}</p>
-          <Button label="Commencer le cours" type="primary" href={courseUrl} />
-        </section>
-        <section class="skills-section">
-          <h2>Objectifs pédagogiques</h2>
-          <slot name="skills-section" />
-        </section>
-        <section class="course-content-section">
-          <h2>Contenu du cours</h2>
-          <ol class="course-content-sections">
-            {
-              Array.from(sections.entries()).map(
-                ([sectionNumber, chapters]) => (
-                  <li>
-                    <h3 class="course-content-section-title">
-                      {chapters[0].frontmatter.sectionTitle}
-                    </h3>
-                    <ol class="course-content-chapters">
-                      {chapters.map((chapter) => (
-                        <li>
-                          <a href={chapter.url}>{chapter.frontmatter.title}</a>
-                        </li>
-                      ))}
-                    </ol>
-                  </li>
-                ),
-              )
-            }
-          </ol>
-        </section>
-      </div>
-      <aside class="course-information">
-        <div class="aside-wrapper">
-          <h2>Détails du cours</h2>
-
-          <div class="course-info">
-            <p><strong>Durée :</strong> {courseDuration} heures</p>
-            <p><strong>Niveau :</strong> {courseLevel}</p>
-          </div>
-
-          <ul class="course-goals">
-            {
-              courseGoals.map((goal) => (
-                <li>
-                  <svg
-                    class="check-icon"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <use xlink:href="#check-icon" />
-                  </svg>
-                  {goal}
-                </li>
-              ))
-            }
-          </ul>
-
-          <div class="aside-wrapper-buttons">
-            <Button
-              label="Commencer le cours"
-              type="primary"
-              href={courseUrl}
-            />
-            <Button
-              label="Passer un quiz de niveau"
-              type="secondary"
-              href={quizUrl}
-            />
-          </div>
-          <p class="course-note">
+  <main class="course">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-body">
+        <p class="kicker">Cours · {courseLevel}</p>
+        <h1>{courseTitle}</h1>
+        <p class="lead">{courseDescription}</p>
+        <p class="byline">
+          Par {courseAuthor} — mis à jour le {courseUpdatedDate}
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href={courseUrl}>
+            Commencer le cours
             <svg
-              class="locker-icon"
-              viewBox="0 0 52 52"
-              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
             >
-              <use xlink:href="#locker-icon"></use>
+              <path d="M5 12h14M13 6l6 6-6 6"></path>
             </svg>
-            Gratuit, sans inscription
-          </p>
+          </a>
+          <span class="free-note"><b>Gratuit</b>, sans inscription</span>
         </div>
-      </aside>
+      </div>
+      <div class="hero-media">
+        <img src={srcPicture} alt={altPicture} />
+      </div>
     </section>
-    <section class="testimonials-section">
-      <h2>Testimonials</h2>
-      <ul class="testimonials-list">
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat">
+        <p class="k">Durée estimée</p>
+        <p class="v">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M12 7v5l3 2"></path>
+          </svg>
+          ~{courseDuration} h
+        </p>
+      </div>
+      <div class="stat">
+        <p class="k">Niveau</p>
+        <p class="v">{courseLevel}</p>
+      </div>
+      <div class="stat">
+        <p class="k">Programme</p>
+        <p class="v">{courseChapters.length} chapitres</p>
+      </div>
+      <div class="stat">
+        <p class="k">Pratique</p>
+        <p class="v">Projet fil rouge</p>
+      </div>
+    </div>
+
+    <!-- Objectifs -->
+    <section class="sec">
+      <p class="sec-kicker">Objectifs pédagogiques</p>
+      <h2>Ce que vous saurez faire à la fin</h2>
+      <div class="intro">
+        <slot name="skills-section" />
+      </div>
+      <div class="obj-grid">
         {
-          courseTestimonials.map((testimonial) => (
-            <li>
-              <TestimonialComponent
-                content={testimonial.content}
-                job={testimonial.job}
-                name={testimonial.name}
-                picture={testimonial.picture}
-              />
-            </li>
+          objectives.map((objective) => (
+            <div class="obj">
+              <span class="obj-ic">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  set:html={
+                    OBJECTIVE_ICONS[objective.icon] ?? OBJECTIVE_ICONS.cube
+                  }
+                />
+              </span>
+              <h3>{objective.title}</h3>
+              <p>{objective.text}</p>
+            </div>
           ))
         }
-      </ul>
-    </section>
-    <section class="banner-section">
-      <h2>Prêt.e à passer à l'action ?</h2>
-      <div class="banner-section-buttons">
-        <Button label="Commencer le cours" type="primary" href={courseUrl} />
-        <Button
-          label="Passer un quiz de niveau"
-          type="secondary"
-          href={quizUrl}
-        />
       </div>
     </section>
-    <section class="related-content-section">
-      <h2>Contenu associé</h2>
-      <ul class="related-content-list">
+
+    <!-- Programme -->
+    <section class="sec">
+      <p class="sec-kicker">Contenu du cours</p>
+      <h2>Le programme, partie par partie</h2>
+      <div class="prog">
         {
-          cheatsheets &&
-            cheatsheets
-              .sort(
-                (item1, item2) =>
-                  new Date(item2.frontmatter.publishedDate).getTime() -
-                  new Date(item1.frontmatter.publishedDate).getTime(),
-              )
-              .map((cheatsheet) => (
-                <li>
-                  <Card
-                    author={cheatsheet.frontmatter.author}
-                    description={cheatsheet.frontmatter.description}
-                    href={cheatsheet.url!}
-                    imgAlt={cheatsheet.frontmatter.imgAlt}
-                    imgSrc={cheatsheet.frontmatter.imgSrc}
-                    kind="Fiche Technique"
-                    level={cheatsheet.frontmatter.level}
-                    publishedDate={cheatsheet.frontmatter.publishedDate}
-                    title={cheatsheet.frontmatter.title}
-                  />
-                </li>
-              ))
+          Array.from(sections.entries()).map(([sectionNumber, chapters]) => (
+            <div class="part">
+              <div class="part-head">
+                <span class="part-num">
+                  {String(sectionNumber).padStart(2, "0")}
+                </span>
+                <h3>
+                  {cleanSectionTitle(chapters[0].frontmatter.sectionTitle)}
+                </h3>
+                <span class="count">{chapters.length} chapitres</span>
+              </div>
+              <ul class="chapters">
+                {chapters.map((chapter) => (
+                  <li>
+                    <a href={chapter.url}>
+                      <span class="ch-n">
+                        {sectionNumber}.{chapter.frontmatter.chapterNumber}
+                      </span>
+                      <span class="ch-title">{chapter.frontmatter.title}</span>
+                      <svg
+                        class="ch-arrow"
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M9 6l6 6-6 6" />
+                      </svg>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
         }
-      </ul>
+      </div>
+
+      <!-- Projet fil rouge -->
+      <div class="fil">
+        <div class="fil-body">
+          <span class="nx-pill">Projet fil rouge</span>
+          <h3>{projetFilRouge.title}</h3>
+          <p>{projetFilRouge.text}</p>
+        </div>
+        <div class="fil-media">
+          <img src={projetFilRouge.imgSrc} alt={projetFilRouge.imgAlt} />
+        </div>
+      </div>
     </section>
+
+    <!-- Témoignages -->
+    <section class="sec">
+      <p class="sec-kicker">Ils l'ont suivi</p>
+      <h2>Ce qu'en disent les apprenants</h2>
+      <div class="tcards">
+        {
+          courseTestimonials.map((testimonial) => (
+            <div class="tcard">
+              <p class="quote">« {testimonial.content} »</p>
+              <div class="who">
+                <img
+                  class="ava"
+                  src={testimonial.picture}
+                  alt={`${testimonial.name} - ${testimonial.job}`}
+                />
+                <div>
+                  <b>{testimonial.name}</b>
+                  <span>{testimonial.job}</span>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="sec">
+      <p class="sec-kicker">Questions fréquentes</p>
+      <h2>Avant de vous lancer</h2>
+      <div class="faq">
+        {
+          faq.map((item, index) => (
+            <details class="faq-item" open={index === 0}>
+              <summary>
+                {item.question}
+                <svg
+                  class="chev"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M9 6l6 6-6 6" />
+                </svg>
+              </summary>
+              <div class="ans">{item.answer}</div>
+            </details>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- CTA final -->
+    <section class="endcta">
+      <h2>Prêt·e à passer à l'action ?</h2>
+      <p>
+        Le cours est entièrement gratuit et accessible sans compte. Vous pouvez
+        commencer tout de suite, à votre rythme.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href={courseUrl}>
+          Commencer le cours
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M5 12h14M13 6l6 6-6 6"></path>
+          </svg>
+        </a>
+        <a class="btn btn-ghost" href="/cours">Voir tous les cours</a>
+      </div>
+    </section>
+
+    <!-- Contenu associé -->
+    {
+      sortedCheatsheets.length > 0 && (
+        <section class="sec">
+          <p class="sec-kicker">Contenu associé</p>
+          <h2>Pour aller plus loin</h2>
+          <div class="rel-grid">
+            {sortedCheatsheets.map((cheatsheet) => (
+              <a class="rcard" href={cheatsheet.url!}>
+                <img
+                  src={cheatsheet.frontmatter.imgSrc}
+                  alt={cheatsheet.frontmatter.imgAlt}
+                />
+                <p class="kind">
+                  {cheatsheet.frontmatter.kind ?? "Fiche technique"}
+                </p>
+                <h3>{cheatsheet.frontmatter.title}</h3>
+              </a>
+            ))}
+          </div>
+        </section>
+      )
+    }
   </main>
 </BaseLayout>
 
 <style>
-  .main-wrapper {
-    max-width: 1100px;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+  .course {
+    max-width: var(--container-max);
+    width: var(--container-width);
+    margin-inline: auto;
   }
 
-  .main-wrapper a {
+  /* ---------- Boutons ---------- */
+  .btn {
+    font-size: 0.95rem;
+    padding: 10px 22px;
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    transition:
+      background var(--transition),
+      color var(--transition),
+      border-color var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+  }
+  .btn-primary {
+    background: var(--buttonColorPrimary);
+    color: var(--buttonColorPrimaryText);
+    border-color: var(--buttonColorPrimary);
+    font-weight: 600;
+  }
+  .btn-primary:hover {
+    background: var(--buttonColorPrimaryHover);
+  }
+  .btn-ghost {
+    background: transparent;
     color: var(--linkColor);
-    transition: 0.4s;
-
-    &:hover {
-      color: var(--linkHoverColor);
-    }
+    border-color: var(--borderPrimary);
+  }
+  .btn-ghost:hover {
+    color: var(--linkHoverColor);
+    border-color: var(--linkHoverColor);
   }
 
-  .course-heading {
-    margin-bottom: 48px;
+  /* ---------- Hero ---------- */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+    margin: 2rem 0 1rem;
   }
-
-  h1 {
-    font-size: 32px;
-  }
-
-  h2 {
-    font-size: 24px;
-  }
-
-  .course-picture {
-    margin-bottom: 24px;
+  .hero-media img {
     width: 100%;
+    aspect-ratio: 1792 / 1024;
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--radius-lg);
+    display: block;
+  }
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.9rem;
+    font-weight: 600;
+  }
+  .kicker::before {
+    content: "";
+    width: 22px;
+    height: 2px;
+    background: var(--accent);
+    display: inline-block;
+  }
+  .hero h1 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--titleColor);
+    font-size: clamp(2rem, 1.5rem + 1.8vw, 2.6rem);
+    line-height: 1.12;
+    margin: 0 0 1.1rem;
+  }
+  .hero .lead {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--textColor);
+    margin: 0 0 1.6rem;
+  }
+  .hero .byline {
+    font-size: 0.8rem;
+    color: var(--textColor);
+    margin: 0 0 1.6rem;
+  }
+  .hero-cta {
+    display: flex;
+    gap: 0.85rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .free-note {
+    font-size: 0.8rem;
+    color: var(--textColor);
+  }
+  .free-note b {
+    color: var(--titleColor);
+    font-weight: 600;
+  }
+
+  /* ---------- Barre de stats ---------- */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin: 2.5rem 0 3.5rem;
+    background: var(--backgroundColorSecondary);
+  }
+  .stat {
+    padding: 1.2rem 1.4rem;
+    border-right: 1px solid var(--borderPrimary);
+    border-bottom: 1px solid var(--borderPrimary);
+  }
+  .stat .k {
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--textColor);
+    margin: 0 0 0.35rem;
+  }
+  .stat .v {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--titleColor);
+    font-size: 1.35rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+  .stat .v svg {
+    color: var(--buttonColorPrimary);
+    width: 18px;
+    height: 18px;
+  }
+
+  /* ---------- Structure de section ---------- */
+  .sec {
+    margin: 0 0 3.75rem;
+  }
+  .sec-kicker {
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+  }
+  .sec h2 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--titleColor);
+    font-size: 1.85rem;
+    margin: 0 0 1.3rem;
+  }
+  .sec .intro {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    max-width: 70ch;
+    color: var(--textColor);
+    margin: 0 0 1.8rem;
+  }
+  .sec .intro :global(p) {
+    margin: 0 0 1rem;
+  }
+  .sec .intro :global(ul) {
+    padding-left: 1.1rem;
+    margin: 0 0 1rem;
+  }
+  .sec .intro :global(li) {
+    margin-bottom: 0.4rem;
+  }
+
+  /* ---------- Objectifs ---------- */
+  .obj-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+  }
+  .obj {
+    padding: 1.4rem 1.5rem;
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-lg);
+  }
+  .obj-ic {
+    width: 30px;
+    height: 30px;
+    border-radius: var(--radius-md);
+    background: color-mix(in srgb, var(--buttonColorPrimary) 16%, transparent);
+    color: var(--buttonColorPrimary);
+    display: grid;
+    place-items: center;
+    margin: 0 0 0.9rem;
+  }
+  .obj-ic svg {
+    width: 17px;
+    height: 17px;
+  }
+  .obj h3 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--titleColor);
+    font-size: 1.05rem;
+    margin: 0 0 0.4rem;
+    line-height: 1.25;
+  }
+  .obj p {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--textColor);
+    margin: 0;
+  }
+
+  /* ---------- Programme ---------- */
+  .prog {
+    display: grid;
+    gap: 1rem;
+  }
+  .part {
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--backgroundColorSecondary);
+  }
+  .part-head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--borderPrimary);
+  }
+  .part-num {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--buttonColorPrimary);
+    line-height: 1;
+    min-width: 2.4rem;
+  }
+  .part-head h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--titleColor);
+    font-size: 1.2rem;
+    margin: 0;
+    flex: 1;
+  }
+  .part-head .count {
+    font-size: 0.78rem;
+    color: var(--textColor);
+    white-space: nowrap;
+  }
+  .chapters {
+    list-style: none;
+    margin: 0;
+    padding: 0.4rem 0;
+  }
+  .chapters a {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.7rem 1.5rem;
+    font-size: 0.95rem;
+    color: var(--linkColor);
+    text-decoration: none;
+    transition:
+      color var(--transition-fast),
+      background var(--transition-fast);
+  }
+  .chapters a:hover {
+    color: var(--linkHoverColor);
+    background: color-mix(in srgb, var(--buttonColorPrimary) 6%, transparent);
+  }
+  .chapters .ch-n {
+    font-size: 0.78rem;
+    color: var(--textColor);
+    font-variant-numeric: tabular-nums;
+    min-width: 1.6rem;
+  }
+  .chapters .ch-title {
+    flex: 1;
+  }
+  .chapters .ch-arrow {
+    flex: 0 0 auto;
+    opacity: 0.5;
+  }
+
+  /* ---------- Projet fil rouge ---------- */
+  .fil {
+    display: grid;
+    grid-template-columns: 1fr;
+    border: 1px solid var(--borderSecondary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-top: 1rem;
+  }
+  .fil-body {
+    padding: 2rem 2.1rem;
+  }
+  .fil .nx-pill {
+    display: inline-block;
+    border: 1px solid var(--borderSecondary);
+    border-radius: var(--radius-pill);
+    color: var(--accent);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    margin: 0 0 1rem;
+  }
+  .fil h3 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--titleColor);
+    font-size: 1.4rem;
+    margin: 0 0 0.7rem;
+    line-height: 1.18;
+  }
+  .fil p {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: var(--textColor);
+    margin: 0;
+  }
+  .fil-media {
+    position: relative;
+    min-height: 220px;
+    order: -1;
+  }
+  .fil-media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
   }
 
-  .skills-section {
-    ul {
-      list-style-type: none;
-    }
-
-    li {
-      margin-bottom: 16px;
-      list-style-image: none;
-      position: relative;
-
-      svg {
-        position: absolute;
-        left: -32px;
-      }
-    }
+  /* ---------- Témoignages ---------- */
+  .tcards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
-
-  .check-icon {
-    width: 24px;
-    height: 24px;
+  .tcard {
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-lg);
+    padding: 1.6rem 1.6rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
-
-  .locker-icon {
-    height: 30px;
-    width: 30px;
+  .tcard .quote {
+    font-size: 0.96rem;
+    line-height: 1.6;
+    color: var(--linkColor);
+    margin: 0;
+    flex: 1;
   }
-
-  .course-content-sections {
-    list-style-type: none;
-    padding-left: 0;
-
-    > li {
-      margin-bottom: 48px;
-    }
+  .tcard .who {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
   }
-
-  .course-content-section-title {
-    margin-bottom: 16px;
+  .tcard .ava {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-pill);
+    object-fit: cover;
+    border: 1px solid var(--borderPrimary);
+    flex: 0 0 auto;
+  }
+  .tcard .who b {
     color: var(--titleColor);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: block;
+  }
+  .tcard .who span {
+    font-size: 0.76rem;
+    color: var(--textColor);
   }
 
-  .course-content-chapters {
-    > li {
-      margin-bottom: 16px;
-    }
-
-    a {
-      color: var(--textColor) !important;
-    }
-
-    a:hover {
-      color: var(--linkHoverColor) !important;
-    }
+  /* ---------- FAQ ---------- */
+  .faq {
+    display: grid;
+    gap: 0.7rem;
   }
-
-  .course-information {
+  details.faq-item {
+    border: 1px solid var(--borderPrimary);
+    border-radius: 12px;
+    background: var(--backgroundColorSecondary);
+    overflow: hidden;
+  }
+  details.faq-item summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 1.1rem 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--titleColor);
+    font-size: 1.05rem;
+    transition: color var(--transition-fast);
+  }
+  details.faq-item summary::-webkit-details-marker {
     display: none;
   }
+  details.faq-item summary:hover {
+    color: var(--linkHoverColor);
+  }
+  .faq-item summary .chev {
+    margin-left: auto;
+    flex: 0 0 auto;
+    color: var(--textColor);
+    transition:
+      transform var(--transition-fast),
+      color var(--transition-fast);
+  }
+  .faq-item[open] summary .chev {
+    transform: rotate(90deg);
+    color: var(--buttonColorPrimary);
+  }
+  .faq-item .ans {
+    padding: 0 1.4rem 1.2rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--textColor);
+    max-width: 72ch;
+  }
 
-  .testimonials-list {
-    padding-left: 0;
-    list-style-type: none;
+  /* ---------- CTA final ---------- */
+  .endcta {
+    text-align: center;
+    background: var(--backgroundColorSecondary);
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-lg);
+    padding: 3rem 2rem;
+    margin: 0 0 3.75rem;
+  }
+  .endcta h2 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--titleColor);
+    font-size: 1.9rem;
+    margin: 0 0 0.7rem;
+  }
+  .endcta p {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: var(--textColor);
+    margin: 0 auto 1.7rem;
+    max-width: 52ch;
+  }
+  .endcta .cta-row {
     display: flex;
-    overflow: scroll;
-    gap: 24px;
-
-    li {
-      min-width: 80%;
-    }
-
-    li:last-child {
-      margin-right: 48px;
-    }
+    gap: 0.85rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
   }
 
-  .banner-section {
-    background-color: var(--backgroundColorSecondary);
-    padding: 32px 24px;
-    border-radius: 8px;
-    margin-bottom: 32px;
-
-    h2 {
-      margin-bottom: 24px;
-    }
-  }
-
-  .banner-section-buttons {
+  /* ---------- Contenu associé ---------- */
+  .rel-grid {
     display: grid;
-    gap: 24px;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .rcard {
+    display: grid;
+    gap: 0.55rem;
+    text-decoration: none;
+  }
+  .rcard img {
+    width: 100%;
+    aspect-ratio: 1792 / 1024;
+    object-fit: cover;
+    object-position: top;
+    border-radius: var(--radius-lg);
+    display: block;
+  }
+  .rcard .kind {
+    font-size: 0.8rem;
+    color: var(--textColor);
+    margin: 0.35rem 0 0;
+  }
+  .rcard h3 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--linkColor);
+    font-size: 1.12rem;
+    line-height: 1.25;
+    margin: 0;
+    transition: color var(--transition);
+  }
+  .rcard:hover h3 {
+    color: var(--linkHoverColor);
   }
 
-  .related-content-list {
-    padding-left: 0;
-    list-style-type: none;
-  }
-
+  /* ---------- Responsive ---------- */
   @media screen and (min-width: 768px) {
-    .main-wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: 28px;
+    .hero {
+      grid-template-columns: 1.05fr 1fr;
+      gap: 2.75rem;
     }
-
-    .testimonials-list li {
-      min-width: 45%;
+    .stats {
+      grid-template-columns: repeat(4, 1fr);
     }
-
-    .related-content-list {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+    .stat {
+      border-bottom: 0;
+    }
+    .stat:last-child {
+      border-right: 0;
+    }
+    .obj-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .fil {
+      grid-template-columns: 1fr 1.1fr;
+    }
+    .fil-media {
+      order: 0;
+    }
+    .tcards {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .rel-grid {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 
-  @media screen and (min-width: 1024px) {
-    .skills-section {
-      margin-bottom: 40px;
+  @media screen and (max-width: 767px) {
+    /* La 2e colonne de la grille 2x2 ne doit pas garder sa bordure droite. */
+    .stat:nth-child(even) {
+      border-right: 0;
     }
-
-    .testimonials-list {
-      overflow: unset;
-    }
-
-    .testimonials-list li {
-      min-width: 31.75%;
-    }
-
-    .related-content-list {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 36px;
-    }
-
-    .main-section {
-      display: grid;
-      grid-template-columns: 65% 30%;
-      gap: 64px;
-    }
-
-    .course-information {
-      display: initial;
-    }
-
-    .aside-wrapper {
-      background: var(--backgroundColorSecondary);
-      border-radius: 4px;
-      border: 1px solid var(--borderPrimary);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-      padding: 24px;
-      position: sticky;
-      top: 24px;
-
-      .course-info {
-        margin-bottom: 32px;
-      }
-
-      .course-info p {
-        margin: 0.25rem 0;
-      }
-
-      .course-goals {
-        list-style: none;
-        margin-bottom: 40px;
-      }
-
-      .course-goals li {
-        margin-bottom: 0.5rem;
-        position: relative;
-
-        svg {
-          position: absolute;
-          left: -32px;
-        }
-
-        path {
-          stroke: var(--buttonColorPrimary);
-        }
-      }
-
-      li {
-        margin-bottom: 8px;
-      }
-
-      .aside-wrapper-buttons {
-        margin-bottom: 24px;
-      }
-
-      .course-note {
-        font-size: 0.85rem;
-        color: var(--textColor);
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        margin-bottom: 0;
-      }
-    }
-
-    .banner-section {
-      padding: 48px 32px;
-
-      h2 {
-        margin-bottom: 36px;
-      }
-    }
-
-    .banner-section-buttons {
-      grid-template-columns: max-content max-content;
-    }
-
-    .aside-wrapper-buttons {
-      display: grid;
-      gap: 12px;
+    .stat:nth-last-child(-n + 2) {
+      border-bottom: 0;
     }
   }
 </style>

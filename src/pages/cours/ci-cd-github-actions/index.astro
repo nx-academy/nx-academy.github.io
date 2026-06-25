@@ -15,13 +15,66 @@ let cheatsheets = Object.values(
 cheatsheets = cheatsheets.filter((cheatsheet) =>
   cheatsheet.frontmatter.title.includes("GitHub"),
 );
+
+const objectives = [
+  {
+    icon: "branch",
+    title: "Comprendre le CI/CD",
+    text: "Saisir ce qu'apportent l'intégration et le déploiement continus, et le vocabulaire : workflows, jobs, runners, steps.",
+  },
+  {
+    icon: "zap",
+    title: "Automatiser tests et builds",
+    text: "Mettre en place une pipeline qui installe, build et teste votre code à chaque push, automatiquement.",
+  },
+  {
+    icon: "rocket",
+    title: "Déployer en continu",
+    text: "Publier un site ou un portfolio sur GitHub Pages à chaque modification, sans la moindre étape manuelle.",
+  },
+];
+
+const projetFilRouge = {
+  title: "Déployez votre portfolio en continu",
+  text: "Tout au long du cours, vous construisez une pipeline complète pour un vrai portfolio : à chaque push, votre site est testé, buildé puis déployé automatiquement sur GitHub Pages — zéro étape manuelle.",
+  imgSrc: "/images/cours-ci-cd-github-actions/femme-site-web.webp",
+  imgAlt: "Une femme construisant son site web, illustration pixel art",
+};
+
+const faq = [
+  {
+    question: "Faut-il créer un compte pour suivre le cours ?",
+    answer:
+      "Non. Tout NX est gratuit et accessible sans inscription — vous arrivez sur la page, vous cliquez, vous apprenez. Aucun e-mail, aucune carte bancaire, jamais.",
+  },
+  {
+    question: "Quels sont les pré-requis pour suivre ce cours ?",
+    answer:
+      "Aucune expérience du CI/CD n'est nécessaire — on part de zéro. Il suffit d'être à l'aise avec Git et GitHub (cloner, commit, push) et de connaître les bases d'un projet web. Un compte GitHub gratuit suffit, aucun serveur à louer.",
+  },
+  {
+    question: "GitHub Actions est-il payant ?",
+    answer:
+      "GitHub Actions est gratuit pour les dépôts publics et inclut un quota mensuel généreux pour les dépôts privés. Tout le projet du cours tient largement dans l'offre gratuite.",
+  },
+  {
+    question: "Combien de temps faut-il y consacrer ?",
+    answer:
+      "Comptez environ 12 heures au total, à votre rythme. Les chapitres sont courts : vous pouvez avancer par petites sessions et reprendre où vous en étiez.",
+  },
+  {
+    question: "Et si je bloque pendant le projet fil rouge ?",
+    answer:
+      "Le code et les workflows du projet sont open-source sur GitHub, avec une correction étape par étape. Et comme partout sur NX, vous pouvez m'écrire si quelque chose coince — je réponds.",
+  },
+];
 ---
 
 <CourseLandingLayout
   srcPicture="/images/cours-ci-cd-github-actions/usine-factorio-like.webp"
   altPicture="Une usine à la Factorio, pixel art"
   courseTitle="Maîtrisez les pipelines CI/CD avec les GitHub Actions"
-  courseDescription="Apprenez à créer, optimiser et automatiser des pipelines CI/CD avec GitHub Actions. De vos premiers workflows au déploiement complet d’un portfolio, maîtrisez chaque étape du processus."
+  courseDescription="Apprenez à créer, optimiser et automatiser des pipelines CI/CD avec GitHub Actions. De vos premiers workflows au déploiement complet d'un portfolio, maîtrisez chaque étape du processus."
   courseUrl="/cours/ci-cd-github-actions/chapitres/decouverte-concepts-ci-cd"
   courseTestimonials={GITHUB_ACTIONS_TESTIMONIALS}
   quizUrl="/quiz/quiz-niveau-docker"
@@ -29,76 +82,18 @@ cheatsheets = cheatsheets.filter((cheatsheet) =>
   cheatsheets={cheatsheets}
   courseLevel="Intermédiaire"
   courseDuration={12}
-  courseGoals={[
-    "Créer vos premiers workflows GitHub Actions",
-    "Déboguer et optimiser vos pipelines",
-    "Automatisez vos déploiements sur GitHub Pages",
-  ]}
+  courseAuthor="Thomas"
+  courseUpdatedDate="05/08/2025"
+  objectives={objectives}
+  projetFilRouge={projetFilRouge}
+  faq={faq}
 >
-  <div slot="skills-section">
-    <p>
-      Les pipelines CI/CD sont devenus des éléments clés du développement
-      moderne. Longtemps réservés aux équipes DevOps, ils sont aujourd’hui
-      essentiels pour les développeurs souhaitant livrer plus vite, plus
-      proprement et en toute confiance. Maîtriser GitHub Actions est un
-      véritable atout, tant en entreprise que lors d’entretiens.
-      <br />
-      <br />
-      Dans ce cours, vous apprendrez à créer, optimiser et automatiser vos propres
-      pipelines CI/CD directement depuis GitHub. Vous découvrirez comment tester
-      votre code, le builder, le déployer et mettre en place un véritable workflow
-      professionnel.
-    </p>
-    <p>À l’issue du cours, vous serez capable de :</p>
-    <ul>
-      <li>
-        <svg
-          class="check-icon"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <use xlink:href="#check-icon"></use>
-        </svg>
-        Créer vos premiers workflows GitHub Actions et comprendre les notions clés
-        : workflows, jobs, runners, steps, actions.
-      </li>
-      <li>
-        <svg
-          class="check-icon"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <use xlink:href="#check-icon"></use>
-        </svg>
-        Mettre en place une pipeline CI complète : installation des dépendances,
-        build du projet, exécution des tests automatisés.
-      </li>
-      <li>
-        <svg
-          class="check-icon"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <use xlink:href="#check-icon"></use>
-        </svg>
-        Automatiser vos déploiements sur GitHub Pages pour publier un site ou un
-        portfolio professionnel en continu.
-      </li>
-    </ul>
-    <p>
-      <strong>Ce cours est résolument pratique</strong> : chaque notion est illustrée
-      par des mises en situation concrètes, accompagnées de screencasts et de corrections
-      détaillées.
-    </p>
-  </div>
+  <p slot="skills-section">
+    Les pipelines CI/CD sont devenus incontournables dans le développement
+    moderne. Ce cours part de zéro et vous emmène jusqu'au déploiement
+    automatisé d'un vrai projet : chaque notion sert directement la pipeline que
+    vous construisez en parallèle. Vous apprendrez à tester votre code, à le
+    builder, à le déployer et à mettre en place un véritable workflow
+    professionnel.
+  </p>
 </CourseLandingLayout>
-
-<style>
-  .check-icon {
-    width: 24px;
-    height: 24px;
-  }
-</style>
