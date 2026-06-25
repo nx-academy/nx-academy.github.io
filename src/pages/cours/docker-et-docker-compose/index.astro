@@ -15,87 +15,84 @@ let cheatsheets = Object.values(
 cheatsheets = cheatsheets.filter((cheatsheet) =>
   cheatsheet.frontmatter.title.includes("Docker"),
 );
+
+const objectives = [
+  {
+    icon: "cube",
+    title: "Comprendre la conteneurisation",
+    text: "Saisir ce qu'est un conteneur, en quoi il diffère d'une VM, et pourquoi Docker a changé la donne.",
+  },
+  {
+    icon: "package",
+    title: "Construire ses propres images",
+    text: "Écrire un Dockerfile propre, l'optimiser, gérer volumes et réseaux comme un pro.",
+  },
+  {
+    icon: "activity",
+    title: "Orchestrer avec Compose",
+    text: "Lancer une stack multi-services d'une seule commande et la préparer pour la production.",
+  },
+];
+
+const projetFilRouge = {
+  title: "Conteneurisez une application complète",
+  text: "Tout au long du cours, vous conteneurisez une vraie application : une API, son front et sa base de données. À la fin, une seule commande lance toute la stack — sur votre machine comme sur un serveur.",
+  imgSrc: "/images/cours-docker-et-docker-compose/travail-conteneur.webp",
+  imgAlt: "Un bûcheron travaillant sur un conteneur, illustration pixel art",
+};
+
+const faq = [
+  {
+    question: "Faut-il créer un compte pour suivre le cours ?",
+    answer:
+      "Non. Tout NX est gratuit et accessible sans inscription — vous arrivez sur la page, vous cliquez, vous apprenez. Aucun e-mail, aucune carte bancaire, jamais.",
+  },
+  {
+    question: "Quels sont les pré-requis pour suivre ce cours ?",
+    answer:
+      "Aucune connaissance de Docker n'est requise — on part de zéro. L'idéal est simplement d'être à l'aise avec un terminal, de connaître les bases d'une application web (un front, un back, une base de données), et de disposer d'une machine Windows, macOS ou Linux avec ~15 Go d'espace libre.",
+  },
+  {
+    question: "Sur quel système d'exploitation puis-je suivre le cours ?",
+    answer:
+      "Windows, macOS et Linux. Docker tourne partout ; on installe ensemble l'environnement au tout début, en s'adaptant à votre système.",
+  },
+  {
+    question: "Combien de temps faut-il y consacrer ?",
+    answer:
+      "Comptez environ 12 heures au total, à votre rythme. Les chapitres sont courts et indépendants : vous pouvez avancer par sessions de 20 minutes et reprendre où vous en étiez.",
+  },
+  {
+    question: "Et si je bloque pendant le projet fil rouge ?",
+    answer:
+      "Le code du projet est open-source sur GitHub, avec une correction étape par étape. Et comme partout sur NX, vous pouvez m'écrire si quelque chose coince — je réponds.",
+  },
+];
 ---
 
 <CourseLandingLayout
   srcPicture="/images/cours-docker-et-docker-compose/installation-portuaire.webp"
   altPicture="Une installation portuaire, pixel art"
   courseTitle="Conteneurisez vos applications avec Docker"
-  courseDescription="Apprenez à utiliser Docker et Docker Compose par la pratique. Découvrez comment Docker peut faciliter le développement d'applications et leur mise en production."
+  courseDescription="De votre premier Dockerfile jusqu'à l'orchestration multi-conteneurs avec Docker Compose. Un cours complet, concret, avec un vrai projet à mener du début à la fin."
   courseUrl="/cours/docker-et-docker-compose/chapitres/decouverte-docker/"
   courseTestimonials={DOCKER_TESTIMONIALS}
   courseChapters={courseChapters}
   cheatsheets={cheatsheets}
   courseLevel="Intermédiaire"
   courseDuration={12}
+  courseAuthor="Thomas"
+  courseUpdatedDate="05/08/2025"
   quizUrl="/quiz/quiz-niveau-docker"
-  courseGoals={[
-    "Créez vos propres images Docker",
-    "Déployez une app complète",
-    "Optimisez vos builds pour la prod",
-  ]}
+  objectives={objectives}
+  projetFilRouge={projetFilRouge}
+  faq={faq}
 >
-  <div slot="skills-section">
-    <p>
-      Docker est devenu un outil incontournable pour les développeurs. Longtemps
-      réservé aux administrateurs système et aux DevOps, il est désormais
-      demandé dans un grand nombre d'entreprises, quel que soit le rôle
-      technique.
-      <br />
-      <br />
-      Dans ce cours, vous apprendrez à utiliser Docker et Docker Compose pour conteneuriser
-      vos projets. Vous verrez comment simplifier vos déploiements, mieux collaborer
-      en équipe et préparer vos applications pour la production.
-    </p>
-    <p>À l’issue du cours, vous serez capable de :</p>
-    <ul>
-      <li>
-        <svg
-          class="check-icon"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <use xlink:href="#check-icon"></use>
-        </svg>
-        Créer et personnaliser vos propres images Docker en choisissant la bonne
-        base et en optimisant vos builds.
-      </li>
-      <li>
-        <svg
-          class="check-icon"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <use xlink:href="#check-icon"></use>
-        </svg>
-        Mettre en place une architecture conteneurisée complète : base de données,
-        back-end, front-end.
-      </li>
-      <li>
-        <svg
-          class="check-icon"
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <use xlink:href="#check-icon"></use>
-        </svg>
-        Préparer vos images pour la production grâce au multi-stage build.
-      </li>
-    </ul>
-    <p>
-      <strong>Ce cours est résolument pratique</strong> : chaque notion est illustrée
-      par des mises en situation concrètes, accompagnées de screencasts et de corrections
-      détaillées.
-    </p>
-  </div>
+  <p slot="skills-section">
+    Ce cours part de zéro et vous emmène jusqu'à une application complète
+    conteneurisée. Pas de théorie hors-sol : chaque notion sert directement le
+    projet que vous construisez en parallèle. Vous apprendrez à simplifier vos
+    déploiements, à mieux collaborer en équipe et à préparer vos applications
+    pour la production.
+  </p>
 </CourseLandingLayout>
-
-<style>
-  .check-icon {
-    width: 24px;
-    height: 24px;
-  }
-</style>
