@@ -15,7 +15,7 @@ imgSrc: /images/cheatsheets/docker-compose-swarm.webp
 author: Thomas
 kind: Fiche technique
 level: Débutant
-publishedDate: 24/06/2026
+publishedDate: 06/27/2026
 ---
 
 On démarre aujourd'hui une nouvelle série de fiches techniques dédiées à Docker.
