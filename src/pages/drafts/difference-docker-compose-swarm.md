@@ -36,9 +36,10 @@ allez voir, une fois qu'on a la bonne image en tête, ça devient limpide.
 
 ## Pourquoi on les confond aussi souvent ?
 
-Avant d'entrer dans le détail, on va prendre le temps de poser le contexte. Si ces trois outils prêtent à
-confusion, c'est pour une bonne raison. **Ils répondent au même besoin de base
-(faire tourner des conteneurs) mais à des échelles différentes**.
+Avant d'entrer dans le détail, on va prendre le temps de poser le contexte. Si
+ces trois outils prêtent à confusion, c'est pour une bonne raison. **Ils
+répondent au même besoin de base (faire tourner des conteneurs) mais à des
+échelles différentes**.
 
 <br>
 
@@ -66,8 +67,8 @@ qui permet de construire des images et de lancer des conteneurs.
 <br>
 
 Pour rappel, **une image, c'est un modèle figé** (votre application + tout ce
-dont elle a besoin pour tourner). **Un conteneur, c'est une instance vivante
-de cette image**. Si ces notions sont encore floues, je vous invite à
+dont elle a besoin pour tourner). **Un conteneur, c'est une instance vivante de
+cette image**. Si ces notions sont encore floues, je vous invite à
 [commencer par le cours sur Docker](/cours/docker-et-docker-compose/).
 
 <br>
@@ -166,8 +167,8 @@ le dernier niveau : l'orchestration.
 ## Docker Swarm = orchestrer sur plusieurs machines
 
 Docker Swarm, c'est l'orchestrateur intégré à Docker. Son rôle est de gérer un
-**cluster**, autrement dit un ensemble de machines (on parle de _nodes_ ou nœuds) qui
-travaillent ensemble comme si elles n'en formaient qu'une seule.
+**cluster**, autrement dit un ensemble de machines (on parle de _nodes_ ou
+nœuds) qui travaillent ensemble comme si elles n'en formaient qu'une seule.
 
 <br>
 
@@ -296,6 +297,7 @@ D'ici là, je vous invite :
 
 <!-- - [à faire le quiz](/quiz/difference-docker-compose-swarm) pour valider vos
   acquis ; -->
+
 - [à (re)commencer le cours sur Docker et Docker Compose](/cours/docker-et-docker-compose)
   si ce n'est pas déjà fait.
 
