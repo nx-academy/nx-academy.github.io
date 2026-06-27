@@ -32,11 +32,13 @@ l'un remplace l'autre ? Faut-il les trois pour mettre une application en prod ?
 Dans cette fiche, on va clarifier tout ça une bonne fois pour toutes. Et vous
 allez voir, une fois qu'on a la bonne image en tête, ça devient limpide.
 
+---
+
 ## Pourquoi on les confond aussi souvent ?
 
-Avant d'entrer dans le détail, posons les choses. Si ces trois outils prêtent à
-confusion, c'est pour une bonne raison : **ils répondent au même besoin de base
-(faire tourner des conteneurs), mais à des échelles différentes**.
+Avant d'entrer dans le détail, on va prendre le temps de poser le contexte. Si ces trois outils prêtent à
+confusion, c'est pour une bonne raison. **Ils répondent au même besoin de base
+(faire tourner des conteneurs) mais à des échelles différentes**.
 
 <br>
 
@@ -54,7 +56,9 @@ Vous pouvez les voir comme trois zooms successifs : on part d'un conteneur, puis
 d'une application complète sur un poste, puis d'une infrastructure distribuée
 sur un parc de serveurs. On va dérouler chacun de ces trois niveaux.
 
-## Docker : faire tourner un conteneur
+---
+
+## Docker = faire tourner un conteneur
 
 Docker, c'est la brique de base. C'est le moteur (on parle du _Docker Engine_)
 qui permet de construire des images et de lancer des conteneurs.
@@ -62,7 +66,7 @@ qui permet de construire des images et de lancer des conteneurs.
 <br>
 
 Pour rappel, **une image, c'est un modèle figé** (votre application + tout ce
-dont elle a besoin pour tourner) et **un conteneur, c'est une instance vivante
+dont elle a besoin pour tourner). **Un conteneur, c'est une instance vivante
 de cette image**. Si ces notions sont encore floues, je vous invite à
 [commencer par le cours sur Docker](/cours/docker-et-docker-compose/).
 
@@ -94,7 +98,9 @@ re-taper toutes ces commandes à chaque redémarrage… Bref, c'est vite ingéra
 
 C'est exactement le problème que Docker Compose vient résoudre.
 
-## Docker Compose : plusieurs conteneurs sur une machine
+---
+
+## Docker Compose = plusieurs conteneurs sur une machine
 
 Docker Compose permet de décrire **toute votre application dans un seul
 fichier** : le fameux `docker-compose.yml`. Au lieu de lancer vos conteneurs un
@@ -103,7 +109,7 @@ commande.
 
 <br>
 
-Prenons un exemple classique : une API et sa base de données PostgreSQL.
+Prenons un exemple classique avec une API et sa base de données PostgreSQL.
 
 ```yaml
 services:
@@ -155,10 +161,12 @@ ce serveur tombe, votre application tombe avec. Et si votre trafic explose, vous
 ne pouvez pas répartir la charge sur plusieurs serveurs. C'est là qu'intervient
 le dernier niveau : l'orchestration.
 
-## Docker Swarm : orchestrer sur plusieurs machines
+---
+
+## Docker Swarm = orchestrer sur plusieurs machines
 
 Docker Swarm, c'est l'orchestrateur intégré à Docker. Son rôle est de gérer un
-**cluster** : un ensemble de machines (on parle de _nodes_, ou nœuds) qui
+**cluster**, autrement dit un ensemble de machines (on parle de _nodes_ ou nœuds) qui
 travaillent ensemble comme si elles n'en formaient qu'une seule.
 
 <br>
@@ -200,6 +208,8 @@ On entre ici dans le monde de la **production sérieuse** et de la haute
 disponibilité. C'est plus puissant, mais aussi plus complexe à mettre en place
 et à maintenir.
 
+---
+
 ## Tableau récapitulatif
 
 Pour y voir clair en un coup d'œil :
@@ -213,10 +223,16 @@ Pour y voir clair en un coup d'œil :
 | **Tolérance aux pannes**  | ❌                  | ❌                       | ✅                           |
 | **Complexité**            | Faible              | Moyenne                  | Élevée                       |
 
+---
+
 ## Alors, lequel choisir ?
 
 La bonne nouvelle, c'est que **vous n'avez pas à choisir** : ces trois outils ne
-sont pas concurrents, ils se complètent. En pratique :
+sont pas concurrents, ils se complètent.
+
+<br>
+
+En pratique :
 
 - vous utilisez **Docker** au quotidien dès que vous manipulez des conteneurs ;
 - vous utilisez **Docker Compose** pour développer en local et pour la grande
@@ -231,6 +247,8 @@ Mon conseil ? **Ne sortez pas l'artillerie lourde trop tôt**. J'ai vu des
 équipes monter un cluster Swarm ou Kubernetes pour un projet qui tournait
 tranquillement sur une seule machine avec Docker Compose. Résultat : beaucoup de
 complexité pour rien. _Simple is better than complex_, comme toujours.
+
+---
 
 ## Astuce bonus - Compose et Swarm parlent (presque) le même langage
 
@@ -276,8 +294,8 @@ un focus complet sur Docker Swarm. Restez dans le coin 😉.
 
 D'ici là, je vous invite :
 
-- [à faire le quiz](/quiz/difference-docker-compose-swarm) pour valider vos
-  acquis ;
+<!-- - [à faire le quiz](/quiz/difference-docker-compose-swarm) pour valider vos
+  acquis ; -->
 - [à (re)commencer le cours sur Docker et Docker Compose](/cours/docker-et-docker-compose)
   si ce n'est pas déjà fait.
 
