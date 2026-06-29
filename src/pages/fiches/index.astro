@@ -32,12 +32,41 @@ const shelves = Object.keys(SERIES)
 
 const total = cheatsheets.length;
 
-const title = "Fiches techniques";
+const title = "Fiches techniques Docker, JavaScript, CSS & DevOps";
 const description =
-  "Une fiche technique est un guide de référence pratique autour d'une notion. On explique le concept simplement et on vous donne les astuces pour l'intégrer à vos projets : HTML, CSS, JavaScript, DevOps ou game dev.";
+  "Fiches techniques NX Academy : des guides de référence pratiques en Docker, JavaScript, CSS, DevOps et game dev. Le concept expliqué simplement, prêt à l'emploi.";
+const ogImage = "/images/cheatsheets/developpeur-devant-ecrans.webp";
+const ogImageAlt = "Développeur devant ses écrans, pixel art";
+
+// Donnees structurees : la page est une liste (CollectionPage + ItemList).
+// On enumere les fiches dans l'ordre affiche (rayons puis date desc) avec des
+// URLs absolues. Seo.astro insere ce schema dans le @graph (pas de @context ici).
+const orderedFiches = shelves.flatMap((shelf) => shelf.items);
+const fichesSchema = {
+  "@type": "CollectionPage",
+  name: "Fiches techniques",
+  description,
+  url: new URL("/fiches", Astro.site).href,
+  mainEntity: {
+    "@type": "ItemList",
+    numberOfItems: total,
+    itemListElement: orderedFiches.map((cheatsheet, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: new URL(cheatsheet.url!, Astro.site).href,
+      name: cheatsheet.frontmatter.title,
+    })),
+  },
+};
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout
+  title={title}
+  description={description}
+  image={ogImage}
+  imageAlt={ogImageAlt}
+  schemas={[fichesSchema]}
+>
   <div class="wrap">
     <section class="entry">
       <h1>Fiches techniques</h1>
