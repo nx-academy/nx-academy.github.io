@@ -11,6 +11,7 @@ imgSrc: /images/cheatsheets/magasin-chinois.webp
 
 author: Thomas
 kind: Fiche technique
+serie: docker
 level: Intermédiaire
 publishedDate: 07/04/2025
 ---

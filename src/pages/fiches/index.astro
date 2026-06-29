@@ -2,87 +2,699 @@
 import type { Cheatsheet } from "../../types/Cheatsheet";
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SERIES } from "../../data/series";
 
-import Card from "../../components/Card.astro";
+const cheatsheets = (
+  Object.values(import.meta.glob("./*.md", { eager: true })) as Cheatsheet[]
+).filter((cheatsheet) => !cheatsheet.frontmatter.draft);
 
-const cheatsheets = Object.values(
-  import.meta.glob("./*.md", { eager: true }),
-) as Cheatsheet[];
+const LEVELS = ["Débutant", "Intermédiaire", "Avancé"];
+const levelClass = (level: string) =>
+  ({ Débutant: "lvl-1", Intermédiaire: "lvl-2", Avancé: "lvl-3" })[level] ??
+  "lvl-1";
 
-const title = "Nos dernières fiches techniques";
+const dateValue = (date: string) => new Date(date).getTime();
+
+// Regroupe les fiches en rayons, dans l'ordre déclaré par SERIES.
+// Tri par défaut au sein d'un rayon : par date décroissante (« Plus récentes »).
+const shelves = Object.keys(SERIES)
+  .map((key) => {
+    const items = cheatsheets
+      .filter((cheatsheet) => cheatsheet.frontmatter.serie === key)
+      .sort(
+        (a, b) =>
+          dateValue(b.frontmatter.publishedDate) -
+          dateValue(a.frontmatter.publishedDate),
+      );
+    return { key, ...SERIES[key], items };
+  })
+  .filter((shelf) => shelf.items.length > 0);
+
+const total = cheatsheets.length;
+
+const title = "Fiches techniques";
 const description =
-  "Une fiche technique est un guide de référence pratique autour d'une notion. Nous vous expliquons les notions et des astuceq pour les intégrer facilement à vos projets.";
+  "Une fiche technique est un guide de référence pratique autour d'une notion. On explique le concept simplement et on vous donne les astuces pour l'intégrer à vos projets : HTML, CSS, JavaScript, DevOps ou game dev.";
 ---
 
 <BaseLayout title={title} description={description}>
-  <div class="wrapper">
-    <section>
-      <h1>Nos dernières fiches techniques</h1>
-      <p>
+  <div class="wrap">
+    <section class="entry">
+      <h1>Fiches techniques</h1>
+      <p class="lead">
         Une fiche technique est un guide de référence pratique autour d'une
-        notion. Par exemple, comment faire des designs fluides ou qu'est-ce que
-        le <strong>this en JavaScript.</strong>
-      </p>
-      <p>
-        Les fiches techniques sont particulièrement utiles pour expliquer un
-        concept rapidement et simplement. Elles concernent aussi bien le HTML,
-        CSS et JavaScript que le DevOps.
+        notion — le <code>this</code> en JavaScript, un multi-stage build Docker,
+        la fonction CSS <code>clamp()</code>. On explique le concept simplement,
+        et on vous donne les astuces pour l'intégrer à vos projets. HTML, CSS,
+        JavaScript, DevOps ou game dev : piochez celle qu'il vous faut.
       </p>
 
-      <div class="cards-wrapper">
-        {
-          cheatsheets
-            .filter((cheatsheet) => !cheatsheet.frontmatter.draft)
-            .sort(
-              (item1, item2) =>
-                new Date(item2.frontmatter.publishedDate).getTime() -
-                new Date(item1.frontmatter.publishedDate).getTime(),
-            )
-            .map((cheatsheet) => (
-              <Card
-                kind="Fiche Technique"
-                href={cheatsheet.url!}
-                title={cheatsheet.frontmatter.title}
-                description={cheatsheet.frontmatter.description}
-                level={cheatsheet.frontmatter.level}
-                imgAlt={cheatsheet.frontmatter.imgAlt}
-                imgSrc={cheatsheet.frontmatter.imgSrc}
-                author={cheatsheet.frontmatter.author}
-                publishedDate={cheatsheet.frontmatter.publishedDate}
-              />
-            ))
-        }
-      </div>
+      <label class="search">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          aria-hidden="true"
+        >
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="M21 21l-4-4"></path>
+        </svg>
+        <input
+          id="q"
+          type="search"
+          placeholder="Rechercher une notion : Docker, async, clamp, multi-stage…"
+          autocomplete="off"
+          aria-label="Rechercher une fiche"
+        />
+      </label>
     </section>
+
+    <nav class="jumpnav" id="jumpnav" aria-label="Filtrer par série">
+      <button class="chip on" type="button" data-serie="all">
+        Toutes <span class="n">{total}</span>
+      </button>
+      {
+        shelves.map((shelf) => (
+          <button class="chip" type="button" data-serie={shelf.key}>
+            {shelf.label} <span class="n">{shelf.items.length}</span>
+          </button>
+        ))
+      }
+    </nav>
+
+    <div class="toolbar">
+      <span class="count" id="count"><b>{total}</b> fiches</span>
+      <span class="spacer"></span>
+      <label class="selwrap">
+        Trier dans chaque série
+        <select class="sort" id="sort">
+          <option value="recent">Plus récentes</option>
+          <option value="level">Par niveau</option>
+          <option value="alpha">Alphabétique</option>
+        </select>
+      </label>
+      <div
+        class="viewseg"
+        id="viewSeg"
+        role="group"
+        aria-label="Nombre de colonnes"
+      >
+        <button type="button" data-cols="2">2</button>
+        <button type="button" data-cols="3" class="on">3</button>
+        <button type="button" data-cols="4">4</button>
+      </div>
+    </div>
+
+    <div id="shelves">
+      {
+        shelves.map((shelf) => (
+          <section class="shelf" data-serie={shelf.key} style="--cols: 3">
+            <div class="shelf-head">
+              <div class="ico" aria-hidden="true">
+                {shelf.label[0]}
+              </div>
+              <div class="shelf-head-text">
+                <h2>{shelf.label}</h2>
+                <p class="blurb">{shelf.blurb}</p>
+              </div>
+              <div class="cnt">
+                <b>{shelf.items.length}</b> fiche
+                {shelf.items.length > 1 ? "s" : ""}
+              </div>
+            </div>
+
+            <div class="grid">
+              {shelf.items.map((cheatsheet) => {
+                const { frontmatter, url } = cheatsheet;
+                const formattedDate = new Date(
+                  frontmatter.publishedDate,
+                ).toLocaleDateString("fr-FR");
+                const search = `${frontmatter.title} ${frontmatter.description} ${shelf.label}`;
+                return (
+                  <a
+                    class="card"
+                    href={url}
+                    data-serie={shelf.key}
+                    data-level={LEVELS.indexOf(frontmatter.level)}
+                    data-date={dateValue(frontmatter.publishedDate)}
+                    data-title={frontmatter.title}
+                    data-search={search}
+                  >
+                    <img
+                      loading="lazy"
+                      class="image"
+                      src={frontmatter.imgSrc}
+                      alt={frontmatter.imgAlt}
+                    />
+                    <div class="card-meta">
+                      <span class="kind">Fiche technique</span>
+                      <span class={`lvl ${levelClass(frontmatter.level)}`}>
+                        {frontmatter.level}
+                      </span>
+                    </div>
+                    <h3>{frontmatter.title}</h3>
+                    <p class="desc">{frontmatter.description}</p>
+                    <p class="byline">
+                      Par {frontmatter.author} — {formattedDate}
+                    </p>
+                  </a>
+                );
+              })}
+            </div>
+          </section>
+        ))
+      }
+    </div>
+
+    <p class="empty" id="empty" hidden>
+      Aucune fiche ne correspond. Essayez un autre mot-clé.
+    </p>
   </div>
 </BaseLayout>
 
 <style>
-  .wrapper {
-    padding-top: 1.5rem;
+  .wrap {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
     padding-bottom: 1.5rem;
   }
 
-  section {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1100px;
+  /* Bloc d'entrée */
+  .entry {
+    padding: 2.5rem 0 1rem;
   }
 
-  .cards-wrapper {
-    display: grid;
-    gap: 2.5rem;
+  .entry h1 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--titleColor);
+    font-size: clamp(2rem, 1.5rem + 1.8vw, 2.6rem);
+    line-height: 1.12;
+    margin: 0 0 1.3rem;
+  }
 
-    @media screen and (min-width: 48rem) {
-      margin-top: 3rem;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 5rem;
+  .lead {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--textColor);
+    margin: 0 0 2.6rem;
+    max-width: none;
+  }
+
+  .lead code {
+    font-family: var(--font-mono);
+    background-color: var(--codeBackgroundColor);
+    color: var(--codeTextColor);
+    padding: 0.1em 0.4em;
+    border-radius: var(--radius-sm);
+    font-size: 0.9em;
+  }
+
+  /* Recherche pleine largeur */
+  .search {
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+
+  .search svg {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    color: var(--textColor);
+    pointer-events: none;
+  }
+
+  .search input {
+    width: 100%;
+    background: var(--backgroundColorSecondary);
+    border: 1px solid var(--borderPrimary);
+    border-radius: 14px;
+    color: var(--titleColor);
+    font-family: inherit;
+    font-size: 1.05rem;
+    padding: 17px 20px 17px 54px;
+    outline: none;
+    transition: border-color var(--transition-fast);
+  }
+
+  .search input::placeholder {
+    color: var(--textColor);
+  }
+
+  .search input:focus {
+    border-color: var(--linkHoverColor);
+  }
+
+  /* Navigation par séries */
+  .jumpnav {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 1.4rem 0 0.2rem;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: inherit;
+    font-size: 0.88rem;
+    color: var(--textColor);
+    background: none;
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-pill);
+    padding: 8px 14px;
+    cursor: pointer;
+    transition:
+      color var(--transition-fast),
+      border-color var(--transition-fast);
+    white-space: nowrap;
+  }
+
+  .chip:hover {
+    color: var(--linkHoverColor);
+    border-color: var(--linkHoverColor);
+  }
+
+  .chip.on {
+    color: var(--titleColor);
+    border-color: var(--accent);
+  }
+
+  .chip .n {
+    font-size: 0.76rem;
+    color: var(--textColor);
+    background: var(--backgroundColorSecondary);
+    border-radius: var(--radius-pill);
+    padding: 1px 8px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .chip.on .n {
+    color: var(--titleColor);
+  }
+
+  /* Toolbar */
+  .toolbar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 1.2rem 0 0.4rem;
+    border-top: 1px solid var(--borderPrimary);
+    margin-top: 1.2rem;
+  }
+
+  .count {
+    font-size: 0.92rem;
+    color: var(--textColor);
+  }
+
+  .count b {
+    color: var(--titleColor);
+    font-weight: 600;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .selwrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--textColor);
+  }
+
+  select.sort {
+    font-family: inherit;
+    font-size: 0.88rem;
+    color: var(--titleColor);
+    background: var(--backgroundColorSecondary);
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-md);
+    padding: 8px 12px;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .viewseg {
+    display: inline-flex;
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .viewseg button {
+    font-family: inherit;
+    font-size: 0.82rem;
+    color: var(--textColor);
+    background: var(--backgroundColorSecondary);
+    border: none;
+    border-right: 1px solid var(--borderPrimary);
+    padding: 8px 11px;
+    cursor: pointer;
+    transition:
+      color var(--transition-fast),
+      background var(--transition-fast);
+  }
+
+  .viewseg button:last-child {
+    border-right: 0;
+  }
+
+  .viewseg button.on {
+    color: var(--titleColor);
+    background: color-mix(in srgb, var(--buttonColorPrimary) 16%, transparent);
+  }
+
+  /* Rayon */
+  .shelf {
+    margin: 2.8rem 0 0;
+  }
+
+  .shelf[hidden] {
+    display: none;
+  }
+
+  .shelf-head {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    border-bottom: 1px solid var(--borderPrimary);
+    padding-bottom: 0.9rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .shelf-head .ico {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 auto;
+    border-radius: 12px;
+    background: color-mix(in srgb, var(--buttonColorPrimary) 14%, transparent);
+    color: var(--buttonColorPrimary);
+    display: grid;
+    place-items: center;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+  }
+
+  .shelf-head h2 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--titleColor);
+    font-size: 1.5rem;
+    margin: 0;
+    line-height: 1.1;
+  }
+
+  .shelf-head .blurb {
+    font-size: 0.9rem;
+    color: var(--textColor);
+    margin: 0.3rem 0 0;
+    max-width: 60ch;
+  }
+
+  .shelf-head .cnt {
+    margin-left: auto;
+    font-size: 0.8rem;
+    color: var(--textColor);
+    white-space: nowrap;
+    padding-bottom: 2px;
+  }
+
+  .shelf-head .cnt b {
+    color: var(--titleColor);
+    font-weight: 600;
+  }
+
+  /* Grille + cartes */
+  .grid {
+    display: grid;
+    gap: 2.2rem 2rem;
+    grid-template-columns: repeat(var(--cols, 3), 1fr);
+  }
+
+  .card {
+    display: grid;
+    gap: 0.55rem;
+    align-content: start;
+    color: var(--linkColor);
+  }
+
+  .card[hidden] {
+    display: none;
+  }
+
+  .card .image {
+    width: 100%;
+    aspect-ratio: 1792 / 1024;
+    object-fit: cover;
+    object-position: top;
+    border-radius: var(--radius-lg);
+    display: block;
+  }
+
+  .card-meta {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .kind {
+    font-size: 0.76rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--textColor);
+  }
+
+  .card h3 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--linkColor);
+    font-size: 1.1rem;
+    line-height: 1.28;
+    margin: 0;
+    transition: color var(--transition);
+  }
+
+  .card:hover h3 {
+    color: var(--linkHoverColor);
+  }
+
+  .desc {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--textColor);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .byline {
+    font-size: 0.78rem;
+    color: var(--textColor);
+    margin: 0;
+  }
+
+  /* Pastille de niveau */
+  .lvl {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    color: var(--titleColor);
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-pill);
+    padding: 2px 9px 2px 8px;
+    white-space: nowrap;
+  }
+
+  .lvl::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--ld);
+  }
+
+  .lvl-1 {
+    --ld: #4effa0;
+  }
+  .lvl-2 {
+    --ld: #ffd24e;
+  }
+  .lvl-3 {
+    --ld: #fe7600;
+  }
+
+  .empty {
+    text-align: center;
+    padding: 4rem 0;
+    color: var(--textColor);
+  }
+
+  /* Responsive : 1 colonne et nav scrollable sous ~720px */
+  @media screen and (max-width: 720px) {
+    .grid {
+      grid-template-columns: 1fr;
     }
 
-    @media screen and (min-width: 90rem) {
-      margin-top: 3rem;
-      grid-template-columns: repeat(3, 1fr);
+    .jumpnav {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+    }
+
+    .viewseg {
+      display: none;
     }
   }
 </style>
+
+<script>
+  type State = {
+    q: string;
+    serie: string;
+    sort: "recent" | "level" | "alpha";
+    cols: number;
+  };
+
+  const state: State = { q: "", serie: "all", sort: "recent", cols: 3 };
+
+  const shelves = [
+    ...document.querySelectorAll<HTMLElement>("#shelves .shelf"),
+  ];
+  const chips = [
+    ...document.querySelectorAll<HTMLButtonElement>("#jumpnav .chip"),
+  ];
+  const countEl = document.getElementById("count") as HTMLElement;
+  const emptyEl = document.getElementById("empty") as HTMLElement;
+  const qInput = document.getElementById("q") as HTMLInputElement;
+  const sortSel = document.getElementById("sort") as HTMLSelectElement;
+  const viewSeg = document.getElementById("viewSeg") as HTMLElement;
+  const jumpnav = document.getElementById("jumpnav") as HTMLElement;
+
+  // Insensible à la casse et aux accents.
+  const norm = (s: string) =>
+    s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+
+  const plural = (n: number) => `fiche${n > 1 ? "s" : ""}`;
+
+  function sortCards(shelf: HTMLElement, cards: HTMLElement[]) {
+    const grid = shelf.querySelector<HTMLElement>(".grid");
+    if (!grid) return;
+    const sorted = cards.slice().sort((a, b) => {
+      if (state.sort === "alpha") {
+        return (a.dataset.title ?? "").localeCompare(
+          b.dataset.title ?? "",
+          "fr",
+        );
+      }
+      if (state.sort === "level") {
+        const byLevel = Number(a.dataset.level) - Number(b.dataset.level);
+        return byLevel !== 0
+          ? byLevel
+          : Number(b.dataset.date) - Number(a.dataset.date);
+      }
+      return Number(b.dataset.date) - Number(a.dataset.date);
+    });
+    sorted.forEach((card) => grid.appendChild(card));
+  }
+
+  function apply() {
+    const needle = norm(state.q.trim());
+    let totalVisible = 0;
+    let allCount = 0;
+    const serieCounts: Record<string, number> = {};
+
+    shelves.forEach((shelf) => {
+      const key = shelf.dataset.serie ?? "";
+      const cards = [...shelf.querySelectorAll<HTMLElement>(".card")];
+      let visibleInShelf = 0;
+      let matchBySearch = 0;
+
+      cards.forEach((card) => {
+        const matchSearch =
+          !needle || norm(card.dataset.search ?? "").includes(needle);
+        if (matchSearch) matchBySearch++;
+        const visible =
+          matchSearch && (state.serie === "all" || state.serie === key);
+        card.hidden = !visible;
+        if (visible) visibleInShelf++;
+      });
+
+      // Les compteurs de chips reflètent la recherche mais ignorent la
+      // série sélectionnée (pour pouvoir toujours basculer de série).
+      serieCounts[key] = matchBySearch;
+      allCount += matchBySearch;
+
+      sortCards(shelf, cards);
+
+      shelf.hidden = visibleInShelf === 0;
+      const cnt = shelf.querySelector<HTMLElement>(".cnt");
+      if (cnt)
+        cnt.innerHTML = `<b>${visibleInShelf}</b> ${plural(visibleInShelf)}`;
+      shelf.style.setProperty("--cols", String(state.cols));
+      totalVisible += visibleInShelf;
+    });
+
+    chips.forEach((chip) => {
+      const key = chip.dataset.serie ?? "";
+      const n = key === "all" ? allCount : (serieCounts[key] ?? 0);
+      const badge = chip.querySelector<HTMLElement>(".n");
+      if (badge) badge.textContent = String(n);
+      chip.classList.toggle("on", key === state.serie);
+    });
+
+    const query = state.q.trim();
+    countEl.innerHTML =
+      `<b>${totalVisible}</b> ${plural(totalVisible)}` +
+      (query ? ` pour « ${query} »` : "");
+    emptyEl.hidden = totalVisible !== 0;
+  }
+
+  qInput.addEventListener("input", (event) => {
+    state.q = (event.target as HTMLInputElement).value;
+    apply();
+  });
+
+  sortSel.addEventListener("change", (event) => {
+    state.sort = (event.target as HTMLSelectElement).value as State["sort"];
+    apply();
+  });
+
+  jumpnav.addEventListener("click", (event) => {
+    const chip = (event.target as HTMLElement).closest<HTMLButtonElement>(
+      ".chip",
+    );
+    if (!chip) return;
+    state.serie = chip.dataset.serie ?? "all";
+    apply();
+  });
+
+  viewSeg.addEventListener("click", (event) => {
+    const button = (event.target as HTMLElement).closest<HTMLButtonElement>(
+      "button",
+    );
+    if (!button) return;
+    state.cols = Number(button.dataset.cols);
+    viewSeg
+      .querySelectorAll("button")
+      .forEach((other) => other.classList.toggle("on", other === button));
+    apply();
+  });
+
+  apply();
+</script>

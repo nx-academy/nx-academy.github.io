@@ -12,6 +12,7 @@ imgAlt: Un serveur dans un café parisien, pixel art
 imgSrc: /images/cheatsheets/serveur-parisien.webp
 
 kind: Fiche technique
+serie: outils
 level: Débutant
 author: Yacine
 publishedDate: 10/03/2024

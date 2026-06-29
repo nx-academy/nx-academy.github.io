@@ -13,6 +13,7 @@ imgSrc: /images/cheatsheets/ingenieur-pontage-pipeline.webp
 
 author: Lionel
 kind: Fiche technique
+serie: outils
 level: Intermédiaire
 publishedDate: 11/30/2024
 ---

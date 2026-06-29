@@ -8,6 +8,7 @@ export type Cheatsheet = {
     kind?: string;
     level: string;
     publishedDate: string;
+    serie?: string;
     title: string;
     faq?: { question: string; answer: string }[];
     howTo?: { name?: string; steps: { name: string; text: string }[] };

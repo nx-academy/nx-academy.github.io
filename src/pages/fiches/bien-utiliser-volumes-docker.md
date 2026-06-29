@@ -11,6 +11,7 @@ imgSrc: /images/cheatsheets/femme-cle-usb.webp
 
 author: Thomas
 kind: Fiche technique
+serie: docker
 level: Intermédiaire
 publishedDate: 05/02/2025
 ---

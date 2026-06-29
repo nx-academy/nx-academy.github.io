@@ -15,6 +15,7 @@ imgAlt:
 imgSrc: /images/cheatsheets/jeune-programmeur-code.webp
 
 kind: Fiche technique
+serie: js
 level: Débutant
 author: Oumar
 publishedDate: 10/18/2024

@@ -12,6 +12,7 @@ imgSrc: /images/cheatsheets/developpeur-devant-ecrans.webp
 
 author: Thomas
 kind: Fiche technique
+serie: gamedev
 level: Débutant
 publishedDate: 03/07/2026
 ---
