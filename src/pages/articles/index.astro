@@ -66,7 +66,8 @@ const enriched = modules
   .map((module) => {
     const { frontmatter, url } = module;
     const format = (frontmatter.format ?? "reflexion") as Format;
-    const edition = format === "recap" ? editionOf(frontmatter.title) : undefined;
+    const edition =
+      format === "recap" ? editionOf(frontmatter.title) : undefined;
     return {
       ...frontmatter,
       url: url!,
@@ -823,7 +824,9 @@ const articlesSchema = {
 
   const grid = document.getElementById("grid") as HTMLElement;
   const cards = [...grid.querySelectorAll<HTMLElement>(".card")];
-  const chips = [...document.querySelectorAll<HTMLButtonElement>("#chips .chip")];
+  const chips = [
+    ...document.querySelectorAll<HTMLButtonElement>("#chips .chip"),
+  ];
   const heroEl = document.getElementById("hero") as HTMLElement | null;
   const countEl = document.getElementById("count") as HTMLElement;
   const emptyEl = document.getElementById("empty") as HTMLElement;
@@ -838,10 +841,7 @@ const articlesSchema = {
 
   // Insensible à la casse et aux accents.
   const norm = (s: string) =>
-    s
-      .normalize("NFD")
-      .replace(/[̀-ͯ]/g, "")
-      .toLowerCase();
+    s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 
   function apply() {
     const needle = norm(state.q.trim());
@@ -874,7 +874,10 @@ const articlesSchema = {
 
     visible.sort((a, b) => {
       if (state.sort === "alpha") {
-        return (a.dataset.title ?? "").localeCompare(b.dataset.title ?? "", "fr");
+        return (a.dataset.title ?? "").localeCompare(
+          b.dataset.title ?? "",
+          "fr",
+        );
       }
       if (state.sort === "old") {
         return Number(a.dataset.date) - Number(b.dataset.date);
