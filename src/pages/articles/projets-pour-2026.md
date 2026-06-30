@@ -9,6 +9,7 @@ imgAlt: Une bande de dévelloppeurs en train de jouer sur un télé, pixel art
 imgSrc: /images/articles/dev-fetes-fin-annee.webp
 
 kind: Articles
+format: bilan
 author: Thomas
 draft: false
 publishedDate: 01/01/2026

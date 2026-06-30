@@ -10,6 +10,7 @@ imgAlt: Des personnes faisant une réunion dans une salle, pixel art
 imgSrc: /images/articles/reunion-point.webp
 
 kind: Articles
+format: bilan
 author: Thomas
 draft: false
 publishedDate: 01/25/2025

@@ -10,6 +10,7 @@ imgAlt: Un joueur en train jouer à un city builder, pixel art
 imgSrc: /images/articles/city-builder-player.webp
 
 kind: Articles
+format: reflexion
 author: Thomas
 draft: false
 publishedDate: 04/01/2026

@@ -2,76 +2,929 @@
 import type { Article } from "../../types/Article";
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { calculateReadingTime } from "../../utils/estimateReadingTime";
 
-import Card from "../../components/Card.astro";
+// Les modules Markdown du glob exposent rawContent() (corps brut) en plus du
+// frontmatter et de l'url — on s'en sert pour estimer le temps de lecture.
+type ArticleModule = Article & { rawContent: () => string };
 
-const articles = Object.values(
+const modules = Object.values(
   import.meta.glob("./*.md", { eager: true }),
-) as Article[];
+) as ArticleModule[];
+
+// Formats éditoriaux (le « genre » d'un article).
+const FORMATS = {
+  recap: {
+    label: "Le récap",
+    tag: "Le récap",
+    cls: "fmt-recap",
+  },
+  reflexion: {
+    label: "Réflexions",
+    tag: "Réflexion",
+    cls: "fmt-reflexion",
+  },
+  bilan: {
+    label: "Bilans & projets",
+    tag: "Bilan",
+    cls: "fmt-bilan",
+  },
+} as const;
+
+type Format = keyof typeof FORMATS;
+
+const MONTHS = [
+  "janvier",
+  "février",
+  "mars",
+  "avril",
+  "mai",
+  "juin",
+  "juillet",
+  "août",
+  "septembre",
+  "octobre",
+  "novembre",
+  "décembre",
+];
+
+const dateValue = (date: string) => new Date(date).getTime();
+const monthLabel = (date: string) => {
+  const d = new Date(date);
+  const label = `${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
+  return label.charAt(0).toUpperCase() + label.slice(1);
+};
+const frDate = (date: string) => new Date(date).toLocaleDateString("fr-FR");
+// Le n° d'édition du récap est dérivé du titre (« Le récap #7 - … »).
+const editionOf = (title: string) => {
+  const match = title.match(/#(\d+)/);
+  return match ? Number(match[1]) : undefined;
+};
+
+const enriched = modules
+  .filter((module) => !module.frontmatter.draft)
+  .map((module) => {
+    const { frontmatter, url } = module;
+    const format = (frontmatter.format ?? "reflexion") as Format;
+    const edition =
+      format === "recap" ? editionOf(frontmatter.title) : undefined;
+    return {
+      ...frontmatter,
+      url: url!,
+      format,
+      edition,
+      read: calculateReadingTime(module.rawContent()),
+    };
+  });
+
+// La série « Le récap » : éditions numérotées, de la plus récente à la plus ancienne.
+const recaps = enriched
+  .filter((article) => article.format === "recap" && article.edition)
+  .sort((a, b) => (b.edition ?? 0) - (a.edition ?? 0));
+
+// Le corpus du fil = tout sauf les éditions numérotées du récap (réflexions,
+// bilans, et la présentation du récap qui est un « bilan »).
+const corpus = enriched
+  .filter((article) => !(article.format === "recap" && article.edition))
+  .sort((a, b) => dateValue(b.publishedDate) - dateValue(a.publishedDate));
+
+const hero = corpus[0];
+const editions = recaps.slice(0, 3);
+
+const reflexionCount = corpus.filter((a) => a.format === "reflexion").length;
+const bilanCount = corpus.filter((a) => a.format === "bilan").length;
 
 const title = "Nos derniers articles";
 const description =
-  "Retrouvez les derniers articles écrits par l'équipe de NX. Ils vous informent sur des sujets de fond, des tendances et des avis de certains membres de l'équipe.";
+  "Des sujets de fond, des tendances et des avis écrits à la première personne par Thomas : veille tech avec Le récap, réflexions sur le métier et l'IA, et les coulisses de NX Academy.";
+const ogImage = hero?.imgSrc;
+const ogImageAlt = hero?.imgAlt;
+
+// Données structurées : la page est une liste (CollectionPage + ItemList).
+const allByDate = enriched
+  .slice()
+  .sort((a, b) => dateValue(b.publishedDate) - dateValue(a.publishedDate));
+const articlesSchema = {
+  "@type": "CollectionPage",
+  name: "Articles",
+  description,
+  url: new URL("/articles", Astro.site).href,
+  mainEntity: {
+    "@type": "ItemList",
+    numberOfItems: allByDate.length,
+    itemListElement: allByDate.map((article, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: new URL(article.url, Astro.site).href,
+      name: article.title,
+    })),
+  },
+};
 ---
 
-<BaseLayout title={title} description={description}>
-  <div class="wrapper">
-    <section>
+<BaseLayout
+  title={title}
+  description={description}
+  image={ogImage}
+  imageAlt={ogImageAlt}
+  schemas={[articlesSchema]}
+>
+  <div class="wrap">
+    <section class="entry">
       <h1>Nos derniers articles</h1>
+      <p class="lead">
+        Des sujets de fond, des tendances et des avis — écrits à la première
+        personne. On y parle veille tech avec <b>Le récap</b>, on y réfléchit au
+        métier et à l'IA, et on revient sur les coulisses de NX. Bonne lecture.
+      </p>
+    </section>
 
-      <div class="cards-wrapper">
+    {
+      hero && (
+        <section class="hero" id="hero">
+          <a class="media" href={hero.url}>
+            <img src={hero.imgSrc} alt={hero.imgAlt} />
+          </a>
+          <div>
+            <p class="eyebrow">À la une · {FORMATS[hero.format].tag}</p>
+            <h2>
+              <a href={hero.url}>{hero.title}</a>
+            </h2>
+            <p class="dek">{hero.description}</p>
+            <div class="byline">
+              Par {hero.author} — {frDate(hero.publishedDate)}
+              <span class="dot">·</span> {hero.read} min de lecture
+            </div>
+          </div>
+        </section>
+      )
+    }
+
+    {
+      recaps.length > 0 && (
+        <section class="recap">
+          <div>
+            <p class="kicker">
+              <span class="pdot" /> Série mensuelle
+            </p>
+            <h2>Le récap</h2>
+            <p class="blurb">
+              La veille tech du mois, triée et commentée — sans bullshit. Un
+              mélange d'IA et de curation, gratuit et open source.
+            </p>
+            <span class="freq">
+              <b>{recaps.length}</b> éditions · ~1 par mois
+            </span>
+            <a class="seeall" href="/articles/le-recap">
+              Voir toutes les éditions →
+            </a>
+          </div>
+          <div class="editions">
+            {editions.map((edition, index) => (
+              <a class={`ed ${index === 0 ? "latest" : ""}`} href={edition.url}>
+                <span class="num">#{edition.edition}</span>
+                <span class="mon">{monthLabel(edition.publishedDate)}</span>
+                <span class="tz">{edition.description}</span>
+                <span class="when">{frDate(edition.publishedDate)}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    <section class="fil">
+      <h2 class="fil-h">Le fil</h2>
+
+      <label class="search">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          aria-hidden="true"
+        >
+          <circle cx="11" cy="11" r="7"></circle>
+          <path d="M21 21l-4-4"></path>
+        </svg>
+        <input
+          id="q"
+          type="search"
+          placeholder="Rechercher dans les articles : IA, jeux vidéo, bilan…"
+          autocomplete="off"
+          aria-label="Rechercher un article"
+        />
+      </label>
+
+      <div class="chips" id="chips">
+        <button class="chip on" type="button" data-format="all">
+          Tous <span class="n">{corpus.length}</span>
+        </button>
+        <button class="chip" type="button" data-format="reflexion">
+          Réflexions <span class="n">{reflexionCount}</span>
+        </button>
+        <button class="chip" type="button" data-format="bilan">
+          Bilans & projets <span class="n">{bilanCount}</span>
+        </button>
+      </div>
+
+      <div class="toolbar">
+        <span class="count" id="count"><b>{corpus.length}</b> articles</span>
+        <span class="spacer"></span>
+        <label class="selwrap">
+          Trier
+          <select class="sort" id="sort">
+            <option value="recent">Plus récents</option>
+            <option value="old">Plus anciens</option>
+            <option value="alpha">Alphabétique</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="grid" id="grid">
         {
-          articles
-            .filter((article) => !article.frontmatter.draft)
-            .sort(
-              (item1, item2) =>
-                new Date(item2.frontmatter.publishedDate).getTime() -
-                new Date(item1.frontmatter.publishedDate).getTime(),
-            )
-            .map((article) => (
-              <Card
-                href={article.url!}
-                kind="Article"
-                title={article.frontmatter.title}
-                description={article.frontmatter.description}
-                imgAlt={article.frontmatter.imgAlt}
-                imgSrc={article.frontmatter.imgSrc}
-                author={article.frontmatter.author}
-                publishedDate={article.frontmatter.publishedDate}
-              />
-            ))
+          corpus.map((article) => (
+            <a
+              class="card"
+              href={article.url}
+              data-format={article.format}
+              data-date={dateValue(article.publishedDate)}
+              data-title={article.title}
+              data-search={`${article.title} ${article.description} ${FORMATS[article.format].label}`}
+              data-hero={hero && article.url === hero.url ? "1" : "0"}
+            >
+              <img loading="lazy" src={article.imgSrc} alt={article.imgAlt} />
+              <div class="card-meta">
+                <span class={`tag ${FORMATS[article.format].cls}`}>
+                  {FORMATS[article.format].tag}
+                </span>
+                <span class="read">{article.read} min</span>
+              </div>
+              <h3>{article.title}</h3>
+              <p class="desc">{article.description}</p>
+              <div class="byline">
+                Par {article.author} — {frDate(article.publishedDate)}
+              </div>
+            </a>
+          ))
         }
+        <p class="empty" id="empty" hidden>
+          Aucun article ne correspond. Essayez un autre mot-clé.
+        </p>
       </div>
     </section>
   </div>
 </BaseLayout>
 
 <style>
-  .wrapper {
-    padding-top: 1.5rem;
+  .wrap {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
     padding-bottom: 1.5rem;
   }
 
-  section {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1100px;
+  /* Bloc d'entrée */
+  .entry {
+    padding: 3.4rem 0 1.6rem;
   }
 
-  .cards-wrapper {
-    display: grid;
-    gap: 2.5rem;
+  .entry h1 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--titleColor);
+    font-size: clamp(2rem, 1.5rem + 1.8vw, 2.6rem);
+    line-height: 1.12;
+    margin: 0 0 1.1rem;
+  }
 
-    @media screen and (min-width: 48rem) {
-      margin-top: 3rem;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 5rem;
+  .lead {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--textColor);
+    margin: 0;
+    max-width: 70ch;
+  }
+
+  .lead b {
+    color: var(--titleColor);
+    font-weight: 600;
+  }
+
+  /* Héros — à la une */
+  .hero {
+    display: grid;
+    grid-template-columns: 1.45fr 1fr;
+    gap: 2.2rem;
+    align-items: center;
+    padding: 1.2rem 0 0.6rem;
+  }
+
+  .hero[hidden] {
+    display: none;
+  }
+
+  .hero .media {
+    display: block;
+  }
+
+  .hero img {
+    width: 100%;
+    aspect-ratio: 1792 / 1024;
+    object-fit: cover;
+    object-position: top;
+    border-radius: var(--radius-lg);
+    display: block;
+  }
+
+  .hero .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.9rem;
+    font-weight: 600;
+  }
+
+  .hero .eyebrow::before {
+    content: "";
+    width: 22px;
+    height: 2px;
+    background: var(--accent);
+    display: inline-block;
+  }
+
+  .hero h2 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--linkColor);
+    font-size: clamp(1.5rem, 1.1rem + 1.3vw, 2rem);
+    line-height: 1.16;
+    margin: 0 0 0.9rem;
+  }
+
+  .hero h2 a {
+    color: inherit;
+    transition: color var(--transition);
+  }
+
+  .hero:hover h2 a {
+    color: var(--linkHoverColor);
+  }
+
+  .hero .dek {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--textColor);
+    margin: 0 0 1.2rem;
+  }
+
+  .hero .byline {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--textColor);
+  }
+
+  .hero .dot {
+    color: var(--borderSecondary);
+  }
+
+  /* Rubrique « Le récap » */
+  .recap {
+    background: var(--backgroundColorSecondary);
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-lg);
+    padding: 1.9rem 1.9rem 1.7rem;
+    margin: 2.6rem 0 0.4rem;
+    display: grid;
+    grid-template-columns: 0.85fr 2fr;
+    gap: 1.8rem;
+  }
+
+  .recap .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.7rem;
+    font-weight: 600;
+  }
+
+  .recap .pdot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--linkHoverColor);
+    display: inline-block;
+  }
+
+  .recap h2 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--titleColor);
+    font-size: 1.6rem;
+    margin: 0 0 0.6rem;
+    line-height: 1.05;
+  }
+
+  .recap .blurb {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--textColor);
+    margin: 0 0 1rem;
+  }
+
+  .recap .freq {
+    font-size: 0.8rem;
+    color: var(--textColor);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .recap .freq b {
+    color: var(--titleColor);
+    font-weight: 600;
+  }
+
+  .recap .seeall {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1.1rem;
+    font-size: 0.86rem;
+    color: var(--linkColor);
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-pill);
+    padding: 9px 16px;
+    transition:
+      color var(--transition-fast),
+      border-color var(--transition-fast);
+  }
+
+  .recap .seeall:hover {
+    color: var(--linkHoverColor);
+    border-color: var(--linkHoverColor);
+  }
+
+  .editions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.9rem;
+  }
+
+  .ed {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background: var(--backgroundColorPrimary);
+    border: 1px solid var(--borderPrimary);
+    border-radius: 12px;
+    padding: 0.9rem 0.9rem 1rem;
+    transition: border-color var(--transition);
+    min-width: 0;
+  }
+
+  .ed:hover {
+    border-color: var(--linkHoverColor);
+  }
+
+  .ed.latest {
+    border-color: var(--accent);
+  }
+
+  .ed .num {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--linkHoverColor);
+    line-height: 1;
+  }
+
+  .ed .mon {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--linkColor);
+    font-size: 0.92rem;
+    line-height: 1.2;
+    transition: color var(--transition);
+  }
+
+  .ed:hover .mon {
+    color: var(--linkHoverColor);
+  }
+
+  .ed .tz {
+    font-size: 0.76rem;
+    line-height: 1.45;
+    color: var(--textColor);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .ed .when {
+    font-size: 0.7rem;
+    color: var(--textColor);
+    margin-top: auto;
+  }
+
+  .ed.latest .when::after {
+    content: " · dernière";
+    color: var(--accent);
+  }
+
+  /* Le fil — contrôles façon /fiches */
+  .fil {
+    border-top: 1px solid var(--borderPrimary);
+    margin-top: 3.4rem;
+    padding-top: 3rem;
+  }
+
+  .fil-h {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--titleColor);
+    font-size: 1.4rem;
+    margin: 0;
+  }
+
+  .search {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 2.6rem 0 0;
+  }
+
+  .search svg {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    color: var(--textColor);
+    pointer-events: none;
+  }
+
+  .search input {
+    width: 100%;
+    background: var(--backgroundColorSecondary);
+    border: 1px solid var(--borderPrimary);
+    border-radius: 14px;
+    color: var(--titleColor);
+    font-family: inherit;
+    font-size: 1.05rem;
+    padding: 17px 20px 17px 54px;
+    outline: none;
+    transition: border-color var(--transition-fast);
+  }
+
+  .search input::placeholder {
+    color: var(--textColor);
+  }
+
+  .search input:focus {
+    border-color: var(--linkHoverColor);
+  }
+
+  .chips {
+    display: flex;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+    padding: 2.6rem 0 0.6rem;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: inherit;
+    font-size: 0.88rem;
+    color: var(--textColor);
+    background: none;
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-pill);
+    padding: 8px 14px;
+    cursor: pointer;
+    transition:
+      color var(--transition-fast),
+      border-color var(--transition-fast);
+    white-space: nowrap;
+  }
+
+  .chip:hover {
+    color: var(--linkHoverColor);
+    border-color: var(--linkHoverColor);
+  }
+
+  .chip.on {
+    color: var(--titleColor);
+    border-color: var(--accent);
+  }
+
+  .chip .n {
+    font-size: 0.76rem;
+    color: var(--textColor);
+    background: var(--backgroundColorSecondary);
+    border-radius: var(--radius-pill);
+    padding: 1px 8px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .chip.on .n {
+    color: var(--titleColor);
+  }
+
+  .toolbar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 1.6rem 0 0.4rem;
+    border-top: 1px solid var(--borderPrimary);
+    margin-top: 2.4rem;
+  }
+
+  .count {
+    font-size: 0.92rem;
+    color: var(--textColor);
+  }
+
+  .count b {
+    color: var(--titleColor);
+    font-weight: 600;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .selwrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--textColor);
+  }
+
+  select.sort {
+    font-family: inherit;
+    font-size: 0.88rem;
+    color: var(--titleColor);
+    background: var(--backgroundColorSecondary);
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-md);
+    padding: 8px 12px;
+    cursor: pointer;
+    outline: none;
+  }
+
+  /* Grille du fil */
+  .grid {
+    display: grid;
+    gap: 2.4rem 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    padding-top: 0.4rem;
+  }
+
+  .card {
+    display: grid;
+    gap: 0.7rem;
+    align-content: start;
+    color: var(--linkColor);
+  }
+
+  .card[hidden] {
+    display: none;
+  }
+
+  .card img {
+    width: 100%;
+    aspect-ratio: 1792 / 1024;
+    object-fit: cover;
+    object-position: top;
+    border-radius: var(--radius-lg);
+    display: block;
+  }
+
+  .card-meta {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .card h3 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--linkColor);
+    font-size: 1.1rem;
+    line-height: 1.28;
+    margin: 0;
+    transition: color var(--transition);
+  }
+
+  .card:hover h3 {
+    color: var(--linkHoverColor);
+  }
+
+  .desc {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: var(--textColor);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card .byline {
+    font-size: 0.78rem;
+    color: var(--textColor);
+  }
+
+  /* Tag de format */
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    color: var(--titleColor);
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-pill);
+    padding: 2px 9px 2px 8px;
+    white-space: nowrap;
+  }
+
+  .tag::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--fd);
+  }
+
+  .fmt-recap {
+    --fd: #4effa0;
+  }
+  .fmt-reflexion {
+    --fd: #ffd24e;
+  }
+  .fmt-bilan {
+    --fd: #fe7600;
+  }
+
+  .read {
+    font-size: 0.76rem;
+    color: var(--textColor);
+  }
+
+  .empty {
+    text-align: center;
+    padding: 4rem 0;
+    color: var(--textColor);
+    grid-column: 1 / -1;
+  }
+
+  /* Responsive : 1 colonne sous ~720px */
+  @media screen and (max-width: 720px) {
+    .hero,
+    .recap,
+    .editions,
+    .grid {
+      grid-template-columns: 1fr;
     }
 
-    @media screen and (min-width: 90rem) {
-      margin-top: 3rem;
-      grid-template-columns: repeat(3, 1fr);
+    .chips {
+      flex-wrap: nowrap;
+      overflow-x: auto;
     }
   }
 </style>
+
+<script>
+  type State = {
+    q: string;
+    format: "all" | "reflexion" | "bilan";
+    sort: "recent" | "old" | "alpha";
+  };
+
+  const state: State = { q: "", format: "all", sort: "recent" };
+
+  const grid = document.getElementById("grid") as HTMLElement;
+  const cards = [...grid.querySelectorAll<HTMLElement>(".card")];
+  const chips = [
+    ...document.querySelectorAll<HTMLButtonElement>("#chips .chip"),
+  ];
+  const heroEl = document.getElementById("hero") as HTMLElement | null;
+  const countEl = document.getElementById("count") as HTMLElement;
+  const emptyEl = document.getElementById("empty") as HTMLElement;
+  const qInput = document.getElementById("q") as HTMLInputElement;
+  const sortSel = document.getElementById("sort") as HTMLSelectElement;
+  const chipsEl = document.getElementById("chips") as HTMLElement;
+
+  const LABELS: Record<string, string> = {
+    reflexion: "Réflexions",
+    bilan: "Bilans & projets",
+  };
+
+  // Insensible à la casse et aux accents.
+  const norm = (s: string) =>
+    s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+
+  function apply() {
+    const needle = norm(state.q.trim());
+    // Le héros n'apparaît que si on n'a pas filtré/cherché/retrié.
+    const showHero =
+      state.sort === "recent" && !state.q.trim() && state.format === "all";
+
+    let totalMatch = 0;
+    let allCount = 0;
+    const fmtCount: Record<string, number> = { reflexion: 0, bilan: 0 };
+    const visible: HTMLElement[] = [];
+
+    cards.forEach((card) => {
+      const matchSearch =
+        !needle || norm(card.dataset.search ?? "").includes(needle);
+      if (matchSearch) {
+        allCount++;
+        const f = card.dataset.format ?? "";
+        if (f in fmtCount) fmtCount[f]++;
+      }
+      const matchFormat =
+        state.format === "all" || card.dataset.format === state.format;
+      let vis = matchSearch && matchFormat;
+      if (vis) totalMatch++;
+      // La carte du héros est masquée du fil tant que le héros est affiché.
+      if (vis && showHero && card.dataset.hero === "1") vis = false;
+      card.hidden = !vis;
+      if (vis) visible.push(card);
+    });
+
+    visible.sort((a, b) => {
+      if (state.sort === "alpha") {
+        return (a.dataset.title ?? "").localeCompare(
+          b.dataset.title ?? "",
+          "fr",
+        );
+      }
+      if (state.sort === "old") {
+        return Number(a.dataset.date) - Number(b.dataset.date);
+      }
+      return Number(b.dataset.date) - Number(a.dataset.date);
+    });
+    visible.forEach((card) => grid.appendChild(card));
+
+    if (heroEl) heroEl.hidden = !showHero;
+
+    chips.forEach((chip) => {
+      const key = chip.dataset.format ?? "all";
+      const n = key === "all" ? allCount : (fmtCount[key] ?? 0);
+      const badge = chip.querySelector<HTMLElement>(".n");
+      if (badge) badge.textContent = String(n);
+      chip.classList.toggle("on", key === state.format);
+    });
+
+    const query = state.q.trim();
+    const suffix = query
+      ? ` pour « ${query} »`
+      : state.format !== "all"
+        ? ` — ${LABELS[state.format]}`
+        : "";
+    countEl.innerHTML =
+      `<b>${totalMatch}</b> article${totalMatch > 1 ? "s" : ""}` + suffix;
+    emptyEl.hidden = totalMatch !== 0;
+  }
+
+  qInput.addEventListener("input", (event) => {
+    state.q = (event.target as HTMLInputElement).value;
+    apply();
+  });
+
+  sortSel.addEventListener("change", (event) => {
+    state.sort = (event.target as HTMLSelectElement).value as State["sort"];
+    apply();
+  });
+
+  chipsEl.addEventListener("click", (event) => {
+    const chip = (event.target as HTMLElement).closest<HTMLButtonElement>(
+      ".chip",
+    );
+    if (!chip) return;
+    state.format = (chip.dataset.format ?? "all") as State["format"];
+    apply();
+  });
+
+  apply();
+</script>

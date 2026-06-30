@@ -13,6 +13,7 @@ imgAlt:
 imgSrc: /images/articles/scene-journalistes-journal.webp
 
 kind: Articles
+format: bilan
 author: Thomas
 draft: false
 publishedDate: 04/25/2025

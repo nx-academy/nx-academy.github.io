@@ -10,6 +10,7 @@ imgAlt: Quelqu'un assis dans un jardin au printemps, pixel art
 imgSrc: /images/articles/triche-classe-exam.webp
 
 kind: Articles
+format: bilan
 author: Thomas
 draft: false
 publishedDate: 08/24/2024
