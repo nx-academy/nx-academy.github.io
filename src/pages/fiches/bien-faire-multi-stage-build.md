@@ -14,6 +14,7 @@ imgSrc: /images/cheatsheets/scene-immeuble.webp
 
 author: Thomas
 kind: Fiche technique
+serie: docker
 level: Avancé
 publishedDate: 09/12/2025
 ---

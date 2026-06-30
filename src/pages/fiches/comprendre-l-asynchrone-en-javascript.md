@@ -14,6 +14,7 @@ imgSrc: /images/cheatsheets/asynchrone-js.webp
 
 author: Lionel
 kind: Fiche technique
+serie: js
 level: Intermédiaire
 publishedDate: 09/15/2024
 ---

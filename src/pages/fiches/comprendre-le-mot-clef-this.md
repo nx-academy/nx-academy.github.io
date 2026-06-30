@@ -11,6 +11,7 @@ imgSrc: /images/cheatsheets/scene-duo-ambiance.webp
 
 author: Lionel
 kind: Fiche technique
+serie: js
 level: Débutant
 publishedDate: 08/22/2024
 ---

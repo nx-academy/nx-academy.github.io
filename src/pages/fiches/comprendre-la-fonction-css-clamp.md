@@ -11,6 +11,7 @@ imgAlt: Quelqu'un mesurant un salon avec un mètre, pixel art
 imgSrc: /images/cheatsheets/homme-mesure-salon.webp
 
 kind: Fiche technique
+serie: css
 level: Intermédiaire
 author: Thomas
 publishedDate: 07/17/2024

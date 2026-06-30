@@ -14,6 +14,7 @@ imgSrc: /images/cheatsheets/prendre-en-main-pico-8.webp
 
 author: Thomas
 kind: Fiche technique
+serie: gamedev
 level: Débutant
 publishedDate: 06/23/2026
 

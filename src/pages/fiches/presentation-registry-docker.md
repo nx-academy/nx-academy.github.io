@@ -13,6 +13,7 @@ imgSrc: /images/cheatsheets/registry-docker.webp
 
 author: Thomas
 kind: Fiche technique
+serie: docker
 level: Intermédiaire
 publishedDate: 06/06/2025
 ---

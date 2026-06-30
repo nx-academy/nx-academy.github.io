@@ -16,6 +16,7 @@ imgSrc: /images/cheatsheets/usine-tapis-roulant.webp
 
 author: Thomas
 kind: Fiche technique
+serie: cicd
 level: Débutant
 publishedDate: 10/02/2025
 ---

@@ -14,6 +14,7 @@ imgSrc: /images/cheatsheets/docker-compose-swarm.webp
 
 author: Thomas
 kind: Fiche technique
+serie: docker
 level: Débutant
 publishedDate: 06/27/2026
 ---
