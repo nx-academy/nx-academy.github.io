@@ -10,6 +10,7 @@ imgAlt: Quelqu'un assis dans un jardin au printemps, pixel art
 imgSrc: /images/articles/jardin-printemps.webp
 
 kind: Articles
+format: bilan
 author: Thomas
 draft: false
 publishedDate: 03/21/2024

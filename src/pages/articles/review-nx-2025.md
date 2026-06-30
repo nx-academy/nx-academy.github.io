@@ -10,6 +10,7 @@ imgAlt: Un développeur en train de coder un Père Noel, pixel art
 imgSrc: /images/articles/dev-pere-noel.webp
 
 kind: Articles
+format: bilan
 author: Thomas
 draft: false
 publishedDate: 12/27/2025

@@ -13,6 +13,7 @@ imgAlt:
 imgSrc: /images/articles/decouvrir-pico-8.webp
 
 kind: Articles
+format: reflexion
 author: Thomas
 draft: false
 publishedDate: 06/17/2026

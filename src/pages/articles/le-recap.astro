@@ -1,0 +1,469 @@
+---
+import type { Article } from "../../types/Article";
+import type { Breadcrumb } from "../../types/Breadcrumb";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { calculateReadingTime } from "../../utils/estimateReadingTime";
+
+type ArticleModule = Article & { rawContent: () => string };
+
+const modules = Object.values(
+  import.meta.glob("./*.md", { eager: true }),
+) as ArticleModule[];
+
+const MONTHS = [
+  "janvier",
+  "février",
+  "mars",
+  "avril",
+  "mai",
+  "juin",
+  "juillet",
+  "août",
+  "septembre",
+  "octobre",
+  "novembre",
+  "décembre",
+];
+
+const monthLabel = (date: string) => {
+  const d = new Date(date);
+  const label = `${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
+  return label.charAt(0).toUpperCase() + label.slice(1);
+};
+const frDate = (date: string) => new Date(date).toLocaleDateString("fr-FR");
+const yearOf = (date: string) => new Date(date).getFullYear();
+const editionOf = (title: string) => {
+  const match = title.match(/#(\d+)/);
+  return match ? Number(match[1]) : undefined;
+};
+
+// Toutes les éditions numérotées du récap, de la plus récente à la plus ancienne.
+const recaps = modules
+  .filter(
+    (module) =>
+      !module.frontmatter.draft &&
+      module.frontmatter.format === "recap" &&
+      editionOf(module.frontmatter.title),
+  )
+  .map((module) => ({
+    ...module.frontmatter,
+    url: module.url!,
+    edition: editionOf(module.frontmatter.title)!,
+    read: calculateReadingTime(module.rawContent()),
+  }))
+  .sort((a, b) => b.edition - a.edition);
+
+const firstEdition = recaps[recaps.length - 1];
+const latestUrl = recaps[0]?.url;
+
+// Regroupement par année (l'ordre des années suit le tri par édition décroissante).
+const years = [...new Set(recaps.map((recap) => yearOf(recap.publishedDate)))];
+const groups = years.map((year) => ({
+  year,
+  items: recaps.filter((recap) => yearOf(recap.publishedDate) === year),
+}));
+
+const heroImg = "/images/articles/kiosque-journaux.webp";
+const heroImgAlt =
+  "Un vendeur de journaux dans un kiosque parisien, pixel art";
+
+const breadcrumbs: Breadcrumb[] = [
+  { pageName: "Articles", pageUrl: "/articles" },
+  { pageName: "Le récap", pageUrl: "/articles/le-recap" },
+];
+
+const title = "Le récap — la veille tech mensuelle de NX Academy";
+const description =
+  "L'archive du récap : chaque mois, l'actu tech triée et commentée par Thomas — un mélange d'IA et de curation pour faciliter votre veille. Gratuit, open source, sans compte.";
+
+// Données structurées : page d'archive (CollectionPage + ItemList des éditions).
+const recapSchema = {
+  "@type": "CollectionPage",
+  name: "Le récap",
+  description,
+  url: new URL("/articles/le-recap", Astro.site).href,
+  mainEntity: {
+    "@type": "ItemList",
+    numberOfItems: recaps.length,
+    itemListElement: recaps.map((recap, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: new URL(recap.url, Astro.site).href,
+      name: recap.title,
+    })),
+  },
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image={heroImg}
+  imageAlt={heroImgAlt}
+  breadcrumbs={breadcrumbs}
+  schemas={[recapSchema]}
+>
+  <div class="wrap">
+    <section class="shero">
+      <div>
+        <p class="kicker"><span class="pdot"></span> Série · Veille mensuelle</p>
+        <h1>Le récap</h1>
+        <p class="lead">
+          Chaque mois, je trie et je commente l'actu tech qui compte — sans
+          bullshit. Un mélange d'IA et de curation pour faciliter votre veille.
+          Gratuit, open source, aucun compte requis.
+        </p>
+        <div class="stats">
+          <span class="s"><b>{recaps.length}</b>&nbsp;éditions</span>
+          {
+            firstEdition && (
+              <span class="s">
+                Depuis <b>{monthLabel(firstEdition.publishedDate)}</b>
+              </span>
+            )
+          }
+          <span class="s">~1 par mois</span>
+        </div>
+        <div class="actions">
+          <a class="rss" href="/articles/le-recap/rss.xml">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M4 11a9 9 0 0 1 9 9"></path>
+              <path d="M4 4a16 16 0 0 1 16 16"></path>
+              <circle cx="5" cy="19" r="1.4" fill="currentColor" stroke="none"
+              ></circle>
+            </svg>
+            S'abonner au flux
+          </a>
+        </div>
+      </div>
+      <img class="media" src={heroImg} alt={heroImgAlt} />
+    </section>
+
+    <section class="list">
+      {
+        groups.map((group) => (
+          <div class="yeargrp">
+            <div class="yhead">
+              <h2>{group.year}</h2>
+              <span class="line" />
+              <span class="yc">
+                <b>{group.items.length}</b>{" "}
+                {group.items.length > 1 ? "éditions" : "édition"}
+              </span>
+            </div>
+            {group.items.map((recap) => (
+              <a class="erow" href={recap.url}>
+                <span class="enum">#{recap.edition}</span>
+                <div class="ebody">
+                  <div class="emeta">
+                    <h3>{monthLabel(recap.publishedDate)}</h3>
+                    {recap.url === latestUrl && (
+                      <span class="latest">Dernière</span>
+                    )}
+                  </div>
+                  <p>{recap.description}</p>
+                </div>
+                <div class="eside">
+                  <span class="edate">{frDate(recap.publishedDate)}</span>
+                  <span class="eread">{recap.read} min de lecture</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        ))
+      }
+    </section>
+
+    <div class="backrow">
+      <a class="back" href="/articles">← Retour à tous les articles</a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .wrap {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 1.5rem;
+  }
+
+  /* Bannière de série */
+  .shero {
+    background: var(--backgroundColorSecondary);
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-lg);
+    padding: 2.1rem;
+    margin: 1.1rem 0 0;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 2.2rem;
+    align-items: center;
+  }
+
+  .shero .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.8rem;
+    font-weight: 600;
+  }
+
+  .shero .pdot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--linkHoverColor);
+    display: inline-block;
+  }
+
+  .shero h1 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--titleColor);
+    font-size: clamp(2rem, 1.5rem + 1.8vw, 2.6rem);
+    line-height: 1.08;
+    margin: 0 0 0.9rem;
+  }
+
+  .shero .lead {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--textColor);
+    margin: 0 0 1.3rem;
+  }
+
+  .shero .stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.4rem;
+    font-size: 0.86rem;
+    color: var(--textColor);
+    margin: 0 0 1.4rem;
+  }
+
+  .shero .stats b {
+    color: var(--titleColor);
+    font-weight: 600;
+  }
+
+  .shero .stats .s {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
+  .shero .stats .s::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--borderSecondary);
+  }
+
+  .shero .actions {
+    display: flex;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+  }
+
+  .rss {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.9rem;
+    color: var(--linkColor);
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-pill);
+    padding: 10px 18px;
+    transition:
+      color var(--transition-fast),
+      border-color var(--transition-fast);
+  }
+
+  .rss:hover {
+    color: var(--linkHoverColor);
+    border-color: var(--linkHoverColor);
+  }
+
+  .rss svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .shero .media {
+    width: 100%;
+    aspect-ratio: 1792 / 1024;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 14px;
+    display: block;
+  }
+
+  /* Liste des éditions */
+  .list {
+    margin: 3rem 0 0;
+  }
+
+  .yhead {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .yhead h2 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--titleColor);
+    font-size: 1.5rem;
+    margin: 0;
+    line-height: 1;
+  }
+
+  .yhead .line {
+    flex: 1;
+    height: 1px;
+    background: var(--borderPrimary);
+  }
+
+  .yhead .yc {
+    font-size: 0.82rem;
+    color: var(--textColor);
+  }
+
+  .yhead .yc b {
+    color: var(--titleColor);
+    font-weight: 600;
+  }
+
+  .erow {
+    display: grid;
+    grid-template-columns: 64px 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--borderPrimary);
+    color: var(--linkColor);
+  }
+
+  .erow .enum {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--linkHoverColor);
+    line-height: 1;
+    transition: color var(--transition);
+  }
+
+  .erow .emeta {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.35rem;
+  }
+
+  .erow h3 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--linkColor);
+    font-size: 1.18rem;
+    line-height: 1.2;
+    margin: 0;
+    transition: color var(--transition);
+  }
+
+  .erow:hover h3 {
+    color: var(--linkHoverColor);
+  }
+
+  .erow .latest {
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid var(--borderSecondary);
+    border-radius: var(--radius-pill);
+    padding: 2px 9px;
+  }
+
+  .erow p {
+    font-size: 0.92rem;
+    line-height: 1.55;
+    margin: 0;
+    color: var(--textColor);
+    max-width: 70ch;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .erow .eside {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+    white-space: nowrap;
+  }
+
+  .erow .edate {
+    font-size: 0.85rem;
+    color: var(--titleColor);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .erow .eread {
+    font-size: 0.78rem;
+    color: var(--textColor);
+  }
+
+  .backrow {
+    padding: 2.4rem 0 0;
+  }
+
+  .back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--linkColor);
+    transition: color var(--transition-fast);
+  }
+
+  .back:hover {
+    color: var(--linkHoverColor);
+  }
+
+  /* Responsive : empilement sous ~720px */
+  @media screen and (max-width: 720px) {
+    .shero {
+      grid-template-columns: 1fr;
+    }
+
+    .erow {
+      grid-template-columns: 48px 1fr;
+      gap: 0.4rem 1rem;
+    }
+
+    .erow .eside {
+      grid-column: 2;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.6rem;
+    }
+  }
+</style>

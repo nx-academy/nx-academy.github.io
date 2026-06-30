@@ -10,6 +10,7 @@ imgAlt: Un vendeur de journaux dans un kiosque parisien, pixel art
 imgSrc: /images/articles/kiosque-journaux.webp
 
 kind: Articles
+format: recap
 author: Thomas
 draft: false
 publishedDate: 06/30/2026

@@ -1,4 +1,7 @@
-function calculateReadingTime(text: string, wordsPerMinute: number): number {
+export function calculateReadingTime(
+  text: string,
+  wordsPerMinute = 200,
+): number {
   const words = text.trim().split(/\s+/).length;
   const time = Math.ceil(words / wordsPerMinute);
 

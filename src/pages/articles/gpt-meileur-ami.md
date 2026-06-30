@@ -11,6 +11,7 @@ imgAlt: Un adolescent discutant dans sa chambre avec une IA, pixel art
 imgSrc: /images/articles/ado-dialogue-ia.webp
 
 kind: Articles
+format: reflexion
 author: Thomas
 draft: false
 publishedDate: 02/09/2025

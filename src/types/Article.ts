@@ -3,6 +3,7 @@ export type Article = {
     author: string;
     description: string;
     draft: boolean;
+    format?: "recap" | "reflexion" | "bilan";
     imgAlt: string;
     imgSrc: string;
     kind?: string;
