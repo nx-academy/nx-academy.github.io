@@ -33,16 +33,16 @@ technique. Bonne lecture !
 La question est devenue un marronnier : avec l'IA qui génère du code à la
 chaîne, est-ce que ça vaut encore le coup d'apprendre à coder ? La réponse de
 Frontend Mentor est claire : oui, autant qu'avant, peut-être même plus. Ce qui
-change, c'est ce sur quoi tu mets l'accent quand tu apprends. Le travail se
-déplace vers le jugement, le goût, et surtout **savoir quoi construire** — pas
-seulement savoir l'écrire.
+change, c'est ce sur quoi vous mettez l'accent quand vous apprenez. Le travail
+se déplace vers le jugement, le goût, et surtout **savoir quoi construire** —
+pas seulement savoir l'écrire.
 
 Le conseil que je retiens, et que je répète à longueur de temps : **en tant
-qu'apprenant, ne laisse pas l'IA penser à ta place ni écrire du code que tu n'as
-pas déjà écrit toi-même des dizaines de fois**. Utilise-la pour poser des
-questions, débugger, relire du code que tu as déjà produit. Le reste — la
-persévérance et le plaisir de construire — reste ce qui fait la différence à
-l'arrivée.
+qu'apprenant, ne laissez pas l'IA penser à votre place ni écrire du code que
+vous n'avez pas déjà écrit vous-même des dizaines de fois**. Utilisez-la pour
+poser des questions, débugger, relire du code que vous avez déjà produit. Le
+reste — la persévérance et le plaisir de construire — reste ce qui fait la
+différence à l'arrivée.
 
 [Lire l'article](https://www.frontendmentor.io/articles/is-coding-still-worth-learning)
 
