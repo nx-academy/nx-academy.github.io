@@ -57,7 +57,8 @@ différence à l'arrivée.
 <small>James Stanier — The Engineering Manager</small>
 
 Suite logique du sujet précédent. James Stanier pose une question qu'on n'entend
-pas assez. Si l'IA absorbe les petites tâches et les corrections de bugs (exactement le terrain de jeu sur lequel les juniors faisaient leurs armes)
+pas assez. Si l'IA absorbe les petites tâches et les corrections de bugs
+(exactement le terrain de jeu sur lequel les juniors faisaient leurs armes)
 comment se forment les seniors de demain ? Il rappelle que **54% des leaders
 d'ingénierie prévoient d'embaucher moins de juniors** en se disant que l'IA
 permet aux seniors d'en faire plus.
@@ -101,11 +102,11 @@ geste est cohérent.
 
 <small>Astro</small>
 
-On termine sur une release qui me parle particulièrement, parce que ce site tourne sous
-Astro. La version 7 met le paquet sur la performance : le compilateur `.astro` a
-été **réécrit en Rust**, le pipeline Markdown/MDX passe lui aussi par un
-processeur Rust (Sätteri), et avec Vite 8 et son bundler Rolldown, les builds
-sont annoncés **15 à 61% plus rapides**.
+On termine sur une release qui me parle particulièrement, parce que ce site
+tourne sous Astro. La version 7 met le paquet sur la performance : le
+compilateur `.astro` a été **réécrit en Rust**, le pipeline Markdown/MDX passe
+lui aussi par un processeur Rust (Sätteri), et avec Vite 8 et son bundler
+Rolldown, les builds sont annoncés **15 à 61% plus rapides**.
 
 Côté fonctionnalités, on a droit à l'Advanced Routing avec un point d'entrée
 `src/fetch.ts` qui donne un contrôle total sur le pipeline de requêtes, au route
