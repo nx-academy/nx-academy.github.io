@@ -11,6 +11,10 @@ imgSrc: /images/articles/city-builder-player.webp
 
 kind: Articles
 format: reflexion
+serie: gamedev
+tags:
+  - Game dev
+  - Carnet de bord
 author: Thomas
 draft: false
 publishedDate: 04/01/2026

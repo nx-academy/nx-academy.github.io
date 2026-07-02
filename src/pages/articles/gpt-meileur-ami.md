@@ -12,6 +12,10 @@ imgSrc: /images/articles/ado-dialogue-ia.webp
 
 kind: Articles
 format: reflexion
+serie: ia
+tags:
+  - IA
+  - ChatGPT
 author: Thomas
 draft: false
 publishedDate: 02/09/2025

@@ -12,6 +12,10 @@ imgSrc: /images/articles/kiosque-journaux.webp
 
 kind: Articles
 format: recap
+serie: veille
+tags:
+  - Veille
+  - Le Récap
 author: Thomas
 draft: false
 publishedDate: 05/31/2025

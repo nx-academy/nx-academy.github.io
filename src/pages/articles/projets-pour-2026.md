@@ -10,6 +10,10 @@ imgSrc: /images/articles/dev-fetes-fin-annee.webp
 
 kind: Articles
 format: bilan
+serie: nx
+tags:
+  - NX Academy
+  - Bilan
 author: Thomas
 draft: false
 publishedDate: 01/01/2026

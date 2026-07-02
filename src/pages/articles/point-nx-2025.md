@@ -11,6 +11,10 @@ imgSrc: /images/articles/reunion-point.webp
 
 kind: Articles
 format: bilan
+serie: nx
+tags:
+  - NX Academy
+  - Bilan
 author: Thomas
 draft: false
 publishedDate: 01/25/2025

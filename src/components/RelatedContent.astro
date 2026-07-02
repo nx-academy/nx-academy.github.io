@@ -1,19 +1,5 @@
 ---
-import type { Article } from "../types/Article";
-import type { Cheatsheet } from "../types/Cheatsheet";
-
-type Item = {
-  frontmatter: {
-    draft?: boolean;
-    title: string;
-    imgSrc: string;
-    imgAlt: string;
-    author: string;
-    publishedDate: string;
-    level?: string;
-  };
-  url?: string;
-};
+import { scoreRelated, type RelatedItem } from "../utils/relatedContent";
 
 interface Props {
   currentUrl: string;
@@ -27,29 +13,39 @@ const normalize = (path: string) => path.replace(/\/+$/, "");
 const current = normalize(currentUrl);
 
 // `import.meta.glob` exige un chemin littéral statique : on glob les deux
-// dossiers et on choisit la source ensuite. (À terme : recommandation par
-// pertinence.)
+// dossiers puis on fusionne pour un pool unifié, ce qui permet de croiser
+// articles et fiches selon leur pertinence thématique (cf. scoreRelated).
 const articlesGlob = import.meta.glob("../pages/articles/*.md", {
   eager: true,
 });
 const fichesGlob = import.meta.glob("../pages/fiches/*.md", { eager: true });
 
-const isFiches = source === "fiches";
-const items = Object.values(isFiches ? fichesGlob : articlesGlob) as (Item &
-  (Article | Cheatsheet))[];
-const kindLabel = isFiches ? "Fiche technique" : "Articles";
+const pool = [
+  ...Object.values(articlesGlob),
+  ...Object.values(fichesGlob),
+] as RelatedItem[];
 
-const related = items
-  .filter(
-    (item) =>
-      !item.frontmatter.draft && item.url && normalize(item.url) !== current,
-  )
-  .sort(
-    (a, b) =>
-      new Date(b.frontmatter.publishedDate).getTime() -
-      new Date(a.frontmatter.publishedDate).getTime(),
-  )
-  .slice(0, limit);
+// L'item courant est retrouvé dans le pool via son URL, pour récupérer sa
+// `serie`/ses `tags` et scorer le reste. Le `source` fournit un repli de type
+// si la page n'est pas trouvée (ne devrait pas arriver en pratique).
+const currentItem =
+  pool.find((item) => item.url && normalize(item.url) === current) ??
+  ({
+    url: currentUrl,
+    frontmatter: {
+      title: "",
+      imgSrc: "",
+      imgAlt: "",
+      author: "",
+      publishedDate: "",
+      kind: source === "fiches" ? "Fiche technique" : "Articles",
+    },
+  } satisfies RelatedItem);
+
+const related = scoreRelated(currentItem, pool, limit);
+
+const cardKind = (item: RelatedItem) =>
+  item.frontmatter.kind === "Fiche technique" ? "Fiche technique" : "Article";
 ---
 
 {
@@ -64,10 +60,10 @@ const related = items
               src={item.frontmatter.imgSrc}
               alt={item.frontmatter.imgAlt}
             />
-            <p class="rl-kind">{kindLabel}</p>
+            <p class="rl-kind">{cardKind(item)}</p>
             <h4>{item.frontmatter.title}</h4>
             <p class="rl-meta">
-              {isFiches && item.frontmatter.level && (
+              {item.frontmatter.level && (
                 <>
                   <span class="rl-lvl">{item.frontmatter.level}</span>
                   <span class="rl-dot" aria-hidden="true" />

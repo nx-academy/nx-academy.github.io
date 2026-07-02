@@ -14,6 +14,10 @@ imgSrc: /images/articles/quatre-hommes-pose.webp
 
 kind: Articles
 format: reflexion
+serie: ia
+tags:
+  - IA
+  - Développeur
 author: Thomas
 draft: false
 publishedDate: 03/29/2025
