@@ -1,3 +1,17 @@
+---
+const path = Astro.url.pathname;
+
+const navItems = [
+  { key: "fiches", label: "Fiches techniques", href: "/fiches" },
+  { key: "articles", label: "Articles", href: "/articles" },
+  { key: "cours", label: "Cours", href: "/cours" },
+  { key: "jeux", label: "Jeux vidéo", href: "/jeux" },
+  { key: "quiz", label: "Quiz", href: "/quiz" },
+];
+
+const isActive = (href: string) => path === href || path.startsWith(href + "/");
+---
+
 <header>
   <div class="innner-div-wrapper">
     <div class="brand">
@@ -105,12 +119,154 @@
     </button>
 
     <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
-      <a href="/fiches">Fiches techniques</a>
-      <a href="/articles">Articles</a>
-      <!-- <a href="/videos">Vidéos</a> -->
-      <a href="/cours">Cours</a>
-      <a href="/jeux">Jeux vidéo</a>
-      <a href="/quiz">Quiz</a>
+      <div class="hd-ov-top">
+        <a class="hd-ov-brand" href="/">
+          <img class="brand-logo" src="/logo-mark.png" alt="" />
+          <span class="wm">NX Academy</span>
+        </a>
+        <button class="close" type="button" aria-label="Fermer le menu">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6 6l12 12M18 6L6 18"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"></path>
+          </svg>
+        </button>
+      </div>
+
+      <ul class="hd-ov-nav">
+        {
+          navItems.map((item, i) => (
+            <li
+              class:list={["hd-ov-item", { active: isActive(item.href) }]}
+              style={`--i:${i}`}
+            >
+              <a
+                href={item.href}
+                aria-current={isActive(item.href) ? "page" : undefined}
+              >
+                <span class="num">{String(i + 1).padStart(2, "0")}</span>
+                <span class="lbl">{item.label}</span>
+                {isActive(item.href) && (
+                  <span class="nx-pill here">Vous êtes ici</span>
+                )}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <a class="hd-ov-feed hd-ov-item" href="/feed" style="--i:5">
+        <span class="txt">
+          <span class="pill-row"><span class="nx-pill">En direct</span></span>
+          <span class="feed-copy">Le Feed — l'actu dev en continu</span>
+        </span>
+        <span class="chev">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <use xlink:href="#arrow-icon"></use>
+          </svg>
+        </span>
+      </a>
+
+      <div class="hd-ov-foot hd-ov-item" style="--i:6">
+        <div class="hd-ov-themes" role="group" aria-label="Thème">
+          <button
+            type="button"
+            data-theme="theme-dark"
+            aria-label="Thème sombre"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M21.25 12A9.25 9.25 0 1 1 12 2.75 7.5 7.5 0 0 0 21.25 12Z"
+              ></path>
+            </svg>
+          </button>
+          <button
+            type="button"
+            data-theme="theme-light"
+            aria-label="Thème clair"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="12" cy="12" r="4.5"></circle>
+              <path
+                d="M12 3v1.5M12 19.5V21M3 12h1.5M19.5 12H21M5.6 5.6l1 1M17.4 17.4l1 1M18.4 5.6l-1 1M6.6 17.4l-1 1"
+              ></path>
+            </svg>
+          </button>
+          <button
+            type="button"
+            data-theme="theme-summer"
+            aria-label="Thème été"
+          >
+            <svg
+              class="summer-toggle-icon"
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <use xlink:href="#beach-icon"></use>
+            </svg>
+          </button>
+        </div>
+
+        <ul class="hd-ov-social">
+          <li>
+            <a
+              href="https://github.com/nx-academy"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <svg class="social-github" viewBox="0 0 20 20">
+                <use xlink:href="#github-icon"></use>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/company/nx-academy-france"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <svg class="social-linkedin" viewBox="0 0 24 24">
+                <use xlink:href="#linkedin-icon"></use>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="/rss.xml" aria-label="S'abonner aux Flux RSS">
+              <svg class="social-rss" viewBox="0 0 16 16">
+                <use xlink:href="#rss-icon"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
     </nav>
   </div>
 
@@ -205,7 +361,8 @@
     border-radius: 999px;
     color: var(--linkColor);
     cursor: pointer;
-    display: flex;
+    /* Masqué sur mobile : le choix de thème passe par le sélecteur de l'overlay */
+    display: none;
     height: 34px;
     justify-content: center;
     margin-left: auto;
@@ -231,17 +388,18 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 32px;
-    height: 24px;
+    width: 30px;
+    height: 21px;
     cursor: pointer;
     z-index: 1001;
     background: none;
     border: none;
     padding: 0;
+    margin-left: auto;
   }
 
   .burger span {
-    height: 4px;
+    height: 3px;
     width: 100%;
     background-color: var(--burgerColor);
     border-radius: 2px;
@@ -253,7 +411,7 @@
   }
 
   .burger.active span:nth-child(1) {
-    transform: rotate(45deg) translateY(10px);
+    transform: rotate(45deg) translateY(9px);
   }
 
   .burger.active span:nth-child(2) {
@@ -261,40 +419,283 @@
   }
 
   .burger.active span:nth-child(3) {
-    transform: rotate(-45deg) translateY(-10px);
+    transform: rotate(-45deg) translateY(-9px);
   }
 
+  /* ---- Overlay plein écran (mobile < 1024px) ---- */
   .mobile-nav {
     position: fixed;
-    top: 0;
-    right: 0;
-    width: 80vw;
-    max-width: 320px;
-    height: 100vh;
-    background: var(--backgroundColorMobileNav);
-    backdrop-filter: blur(6px);
-    transform: translateX(100%);
+    inset: 0;
+    z-index: 1000;
+    background: var(--backgroundColorPrimary);
+    display: flex;
+    flex-direction: column;
+    padding: 16px 5% 22px;
     opacity: 0;
     visibility: hidden;
     transition:
-      transform 0.3s ease,
       opacity 0.3s ease,
       visibility 0s linear 0.3s;
-    z-index: 1000;
-    padding: 5rem 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
   }
 
   .mobile-nav.active {
-    transform: translateX(0);
     opacity: 1;
     visibility: visible;
     transition:
-      transform 0.3s ease,
       opacity 0.3s ease,
       visibility 0s linear 0s;
+  }
+
+  .hd-ov-top {
+    align-items: center;
+    display: flex;
+    flex: 0 0 auto;
+    height: 54px;
+    justify-content: space-between;
+  }
+
+  .hd-ov-brand {
+    align-items: center;
+    color: var(--linkColor);
+    display: inline-flex;
+    font-size: 1.4rem;
+    gap: 10px;
+  }
+
+  .hd-ov-brand .wm {
+    font-family: var(--font-display);
+  }
+
+  .close {
+    align-items: center;
+    background: none;
+    border: 0;
+    color: var(--burgerColor);
+    cursor: pointer;
+    display: grid;
+    height: 34px;
+    padding: 0;
+    place-items: center;
+    transition: color 0.3s ease;
+    width: 34px;
+  }
+
+  .close:hover {
+    color: var(--burgerHoverColor);
+  }
+
+  .close svg {
+    height: 24px;
+    width: 24px;
+  }
+
+  .hd-ov-nav {
+    flex: 1 1 auto;
+    list-style: none;
+    margin: 8px 0 0;
+    padding: 0;
+  }
+
+  .hd-ov-nav li {
+    border-top: 1px solid var(--borderPrimary);
+  }
+
+  .hd-ov-nav li:last-child {
+    border-bottom: 1px solid var(--borderPrimary);
+  }
+
+  .hd-ov-nav a {
+    align-items: baseline;
+    display: flex;
+    font-size: inherit;
+    gap: 16px;
+    padding: 18px 2px;
+  }
+
+  .hd-ov-nav .num {
+    color: var(--textColor);
+    flex: 0 0 auto;
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    width: 22px;
+  }
+
+  .hd-ov-nav .lbl {
+    color: var(--linkColor);
+    font-family: var(--font-heading);
+    font-size: 1.72rem;
+    line-height: 1;
+    transition: color var(--transition);
+  }
+
+  .hd-ov-nav a:hover .lbl {
+    color: var(--linkHoverColor);
+  }
+
+  .hd-ov-nav li.active .lbl,
+  .hd-ov-nav li.active .num {
+    color: var(--buttonColorPrimary);
+  }
+
+  .hd-ov-nav .here {
+    align-self: center;
+    margin-left: auto;
+  }
+
+  /* Pastille accent (cf. Feed.astro .live) */
+  .nx-pill {
+    border: 1px solid var(--borderSecondary);
+    border-radius: var(--radius-pill);
+    color: var(--accent);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.07em;
+    line-height: 1.4;
+    padding: 2px 8px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* Carte Feed */
+  .hd-ov-feed {
+    align-items: center;
+    background: var(--backgroundColorSecondary);
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-lg);
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+    padding: 14px 16px;
+  }
+
+  .hd-ov-feed .txt {
+    min-width: 0;
+  }
+
+  .hd-ov-feed .pill-row {
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .hd-ov-feed .feed-copy {
+    color: var(--linkColor);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .hd-ov-feed .chev {
+    color: var(--textColor);
+    flex: 0 0 auto;
+    margin-left: auto;
+  }
+
+  .hd-ov-feed .chev svg {
+    height: 26px;
+    stroke: currentColor;
+    width: 26px;
+  }
+
+  /* Pied : thèmes + social */
+  .hd-ov-foot {
+    align-items: center;
+    display: flex;
+    flex: 0 0 auto;
+    gap: 14px;
+    justify-content: space-between;
+    margin-top: 22px;
+  }
+
+  .hd-ov-themes {
+    background: var(--backgroundColorSecondary);
+    border: 1px solid var(--borderPrimary);
+    border-radius: var(--radius-pill);
+    display: inline-flex;
+    padding: 3px;
+  }
+
+  .hd-ov-themes button {
+    align-items: center;
+    background: none;
+    border: 0;
+    border-radius: var(--radius-pill);
+    color: var(--textColor);
+    cursor: pointer;
+    display: grid;
+    height: 34px;
+    place-items: center;
+    transition:
+      background var(--transition),
+      color var(--transition);
+    width: 42px;
+  }
+
+  .hd-ov-themes button[aria-pressed="true"] {
+    background: var(--backgroundColorPrimary);
+    color: var(--buttonColorPrimary);
+  }
+
+  .hd-ov-themes button svg {
+    height: 20px;
+    width: 20px;
+  }
+
+  .hd-ov-themes .summer-toggle-icon {
+    fill: currentColor;
+  }
+
+  .hd-ov-social {
+    align-items: center;
+    display: flex;
+    gap: 16px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .hd-ov-social a {
+    align-items: center;
+    color: var(--linkColor);
+    display: inline-flex;
+  }
+
+  .hd-ov-social .social-github {
+    height: 21px;
+    width: 21px;
+    fill: var(--linkColor);
+  }
+
+  .hd-ov-social .social-linkedin {
+    height: 24px;
+    width: 24px;
+    fill: var(--linkColor);
+  }
+
+  .hd-ov-social .social-rss {
+    height: 18px;
+    width: 18px;
+    fill: var(--linkColor);
+  }
+
+  .hd-ov-social a:hover svg {
+    fill: var(--linkHoverColor);
+  }
+
+  /* Stagger d'entrée — uniquement si l'utilisateur ne réduit pas les animations */
+  @media (prefers-reduced-motion: no-preference) {
+    .hd-ov-item {
+      opacity: 0;
+      transform: translateY(18px);
+      transition:
+        opacity 0.5s cubic-bezier(0.2, 0.75, 0.3, 1),
+        transform 0.5s cubic-bezier(0.2, 0.75, 0.3, 1);
+    }
+
+    .mobile-nav.active .hd-ov-item {
+      opacity: 1;
+      transform: none;
+      transition-delay: calc(var(--i) * 60ms + 60ms);
+    }
   }
 
   @media screen and (min-width: 1024px) {
@@ -309,6 +710,7 @@
     }
 
     .theme-btn {
+      display: flex;
       margin-right: 0;
     }
 
@@ -389,22 +791,49 @@
 <script>
   const $burger = document.querySelector(".burger") as HTMLButtonElement;
   const $mobileNav = document.querySelector(".mobile-nav") as HTMLElement;
+  const $close = document.querySelector(".close") as HTMLButtonElement;
   const $body = document.body as HTMLBodyElement;
 
   const $themeBtn = document.querySelector(".theme-btn") as HTMLElement;
+  const $themeButtons = Array.from(
+    document.querySelectorAll<HTMLButtonElement>(".hd-ov-themes button"),
+  );
 
   const THEMES = ["theme-light", "theme-dark", "theme-summer"];
 
-  $themeBtn.addEventListener("click", function () {
+  function currentTheme(): string {
     const root = document.documentElement;
-    const current =
-      THEMES.find((t) => root.classList.contains(t)) ?? "theme-light";
-    const next = THEMES[(THEMES.indexOf(current) + 1) % THEMES.length];
+    return THEMES.find((t) => root.classList.contains(t)) ?? "theme-light";
+  }
 
+  function syncThemeButtons(theme: string) {
+    $themeButtons.forEach((btn) => {
+      btn.setAttribute("aria-pressed", String(btn.dataset.theme === theme));
+    });
+  }
+
+  function setTheme(theme: string) {
+    const root = document.documentElement;
     root.classList.remove(...THEMES);
-    root.classList.add(next);
-    localStorage.setItem("theme", next);
+    root.classList.add(theme);
+    localStorage.setItem("theme", theme);
+    syncThemeButtons(theme);
+  }
+
+  // Bouton desktop : cycle entre les thèmes (comportement inchangé)
+  $themeBtn.addEventListener("click", function () {
+    const next = THEMES[(THEMES.indexOf(currentTheme()) + 1) % THEMES.length];
+    setTheme(next);
   });
+
+  // Sélecteur segmenté de l'overlay : applique explicitement un thème
+  $themeButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (btn.dataset.theme) setTheme(btn.dataset.theme);
+    });
+  });
+
+  syncThemeButtons(currentTheme());
 
   function setMenu(isOpen: boolean) {
     $burger.classList.toggle("active", isOpen);
@@ -427,6 +856,16 @@
 
   $burger.addEventListener("click", () => {
     setMenu(!$burger.classList.contains("active"));
+  });
+
+  $close.addEventListener("click", () => {
+    setMenu(false);
+    $burger.focus();
+  });
+
+  // Fermer le menu au clic sur un lien de nav ou la carte Feed
+  $mobileNav.querySelectorAll(".hd-ov-nav a, .hd-ov-feed").forEach((link) => {
+    link.addEventListener("click", () => setMenu(false));
   });
 
   document.addEventListener("keydown", (event) => {
