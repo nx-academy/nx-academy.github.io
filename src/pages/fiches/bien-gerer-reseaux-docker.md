@@ -15,7 +15,7 @@ imgSrc: /images/cheatsheets/reseaux-docker.webp
 author: Thomas
 kind: Fiche technique
 level: Intermédiaire
-publishedDate: 07/02/2026
+publishedDate: 07/03/2026
 ---
 
 On continue notre série Docker. Après avoir
