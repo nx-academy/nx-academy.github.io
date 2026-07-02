@@ -15,22 +15,23 @@ imgSrc: /images/cheatsheets/reseaux-docker.webp
 author: Thomas
 kind: Fiche technique
 level: Intermédiaire
-publishedDate: 24/07/2026
+publishedDate: 07/03/2026
 ---
 
 On continue notre série Docker. Après avoir
 [clarifié la différence entre Docker, Compose et Swarm](/fiches/difference-docker-compose-swarm/),
-on s'attaque à un sujet qu'on a tendance à survoler : **les réseaux Docker**.
+on s'attaque à un sujet qu'on a tendance à survoler, à savoir **les réseaux
+Docker**.
 
 Dans
 [le chapitre réseau du cours](/cours/docker-et-docker-compose/chapitres/gestion-reseau-infrastructure),
-on a vu comment exposer un port avec `ports` et `expose`. Mais sous ce mécanisme
-se cache toute une mécanique : à chaque fois que vous lancez un conteneur,
-Docker le branche sur un **réseau**. Et selon le réseau choisi, vos conteneurs
-vont pouvoir se parler… ou pas.
+on a vu comment exposer un port avec `ports` et `expose`. Mais derrière ce
+mécanisme se cache toute une mécanique. À chaque fois que vous lancez un
+conteneur, Docker le branche sur un **réseau**. Selon le réseau choisi, vos
+conteneurs vont pouvoir se parler ou pas.
 
 Dans cette fiche, on va voir quels sont les différents types de réseaux, comment
-les créer, et surtout comment faire communiquer proprement vos conteneurs entre
+les créer et surtout comment faire communiquer proprement vos conteneurs entre
 eux.
 
 ---
@@ -39,14 +40,13 @@ eux.
 
 Un conteneur, c'est un environnement isolé. Par défaut, il ne sait rien du monde
 extérieur ni des autres conteneurs. Le réseau, c'est précisément ce qui va lui
-permettre de communiquer : avec votre machine, avec Internet, et avec ses
-voisins.
+permettre de communiquer avec votre machine, avec Internet et avec ses voisins.
 
 <br>
 
-Docker gère tout ça automatiquement grâce à des **drivers réseau**. Un driver,
-c'est simplement le « type » de réseau utilisé. Vous pouvez lister les réseaux
-existants sur votre machine avec :
+Il faut savoir que Docker gère tout ça automatiquement grâce à des **drivers
+réseau**. Un driver, c'est simplement le « type » de réseau utilisé. Vous pouvez
+lister les réseaux existants sur votre machine avec :
 
 ```bash
 docker network ls
@@ -72,19 +72,19 @@ On va les passer en revue.
 
 ## Les principaux drivers réseau
 
-### bridge : le réseau par défaut
+### bridge - le réseau par défaut
 
 C'est le driver utilisé automatiquement quand vous lancez un conteneur sans rien
-préciser. Docker crée un **réseau privé interne** sur votre machine, et chaque
+préciser. Docker crée un **réseau privé interne** sur votre machine et chaque
 conteneur y reçoit sa propre adresse IP. Pour communiquer avec l'extérieur, on
 passe par la redirection de ports (le fameux `-p 8080:80`).
 
-C'est le mode adapté à la grande majorité des cas : plusieurs conteneurs sur une
+C'est le mode adapté à la grande majorité des cas. Plusieurs conteneurs sur une
 même machine qui doivent dialoguer entre eux.
 
-### host : on partage le réseau de la machine
+### host - on partage le réseau de la machine
 
-Avec le driver `host`, le conteneur n'est plus isolé : il utilise directement la
+Avec le driver `host`, le conteneur n'est plus isolé. Il utilise directement la
 pile réseau de votre machine hôte. Plus besoin de rediriger les ports, le
 conteneur écoute directement sur ceux de l'hôte.
 
@@ -94,16 +94,17 @@ docker container run --network host nginx
 
 <br>
 
-C'est plus performant (pas de couche de traduction réseau), mais vous perdez
-l'isolation et vous risquez les conflits de ports. À réserver à des cas précis.
+C'est plus performant parce qu'il n'y a pas de couche de traduction réseau. Cela
+dit, vous perdez l'isolation et vous risquez les conflits de ports. À réserver à
+des cas précis.
 
-### none : pas de réseau du tout
+### none - pas de réseau du tout
 
 Comme son nom l'indique, le conteneur n'a aucune connectivité réseau. Utile pour
 des tâches totalement isolées, pour des raisons de sécurité ou pour des batchs
 qui n'ont besoin de rien.
 
-### overlay : pour communiquer entre plusieurs machines
+### overlay - pour communiquer entre plusieurs machines
 
 Le driver `overlay` permet à des conteneurs situés sur **des machines
 différentes** de communiquer comme s'ils étaient sur le même réseau local. C'est
@@ -113,9 +114,10 @@ Swarm.
 
 <br>
 
-> À noter : il existe aussi le driver `macvlan`, plus avancé, qui donne à un
-> conteneur une vraie adresse MAC sur votre réseau physique. C'est un cas
-> d'usage de niche, on ne s'y attarde pas ici.
+> Il existe aussi le driver `macvlan`, plus avancé, qui donne à un conteneur une
+> vraie adresse MAC sur votre réseau physique. C'est un cas d'usage de niche, on
+> ne s'y attarde pas ici. J'y reviendrais peut-être dans une prochaine fiche
+> technique.
 
 ### Tableau récapitulatif
 
@@ -140,15 +142,15 @@ Dans 90 % des cas en local comme sur un petit serveur, vous resterez sur du
 
 Voici LE point que beaucoup ignorent et qui fait toute la différence.
 
-Le réseau `bridge` par défaut fonctionne, mais il a une grosse limite : **les
-conteneurs ne peuvent s'y joindre que par adresse IP**, pas par nom. Et comme
+Le réseau `bridge` par défaut fonctionne mais il a une grosse limite. **Les
+conteneurs ne peuvent s'y joindre que par adresse IP** et pas par nom. Et comme
 les IP changent à chaque redémarrage, c'est ingérable.
 
 <br>
 
 La bonne pratique, c'est de créer **votre propre réseau bridge** (on parle de
 _user-defined bridge_). Sur un réseau personnalisé, Docker active un **DNS
-interne** : chaque conteneur devient joignable par son nom.
+interne**. Ce qui fait que chaque conteneur est joignable par son nom.
 
 ```bash
 # On crée notre réseau
@@ -161,13 +163,13 @@ docker container run -d --name db --network mon-reseau postgres
 
 <br>
 
-Résultat : depuis le conteneur `api`, je peux contacter la base de données
-simplement en utilisant `db` comme nom d'hôte. Pas d'IP à connaître, pas de
-config à maintenir. C'est propre, lisible et stable.
+Le résultat ici est que depuis le conteneur `api`, je peux contacter la base de
+données simplement en utilisant `db` comme nom d'hôte. Pas d'IP à connaître, pas
+de config à maintenir. C'est propre, lisible et stable.
 
 <br>
 
-En plus du DNS, un réseau personnalisé apporte une meilleure isolation : seuls
+En plus du DNS, un réseau personnalisé apporte une meilleure isolation. Seuls
 les conteneurs que vous branchez explicitement dessus peuvent communiquer entre
 eux. Sur le réseau `bridge` par défaut, à l'inverse, tous les conteneurs se
 retrouvent mélangés sur le même réseau, ce qui est rarement ce que vous voulez.
@@ -200,16 +202,16 @@ docker network prune
 <br>
 
 La commande `docker network inspect` est particulièrement précieuse pour
-debugger : elle vous montre exactement quels conteneurs sont branchés et avec
+debugger. Elle vous montre exactement quels conteneurs sont branchés et avec
 quelles adresses.
 
 ---
 
 ## Les réseaux en Docker Compose
 
-Bonne nouvelle : avec Docker Compose, tout ce travail est fait pour vous. Quand
-vous lancez un `docker compose up`, Compose **crée automatiquement un réseau
-dédié** à votre projet et y branche tous vos services.
+Avec Docker Compose, tout ce travail est fait pour vous. Quand vous lancez un
+`docker compose up`, Compose **crée automatiquement un réseau dédié** à votre
+projet et y branche tous vos services.
 
 C'est pour ça que, dans un `docker-compose.yml`, un service peut en joindre un
 autre par son nom directement :
@@ -225,7 +227,7 @@ services:
 
 <br>
 
-Ici, pas besoin de déclarer quoi que ce soit : le DNS interne fonctionne tout
+Ici, pas besoin de déclarer quoi que ce soit. Le DNS interne fonctionne tout
 seul parce que Compose utilise un réseau bridge personnalisé sous le capot.
 
 ---
@@ -280,15 +282,14 @@ appliqué au réseau.
 <hr>
 
 Et voilà ! Les réseaux Docker n'ont (presque) plus de secret pour vous. Retenez
-surtout deux choses : **créez toujours un réseau personnalisé** pour profiter du
-DNS interne, et **cloisonnez vos services** dès que la sécurité l'exige.
+surtout deux choses ! **Créez toujours un réseau personnalisé** pour profiter du
+DNS interne et **cloisonnez vos services** dès que la sécurité l'exige.
 
 Dans la prochaine fiche, on enchaînera justement sur un sujet voisin et sensible
 : **la gestion des secrets en Docker**. À très vite 😉.
 
 D'ici là, je vous invite :
 
-- [à faire le quiz](/quiz/bien-gerer-reseaux-docker) pour valider vos acquis ;
 - [à relire le chapitre réseau du cours](/cours/docker-et-docker-compose/chapitres/gestion-reseau-infrastructure)
   pour revoir les bases sur les ports.
 
