@@ -101,7 +101,9 @@ export function scoreRelated(
 
   // Repli : compléter avec les plus récents non encore retenus, en donnant la
   // priorité au même type de contenu que la page courante.
-  const chosen = new Set(scored.map((item) => normalizeUrl(item.url as string)));
+  const chosen = new Set(
+    scored.map((item) => normalizeUrl(item.url as string)),
+  );
   const currentKind = current.frontmatter.kind;
 
   const fallback = candidates
