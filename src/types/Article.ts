@@ -8,6 +8,7 @@ export type Article = {
     imgSrc: string;
     kind?: string;
     publishedDate: string;
+    serie?: string;
     title: string;
     tags?: string[];
     faq?: { question: string; answer: string }[];

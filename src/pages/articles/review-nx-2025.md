@@ -11,6 +11,10 @@ imgSrc: /images/articles/dev-pere-noel.webp
 
 kind: Articles
 format: bilan
+serie: nx
+tags:
+  - NX Academy
+  - Bilan
 author: Thomas
 draft: false
 publishedDate: 12/27/2025

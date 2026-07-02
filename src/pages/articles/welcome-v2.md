@@ -11,6 +11,9 @@ imgSrc: /images/articles/jardin-printemps.webp
 
 kind: Articles
 format: bilan
+serie: nx
+tags:
+  - NX Academy
 author: Thomas
 draft: false
 publishedDate: 03/21/2024

@@ -14,6 +14,10 @@ imgSrc: /images/articles/scene-journalistes-journal.webp
 
 kind: Articles
 format: bilan
+serie: veille
+tags:
+  - Veille
+  - Le Récap
 author: Thomas
 draft: false
 publishedDate: 04/25/2025
