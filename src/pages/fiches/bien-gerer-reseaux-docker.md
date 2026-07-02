@@ -20,14 +20,15 @@ publishedDate: 07/02/2026
 
 On continue notre série Docker. Après avoir
 [clarifié la différence entre Docker, Compose et Swarm](/fiches/difference-docker-compose-swarm/),
-on s'attaque à un sujet qu'on a tendance à survoler, à savoir **les réseaux Docker**.
+on s'attaque à un sujet qu'on a tendance à survoler, à savoir **les réseaux
+Docker**.
 
 Dans
 [le chapitre réseau du cours](/cours/docker-et-docker-compose/chapitres/gestion-reseau-infrastructure),
-on a vu comment exposer un port avec `ports` et `expose`. Mais derrière ce mécanisme
-se cache toute une mécanique. À chaque fois que vous lancez un conteneur,
-Docker le branche sur un **réseau**. Selon le réseau choisi, vos conteneurs
-vont pouvoir se parler ou pas.
+on a vu comment exposer un port avec `ports` et `expose`. Mais derrière ce
+mécanisme se cache toute une mécanique. À chaque fois que vous lancez un
+conteneur, Docker le branche sur un **réseau**. Selon le réseau choisi, vos
+conteneurs vont pouvoir se parler ou pas.
 
 Dans cette fiche, on va voir quels sont les différents types de réseaux, comment
 les créer et surtout comment faire communiquer proprement vos conteneurs entre
@@ -39,14 +40,13 @@ eux.
 
 Un conteneur, c'est un environnement isolé. Par défaut, il ne sait rien du monde
 extérieur ni des autres conteneurs. Le réseau, c'est précisément ce qui va lui
-permettre de communiquer avec votre machine, avec Internet et avec ses
-voisins.
+permettre de communiquer avec votre machine, avec Internet et avec ses voisins.
 
 <br>
 
-Il faut savoir que Docker gère tout ça automatiquement grâce à des **drivers réseau**. Un driver,
-c'est simplement le « type » de réseau utilisé. Vous pouvez lister les réseaux
-existants sur votre machine avec :
+Il faut savoir que Docker gère tout ça automatiquement grâce à des **drivers
+réseau**. Un driver, c'est simplement le « type » de réseau utilisé. Vous pouvez
+lister les réseaux existants sur votre machine avec :
 
 ```bash
 docker network ls
@@ -94,8 +94,9 @@ docker container run --network host nginx
 
 <br>
 
-C'est plus performant parce qu'il n'y a pas de couche de traduction réseau. Cela dit, vous perdez
-l'isolation et vous risquez les conflits de ports. À réserver à des cas précis.
+C'est plus performant parce qu'il n'y a pas de couche de traduction réseau. Cela
+dit, vous perdez l'isolation et vous risquez les conflits de ports. À réserver à
+des cas précis.
 
 ### none - pas de réseau du tout
 
@@ -113,10 +114,10 @@ Swarm.
 
 <br>
 
-> Il existe aussi le driver `macvlan`, plus avancé, qui donne à un
-> conteneur une vraie adresse MAC sur votre réseau physique. C'est un cas
-> d'usage de niche, on ne s'y attarde pas ici. J'y reviendrais peut-être dans
-> une prochaine fiche technique.
+> Il existe aussi le driver `macvlan`, plus avancé, qui donne à un conteneur une
+> vraie adresse MAC sur votre réseau physique. C'est un cas d'usage de niche, on
+> ne s'y attarde pas ici. J'y reviendrais peut-être dans une prochaine fiche
+> technique.
 
 ### Tableau récapitulatif
 
@@ -162,9 +163,9 @@ docker container run -d --name db --network mon-reseau postgres
 
 <br>
 
-Le résultat ici est que depuis le conteneur `api`, je peux contacter la base de données
-simplement en utilisant `db` comme nom d'hôte. Pas d'IP à connaître, pas de
-config à maintenir. C'est propre, lisible et stable.
+Le résultat ici est que depuis le conteneur `api`, je peux contacter la base de
+données simplement en utilisant `db` comme nom d'hôte. Pas d'IP à connaître, pas
+de config à maintenir. C'est propre, lisible et stable.
 
 <br>
 
@@ -208,9 +209,9 @@ quelles adresses.
 
 ## Les réseaux en Docker Compose
 
-Avec Docker Compose, tout ce travail est fait pour vous. Quand
-vous lancez un `docker compose up`, Compose **crée automatiquement un réseau
-dédié** à votre projet et y branche tous vos services.
+Avec Docker Compose, tout ce travail est fait pour vous. Quand vous lancez un
+`docker compose up`, Compose **crée automatiquement un réseau dédié** à votre
+projet et y branche tous vos services.
 
 C'est pour ça que, dans un `docker-compose.yml`, un service peut en joindre un
 autre par son nom directement :
