@@ -141,15 +141,15 @@ Dans 90 % des cas en local comme sur un petit serveur, vous resterez sur du
 
 Voici LE point que beaucoup ignorent et qui fait toute la différence.
 
-Le réseau `bridge` par défaut fonctionne, mais il a une grosse limite : **les
-conteneurs ne peuvent s'y joindre que par adresse IP**, pas par nom. Et comme
+Le réseau `bridge` par défaut fonctionne mais il a une grosse limite. **Les
+conteneurs ne peuvent s'y joindre que par adresse IP** et pas par nom. Et comme
 les IP changent à chaque redémarrage, c'est ingérable.
 
 <br>
 
 La bonne pratique, c'est de créer **votre propre réseau bridge** (on parle de
 _user-defined bridge_). Sur un réseau personnalisé, Docker active un **DNS
-interne** : chaque conteneur devient joignable par son nom.
+interne**. Ce qui fait que chaque conteneur est joignable par son nom.
 
 ```bash
 # On crée notre réseau
@@ -162,13 +162,13 @@ docker container run -d --name db --network mon-reseau postgres
 
 <br>
 
-Résultat : depuis le conteneur `api`, je peux contacter la base de données
+Le résultat ici est que depuis le conteneur `api`, je peux contacter la base de données
 simplement en utilisant `db` comme nom d'hôte. Pas d'IP à connaître, pas de
 config à maintenir. C'est propre, lisible et stable.
 
 <br>
 
-En plus du DNS, un réseau personnalisé apporte une meilleure isolation : seuls
+En plus du DNS, un réseau personnalisé apporte une meilleure isolation. Seuls
 les conteneurs que vous branchez explicitement dessus peuvent communiquer entre
 eux. Sur le réseau `bridge` par défaut, à l'inverse, tous les conteneurs se
 retrouvent mélangés sur le même réseau, ce qui est rarement ce que vous voulez.
@@ -201,14 +201,14 @@ docker network prune
 <br>
 
 La commande `docker network inspect` est particulièrement précieuse pour
-debugger : elle vous montre exactement quels conteneurs sont branchés et avec
+debugger. Elle vous montre exactement quels conteneurs sont branchés et avec
 quelles adresses.
 
 ---
 
 ## Les réseaux en Docker Compose
 
-Bonne nouvelle : avec Docker Compose, tout ce travail est fait pour vous. Quand
+Avec Docker Compose, tout ce travail est fait pour vous. Quand
 vous lancez un `docker compose up`, Compose **crée automatiquement un réseau
 dédié** à votre projet et y branche tous vos services.
 
@@ -226,7 +226,7 @@ services:
 
 <br>
 
-Ici, pas besoin de déclarer quoi que ce soit : le DNS interne fonctionne tout
+Ici, pas besoin de déclarer quoi que ce soit. Le DNS interne fonctionne tout
 seul parce que Compose utilise un réseau bridge personnalisé sous le capot.
 
 ---
@@ -281,15 +281,14 @@ appliqué au réseau.
 <hr>
 
 Et voilà ! Les réseaux Docker n'ont (presque) plus de secret pour vous. Retenez
-surtout deux choses : **créez toujours un réseau personnalisé** pour profiter du
-DNS interne, et **cloisonnez vos services** dès que la sécurité l'exige.
+surtout deux choses ! **Créez toujours un réseau personnalisé** pour profiter du
+DNS interne et **cloisonnez vos services** dès que la sécurité l'exige.
 
 Dans la prochaine fiche, on enchaînera justement sur un sujet voisin et sensible
 : **la gestion des secrets en Docker**. À très vite 😉.
 
 D'ici là, je vous invite :
 
-- [à faire le quiz](/quiz/bien-gerer-reseaux-docker) pour valider vos acquis ;
 - [à relire le chapitre réseau du cours](/cours/docker-et-docker-compose/chapitres/gestion-reseau-infrastructure)
   pour revoir les bases sur les ports.
 
