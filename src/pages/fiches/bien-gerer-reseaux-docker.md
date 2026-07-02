@@ -15,22 +15,22 @@ imgSrc: /images/cheatsheets/reseaux-docker.webp
 author: Thomas
 kind: Fiche technique
 level: Intermédiaire
-publishedDate: 24/07/2026
+publishedDate: 07/02/2026
 ---
 
 On continue notre série Docker. Après avoir
 [clarifié la différence entre Docker, Compose et Swarm](/fiches/difference-docker-compose-swarm/),
-on s'attaque à un sujet qu'on a tendance à survoler : **les réseaux Docker**.
+on s'attaque à un sujet qu'on a tendance à survoler, à savoir **les réseaux Docker**.
 
 Dans
 [le chapitre réseau du cours](/cours/docker-et-docker-compose/chapitres/gestion-reseau-infrastructure),
-on a vu comment exposer un port avec `ports` et `expose`. Mais sous ce mécanisme
-se cache toute une mécanique : à chaque fois que vous lancez un conteneur,
-Docker le branche sur un **réseau**. Et selon le réseau choisi, vos conteneurs
-vont pouvoir se parler… ou pas.
+on a vu comment exposer un port avec `ports` et `expose`. Mais derrière ce mécanisme
+se cache toute une mécanique. À chaque fois que vous lancez un conteneur,
+Docker le branche sur un **réseau**. Selon le réseau choisi, vos conteneurs
+vont pouvoir se parler ou pas.
 
 Dans cette fiche, on va voir quels sont les différents types de réseaux, comment
-les créer, et surtout comment faire communiquer proprement vos conteneurs entre
+les créer et surtout comment faire communiquer proprement vos conteneurs entre
 eux.
 
 ---
@@ -39,12 +39,12 @@ eux.
 
 Un conteneur, c'est un environnement isolé. Par défaut, il ne sait rien du monde
 extérieur ni des autres conteneurs. Le réseau, c'est précisément ce qui va lui
-permettre de communiquer : avec votre machine, avec Internet, et avec ses
+permettre de communiquer avec votre machine, avec Internet et avec ses
 voisins.
 
 <br>
 
-Docker gère tout ça automatiquement grâce à des **drivers réseau**. Un driver,
+Il faut savoir que Docker gère tout ça automatiquement grâce à des **drivers réseau**. Un driver,
 c'est simplement le « type » de réseau utilisé. Vous pouvez lister les réseaux
 existants sur votre machine avec :
 
@@ -72,19 +72,19 @@ On va les passer en revue.
 
 ## Les principaux drivers réseau
 
-### bridge : le réseau par défaut
+### bridge - le réseau par défaut
 
 C'est le driver utilisé automatiquement quand vous lancez un conteneur sans rien
-préciser. Docker crée un **réseau privé interne** sur votre machine, et chaque
+préciser. Docker crée un **réseau privé interne** sur votre machine et chaque
 conteneur y reçoit sa propre adresse IP. Pour communiquer avec l'extérieur, on
 passe par la redirection de ports (le fameux `-p 8080:80`).
 
-C'est le mode adapté à la grande majorité des cas : plusieurs conteneurs sur une
+C'est le mode adapté à la grande majorité des cas. Plusieurs conteneurs sur une
 même machine qui doivent dialoguer entre eux.
 
-### host : on partage le réseau de la machine
+### host - on partage le réseau de la machine
 
-Avec le driver `host`, le conteneur n'est plus isolé : il utilise directement la
+Avec le driver `host`, le conteneur n'est plus isolé. Il utilise directement la
 pile réseau de votre machine hôte. Plus besoin de rediriger les ports, le
 conteneur écoute directement sur ceux de l'hôte.
 
@@ -94,16 +94,16 @@ docker container run --network host nginx
 
 <br>
 
-C'est plus performant (pas de couche de traduction réseau), mais vous perdez
+C'est plus performant parce qu'il n'y a pas de couche de traduction réseau. Cela dit, vous perdez
 l'isolation et vous risquez les conflits de ports. À réserver à des cas précis.
 
-### none : pas de réseau du tout
+### none - pas de réseau du tout
 
 Comme son nom l'indique, le conteneur n'a aucune connectivité réseau. Utile pour
 des tâches totalement isolées, pour des raisons de sécurité ou pour des batchs
 qui n'ont besoin de rien.
 
-### overlay : pour communiquer entre plusieurs machines
+### overlay - pour communiquer entre plusieurs machines
 
 Le driver `overlay` permet à des conteneurs situés sur **des machines
 différentes** de communiquer comme s'ils étaient sur le même réseau local. C'est
@@ -113,9 +113,10 @@ Swarm.
 
 <br>
 
-> À noter : il existe aussi le driver `macvlan`, plus avancé, qui donne à un
+> Il existe aussi le driver `macvlan`, plus avancé, qui donne à un
 > conteneur une vraie adresse MAC sur votre réseau physique. C'est un cas
-> d'usage de niche, on ne s'y attarde pas ici.
+> d'usage de niche, on ne s'y attarde pas ici. J'y reviendrais peut-être dans
+> une prochaine fiche technique.
 
 ### Tableau récapitulatif
 
