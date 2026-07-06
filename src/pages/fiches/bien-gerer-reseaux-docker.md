@@ -14,6 +14,9 @@ imgSrc: /images/cheatsheets/reseaux-docker.webp
 
 author: Thomas
 kind: Fiche technique
+serie: docker
+tags:
+  - Réseau
 level: Intermédiaire
 publishedDate: 07/03/2026
 ---

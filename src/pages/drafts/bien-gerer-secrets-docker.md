@@ -13,6 +13,10 @@ imgSrc: /images/cheatsheets/secrets-docker.webp
 
 author: Thomas
 kind: Fiche technique
+serie: docker
+tags:
+  - Production
+  - Sécurité
 level: Intermédiaire
 publishedDate: 24/08/2026
 ---

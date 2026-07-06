@@ -14,6 +14,9 @@ imgSrc: /images/cheatsheets/registry-docker.webp
 author: Thomas
 kind: Fiche technique
 serie: docker
+tags:
+  - Image
+  - Registry
 level: Intermédiaire
 publishedDate: 06/06/2025
 ---
@@ -303,6 +306,10 @@ tout le workflow pour partager et déployer vos images Docker : <br>
 C’est une étape clé dès que vous commencez à travailler en équipe, à déployer
 sur un serveur ou à automatiser vos déploiements. Et comme pour Git, plus tôt
 vous prenez l’habitude de publier vos images, mieux c’est.
+
+Un dernier réflexe à prendre : avant de pousser vos images, pensez à
+[les optimiser](/fiches/optimisation-images-docker/). Une image plus légère,
+c’est un `push` et un `pull` plus rapides, en local comme en CI.
 
 La suite logique ? Brancher tout ça sur un pipeline CI/CD. Mais ça, on en
 reparlera 😉. D'ici là, je vous laisse entre

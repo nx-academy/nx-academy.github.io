@@ -14,6 +14,10 @@ imgSrc: /images/cheatsheets/docker-swarm.webp
 
 author: Thomas
 kind: Fiche technique
+serie: docker
+tags:
+  - Orchestration
+  - Production
 level: Avancé
 publishedDate: 24/09/2026
 ---

@@ -221,6 +221,13 @@ demander des précisions ou plus d’explications.
 
 <br>
 
+Ici, on reste sur l’essentiel : ouvrir et raccorder des ports. Docker gère en
+réalité tout un système de réseaux (bridge, host, overlay, DNS interne…) que
+vous pouvez approfondir dans la fiche
+[Comment bien gérer les réseaux Docker ?](/fiches/bien-gerer-reseaux-docker/).
+
+<br>
+
 Passons maintenant aux variables d'environnement.
 
 ---

@@ -26,10 +26,11 @@ développé. Oui, ça bosse pas mal en ce moment !
 
 **On commence cette série Docker par les volumes**. Pourquoi ? Parce que c’est
 souvent à ce moment-là que les choses se compliquent. Quand on a compris la
-différence entre une image et un conteneur, qu’on a lancé ses premiers services
-via un `docker-compose.yml`, on se heurte assez vite à cette question : _où sont
-passées les données ?_ ou _comment bien gérés mes données dans mon conteneur
-sans avoir à rebuild à chaque fois ?_
+différence entre une image et un conteneur, qu’on a
+[lancé ses premiers services via un `docker-compose.yml`](/cours/docker-et-docker-compose/chapitres/creation-premier-docker-compose),
+on se heurte assez vite à cette question : _où sont passées les données ?_ ou
+_comment bien gérés mes données dans mon conteneur sans avoir à rebuild à chaque
+fois ?_
 
 **Les volumes sont l’un des premiers gros morceaux** à assimiler. Ils ont deux
 usages très différents (on y revient juste après). Savoir les utiliser
@@ -173,7 +174,7 @@ Il y a souvent beaucoup d'incompréhensions sur comment bien les utiliser. Je
 vous invite
 [à faire ce quiz pour valider vos connaissances](/quiz/bien-utiliser-volumes-docker)
 et on se retrouve pour le mois prochain pour une fiche technique dédiée aux
-registries Docker !
+[registries Docker](/fiches/presentation-registry-docker/) !
 
 ## Ressources
 

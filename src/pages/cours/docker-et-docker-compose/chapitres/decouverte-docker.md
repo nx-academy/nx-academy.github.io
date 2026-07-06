@@ -290,7 +290,10 @@ que). Vous avez sûrement entendu parlé [de Kubernetes](https://kubernetes.io/)
 Docker a sa propre solution appelée
 [Docker Swarm](https://docs.docker.com/engine/swarm/). Amazon Web Services (AWS)
 a, entre autres, [Fargate](https://aws.amazon.com/fr/fargate/). Vous utiliserez
-les orchestrateurs pour vos environnements de production.
+les orchestrateurs pour vos environnements de production. Si vous voulez situer
+dès maintenant Docker, Compose et Swarm les uns par rapport aux autres, la fiche
+[Docker, Docker Compose et Docker Swarm : quelles différences ?](/fiches/difference-docker-compose-swarm/)
+fait le point.
 
 Ils vous permettront de créer ce qu’on appelle des clusters. Autrement dit, un
 ensemble de conteneurs.
@@ -316,8 +319,11 @@ Platform (GCP).
 
 Dans ce cours, on utilisera DockerHub mais sachez que les règles d’utilisation
 sont globalement les mêmes entre les registry Docker. Vous ne devriez pas être
-perdus. Bien, maintenant que vous en savez un peu plus sur Docker, il est temps
-de l’installer sur votre ordinateur !
+perdus. Pour approfondir ce concept et le workflow `push` / `pull`, on y revient
+en détail dans la fiche
+[Qu'est-ce qu'un registry Docker ?](/fiches/presentation-registry-docker/).
+Bien, maintenant que vous en savez un peu plus sur Docker, il est temps de
+l’installer sur votre ordinateur !
 
 <br>
 
