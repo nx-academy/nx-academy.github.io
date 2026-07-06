@@ -12,8 +12,8 @@ const courseChapters = Object.values(
 let cheatsheets = Object.values(
   import.meta.glob("../../fiches/*.md", { eager: true }),
 ) as Cheatsheet[];
-cheatsheets = cheatsheets.filter((cheatsheet) =>
-  cheatsheet.frontmatter.title.includes("Docker"),
+cheatsheets = cheatsheets.filter(
+  (cheatsheet) => cheatsheet.frontmatter.serie === "docker",
 );
 
 const objectives = [

@@ -15,14 +15,19 @@ imgSrc: /images/cheatsheets/docker-compose-swarm.webp
 author: Thomas
 kind: Fiche technique
 serie: docker
+tags:
+  - Compose
+  - Orchestration
 level: Débutant
 publishedDate: 06/27/2026
 ---
 
 On démarre aujourd'hui une nouvelle série de fiches techniques dédiées à Docker.
-Après les volumes, les registries ou encore le multi-stage build, j'ai eu envie
-de revenir à un sujet plus fondamental, mais qui revient _tout le temps_ dans
-les questions qu'on me pose.
+Après [les volumes](/fiches/bien-utiliser-volumes-docker/),
+[les registries](/fiches/presentation-registry-docker/) ou encore
+[le multi-stage build](/fiches/bien-faire-multi-stage-build/), j'ai eu envie de
+revenir à un sujet plus fondamental, mais qui revient _tout le temps_ dans les
+questions qu'on me pose.
 
 **Docker, Docker Compose, Docker Swarm : c'est quoi la différence ?**
 
@@ -291,8 +296,9 @@ une phrase : **Docker fait tourner un conteneur, Compose en orchestre plusieurs
 sur une machine, et Swarm les répartit sur tout un parc de serveurs**.
 
 Dans les prochaines fiches de cette série, on va justement creuser ce qui se
-cache derrière l'orchestration : la gestion des réseaux Docker, des secrets, et
-un focus complet sur Docker Swarm. Restez dans le coin 😉.
+cache derrière l'orchestration :
+[la gestion des réseaux Docker](/fiches/bien-gerer-reseaux-docker/), des
+secrets, et un focus complet sur Docker Swarm. Restez dans le coin 😉.
 
 D'ici là, je vous invite :
 

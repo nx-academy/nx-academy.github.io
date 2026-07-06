@@ -77,6 +77,13 @@ C’est le moment de privilégier des distributions telles
 [que des images alpines](https://www.docker.com/blog/how-to-use-the-alpine-docker-official-image/).
 Sachez qu’il existe deux approches pour optimiser ses images Docker.
 
+<br>
+
+En complément de ce chapitre, la fiche
+[Comment optimiser une image Docker ?](/fiches/optimisation-images-docker/)
+rassemble les bonnes pratiques (image de base légère, nettoyage après
+installation, réduction du nombre de layers, `.dockerignore`).
+
 ---
 
 <br>
@@ -306,6 +313,12 @@ On se retrouve tout de suite pour le screencast !
 Le code source correspond à la fin du screencast se trouve
 [sur la branche `partie-3/chapitre-3/section-3`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-3/chapitre-3/section-3).
 
+<br>
+
+Le multi-staging mérite à lui seul une fiche de référence : retrouvez-la dans
+[Comment faire un multi-stage build ?](/fiches/bien-faire-multi-stage-build/),
+avec les pièges à éviter et le nommage des stages.
+
 ---
 
 <br>
@@ -374,8 +387,10 @@ Sachez que je n'ai pas parlé :
 - de certaines des nouveautés Docker, notamment Docker Buildx.
 - de certaines optimisations supplémentaires que vous pouvez faire via le
   multistaging.
-- plus globalement de la partie mise en production via un registry Docker. C’est
-  l’un des prochains cours que je prépare 😊.
+- plus globalement de la partie mise en production via un
+  [registry Docker](/fiches/presentation-registry-docker/) (une fiche dédiée
+  détaille déjà le workflow `build → tag → push → pull → run`). C’est l’un des
+  prochains cours que je prépare 😊.
 
 <br>
 

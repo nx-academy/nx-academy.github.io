@@ -12,6 +12,9 @@ imgSrc: /images/cheatsheets/magasin-chinois.webp
 author: Thomas
 kind: Fiche technique
 serie: docker
+tags:
+  - Image
+  - Production
 level: Intermédiaire
 publishedDate: 07/04/2025
 ---
@@ -214,8 +217,9 @@ encore mieux.
 
 Docker propose plusieurs commandes pour analyser la taille de vos images. Il est
 recommandé de les utiliser régulièrement dans votre workflow, surtout avant de
-pousser une image sur un registry ou de l’intégrer dans un pipeline CI/CD. C'est
-vraiment le détail qui peut faire la différence.
+[pousser une image sur un registry](/fiches/presentation-registry-docker/) ou de
+l’intégrer dans un pipeline CI/CD. C'est vraiment le détail qui peut faire la
+différence.
 
 J'ai vu des infras où les images n'étaient jamais inspectées. C'était clairement
 pas l'idéal pour la CI. Je vous invite donc à utiliser :
@@ -278,6 +282,13 @@ Et tout ça sans changer votre code ! Je vous invite à essayer d'adopter ces
 réflexes à adopter dès maintenant et notamment si vous commencez à travailler
 avec des pipelines CI/CD. D'ailleurs, le prochain cours sera justement dédié à
 ce sujet : les CI/CD avec GitHub Actions.
+
+<br>
+
+Pour aller encore plus loin dans l'allègement de vos images, l'étape suivante
+est la technique du [multi-stage build](/fiches/bien-faire-multi-stage-build/) :
+elle sépare proprement ce qui sert à _construire_ l'image de ce qui sert à
+l'_exécuter_.
 
 Il est prévu pour septembre. Vous y apprendrez à automatiser des pipelines de
 test, de build et de déploiement.

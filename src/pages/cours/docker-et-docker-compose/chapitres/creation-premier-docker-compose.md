@@ -255,8 +255,10 @@ nous venons de voir.
   l’appelle l’hôte) et les conteneurs**. Les volumes fonctionnent toujours en
   deux parties : celle de gauche (avant le “:”) qui correspond au stockage de la
   machine hôte et celle de droite (après le “:”) qui correspond au stockage sur
-  le conteneur. Il existe pas mal de subtilités sur les volumes. Nous verrons ça
-  ensemble dans un prochain chapitre.
+  le conteneur. Il existe pas mal de subtilités sur les volumes. Pour creuser le
+  sujet, la fiche
+  [Comment (bien) utiliser les volumes Docker ?](/fiches/bien-utiliser-volumes-docker/)
+  détaille les bind mounts et les volumes nommés.
 - **`restart`** qui dicte la politique de redémarrage des conteneurs. Si vous ne
   le précisez pas, les conteneurs ne redémarrent pas par défaut.
 - **`environment`** qui sont nos fameuses variables d’environnement. Notez

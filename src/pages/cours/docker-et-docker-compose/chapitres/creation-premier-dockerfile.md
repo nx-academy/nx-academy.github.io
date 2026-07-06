@@ -314,6 +314,15 @@ buster-slim_ pour commencer. Cela va vous permettre de construire votre image et
 de rendre fonctionnel votre projet. Je m’occupe généralement de l’optimisation
 dans un deuxième.
 
+<br>
+
+Si le sujet vous intéresse dès maintenant, deux fiches techniques
+approfondissent l’allègement des images :
+[Comment optimiser une image Docker ?](/fiches/optimisation-images-docker/) pour
+les bonnes pratiques de base, et
+[Comment faire un multi-stage build ?](/fiches/bien-faire-multi-stage-build/)
+pour aller plus loin.
+
 ---
 
 Maintenant, parlons de la deuxième bonne pratiques : les tags !
