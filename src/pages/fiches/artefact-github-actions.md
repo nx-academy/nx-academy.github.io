@@ -14,7 +14,7 @@ author: Thomas
 kind: Fiche technique
 serie: cicd
 level: Débutant
-publishedDate: 07/07/2026
+publishedDate: 07/06/2026
 ---
 
 Ça y est,
@@ -37,6 +37,8 @@ capture d'écran.
 
 Bref, à chaque fois qu'on veut mettre de côté un fichier produit pendant un
 workflow, l'artefact devient notre meilleur pote.
+
+---
 
 ## Qu'est-ce qu'un artefact GitHub Actions ?
 
@@ -101,6 +103,8 @@ en Astro, sur GitHub Pages. Voici le code contenant mon upload :
 
 Plutôt pas mal, non ?
 
+---
+
 ## Bonnes pratiques et pièges à éviter
 
 De manière générale, les artefacts sont des outils bien pratiques. Cela dit, il
@@ -135,10 +139,10 @@ name: build-${{ github.sha }}
 Cette ligne vous permet d'identifier clairement à quel commit correspond chaque
 artefact. Très utile quand on veut s'y retrouver dans l'historique.
 
----
-
 Globalement, si vous suivez ces quelques règles, tout devrait bien se passer.
 Allez, on passe maintenant à quelques exemples.
+
+---
 
 ## Exemple concret - Build d'un projet front
 
@@ -182,6 +186,8 @@ jobs:
           name: frontend-build
           path: build/
 ```
+
+---
 
 ## Exemple concret - Génération d'un rapport de test
 
@@ -227,6 +233,8 @@ jobs:
 
 Une fois le job terminé, le rapport sera disponible dans l'interface GitHub
 _sous l'onglet Summary_ du workflow dans la section _Artifacts_.
+
+---
 
 ## Bonus - Limiter la durée de rétention d'un artefact
 
