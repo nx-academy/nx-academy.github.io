@@ -23,8 +23,8 @@ est officiellement disponible sur NX ! À cette occasion, on va revenir sur un
 concept essentiel : les artefacts (ou _artifacts_ en anglais).
 
 Dans la
-[fiche précédente, on a vu comment déclencher un workflow](/fiches/declencher-workflow-github-actions) ;
-aujourd'hui, on s'attaque à ce qu'un workflow produit et qu'on veut conserver.
+[fiche précédente, on a vu comment déclencher un workflow](/fiches/declencher-workflow-github-actions)
+; aujourd'hui, on s'attaque à ce qu'un workflow produit et qu'on veut conserver.
 
 Si vous avez suivi le cours jusqu'au bout, vous vous en êtes peut-être servi
 sans le savoir. Je pense au moment où on déploie une application ReactJS. Vous
@@ -279,7 +279,8 @@ vous souhaitez partager, réutiliser ou archiver. Grâce à eux, vous pouvez :
 
 Comme toujours, je vous invite maintenant à :
 
-- revenir sur [la fiche des déclencheurs de workflow](/fiches/declencher-workflow-github-actions)
+- revenir sur
+  [la fiche des déclencheurs de workflow](/fiches/declencher-workflow-github-actions)
   si vous l'avez manquée ;
 - (re)découvrir [le cours CI/CD](/cours/ci-cd-github-actions/) si besoin.
 
@@ -293,4 +294,4 @@ Codez bien !
 - [GitHub Actions Deep Dive - aCloudGuru](https://www.pluralsight.com/courses/github-actions-deep-dive)
 - [Share artifacts between workflows / Github Actions - stackOverflow](https://stackoverflow.com/questions/60355925/share-artifacts-between-workflows-github-actions)
 - [How to Download GitHub Actions Artifacts - geeksForGeeks](https://www.geeksforgeeks.org/devops/download-github-actions-artifacts/)
-</content>
+  </content>

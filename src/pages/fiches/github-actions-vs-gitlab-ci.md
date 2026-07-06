@@ -4,8 +4,8 @@ layout: ../../layouts/CheatSheetsLayout.astro
 title: "GitHub Actions vs GitLab CI : quelles différences ?"
 description:
   "GitHub Actions ou GitLab CI ? On compare les deux outils de CI/CD : syntaxe
-  des workflows, runners, tarification et écosystème. Et surtout, on voit
-  lequel choisir selon votre contexte, exemples à l'appui."
+  des workflows, runners, tarification et écosystème. Et surtout, on voit lequel
+  choisir selon votre contexte, exemples à l'appui."
 
 imgAlt:
   Deux chaînes de montage automatisées côte à côte, l'une aux couleurs de
@@ -126,15 +126,15 @@ approches.
 
 <br>
 
-**GitHub Actions** fournit des runners hébergés prêts à l'emploi (`ubuntu-latest`,
-`windows-latest`, `macos-latest`). Vous ne gérez rien, vous choisissez juste
-l'OS via `runs-on`. Vous pouvez aussi brancher vos propres _self-hosted
-runners_ si besoin.
+**GitHub Actions** fournit des runners hébergés prêts à l'emploi
+(`ubuntu-latest`, `windows-latest`, `macos-latest`). Vous ne gérez rien, vous
+choisissez juste l'OS via `runs-on`. Vous pouvez aussi brancher vos propres
+_self-hosted runners_ si besoin.
 
 **GitLab CI** fonctionne avec des _GitLab Runners_. Sur GitLab.com, des runners
-partagés sont disponibles, mais la culture GitLab pousse davantage à
-**héberger ses propres runners** — ce qui est un vrai atout quand on veut tout
-maîtriser en interne (entreprise, données sensibles, matériel spécifique).
+partagés sont disponibles, mais la culture GitLab pousse davantage à **héberger
+ses propres runners** — ce qui est un vrai atout quand on veut tout maîtriser en
+interne (entreprise, données sensibles, matériel spécifique).
 
 <br>
 
@@ -154,21 +154,21 @@ sur npm, envoyer un message Slack…). Vous assemblez, vous ne réinventez pas.
 
 **GitLab CI** mise sur l'intégration : comme tout est dans la même plateforme
 (registry d'images, environnements, _review apps_, sécurité…), beaucoup de
-choses fonctionnent « d'office » sans dépendre d'une brique externe. On mutualise
-plutôt via le mot-clé `include:` et des templates de pipeline.
+choses fonctionnent « d'office » sans dépendre d'une brique externe. On
+mutualise plutôt via le mot-clé `include:` et des templates de pipeline.
 
 ## Tableau récapitulatif
 
 Pour y voir clair en un coup d'œil :
 
-|                         | GitHub Actions                     | GitLab CI                          |
-| ----------------------- | ---------------------------------- | ---------------------------------- |
-| **Fichier de config**   | `.github/workflows/*.yml`          | `.gitlab-ci.yml` (racine)          |
-| **Modèle**              | Événementiel (`on:`) + jobs/steps  | Pipeline en _stages_ + jobs        |
-| **Briques réutilisables** | Marketplace d'actions (`uses:`)  | Templates + `include:`             |
-| **Runners**             | Hébergés par défaut, self-hosted OK | Souvent auto-gérés                 |
-| **Intégration**         | Greffé sur GitHub                  | Plateforme DevOps tout-en-un       |
-| **Point fort**          | Écosystème d'actions énorme        | Tout intégré, self-hosting confort |
+|                           | GitHub Actions                      | GitLab CI                          |
+| ------------------------- | ----------------------------------- | ---------------------------------- |
+| **Fichier de config**     | `.github/workflows/*.yml`           | `.gitlab-ci.yml` (racine)          |
+| **Modèle**                | Événementiel (`on:`) + jobs/steps   | Pipeline en _stages_ + jobs        |
+| **Briques réutilisables** | Marketplace d'actions (`uses:`)     | Templates + `include:`             |
+| **Runners**               | Hébergés par défaut, self-hosted OK | Souvent auto-gérés                 |
+| **Intégration**           | Greffé sur GitHub                   | Plateforme DevOps tout-en-un       |
+| **Point fort**            | Écosystème d'actions énorme         | Tout intégré, self-hosting confort |
 
 ---
 
@@ -244,5 +244,4 @@ D'ici là, je vous invite :
 - [La documentation officielle de GitHub Actions](https://docs.github.com/en/actions)
 - [La documentation officielle de GitLab CI/CD](https://docs.gitlab.com/ee/ci/)
 - [Migrating from GitLab CI/CD to GitHub Actions](https://docs.github.com/en/actions/migrating-to-github-actions/migrating-from-gitlab-cicd-to-github-actions)
-- [GitLab CI/CD examples](https://docs.gitlab.com/ee/ci/examples/)
-</content>
+- [GitLab CI/CD examples](https://docs.gitlab.com/ee/ci/examples/) </content>

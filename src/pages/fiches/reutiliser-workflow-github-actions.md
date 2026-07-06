@@ -26,8 +26,8 @@ vous avais glissé qu'il existait `workflow_call` pour mutualiser un bloc de
 tâches, et qu'on y reviendrait ? Eh bien nous y voilà.
 
 Au bout de quelques projets, on finit toujours par recopier les mêmes étapes :
-checkout, install, tests, lint… d'un repo à l'autre, d'un workflow à l'autre.
-Et le jour où il faut changer un détail, il faut le changer **partout**. Pas
+checkout, install, tests, lint… d'un repo à l'autre, d'un workflow à l'autre. Et
+le jour où il faut changer un détail, il faut le changer **partout**. Pas
 terrible.
 
 Dans cette fiche (un cran plus avancée que les précédentes), on va voir comment
@@ -146,13 +146,13 @@ préciser son `shell`** (`shell: bash` par exemple). C'est vite oublié.
 
 La question qui revient toujours. Voici comment je tranche :
 
-|                          | Reusable workflow          | Composite action            |
-| ------------------------ | -------------------------- | --------------------------- |
-| **Ce qu'on mutualise**   | Un ou plusieurs jobs       | Quelques steps              |
-| **Appelé au niveau**     | du _job_ (`uses:` sur job) | du _step_ (`uses:` sur step) |
-| **Gère les secrets**     | ✅ (via `secrets`)         | Indirectement               |
-| **Peut définir ses jobs / runners** | ✅              | ❌ (hérite du job appelant) |
-| **Cas typique**          | Pipeline de tests/déploiement partagé | Suite de steps répétés |
+|                                     | Reusable workflow                     | Composite action             |
+| ----------------------------------- | ------------------------------------- | ---------------------------- |
+| **Ce qu'on mutualise**              | Un ou plusieurs jobs                  | Quelques steps               |
+| **Appelé au niveau**                | du _job_ (`uses:` sur job)            | du _step_ (`uses:` sur step) |
+| **Gère les secrets**                | ✅ (via `secrets`)                    | Indirectement                |
+| **Peut définir ses jobs / runners** | ✅                                    | ❌ (hérite du job appelant)  |
+| **Cas typique**                     | Pipeline de tests/déploiement partagé | Suite de steps répétés       |
 
 <br>
 
@@ -174,17 +174,17 @@ jobs:
 
 <br>
 
-Concrètement, une équipe peut maintenir **un catalogue de pipelines standardisés**
-(tests, sécurité, déploiement) et tous les projets en héritent. Vous corrigez un
-workflow à un seul endroit, et tout le monde en profite. C'est comme ça qu'on
-passe de « quelques scripts CI » à une vraie plateforme interne.
+Concrètement, une équipe peut maintenir **un catalogue de pipelines
+standardisés** (tests, sécurité, déploiement) et tous les projets en héritent.
+Vous corrigez un workflow à un seul endroit, et tout le monde en profite. C'est
+comme ça qu'on passe de « quelques scripts CI » à une vraie plateforme interne.
 
 <hr>
 
 Et voilà, vous savez maintenant factoriser vos workflows au lieu de les
 copier-coller ! Pour résumer : **`workflow_call` pour réutiliser des pipelines
-entiers, les composite actions pour réutiliser des paquets de steps — et un dépôt
-central pour partager le tout entre projets.**
+entiers, les composite actions pour réutiliser des paquets de steps — et un
+dépôt central pour partager le tout entre projets.**
 
 Cette fiche clôt (pour l'instant) notre série sur les CI/CD avec GitHub Actions.
 D'ici la prochaine, je vous invite :
@@ -200,4 +200,4 @@ D'ici la prochaine, je vous invite :
 - [Reusing workflows](https://docs.github.com/en/actions/using-workflows/reusing-workflows)
 - [Creating a composite action](https://docs.github.com/en/actions/creating-actions/creating-a-composite-action)
 - [Events that trigger workflows - workflow_call](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_call)
-</content>
+  </content>

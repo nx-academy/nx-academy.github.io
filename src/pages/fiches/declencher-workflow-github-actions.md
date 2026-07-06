@@ -351,9 +351,12 @@ En attendant :
 
 - [faites le quiz](/quiz/declencher-workflow-github-actions) pour valider vos
   acquis ;
-- poursuivez la série avec [les artefacts GitHub Actions](/fiches/artefact-github-actions)
-  et le comparatif [GitHub Actions vs GitLab CI](/fiches/github-actions-vs-gitlab-ci) ;
-- (re)découvrez [le cours sur les pipelines CI/CD](/cours/ci-cd-github-actions/).
+- poursuivez la série avec
+  [les artefacts GitHub Actions](/fiches/artefact-github-actions) et le
+  comparatif [GitHub Actions vs GitLab CI](/fiches/github-actions-vs-gitlab-ci)
+  ;
+- (re)découvrez
+  [le cours sur les pipelines CI/CD](/cours/ci-cd-github-actions/).
 
 ## Ressources
 

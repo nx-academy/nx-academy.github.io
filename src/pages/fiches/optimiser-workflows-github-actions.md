@@ -19,18 +19,19 @@ level: Intermédiaire
 publishedDate: 07/07/2026
 ---
 
-Au début, on est juste content que notre workflow tourne. Puis vient le moment où
-on attend 6 minutes à chaque push pour un simple `npm test`… et là, on commence à
-trouver le temps long.
+Au début, on est juste content que notre workflow tourne. Puis vient le moment
+où on attend 6 minutes à chaque push pour un simple `npm test`… et là, on
+commence à trouver le temps long.
 
 Un workflow lent, ce n'est pas qu'un confort en moins : c'est un **feedback plus
 lent** (vous attendez avant de savoir si votre code passe) et **plus de minutes
 consommées** sur votre quota GitHub Actions.
 
 Dans cette fiche, on va voir les leviers les plus efficaces pour **accélérer vos
-workflows GitHub Actions** sans rien sacrifier. C'est un peu l'équivalent CI/CD de
-la fiche [Comment optimiser une image Docker ?](/fiches/optimisation-images-docker) :
-on cherche à faire pareil, mais en moins de temps.
+workflows GitHub Actions** sans rien sacrifier. C'est un peu l'équivalent CI/CD
+de la fiche
+[Comment optimiser une image Docker ?](/fiches/optimisation-images-docker) : on
+cherche à faire pareil, mais en moins de temps.
 
 ## Levier n°1 - Mettre en cache les dépendances
 
@@ -119,8 +120,8 @@ concurrency:
 
 <br>
 
-Traduction : « pour un même workflow sur une même branche, garde seulement le run
-le plus récent et annule les autres ». Vous économisez des minutes sans rien
+Traduction : « pour un même workflow sur une même branche, garde seulement le
+run le plus récent et annule les autres ». Vous économisez des minutes sans rien
 perdre d'utile.
 
 ## Levier n°4 - Ne lancer que ce qui est nécessaire
@@ -201,22 +202,21 @@ reconstruire toutes les couches à chaque fois :
 
 <br>
 
-Combiné à un bon
-[multi-stage build](/fiches/bien-faire-multi-stage-build), c'est le combo gagnant
-pour des builds d'images vraiment rapides en CI.
+Combiné à un bon [multi-stage build](/fiches/bien-faire-multi-stage-build),
+c'est le combo gagnant pour des builds d'images vraiment rapides en CI.
 
 <hr>
 
 Et voilà, vos workflows devraient déjà tourner nettement plus vite ! Pour
-résumer les réflexes : **on met les dépendances en cache, on parallélise avec une
-matrice, on annule les runs obsolètes, on ne lance que le nécessaire, et on pose
-des garde-fous.**
+résumer les réflexes : **on met les dépendances en cache, on parallélise avec
+une matrice, on annule les runs obsolètes, on ne lance que le nécessaire, et on
+pose des garde-fous.**
 
 D'ici là, je vous invite :
 
 - à découvrir comment
-  [réutiliser un workflow](/fiches/reutiliser-workflow-github-actions) pour aller
-  encore plus loin dans l'industrialisation ;
+  [réutiliser un workflow](/fiches/reutiliser-workflow-github-actions) pour
+  aller encore plus loin dans l'industrialisation ;
 - à (re)commencer
   [le cours sur les pipelines CI/CD](/cours/ci-cd-github-actions/) si besoin.
 
@@ -226,4 +226,4 @@ D'ici là, je vous invite :
 - [Using a matrix for your jobs](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs)
 - [Control the concurrency of workflows and jobs](https://docs.github.com/en/actions/using-jobs/using-concurrency)
 - [Usage limits, billing, and administration](https://docs.github.com/en/actions/learn-github-actions/usage-limits-billing-and-administration)
-</content>
+  </content>

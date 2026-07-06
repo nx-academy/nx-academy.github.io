@@ -27,11 +27,11 @@ Actions** de l'autre.
 Jusqu'ici, vous avez appris à
 [construire une image Docker](/cours/docker-et-docker-compose/) et à
 [déclencher un workflow GitHub Actions](/fiches/declencher-workflow-github-actions).
-Aujourd'hui, on assemble les deux : **comment faire pour qu'à chaque push, GitHub
-Actions construise votre image Docker et la déploie automatiquement ?**
+Aujourd'hui, on assemble les deux : **comment faire pour qu'à chaque push,
+GitHub Actions construise votre image Docker et la déploie automatiquement ?**
 
-C'est exactement ce qui transforme un projet « qui marche sur ma machine » en une
-vraie application livrée en continu. On y va.
+C'est exactement ce qui transforme un projet « qui marche sur ma machine » en
+une vraie application livrée en continu. On y va.
 
 ## La grande idée : build → push → deploy
 
@@ -45,9 +45,9 @@ workflow, ça se résume presque toujours à trois étapes :
 <br>
 
 Si la notion de registry est floue, je vous renvoie à la fiche
-[Qu'est-ce qu'un registry Docker ?](/fiches/presentation-registry-docker) : c'est
-le maillon central de toute cette chaîne. Le registry, c'est l'entrepôt d'où
-partent et où arrivent vos images.
+[Qu'est-ce qu'un registry Docker ?](/fiches/presentation-registry-docker) :
+c'est le maillon central de toute cette chaîne. Le registry, c'est l'entrepôt
+d'où partent et où arrivent vos images.
 
 <br>
 
@@ -73,9 +73,9 @@ Voici la connexion à **Docker Hub** :
 
 <br>
 
-Vous remarquez le `${{ secrets.DOCKERHUB_TOKEN }}` ? **On ne met JAMAIS un mot de
-passe en clair dans un workflow.** On passe par les secrets GitHub. Si vous ne
-savez pas encore comment ça marche, gardez cette fiche sous le coude :
+Vous remarquez le `${{ secrets.DOCKERHUB_TOKEN }}` ? **On ne met JAMAIS un mot
+de passe en clair dans un workflow.** On passe par les secrets GitHub. Si vous
+ne savez pas encore comment ça marche, gardez cette fiche sous le coude :
 [Comment gérer les secrets dans GitHub Actions ?](/fiches/gerer-secrets-github-actions).
 On s'en sert dès maintenant.
 
@@ -152,7 +152,8 @@ retrouve sur Docker Hub. Il ne reste plus qu'à la déployer.
 ## Étape 3 - Déployer l'image sur votre serveur
 
 Le push, c'est bien, mais votre serveur ne va pas deviner qu'une nouvelle image
-est disponible. Il faut lui dire d'aller la chercher et de relancer le conteneur.
+est disponible. Il faut lui dire d'aller la chercher et de relancer le
+conteneur.
 
 <br>
 
@@ -250,7 +251,8 @@ C'est vraiment le moment où Docker et la CI/CD se rejoignent. D'ici là, je vou
 invite :
 
 - à sécuriser tout ça avec la fiche
-  [Comment gérer les secrets dans GitHub Actions ?](/fiches/gerer-secrets-github-actions) ;
+  [Comment gérer les secrets dans GitHub Actions ?](/fiches/gerer-secrets-github-actions)
+  ;
 - à (re)découvrir
   [le cours sur les pipelines CI/CD](/cours/ci-cd-github-actions/) et
   [le cours sur Docker](/cours/docker-et-docker-compose/).
@@ -261,4 +263,4 @@ invite :
 - [docker/login-action](https://github.com/docker/login-action)
 - [Publishing Docker images (GitHub Docs)](https://docs.github.com/en/actions/tutorials/publishing-packages/publishing-docker-images)
 - [Working with the Container registry (GHCR)](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
-</content>
+  </content>

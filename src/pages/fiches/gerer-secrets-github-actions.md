@@ -19,8 +19,8 @@ publishedDate: 07/07/2026
 ---
 
 Dès qu'un workflow fait quelque chose d'un peu sérieux (déployer une image,
-publier un package, envoyer un message sur Slack…), il a besoin d'un secret :
-un token, un mot de passe, une clé SSH.
+publier un package, envoyer un message sur Slack…), il a besoin d'un secret : un
+token, un mot de passe, une clé SSH.
 
 Et là, la pire chose à faire, c'est de l'écrire en clair dans votre fichier
 `.yml`. Non seulement il serait visible par toute personne ayant accès au dépôt,
@@ -50,8 +50,8 @@ GitHub propose plusieurs niveaux de secrets :
 
 <br>
 
-Dans tous les cas, une fois enregistré, **un secret ne peut plus être relu** dans
-l'interface. Vous pouvez le remplacer, pas le consulter. C'est voulu.
+Dans tous les cas, une fois enregistré, **un secret ne peut plus être relu**
+dans l'interface. Vous pouvez le remplacer, pas le consulter. C'est voulu.
 
 ## Comment créer et utiliser un secret
 
@@ -145,8 +145,9 @@ rien à fuiter.
 
 <br>
 
-C'est un sujet à part entière, mais gardez le nom en tête : dès que vous déployez
-sérieusement sur un cloud, **OIDC est la bonne pratique** vers laquelle tendre.
+C'est un sujet à part entière, mais gardez le nom en tête : dès que vous
+déployez sérieusement sur un cloud, **OIDC est la bonne pratique** vers laquelle
+tendre.
 
 ## Les pièges à éviter
 
@@ -161,9 +162,9 @@ Quelques classiques dans lesquels tout le monde tombe une fois :
   pour voler vos secrets. Prévoyez vos workflows en conséquence.
 - **Ne réutilisez pas un secret personnel** comme token de service. Créez des
   tokens dédiés, avec le minimum de permissions nécessaires.
-- **Un secret n'est pas une variable de config.** Pour les valeurs non
-  sensibles (un nom de région, un flag…), utilisez plutôt les _variables_ (à
-  côté des secrets dans l'interface), qui, elles, restent lisibles.
+- **Un secret n'est pas une variable de config.** Pour les valeurs non sensibles
+  (un nom de région, un flag…), utilisez plutôt les _variables_ (à côté des
+  secrets dans l'interface), qui, elles, restent lisibles.
 
 <hr>
 
@@ -174,7 +175,8 @@ on protège les déploiements critiques avec des environnements.**
 D'ici là, je vous invite :
 
 - à mettre tout ça en pratique avec la fiche
-  [Comment déployer une image Docker depuis GitHub Actions ?](/fiches/deployer-image-docker-github-actions) ;
+  [Comment déployer une image Docker depuis GitHub Actions ?](/fiches/deployer-image-docker-github-actions)
+  ;
 - à (re)découvrir
   [le cours sur les pipelines CI/CD avec les GitHub Actions](/cours/ci-cd-github-actions/).
 
@@ -184,4 +186,4 @@ D'ici là, je vous invite :
 - [Managing environments for deployment](https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-deployments/managing-environments-for-deployment)
 - [About security hardening with OpenID Connect](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)
 - [Security hardening for GitHub Actions](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions)
-</content>
+  </content>
