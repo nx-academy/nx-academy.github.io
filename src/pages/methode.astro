@@ -1,0 +1,498 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Comment je fais apprendre";
+const description =
+  "Ma méthode d'enseignement, en un essai : choisir ce qui compte, ordonner par le moment où on en a besoin, et savoir renoncer à son plan quand la salle le demande. Avec des exemples réels — Docker, les design patterns, le silence en salle.";
+
+const ORG_ID = "https://nx.academy/#organization";
+const PERSON_ID = "https://nx.academy/#thomas-dimnet";
+
+const schemas = [
+  {
+    "@type": "AboutPage",
+    name: "Comment je fais apprendre — NX Academy",
+    description,
+    url: "https://nx.academy/methode",
+    inLanguage: "fr-FR",
+    isPartOf: { "@id": ORG_ID },
+    about: { "@id": ORG_ID },
+    mainEntity: { "@id": PERSON_ID },
+  },
+  {
+    "@type": "Person",
+    "@id": PERSON_ID,
+    name: "Thomas Dimnet",
+    jobTitle: "Créateur, développeur et professeur d'informatique",
+    description:
+      "Créateur, développeur et professeur, à l'origine de NX Academy. Conçoit et anime des formations pour les équipes de dev.",
+    url: "https://nx.academy/methode",
+    worksFor: { "@id": ORG_ID },
+    sameAs: [
+      "https://www.linkedin.com/in/thomas-dimnet-4114a4147/",
+      "https://github.com/nx-academy",
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  pageType="website"
+  author="Thomas Dimnet"
+  schemas={schemas}
+>
+  <main class="methode">
+    <p class="eyebrow" data-reveal>Comment je fais apprendre</p>
+
+    <div class="essay">
+      <!-- 1 · Ouverture -->
+      <section class="mvt open" data-reveal>
+        <p class="lede">
+          La plupart des formations ratées que j'ai vues souffraient du même
+          mal&nbsp;: trop de contenu.
+        </p>
+        <div class="lede-rule" aria-hidden="true"></div>
+        <p>
+          Pas parce que le formateur en savait trop. Parce qu'il n'avait jamais
+          pris assez de recul sur son propre métier pour voir ce qui compte
+          vraiment — et couper le reste. L'ironie, c'est qu'on attend
+          précisément ça d'un formateur.
+        </p>
+        <p>Voici comment je m'y prends. Avec des exemples réels, pas des principes.</p>
+      </section>
+
+      <div class="byline" data-reveal>
+        <img
+          src="/images/articles/bucheron-ordinateur.webp"
+          width="32"
+          height="32"
+          loading="lazy"
+          alt="Portrait pixel art de Thomas Dimnet devant son ordinateur"
+        />
+        <span
+          ><b>Thomas</b> — créateur de NX Academy
+          <span class="d">·</span> je conçois et anime des formations pour les équipes
+          de dev</span
+        >
+      </div>
+
+      <div class="sep" data-reveal aria-hidden="true"><b></b></div>
+
+      <!-- 2 · Docker -->
+      <section class="mvt" data-reveal>
+        <p>Prenons Docker, un cours que je connais bien.</p>
+        <p>
+          La version exhaustive existe, et elle est tentante. Dès la première
+          heure&nbsp;: les images, les volumes, les networks, les registries, le
+          multi-stage build, Compose. Tout est vrai. Tout est utile. Un jour.
+        </p>
+        <p>Le problème est dans ce mot&nbsp;: <em>un jour</em>.</p>
+        <p>
+          Quand on découvre Docker, on n'a pas besoin des networks. On a besoin
+          de comprendre ce qu'est un conteneur, d'en lancer un, de voir ce qui
+          change par rapport à ce qu'on connaît déjà. Les networks viendront —
+          dans trois semaines, le jour où on aura un vrai problème qu'ils
+          résolvent. Les donner tout de suite, ce n'est pas être généreux. C'est
+          noyer.
+        </p>
+        <p>
+          Alors je coupe. Et je ne dis pas «&nbsp;aujourd'hui, on ne fait pas les
+          networks&nbsp;» comme une excuse. Je le dis comme une décision.
+        </p>
+        <p>
+          Choisir, c'est ça, concrètement&nbsp;: trier ce qui compte maintenant
+          de ce qui peut attendre, ordonner par le moment où on en a besoin —
+          pas par le sommaire d'un livre — et assumer ce qu'on laisse dehors.
+        </p>
+        <p>
+          C'est la partie que personne n'aime. Laisser dehors, ça donne
+          l'impression d'un cours incomplet. Mais un cours n'est pas un
+          inventaire. Ce que je retire est aussi réfléchi que ce que je garde.
+          Parfois plus.
+        </p>
+      </section>
+
+      <div class="sep" data-reveal aria-hidden="true"><b></b></div>
+
+      <!-- 3 · Design patterns -->
+      <section class="mvt" data-reveal>
+        <p>Prenons un cours qui, sur le papier, contredit tout ce que je viens de dire.</p>
+        <p>
+          J'ai écrit pour OpenClassrooms un cours sur les design patterns en
+          JavaScript. Neuf patterns. Un inventaire, en apparence&nbsp;:
+          Constructor, Factory, Singleton, Adapter, Decorator, Proxy, Observer…
+          la liste complète. Difficile de faire plus exhaustif. Où est le refus,
+          là-dedans&nbsp;?
+        </p>
+        <p>
+          Il n'est pas dans ce que je coupe — je ne peux rien couper, un cours
+          sur les patterns doit couvrir les patterns. Il est ailleurs&nbsp;:
+          dans l'ordre, et dans le rythme.
+        </p>
+        <p>
+          On ne commence pas par un pattern. On commence par l'orienté objet,
+          l'héritage, le prototypage — ce qui rend les patterns lisibles. Sans
+          ça, un pattern n'est qu'une recette qu'on applique sans comprendre.
+          Ensuite seulement, ils arrivent. Un par un. Jamais le catalogue
+          déversé dès la première heure.
+        </p>
+        <p>
+          Et chaque pattern suit exactement la même unité. Un problème concret
+          d'abord — pas la définition. Sur l'Adapter, par exemple&nbsp;: une API
+          de filtrage à migrer vers une version plus rapide qui ne s'utilise pas
+          de la même façon. Le pattern vient répondre à ce problème, pas
+          l'inverse. Puis on le code. Vraiment, soi-même, avant de voir la
+          solution.
+        </p>
+        <p>
+          C'est ça, choisir, même quand on ne peut rien retirer&nbsp;: décider
+          de l'ordre où les notions arrivent, et refuser de tout donner en même
+          temps. L'inventaire est réel. Ce que je refuse, c'est de le servir en
+          vrac.
+        </p>
+        <aside class="marge">
+          <p>
+            <span class="arw">→</span>
+            <a
+              href="https://openclassrooms.com/fr/courses/7133336-utilisez-des-design-patterns-en-javascript"
+              target="_blank"
+              rel="noopener">Utilisez des design patterns en JavaScript</a
+            ><br />
+            <span class="arw">→</span>
+            <a
+              href="https://openclassrooms.com/fr/courses/7133336-utilisez-des-design-patterns-en-javascript/7478454-gerez-des-interfaces-incompatibles-avec-l-adapter-pattern"
+              target="_blank"
+              rel="noopener">le chapitre sur l'Adapter Pattern</a
+            >
+          </p>
+        </aside>
+      </section>
+
+      <div class="sep" data-reveal aria-hidden="true"><b></b></div>
+
+      <!-- 4 · Le silence -->
+      <section class="mvt" data-reveal>
+        <p>
+          Jusqu'ici, j'ai parlé de choisir le contenu et d'en ordonner
+          l'arrivée. C'est la partie qu'on peut préparer. Sur le papier, au
+          calme, avant la séance.
+        </p>
+        <p>Mais il y a une partie de l'enseignement qu'aucun plan n'atteint.</p>
+        <p>
+          La salle se tait. Tu viens d'expliquer quelque chose, ou tu viens de
+          poser une question, et il y a ce silence. Le problème, c'est que tu ne
+          sais pas ce qu'il veut dire. Est-ce qu'ils réfléchissent&nbsp;?
+          Est-ce qu'ils sont perdus&nbsp;? Le même silence, deux sens opposés —
+          et deux réactions opposées à avoir dans la seconde qui suit. Relancer,
+          ou laisser le temps. Reformuler, ou se taire.
+        </p>
+        <p>
+          Ce que tu fais à cet instant ne vient ni du contenu, ni du plan. Ça
+          vient d'ailleurs. De la façon dont tu te tiens quand ce que tu avais
+          prévu ne t'aide plus.
+        </p>
+        <p>
+          C'est la partie dont presque personne ne parle en formation. On sait
+          transmettre un contenu&nbsp;; on peut même, avec de l'effort,
+          transmettre une méthode. Mais ça — cette manière de lire une salle, de
+          sentir la confusion avant qu'elle ne devienne du décrochage — je ne
+          sais pas la mettre sur une slide. Et c'est pourtant ce qui sépare une
+          formation qui tient d'une formation qui récite.
+        </p>
+        <p>C'est la chose que je travaille le plus. Et la plus difficile à transmettre.</p>
+      </section>
+
+      <div class="sep" data-reveal aria-hidden="true"><b></b></div>
+
+      <!-- 5 · Clôture -->
+      <section class="mvt" data-reveal>
+        <p>
+          Voilà comment je fais apprendre. Ça tient à peu de chose, au fond&nbsp;:
+          décider de ce qui compte, ordonner par le moment où on en a besoin, et
+          savoir renoncer à son propre plan quand la salle le demande.
+        </p>
+        <p>
+          Rien de tout ça n'est spectaculaire. C'est même souvent invisible — un
+          bon cours donne l'impression que l'évidence coulait de source, alors
+          que le travail était justement de choisir cette évidence-là parmi cent
+          possibles.
+        </p>
+        <p>
+          Une formation ne se juge pas à ce qu'elle contient. Elle se juge à ce
+          qu'elle a choisi de laisser dehors, pour que le reste tienne.
+        </p>
+      </section>
+    </div>
+
+    <nav class="exits" data-reveal>
+      <a href="/manifeste"><span class="arw">→</span> Qui je suis</a>
+      <a href="/articles"><span class="arw">→</span> Ce que j'écris</a>
+      <a href="mailto:thomas.dimnet@gmail.com"><span class="arw">→</span> Me contacter</a>
+    </nav>
+  </main>
+</BaseLayout>
+
+<style>
+  /* Valeurs propres à la page (héritent des tokens NX pour tout le reste). */
+  .methode {
+    --measure: 38rem; /* ~64 caractères par ligne */
+    --gap-mvt: 6.5rem; /* air vertical entre les mouvements */
+    --lh: 1.78; /* interligne du corps */
+    padding-bottom: 1rem;
+  }
+  .methode a {
+    text-decoration: none;
+  }
+
+  /* Eyebrow — muet, discret, situe la page dans le site. */
+  .eyebrow {
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--textColor);
+    opacity: 0.5;
+    margin: 5.5rem 0 3.25rem;
+    text-align: center;
+  }
+
+  /* Colonne d'essai. */
+  .essay {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 0 1.25rem;
+  }
+
+  .mvt {
+    margin: 0;
+  }
+  .mvt p {
+    margin: 0 0 1.55rem;
+    font-size: 1.13rem;
+    line-height: var(--lh);
+    color: var(--textColor);
+  }
+  .mvt p:last-child {
+    margin-bottom: 0;
+  }
+  .mvt em {
+    font-style: italic;
+    color: var(--titleColor);
+  }
+  .mvt a {
+    color: var(--articleLinkColor);
+    transition: color var(--transition);
+    border-bottom: 1px solid transparent;
+  }
+  .mvt a:hover {
+    color: var(--articleLinkHoverColor);
+  }
+
+  /* L'ouverture — premières lignes agrandies, de l'air autour. */
+  .open .lede {
+    font-size: 1.74rem;
+    line-height: 1.42;
+    color: var(--titleColor);
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    margin-bottom: 1.15rem;
+  }
+  .lede-rule {
+    width: 34px;
+    height: 2px;
+    background: var(--accent);
+    margin: 0 0 1.9rem;
+  }
+  .open p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--textColor);
+  }
+  /* Premier paragraphe après la lede : légèrement éclairci, mais thémable. */
+  .open .lede + p {
+    color: color-mix(in srgb, var(--textColor) 55%, var(--titleColor));
+  }
+
+  /* Signature d'autorité. */
+  .byline {
+    display: flex;
+    align-items: center;
+    gap: 0.72rem;
+    margin-top: 2.6rem;
+    font-size: 0.88rem;
+    line-height: 1.4;
+    color: var(--textColor);
+  }
+  .byline img {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-pill);
+    object-fit: cover;
+    object-position: top;
+    border: 1px solid var(--borderPrimary);
+    flex: 0 0 auto;
+  }
+  .byline b {
+    color: var(--titleColor);
+    font-weight: 600;
+  }
+  .byline .d {
+    opacity: 0.4;
+    margin: 0 0.15rem;
+  }
+
+  /* Séparateur pixel-art — le chevron NX (7 « pixels » de 4px). */
+  .sep {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: var(--gap-mvt) 0;
+    height: 16px;
+  }
+  .sep b {
+    width: 4px;
+    height: 4px;
+    display: block;
+    background: var(--accent);
+    transform: translateX(-12px);
+    opacity: 0.9;
+    box-shadow:
+      24px 0 0 0 var(--accent),
+      4px 4px 0 0 var(--accent),
+      20px 4px 0 0 var(--accent),
+      8px 8px 0 0 var(--accent),
+      16px 8px 0 0 var(--accent),
+      12px 12px 0 0 var(--accent);
+  }
+
+  /* Note en marge — les liens OpenClassrooms : preuve sèche. */
+  .marge {
+    margin: 2.6rem 0 0;
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--borderPrimary);
+    max-width: 33ch;
+    margin-left: auto;
+    text-align: right;
+  }
+  .marge p {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: var(--textColor);
+    opacity: 0.78;
+    margin: 0;
+  }
+  .marge a {
+    color: var(--textColor);
+    border-bottom: 1px solid var(--borderPrimary);
+    transition:
+      color var(--transition),
+      border-color var(--transition);
+  }
+  .marge a:hover {
+    color: var(--linkHoverColor);
+    border-color: var(--linkHoverColor);
+  }
+  .marge .arw {
+    color: var(--accent);
+    font-style: normal;
+  }
+
+  /* Sorties discrètes après la clôture — même poids, sans emphase. */
+  .exits {
+    max-width: var(--measure);
+    margin: 6rem auto 0;
+    padding: 2rem 1.25rem 0;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--borderPrimary);
+  }
+  .exits a {
+    font-size: 0.82rem;
+    color: var(--textColor);
+    opacity: 0.55;
+    transition:
+      opacity var(--transition),
+      color var(--transition);
+  }
+  .exits a:hover {
+    opacity: 1;
+    color: var(--linkHoverColor);
+  }
+  .exits .arw {
+    color: var(--textColor);
+  }
+
+  /* Reveal au scroll. */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s ease;
+  }
+  [data-reveal].in {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal] {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .marge {
+      text-align: left;
+      margin-left: 0;
+    }
+    .open .lede {
+      font-size: 1.4rem;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    const els = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-reveal]"),
+    );
+
+    if (reduce) {
+      els.forEach((e) => e.classList.add("in"));
+      return;
+    }
+
+    function show(e: HTMLElement) {
+      e.classList.add("in");
+    }
+
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              show(entry.target as HTMLElement);
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { rootMargin: "0px 0px -6% 0px" },
+      );
+      els.forEach((e) => io.observe(e));
+    } else {
+      els.forEach(show);
+    }
+
+    // Filet de sécurité : tout révéler après 1,8 s.
+    window.setTimeout(() => els.forEach(show), 1800);
+  })();
+</script>
