@@ -17,7 +17,7 @@ author: Thomas
 kind: Fiche technique
 serie: cicd
 level: Intermédiaire
-publishedDate: 07/07/2026
+publishedDate: 07/09/2026
 ---
 
 Voici une fiche que j'attendais d'écrire depuis un moment parce qu'elle fait le
