@@ -26,7 +26,8 @@ type Article = {
   url: string;
 };
 
-const heroContentTitle = "Qu'est-ce qu'un artefact GitHub Actions ?";
+const heroContentTitle =
+  "Comment déployer une image Docker depuis GitHub Actions ?";
 
 const articles = Object.values(
   import.meta.glob("./articles/*.md", { eager: true }),
