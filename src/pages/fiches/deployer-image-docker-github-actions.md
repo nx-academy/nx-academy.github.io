@@ -4,9 +4,9 @@ layout: ../../layouts/CheatSheetsLayout.astro
 title: "Comment déployer une image Docker depuis GitHub Actions ?"
 description:
   "Apprenez à construire, taguer et déployer une image Docker automatiquement
-  avec GitHub Actions : connexion au registry, docker/build-push-action, push
-  sur Docker Hub ou GHCR et déploiement sur votre serveur. Le pont entre Docker
-  et la CI/CD."
+  avec GitHub Actions. Connexion au registry, docker/build-push-action, push sur
+  Docker Hub ou GHCR et déploiement sur votre serveur. Le pont entre Docker et
+  la CI/CD."
 
 imgAlt:
   Un bras robotisé qui dépose un conteneur Docker sur un tapis roulant vers un
@@ -20,18 +20,21 @@ level: Intermédiaire
 publishedDate: 07/07/2026
 ---
 
-Voici une fiche que j'attendais d'écrire depuis un moment, parce qu'elle fait le
-lien entre deux séries de NX : **Docker** d'un côté, **les CI/CD avec GitHub
+Voici une fiche que j'attendais d'écrire depuis un moment parce qu'elle fait le
+lien entre deux séries de NX. **Docker** d'un côté **les CI/CD avec GitHub
 Actions** de l'autre.
 
 Jusqu'ici, vous avez appris à
 [construire une image Docker](/cours/docker-et-docker-compose/) et à
 [déclencher un workflow GitHub Actions](/fiches/declencher-workflow-github-actions).
-Aujourd'hui, on assemble les deux : **comment faire pour qu'à chaque push,
-GitHub Actions construise votre image Docker et la déploie automatiquement ?**
+Aujourd'hui, on assemble les deux ! Autrement dit, **comment faire pour qu'à
+chaque push, GitHub Actions construise votre image Docker et la déploie
+automatiquement ?**
 
 C'est exactement ce qui transforme un projet « qui marche sur ma machine » en
 une vraie application livrée en continu. On y va.
+
+---
 
 ## La grande idée : build → push → deploy
 
@@ -45,13 +48,15 @@ workflow, ça se résume presque toujours à trois étapes :
 <br>
 
 Si la notion de registry est floue, je vous renvoie à la fiche
-[Qu'est-ce qu'un registry Docker ?](/fiches/presentation-registry-docker) :
-c'est le maillon central de toute cette chaîne. Le registry, c'est l'entrepôt
-d'où partent et où arrivent vos images.
+[Qu'est-ce qu'un registry Docker ?](/fiches/presentation-registry-docker). C'est
+le maillon central de toute cette chaîne. Le registry, c'est l'entrepôt d'où
+partent et où arrivent vos images.
 
 <br>
 
 On va dérouler ces trois étapes une par une.
+
+---
 
 ## Étape 1 - Se connecter au registry
 
@@ -79,11 +84,13 @@ ne savez pas encore comment ça marche, gardez cette fiche sous le coude :
 [Comment gérer les secrets dans GitHub Actions ?](/fiches/gerer-secrets-github-actions).
 On s'en sert dès maintenant.
 
+---
+
 ## Étape 2 - Construire et pousser l'image
 
 Une fois connecté, on enchaîne avec
 [`docker/build-push-action`](https://github.com/docker/build-push-action), qui
-fait le build **et** le push en une seule étape :
+fait le build **et** le push en une seule étape.
 
 ```yml
 - name: Build et push de l'image
@@ -104,13 +111,15 @@ Décryptage :
 
 <br>
 
-Un conseil au passage : **évitez de tout taguer en `latest`**. C'est pratique
+Un conseil au passage. **Évitez de tout taguer en `latest`**. C'est pratique
 mais on ne sait plus quelle version tourne réellement. Préférez taguer avec le
 SHA du commit, comme pour les artefacts :
 
 ```yml
 tags: moncompte/mon-api:${{ github.sha }}
 ```
+
+---
 
 ## Le workflow complet (build + push)
 
@@ -149,6 +158,8 @@ jobs:
 À ce stade, à chaque push sur `main`, votre image fraîchement construite se
 retrouve sur Docker Hub. Il ne reste plus qu'à la déployer.
 
+---
+
 ## Étape 3 - Déployer l'image sur votre serveur
 
 Le push, c'est bien, mais votre serveur ne va pas deviner qu'une nouvelle image
@@ -183,9 +194,11 @@ SSH) passe par des **secrets**. On ne met rien en dur.
 
 <br>
 
-Le `|| true` après `docker stop` et `docker rm` est un petit réflexe utile : au
+Le `|| true` après `docker stop` et `docker rm` est un petit réflexe utile. Au
 tout premier déploiement, le conteneur n'existe pas encore, et sans ça le
 workflow échouerait bêtement.
+
+---
 
 ## Bonnes pratiques
 
@@ -238,7 +251,7 @@ jobs:
 <br>
 
 Mon conseil : si votre code est déjà sur GitHub, **GHCR est souvent le choix le
-plus simple** — tout reste au même endroit.
+plus simple** (tout reste au même endroit).
 
 <hr>
 
