@@ -58,9 +58,9 @@ m'appuie sur l'IA pour designer, écrire, développer. Résultat : je pousse plu
 souvent. Et pourtant, je n'ai presque jamais de rollback à faire. Le site tient,
 le serveur MCP tourne en continu.
 
-Ce n'est pas un hasard. **Après 13 ans à développer, faire du DevOps et de l'SRE
-(et quelques années comme CTO), j'ai fini par intégrer certains réflexes** — une
-CI qui fait son travail, des environnements qui ressemblent à la prod avant même
+Ce n'est pas un hasard. **À force de développer, de faire du DevOps et de casser
+deux-trois prods au passage, j'ai fini par intégrer certains réflexes** — une CI
+qui fait son travail, des environnements qui ressemblent à la prod avant même
 d'y toucher.
 
 Un collègue, chez Scaleway, construit en ce moment une plateforme d'exercices.
@@ -68,6 +68,11 @@ L'idée est bonne (vraiment bonne). Mais il a tout vibe codé, et à chaque
 modification, il pousse directement en prod. Pas d'environnement de dev, pas de
 test avant. Résultat : une facture qui grimpe, un environnement instable, et du
 temps perdu à comprendre pourquoi ça casse encore.
+
+Je ne le juge pas : j'ai été exactement à sa place. À mes débuts, je poussais
+direct en prod, souvent un vendredi soir et sûr de moi — jusqu'au week-end passé
+à tout réparer. Mes réflexes ne sont pas tombés du ciel, ils sont sortis de ces
+ratés-là.
 
 Vous vous reconnaissez peut-être dans l'un des deux profils. Même outil (l'IA),
 même vitesse de production. Mais un seul des deux a la boîte à outils pour
