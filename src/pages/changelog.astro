@@ -14,6 +14,22 @@ import MontlyChangelog from "../components/Changelog.astro";
   <main class="main-wrapper">
     <h1>Changelog</h1>
     <div class="changelog-description">
+      <div class="changelog-notice" role="note">
+        <p>
+          ⚠️ <strong>Ce changelog n'est plus à jour depuis avril 2026.</strong> Le
+          projet a pourtant beaucoup évolué depuis, avec la refonte de nombreuses
+          pages. La raison est simple : une grande partie de mon temps de développement
+          passe désormais par le travail avec l'IA, et je n'ai pas toujours pris
+          le temps de tenir ce journal à jour.
+        </p>
+        <p>
+          Je travaille actuellement sur une <strong
+            >façon plus simple et durable de gérer ce changelog</strong
+          >, afin de ne plus dépendre de données saisies à la main dans le code.
+          Je le remettrai à jour dès que cette nouvelle solution sera en place.
+          Merci de votre patience 🙂
+        </p>
+      </div>
       <p>
         Merci de prendre le temps de consulter ce changelog. Si le terme ne vous
         est pas familier, sachez qu’il s’agit simplement <strong
@@ -49,6 +65,27 @@ import MontlyChangelog from "../components/Changelog.astro";
   .changelog-description {
     padding-top: 24px;
     margin-bottom: 56px;
+  }
+
+  .changelog-notice {
+    margin-bottom: 40px;
+    padding: 16px 20px;
+    border: 1px solid var(--articleLinkColor);
+    border-left: 4px solid var(--articleLinkColor);
+    border-radius: 8px;
+    background-color: color-mix(
+      in srgb,
+      var(--articleLinkColor) 8%,
+      transparent
+    );
+  }
+
+  .changelog-notice p {
+    margin-bottom: 12px;
+  }
+
+  .changelog-notice p:last-child {
+    margin-bottom: 0;
   }
 
   h1 {
