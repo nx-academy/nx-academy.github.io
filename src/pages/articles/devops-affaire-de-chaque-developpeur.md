@@ -101,30 +101,34 @@ devant les utilisateurs, ou devant la facture).
 
 ## Les quelques briques qui changent tout
 
-Pas besoin de tout savoir. Juste des bonnes bases, aux bons endroits.
-
-**Une CI qui vérifie avant vous.** Pas pour remplacer votre relecture, mais pour
-attraper ce que l'IA (ou vous) laisse passer : un test cassé, un lint qui hurle,
-une régression silencieuse. Le but n'est pas la couverture parfaite. C'est
-d'avoir un filet, systématique, qui tourne avant que le code touche la prod.
+Pas besoin de tout savoir. Une brique suffit à condition de commencer par la
+bonne.
 
 **Un environnement de dev et de test iso-prod.** Le même OS, les mêmes versions,
 la même architecture réseau que ce qui tourne en vrai. Sans ça, "ça marche chez
 moi" redevient la norme — sauf que maintenant, c'est l'IA qui vous le dit avec
-assurance, pas un collègue qui doute.
+assurance, pas un collègue qui doute. Reproduire la prod, c'est le point de
+départ. Le reste vient répondre à cette exigence.
 
-**Des notions de cloud public.** Pas devenir expert d'un provider. Savoir
-déployer, comprendre les briques de base (compute, stockage, réseau), pour ne
-pas dépendre entièrement d'un tutoriel généré ou d'une IA qui invente une
-configuration plausible mais fausse.
+**Une CI qui vérifie avant vous.** Reproduire la prod ne sert à rien si vous ne
+rejouez pas la vérification à chaque modification. La CI, c'est ça : le filet
+systématique qui attrape ce que l'IA (ou vous) laisse passer — un test cassé, un
+lint qui hurle, une régression silencieuse. Pas pour la couverture parfaite.
+Pour que rien ne touche la prod sans être repassé au même tamis.
 
-**Un minimum de sécurité réseau.** Un VPC mal configuré, un port ouvert par
-erreur, une IA qui propose une solution "qui marche" sans isoler ce qui doit
-l'être. Ce n'est pas de la paranoïa. C'est comprendre ce que vous exposez, et
-pourquoi.
+**Des notions de cloud public.** Un environnement qui ressemble à la prod tourne
+quelque part. Savoir déployer, comprendre les briques de base (compute,
+stockage, réseau) : c'est ce qui vous évite de dépendre d'un tutoriel généré ou
+d'une IA qui invente une configuration plausible mais fausse.
 
-Ce n'est pas une liste exhaustive de compétences DevOps. C'est le socle minimal
-pour que votre vitesse ne se retourne pas contre vous.
+**Un minimum de sécurité réseau.** Et dès que vous reproduisez le réseau, vous
+butez sur la question : qu'est-ce qui doit être isolé, qu'est-ce qui doit être
+exposé, et pourquoi ? Un VPC mal configuré, un port ouvert par erreur, une IA
+qui propose une solution "qui marche" sans isoler ce qui doit l'être. Ce n'est
+pas de la paranoïa. C'est savoir ce que vous exposez.
+
+Quatre briques, mais une seule porte d'entrée. Prenez l'iso-prod au sérieux, et
+les trois autres suivent — dans l'ordre, au moment où vous en avez besoin.
 
 ## Donner à l'IA le bon bac à sable
 
