@@ -22,42 +22,33 @@ draft: false
 publishedDate: 07/14/2026
 ---
 
-Un soir de la semaine dernière, j'étais en train de refaire quelques pages de
-NX. Je me servais de Claude Design pour l'interface, puis Claude Code pour
-l'implémentation. C'était particulièrement rapide. J'ai refait par exemple les
-pages [des articles](/articles) et des [fiches techniques](/fiches).
+L'autre soir, il était tard et j'avançais sur trois choses à la fois : une page
+de NX, un cluster d'articles sur Docker et la réflexion qui a fini par donner ce
+texte. À un moment, je m'en suis rendu compte d'une chose. Je ne m'étais pas
+demandé une seule fois laquelle j'allais laisser tomber ce soir-là.
 
-En même temps, je montais des clusters d'articles SEO sur GitHub Actions et
-Docker. Ce sont des sujets que je connais déjà mais j'apprends encore un peu
-dessus parfois en écrivant.
-
-Là où je suis content, c'est parce que cela fait des mois que j'ai cette liste
-de pages à refaire sur NX. Le résultat n'est pas particulièrement impressionnant
-mais je savais que je n'aurais jamais le temps de m'y mettre (pas par manque de
-compétence, plutôt par manque de moi en plusieurs exemplaires).
-
-Ce soir-là, pour une fois, je n'ai pas eu à me dédoubler.
+Pour une fois, je n'avais pas eu à me dédoubler.
 
 ---
 
 ## Ce que l'IA m'a rendu
 
-Ce que l'IA m'a rendu, ce n'est pas du code. C'est du temps.
+**Ce que l'IA m'a rendu, ce n'est pas du code. C'est du temps.**
 
 Avant, je devais choisir. NX ou les jeux vidéo. Le soir ou le week-end. Un
 projet à la fois, parce qu'un développeur ne se dédouble pas. Aujourd'hui, ce
-même temps me permet d'avancer sur plusieurs fronts : du code, de l'écriture, du
+même temps me permet d'avancer sur plusieurs fronts. Du code, de l'écriture, du
 design et du jeu vidéo.
 
 Cet article en est un exemple. Je ne l'ai pas écrit seul dans mon coin. J'ai
-réfléchi avec IA, j'ai challengé mes idées, j'ai reformulé et même reécrit
-certaines parties que je trouvais un peu moche (tout est une question de point
-de vue). Pour moi, écrire a toujours été une question d'expression, autrement
-dit trouver les mots pour dire ce que je pense vraiment. Travailler avec un
+réfléchi avec l'IA, j'ai challengé mes idées, j'ai reformulé et même réécrit
+certaines parties que je trouvais un peu moches (tout est une question de point
+de vue). **Pour moi, écrire a toujours été une question d'expression, autrement
+dit trouver les mots pour dire ce que je pense vraiment**. Travailler avec un
 outil qui m'aide à exprimer ça, sans l'écrire à ma place, ça ne me pose aucun
 problème. Ça m'aide même à aller plus loin dans ma propre pensée.
 
-Le code, l'écriture, le design ou les jeux vidéos. Ce sont quatre activités que
+Le code, l'écriture, le design ou les jeux vidéo. Ce sont quatre activités que
 je pensais devoir sacrifier les unes aux autres. Aujourd'hui, elles cohabitent.
 
 ---
@@ -75,10 +66,10 @@ réussi à y trouver du sens.
 
 Je ne pense pas que l'informatique soit là pour suivre à la trace ce que font
 les gens. Pour être honnête, cette lassitude-là, je la sentais déjà avant l'IA.
-Elle venait d'ailleurs : de projets répétitifs, de décisions qu'on ne comprend
+Elle venait d'ailleurs : de projets répétitif et, de décisions qu'on ne comprend
 pas. Autrement dit, d'un travail vidé de son intention.
 
-C'est en partie pour ça que je ne développe plus que ce qui m'intéresse. Ce
+**C'est en partie pour ça que je ne développe plus que ce qui m'intéresse**. Ce
 temps que j'ai récupéré, je ne l'ai pas réinvesti dans plus de tickets. Je l'ai
 mis dans du code, de l'écriture et du design qui comptent pour moi.
 
