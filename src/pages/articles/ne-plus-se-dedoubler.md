@@ -22,21 +22,12 @@ draft: false
 publishedDate: 07/14/2026
 ---
 
-Un soir de la semaine dernière, j'étais en train de refaire quelques pages de
-NX. Je me servais de Claude Design pour l'interface, puis Claude Code pour
-l'implémentation. C'était particulièrement rapide. J'ai refait par exemple les
-pages [des articles](/articles) et des [fiches techniques](/fiches).
+L'autre soir, il était tard et j'avançais sur trois choses à la fois : une page
+de NX, un cluster d'articles sur Docker, la réflexion qui a fini par donner ce
+texte. À un moment, je m'en suis rendu compte, un peu surpris : je ne m'étais
+pas demandé une seule fois laquelle j'allais laisser tomber ce soir-là.
 
-En même temps, je montais des clusters d'articles SEO sur GitHub Actions et
-Docker. Ce sont des sujets que je connais déjà mais j'apprends encore un peu
-dessus parfois en écrivant.
-
-Là où je suis content, c'est parce que cela fait des mois que j'ai cette liste
-de pages à refaire sur NX. Le résultat n'est pas particulièrement impressionnant
-mais je savais que je n'aurais jamais le temps de m'y mettre (pas par manque de
-compétence, plutôt par manque de moi en plusieurs exemplaires).
-
-Ce soir-là, pour une fois, je n'ai pas eu à me dédoubler.
+Pour une fois, je n'avais pas eu à me dédoubler.
 
 ---
 
@@ -50,14 +41,14 @@ même temps me permet d'avancer sur plusieurs fronts : du code, de l'écriture, 
 design et du jeu vidéo.
 
 Cet article en est un exemple. Je ne l'ai pas écrit seul dans mon coin. J'ai
-réfléchi avec IA, j'ai challengé mes idées, j'ai reformulé et même reécrit
-certaines parties que je trouvais un peu moche (tout est une question de point
+réfléchi avec l'IA, j'ai challengé mes idées, j'ai reformulé et même réécrit
+certaines parties que je trouvais un peu moches (tout est une question de point
 de vue). Pour moi, écrire a toujours été une question d'expression, autrement
 dit trouver les mots pour dire ce que je pense vraiment. Travailler avec un
 outil qui m'aide à exprimer ça, sans l'écrire à ma place, ça ne me pose aucun
 problème. Ça m'aide même à aller plus loin dans ma propre pensée.
 
-Le code, l'écriture, le design ou les jeux vidéos. Ce sont quatre activités que
+Le code, l'écriture, le design ou les jeux vidéo. Ce sont quatre activités que
 je pensais devoir sacrifier les unes aux autres. Aujourd'hui, elles cohabitent.
 
 ---
