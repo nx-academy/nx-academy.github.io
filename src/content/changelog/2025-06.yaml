@@ -1,0 +1,64 @@
+month: Juin
+year: 2025
+order: 6
+tasks:
+  - kind: in-progress
+    content: |-
+      Pas mal de petites optimisations côté SEO et performances. Je suis passé par une technique assez cool d'optimisations de code pour les SVG. Je vais probablement bientôt écrire une fiche technique dessus.
+  - kind: done
+    content: |-
+      Ajout des testimonials pour le cours sur Docker.
+  - kind: fix
+    content: |-
+      Fix d'un bug sur l'affichage des images : un max-width: 100%; déclaré globalement me donnait des affichages un peu bizarre.
+  - kind: done
+    content: |-
+      Choix d'un préstaraire d'hosting (= hébergement) pour les vidéos. J'ai décidé de passer par Vimeo. J'ai ajouté toutes les vidéos du cours sur Docker. Ca s'est fait très simplement.
+  - kind: in-progress
+    content: |-
+      Mise en ligne <a href="/cours/docker-et-docker-compose/chapitres/decouverte-docker" target="_blank">du cours sur Docker et Docker Compose</a>. Je suis actuellement en train d'ajouter des images pour chacun des chapitres. Les vidéos sont déjà en ligne.
+  - kind: done
+    content: |-
+      Création <a href="/articles/le-recap-juin-2025" target="_blank">du troisième recap</a>. Et oui, on poursuit sur la lancée.
+  - kind: done
+    content: |-
+      Ajout d'un bouton pour changer de thème (et le garder en mémoire).
+  - kind: fix
+    content: |-
+      Style de la sticky outline sur les articles, fiches techniques et chapitres de cours. Pour info, c'est la fenête à droite qui donne des informations sur le contenu du cours.
+  - kind: done
+    content: |-
+      Ajout d'une magnifique animation sur l'icone des flux RSS !
+  - kind: fix
+    content: |-
+      Quelques fixes dûs à la mise en prod du thème light (quelques icônes et titres qui rendaient mal). Normalement, je devrais pouvoir ajouter de nouveaux thèmes facilement (quoi ? :D)
+  - kind: in-progress
+    content: |-
+      Ajout de nouveaux thèmes supplémentaires aux thèmes dark et light (une petite surprise pour cet été).
+  - kind: done
+    content: |-
+      Création du thème light - j'en profiterais certainement pour créer une fiche technique dessus.
+  - kind: done
+    content: |-
+      Création d'une page incroyable dédiée <a href="/mentions-legales" target="_blank">aux mentions légales</a> !
+  - kind: done
+    content: |-
+      Création d'un très beau footer avec les liens vers les pages et les réseaux sociaux (et flux rss).
+  - kind: done
+    content: |-
+      Ajout de la fiche technique <a href="/fiches/presentation-registry-docker" target="_blank">sur les registry Docker</a> et <a href="/quiz/presentation-registry-docker" target="_blank">de son quiz</a> généré via un RAG.
+  - kind: done
+    content: |-
+      Première version de la page 404 (Vous pouvez la tester <a href="/qsdqsd" target="_blank">ici</a>). Elle n'est pas incroyable pour le moment mais je reviendrais dessus un peu plus tard pour m'ajouter un peu de fun :).
+  - kind: fix
+    content: |-
+      Correction d'un bug lié au partage d'articles sur les réseaux sociaux.
+  - kind: in-progress
+    content: |-
+      Redesign de la home d'un cours. Pour l'instant, je travaille sur la page de présentation <a href="/cours/docker-et-docker-compose" target="_blank">du cours sur Docker et docker compose</a>. Une fois finalisé, je vais créer des composants dédiés puis je m'attaquerais à celle du cours sur les CI/CD.
+  - kind: fix
+    content: |-
+      Ajout du changelog de Juin (j'avais bien fait les modifications mais j'avais oublié de le push, oups !)
+  - kind: done
+    content: |-
+      Réalisation du <a href="/quiz/quiz-niveau-docker" target="_blank">premier quiz de niveau</a> (à la sortie de mon cours sur Docker et docker compose). J'ai ajouté une fonction pour <i>suffle le tableau</i>, autrement dit changer l'ordre des questions.

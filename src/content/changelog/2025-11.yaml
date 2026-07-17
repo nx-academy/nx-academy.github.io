@@ -1,0 +1,16 @@
+month: Novembre
+year: 2025
+order: 11
+tasks:
+  - kind: fix
+    content: |-
+      MAJ des dépendances (security update)
+  - kind: fix
+    content: |-
+      MAJ du projet pour Node.JS 24
+  - kind: done
+    content: |-
+      Sortie <a href="/cours/ci-cd-github-actions/" target="_blank">du cours sur les pipelines CI/CD</a> + l'upload des screencasts
+  - kind: in-progress
+    content: |-
+      Migration du bot Discord d'IA vers un serveur MCP pour une meilleur intégration avec les LLM.

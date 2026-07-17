@@ -1,0 +1,16 @@
+month: Février
+year: 2026
+order: 2
+tasks:
+  - kind: fix
+    content: |-
+      Mis à jour des dépendances du projet et optimisation des performances.
+  - kind: fix
+    content: |-
+      Second set de mises à jour de sécurité.
+  - kind: in-progress
+    content: |-
+      J'ai commencé à écrire de nouveaux articles en rapport avec Pygame.
+  - kind: done
+    content: |-
+      Sortie de la fiche <a href="/fiches/intro-a-pygame" target="_blank">Comment débuter avec Pygame ?</a>
