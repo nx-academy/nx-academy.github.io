@@ -1,0 +1,46 @@
+month: Juillet
+year: 2026
+order: 7
+tasks:
+  - kind: done
+    content: |-
+      J'ai migré tout le changelog vers un nouveau système de fichiers YAML (une <i>content collection</i>). C'est bien plus propre à maintenir — et ça va m'aider à le tenir à jour, promis !
+  - kind: done
+    content: |-
+      Sortie <a href="/articles/cahier-de-vacances-2026" target="_blank">du cahier de vacances du développeur (édition 2026)</a>. De quoi réviser sans se prendre la tête cet été :).
+  - kind: done
+    content: |-
+      Publication de <a href="/articles/ne-plus-se-dedoubler" target="_blank">l'article « Ne plus se dédoubler »</a>, un billet un peu plus perso, orienté réflexion.
+  - kind: in-progress
+    content: |-
+      Je bosse sur un nouvel article de réflexion, « Le DevOps n'est plus l'affaire d'une équipe à part ». Encore en brouillon, je le peaufine avant publication.
+  - kind: done
+    content: |-
+      Ajout de quelques <i>skills</i> Claude pour m'aider à maintenir le site (dont un pour ce changelog, justement).
+  - kind: done
+    content: |-
+      Ajout d'un petit bandeau qui prévient quand le changelog n'a pas été mis à jour depuis un moment. Histoire de me mettre la pression :).
+  - kind: done
+    content: |-
+      Gros travail sur le contenu CI/CD : j'ai publié plusieurs fiches sur GitHub Actions — <a href="/fiches/artefact-github-actions" target="_blank">les artefacts</a>, <a href="/fiches/declencher-workflow-github-actions" target="_blank">déclencher un workflow</a> et <a href="/fiches/deployer-image-docker-github-actions" target="_blank">déployer une image Docker</a>.
+  - kind: in-progress
+    content: |-
+      Je prépare d'autres fiches autour de GitHub Actions (gestion des secrets, réutilisation de workflows, optimisation) ainsi qu'une comparaison GitHub Actions vs GitLab CI. En cours d'écriture.
+  - kind: done
+    content: |-
+      Nouvelle cheatsheet <a href="/fiches/bien-gerer-reseaux-docker" target="_blank">sur la gestion des réseaux Docker</a>.
+  - kind: done
+    content: |-
+      Création de <a href="/methode" target="_blank">la page « Comment je fais apprendre »</a>, qui explique ma méthode pédagogique.
+  - kind: in-progress
+    content: |-
+      Pas mal de travail de SEO pour resserrer le <i>clustering</i> du contenu Docker (liens internes entre cours, fiches et chapitres).
+  - kind: done
+    content: |-
+      Mise en place d'un système de recommandations basé sur la pertinence : en fin d'article, je te propose maintenant des contenus liés.
+  - kind: done
+    content: |-
+      Refonte du menu mobile en overlay plein écran. C'est quand même plus agréable sur téléphone.
+  - kind: fix
+    content: |-
+      Quelques mises à jour de dépendances et de la CI (passage à Node 24).
