@@ -1,0 +1,49 @@
+month: Juin
+year: 2026
+order: 6
+tasks:
+  - kind: done
+    content: |-
+      Grosse refonte de <a href="/articles" target="_blank">la page des articles</a> : filtres, tri et gestion des séries. On s'y retrouve beaucoup mieux.
+  - kind: done
+    content: |-
+      Sortie du <a href="/articles/le-recap-juin-2026" target="_blank">récap #7 (juin 2026)</a>. La série continue !
+  - kind: done
+    content: |-
+      Refonte aussi de <a href="/fiches" target="_blank">la page des fiches techniques</a> : séries, recherche et filtres.
+  - kind: done
+    content: |-
+      Publication de <a href="/articles/decouvrir-pico-8" target="_blank">l'article « Découvrir PICO-8 »</a>, la fantasy console pour créer des jeux.
+  - kind: in-progress
+    content: |-
+      Je prépare toute une série autour de PICO-8 (prise en main, premier jeu, PICO-8 vs Pygame, top 10…). Encore en brouillon.
+  - kind: in-progress
+    content: |-
+      Nouveaux guides Docker en préparation : Docker Swarm, gestion des réseaux et des secrets. En cours d'écriture.
+  - kind: done
+    content: |-
+      Grosse refonte de <a href="/" target="_blank">la page d'accueil</a> : nouveau header, hero « à la une », système de niveau, onboarding et sidebar.
+  - kind: done
+    content: |-
+      Nouveau design des articles avec un header éditorial et pas mal d'améliorations de confort de lecture.
+  - kind: done
+    content: |-
+      Première version de la refonte éditoriale de <a href="/cours/ci-cd-github-actions" target="_blank">la page de présentation d'un cours</a> (le cours CI/CD GitHub Actions).
+  - kind: done
+    content: |-
+      Petit délire : NX Arcade, une interface de quiz en mode pixel/arcade. À voir sur <a href="/quiz" target="_blank">la page des quiz</a>.
+  - kind: done
+    content: |-
+      Gros travail d'accessibilité : HTML sémantique, attributs ARIA, lien d'évitement (skip link) et textes alternatifs sur les images.
+  - kind: done
+    content: |-
+      J'ai connecté le fil de notes « now » à la base de données — ces petites notes de statut sur ce que je fais en ce moment.
+  - kind: done
+    content: |-
+      Ajout d'un thème d'été avec une jolie icône de plage et des animations de vagues. Il fait beau sur NX :).
+  - kind: done
+    content: |-
+      Centralisation de tout le SEO dans un composant dédié, et correction de quelques balises meta.
+  - kind: fix
+    content: |-
+      Mises à jour de dépendances (@astrojs/db, vitest…).
