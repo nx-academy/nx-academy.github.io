@@ -21,7 +21,7 @@ tags:
   - Été
 author: Thomas
 draft: false
-publishedDate: 07/20/2026
+publishedDate: 07/17/2026
 ---
 
 Il y a des objets d'enfance qui reviennent sans prévenir. Pour moi, c'est le
@@ -80,10 +80,10 @@ téléphone, où que vous soyez.
 ## Le bonus : un quiz de code fait par mes anciens élèves
 
 Et un petit bonus pour finir ! [Codelingo](https://codelingo.rapha1004.me/), un
-site de quiz de code, avec du HTML, du CSS et même peu de Rust. Il a réalisé par
-mes élèves de l'an dernier comme projet de fin d'année cette année. Ça se fait
+site de quiz de code, avec du HTML, du CSS et même peu de Rust. Il a été réalisé par
+mes élèves de l'an dernier. C'est leur projet de fin d'année. Ça se fait
 entièrement depuis le téléphone et c'est plutôt bien fichu. J'aime bien l'idée
-de refermer cette liste sur leur travail plutôt que sur le mien.
+de refermer cette liste sur leur travail plutôt que sur le mien. Bravo les gars !
 
 ---
 
