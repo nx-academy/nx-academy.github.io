@@ -5,9 +5,26 @@ const pageTitle = "Changelog";
 const pageDescription =
   "NX Academy est regulièrement mis à jour. J'utilise cette page pour vous tenir au courant des derniers fixes et fonctionnalités.";
 
-import { MONTHS_2025, MONTHS_2026 } from "../data/changelog";
+import { getCollection } from "astro:content";
+import type { LogTasks } from "../types/LogTasks";
 
 import MontlyChangelog from "../components/Changelog.astro";
+
+const entries = await getCollection("changelog");
+
+// tri décroissant : année puis order (mois)
+entries.sort(
+  (a, b) => b.data.year - a.data.year || b.data.order - a.data.order,
+);
+
+// regroupement { [year]: LogTasks[] }
+const byYear = new Map<number, LogTasks[]>();
+for (const { data } of entries) {
+  const list = byYear.get(data.year) ?? [];
+  list.push({ month: data.month, tasks: data.tasks });
+  byYear.set(data.year, list);
+}
+const years = [...byYear.keys()].sort((a, b) => b - a); // plus récent en premier
 ---
 
 <BaseLayout title={pageTitle} description={pageDescription}>
@@ -16,18 +33,18 @@ import MontlyChangelog from "../components/Changelog.astro";
     <div class="changelog-description">
       <div class="changelog-notice" role="note">
         <p>
-          ⚠️ <strong>Ce changelog n'est plus à jour depuis avril 2026.</strong> Le
-          projet a pourtant beaucoup évolué depuis, avec la refonte de nombreuses
-          pages. La raison est simple : une grande partie de mon temps de développement
-          passe désormais par le travail avec l'IA, et je n'ai pas toujours pris
-          le temps de tenir ce journal à jour.
+          ✨ <strong
+            >Ce changelog s'appuie désormais sur une mécanique plus simple et
+            durable.</strong
+          > Chaque mois est maintenant un fichier versionné dans le dépôt, au lieu
+          de données saisies à la main dans le code. Concrètement, ça me permet de
+          le tenir à jour plus facilement et plus régulièrement.
         </p>
         <p>
-          Je travaille actuellement sur une <strong
-            >façon plus simple et durable de gérer ce changelog</strong
-          >, afin de ne plus dépendre de données saisies à la main dans le code.
-          Je le remettrai à jour dès que cette nouvelle solution sera en place.
-          Merci de votre patience 🙂
+          Petite transparence : entre avril 2026 et la mise en place de cette
+          nouvelle mécanique, le journal a pris du retard alors que le projet
+          continuait d'évoluer (refonte de nombreuses pages). Je vais rattraper
+          les mois manquants progressivement. Merci de votre patience 🙂
         </p>
       </div>
       <p>
@@ -47,9 +64,17 @@ import MontlyChangelog from "../components/Changelog.astro";
       </p>
       <p>Bonne lecture 🙂 !</p>
     </div>
-    <MontlyChangelog monthlyChangelog={MONTHS_2026} year=" 2026" />
-    <hr />
-    <MontlyChangelog monthlyChangelog={MONTHS_2025} year=" 2025" />
+    {
+      years.map((year, i) => (
+        <>
+          {i > 0 && <hr />}
+          <MontlyChangelog
+            monthlyChangelog={byYear.get(year)!}
+            year={" " + year}
+          />
+        </>
+      ))
+    }
   </main>
 </BaseLayout>
 

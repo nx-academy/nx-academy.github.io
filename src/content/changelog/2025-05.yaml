@@ -1,0 +1,58 @@
+month: Mai
+year: 2025
+order: 5
+tasks:
+  - kind: done
+    content: |-
+      Création du <a href="/articles/le-recap-mai-2025">deuxième Recap (youhou bis !)</a> !
+  - kind: done
+    content: |-
+      Configuration de Prettier, un formatter de code, et ajout de scripts en CI (Comme c'est excitant !)
+  - kind: in-progress
+    content: |-
+      Début du travail sur l'optimisation des assets du site et notamment des images. J'ai commencé à écrire un script JS qui optimise la taille et les formats de mes images. Je verrais pour le faire soit tourner en CI, soit en local au pre-push.
+  - kind: done
+    content: |-
+      Ajout d'une animation de slider sur la barre de "Vous étiez en train de lire : (parce que les animations, c'est quand même cool !)
+  - kind: in-progress
+    content: |-
+      Ajout du temps de lecture sur les articles et les cours.
+  - kind: done
+    content: |-
+      Alors, ce n'est pas vraiment une feature mais j'ai mis à jour <a href="https://github.com/nx-academy/nx-academy.github.io/blob/main/docs/plan-fonctionnalites.md" target="_blank">les fonctionnalités</a> sur lesquelles je vais travailler jusqu'en décembre ainsi que <a href="https://github.com/nx-academy/nx-academy.github.io/blob/main/docs/calendrier-editorial.md" target="_blank">le calendrier édito</a>. Pour info, je vais bientôt sortir une page roadmap publique pour vous tenir au courant de mes futurs plans.
+  - kind: in-progress
+    content: |-
+      Finalisation du système de RAG pour Le Recap. L'agent est maintenant capable de scrapper un article, de le résumer et de créer un fichier markdown accepté par Astro. Il y a encore un peu de clean à faire mais c'est bientôt terminé !
+  - kind: done
+    content: |-
+      Ajout du menu sticky sur les fiches techniques et les chapitres. En gros, il permet de voir les titres de chaque section et de se rendre directement dessus en cliquant. Pas mal, hein ?
+  - kind: done
+    content: |-
+      Ajout basique de la gestion des flux RSS. Si ça vous intéresse, vous pouvez regarder <a href="/rss.xml" target="_blank">la page RSS</a>.
+  - kind: fix
+    content: |-
+      Un peu de clean de code (suppression de console.log, formattage de codes, etc.).
+  - kind: done
+    content: |-
+      Ajout du temps de lecture sur les fiches techniques.
+  - kind: fix
+    content: |-
+      Suppression de contenus morts (des articles et des fiches techniques abandonnés).
+  - kind: fix
+    content: |-
+      Mise à jour des meta pour les réseaux sociaux (LinkedIn) qui ajoute l'image de l'article.
+  - kind: done
+    content: |-
+      Mis à jour des polices du site : Inter remplace maintenant Space Grotesk pour les paragraphes.
+  - kind: fix
+    content: |-
+      Ajout du résumé du quiz.
+  - kind: in-progress
+    content: |-
+      Mise à jour du <a href="https://github.com/nx-academy/nx-ai/pull/2">système de RAG</a> sur les quiz des fiches techniques.
+  - kind: done
+    content: |-
+      Ajout de la fiche technique <a href="fiches/bien-utiliser-volumes-docker">sur les volumes Docker</a>.
+  - kind: in-progress
+    content: |-
+      Ajout des premiers effets sonores (pour l'instant, <a href="/quiz">sur le quiz</a>).

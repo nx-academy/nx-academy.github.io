@@ -1,58 +1,113 @@
-# Migration du changelog vers les Content Collections (YAML)
+# Changelog — data collection YAML (fonctionnement & maintenance)
 
-> **Statut : décidé, non implémenté.** Ce document décrit la solution cible pour
-> ne plus maintenir le changelog sous forme de tableaux codés en dur. Il est
-> autonome : il peut servir de point de départ dans un futur chat pour lancer
-> l'implémentation.
+> **Statut : implémenté (juillet 2026).** Le changelog n'est plus codé en dur en
+> TypeScript : il est alimenté par une data collection Astro (un fichier YAML
+> par mois). Ce document décrit **comment ça marche** et **comment ajouter ou
+> mettre à jour un mois**. La justification de conception (pourquoi ce choix)
+> est conservée en fin de document.
 
 ---
 
-## Contexte et problème
+## Comment ça marche
 
-La page `/changelog` (`src/pages/changelog.astro`) affiche un journal de mise à
-jour dont le contenu est **codé en dur en TypeScript** dans
-`src/data/changelog.ts` : deux tableaux `MONTHS_2026` et `MONTHS_2025` d'objets
-`LogTasks`. Ce format n'est plus pertinent à maintenir à la main, et le
-changelog n'a plus été mis à jour depuis **avril 2026** alors que le projet a
-beaucoup évolué (refonte de nombreuses pages).
+Le contenu vit dans `src/content/changelog/`, un **fichier YAML par mois**
+(`AAAA-MM.yaml`), chargé au build via une data collection Astro. La page
+reconstruit la forme `LogTasks[]` attendue par le composant de rendu, qui n'a
+**pas** été modifié.
 
-Forme actuelle des données (`src/types/LogTasks.ts`) :
+Chaîne complète :
+
+| Fichier                          | Rôle                                                                |
+| -------------------------------- | ------------------------------------------------------------------- |
+| `src/content.config.ts`          | Définit la collection `changelog` + le schéma zod (validé au build) |
+| `src/content/changelog/*.yaml`   | Le contenu : un fichier par mois                                    |
+| `src/pages/changelog.astro`      | `getCollection` → tri → regroupement par année → boucle de rendu    |
+| `src/components/Changelog.astro` | Rendu des 3 sous-sections par `kind` via `set:html` — **inchangé**  |
+| `src/types/LogTasks.ts`          | La forme `{ month, tasks[] }` sur laquelle s'appuie le composant    |
+
+Schéma de la collection (`src/content.config.ts`) :
 
 ```ts
-type Task = {
-  kind: "in-progress" | "done" | "fix";
-  content: string; // HTML injecté via set:html
-};
-
-export type LogTasks = {
-  month: string; // ex. "Avril" (label FR, pas d'année)
-  tasks: Task[];
-};
+schema: z.object({
+  month: z.string(), // "Avril" (label FR)
+  year: z.number(), // 2026
+  order: z.number(), // 1..12, pour le tri (les noms FR ne trient pas chronologiquement)
+  tasks: z.array(
+    z.object({
+      kind: z.enum(["done", "in-progress", "fix"]),
+      content: z.string(), // HTML conservé tel quel, injecté via set:html
+    }),
+  ),
+});
 ```
 
-Rendu (`src/components/Changelog.astro`) : pour chaque mois, le composant
-affiche `{month} {year}` puis **trois sous-sections fixes** filtrées par `kind`
-(🟢 `done` → nouveautés, 🟡 `in-progress` → en cours, 🔴 `fix` → corrections),
-chaque item étant injecté via `set:html`.
+Tri et regroupement (`src/pages/changelog.astro`) : les entrées sont triées en
+**décroissant** (`year` puis `order`), regroupées par année, et chaque année est
+rendue par un `<MontlyChangelog>` séparé par un `<hr />`. Les mois sans fichier
+(ex. trous naturels de janvier/octobre) n'apparaissent tout simplement pas.
 
 ---
 
-## Solution retenue : Astro Content Collections (data collection YAML)
+## Comment ajouter ou mettre à jour un mois
 
-Un **fichier YAML par mois** dans `src/content/changelog/`, chargé via une data
-collection Astro. Objectif clé : **ne pas toucher au composant
-`Changelog.astro`** — on reconstruit la forme `LogTasks[]` avant de la passer en
-props.
+### Ajouter un nouveau mois
 
-### Pourquoi cette option plutôt que la BDD Turso (Astro DB)
+Créer `src/content/changelog/AAAA-MM.yaml` (ex. `2026-07.yaml`) :
+
+```yaml
+month: Juillet
+year: 2026
+order: 7
+tasks:
+  - kind: fix
+    content: |-
+      Un texte simple.
+  - kind: done
+    content: |-
+      J'ai sorti <a href="/jeux" target="_blank">la page jeu vidéo</a>.
+```
+
+Règles :
+
+- **`month`** : le label FR affiché (`Avril`, `Août`, `Décembre`…), avec accent.
+- **`order`** : le numéro du mois (1–12). Sert uniquement au tri chronologique
+  (les noms FR ne trient pas tout seuls).
+- **`kind`** : exactement `done` (🟢 nouveautés), `in-progress` (🟡 en cours) ou
+  `fix` (🔴 corrections). Toute autre valeur fait échouer `npm run check`.
+- **`content`** : chaîne **HTML** injectée telle quelle (liens `<a>`, `<i>`,
+  emoji…). Utiliser un **bloc littéral YAML `|-`** puis le texte indenté de 6
+  espaces : ça évite tout problème de quoting (apostrophes `'`, guillemets `"`
+  des attributs `href`, guillemets typographiques `« » “ ”`) — aucun échappement
+  n'est nécessaire.
+- **Ordre des items** : l'ordre des `tasks` dans le fichier = l'ordre
+  d'affichage à l'intérieur de chaque sous-section (le composant filtre par
+  `kind` mais préserve l'ordre relatif). Le plus récent en haut par convention.
+
+### Compléter un mois existant
+
+Ouvrir le `.yaml` correspondant et ajouter des entrées dans `tasks`. Rien
+d'autre à toucher.
+
+---
+
+## Vérification
+
+1. `npm run check` (`astro check`) : le schéma zod valide chaque fichier. Doit
+   passer sans erreur.
+2. `npm run prettier:check` : le formatage (le repo a un check Prettier en CI).
+3. `npm run dev` puis `/changelog` : vérifier que le mois apparaît au bon
+   endroit (bon ordre, 3 sous-sections, liens OK), en thème clair **et** sombre.
+
+---
+
+## Pourquoi ce choix (conception)
 
 Le site est **statique** (GitHub Pages ;
-`build = astro check && astro build --remote`). La BDD Astro DB est lue **au
-moment du build**. Donc, que le contenu vienne d'une ligne DB ou d'un fichier,
-**une mise à jour impose de toute façon un rebuild + redéploiement**.
-
-Conséquence : le seul vrai avantage d'une BDD — éditer le contenu sans toucher
-au code — **ne se matérialise pas ici**, alors que ses coûts demeurent.
+`build = astro check && astro build --remote`). Une BDD (Astro DB / Turso) est
+lue **au moment du build** : que le contenu vienne d'une ligne DB ou d'un
+fichier, **une mise à jour impose de toute façon un rebuild + redéploiement**.
+Le seul vrai avantage d'une BDD — éditer sans toucher au code — **ne se
+matérialise donc pas ici**, alors que ses coûts demeurent.
 
 | Critère                     | Astro DB (Turso)                             | Content Collections (YAML)            |
 | --------------------------- | -------------------------------------------- | ------------------------------------- |
@@ -61,7 +116,6 @@ au code — **ne se matérialise pas ici**, alors que ses coûts demeurent.
 | Typage                      | `kind` en `text` brut                        | `z.enum` validé au build              |
 | Publication (site statique) | rebuild + redeploy requis                    | rebuild + redeploy requis (identique) |
 | Infra / secrets             | URL remote + app token + voie d'insertion    | rien de nouveau                       |
-| `Changelog.astro`           | inchangé (reshape → `LogTasks[]`)            | inchangé (reshape → `LogTasks[]`)     |
 
 > On garde Astro DB pour `NewsFeed` / `NowNoteFeed`, dont le churn
 > programmatique justifie une BDD — ce qui n'est pas le cas d'un changelog
@@ -69,129 +123,5 @@ au code — **ne se matérialise pas ici**, alors que ses coûts demeurent.
 >
 > Une _content collection_ Markdown (corps rédigé) serait un mauvais choix : le
 > corps est un bloc unique qui ne se découpe pas en trois groupes par `kind` et
-> forcerait un rendu Markdown→HTML au lieu du `set:html` par item actuel. Le
-> YAML garde `content` comme chaîne HTML → **zéro changement dans le
-> composant**.
-
----
-
-## Étapes d'implémentation (le jour où on le fait)
-
-### 1. Définir la collection
-
-Dans `src/content.config.ts` (le créer s'il n'existe pas) :
-
-```ts
-import { defineCollection, z } from "astro:content";
-import { glob } from "astro/loaders";
-
-const changelog = defineCollection({
-  loader: glob({ pattern: "**/*.yaml", base: "./src/content/changelog" }),
-  schema: z.object({
-    month: z.string(), // "Avril"
-    year: z.number(), // 2026
-    order: z.number(), // 1..12, pour le tri (les noms FR ne trient pas chronologiquement)
-    tasks: z.array(
-      z.object({
-        kind: z.enum(["done", "in-progress", "fix"]),
-        content: z.string(), // HTML conservé tel quel
-      }),
-    ),
-  }),
-});
-
-export const collections = { changelog };
-```
-
-### 2. Convertir les données en YAML
-
-Un fichier par mois, ex. `src/content/changelog/2026-04.yaml` :
-
-```yaml
-month: Avril
-year: 2026
-order: 4
-tasks:
-  - kind: fix
-    content: "Encore des fixes de vulnérabilité..."
-  - kind: done
-    content:
-      'J''ai sorti <a href="/jeux" target="_blank">la page jeu vidéo</a> ...'
-```
-
-- Reprendre chacun des ~11 objets `LogTasks` de `src/data/changelog.ts`.
-- Préserver le HTML de `content` **verbatim** — attention au quoting YAML des
-  apostrophes (doubler `''` en quotes simples, ou utiliser des quotes doubles /
-  blocs `|`).
-- `order` = numéro du mois. Les mois manquants = pas de fichier (les « trous »
-  actuels d'octobre/janvier restent gérés naturellement).
-
-### 3. Réécrire le frontmatter de la page
-
-Dans `src/pages/changelog.astro`, remplacer l'import des tableaux par :
-
-```ts
-import { getCollection } from "astro:content";
-import type { LogTasks } from "../types/LogTasks";
-
-const entries = await getCollection("changelog");
-
-// tri décroissant : année puis order (mois)
-entries.sort(
-  (a, b) => b.data.year - a.data.year || b.data.order - a.data.order,
-);
-
-// regroupement { [year]: LogTasks[] }
-const byYear = new Map<number, LogTasks[]>();
-for (const { data } of entries) {
-  const list = byYear.get(data.year) ?? [];
-  list.push({ month: data.month, tasks: data.tasks });
-  byYear.set(data.year, list);
-}
-const years = [...byYear.keys()].sort((a, b) => b - a); // plus récent en premier
-```
-
-Puis, dans le template, une boucle qui rend un `<MontlyChangelog>` par année
-(séparés par un `<hr />`), en conservant l'espace de tête du prop `year` comme
-aujourd'hui :
-
-```astro
-{
-  years.map((year, i) => (
-    <>
-      {i > 0 && <hr />}
-      <MontlyChangelog monthlyChangelog={byYear.get(year)} year={" " + year} />
-    </>
-  ))
-}
-```
-
-### 4. Nettoyage
-
-- Supprimer `src/data/changelog.ts` une fois qu'il n'est plus importé.
-- **Conserver** `src/types/LogTasks.ts` : le composant s'appuie toujours sur
-  cette forme.
-- Le bandeau « plus à jour » ajouté sur `changelog.astro` pourra être retiré (ou
-  adapté) selon l'état de la reprise du contenu.
-
-### 5. Vérification
-
-1. `npm run dev` puis ouvrir `/changelog` : comparer le rendu avec l'ancien
-   (mêmes mois, mêmes 3 sous-sections, mêmes liens), en clair **et** en sombre.
-2. `npm run check` (`astro check`) doit passer sans erreur — le schéma zod
-   valide chaque fichier au build.
-3. Ajouter un mois de test = créer un `.yaml`, vérifier qu'il apparaît au bon
-   endroit, puis le retirer.
-
----
-
-## Fichiers concernés
-
-| Fichier                          | Action                                           |
-| -------------------------------- | ------------------------------------------------ |
-| `src/content.config.ts`          | à créer (définition de la collection)            |
-| `src/content/changelog/*.yaml`   | à créer (un par mois)                            |
-| `src/pages/changelog.astro`      | réécrire le frontmatter + la boucle de rendu     |
-| `src/data/changelog.ts`          | à supprimer une fois inutilisé                   |
-| `src/components/Changelog.astro` | **inchangé**                                     |
-| `src/types/LogTasks.ts`          | **inchangé** (toujours utilisé par le composant) |
+> forcerait un rendu Markdown→HTML au lieu du `set:html` par item. Le YAML garde
+> `content` comme chaîne HTML → **zéro changement dans le composant**.
