@@ -1,0 +1,462 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "À propos";
+const description =
+  "Qui je suis, en un essai : treize ans sur le pont entre construire des systèmes et apprendre aux gens à les construire. Du premier poste de dev à la fusion des deux voies chez Scaleway, en passant par la décision de praticien et l'école.";
+
+const ORG_ID = "https://nx.academy/#organization";
+const PERSON_ID = "https://nx.academy/#thomas-dimnet";
+
+const schemas = [
+  {
+    "@type": "AboutPage",
+    name: "À propos — NX Academy",
+    description,
+    url: "https://nx.academy/a-propos",
+    inLanguage: "fr-FR",
+    isPartOf: { "@id": ORG_ID },
+    about: { "@id": ORG_ID },
+    mainEntity: { "@id": PERSON_ID },
+  },
+  {
+    "@type": "Person",
+    "@id": PERSON_ID,
+    name: "Thomas Dimnet",
+    jobTitle: "Créateur, développeur et professeur d'informatique",
+    description:
+      "Créateur, développeur et professeur, à l'origine de NX Academy. Conçoit et anime des formations pour les équipes de dev.",
+    url: "https://nx.academy/a-propos",
+    worksFor: { "@id": ORG_ID },
+    sameAs: [
+      "https://www.linkedin.com/in/thomas-dimnet-4114a4147/",
+      "https://github.com/nx-academy",
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  pageType="website"
+  author="Thomas Dimnet"
+  schemas={schemas}
+>
+  <main class="apropos">
+    <p class="eyebrow" data-reveal>À propos</p>
+
+    <div class="portrait" data-reveal>
+      <div class="pic">
+        <img
+          src="/thomas.png"
+          width="84"
+          height="84"
+          loading="lazy"
+          alt="Portrait pixel art de Thomas Dimnet"
+        />
+      </div>
+      <p class="name">Thomas Dimnet</p>
+    </div>
+
+    <div class="essay">
+      <!-- 1 · La factory -->
+      <section class="mvt open" data-reveal>
+        <p class="lede">
+          Mon tout premier poste de développeur, un collègue m'a demandé
+          d'implémenter une factory. Je ne savais pas ce que c'était.
+        </p>
+        <div class="lede-rule" aria-hidden="true"></div>
+        <p>
+          Je suis allé le voir pour qu'il m'explique. Et en creusant avec lui,
+          je me suis rendu compte d'une chose&nbsp;: lui non plus ne savait pas
+          vraiment. Il connaissait le pattern, il s'en servait tous les jours —
+          mais le dire avec des mots simples, il n'y arrivait pas.
+        </p>
+        <p>
+          Ça m'a marqué plus que ça n'aurait dû. Être bon techniquement et
+          savoir l'expliquer, ce sont deux choses différentes — et la première
+          ne donne pas la seconde. J'allais recroiser ce mur souvent&nbsp;: des
+          gens brillants, incapables de transmettre ce qu'ils savaient.
+        </p>
+        <p>
+          C'est sans doute là que les deux fils de mon parcours ont commencé à
+          se tendre en même temps. Construire des systèmes. Apprendre aux gens à
+          les construire. Pendant treize ans, je n'ai jamais lâché ni l'un ni
+          l'autre — et chaque fois qu'on m'a demandé de choisir, j'ai dit non.
+        </p>
+      </section>
+
+      <div class="sep" data-reveal aria-hidden="true"><b></b></div>
+
+      <!-- 2 · Enseigner en parallèle -->
+      <section class="mvt" data-reveal>
+        <p>
+          Pendant toutes ces années où je développais, je n'ai jamais cessé
+          d'enseigner. Le soir, les week-ends, à côté de chaque poste.
+        </p>
+        <p>
+          Ça a commencé par du mentorat, une heure par semaine avec un apprenant
+          que j'aidais à débloquer son projet. Puis j'ai évalué des soutenances,
+          animé des sessions, écrit des cours. Quatre ans chez OpenClassrooms,
+          en parallèle de mon travail de développeur, sans que jamais l'un
+          prenne la place de l'autre.
+        </p>
+        <p>
+          Ce qui me tenait là, c'était ce mur croisé à mon premier poste et
+          recroisé partout ensuite — jusque chez les spécialistes de l'infra et
+          des bases de données&nbsp;: des gens qui savaient faire, mais pas
+          transmettre. Plus je pratiquais, plus je voyais ces deux mondes vivre
+          séparés, et personne pour s'occuper du pont entre eux.
+        </p>
+        <p>
+          Alors le jour où OpenClassrooms m'a proposé un poste d'enseignant à
+          plein temps — arrêter de développer pour ne faire que ça — j'ai dit
+          non. Pas par prudence. Parce que retirer la pratique, c'était retirer
+          ce qui rendait mon enseignement vrai. Ces deux voies n'ont jamais été
+          deux métiers menés de front. C'était le même métier, vu des deux
+          côtés.
+        </p>
+      </section>
+
+      <div class="sep" data-reveal aria-hidden="true"><b></b></div>
+
+      <!-- 3 · CTO / Docker Swarm -->
+      <section class="mvt" data-reveal>
+        <p>
+          À la même époque, je suis devenu CTO. Et c'est là, loin de toute salle
+          de cours, que je me suis surpris à faire exactement le même geste.
+        </p>
+        <p>
+          Il fallait conteneuriser notre infrastructure. Le choix par défaut,
+          celui qu'on attend d'un CTO, c'était Kubernetes — l'outil le plus
+          puissant, le plus impressionnant sur un CV. J'ai pris Docker Swarm.
+          Moins prestigieux, beaucoup plus simple. Parce que je ne cherchais pas
+          l'outil qui me ferait bien voir&nbsp;: je cherchais celui que toute
+          l'équipe pourrait comprendre, faire tourner, et réparer un dimanche
+          soir sans moi.
+        </p>
+        <p>
+          J'aurais pu imposer Kubernetes pour la photo. Choisir Swarm, c'était
+          préférer ce que l'équipe pouvait vraiment porter à ce qui m'aurait
+          flatté.
+        </p>
+        <p>
+          Je refais ce geste aujourd'hui, sur NX. Le site tient au maximum sur
+          Astro, sans API, sans base de données — pas parce que je ne sais pas
+          en construire, j'en ai fait des dizaines, mais parce que chaque brique
+          qu'on ajoute est une brique qu'il faudra comprendre et maintenir.
+          Retirer, ici, n'est pas une limite. C'est une décision.
+        </p>
+        <p>
+          Et c'est exactement l'acte que je pose en préparant un cours&nbsp;:
+          garder ce qui compte, écarter le reste. Sauf qu'ici, il n'y a pas
+          d'élève. Juste du code. Ce geste ne vient pas de ma façon d'enseigner
+          — ma façon d'enseigner en est une conséquence.
+        </p>
+      </section>
+
+      <div class="sep" data-reveal aria-hidden="true"><b></b></div>
+
+      <!-- 4 · Professeur + Scaleway : la fusion -->
+      <section class="mvt" data-reveal>
+        <p>
+          Quelques années plus tard, je suis pourtant devenu professeur à plein
+          temps — dans une école qui formait des adolescents à la programmation.
+          La différence avec le poste que j'avais refusé, c'est que cette fois
+          je n'arrêtais pas de coder&nbsp;: NX tournait en parallèle. Et, le
+          plus étrange, je n'avais jamais autant développé que depuis que je
+          m'étais lancé dans ce projet d'enseignement.
+        </p>
+        <p>
+          On ne m'avait pas seulement recruté pour donner des cours, mais pour
+          refondre un programme qui n'avait pas de vraie progression — ni sur
+          l'année, ni sur les trois. J'ai passé la première année à le
+          reconstruire de zéro&nbsp;: décider quoi enseigner, dans quel ordre,
+          et quoi laisser dehors. L'année suivante, avec cette progression en
+          place, ça a tenu.
+        </p>
+        <p>
+          C'est là aussi qu'on m'a appris à enseigner. Ma directrice venait de
+          l'Éducation nationale, formée aux sciences cognitives et aux sciences
+          de l'éducation. Jusque-là, j'enseignais d'instinct&nbsp;; elle m'a
+          fait travailler ce qui ne s'improvise pas — la posture devant une
+          salle, le rythme d'une séance, ce qu'on fait d'un silence. C'est ce
+          métier, appris sur le terrain, que je fais aujourd'hui valider par une
+          VAE.
+        </p>
+        <p>
+          Depuis un an, chez Scaleway, les deux voies ne font plus qu'un seul
+          poste. On m'a recruté pour monter un programme de formation&nbsp;:
+          transmettre l'ingénierie pédagogique à des ingénieurs qui savent
+          construire mais pas encore enseigner, et leur donner l'exemple en
+          concevant moi-même les formations, des plus simples aux plus
+          techniques. Je forme, et je forme ceux qui formeront.
+        </p>
+        <p>
+          Ce que je mesure surtout, c'est à quel point ce profil est rare. Parce
+          que je n'ai jamais cessé de pratiquer, je peux m'asseoir avec des
+          ingénieurs et les faire monter, puis reprendre la même idée pour
+          quelqu'un qui débarque — sans devenir quelqu'un d'autre entre les
+          deux. Les deux voies que je refusais de départager n'en font plus
+          qu'une.
+        </p>
+      </section>
+
+      <div class="sep" data-reveal aria-hidden="true"><b></b></div>
+
+      <!-- 5 · Aujourd'hui / clôture -->
+      <section class="mvt" data-reveal>
+        <p>
+          Aujourd'hui, quand on me demande ce que je fais, je n'ai plus de
+          réponse courte. Développeur&nbsp;? Enseignant&nbsp;? Les deux mots
+          sont vrais, aucun ne suffit seul.
+        </p>
+        <p>
+          Je continue d'explorer, d'ailleurs — ces temps-ci du côté du game
+          design, un premier jam, une ville que je construis brique par brique.
+          Et je retombe sur la même évidence qu'ailleurs&nbsp;: un bon jeu ne
+          naît pas de ce qu'on y empile, mais des quelques éléments qu'on
+          choisit pour ouvrir le plus de profondeur. Toujours le même geste, sur
+          un terrain de plus.
+        </p>
+        <p>
+          Tout est parti d'un développeur à son premier poste qui ne savait pas
+          ce qu'était une factory — et qui a compris, ce jour-là, que savoir et
+          savoir transmettre sont deux choses différentes. J'ai passé les treize
+          années suivantes sur le pont entre les deux. Je n'en suis jamais
+          redescendu.
+        </p>
+      </section>
+    </div>
+
+    <nav class="exits" data-reveal>
+      <a href="/manifeste"><span class="arw">→</span> Ce que je construis</a>
+      <a href="/methode"><span class="arw">→</span> Ma méthode</a>
+      <a href="/articles"><span class="arw">→</span> Ce que j'écris</a>
+    </nav>
+  </main>
+</BaseLayout>
+
+<style>
+  /* Valeurs propres à la page (héritent des tokens NX pour tout le reste). */
+  .apropos {
+    --measure: 38rem; /* ~64 caractères par ligne — identique à /methode */
+    --gap-mvt: 7rem; /* un cran plus large que /methode (6.5) : le temps qui passe */
+    --lh: 1.78; /* interligne du corps */
+    padding-bottom: 1rem;
+  }
+  .apropos a {
+    text-decoration: none;
+  }
+
+  /* Eyebrow — muet, discret, situe la page dans le site. */
+  .eyebrow {
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--textColor);
+    opacity: 0.5;
+    margin: 5.5rem 0 2.4rem;
+    text-align: center;
+  }
+
+  /* Portrait de tête — un seul, petit, understated. Écho à la signature de /methode. */
+  .portrait {
+    max-width: var(--measure);
+    margin: 0 auto 3.4rem;
+    padding: 0 1.25rem;
+    text-align: center;
+  }
+  .portrait .pic {
+    width: 84px;
+    height: 84px;
+    border-radius: var(--radius-pill);
+    margin: 0 auto;
+    border: 1px solid var(--borderPrimary);
+    overflow: hidden;
+    image-rendering: pixelated;
+  }
+  .portrait .pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    image-rendering: pixelated;
+  }
+  .portrait .name {
+    margin: 0.8rem 0 0;
+    font-size: 0.9rem;
+    color: var(--titleColor);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  /* Colonne d'essai. */
+  .essay {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding: 0 1.25rem;
+  }
+
+  .mvt {
+    margin: 0;
+  }
+  .mvt p {
+    margin: 0 0 1.55rem;
+    font-size: 1.13rem;
+    line-height: var(--lh);
+    color: var(--textColor);
+  }
+  .mvt p:last-child {
+    margin-bottom: 0;
+  }
+  .mvt em {
+    font-style: italic;
+    color: var(--titleColor);
+  }
+
+  /* L'ouverture — premières lignes agrandies, de l'air autour. */
+  .open .lede {
+    font-size: 1.74rem;
+    line-height: 1.42;
+    color: var(--titleColor);
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    margin-bottom: 1.15rem;
+  }
+  .lede-rule {
+    width: 34px;
+    height: 2px;
+    background: var(--accent);
+    margin: 0 0 1.9rem;
+  }
+  .open p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--textColor);
+  }
+  /* Premier paragraphe après la lede : légèrement éclairci, mais thémable. */
+  .open .lede + p {
+    color: color-mix(in srgb, var(--textColor) 55%, var(--titleColor));
+  }
+
+  /* Séparateur pixel-art — le chevron NX (7 « pixels » de 4px). */
+  .sep {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: var(--gap-mvt) 0;
+    height: 16px;
+  }
+  .sep b {
+    width: 4px;
+    height: 4px;
+    display: block;
+    background: var(--accent);
+    transform: translateX(-12px);
+    opacity: 0.9;
+    box-shadow:
+      24px 0 0 0 var(--accent),
+      4px 4px 0 0 var(--accent),
+      20px 4px 0 0 var(--accent),
+      8px 8px 0 0 var(--accent),
+      16px 8px 0 0 var(--accent),
+      12px 12px 0 0 var(--accent);
+  }
+
+  /* Sorties discrètes après la clôture — même poids, sans emphase. */
+  .exits {
+    max-width: var(--measure);
+    margin: 6rem auto 0;
+    padding: 2rem 1.25rem 0;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--borderPrimary);
+  }
+  .exits a {
+    font-size: 0.82rem;
+    color: var(--textColor);
+    opacity: 0.55;
+    transition:
+      opacity var(--transition),
+      color var(--transition);
+  }
+  .exits a:hover {
+    opacity: 1;
+    color: var(--linkHoverColor);
+  }
+  .exits .arw {
+    color: var(--textColor);
+  }
+
+  /* Reveal au scroll. */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(14px);
+    transition:
+      opacity 0.8s ease,
+      transform 0.8s ease;
+  }
+  [data-reveal].in {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal] {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .open .lede {
+      font-size: 1.4rem;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    const els = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-reveal]"),
+    );
+
+    if (reduce) {
+      els.forEach((e) => e.classList.add("in"));
+      return;
+    }
+
+    function show(e: HTMLElement) {
+      e.classList.add("in");
+    }
+
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              show(entry.target as HTMLElement);
+              io.unobserve(entry.target);
+            }
+          });
+        },
+        { rootMargin: "0px 0px -6% 0px" },
+      );
+      els.forEach((e) => io.observe(e));
+    } else {
+      els.forEach(show);
+    }
+
+    // Filet de sécurité : tout révéler après 1,8 s.
+    window.setTimeout(() => els.forEach(show), 1800);
+  })();
+</script>
