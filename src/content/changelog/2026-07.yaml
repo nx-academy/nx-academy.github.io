@@ -35,6 +35,9 @@ tasks:
   - kind: done
     content: |-
       Création de <a href="/methode" target="_blank">la page « Comment je fais apprendre »</a>, qui explique ma méthode pédagogique.
+  - kind: done
+    content: |-
+      Nouvelle <a href="/a-propos" target="_blank">page « À propos »</a> : un essai-portrait qui raconte mon parcours, pensé comme le pendant de <a href="/methode" target="_blank">la page sur ma méthode</a>.
   - kind: in-progress
     content: |-
       Pas mal de travail de SEO pour resserrer le <i>clustering</i> du contenu Docker (liens internes entre cours, fiches et chapitres).
