@@ -4,6 +4,9 @@ order: 7
 tasks:
   - kind: done
     content: |-
+      J'ai ajouté deux skills de typographie éditoriale à mon assistant : un pour le français (espaces insécables, guillemets « … », tiret cadratin) et son pendant anglais. De quoi garder une typo cohérente et propre quand je rédige, sans y penser.
+  - kind: done
+    content: |-
       J'ai migré tout le changelog vers un nouveau système de fichiers YAML (une <i>content collection</i>). C'est bien plus propre à maintenir — et ça va m'aider à le tenir à jour, promis !
   - kind: done
     content: |-
