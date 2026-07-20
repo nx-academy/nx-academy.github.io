@@ -56,7 +56,7 @@ Voyons ça en détail pour que vous puissiez choisir en connaissance de cause.
 Avant de comparer, posons les définitions parce qu'on ne compare pas vraiment
 deux objets de même nature.
 
-**PICO-8** est une _fantasy console_. Autrement ditt, c'est un logiciel
+**PICO-8** est une _fantasy console_. Autrement dit, c'est un logiciel
 tout-en-un (autour de 15 $) qui embarque un éditeur de code Lua, un éditeur de
 sprites, de map et de son. On y crée de petits jeux rétro sous des contraintes
 volontaires (écran 128×128, 16 couleurs, 8192 tokens de code) et on les exporte

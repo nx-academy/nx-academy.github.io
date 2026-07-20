@@ -4,6 +4,9 @@ order: 7
 tasks:
   - kind: done
     content: |-
+      Nouvel article dédié <a href="/articles/pico-8-ou-pygame" target="_blank">à Pico-8 et Pygame</a>.
+  - kind: done
+    content: |-
       J'ai migré tout le changelog vers un nouveau système de fichiers YAML (une <i>content collection</i>). C'est bien plus propre à maintenir — et ça va m'aider à le tenir à jour, promis !
   - kind: done
     content: |-
