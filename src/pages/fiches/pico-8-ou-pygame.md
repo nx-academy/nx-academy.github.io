@@ -12,8 +12,8 @@ imgSrc: /images/articles/pico-8-ou-pygame.webp
 
 kind: Articles
 author: Thomas
-draft: true
-publishedDate: 06/17/2026
+draft: false
+publishedDate: 07/20/2026
 
 tags:
   - Game dev
