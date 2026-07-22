@@ -66,6 +66,10 @@ const organization = {
   ],
 };
 
+// Identifiant canonique de l'auteur (Person defini en entier sur /a-propos).
+// Les articles y font reference par @id, sans redupliquer l'objet.
+const PERSON_ID = `${SITE_URL}/#thomas-dimnet`;
+
 const jsonLdGraph: Record<string, unknown>[] = [organization];
 
 // WebSite uniquement sur la page d'accueil.
@@ -111,7 +115,7 @@ if (pageType === "article" && pageTitle) {
     headline: pageTitle,
     description,
     image,
-    ...(author ? { author: { "@type": "Person", name: author } } : {}),
+    ...(author ? { author: { "@id": PERSON_ID, name: author } } : {}),
     ...(publishedISO
       ? { datePublished: publishedISO, dateModified: publishedISO }
       : {}),

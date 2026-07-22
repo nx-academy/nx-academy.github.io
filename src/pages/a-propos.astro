@@ -235,6 +235,17 @@ const schemas = [
       <a href="/methode"><span class="arw">→</span> Ma méthode</a>
       <a href="/articles"><span class="arw">→</span> Ce que j'écris</a>
     </nav>
+
+    <nav class="elsewhere" data-reveal aria-label="Profils publics de Thomas Dimnet">
+      <a
+        href="https://www.linkedin.com/in/thomas-dimnet-4114a4147/"
+        target="_blank"
+        rel="me noopener">LinkedIn</a
+      >
+      <a href="https://github.com/nx-academy" target="_blank" rel="me noopener"
+        >GitHub</a
+      >
+    </nav>
   </main>
 </BaseLayout>
 
@@ -391,6 +402,30 @@ const schemas = [
   }
   .exits .arw {
     color: var(--textColor);
+  }
+
+  /* Profils publics — le pendant humain du sameAs. Encore plus discret. */
+  .elsewhere {
+    max-width: var(--measure);
+    margin: 1.5rem auto 0;
+    padding: 0 1.25rem;
+    display: flex;
+    gap: 1.6rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .elsewhere a {
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    color: var(--textColor);
+    opacity: 0.4;
+    transition:
+      opacity var(--transition),
+      color var(--transition);
+  }
+  .elsewhere a:hover {
+    opacity: 1;
+    color: var(--linkHoverColor);
   }
 
   /* Reveal au scroll. */
