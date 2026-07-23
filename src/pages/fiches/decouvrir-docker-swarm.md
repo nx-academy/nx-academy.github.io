@@ -19,22 +19,22 @@ tags:
   - Orchestration
   - Production
 level: Avancé
-publishedDate: 24/09/2026
+publishedDate: 07/23/2026
 ---
 
 Ça y est, on y arrive ! C'est la fiche que je tease depuis le début de cette
 série Docker : **Docker Swarm**, l'orchestrateur intégré à Docker.
 
 On a déjà
-[posé les bases dans la fiche sur la différence entre Docker, Compose et Swarm](/fiches/difference-docker-compose-swarm/)
-: pour rappel, là où Docker fait tourner un conteneur et Compose en orchestre
+[posé les bases dans la fiche sur la différence entre Docker, Compose et Swarm](/fiches/difference-docker-compose-swarm/).
+Pour rappel, là où Docker fait tourner un conteneur et Compose en orchestre
 plusieurs sur une machine, **Swarm répartit vos conteneurs sur plusieurs
 machines**. On entre dans le monde de l'orchestration et de la haute
 disponibilité.
 
-Dans cette fiche, on va monter un cluster de A à Z : l'initialiser, y déployer
-des services répliqués, et profiter de tout ce que Swarm apporte (load
-balancing, tolérance aux pannes, mises à jour sans coupure).
+Dans cette fiche, on va monter un cluster de A à Z. On va l'initialiser, y
+déployer des services répliqués et profiter de tout ce que Swarm apporte (load
+balancing, tolérance aux pannes, mises à jour sans coupure, etc.).
 
 ---
 
@@ -44,13 +44,13 @@ Avant de taper la moindre commande, posons trois mots de vocabulaire. Ils
 reviennent en permanence dès qu'on parle de Swarm :
 
 - un **node** (nœud) est une machine qui fait partie du cluster ;
-- un **manager** orchestre le cluster : il décide où placer les conteneurs et
+- un **manager** orchestre le cluster. Il décide où placer les conteneurs et
   maintient l'état désiré ;
 - un **worker** se contente d'exécuter les tâches que le manager lui confie.
 
 <br>
 
-Un node peut être manager, worker, ou les deux. Pour un vrai cluster de
+Un node peut être manager, worker ou les deux. Pour un vrai cluster de
 production, on recommande d'avoir plusieurs managers (en nombre impair) pour
 tolérer les pannes. Pour découvrir, une seule machine suffit largement.
 
@@ -92,8 +92,8 @@ Et voilà, votre cluster est prêt. Toute la suite se pilote depuis un manager.
 ## Déployer un service répliqué
 
 C'est ici que Swarm change tout. Au lieu de lancer des conteneurs un par un, on
-déclare un **service** : une description de ce que vous voulez faire tourner, et
-en combien d'exemplaires.
+déclare un **service**. C'est une description de ce que vous voulez faire
+tourner et en combien d'exemplaires.
 
 ```bash
 docker service create --name api --replicas 3 -p 3000:3000 mon-api:1.0.0
@@ -119,7 +119,7 @@ docker service ps api
 <br>
 
 Le point essentiel à comprendre, c'est que Swarm fonctionne en **mode
-déclaratif**. Vous déclarez un état désiré (« je veux 3 répliques »), et Swarm
+déclaratif**. Vous déclarez un état désiré (« je veux 3 répliques ») et Swarm
 fait tout pour le maintenir. Si une réplique plante, ou si une machine tombe,
 **il en relance automatiquement une ailleurs**. Vous n'avez rien à faire.
 
@@ -127,7 +127,7 @@ fait tout pour le maintenir. Si une réplique plante, ou si une machine tombe,
 
 C'est une différence de philosophie majeure avec `docker run` ou Docker Compose,
 où vous décrivez plutôt _comment_ lancer les conteneurs. Avec Swarm, vous
-décrivez le _résultat_ attendu, et l'orchestrateur s'occupe du reste. C'est
+décrivez le _résultat_ attendu et l'orchestrateur s'occupe du reste. C'est
 exactement cette logique qu'on retrouve, en plus poussé, dans Kubernetes.
 
 ---
@@ -153,23 +153,23 @@ l'orchestration.
 
 Voici une fonctionnalité qu'on adore une fois qu'on la comprend : le **routing
 mesh**. Quand vous publiez un port avec `-p 3000:3000`, Swarm ouvre ce port sur
-**tous les nodes du cluster**, même ceux qui n'exécutent aucune réplique du
+**tous les nodes du cluster** même ceux qui n'exécutent aucune réplique du
 service.
 
 <br>
 
 Concrètement, peu importe la machine du cluster que vous contactez sur le port
 3000, votre requête est automatiquement redirigée vers une réplique disponible.
-Vous avez donc un **répartiteur de charge intégré**, sans rien installer de
-plus. C'est exactement ce qu'on cherche quand on veut tenir la charge.
+Vous avez donc un **répartiteur de charge intégré** sans rien installer de plus.
+C'est exactement ce qu'on cherche quand on veut tenir la charge.
 
 ---
 
 ## Les rolling updates (et le rollback)
 
 Déployer une nouvelle version sans coupure de service, c'est natif avec Swarm.
-On parle de **rolling update** : Swarm remplace les répliques **une par une**,
-en s'assurant qu'il en reste toujours assez en ligne.
+On parle de **rolling update**. Swarm remplace les répliques **une par une** en
+s'assurant qu'il en reste toujours assez en ligne.
 
 ```bash
 docker service update --image mon-api:2.0.0 api
@@ -194,7 +194,7 @@ avec une seule ligne de commande.
 ## Déployer une stack depuis un docker-compose.yml
 
 Tout piloter à la main, c'est instructif, mais en pratique on déploie une
-**stack** : on décrit toute l'application dans un `docker-compose.yml` enrichi
+**stack**. On décrit toute l'application dans un `docker-compose.yml` enrichi
 d'une section `deploy`.
 
 ```yaml
@@ -227,9 +227,11 @@ secrets:
 
 Vous remarquerez qu'on réutilise ici tout ce qu'on a vu dans les fiches
 précédentes : un réseau [`overlay`](/fiches/bien-gerer-reseaux-docker/) pour
-faire communiquer les services entre machines, et un
+faire communiquer les services entre machines et un
 [secret](/fiches/bien-gerer-secrets-docker/) distribué de façon sécurisée par le
-cluster. Tout se déploie en une commande :
+cluster.
+
+Tout se déploie en une commande :
 
 ```bash
 docker stack deploy -c docker-compose.yml mon-app
@@ -237,8 +239,8 @@ docker stack deploy -c docker-compose.yml mon-app
 
 <br>
 
-C'est exactement l'astuce qu'on évoquait dans la première fiche : le travail
-fait avec Compose se réutilise tel quel sur un cluster.
+C'est exactement l'astuce qu'on évoquait dans la première fiche. Le travail fait
+avec Compose se réutilise tel quel sur un cluster.
 
 ---
 
@@ -266,7 +268,7 @@ cluster au quotidien.
 
 ## Astuce bonus - Placez vos conteneurs avec des contraintes
 
-Parfois, vous voulez qu'un service tourne sur une machine précise : un node avec
+Parfois, vous voulez qu'un service tourne sur une machine précise. Un node avec
 un disque SSD pour la base, ou réserver les managers à l'orchestration. Swarm
 permet ça avec des **contraintes de placement**.
 
@@ -296,7 +298,6 @@ Kubernetes pour celles et ceux qui veulent aller encore plus loin 😉.
 
 D'ici là, je vous invite :
 
-- [à faire le quiz](/quiz/decouvrir-docker-swarm) pour valider vos acquis ;
 - [à revoir la différence entre Docker, Compose et Swarm](/fiches/difference-docker-compose-swarm/)
   si certains concepts restent flous.
 
