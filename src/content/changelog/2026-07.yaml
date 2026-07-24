@@ -4,6 +4,9 @@ order: 7
 tasks:
   - kind: done
     content: |-
+      Sortie du <a href="/articles/le-recap-juillet-2026" target="_blank">récap #8 (juillet 2026)</a>. Deux mois d'affilée, la série a repris son rythme !
+  - kind: done
+    content: |-
       Nouvelle fiche technique dédiée <a href="/fiches/decouvrir-docker-swarm" target="_blank">à Docker et Docker Swarm</a>.
   - kind: done
     content: |-
