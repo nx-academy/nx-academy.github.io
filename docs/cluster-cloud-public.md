@@ -124,18 +124,18 @@ cloud :
 
 Tags partagés, pour faire jouer le scoring inter-clusters : `Cloud` sur les six
 contenus, plus `Docker` / `CI/CD` / `DevOps` / `Souveraineté` selon le contenu.
-Les fiches Docker ont aujourd'hui un `tags:` vide — les remplir au passage est
-ce qui fera remonter le cloud dans leur bloc « À lire ensuite ».
+Douze fiches sur dix-huit n'ont aujourd'hui aucun tag — les compléter est ce qui
+fera remonter le cloud dans leur bloc « À lire ensuite » (voir
+[`dette-editoriale.md`](./dette-editoriale.md)).
 
 ## Points d'attention repérés
 
-- Cinq fiches sont encore dans `src/pages/drafts/` alors que des fiches publiées
-  pointent déjà vers elles : `github-actions-vs-gitlab-ci`,
-  `gerer-secrets-github-actions`, `optimiser-workflows-github-actions`,
-  `reutiliser-workflow-github-actions`, `bien-gerer-secrets-docker`. Ce sont des
-  **404 internes en production**, et le calendrier les marque « DONE ». Hors
-  périmètre de ce cluster, mais à traiter : le cluster cloud va s'appuyer sur ce
-  maillage CI/CD.
+- Deux chantiers préalables sont détaillés dans
+  [`dette-editoriale.md`](./dette-editoriale.md) : quatre liens internes cassés
+  vers des fiches CI/CD restées en brouillon (404 en production), et l'absence
+  de `tags` sur 12 des 18 fiches publiées, qui bride le moteur de
+  recommandations. Hors périmètre de ce cluster, mais le cluster cloud s'appuie
+  précisément sur ces deux mécaniques.
 - Le rayon Cloud public n'apparaîtra sur `/fiches/` qu'à partir de la première
   fiche publiée : ajouter la clé `cloud` en amont ne crée pas de rayon vide.
 
