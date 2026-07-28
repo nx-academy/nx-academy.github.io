@@ -16,6 +16,9 @@ tasks:
       Migration d'Astro de la version 6 à la version 7. Ils ont remplacé le compilateur Go en Rust. Ca a l'air assez intéressant niveau perfs pour le moment !
   - kind: done
     content: |-
+      J'ouvre « l'atelier », une nouvelle série où je reviens sur les décisions techniques de NX et sur ce que chacune a coûté. <a href="/articles/l-atelier-presentation" target="_blank">L'article de présentation est en ligne</a> ; le premier billet portera sur mon serveur MCP.
+  - kind: done
+    content: |-
       Sortie du <a href="/articles/le-recap-juillet-2026" target="_blank">récap #8 (juillet 2026)</a>. Deux mois d'affilée, la série a repris son rythme !
   - kind: done
     content: |-
