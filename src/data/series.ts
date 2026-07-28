@@ -21,6 +21,11 @@ export const SERIES: Record<string, Serie> = {
     label: "CI/CD",
     blurb: "Automatiser tests et mises en production avec les GitHub Actions.",
   },
+  cloud: {
+    label: "Cloud public",
+    blurb:
+      "Comprendre le cloud avant d'y déployer : modèles de service, public ou privé, coûts réels.",
+  },
   js: {
     label: "JavaScript",
     blurb:
