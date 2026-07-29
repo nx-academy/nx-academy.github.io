@@ -2,6 +2,9 @@ month: Juillet
 year: 2026
 order: 7
 tasks:
+  - kind: done
+    content: |-
+      Nouvelle fiche technique dédiée <a href="/fiches/decouvrir-docker-swarm" target="_blank">aux secrets Docker</a>.
   - kind: fix
     content: |-
       Migration d'Astro de la version 6 à la version 7. Ils ont remplacé le compilateur Go en Rust. Ca a l'air assez intéressant niveau perfs pour le moment !

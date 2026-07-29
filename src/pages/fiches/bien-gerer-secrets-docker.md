@@ -18,7 +18,7 @@ tags:
   - Production
   - Sécurité
 level: Intermédiaire
-publishedDate: 24/08/2026
+publishedDate: 07/29/2026
 ---
 
 On poursuit notre série Docker. Après
@@ -260,7 +260,6 @@ le début de cette série : **Docker Swarm**. À très vite 😉.
 
 D'ici là, je vous invite :
 
-- [à faire le quiz](/quiz/bien-gerer-secrets-docker) pour valider vos acquis ;
 - [à relire la fiche sur les registries Docker](/fiches/presentation-registry-docker/)
   où l'on parlait déjà de tokens d'authentification.
 
