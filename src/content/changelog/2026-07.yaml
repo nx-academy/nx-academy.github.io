@@ -2,6 +2,9 @@ month: Juillet
 year: 2026
 order: 7
 tasks:
+  - kind: in-progress
+    content: |-
+      J'ai ajouté une table en base pour ranger au fil de l'eau les liens que je trouve intéressants. L'idée : en fin de mois, interroger la base pour monter <a href="/articles/le-recap" target="_blank">le récap</a> au lieu de fouiller mes notes. Reste à brancher mon serveur MCP dessus.
   - kind: done
     content: |-
       Nouvelle fiche technique dédiée <a href="/fiches/decouvrir-docker-swarm" target="_blank">aux secrets Docker</a>.

@@ -1,4 +1,4 @@
-import { defineDb, defineTable, column } from "astro:db";
+import { defineDb, defineTable, column, NOW } from "astro:db";
 
 const NewsFeed = defineTable({
   columns: {
@@ -25,10 +25,23 @@ const NowNoteFeed = defineTable({
   },
 });
 
+const RecapLink = defineTable({
+  columns: {
+    id: column.number({
+      primaryKey: true,
+      autoIncrement: true,
+    }),
+    addedAt: column.date({ default: NOW }),
+    description: column.text(),
+    url: column.text(),
+  },
+});
+
 // https://astro.build/db/config
 export default defineDb({
   tables: {
     NewsFeed,
     NowNoteFeed,
+    RecapLink,
   },
 });
