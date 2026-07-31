@@ -1,4 +1,4 @@
-import { db, NewsFeed, NowNoteFeed } from "astro:db";
+import { db, NewsFeed, NowNoteFeed, RecapLink } from "astro:db";
 
 // https://astro.build/db/seed
 export default async function seed() {
@@ -48,6 +48,23 @@ export default async function seed() {
       slug: "une-faille-critique-corrigée-dans",
       title: "Une faille critique corrigée dans OpenSSL 3.2.1",
       url: "https://openssl.org/news/une-faille-critique-corrigée-dans",
+    },
+  ]);
+
+  await db.insert(RecapLink).values([
+    {
+      id: 1,
+      addedAt: new Date("2026-07-03"),
+      description:
+        "Un retour d'expérience sur la migration d'un bot Discord vers un serveur MCP, avec les pièges d'authentification.",
+      url: "https://example.com/discord-vers-mcp",
+    },
+    {
+      id: 2,
+      addedAt: new Date("2026-07-18"),
+      description:
+        "Une analyse des choix de conception derrière PICO-8 et de ce que les contraintes apportent à la création.",
+      url: "https://example.com/pico-8-contraintes",
     },
   ]);
 }
