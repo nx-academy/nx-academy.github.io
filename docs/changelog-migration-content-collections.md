@@ -102,12 +102,11 @@ d'autre à toucher.
 
 ## Pourquoi ce choix (conception)
 
-Le site est **statique** (GitHub Pages ;
-`build = astro check && astro build --remote`). Une BDD (Astro DB / Turso) est
-lue **au moment du build** : que le contenu vienne d'une ligne DB ou d'un
-fichier, **une mise à jour impose de toute façon un rebuild + redéploiement**.
-Le seul vrai avantage d'une BDD — éditer sans toucher au code — **ne se
-matérialise donc pas ici**, alors que ses coûts demeurent.
+Le site est **statique** (GitHub Pages ; `build = astro check && astro build`).
+Une BDD (Turso) est lue **au moment du build** : que le contenu vienne d'une
+ligne DB ou d'un fichier, **une mise à jour impose de toute façon un rebuild +
+redéploiement**. Le seul vrai avantage d'une BDD — éditer sans toucher au code —
+**ne se matérialise donc pas ici**, alors que ses coûts demeurent.
 
 | Critère                     | Astro DB (Turso)                             | Content Collections (YAML)            |
 | --------------------------- | -------------------------------------------- | ------------------------------------- |
@@ -117,9 +116,14 @@ matérialise donc pas ici**, alors que ses coûts demeurent.
 | Publication (site statique) | rebuild + redeploy requis                    | rebuild + redeploy requis (identique) |
 | Infra / secrets             | URL remote + app token + voie d'insertion    | rien de nouveau                       |
 
-> On garde Astro DB pour `NewsFeed` / `NowNoteFeed`, dont le churn
-> programmatique justifie une BDD — ce qui n'est pas le cas d'un changelog
-> narratif, écrit à la main, à faible fréquence.
+> On garde la base pour `NewsFeed` / `NowNoteFeed`, dont le churn programmatique
+> justifie une BDD — ce qui n'est pas le cas d'un changelog narratif, écrit à la
+> main, à faible fréquence.
+>
+> _Mise à jour (juillet 2026)_ : `@astrojs/db` ayant été supprimé par Astro 7,
+> ces deux tables sont désormais lues avec Drizzle et `@libsql/client` en direct
+> (`src/lib/db/`). La base Turso et le chemin d'écriture sont inchangés ; seule
+> la couche d'accès a bougé. Le raisonnement ci-dessus reste valable tel quel.
 >
 > Une _content collection_ Markdown (corps rédigé) serait un mauvais choix : le
 > corps est un bloc unique qui ne se découpe pas en trois groupes par `kind` et
