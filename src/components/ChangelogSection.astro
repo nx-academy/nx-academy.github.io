@@ -1,0 +1,27 @@
+---
+/* Une section interne d'un mois : nouveautés, en cours ou correctifs.
+   Le statut n'est jamais porté par la couleur seule — la pastille est toujours
+   doublée de son libellé. */
+import { nbsp, type Section } from "../utils/changelog";
+
+interface Props {
+  section: Section;
+  /** Le niveau du titre dépend du contexte : mois courant, mois replié, archive. */
+  level: 3 | 4;
+}
+
+const { section, level } = Astro.props;
+const Title = `h${level}` as "h3" | "h4";
+---
+
+<section class={`sec sec-${section.kind}`}>
+  <Title class="sec-title">
+    <i aria-hidden="true"></i>
+    {section.heading}
+    <b>{section.tasks.length}</b>
+  </Title>
+  <ul class="entries">
+    {/* le HTML des YAML est conservé tel quel, à la typographie près */}
+    {section.tasks.map((task) => <li set:html={nbsp(task.content)} />)}
+  </ul>
+</section>

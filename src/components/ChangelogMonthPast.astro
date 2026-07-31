@@ -1,0 +1,62 @@
+---
+/* Une série de mois passés : des `<details>` natifs (clavier et lecteurs d'écran
+   gratuits, aucun JS) entrecoupés des mois sans entrée, regroupés et assumés.
+
+   Un mois passé n'affiche pas ses chantiers et ne les compte pas : sur une
+   archive, seul compte ce qui a été livré. */
+import {
+  counters,
+  gist,
+  keeps,
+  monthId,
+  monthLabel,
+  sections,
+  type RenderItem,
+} from "../utils/changelog";
+import ChangelogKeeps from "./ChangelogKeeps.astro";
+import ChangelogSection from "./ChangelogSection.astro";
+
+interface Props {
+  items: RenderItem[];
+  /** Niveau du titre de mois : `h3` sous /changelog, `h2` sur une archive. */
+  level: 2 | 3;
+}
+
+const { items, level } = Astro.props;
+const Title = `h${level}` as "h2" | "h3";
+const sectionLevel = (level + 1) as 3 | 4;
+---
+
+<div class="months">
+  {
+    items.map((item) =>
+      item.type === "gap" ? (
+        <p class="gap">
+          <span>{item.label}</span>
+          {item.text}
+        </p>
+      ) : (
+        <details id={monthId(item.slot)}>
+          <summary>
+            <Title class="month-title">{monthLabel(item.slot)}</Title>
+            <span class="gist">{gist(item.data)}</span>
+            <span class="counts">
+              {counters(item.data, ["done", "fix"]).map((count) => (
+                <span>{count}</span>
+              ))}
+            </span>
+            <span class="chev" aria-hidden="true" />
+          </summary>
+          <div class="body">
+            {keeps(item.data).length > 0 && (
+              <ChangelogKeeps tasks={keeps(item.data)} level={sectionLevel} />
+            )}
+            {sections(item.data, false).map((section) => (
+              <ChangelogSection section={section} level={sectionLevel} />
+            ))}
+          </div>
+        </details>
+      ),
+    )
+  }
+</div>

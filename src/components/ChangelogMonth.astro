@@ -1,0 +1,36 @@
+---
+/* Le mois courant : la seule carte dépliée, et la seule à montrer les chantiers.
+   C'est le mois qui prouve que le projet est vivant. */
+import type { LogTasks } from "../types/LogTasks";
+import {
+  counters,
+  keeps,
+  monthId,
+  monthLabel,
+  sections,
+} from "../utils/changelog";
+import ChangelogKeeps from "./ChangelogKeeps.astro";
+import ChangelogSection from "./ChangelogSection.astro";
+
+interface Props {
+  month: LogTasks;
+}
+
+const { month } = Astro.props;
+
+const kept = keeps(month);
+const list = sections(month, true);
+const counts = counters(month, ["done", "in-progress", "fix"]);
+const headingId = `titre-${monthId(month)}`;
+---
+
+<section class="month" id={monthId(month)} aria-labelledby={headingId}>
+  <div class="month-head">
+    <h2 id={headingId}>{monthLabel(month)}</h2>
+    <span class="now-tag">mois en cours</span>
+    <p class="counts">{counts.map((count) => <span>{count}</span>)}</p>
+  </div>
+
+  {kept.length > 0 && <ChangelogKeeps tasks={kept} level={3} />}
+  {list.map((section) => <ChangelogSection section={section} level={3} />)}
+</section>

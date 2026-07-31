@@ -1,0 +1,61 @@
+---
+/* La page « Mises à jour ». Deux couches : la preuve (chiffres + rythme), puis
+   le journal récent. Le reste part sur /changelog/[annee].
+   Tout ce qui est chiffré est dérivé de src/content/changelog/*.yaml. */
+import { getCollection } from "astro:content";
+
+import type { Breadcrumb } from "../../types/Breadcrumb";
+import { buildChangelog, groupGaps, yearStats } from "../../utils/changelog";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ChangelogArchives from "../../components/ChangelogArchives.astro";
+import ChangelogIntro from "../../components/ChangelogIntro.astro";
+import ChangelogMonth from "../../components/ChangelogMonth.astro";
+import ChangelogMonthPast from "../../components/ChangelogMonthPast.astro";
+import ChangelogProof from "../../components/ChangelogProof.astro";
+
+import "../../styles/changelog.css";
+
+const pageTitle = "Mises à jour";
+const pageDescription =
+  "Le journal de NX Academy : ce que je sors, ce qui est en chantier, ce que je corrige — mois après mois, sans rien retirer.";
+
+const entries = await getCollection("changelog");
+const model = buildChangelog(entries.map((entry) => entry.data));
+
+const recentItems = groupGaps(model.recent);
+const archives = model.archivedYears.map((year) => ({
+  year,
+  stats: yearStats(year, model.timeline),
+}));
+
+const breadcrumbs: Breadcrumb[] = [{ pageName: "Accueil", pageUrl: "/" }];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  breadcrumbs={breadcrumbs}
+>
+  <main class="changelog">
+    <ChangelogIntro model={model} />
+    <ChangelogProof model={model} />
+
+    {model.current?.data && <ChangelogMonth month={model.current.data} />}
+
+    {
+      recentItems.length > 0 && (
+        <section class="past">
+          <h2>Les mois précédents</h2>
+          <p>
+            Repliés pour garder la page lisible. Les chantiers n'y sont pas
+            listés&nbsp;: seul compte ce qui a été livré.
+          </p>
+          <ChangelogMonthPast items={recentItems} level={3} />
+        </section>
+      )
+    }
+
+    <ChangelogArchives years={archives} />
+  </main>
+</BaseLayout>

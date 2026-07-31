@@ -54,6 +54,13 @@ Pour chaque changement retenu, prépare :
   corporate). Ajoute un lien `<a href="…" target="_blank">…</a>` vers la page
   concernée quand c'est pertinent.
 
+Regarde ensuite si l'entrée mérite un **`keep: true`** (« à retenir »), qui la
+sort du lot : elle passe dans un encadré en tête du mois et devient le résumé de
+la ligne repliée. **1 à 2 par mois, jamais plus de 3, uniquement sur `done`.**
+Compte les `keep` déjà posés dans le fichier du mois avant d'en proposer un de
+plus — s'il y en a déjà deux, propose plutôt de remplacer. Dans le doute, ne
+propose pas : un mois sans `keep` s'affiche très bien.
+
 ## Étape 4 — Soumettre à validation
 
 Présente la ou les entrées proposées à Thomas (kind + texte + fichier cible)

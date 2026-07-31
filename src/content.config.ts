@@ -11,6 +11,7 @@ const changelog = defineCollection({
       z.object({
         kind: z.enum(["done", "in-progress", "fix"]),
         content: z.string(), // HTML conservé tel quel
+        keep: z.boolean().optional(), // « à retenir » : 1 à 2 par mois, sur des done
       }),
     ),
   }),
