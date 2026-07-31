@@ -3,7 +3,7 @@ layout: ../../layouts/BlogPostLayout.astro
 
 title: "Le DevOps n'est plus l'affaire d'une équipe à part"
 description:
-  "L'IA accélère la vitesse de shipping, mais elle ne dispense pas de rigueur.
+  "L'IA accélère la vitesse de shipping mais elle ne dispense pas de rigueur.
   Pourquoi les compétences DevOps et SRE de CI, d'environnements iso-prod, de
   cloud et de sécurité réseau, deviennent l'affaire de chaque développeur, pas
   d'une équipe séparée."
@@ -18,7 +18,7 @@ format: reflexion
 serie: devops
 author: Thomas
 draft: false
-publishedDate: 07/14/2026
+publishedDate: 07/31/2026
 
 tags:
   - DevOps
