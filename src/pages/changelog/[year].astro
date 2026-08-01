@@ -1,0 +1,125 @@
+---
+/* L'archive d'une année : la trace exhaustive, sur une page indexable, sans le
+   bandeau de preuve. Une page n'existe que pour les années dont au moins un mois
+   ne tient plus sur /changelog — l'année vivante n'a pas d'archive, elle a la
+   page principale. */
+import { getCollection } from "astro:content";
+
+import type { Breadcrumb } from "../../types/Breadcrumb";
+import { buildChangelog, groupGaps, yearStats } from "../../utils/changelog";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ChangelogMonthPast from "../../components/ChangelogMonthPast.astro";
+import ChangelogScore from "../../components/ChangelogScore.astro";
+
+import "../../styles/changelog.css";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("changelog");
+  const model = buildChangelog(entries.map((entry) => entry.data));
+
+  return model.archivedYears.map((year) => ({
+    params: { year: String(year) },
+  }));
+}
+
+const year = Number(Astro.params.year);
+
+const entries = await getCollection("changelog");
+const model = buildChangelog(entries.map((entry) => entry.data));
+
+const stats = yearStats(year, model.timeline);
+const items = groupGaps(
+  model.timeline
+    .filter((slot) => slot.year === year)
+    .sort((a, b) => b.order - a.order),
+);
+
+/* l'année vivante du projet renvoie toujours vers /changelog : elle n'a pas
+   d'archive, son journal est encore en train de s'écrire */
+const hrefFor = (target: number) =>
+  model.archivedYears.includes(target) ? `/changelog/${target}` : "/changelog";
+const labelFor = (target: number) =>
+  target === model.liveYear ? `${target} — en cours` : `${target}`;
+
+const position = model.years.indexOf(year);
+const older = model.years[position + 1];
+const newer = model.years[position - 1];
+
+const pageTitle = `Mises à jour ${year}`;
+const pageDescription = `Le journal de NX Academy en ${year} : ${stats.total} entrées consignées, dont ${stats.done} livraisons, sur ${stats.months} mois documentés.`;
+
+const breadcrumbs: Breadcrumb[] = [
+  { pageName: "Accueil", pageUrl: "/" },
+  { pageName: "Mises à jour", pageUrl: "/changelog" },
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  breadcrumbs={breadcrumbs}
+>
+  <main class="changelog">
+    <section class="intro arch-intro">
+      <h1>Mises à jour {year}</h1>
+      <p class="lead">
+        <b>{stats.total} entrées</b> consignées cette année-là, dont{" "}
+        <b>{stats.done} livraisons</b>, sur {stats.months} mois documentés{
+          stats.months < stats.slots && ` (sur ${stats.slots})`
+        }.
+      </p>
+      <ul class="year-nav">
+        {
+          model.years.map((target) => (
+            <li>
+              {target === year ? (
+                <b aria-current="page">{target}</b>
+              ) : (
+                <a href={hrefFor(target)}>{labelFor(target)}</a>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="past arch-months" aria-label={`Les mois de ${year}`}>
+      <p>
+        Chaque mois se déplie. Les chantiers annoncés à l'époque ne sont pas
+        listés&nbsp;: sur une archive, seul compte ce qui a été livré.
+      </p>
+      <ChangelogMonthPast items={items} level={2} />
+    </section>
+
+    <nav class="arch-foot" aria-label="Autres années">
+      <a href="/changelog">← Revenir aux mises à jour récentes</a>
+      <span>
+        {older && <a href={hrefFor(older)}>← {older}</a>}
+        {newer && <a href={hrefFor(newer)}>{newer} →</a>}
+      </span>
+    </nav>
+  </main>
+
+  <ChangelogScore year={year} model={model} />
+</BaseLayout>
+
+<script>
+  /* Arrivée depuis l'histogramme : /changelog/2025#2025-06 ouvre juin et cadre
+     dessus. Le navigateur ne sait pas déplier un <details> tout seul. */
+  const OFFSET = 24;
+
+  const openTargetMonth = () => {
+    if (!location.hash) return;
+    const target = document.getElementById(location.hash.slice(1));
+    if (!(target instanceof HTMLDetailsElement)) return;
+
+    target.open = true;
+    window.scrollTo({
+      top: target.getBoundingClientRect().top + window.scrollY - OFFSET,
+    });
+  };
+
+  openTargetMonth();
+  window.addEventListener("hashchange", openTargetMonth);
+</script>

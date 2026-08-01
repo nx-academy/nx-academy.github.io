@@ -1,0 +1,92 @@
+---
+/* L'histogramme du rythme de publication : une case par mois sur toute la durée
+   du projet, trous compris. Chaque case est un bouton — le clic est câblé par la
+   page, qui sait si le mois vit sur place ou sur une archive. */
+import { monthId, monthLabel, type Changelog } from "../utils/changelog";
+
+interface Props {
+  model: Changelog;
+}
+
+const { model } = Astro.props;
+
+const BAR_MAX = 70;
+const BAR_MIN = 9;
+
+/* la règle d'années sous l'histogramme : un segment large de son nombre de mois */
+const perYear = model.timeline.reduce<Map<number, number>>((acc, slot) => {
+  acc.set(slot.year, (acc.get(slot.year) ?? 0) + 1);
+  return acc;
+}, new Map());
+---
+
+<div class="rythme">
+  <div class="rythme-head">
+    <h2>Rythme de publication</h2>
+    <p class="hint">Une case par mois · cliquez pour y aller</p>
+  </div>
+
+  <ul class="frise">
+    {
+      model.timeline.map((slot, i) => {
+        const height = slot.n
+          ? Math.max(BAR_MIN, Math.round((slot.n / model.max) * BAR_MAX))
+          : 1;
+        const isCurrent = i === model.timeline.length - 1;
+        const label = slot.n
+          ? `${slot.n} ${slot.n > 1 ? "entrées" : "entrée"} en ${monthLabel(slot)}`
+          : `aucune entrée en ${monthLabel(slot)}`;
+
+        return (
+          <li>
+            <button
+              type="button"
+              class={slot.n ? (isCurrent ? "now" : undefined) : "void"}
+              data-month={slot.n ? monthId(slot) : undefined}
+              aria-disabled={slot.n ? undefined : "true"}
+            >
+              <u style={`height:${height}px`} />
+              <em aria-hidden="true">{slot.abbr}</em>
+              {/* l'étiquette est une abréviation : le texte complet vit ici */}
+              <span class="sr">{label}</span>
+            </button>
+          </li>
+        );
+      })
+    }
+  </ul>
+
+  <ul class="years" aria-hidden="true">
+    {
+      [...perYear.entries()].map(([year, months]) => (
+        <li style={`flex:${months}`}>{year}</li>
+      ))
+    }
+  </ul>
+</div>
+
+<script>
+  /* Un clic sur une case mène au mois : sur place s'il est rendu ici, sur son
+     archive sinon. Les mois vides n'ont pas de `data-month`, donc pas de clic. */
+  const OFFSET = 24;
+
+  document.querySelector(".frise")?.addEventListener("click", (event) => {
+    const button = (event.target as HTMLElement).closest<HTMLElement>(
+      "button[data-month]",
+    );
+    const id = button?.dataset.month;
+    if (!id) return;
+
+    const target = document.getElementById(id);
+    if (!target) {
+      location.href = `/changelog/${id.slice(0, 4)}#${id}`;
+      return;
+    }
+
+    if (target instanceof HTMLDetailsElement) target.open = true;
+    window.scrollTo({
+      top: target.getBoundingClientRect().top + window.scrollY - OFFSET,
+      behavior: "smooth",
+    });
+  });
+</script>

@@ -1,0 +1,49 @@
+---
+/* Le bandeau de preuve : quatre chiffres et l'histogramme du rythme. Aucun n'est
+   écrit à la main — c'est ce qui empêche la page de périmer. */
+import { elide, monthLabel, nbsp, type Changelog } from "../utils/changelog";
+import ChangelogRhythm from "./ChangelogRhythm.astro";
+
+interface Props {
+  model: Changelog;
+}
+
+const { model } = Astro.props;
+
+const start = model.timeline.length ? monthLabel(model.timeline[0]) : "";
+
+const stats = [
+  {
+    value: `${model.span} mois`,
+    label: `d'activité, ${elide(start)} à aujourd'hui`,
+  },
+  {
+    value: `${model.total}`,
+    label: "entrées consignées dans ce journal",
+  },
+  {
+    value: `${model.byKind("done")}`,
+    label: "livraisons — le reste : chantiers et correctifs",
+  },
+  {
+    value: model.current ? monthLabel(model.current) : "",
+    label: "dernière mise à jour de la page",
+    live: true,
+  },
+];
+---
+
+<section class="proof" aria-label="Preuves d'activité">
+  <div class="stats">
+    {
+      stats.map((stat) => (
+        <div class={stat.live ? "stat live" : "stat"}>
+          <b>{stat.value}</b>
+          <span>{nbsp(stat.label)}</span>
+        </div>
+      ))
+    }
+  </div>
+
+  <ChangelogRhythm model={model} />
+</section>

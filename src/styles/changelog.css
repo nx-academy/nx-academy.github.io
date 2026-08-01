@@ -1,0 +1,1051 @@
+/* Page « Mises à jour » — feuille unique, partagée par /changelog et
+   /changelog/[annee]. Elle vit ici plutôt que dans des <style> de composants
+   parce que les classes traversent les composants (.sec, .entries, .counts,
+   details/summary) et que le scoping Astro les couperait en deux.
+
+   Tout est en tokens de theme.css : dark, light et été fonctionnent sans une
+   seule règle par thème — c'est une contrainte à préserver. Pas de dégradé, pas
+   d'ombre portée, pas d'animation d'apparition. Les valeurs intermédiaires
+   passent par color-mix() plutôt qu'un gris en dur, pour rester lisibles sur les
+   trois thèmes.
+
+   Tout est scopé sous .changelog : la feuille est globale, le site ne l'est pas. */
+
+.changelog {
+  width: var(--container-width);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  font-size: 1.0625rem;
+}
+
+.changelog h1,
+.changelog h2,
+.changelog h3,
+.changelog h4 {
+  margin: 0;
+  color: var(--titleColor);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.changelog a {
+  color: var(--articleLinkColor);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.changelog a:hover {
+  color: var(--articleLinkHoverColor);
+}
+
+.changelog :focus-visible {
+  outline: 2px solid var(--buttonColorPrimary);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.changelog .sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── ChangelogIntro ─────────────────────────────────────────────── */
+
+.changelog .intro {
+  padding: 10px 0 34px;
+}
+
+.changelog .kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 14px;
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.changelog .kicker::before {
+  content: "";
+  width: 22px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.changelog h1 {
+  margin-bottom: 14px;
+  font-size: clamp(2.1rem, 1.5rem + 2vw, 3rem);
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.changelog .lead {
+  margin: 0;
+  max-width: 54ch;
+  color: var(--textColor);
+  font-size: 1.2rem;
+  line-height: 1.55;
+}
+
+/* ── ChangelogProof : cartes chiffrées + rythme ─────────────────── */
+
+/* minmax(0, 1fr) + min-width: 0 : sans ça, la largeur min-content de
+   l'histogramme (une case de 30px par mois) s'impose au grid et fait scroller
+   toute la page sur mobile. */
+.changelog .proof {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 26px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--borderPrimary);
+}
+
+.changelog .stats,
+.changelog .rythme {
+  min-width: 0;
+}
+
+/* le gap de 1px sur fond bordure dessine les séparateurs : pas de border par
+   carte, donc pas de double filet aux jonctions */
+.changelog .stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--borderPrimary);
+  border: 1px solid var(--borderPrimary);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.changelog .stat {
+  background: var(--backgroundColorSecondary);
+  padding: 18px 20px;
+}
+
+.changelog .stat b {
+  display: block;
+  color: var(--titleColor);
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.changelog .stat span {
+  display: block;
+  margin-top: 5px;
+  color: color-mix(
+    in srgb,
+    var(--textColor) 92%,
+    var(--backgroundColorSecondary)
+  );
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.changelog .stat.live b {
+  color: var(--buttonColorPrimary);
+}
+
+.changelog .stat.live b::before {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 9px;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  vertical-align: middle;
+  animation: changelog-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes changelog-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .changelog .stat.live b::before {
+    animation: none;
+  }
+}
+
+.changelog .rythme {
+  background: var(--backgroundColorSecondary);
+  border: 1px solid var(--borderPrimary);
+  border-radius: 14px;
+  padding: 20px 22px 16px;
+}
+
+.changelog .rythme-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.changelog .rythme h2 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.changelog .hint {
+  margin: 0;
+  color: color-mix(
+    in srgb,
+    var(--textColor) 88%,
+    var(--backgroundColorSecondary)
+  );
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.changelog .frise {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 92px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.changelog .frise li {
+  flex: 1;
+  display: flex;
+  margin: 0;
+}
+
+.changelog .frise button {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+}
+
+.changelog .frise button[aria-disabled="true"] {
+  cursor: default;
+}
+
+.changelog .frise button u {
+  display: block;
+  background: color-mix(
+    in srgb,
+    var(--buttonColorPrimary) 45%,
+    var(--backgroundColorSecondary)
+  );
+  border-radius: 3px 3px 0 0;
+  text-decoration: none;
+  transition: background var(--transition-fast);
+}
+
+.changelog .frise button:hover u,
+.changelog .frise button.now u {
+  background: var(--buttonColorPrimary);
+}
+
+/* mois vide : un trait pointillé, pas une barre écrasée */
+.changelog .frise .void u {
+  background: none;
+  border-top: 1px dashed var(--borderPrimary);
+  border-radius: 0;
+}
+
+.changelog .frise em {
+  color: color-mix(
+    in srgb,
+    var(--textColor) 88%,
+    var(--backgroundColorSecondary)
+  );
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-style: normal;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
+.changelog .frise button:hover em,
+.changelog .frise button.now em {
+  color: var(--titleColor);
+}
+
+.changelog .years {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  color: color-mix(
+    in srgb,
+    var(--textColor) 88%,
+    var(--backgroundColorSecondary)
+  );
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.06em;
+}
+
+.changelog .years li {
+  margin: 0;
+  padding-top: 6px;
+  border-top: 1px solid var(--borderPrimary);
+}
+
+/* ── ChangelogMonth : le mois courant, déplié ───────────────────── */
+
+.changelog .month {
+  margin-top: 44px;
+}
+
+.changelog .month-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--titleColor);
+}
+
+.changelog .month-head h2 {
+  font-size: 1.75rem;
+}
+
+.changelog .now-tag {
+  padding: 3px 9px;
+  border: 1px solid var(--buttonColorPrimary);
+  border-radius: var(--radius-pill);
+  color: var(--buttonColorPrimary);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.changelog .counts {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin: 0 0 0 auto;
+  color: color-mix(
+    in srgb,
+    var(--textColor) 92%,
+    var(--backgroundColorPrimary)
+  );
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
+}
+
+.changelog .counts span + span::before {
+  content: "·";
+  margin-right: 6px;
+  opacity: 0.6;
+}
+
+/* ── ChangelogSection : à retenir / nouveautés / en cours / correctifs ── */
+
+.changelog .sec {
+  padding: 22px 0 4px;
+}
+
+.changelog .sec + .sec {
+  border-top: 1px solid var(--borderPrimary);
+}
+
+.changelog .sec > .sec-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 12px;
+  color: color-mix(
+    in srgb,
+    var(--textColor) 94%,
+    var(--backgroundColorPrimary)
+  );
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* la pastille ne porte jamais le statut à elle seule : le libellé est toujours là */
+.changelog .sec > .sec-title i {
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+}
+
+.changelog .sec > .sec-title b {
+  color: color-mix(
+    in srgb,
+    var(--textColor) 82%,
+    var(--backgroundColorPrimary)
+  );
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 400;
+}
+
+.changelog .sec-done > .sec-title {
+  color: color-mix(in srgb, var(--buttonColorPrimary) 70%, var(--titleColor));
+}
+
+.changelog .sec-done > .sec-title i {
+  background: var(--buttonColorPrimary);
+}
+
+.changelog .sec-in-progress > .sec-title {
+  color: color-mix(in srgb, var(--accent) 74%, var(--titleColor));
+}
+
+.changelog .sec-in-progress > .sec-title i {
+  border: 1.5px solid var(--accent);
+}
+
+.changelog .sec-fix > .sec-title i {
+  background: color-mix(
+    in srgb,
+    var(--textColor) 86%,
+    var(--backgroundColorPrimary)
+  );
+}
+
+.changelog .entries {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.changelog .entries li {
+  margin: 0;
+  padding: 9px 0;
+  border-top: 1px solid var(--borderPrimary);
+  color: var(--textColor);
+  font-size: 1rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.changelog .entries li:first-child {
+  border-top: 0;
+}
+
+.changelog .entries a {
+  font-weight: 500;
+}
+
+/* à retenir : la seule mise en avant de la page, portée par un fond + un libellé */
+.changelog .sec-keep {
+  padding-top: 4px;
+}
+
+.changelog .keeps {
+  display: grid;
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: var(--borderPrimary);
+  border: 1px solid var(--borderPrimary);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.changelog .keeps li {
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  gap: 14px;
+  margin: 0;
+  padding: 14px 18px;
+  border: 0;
+  background: var(--backgroundColorSecondary);
+  color: var(--textColor);
+  font-size: 1.02rem;
+  line-height: 1.55;
+}
+
+.changelog .keeps .tag {
+  padding-top: 3px;
+  color: var(--buttonColorPrimary);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── ChangelogMonthPast : le mois replié, en details/summary natif ── */
+
+.changelog .past {
+  margin-top: 52px;
+}
+
+.changelog .past > h2 {
+  margin-bottom: 2px;
+  font-size: 1.4rem;
+}
+
+.changelog .past > p {
+  margin: 0 0 18px;
+  max-width: 64ch;
+  color: color-mix(
+    in srgb,
+    var(--textColor) 92%,
+    var(--backgroundColorPrimary)
+  );
+  font-size: 1rem;
+}
+
+.changelog details {
+  border-top: 1px solid var(--borderPrimary);
+}
+
+/* le filet de fin est porté par la liste, pas par le dernier mois : une série
+   peut se terminer sur une ligne de trou aussi bien que sur un <details> */
+.changelog .months {
+  border-bottom: 1px solid var(--borderPrimary);
+}
+
+.changelog summary {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: baseline;
+  gap: 16px;
+  padding: 16px 2px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.changelog summary::-webkit-details-marker {
+  display: none;
+}
+
+.changelog summary .month-title {
+  font-size: 1.22rem;
+  white-space: nowrap;
+  transition: color var(--transition-fast);
+}
+
+.changelog summary:hover .month-title {
+  color: var(--linkHoverColor);
+}
+
+.changelog details[open] summary .month-title {
+  color: var(--titleColor);
+}
+
+.changelog summary .gist {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 0;
+  color: color-mix(
+    in srgb,
+    var(--textColor) 92%,
+    var(--backgroundColorPrimary)
+  );
+  font-size: 0.97rem;
+  line-height: 1.45;
+}
+
+/* le chevron est un « + » de deux barres ; la verticale s'écrase en « − » */
+.changelog summary .chev {
+  position: relative;
+  width: 11px;
+  height: 11px;
+  align-self: center;
+}
+
+.changelog summary .chev::before,
+.changelog summary .chev::after {
+  content: "";
+  position: absolute;
+  background: var(--textColor);
+  border-radius: 1px;
+}
+
+.changelog summary .chev::before {
+  inset: 5px 0 auto;
+  height: 1.5px;
+}
+
+.changelog summary .chev::after {
+  inset: 0 auto 0 5px;
+  width: 1.5px;
+  transition: transform var(--transition-fast);
+}
+
+.changelog details[open] summary .chev::after {
+  transform: scaleY(0);
+}
+
+.changelog details .body {
+  padding: 0 2px 26px;
+}
+
+.changelog details .counts {
+  margin: 0;
+}
+
+@media (max-width: 860px) {
+  .changelog summary {
+    grid-template-columns: 1fr auto auto;
+  }
+
+  .changelog summary .gist {
+    grid-column: 1 / -1;
+    order: 4;
+  }
+}
+
+/* mois sans entrée — affiché et assumé, jamais masqué */
+.changelog .gap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  padding: 14px 2px;
+  border-top: 1px solid var(--borderPrimary);
+  color: color-mix(
+    in srgb,
+    var(--textColor) 86%,
+    var(--backgroundColorPrimary)
+  );
+  font-size: 0.95rem;
+}
+
+.changelog .gap span {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ── ChangelogArchives : les liens vers les pages par année ─────── */
+
+.changelog .arch {
+  margin-top: 46px;
+  padding-top: 26px;
+  border-top: 1px solid var(--borderPrimary);
+}
+
+.changelog .arch h2 {
+  margin-bottom: 6px;
+  font-size: 1.4rem;
+}
+
+.changelog .arch > p {
+  margin: 0 0 18px;
+  color: color-mix(
+    in srgb,
+    var(--textColor) 92%,
+    var(--backgroundColorPrimary)
+  );
+  font-size: 1rem;
+}
+
+.changelog .arch-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.changelog .arch-list li {
+  margin: 0;
+}
+
+.changelog .arch-list a {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  gap: 16px;
+  padding: 16px 20px;
+  border: 1px solid var(--borderPrimary);
+  border-radius: 12px;
+  background: var(--backgroundColorSecondary);
+  color: var(--textColor);
+  transition:
+    border-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.changelog .arch-list a:hover {
+  border-color: var(--linkHoverColor);
+  color: var(--linkHoverColor);
+}
+
+.changelog .arch-list b {
+  color: var(--titleColor);
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.changelog .arch-list span {
+  color: color-mix(
+    in srgb,
+    var(--textColor) 92%,
+    var(--backgroundColorSecondary)
+  );
+  font-size: 0.97rem;
+}
+
+.changelog .arch-list em {
+  font-size: 1.1rem;
+  font-style: normal;
+}
+
+/* ── /changelog/[annee] : l'archive d'une année ─────────────────── */
+
+.changelog .arch-intro {
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--borderPrimary);
+}
+
+.changelog .arch-intro h1 {
+  font-size: clamp(1.9rem, 1.4rem + 1.6vw, 2.5rem);
+}
+
+.changelog .arch-intro .lead b {
+  color: var(--titleColor);
+  font-weight: 600;
+}
+
+.changelog .year-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+
+.changelog .year-nav li {
+  margin: 0;
+}
+
+.changelog .year-nav a,
+.changelog .year-nav b {
+  display: block;
+  padding: 7px 15px;
+  border: 1px solid var(--borderPrimary);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  transition: var(--transition-fast);
+}
+
+.changelog .year-nav a {
+  color: var(--textColor);
+}
+
+.changelog .year-nav a:hover {
+  color: var(--linkHoverColor);
+  border-color: var(--linkHoverColor);
+}
+
+.changelog .year-nav b {
+  background: var(--backgroundColorSecondary);
+  color: var(--titleColor);
+  border-color: var(--titleColor);
+}
+
+.changelog .arch-months {
+  margin-top: 34px;
+}
+
+.changelog .arch-months > p {
+  margin: 0 0 18px;
+  max-width: 70ch;
+  color: color-mix(
+    in srgb,
+    var(--textColor) 92%,
+    var(--backgroundColorPrimary)
+  );
+  font-size: 1rem;
+}
+
+.changelog .arch-foot {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 36px;
+  font-size: 1rem;
+}
+
+.changelog .arch-foot span {
+  display: flex;
+  gap: 18px;
+}
+
+/* ── ChangelogScore : l'easter egg de la page d'archive ─────────── */
+
+.changelog-egg {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: color-mix(
+    in srgb,
+    var(--backgroundColorPrimary) 88%,
+    transparent
+  );
+}
+
+.changelog-egg[hidden] {
+  display: none;
+}
+
+/* border-box obligatoire : sinon padding + bordure débordent à 375px */
+.changelog-egg .panel {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 440px;
+  padding: 26px 26px 20px;
+  background: var(--backgroundColorSecondary);
+  border: 2px solid var(--buttonColorPrimary);
+  border-radius: 14px;
+  color: var(--titleColor);
+  font-family: var(--font-display);
+  text-align: center;
+}
+
+.changelog-egg h2 {
+  margin: 0 0 4px;
+  color: var(--buttonColorPrimary);
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  letter-spacing: 0.06em;
+}
+
+.changelog-egg .sub {
+  margin: 0 0 20px;
+  color: color-mix(
+    in srgb,
+    var(--textColor) 88%,
+    var(--backgroundColorSecondary)
+  );
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.changelog-egg dl {
+  display: grid;
+  gap: 9px;
+  margin: 0 0 22px;
+  font-size: 1.05rem;
+  text-align: left;
+}
+
+.changelog-egg dl > div {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.changelog-egg dt {
+  margin: 0;
+  color: color-mix(
+    in srgb,
+    var(--textColor) 90%,
+    var(--backgroundColorSecondary)
+  );
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.changelog-egg dd {
+  margin: 0 0 0 auto;
+  color: var(--titleColor);
+}
+
+.changelog-egg dd b {
+  color: var(--buttonColorPrimary);
+}
+
+.changelog-egg .dots {
+  flex: 1;
+  border-bottom: 1px dotted var(--borderPrimary);
+  transform: translateY(-3px);
+}
+
+.changelog-egg button {
+  padding: 9px 22px;
+  border: 2px solid var(--borderPrimary);
+  border-radius: var(--radius-pill);
+  background: none;
+  color: var(--titleColor);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.changelog-egg button:hover {
+  border-color: var(--buttonColorPrimary);
+  color: var(--buttonColorPrimary);
+}
+
+.changelog-egg button:focus-visible {
+  outline: 2px solid var(--buttonColorPrimary);
+  outline-offset: 3px;
+}
+
+.changelog-egg .egg-hint {
+  margin: 14px 0 0;
+  color: color-mix(
+    in srgb,
+    var(--textColor) 80%,
+    var(--backgroundColorSecondary)
+  );
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .changelog-egg {
+    animation: changelog-egg-in 0.18s ease-out;
+  }
+
+  .changelog-egg .panel {
+    animation: changelog-egg-pop 0.22s cubic-bezier(0.2, 0.8, 0.3, 1);
+  }
+
+  .changelog-egg dd b {
+    animation: changelog-egg-blink 1.6s steps(1) infinite;
+  }
+}
+
+@keyframes changelog-egg-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes changelog-egg-pop {
+  from {
+    transform: translateY(10px) scale(0.97);
+  }
+}
+
+@keyframes changelog-egg-blink {
+  50% {
+    opacity: 0.55;
+  }
+}
+
+/* ── mobile ─────────────────────────────────────────────────────── */
+
+@media (max-width: 720px) {
+  .changelog .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .changelog .stat b {
+    font-size: 1.4rem;
+  }
+
+  /* la carte « rythme » prend toute la largeur : plus de bordures latérales */
+  .changelog .rythme {
+    padding: 18px 0 14px;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+  }
+
+  .changelog .rythme-head,
+  .changelog .years {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .changelog .frise {
+    overflow-x: auto;
+    padding: 0 16px;
+    height: 84px;
+    gap: 6px;
+  }
+
+  .changelog .frise li {
+    flex: 0 0 30px;
+  }
+
+  .changelog .years {
+    display: none;
+  }
+
+  .changelog .counts {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .changelog .keeps li {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 13px 15px;
+  }
+
+  .changelog .month-head h2 {
+    font-size: 1.45rem;
+  }
+
+  .changelog .arch-list a {
+    grid-template-columns: 1fr auto;
+    padding: 14px 16px;
+  }
+
+  .changelog .arch-list span {
+    grid-column: 1 / -1;
+  }
+
+  .changelog .arch-foot {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

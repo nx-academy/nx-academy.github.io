@@ -1,0 +1,28 @@
+---
+/* La section « à retenir » : la seule mise en avant de la page. Son titre est
+   masqué visuellement, l'étiquette de chaque ligne fait le travail. */
+import type { Task } from "../types/LogTasks";
+import { nbsp } from "../utils/changelog";
+
+interface Props {
+  tasks: Task[];
+  level: 3 | 4;
+}
+
+const { tasks, level } = Astro.props;
+const Title = `h${level}` as "h3" | "h4";
+---
+
+<section class="sec sec-keep">
+  <Title class="sr">À retenir</Title>
+  <ul class="keeps">
+    {
+      tasks.map((task) => (
+        <li>
+          <span class="tag">À retenir</span>
+          <span set:html={nbsp(task.content)} />
+        </li>
+      ))
+    }
+  </ul>
+</section>

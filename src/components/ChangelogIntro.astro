@@ -1,0 +1,21 @@
+---
+/* En-tête de /changelog. Le seul bloc entièrement rédigé de la page : tout le
+   reste est dérivé des YAML. Même la date de départ vient de la collection. */
+import { monthLabel, type Changelog } from "../utils/changelog";
+
+interface Props {
+  model: Changelog;
+}
+
+const { model } = Astro.props;
+const start = model.timeline.length ? monthLabel(model.timeline[0]) : "";
+---
+
+<section class="intro">
+  <p class="kicker">Mises à jour</p>
+  <h1>Ce qui change sur NX,<br />mois après mois</h1>
+  <p class="lead">
+    Tout ce que je sors, tout ce qui est en chantier, tout ce que je corrige.
+    Depuis {start}, sans rien retirer.
+  </p>
+</section>

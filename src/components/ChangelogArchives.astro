@@ -1,0 +1,35 @@
+---
+/* Les années dont le journal ne tient plus sur la page principale. Une carte-lien
+   par année, avec son bilan dérivé — pas un dépli, une navigation. */
+import { nbsp, type YearStats } from "../utils/changelog";
+
+interface Props {
+  years: { year: number; stats: YearStats }[];
+}
+
+const { years } = Astro.props;
+---
+
+{
+  years.length > 0 && (
+    <section class="arch" aria-labelledby="archives">
+      <h2 id="archives">Archives</h2>
+      <p>Le journal complet, année par année, sur sa propre page.</p>
+      <ul class="arch-list">
+        {years.map(({ year, stats }) => (
+          <li>
+            <a href={`/changelog/${year}`}>
+              <b>{year}</b>
+              <span>
+                {nbsp(
+                  `${stats.total} entrées · ${stats.months} mois consignés sur ${stats.slots} · ${stats.done} livraisons`,
+                )}
+              </span>
+              <em aria-hidden="true">→</em>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}

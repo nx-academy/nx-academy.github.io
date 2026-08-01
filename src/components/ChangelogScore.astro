@@ -1,0 +1,142 @@
+---
+/* Easter egg de la page d'archive : l'année consignée, relue comme un écran de
+   score d'arcade. Clin d'œil à NX Arcade — et entièrement dérivé des données,
+   donc valable pour toute année future sans rien écrire.
+
+   Deux entrées : le code Konami au clavier, cinq taps sur le titre pour le
+   tactile. Rien n'est stocké, l'egg est rejouable à volonté. */
+import {
+  bestMonth,
+  streak,
+  yearStats,
+  type Changelog,
+} from "../utils/changelog";
+
+interface Props {
+  year: number;
+  model: Changelog;
+}
+
+const { year, model } = Astro.props;
+
+const stats = yearStats(year, model.timeline);
+const best = bestMonth(year, model.timeline);
+
+const lines: [string, string, string][] = [
+  ["XP total", `${stats.total}`, "entrées"],
+  ["Quêtes terminées", `${stats.done}`, "livraisons"],
+  ["Mois joués", `${stats.months}`, `/ ${stats.slots}`],
+  ["Combo max", `${streak(year, model.timeline)}`, "mois d'affilée"],
+  [
+    "Meilleur mois",
+    best ? best.month.toLowerCase() : "—",
+    best ? `· ${best.n} entrées` : "",
+  ],
+];
+---
+
+<div
+  class="changelog-egg"
+  role="dialog"
+  aria-modal="true"
+  aria-label={`Écran de score de l'année ${year}`}
+  hidden
+>
+  <div class="panel">
+    <h2>ANNÉE {year}</h2>
+    <p class="sub">NX Arcade · relevé de fin de niveau</p>
+    <dl>
+      {
+        lines.map(([label, value, suffix]) => (
+          <div>
+            <dt>{label}</dt>
+            <span class="dots" aria-hidden="true" />
+            <dd>
+              <b>{value}</b> {suffix}
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+    <button type="button" data-egg-close>CONTINUE</button>
+    <p class="egg-hint">Échap pour revenir au journal</p>
+  </div>
+</div>
+
+<script>
+  const overlay = document.querySelector<HTMLElement>(".changelog-egg");
+  const title = document.querySelector<HTMLElement>(".changelog h1");
+
+  if (overlay) {
+    const closeButton =
+      overlay.querySelector<HTMLButtonElement>("[data-egg-close]");
+    let restoreFocusTo: HTMLElement | null = null;
+
+    const isOpen = () => !overlay.hidden;
+
+    const open = () => {
+      if (isOpen()) return;
+      restoreFocusTo = document.activeElement as HTMLElement | null;
+      overlay.hidden = false;
+      closeButton?.focus();
+    };
+
+    const close = () => {
+      if (!isOpen()) return;
+      overlay.hidden = true;
+      restoreFocusTo?.focus?.();
+      restoreFocusTo = null;
+    };
+
+    closeButton?.addEventListener("click", close);
+    overlay.addEventListener("click", (event) => {
+      if (event.target === overlay) close();
+    });
+
+    const KONAMI = [
+      "ArrowUp",
+      "ArrowUp",
+      "ArrowDown",
+      "ArrowDown",
+      "ArrowLeft",
+      "ArrowRight",
+      "ArrowLeft",
+      "ArrowRight",
+      "b",
+      "a",
+    ];
+    let step = 0;
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && isOpen()) {
+        event.preventDefault();
+        close();
+        return;
+      }
+
+      const key = event.key.length === 1 ? event.key.toLowerCase() : event.key;
+      // une touche hors séquence remet à zéro, sauf si elle relance la séquence
+      step = key === KONAMI[step] ? step + 1 : key === KONAMI[0] ? 1 : 0;
+      if (step === KONAMI.length) {
+        step = 0;
+        open();
+      }
+    });
+
+    /* chemin tactile : cinq taps rapprochés sur le titre de l'année */
+    if (title) {
+      let taps = 0;
+      let timer: ReturnType<typeof setTimeout>;
+
+      title.addEventListener("click", () => {
+        taps++;
+        clearTimeout(timer);
+        timer = setTimeout(() => (taps = 0), 900);
+        if (taps >= 5) {
+          taps = 0;
+          open();
+        }
+      });
+    }
+  }
+</script>
