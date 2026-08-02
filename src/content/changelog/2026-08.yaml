@@ -36,3 +36,16 @@ tasks:
   - kind: done
     content: |-
       J'ai retiré la rubrique « Jeux vidéo », les dev logs et la bannière de la page d'accueil. Ça faisait du bruit pour pas grand-chose. Je continue à développer mes jeux dans mon coin — le sujet reviendra, mais sous forme de fiches et d'articles.
+  - kind: done
+    keep: true
+    content: |-
+      Nouvelle fiche technique : <a href="/fiches/premier-jeu-simple-pico-8" target="_blank">créer un premier jeu simple avec PICO-8</a>. Un vrai petit jeu de bout en bout — déplacer un personnage, faire apparaître des pièces, compter les points — avec tout le code Lua commenté, étape par étape.
+  - kind: fix
+    content: |-
+      Réparé les liens internes des pages PICO-8 : plusieurs pointaient encore vers des brouillons. Le parcours découverte → prise en main → premier jeu se suit maintenant d'un bout à l'autre.
+  - kind: done
+    content: |-
+      Rangement du rayon Game dev : j'ai posé les séries et les tags qui manquaient sur les contenus PICO-8 et Pygame. De quoi faire enfin tourner les recommandations de fin de page entre eux.
+  - kind: in-progress
+    content: |-
+      Il me reste un article PICO-8 en brouillon, un top 10 des jeux les plus connus de la console. Il n'attend plus que son illustration.
