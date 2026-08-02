@@ -14,8 +14,14 @@ imgSrc: /images/cheatsheets/premier-jeu-simple-pico-8.webp
 
 author: Thomas
 kind: Fiche technique
+serie: gamedev
 level: Débutant
-publishedDate: 06/17/2026
+publishedDate: 08/02/2026
+
+tags:
+  - Game dev
+  - PICO-8
+  - Lua
 
 faq:
   - question: Faut-il déjà savoir coder pour faire un jeu PICO-8 ?
@@ -53,7 +59,7 @@ howTo:
 ---
 
 Dans la fiche précédente, on a vu
-[comment prendre en main PICO-8](/drafts/prendre-en-main-pico-8) : l'installer,
+[comment prendre en main PICO-8](/fiches/prendre-en-main-pico-8) : l'installer,
 naviguer entre les éditeurs et lancer une cartouche. Mais un cercle qui bouge
 tout seul, ce n'est pas encore un jeu.
 
@@ -284,7 +290,7 @@ de pistes s'ouvrent pour vous entraîner :
 
 Si vous découvrez tout juste l'outil, (re)lisez d'abord
 [l'article de découverte de PICO-8](/articles/decouvrir-pico-8) et la fiche
-[prendre en main PICO-8](/drafts/prendre-en-main-pico-8). Et si vous venez
+[prendre en main PICO-8](/fiches/prendre-en-main-pico-8). Et si vous venez
 plutôt de Python, jetez un œil à [ma fiche sur Pygame](/fiches/intro-a-pygame) :
 vous retrouverez exactement le même pattern update/draw.
 
