@@ -85,6 +85,29 @@ en production ».
 | Décembre     | Article | Le cloud public coûte-t-il vraiment moins cher ?            | à faire |
 | Janvier 2027 | Article | Cloud souverain : de quoi parle-t-on vraiment ?             | à faire |
 
+## Série Game dev — PICO-8
+
+Série ouverte en juin 2026, hors calendrier mensuel (elle vient en plus des
+publications prévues, pas à leur place). Rayon `gamedev` sur `/fiches/`.
+
+| Contenu                                 | Type    | Status                            |
+| --------------------------------------- | ------- | --------------------------------- |
+| Découvrir PICO-8                        | Article | **DONE** (juin 2026)              |
+| Comment prendre en main PICO-8 ?        | Fiche   | **DONE** (juin 2026)              |
+| PICO-8 ou Pygame ?                      | Article | **DONE** (juillet 2026)           |
+| Créer un premier jeu simple avec PICO-8 | Fiche   | **DONE** (août 2026)              |
+| Les 10 jeux PICO-8 les plus connus      | Article | brouillon — visuel manquant       |
+| Cours « créer un jeu avec PICO-8 »      | Cours   | promis au manifeste, non planifié |
+
+Deux points à trancher :
+
+- le brouillon `src/pages/drafts/top-10-jeux-pico-8.md` est rédigé, il n'attend
+  que son visuel de une (`raw/articles/top-10-jeux-pico-8.png`), un
+  `serie: gamedev` et une date ;
+- `src/pages/manifeste.astro` annonce « un cours de création de jeux vidéo avec
+  PICO-8 ». Cet engagement n'apparaît nulle part ailleurs : soit on le planifie,
+  soit on le retire du manifeste.
+
 ## Le Recap
 
 | Mois      | Objectif                          | status     |

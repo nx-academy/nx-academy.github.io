@@ -11,6 +11,7 @@ imgAlt: Deux manettes rétro face à face, l'une PICO-8 l'autre Python, pixel ar
 imgSrc: /images/articles/pico-8-ou-pygame.webp
 
 kind: Articles
+serie: gamedev
 author: Thomas
 draft: false
 publishedDate: 07/20/2026
@@ -180,8 +181,8 @@ l'autre.
 Quel que soit votre choix, j'ai de quoi vous lancer pas à pas :
 
 - Côté PICO-8 : [découvrir l'outil](/articles/decouvrir-pico-8), puis
-  [le prendre en main](/drafts/prendre-en-main-pico-8) et enfin
-  [créer un premier jeu simple](/drafts/premier-jeu-simple-pico-8).
+  [le prendre en main](/fiches/prendre-en-main-pico-8) et enfin
+  [créer un premier jeu simple](/fiches/premier-jeu-simple-pico-8).
 - Côté Pygame : [comment bien débuter avec Pygame](/fiches/intro-a-pygame).
 
 Quoi qu'il arrive, le meilleur outil reste celui avec lequel vous finissez vos
