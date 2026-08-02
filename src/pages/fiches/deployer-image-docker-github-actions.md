@@ -276,4 +276,3 @@ invite :
 - [docker/login-action](https://github.com/docker/login-action)
 - [Publishing Docker images (GitHub Docs)](https://docs.github.com/en/actions/tutorials/publishing-packages/publishing-docker-images)
 - [Working with the Container registry (GHCR)](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
-  </content>

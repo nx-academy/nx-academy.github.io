@@ -200,4 +200,3 @@ D'ici la prochaine, je vous invite :
 - [Reusing workflows](https://docs.github.com/en/actions/using-workflows/reusing-workflows)
 - [Creating a composite action](https://docs.github.com/en/actions/creating-actions/creating-a-composite-action)
 - [Events that trigger workflows - workflow_call](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_call)
-  </content>

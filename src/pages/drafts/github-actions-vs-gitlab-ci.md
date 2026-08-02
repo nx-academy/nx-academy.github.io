@@ -244,4 +244,4 @@ D'ici là, je vous invite :
 - [La documentation officielle de GitHub Actions](https://docs.github.com/en/actions)
 - [La documentation officielle de GitLab CI/CD](https://docs.gitlab.com/ee/ci/)
 - [Migrating from GitLab CI/CD to GitHub Actions](https://docs.github.com/en/actions/migrating-to-github-actions/migrating-from-gitlab-cicd-to-github-actions)
-- [GitLab CI/CD examples](https://docs.gitlab.com/ee/ci/examples/) </content>
+- [GitLab CI/CD examples](https://docs.gitlab.com/ee/ci/examples/)
