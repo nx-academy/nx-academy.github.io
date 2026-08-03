@@ -226,4 +226,3 @@ D'ici là, je vous invite :
 - [Using a matrix for your jobs](https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs)
 - [Control the concurrency of workflows and jobs](https://docs.github.com/en/actions/using-jobs/using-concurrency)
 - [Usage limits, billing, and administration](https://docs.github.com/en/actions/learn-github-actions/usage-limits-billing-and-administration)
-  </content>

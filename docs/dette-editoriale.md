@@ -11,30 +11,31 @@
 **Priorité : haute.** Ce sont des 404 en production, sur des fiches publiées et
 indexées.
 
-Quatre liens en dur pointent vers trois slugs qui vivent encore dans
-`src/pages/drafts/`. Les brouillons sont routés en `/drafts/<slug>` (exclus du
-sitemap par `astro.config.ts`), donc les URLs `/fiches/<slug>` citées n'existent
-pas.
+Les brouillons sont routés en `/drafts/<slug>` (exclus du sitemap par
+`astro.config.ts`), donc les URLs `/fiches/<slug>` citées n'existent pas.
 
-| Fichier source                                             | Ligne    | Lien mort                              |
-| ---------------------------------------------------------- | -------- | -------------------------------------- |
-| `src/pages/fiches/declencher-workflow-github-actions.md`   | 356      | `/fiches/github-actions-vs-gitlab-ci`  |
-| `src/pages/fiches/deployer-image-docker-github-actions.md` | 84 · 267 | `/fiches/gerer-secrets-github-actions` |
-| `src/pages/fiches/decouvrir-docker-swarm.md`               | 231      | `/fiches/bien-gerer-secrets-docker/`   |
+| Fichier source                                             | Ligne    | Lien mort                              | État            |
+| ---------------------------------------------------------- | -------- | -------------------------------------- | --------------- |
+| `src/pages/fiches/declencher-workflow-github-actions.md`   | 356      | `/fiches/github-actions-vs-gitlab-ci`  | **ouvert**      |
+| `src/pages/fiches/deployer-image-docker-github-actions.md` | 84 · 267 | `/fiches/gerer-secrets-github-actions` | fermé (08/2026) |
+| `src/pages/fiches/decouvrir-docker-swarm.md`               | 231      | `/fiches/bien-gerer-secrets-docker/`   | fermé (07/2026) |
 
-Cinq fiches attendent dans `src/pages/drafts/` (les trois ci-dessus, plus
-`optimiser-workflows-github-actions` et `reutiliser-workflow-github-actions`,
-qui ne sont cités nulle part). Elles sont rédigées, front matter complet. Le
+Il reste donc **un seul 404** de ce type, celui vers
+`github-actions-vs-gitlab-ci` — d'où l'intérêt d'en faire la prochaine
+publication du cluster.
+
+Trois fiches attendent encore dans `src/pages/drafts/` :
+`github-actions-vs-gitlab-ci`, `optimiser-workflows-github-actions` et
+`reutiliser-workflow-github-actions` (les deux dernières ne sont citées nulle
+part). Elles sont rédigées, front matter complet. Le
 [calendrier](./calendrier-editorial.md) marque d'ailleurs « Comment optimiser
 vos workflows GitHub Actions ? » comme **DONE** alors que la fiche n'est pas
 publiée.
 
 **Ce qu'il manque pour les publier : les visuels, essentiellement.** Toutes
-pointent vers un `imgSrc` dans `/images/cheatsheets/`, mais seul
-`bien-gerer-secrets-docker` a le sien (`secrets-docker.webp`). Les quatre autres
-référencent un `<slug>.webp` qui n'existe pas : il faut produire le visuel pixel
-art, le déposer en `raw/cheatsheets/<slug>.png` et lancer
-`npm run optimize-images`.
+pointent vers un `imgSrc` dans `/images/cheatsheets/`, mais le `<slug>.webp`
+correspondant n'existe pas : il faut produire le visuel pixel art, le déposer en
+`raw/cheatsheets/<slug>.png` et lancer `npm run optimize-images`.
 
 Plus, pour chacune : vérifier `serie: cicd` (indispensable pour le rayon CI/CD),
 rafraîchir `publishedDate`, `git mv` vers `src/pages/fiches/`.

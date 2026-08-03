@@ -3,6 +3,25 @@
 > Cadrage éditorial (pré-rédaction). Objectif : étoffer la thématique CI/CD pour
 > renforcer le SEO, en reproduisant la recette qui fonctionne déjà pour Docker.
 
+## Où en est le cluster (août 2026)
+
+Quatre des six contenus sont publiés. Le constat ci-dessous date du cadrage
+initial, il est conservé pour mémoire.
+
+| Slug                                   | État                            |
+| -------------------------------------- | ------------------------------- |
+| `declencher-workflow-github-actions`   | publié (10/2025)                |
+| `artefact-github-actions`              | publié (07/2026)                |
+| `deployer-image-docker-github-actions` | publié (07/2026)                |
+| `gerer-secrets-github-actions`         | publié (08/2026)                |
+| `github-actions-vs-gitlab-ci`          | **brouillon** — visuel manquant |
+| `optimiser-workflows-github-actions`   | **brouillon** — visuel manquant |
+| `reutiliser-workflow-github-actions`   | **brouillon** — visuel manquant |
+
+Prochaine publication logique : `github-actions-vs-gitlab-ci`, seule fiche du
+cluster encore citée par un lien mort (depuis
+`declencher-workflow-github-actions`).
+
 ## Le constat
 
 - **Docker = un vrai cluster** : 6 fiches publiées (`serie: docker`) qui se

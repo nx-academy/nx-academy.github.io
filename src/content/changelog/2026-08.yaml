@@ -1,0 +1,11 @@
+month: Août
+year: 2026
+order: 8
+tasks:
+  - kind: done
+    keep: true
+    content: |-
+      Nouvelle fiche technique sur <a href="/fiches/gerer-secrets-github-actions" target="_blank">la gestion des secrets dans GitHub Actions</a> : où les stocker, comment s'en servir, et les pièges dans lesquels on tombe tous une fois. Elle ferme au passage deux liens morts qui traînaient depuis la fiche sur le déploiement d'images Docker.
+  - kind: fix
+    content: |-
+      Un bout de balise orpheline traînait en fin de deux fiches CI/CD (les artefacts et le déploiement d'image Docker). C'est nettoyé.

@@ -302,4 +302,3 @@ Codez bien !
 - [GitHub Actions Deep Dive - aCloudGuru](https://www.pluralsight.com/courses/github-actions-deep-dive)
 - [Share artifacts between workflows / Github Actions - stackOverflow](https://stackoverflow.com/questions/60355925/share-artifacts-between-workflows-github-actions)
 - [How to Download GitHub Actions Artifacts - geeksForGeeks](https://www.geeksforgeeks.org/devops/download-github-actions-artifacts/)
-  </content>
