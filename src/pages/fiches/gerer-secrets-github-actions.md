@@ -32,6 +32,8 @@ piègent tout le monde au début. C'est le prolongement naturel de la fiche sur
 [le déploiement d'une image Docker](/fiches/deployer-image-docker-github-actions),
 où on s'en servait déjà sans trop les expliquer.
 
+---
+
 ## C'est quoi un secret GitHub Actions ?
 
 Un secret, c'est une **variable chiffrée** que vous stockez dans GitHub et que
@@ -52,6 +54,8 @@ GitHub propose plusieurs niveaux de secrets :
 
 Dans tous les cas, une fois enregistré, **un secret ne peut plus être relu**
 dans l'interface. Vous pouvez le remplacer, pas le consulter. C'est voulu.
+
+---
 
 ## Comment créer et utiliser un secret
 
@@ -94,6 +98,8 @@ Bon à savoir : il existe un secret que vous n'avez **pas besoin de créer**, l
 permissions limitées au dépôt courant. Parfait, par exemple, pour se connecter à
 GHCR sans configurer quoi que ce soit.
 
+---
+
 ## Les environnements et leurs protections
 
 C'est là que ça devient intéressant pour les vrais déploiements.
@@ -131,6 +137,8 @@ Ici, `secrets.SSH_KEY` sera résolu avec la valeur définie **dans l'environneme
 `production`**, et le job ne partira que si les règles de protection sont
 respectées. C'est le bon réflexe pour ne pas déployer en prod par accident.
 
+---
+
 ## Bonus - OIDC : le déploiement sans secret
 
 Un cran plus loin, il existe une approche moderne pour éviter carrément de
@@ -148,6 +156,8 @@ rien à fuiter.
 C'est un sujet à part entière, mais gardez le nom en tête : dès que vous
 déployez sérieusement sur un cloud, **OIDC est la bonne pratique** vers laquelle
 tendre.
+
+---
 
 ## Les pièges à éviter
 
