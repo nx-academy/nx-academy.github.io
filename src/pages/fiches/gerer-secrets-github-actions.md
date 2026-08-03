@@ -15,7 +15,7 @@ author: Thomas
 kind: Fiche technique
 serie: cicd
 level: Intermédiaire
-publishedDate: 08/02/2026
+publishedDate: 08/03/2026
 ---
 
 Dès qu'un workflow fait quelque chose d'un peu sérieux (déployer une image,
