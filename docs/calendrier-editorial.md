@@ -69,21 +69,21 @@
 - Pourquoi le travail d'informaticien est en train de redevenir passionant ?
 - Personne n'aime l'eau tiède
 
-## Cluster Cloud public — août 2026 à janvier 2027
+## Cluster Cloud public — juillet 2026 à janvier 2027
 
 Cadrage complet : [cluster-cloud-public.md](./cluster-cloud-public.md). Nouvelle
 série `cloud` (rayon « Cloud public » sur `/fiches/`), 4 fiches et 2 articles
 qui se citent en chaîne. Prépare le terrain du cours « Mettez vos applications
 en production ».
 
-| Mois         | Type    | Titre                                                       | Status  |
-| ------------ | ------- | ----------------------------------------------------------- | ------- |
-| Août 2026    | Fiche   | Qu'est-ce que le cloud public ? (pilier)                    | à faire |
-| Septembre    | Fiche   | Cloud public, privé, hybride : quelles différences ?        | à faire |
-| Octobre      | Fiche   | IaaS, PaaS, SaaS : quelles différences et comment choisir ? | à faire |
-| Novembre     | Fiche   | Comment déployer un conteneur Docker dans le cloud ?        | à faire |
-| Décembre     | Article | Le cloud public coûte-t-il vraiment moins cher ?            | à faire |
-| Janvier 2027 | Article | Cloud souverain : de quoi parle-t-on vraiment ?             | à faire |
+| Mois         | Type    | Titre                                                       | Status    |
+| ------------ | ------- | ----------------------------------------------------------- | --------- |
+| Juillet 2026 | Fiche   | Qu'est-ce que le cloud public ? (pilier)                    | brouillon |
+| Juillet 2026 | Fiche   | Cloud public, privé, hybride : quelles différences ?        | brouillon |
+| Octobre      | Fiche   | IaaS, PaaS, SaaS : quelles différences et comment choisir ? | à faire   |
+| Novembre     | Fiche   | Comment déployer un conteneur Docker dans le cloud ?        | à faire   |
+| Décembre     | Article | Le cloud public coûte-t-il vraiment moins cher ?            | à faire   |
+| Janvier 2027 | Article | Cloud souverain : de quoi parle-t-on vraiment ?             | à faire   |
 
 ## Le Recap
 

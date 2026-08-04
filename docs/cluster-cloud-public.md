@@ -163,7 +163,10 @@ fera remonter le cloud dans leur bloc « À lire ensuite » (voir
 - Le bloc « À lire ensuite » de chaque contenu affiche bien ses voisins cloud.
 - Liens internes en dur valides (pas de 404 vers un slug resté en draft).
 - `npm run prettier:check` passe.
-- Ton NX (tutoiement, « on »), exemples testables, typo française.
+- Ton NX (vouvoiement, « on » pour la progression, « je » pour l'avis), exemples
+  testables, typo française. Les 19 fiches publiées vouvoient sans exception :
+  ce point du brief disait « tutoiement », il a été corrigé en rédigeant les
+  deux premières fiches.
 
 ## Séquençage suggéré
 

@@ -18,6 +18,7 @@ serie: docker
 tags:
   - Orchestration
   - Production
+  - Cloud
 level: Avancé
 publishedDate: 07/23/2026
 ---
