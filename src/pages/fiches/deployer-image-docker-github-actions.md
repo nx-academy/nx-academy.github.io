@@ -16,6 +16,10 @@ imgSrc: /images/cheatsheets/deployer-image-docker-github-actions.webp
 author: Thomas
 kind: Fiche technique
 serie: cicd
+tags:
+  - Image
+  - Production
+  - Cloud
 level: Intermédiaire
 publishedDate: 07/09/2026
 ---

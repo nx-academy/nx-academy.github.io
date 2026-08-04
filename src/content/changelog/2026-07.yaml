@@ -5,6 +5,9 @@ tasks:
   - kind: in-progress
     content: |-
       J'ai ajouté une table en base pour ranger au fil de l'eau les liens que je trouve intéressants. L'idée : en fin de mois, interroger la base pour monter <a href="/articles/le-recap" target="_blank">le récap</a> au lieu de fouiller mes notes. Reste à brancher mon serveur MCP dessus.
+  - kind: in-progress
+    content: |-
+      Le cluster Cloud public est en chantier. Les deux premières fiches sont écrites — ce qu'est le cloud public, et la différence entre public, privé et hybride — elles attendent leurs visuels avant publication.
   - kind: done
     content: |-
       Nouvelle fiche technique dédiée <a href="/fiches/decouvrir-docker-swarm" target="_blank">aux secrets Docker</a>.
