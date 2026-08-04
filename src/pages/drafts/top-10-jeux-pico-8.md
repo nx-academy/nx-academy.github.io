@@ -12,7 +12,6 @@ imgSrc: /images/articles/top-10-jeux-pico-8.webp
 
 kind: Articles
 author: Thomas
-draft: true
 publishedDate: 06/17/2026
 
 tags:

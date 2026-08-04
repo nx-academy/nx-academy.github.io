@@ -28,7 +28,7 @@ matter `layout`, `title`, `description`, `imgAlt`, `imgSrc`, `author`,
 `kind: Fiche technique`, **`serie: cloud`**, `level`, `publishedDate`
 (MM/DD/YYYY), plus un bloc `faq`. Un article = un `.md` dans
 `src/pages/articles/<slug>.md`, `kind: Articles`, `format: reflexion`,
-**`serie: cloud`**, `draft`, `tags`.
+**`serie: cloud`**, `tags`.
 
 Le champ `serie: cloud` est **indispensable** pour apparaître dans le rayon
 Cloud public de `/fiches/` (`src/data/series.ts`) et alimenter le bloc « À lire

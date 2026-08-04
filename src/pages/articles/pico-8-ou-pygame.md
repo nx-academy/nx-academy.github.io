@@ -12,7 +12,6 @@ imgSrc: /images/articles/pico-8-ou-pygame.webp
 
 kind: Articles
 author: Thomas
-draft: false
 publishedDate: 07/20/2026
 
 tags:

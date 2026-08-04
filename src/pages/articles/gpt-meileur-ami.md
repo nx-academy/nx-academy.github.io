@@ -17,7 +17,6 @@ tags:
   - IA
   - ChatGPT
 author: Thomas
-draft: false
 publishedDate: 02/09/2025
 ---
 

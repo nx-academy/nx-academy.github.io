@@ -19,7 +19,6 @@ tags:
   - IA
   - Développeur
 author: Thomas
-draft: false
 publishedDate: 03/29/2025
 ---
 

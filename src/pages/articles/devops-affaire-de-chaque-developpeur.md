@@ -17,7 +17,6 @@ kind: Articles
 format: reflexion
 serie: devops
 author: Thomas
-draft: false
 publishedDate: 07/31/2026
 
 tags:

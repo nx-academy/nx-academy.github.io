@@ -17,7 +17,6 @@ tags:
   - Veille
   - Le Récap
 author: Thomas
-draft: false
 publishedDate: 07/24/2026
 ---
 

@@ -2,7 +2,6 @@ export type Article = {
   frontmatter: {
     author: string;
     description: string;
-    draft: boolean;
     format?: "recap" | "reflexion" | "bilan";
     imgAlt: string;
     imgSrc: string;

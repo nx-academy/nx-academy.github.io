@@ -42,7 +42,6 @@ const editionOf = (title: string) => {
 const recaps = modules
   .filter(
     (module) =>
-      !module.frontmatter.draft &&
       module.frontmatter.format === "recap" &&
       editionOf(module.frontmatter.title),
   )

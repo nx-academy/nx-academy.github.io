@@ -20,7 +20,6 @@ tags:
   - Formation
   - Été
 author: Thomas
-draft: false
 publishedDate: 07/17/2026
 ---
 

@@ -16,7 +16,6 @@ tags:
   - NX Academy
   - Fiches techniques
 author: Thomas
-draft: false
 publishedDate: 08/24/2024
 ---
 

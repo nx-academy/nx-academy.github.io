@@ -10,7 +10,6 @@ export async function GET(context) {
   const items = modules
     .filter(
       (module) =>
-        !module.frontmatter.draft &&
         module.frontmatter.format === "recap" &&
         /#(\d+)/.test(module.frontmatter.title),
     )

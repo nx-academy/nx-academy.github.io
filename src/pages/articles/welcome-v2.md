@@ -15,7 +15,6 @@ serie: nx
 tags:
   - NX Academy
 author: Thomas
-draft: false
 publishedDate: 03/21/2024
 ---
 
