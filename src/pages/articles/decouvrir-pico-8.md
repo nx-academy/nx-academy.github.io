@@ -16,7 +16,6 @@ kind: Articles
 format: reflexion
 serie: gamedev
 author: Thomas
-draft: false
 publishedDate: 06/17/2026
 
 tags:

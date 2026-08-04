@@ -2,7 +2,6 @@ export type Cheatsheet = {
   frontmatter: {
     author: string;
     description: string;
-    draft: boolean;
     imgAlt: string;
     imgSrc: string;
     kind?: string;

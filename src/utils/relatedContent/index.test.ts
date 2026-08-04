@@ -89,15 +89,6 @@ describe("scoreRelated", () => {
     expect(urls).not.toContain("/fiches/clamp");
   });
 
-  it("excludes drafts", () => {
-    const withDraft = [
-      ...pool,
-      makeItem("/fiches/secret", { serie: "gamedev", draft: true }),
-    ];
-    const result = scoreRelated(current, withDraft, 5);
-    expect(result.some((i) => i.url === "/fiches/secret")).toBe(false);
-  });
-
   it("falls back to recency when nothing is relevant, never emptier than limit allows", () => {
     const lonely = makeItem("/articles/seul", { serie: "inconnu" });
     const onlyOthers = [

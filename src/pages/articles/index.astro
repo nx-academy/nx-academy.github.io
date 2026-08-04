@@ -61,21 +61,18 @@ const editionOf = (title: string) => {
   return match ? Number(match[1]) : undefined;
 };
 
-const enriched = modules
-  .filter((module) => !module.frontmatter.draft)
-  .map((module) => {
-    const { frontmatter, url } = module;
-    const format = (frontmatter.format ?? "reflexion") as Format;
-    const edition =
-      format === "recap" ? editionOf(frontmatter.title) : undefined;
-    return {
-      ...frontmatter,
-      url: url!,
-      format,
-      edition,
-      read: calculateReadingTime(module.rawContent()),
-    };
-  });
+const enriched = modules.map((module) => {
+  const { frontmatter, url } = module;
+  const format = (frontmatter.format ?? "reflexion") as Format;
+  const edition = format === "recap" ? editionOf(frontmatter.title) : undefined;
+  return {
+    ...frontmatter,
+    url: url!,
+    format,
+    edition,
+    read: calculateReadingTime(module.rawContent()),
+  };
+});
 
 // La série « Le récap » : éditions numérotées, de la plus récente à la plus ancienne.
 const recaps = enriched

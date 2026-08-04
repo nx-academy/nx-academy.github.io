@@ -57,17 +57,21 @@ const formattedDate = publishedDate
   : "";
 const currentUrl = Astro.url.pathname;
 
+// Les brouillons vivent sous /drafts : déjà hors sitemap et bloqués par
+// robots.txt, on ajoute le noindex pour les URLs découvertes par un lien.
+const isDraft = currentUrl.startsWith("/drafts");
+
 // Le kicker « À la une » n'est affiché que sur le dernier article publié ;
 // les autres articles affichent seulement leur `kind` (ex. « Articles »).
 const normalize = (path: string) => path.replace(/\/+$/, "");
 const allArticles = Object.values(
   import.meta.glob("../pages/articles/*.md", { eager: true }),
 ) as {
-  frontmatter: { draft?: boolean; publishedDate: string };
+  frontmatter: { publishedDate: string };
   url?: string;
 }[];
 const latest = allArticles
-  .filter((article) => !article.frontmatter.draft && article.url)
+  .filter((article) => article.url)
   .sort(
     (a, b) =>
       new Date(b.frontmatter.publishedDate).getTime() -
@@ -115,6 +119,7 @@ const breadCrumbs: Breadcrumb[] = [
     ? []
     : breadCrumbs}
   schemas={schemas}
+  noindex={isDraft}
 >
   {isArticle && <div class="nx-progress-top" data-progress />}
 

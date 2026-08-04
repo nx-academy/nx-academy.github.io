@@ -15,7 +15,6 @@ tags:
   - NX Academy
   - Bilan
 author: Thomas
-draft: false
 publishedDate: 01/01/2026
 ---
 

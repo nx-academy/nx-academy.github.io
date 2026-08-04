@@ -30,12 +30,10 @@ ajouter**.
 **Frontmatter existant à respecter** (ne PAS changer le format) :
 
 - Articles :
-  `title, description, imgAlt, imgSrc, kind (="Articles"), author, draft, publishedDate`
+  `title, description, imgAlt, imgSrc, kind (="Articles"), author, publishedDate`
   — `publishedDate` est au format **`MM/DD/YYYY`** (string), parsé partout via
   `new Date()`. Garder `z.string()`, **ne pas** passer en `z.date()`.
 - Fiches : idem + `level` (ex. `"Intermédiaire"`), `kind = "Fiche technique"`.
-  `draft` doit être **optionnel avec `.default(false)`** (les fiches n'ont pas
-  toutes ce champ).
 
 **À créer**
 
@@ -46,9 +44,8 @@ ajouter**.
   `lang: z.enum(["fr","en"]).default("fr")` (évite de re-toucher le schéma en
   Phase 2 et 5).
 - `src/pages/articles/[slug].astro` et `src/pages/fiches/[slug].astro` :
-  `getStaticPaths()` → `getCollection(...)`, filtrer les drafts en prod
-  (`import.meta.env.PROD`), `params.slug = entry.id` (l'`id` = nom de fichier
-  sans extension ⇒ URL identique). Rendu via
+  `getStaticPaths()` → `getCollection(...)`, `params.slug = entry.id` (l'`id` =
+  nom de fichier sans extension ⇒ URL identique). Rendu via
   `const { Content, headings } = await render(entry)`, enveloppé dans les
   layouts existants `BlogPostLayout.astro` / `CheatSheetsLayout.astro` (props
   `{ frontmatter: entry.data, headings }`) — **layouts réutilisés tels quels**.
@@ -68,8 +65,8 @@ ajouter**.
 - `src/pages/rss.xml.js` (**risque le plus élevé**) : `pagesGlobToRssItems` ne
   marche plus. Reconstruire les items via `getCollection` :
   `link: /articles/${id}/` (et `/fiches/`),
-  `pubDate: new Date(data.publishedDate)`, filtrer drafts, trier desc. Comparer
-  `dist/rss.xml` avant/après (les GUID = link, ne doivent pas changer).
+  `pubDate: new Date(data.publishedDate)`, trier desc. Comparer `dist/rss.xml`
+  avant/après (les GUID = link, ne doivent pas changer).
 - `src/types/Article.ts` / `Cheatsheet.ts` : ré-exporter
   `CollectionEntry<"articles">` / `<"fiches">` pour rester aligné avec le
   schéma.
@@ -137,8 +134,8 @@ le header. Note : l'index n'existe qu'après `astro build`.
 1. **Contenu lié** : `src/components/RelatedPosts.astro` +
    `src/utils/getRelated/index.ts` (+ test). Dans `[slug].astro`, calculer les
    entrées proches par `tags` partagés (fallback : plus récentes de la même
-   collection / même `level`), exclure l'article courant et les drafts,
-   réutiliser `Card.astro`.
+   collection / même `level`), exclure l'article courant, réutiliser
+   `Card.astro`.
 2. **Bouton copier le code** : script vanilla `src/scripts/copyCode.ts` (cible
    `pre > code`, `navigator.clipboard`), importé dans les 2 layouts à côté de
    `handleReadingTime()`. Style dans le bloc `is:global` existant. Pas de
@@ -200,7 +197,6 @@ le header. Note : l'index n'existe qu'après `astro build`.
 - **RSS** : reconstruire `link`/`pubDate` identiques sinon re-notification de
   tous les abonnés. Comparer `dist/rss.xml`.
 - **Format de date** : garder `publishedDate` en string `MM/DD/YYYY`.
-- **`draft` optionnel sur les fiches** : `.default(false)` obligatoire.
 - **`astro check` au build** : réconcilier le type `Article` inline de
   `index.astro` et `src/types/*.ts` avec le schéma.
 

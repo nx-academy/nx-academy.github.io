@@ -6,7 +6,6 @@
 // `tags` servent de signal fin pour départager.
 
 export type RelatedFrontmatter = {
-  draft?: boolean;
   title: string;
   imgSrc: string;
   imgAlt: string;
@@ -66,7 +65,7 @@ export function relevanceScore(
 /**
  * Sélectionne les contenus « À lire ensuite » les plus pertinents.
  *
- * - Exclut les brouillons, les items sans URL et la page courante.
+ * - Exclut les items sans URL et la page courante.
  * - Trie par score de pertinence décroissant, puis par date décroissante.
  * - Complète par les contenus les plus récents (préférence au `kind` de la
  *   page courante) si moins de `limit` candidats sont pertinents, afin de ne
@@ -80,10 +79,7 @@ export function scoreRelated(
   const currentUrl = current.url ? normalizeUrl(current.url) : undefined;
 
   const candidates = pool.filter(
-    (item) =>
-      !item.frontmatter.draft &&
-      item.url &&
-      normalizeUrl(item.url) !== currentUrl,
+    (item) => item.url && normalizeUrl(item.url) !== currentUrl,
   );
 
   const scored = candidates

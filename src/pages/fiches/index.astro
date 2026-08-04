@@ -4,9 +4,9 @@ import type { Cheatsheet } from "../../types/Cheatsheet";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { SERIES } from "../../data/series";
 
-const cheatsheets = (
-  Object.values(import.meta.glob("./*.md", { eager: true })) as Cheatsheet[]
-).filter((cheatsheet) => !cheatsheet.frontmatter.draft);
+const cheatsheets = Object.values(
+  import.meta.glob("./*.md", { eager: true }),
+) as Cheatsheet[];
 
 const LEVELS = ["Débutant", "Intermédiaire", "Avancé"];
 const levelClass = (level: string) =>
