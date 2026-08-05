@@ -20,7 +20,7 @@ tags:
   - Cloud
   - Production
 level: Débutant
-publishedDate: 07/30/2026
+publishedDate: 08/05/2026
 
 faq:
   - question: Qu'est-ce que le cloud public ?

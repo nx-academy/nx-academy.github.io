@@ -3,6 +3,9 @@ year: 2026
 order: 8
 tasks:
   - kind: done
+    content: |-
+      Nouvelle fiche technique sur <a href="/fiches/comprendre-le-cloud-public" target="_blank">la Cloud Public</a>. Elle ouvre un futur cours sur le déploiement d'applications dans le Cloud et un nouveau focus chez NX.
+  - kind: done
     keep: true
     content: |-
       Nouvelle fiche technique sur <a href="/fiches/gerer-secrets-github-actions" target="_blank">la gestion des secrets dans GitHub Actions</a> : où les stocker, comment s'en servir, et les pièges dans lesquels on tombe tous une fois. Elle ferme au passage deux liens morts qui traînaient depuis la fiche sur le déploiement d'images Docker.
