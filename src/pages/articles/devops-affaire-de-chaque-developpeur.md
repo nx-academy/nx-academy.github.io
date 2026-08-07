@@ -16,7 +16,7 @@ imgSrc: /images/articles/developpeur-devops-ecrans.webp
 kind: Articles
 format: reflexion
 serie: devops
-author: Thomas
+author: Thomas Dimnet
 publishedDate: 07/31/2026
 
 tags:

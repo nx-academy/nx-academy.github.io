@@ -12,7 +12,7 @@ imgAlt:
   Un petit personnage pixel qui ramasse une pièce dorée à l'écran, pixel art
 imgSrc: /images/cheatsheets/premier-jeu-simple-pico-8.webp
 
-author: Thomas
+author: Thomas Dimnet
 kind: Fiche technique
 level: Débutant
 publishedDate: 06/17/2026

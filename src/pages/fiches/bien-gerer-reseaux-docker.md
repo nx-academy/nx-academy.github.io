@@ -12,7 +12,7 @@ imgAlt:
   pixel art
 imgSrc: /images/cheatsheets/reseaux-docker.webp
 
-author: Thomas
+author: Thomas Dimnet
 kind: Fiche technique
 serie: docker
 tags:

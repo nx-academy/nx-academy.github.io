@@ -15,7 +15,7 @@ serie: nx
 tags:
   - NX Academy
   - Fiches techniques
-author: Thomas
+author: Thomas Dimnet
 publishedDate: 08/24/2024
 ---
 

@@ -15,7 +15,7 @@ serie: nx
 tags:
   - NX Academy
   - Bilan
-author: Thomas
+author: Thomas Dimnet
 publishedDate: 01/25/2025
 ---
 

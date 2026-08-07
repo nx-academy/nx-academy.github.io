@@ -101,7 +101,7 @@ title: "Comment gérer les secrets dans GitHub Actions ?"
 description: "…"
 imgAlt: "…"
 imgSrc: /images/cheatsheets/<slug>.webp
-author: Thomas
+author: Thomas Dimnet
 kind: Fiche technique
 serie: cicd
 level: Intermédiaire

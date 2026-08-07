@@ -11,7 +11,7 @@ imgAlt:
   Un coffre-fort ancien entrouvert d'où s'échappe une lueur dorée, pixel art
 imgSrc: /images/cheatsheets/secrets-docker.webp
 
-author: Thomas
+author: Thomas Dimnet
 kind: Fiche technique
 serie: docker
 tags:

@@ -16,7 +16,7 @@ serie: atelier
 tags:
   - NX Academy
   - L'atelier
-author: Thomas
+author: Thomas Dimnet
 draft: false
 publishedDate: 07/28/2026
 ---

@@ -12,7 +12,7 @@ imgAlt:
   transportant un petit conteneur
 imgSrc: /images/cheatsheets/docker-swarm.webp
 
-author: Thomas
+author: Thomas Dimnet
 kind: Fiche technique
 serie: docker
 tags:

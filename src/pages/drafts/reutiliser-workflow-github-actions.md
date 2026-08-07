@@ -13,7 +13,7 @@ imgAlt:
   pixel art
 imgSrc: /images/cheatsheets/reutiliser-workflow-github-actions.webp
 
-author: Thomas
+author: Thomas Dimnet
 kind: Fiche technique
 serie: cicd
 level: Avancé

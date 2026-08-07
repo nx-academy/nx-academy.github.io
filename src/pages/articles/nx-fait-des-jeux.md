@@ -15,7 +15,7 @@ serie: gamedev
 tags:
   - Game dev
   - Carnet de bord
-author: Thomas
+author: Thomas Dimnet
 publishedDate: 04/01/2026
 ---
 

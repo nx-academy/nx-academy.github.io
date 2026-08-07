@@ -12,7 +12,7 @@ imgAlt:
   Un tapis roulant d'usine accéléré avec des rouages bien huilés, pixel art
 imgSrc: /images/cheatsheets/optimiser-workflows-github-actions.webp
 
-author: Thomas
+author: Thomas Dimnet
 kind: Fiche technique
 serie: cicd
 level: Intermédiaire

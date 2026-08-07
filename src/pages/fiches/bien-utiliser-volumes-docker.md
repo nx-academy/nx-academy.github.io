@@ -9,7 +9,7 @@ description:
 imgAlt: Une femme en train de brancher une clé USB dans un ordinateur, pixel art
 imgSrc: /images/cheatsheets/femme-cle-usb.webp
 
-author: Thomas
+author: Thomas Dimnet
 kind: Fiche technique
 serie: docker
 level: Intermédiaire

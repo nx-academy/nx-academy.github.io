@@ -16,7 +16,7 @@ serie: ia
 tags:
   - IA
   - ChatGPT
-author: Thomas
+author: Thomas Dimnet
 publishedDate: 02/09/2025
 ---
 

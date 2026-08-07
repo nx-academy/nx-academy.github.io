@@ -9,7 +9,7 @@ description:
 imgAlt: Une vendeuse asiatique utilisant un balance dans un magasin, pixel art
 imgSrc: /images/cheatsheets/magasin-chinois.webp
 
-author: Thomas
+author: Thomas Dimnet
 kind: Fiche technique
 serie: docker
 tags:

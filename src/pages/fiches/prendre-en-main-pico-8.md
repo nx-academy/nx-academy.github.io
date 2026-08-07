@@ -12,7 +12,7 @@ imgAlt:
   Une console rétro posée sur un bureau avec un curseur clignotant, pixel art
 imgSrc: /images/cheatsheets/prendre-en-main-pico-8.webp
 
-author: Thomas
+author: Thomas Dimnet
 kind: Fiche technique
 serie: gamedev
 level: Débutant

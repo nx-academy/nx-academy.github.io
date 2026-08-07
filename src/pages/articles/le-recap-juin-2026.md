@@ -15,7 +15,7 @@ serie: veille
 tags:
   - Veille
   - Le Récap
-author: Thomas
+author: Thomas Dimnet
 publishedDate: 06/30/2026
 ---
 

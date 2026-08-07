@@ -13,7 +13,7 @@ imgAlt:
   une passerelle entre les deux, pixel art
 imgSrc: /images/cheatsheets/difference-cloud-public-prive-hybride.webp
 
-author: Thomas
+author: Thomas Dimnet
 kind: Fiche technique
 serie: cloud
 tags:
