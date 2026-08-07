@@ -12,7 +12,7 @@ imgAlt:
   art
 imgSrc: /images/cheatsheets/scene-immeuble.webp
 
-author: Thomas
+author: Thomas Dimnet
 kind: Fiche technique
 serie: docker
 tags:

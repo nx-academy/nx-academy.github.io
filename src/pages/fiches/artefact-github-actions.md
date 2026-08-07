@@ -10,7 +10,7 @@ description:
 imgAlt: Des colis posés sur une étagère, pixel art
 imgSrc: /images/cheatsheets/colis-etagere.webp
 
-author: Thomas
+author: Thomas Dimnet
 kind: Fiche technique
 serie: cicd
 level: Débutant

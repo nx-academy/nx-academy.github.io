@@ -12,7 +12,7 @@ imgAlt:
   GitHub, l'autre de GitLab, pixel art
 imgSrc: /images/cheatsheets/github-actions-vs-gitlab-ci.webp
 
-author: Thomas
+author: Thomas Dimnet
 kind: Fiche technique
 serie: cicd
 level: Débutant

@@ -13,7 +13,7 @@ imgSrc: /images/cheatsheets/homme-mesure-salon.webp
 kind: Fiche technique
 serie: css
 level: Intermédiaire
-author: Thomas
+author: Thomas Dimnet
 publishedDate: 07/17/2024
 ---
 

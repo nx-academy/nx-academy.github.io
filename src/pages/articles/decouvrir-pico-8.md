@@ -15,7 +15,7 @@ imgSrc: /images/articles/decouvrir-pico-8.webp
 kind: Articles
 format: reflexion
 serie: gamedev
-author: Thomas
+author: Thomas Dimnet
 publishedDate: 06/17/2026
 
 tags:

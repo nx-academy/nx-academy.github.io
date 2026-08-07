@@ -11,7 +11,7 @@ imgAlt:
   Un coffre-fort rempli de clés posé sur un tapis roulant d'usine, pixel art
 imgSrc: /images/cheatsheets/gerer-secrets-github-actions.webp
 
-author: Thomas
+author: Thomas Dimnet
 kind: Fiche technique
 serie: cicd
 level: Intermédiaire

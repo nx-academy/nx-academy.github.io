@@ -11,7 +11,7 @@ imgAlt: Une étagère de cartouches de jeux rétro colorées, pixel art
 imgSrc: /images/articles/top-10-jeux-pico-8.webp
 
 kind: Articles
-author: Thomas
+author: Thomas Dimnet
 publishedDate: 06/17/2026
 
 tags:

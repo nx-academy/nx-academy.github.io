@@ -17,7 +17,7 @@ serie: ia
 tags:
   - IA
   - Développeur
-author: Thomas
+author: Thomas Dimnet
 publishedDate: 07/14/2026
 ---
 

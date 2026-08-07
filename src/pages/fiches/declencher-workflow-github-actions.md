@@ -14,7 +14,7 @@ imgAlt:
   Satisfactory, pixel art
 imgSrc: /images/cheatsheets/usine-tapis-roulant.webp
 
-author: Thomas
+author: Thomas Dimnet
 kind: Fiche technique
 serie: cicd
 level: Débutant

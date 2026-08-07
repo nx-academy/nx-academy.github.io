@@ -11,7 +11,7 @@ imgAlt:
   conteneurs, pixel art
 imgSrc: /images/cheatsheets/registry-docker.webp
 
-author: Thomas
+author: Thomas Dimnet
 kind: Fiche technique
 serie: docker
 tags:

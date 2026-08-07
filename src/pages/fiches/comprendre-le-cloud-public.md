@@ -13,7 +13,7 @@ imgAlt:
   posé sur un chariot, pixel art
 imgSrc: /images/cheatsheets/comprendre-le-cloud-public.webp
 
-author: Thomas
+author: Thomas Dimnet
 kind: Fiche technique
 serie: cloud
 tags:

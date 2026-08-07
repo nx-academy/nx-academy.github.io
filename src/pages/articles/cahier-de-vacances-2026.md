@@ -19,7 +19,7 @@ tags:
   - Design
   - Formation
   - Été
-author: Thomas
+author: Thomas Dimnet
 publishedDate: 07/17/2026
 ---
 

@@ -11,7 +11,7 @@ imgAlt: Deux manettes rétro face à face, l'une PICO-8 l'autre Python, pixel ar
 imgSrc: /images/articles/pico-8-ou-pygame.webp
 
 kind: Articles
-author: Thomas
+author: Thomas Dimnet
 publishedDate: 07/20/2026
 
 tags:
