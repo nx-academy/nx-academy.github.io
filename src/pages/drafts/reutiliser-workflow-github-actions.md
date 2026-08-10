@@ -23,7 +23,7 @@ publishedDate: 07/07/2026
 Vous vous souvenez, dans la fiche sur
 [les déclencheurs de workflow](/fiches/declencher-workflow-github-actions), je
 vous avais glissé qu'il existait `workflow_call` pour mutualiser un bloc de
-tâches, et qu'on y reviendrait ? Eh bien nous y voilà.
+tâches et qu'on y reviendrait ? Eh bien nous y voilà.
 
 Au bout de quelques projets, on finit toujours par recopier les mêmes étapes :
 checkout, install, tests, lint… d'un repo à l'autre, d'un workflow à l'autre. Et
@@ -32,18 +32,20 @@ terrible.
 
 Dans cette fiche (un cran plus avancée que les précédentes), on va voir comment
 appliquer le principe **DRY** — _Don't Repeat Yourself_ — à vos workflows GitHub
-Actions, avec deux outils : les **reusable workflows** et les **composite
+Actions, avec deux outils. Les **reusable workflows** et les **composite
 actions**.
+
+---
 
 ## Option 1 - Les reusable workflows (`workflow_call`)
 
 Un _reusable workflow_, c'est un workflow entier que d'autres workflows peuvent
-**appeler**, comme on appellerait une fonction. On le déclare avec le
+**appeler** comme on appellerait une fonction. On le déclare avec le
 déclencheur `workflow_call`.
 
 <br>
 
-Voici un workflow de tests réutilisable, qui accepte un paramètre d'entrée
+Voici un workflow de tests réutilisable qui accepte un paramètre d'entrée
 (`input`) et un secret :
 
 ```yml
@@ -100,6 +102,8 @@ Quelques points clés :
 - **`outputs`** → un reusable workflow peut aussi **renvoyer** des valeurs à
   celui qui l'appelle.
 
+---
+
 ## Option 2 - Les composite actions
 
 Un reusable workflow mutualise des **jobs** entiers. Mais parfois, vous voulez
@@ -129,7 +133,7 @@ runs:
 
 <br>
 
-Et on l'utilise comme n'importe quelle action, mais avec un chemin local :
+Et on l'utilise comme n'importe quelle action mais avec un chemin local :
 
 ```yml
 steps:
@@ -139,12 +143,16 @@ steps:
 
 <br>
 
-Petit piège à connaître : dans une composite action, **chaque step `run` doit
+Petit piège à connaître. Dans une composite action, **chaque step `run` doit
 préciser son `shell`** (`shell: bash` par exemple). C'est vite oublié.
+
+---
 
 ## Reusable workflow ou composite action ?
 
-La question qui revient toujours. Voici comment je tranche :
+La question qui revient toujours.
+
+Voici comment je tranche :
 
 |                                     | Reusable workflow                     | Composite action             |
 | ----------------------------------- | ------------------------------------- | ---------------------------- |
@@ -156,13 +164,16 @@ La question qui revient toujours. Voici comment je tranche :
 
 <br>
 
-La règle simple : **un bloc de steps** → composite action. **Un pipeline
-complet** (avec ses propres jobs, runners, environnements) → reusable workflow.
+La règle simple :
+- **un bloc de steps** → composite action.
+- **Un pipeline complet** (avec ses propres jobs, runners, environnements) → reusable workflow.
 
 ## Bonus - Réutiliser un workflow d'un autre dépôt
 
+---
+
 Le vrai super-pouvoir, c'est de centraliser vos workflows dans **un seul dépôt**
-et de les appeler depuis tous les autres. La syntaxe accepte une référence vers
+et de les appeler depuis tous les autres ! La syntaxe accepte une référence vers
 un repo externe :
 
 ```yml
