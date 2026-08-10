@@ -17,7 +17,7 @@ author: Thomas Dimnet
 kind: Fiche technique
 serie: cicd
 level: Avancé
-publishedDate: 07/07/2026
+publishedDate: 08/10/2026
 ---
 
 Vous vous souvenez, dans la fiche sur
@@ -40,8 +40,8 @@ actions**.
 ## Option 1 - Les reusable workflows (`workflow_call`)
 
 Un _reusable workflow_, c'est un workflow entier que d'autres workflows peuvent
-**appeler** comme on appellerait une fonction. On le déclare avec le
-déclencheur `workflow_call`.
+**appeler** comme on appellerait une fonction. On le déclare avec le déclencheur
+`workflow_call`.
 
 <br>
 
@@ -165,8 +165,10 @@ Voici comment je tranche :
 <br>
 
 La règle simple :
+
 - **un bloc de steps** → composite action.
-- **Un pipeline complet** (avec ses propres jobs, runners, environnements) → reusable workflow.
+- **Un pipeline complet** (avec ses propres jobs, runners, environnements) →
+  reusable workflow.
 
 ## Bonus - Réutiliser un workflow d'un autre dépôt
 
