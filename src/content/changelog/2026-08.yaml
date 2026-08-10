@@ -4,6 +4,9 @@ order: 8
 tasks:
   - kind: done
     content: |-
+      Nouvelle fiche technique sur <a href="/fiches/reutiliser-workflow-github-actions" target="_blank">la réutilisation de workflow de GitHub Actions</a>.
+  - kind: done
+    content: |-
       Nouvelle fiche technique sur <a href="/fiches/comprendre-le-cloud-public" target="_blank">la Cloud Public</a>. Elle ouvre un futur cours sur le déploiement d'applications dans le Cloud et un nouveau focus chez NX.
   - kind: done
     keep: true
