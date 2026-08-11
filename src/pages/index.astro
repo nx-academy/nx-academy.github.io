@@ -3,7 +3,6 @@ import { db, NewsFeed, NowNoteFeed, desc } from "astro:db";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-import Banner from "../components/Banner.astro";
 import Hero from "../components/Hero.astro";
 import Card from "../components/Card.astro";
 import Heading2 from "../components/Heading2.astro";
@@ -133,7 +132,6 @@ const startHereItems = [
         <Feed newsFeed={newsFeed} />
       </section>
     </section>
-    <Banner />
   </main>
 </BaseLayout>
 

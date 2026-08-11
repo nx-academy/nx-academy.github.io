@@ -133,13 +133,6 @@ je pense que c'est nécessaire.
 
 ---
 
-## Ce que vous trouverez sur cette page
-
-La [page Jeux](/jeux) regroupe les projets sur lesquels je travaille ou que j'ai
-terminés. Pour chacun, vous trouverez une description, son statut actuel et les
-liens vers le code ou la page Steam selon le cas. C'est un espace qui va
-évoluer. Il y a des projets en cours, d'autres en réflexion.
-
 Je publierai des mises à jour au fil du temps. Si vous avez des questions sur un
 projet, une curiosité technique ou envie d'échanger, vous pouvez me retrouver
 [sur LinkedIn](https://www.linkedin.com/in/thomas-dimnet-4114a4147/).

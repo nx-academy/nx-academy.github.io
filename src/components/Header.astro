@@ -5,7 +5,6 @@ const navItems = [
   { key: "fiches", label: "Fiches techniques", href: "/fiches" },
   { key: "articles", label: "Articles", href: "/articles" },
   { key: "cours", label: "Cours", href: "/cours" },
-  { key: "jeux", label: "Jeux vidéo", href: "/jeux" },
   { key: "quiz", label: "Quiz", href: "/quiz" },
 ];
 
@@ -24,9 +23,7 @@ const isActive = (href: string) => path === href || path.startsWith(href + "/");
     <nav class="desktop-nav">
       <a href="/fiches">Fiches techniques</a>
       <a href="/articles">Articles</a>
-      <!-- <a href="/videos">Vidéos</a> -->
       <a href="/cours">Cours</a>
-      <a href="/jeux">Jeux vidéo</a>
       <a href="/quiz">Quiz</a>
     </nav>
 
