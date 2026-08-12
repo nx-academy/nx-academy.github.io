@@ -2,7 +2,7 @@
 
 Site statique [Astro](https://astro.build/) publié sur https://nx.academy
 (GitHub Pages, domaine perso via `CNAME`). On y publie des cours, des fiches
-techniques, des articles, un récap mensuel, des quiz et des jeux rétro.
+techniques, des articles, un récap mensuel et des quiz.
 
 Trois principes qui guident à peu près toutes les décisions :
 
@@ -66,7 +66,7 @@ Le reste :
 | ----------------- | ------------------------------------------------------------------------------------------- |
 | `src/components/` | Composants `.astro` (+ 3 îlots React)                                                       |
 | `src/layouts/`    | `BaseLayout`, `BlogPostLayout`, `CheatSheetsLayout`, `ChapterLayout`, `CourseLandingLayout` |
-| `src/data/`       | Données statiques en TS : `series.ts`, `games.ts`, `quiz.ts`…                               |
+| `src/data/`       | Données statiques en TS : `series.ts`, `quiz.ts`, `news.ts`…                                |
 | `src/types/`      | Types des frontmatters et des données                                                       |
 | `src/utils/`      | Logique métier, un dossier par util, test colocalisé                                        |
 | `db/`             | Schéma Astro DB (`config.ts`) et seed                                                       |

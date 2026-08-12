@@ -15,3 +15,6 @@ tasks:
   - kind: fix
     content: |-
       Un bout de balise orpheline traînait en fin de deux fiches CI/CD (les artefacts et le déploiement d'image Docker). C'est nettoyé.
+  - kind: done
+    content: |-
+      J'ai retiré la rubrique « Jeux vidéo », les dev logs et la bannière de la page d'accueil. Ça faisait du bruit pour pas grand-chose. Je continue à développer mes jeux dans mon coin — le sujet reviendra, mais sous forme de fiches et d'articles.
