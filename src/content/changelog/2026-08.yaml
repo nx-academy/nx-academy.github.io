@@ -7,7 +7,13 @@ tasks:
       Nouvelle fiche technique sur <a href="/fiches/reutiliser-workflow-github-actions" target="_blank">la réutilisation de workflow de GitHub Actions</a>.
   - kind: done
     content: |-
-      Nouvelle fiche technique sur <a href="/fiches/comprendre-le-cloud-public" target="_blank">la Cloud Public</a>. Elle ouvre un futur cours sur le déploiement d'applications dans le Cloud et un nouveau focus chez NX.
+      Nouvelle fiche technique sur <a href="/fiches/comprendre-le-cloud-public" target="_blank">le cloud public</a>. Elle ouvre un futur cours sur le déploiement d'applications dans le Cloud et un nouveau focus chez NX.
+  - kind: done
+    content: |-
+      Nouvelle fiche technique sur <a href="/fiches/difference-cloud-public-prive-hybride" target="_blank">la différence entre cloud public, privé et hybride</a>. Elle lève au passage la confusion la plus tenace du domaine : le multicloud, ce n'est pas l'hybride.
+  - kind: in-progress
+    content: |-
+      Le cluster Cloud public est complet côté rédaction : les quatre contenus restants sont écrits — IaaS/PaaS/SaaS, le déploiement d'un conteneur Docker dans le cloud, et deux articles de réflexion sur le coût réel et sur la souveraineté. Ils attendent leurs visuels, pour une publication étalée d'octobre à janvier.
   - kind: done
     keep: true
     content: |-

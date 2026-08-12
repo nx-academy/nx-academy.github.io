@@ -34,14 +34,14 @@ Le champ `serie: cloud` est **indispensable** pour apparaître dans le rayon
 Cloud public de `/fiches/` (`src/data/series.ts`) et alimenter le bloc « À lire
 ensuite » (`src/utils/relatedContent/`, poids `serie` = +3, `tag` partagé = +1).
 
-| #   | Type    | Slug                                      | Titre                                                       | level         | Rôle                        |
-| --- | ------- | ----------------------------------------- | ----------------------------------------------------------- | ------------- | --------------------------- |
-| 1   | Fiche   | `comprendre-le-cloud-public`              | Qu'est-ce que le cloud public ?                             | Débutant      | **Pilier** / porte d'entrée |
-| 2   | Fiche   | `difference-cloud-public-prive-hybride`   | Cloud public, privé, hybride : quelles différences ?        | Débutant      | Comparatif (fort volume)    |
-| 3   | Fiche   | `iaas-paas-saas`                          | IaaS, PaaS, SaaS : quelles différences et comment choisir ? | Intermédiaire | Requête exact-match         |
-| 4   | Fiche   | `deployer-conteneur-docker-dans-le-cloud` | Comment déployer un conteneur Docker dans le cloud ?        | Intermédiaire | **Pont Docker ↔ CI/CD**    |
-| 5   | Article | `le-cloud-est-il-vraiment-moins-cher`     | Le cloud public coûte-t-il vraiment moins cher ?            | —             | Réflexion / coûts           |
-| 6   | Article | `cloud-souverain`                         | Cloud souverain : de quoi parle-t-on vraiment ?             | —             | Réflexion / souveraineté    |
+| #   | Type    | Slug                                      | Titre                                                       | level         | Rôle                        | État              |
+| --- | ------- | ----------------------------------------- | ----------------------------------------------------------- | ------------- | --------------------------- | ----------------- |
+| 1   | Fiche   | `comprendre-le-cloud-public`              | Qu'est-ce que le cloud public ?                             | Débutant      | **Pilier** / porte d'entrée | Publié 05/08/2026 |
+| 2   | Fiche   | `difference-cloud-public-prive-hybride`   | Cloud public, privé, hybride : quelles différences ?        | Débutant      | Comparatif (fort volume)    | Publié 12/08/2026 |
+| 3   | Fiche   | `iaas-paas-saas`                          | IaaS, PaaS, SaaS : quelles différences et comment choisir ? | Intermédiaire | Requête exact-match         | Brouillon         |
+| 4   | Fiche   | `deployer-conteneur-docker-dans-le-cloud` | Comment déployer un conteneur Docker dans le cloud ?        | Intermédiaire | **Pont Docker ↔ CI/CD**    | Brouillon         |
+| 5   | Article | `le-cloud-est-il-vraiment-moins-cher`     | Le cloud public coûte-t-il vraiment moins cher ?            | —             | Réflexion / coûts           | Brouillon         |
+| 6   | Article | `cloud-souverain`                         | Cloud souverain : de quoi parle-t-on vraiment ?             | —             | Réflexion / souveraineté    | Brouillon         |
 
 ### Détail des angles
 
@@ -73,6 +73,11 @@ ensuite » (`src/utils/relatedContent/`, poids `serie` = +3, `tag` partagé = +
    `prendre-en-main-pico-8`), variables d'environnement, port exposé,
    healthcheck, coût à l'usage. Elle cite `presentation-registry-docker`,
    `deployer-image-docker-github-actions` et les deux cours.
+
+   > À la rédaction : `CheatSheetsLayout` ne fait du bloc `howTo` que du
+   > JSON-LD, il ne l'affiche jamais. Les mêmes étapes sont donc écrites en
+   > clair dans le corps — sans quoi on baliserait des étapes invisibles pour le
+   > lecteur, ce que Google sanctionne.
 
 5. **`le-cloud-est-il-vraiment-moins-cher`** — Premier article de réflexion. Le
    paiement à l'usage vu du terrain : ce qui coûte vraiment (frais de sortie de
@@ -180,3 +185,52 @@ fera remonter le cloud dans leur bloc « À lire ensuite » (voir
 
 Puis pose du maillage croisé, rétro-liens depuis Docker et CI/CD, et mise à jour
 du calendrier.
+
+## Checklist de publication
+
+Les contenus 3 à 6 sont écrits et attendent dans `src/pages/drafts/`. Comme ils
+se citent entre eux, chacun contient des liens en `/drafts/<slug>` qu'il faut
+basculer au fur et à mesure des publications — c'est précisément la dette payée
+par le commit `4de6d6d` sur les deux premières fiches, et cette liste existe
+pour ne pas la repayer.
+
+**À chaque publication, pour le contenu qui sort :**
+
+1. déplacer le `.md` de `src/pages/drafts/` vers `src/pages/fiches/` (ou
+   `src/pages/articles/`) ;
+2. ajuster `publishedDate` à la date réelle ;
+3. déposer le visuel dans `raw/cheatsheets/` (ou `raw/articles/`) et lancer
+   `npm run optimize-images` — les quatre `imgSrc` sont déjà écrits, seul le
+   fichier manque ;
+4. dans le contenu qui sort, basculer ses propres liens `/drafts/<slug>` vers
+   l'URL finale de ce qui est déjà publié ;
+5. dans les contenus déjà en ligne, basculer les liens qui pointaient vers ce
+   brouillon (colonne de droite ci-dessous) ;
+6. passer la ligne du calendrier éditorial en **DONE** et proposer l'entrée de
+   changelog du mois.
+
+**Qui pointe vers qui, aujourd'hui :**
+
+| Contenu publié                            | Liens `/drafts/` à basculer le jour où le contenu sort                     |
+| ----------------------------------------- | -------------------------------------------------------------------------- |
+| `iaas-paas-saas`                          | depuis `deployer-conteneur-docker-dans-le-cloud` (× 2)                     |
+| `deployer-conteneur-docker-dans-le-cloud` | depuis `iaas-paas-saas` (× 1)                                              |
+| `le-cloud-est-il-vraiment-moins-cher`     | depuis `deployer-conteneur-docker-dans-le-cloud`, depuis `cloud-souverain` |
+| `cloud-souverain`                         | depuis `deployer-conteneur-docker-dans-le-cloud`                           |
+
+Le plus simple reste de lancer, après chaque déplacement :
+
+```sh
+grep -rn "/drafts/" src/pages/fiches src/pages/articles
+```
+
+Aucune occurrence ne doit subsister dans ces deux dossiers.
+
+**Rétro-liens Docker et CI/CD** — volontairement non posés tant que la
+fiche-pont est en brouillon : un lien vers `/drafts/` depuis une page en ligne
+serait un 404 pour les lecteurs. À poser le jour de la publication du contenu 4,
+depuis `deployer-image-docker-github-actions.md` et `decouvrir-docker-swarm.md`.
+
+**Quiz** — le cadrage l'évoquait en option. Il n'est pas faisable en l'état :
+`src/data/quiz.ts` restreint `topic` à `"Docker" | "CI/CD"`, il faudrait d'abord
+élargir le type. Chantier séparé.
