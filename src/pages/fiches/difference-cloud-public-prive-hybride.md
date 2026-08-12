@@ -5,7 +5,7 @@ title: "Cloud public, privé, hybride : quelles différences ?"
 description:
   "Comprenez enfin la différence entre cloud public, cloud privé et cloud
   hybride. Qui possède le matériel, qui paie quoi, ce que chaque modèle apporte
-  en conformité et en élasticité — et pourquoi le multicloud n'est pas
+  en conformité et en élasticité et pourquoi le multicloud n'est pas
   l'hybride."
 
 imgAlt:
@@ -20,7 +20,7 @@ tags:
   - Cloud
   - Production
 level: Débutant
-publishedDate: 07/31/2026
+publishedDate: 08/12/2026
 
 faq:
   - question: Quelle est la différence entre cloud public et cloud privé ?
@@ -43,8 +43,8 @@ faq:
 ---
 
 Dans [la fiche précédente](/drafts/comprendre-le-cloud-public), on a posé ce
-qu'était le cloud public : de l'infrastructure mutualisée, pilotée par API et
-facturée à l'usage. Le mot « public » y faisait déjà un peu de bruit, et c'est
+qu'était le cloud public. À savoir, de l'infrastructure mutualisée, pilotée par API et
+facturée à l'usage. Le mot « public » y faisait déjà un peu de bruit et c'est
 normal.
 
 Parce que dès qu'on ouvre une documentation ou qu'on écoute une présentation
@@ -57,7 +57,7 @@ Trois modèles, un intrus, et beaucoup de conversations qui partent de travers
 parce que deux personnes n'emploient pas le même mot pour la même chose.
 
 Dans cette fiche, on démêle tout ça. Vous allez voir que la question de départ
-est beaucoup plus simple qu'il n'y paraît : **à qui appartient le matériel, et
+est beaucoup plus simple qu'il n'y paraît. **À qui appartient le matériel et
 avec qui le partagez-vous ?**
 
 ---
