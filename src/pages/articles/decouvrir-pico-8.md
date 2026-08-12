@@ -258,11 +258,11 @@ rapidement d'un prototype jouable.
 <!--
 Du coup, je compte bien creuser le sujet ici sur NX. Si vous voulez aller plus
 loin tout de suite, j'ai préparé deux fiches techniques pour démarrer pas à pas
-: [comment prendre en main PICO-8](/drafts/prendre-en-main-pico-8) (installation
+: [comment prendre en main PICO-8](/fiches/prendre-en-main-pico-8) (installation
 et premiers pas), puis
 [créer un premier jeu simple](/drafts/premier-jeu-simple-pico-8). Et si vous
 hésitez encore avec un autre outil, j'ai aussi comparé
-[PICO-8 et Pygame](/drafts/pico-8-ou-pygame).
+[PICO-8 et Pygame](/articles/pico-8-ou-pygame).
 -->
 
 Je m'apprête également à participer à une nouvelle game jam :
