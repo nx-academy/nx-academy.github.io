@@ -5,8 +5,7 @@ title: "Cloud public, privé, hybride : quelles différences ?"
 description:
   "Comprenez enfin la différence entre cloud public, cloud privé et cloud
   hybride. Qui possède le matériel, qui paie quoi, ce que chaque modèle apporte
-  en conformité et en élasticité et pourquoi le multicloud n'est pas
-  l'hybride."
+  en conformité et en élasticité et pourquoi le multicloud n'est pas l'hybride."
 
 imgAlt:
   Trois bâtiments côte à côte, un immeuble partagé, une maison individuelle et
@@ -43,9 +42,9 @@ faq:
 ---
 
 Dans [la fiche précédente](/drafts/comprendre-le-cloud-public), on a posé ce
-qu'était le cloud public. À savoir, de l'infrastructure mutualisée, pilotée par API et
-facturée à l'usage. Le mot « public » y faisait déjà un peu de bruit et c'est
-normal.
+qu'était le cloud public. À savoir, de l'infrastructure mutualisée, pilotée par
+API et facturée à l'usage. Le mot « public » y faisait déjà un peu de bruit et
+c'est normal.
 
 Parce que dès qu'on ouvre une documentation ou qu'on écoute une présentation
 commerciale, trois termes arrivent ensemble, souvent dans la même phrase :
@@ -73,9 +72,9 @@ vous les pilotez par une API et vous voyez une console web.
 Ce qui les sépare n'est pas visible depuis votre terminal. C'est un ensemble de
 questions de propriété et de partage :
 
-- **qui possède le matériel** — vous, votre entreprise, ou un fournisseur ?
-- **avec qui le partagez-vous** — personne, ou tous les autres clients ?
-- **qui paie quoi, et quand** — un investissement d'un coup, ou une facture
+- **qui possède le matériel** —> vous, votre entreprise ou un fournisseur ?
+- **avec qui le partagez-vous** —> personne ou tous les autres clients ?
+- **qui paie quoi, et quand** —> un investissement d'un coup ou une facture
   mensuelle variable ?
 
 <br>
@@ -88,7 +87,7 @@ déroule les trois modèles dans l'ordre.
 ## Le cloud public = mutualisé, chez un fournisseur
 
 C'est le modèle qu'on a détaillé dans la fiche précédente. Le fournisseur
-possède les centres de données, les machines et le réseau, et il loue de la
+possède les centres de données, les machines et le réseau. Il loue de la
 capacité à qui la demande. **Votre application tourne sur du matériel partagé
 avec d'autres clients**, chacun isolé des autres par la virtualisation.
 
@@ -104,10 +103,10 @@ Ce que ça implique très concrètement :
 
 <br>
 
-En face, deux contreparties déjà évoquées : une facture difficile à prévoir, et
+En face, deux contreparties déjà évoquées. Une facture difficile à prévoir et
 une dépendance qui s'installe service après service. C'est malgré tout le choix
 par défaut pour la très grande majorité des projets. Mais tout le monde ne peut
-pas s'en contenter, et c'est là qu'intervient le modèle suivant.
+pas s'en contenter et c'est là qu'intervient le modèle suivant.
 
 ---
 
@@ -125,14 +124,14 @@ Attention, deux formes très différentes se cachent derrière le même mot :
   installe dans ses propres locaux et fait tourner par-dessus une couche de
   virtualisation qui reproduit l'expérience du cloud. C'est ce qu'on appelle
   aussi l'*on-premise* ;
-- **le cloud privé hébergé** : un prestataire possède et exploite le matériel,
+- **le cloud privé hébergé** : un prestataire possède et exploite le matériel
   mais le dédie contractuellement à votre seule organisation. Vous ne partagez
   rien avec ses autres clients.
 
 <br>
 
 Dans les deux cas, le raisonnement financier s'inverse. On s'engage sur une
-capacité **à l'avance**, on l'amortit sur plusieurs années, et la facture ne
+capacité **à l'avance**, on l'amortit sur plusieurs années et la facture ne
 baisse pas quand le trafic baisse. En échange, elle ne dérape pas non plus.
 
 <br>
@@ -165,9 +164,9 @@ applications et les données circulent de l'un à l'autre.
 
 Le point important est dans le mot « reliés ». Avoir un serveur dans un placard
 et un compte chez un fournisseur ne fait pas de vous un cloud hybride, ça fait
-deux systèmes qui s'ignorent. **L'hybride suppose un lien** : un réseau privé
-entre les deux, une authentification commune, un outillage de déploiement qui
-sait viser les deux côtés.
+deux systèmes qui s'ignorent. **L'hybride suppose un lien**, autrement dit un
+réseau privé entre les deux, une authentification commune, un outillage de
+déploiement qui sait viser les deux côtés.
 
 <br>
 
@@ -193,8 +192,8 @@ n'est pas un compromis gratuit, c'est un choix qui se paie en temps d'équipe.
 
 ## Et le multicloud, alors ?
 
-C'est la confusion la plus fréquente, et elle vaut la peine d'être levée une
-bonne fois : **le multicloud, ce n'est pas l'hybride**.
+C'est la confusion la plus fréquente et elle vaut la peine d'être levée une
+bonne fois. **Le multicloud, ce n'est pas l'hybride**.
 
 <br>
 
@@ -215,7 +214,7 @@ Les deux notions sont indépendantes, et se croisent librement :
 <br>
 
 On se met au multicloud pour deux raisons, généralement : **réduire la
-dépendance** à un fournisseur unique, ou **aller chercher chez chacun le service
+dépendance** à un fournisseur unique ou **aller chercher chez chacun le service
 qu'il fait le mieux**. Le coût, lui, est immédiat : autant de facturations, de
 consoles, de modèles de sécurité et de vocabulaires à connaître que de
 fournisseurs.
@@ -255,8 +254,8 @@ situations couvrent la grande majorité des cas.
 
 <br>
 
-**Vous démarrez un produit, sans existant.** Allez au **cloud public**, sans
-hésiter. Vous n'avez ni le temps ni les moyens d'exploiter du matériel, et votre
+**Vous démarrez un produit, sans existant.** Allez au **cloud public** sans
+hésiter. Vous n'avez ni le temps ni les moyens d'exploiter du matériel et votre
 charge est imprévisible. Prenez simplement l'habitude de préférer les briques
 standards — une base PostgreSQL managée plutôt qu'une base propriétaire — pour
 garder vos options ouvertes.
@@ -264,7 +263,7 @@ garder vos options ouvertes.
 <br>
 
 **Vous manipulez des données de santé, bancaires ou classifiées.** La contrainte
-réglementaire décide à votre place, et en amont du choix technique : ce sera du
+réglementaire décide à votre place et en amont du choix technique. Ce sera du
 **cloud privé** ou du **public qualifié** sur une offre certifiée. La question à
 poser en premier n'est pas « quelle technologie ? » mais « quelle qualification
 exige mon secteur ? ».
@@ -280,25 +279,25 @@ mérite d'être une étape avec une date de fin.
 
 ## Astuce bonus - L'hybride n'est pas une étape obligatoire
 
-On présente souvent ces trois modèles comme une progression : on commencerait en
-privé, on passerait par l'hybride, et on finirait en public. C'est une histoire
+On présente souvent ces trois modèles comme une progression. On commencerait en
+privé, on passerait par l'hybride et on finirait en public. C'est une histoire
 commerciale commode, pas une trajectoire technique. Dans les faits, **la plupart
 des projets récents sont partis directement en public et n'en sont jamais
 sortis** : sans parc à migrer, pas de phase hybride.
 
 <br>
 
-Le mouvement inverse existe aussi, et il a un nom : le **repatriement**. Des
+Le mouvement inverse existe aussi et il a un nom : le **repatriement**. Des
 entreprises dont la charge est devenue stable constatent qu'elles paient
 l'élasticité sans plus jamais s'en servir, et redescendent tout ou partie de
 leur infrastructure sur du matériel dédié.
 
 <br>
 
-Ce qu'il faut en retenir : **ces trois modèles ne sont pas des niveaux de
-maturité, ce sont des réponses à des contraintes différentes**. Le bon réflexe
-n'est pas de progresser dans une échelle, c'est de vérifier de temps en temps
-que la contrainte qui a motivé votre choix tient toujours.
+Ce qu'il faut en retenir ici, c'est que **ces trois modèles ne sont pas des
+niveaux de maturité, ce sont des réponses à des contraintes différentes**. Le
+bon réflexe n'est pas de progresser dans une échelle, c'est de vérifier de temps
+en temps que la contrainte qui a motivé votre choix tient toujours.
 
 <hr>
 
