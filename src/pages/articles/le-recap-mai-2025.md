@@ -104,7 +104,7 @@ récupérer sur n'importe quelle machine avec une commande docker image pull.
 Enfin, il est possible de changer de registry dans son fichier
 docker-compose.yml.
 
-[Lire l'article](https://nx.academy/drafts/presentation-registry-docker/)
+[Lire l'article](https://nx.academy/fiches/presentation-registry-docker/)
 
 <br>
 

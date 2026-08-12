@@ -95,7 +95,7 @@ Le mot « public » ne veut pas dire que vos données sont visibles de tous. I
 qualifie l'infrastructure, pas vos données : elle est **ouverte à tout client
 qui la loue**, par opposition à un parc de machines réservé à une seule
 organisation. On reviendra en détail sur cette distinction, c'est le sujet de
-[la fiche suivante](/drafts/difference-cloud-public-prive-hybride).
+[la fiche suivante](/fiches/difference-cloud-public-prive-hybride).
 
 <br>
 
@@ -277,7 +277,7 @@ cloud public, c'est de l'infrastructure mutualisée, pilotée par API et factur�
 facture.
 
 Dans la prochaine fiche, on lève la confusion la plus fréquente du domaine :
-[cloud public, privé, hybride, quelles différences](/drafts/difference-cloud-public-prive-hybride)
+[cloud public, privé, hybride, quelles différences](/fiches/difference-cloud-public-prive-hybride)
 et, tant qu'à faire, ce que vient faire le multicloud là-dedans. À très vite 😉.
 
 D'ici là, je vous invite :

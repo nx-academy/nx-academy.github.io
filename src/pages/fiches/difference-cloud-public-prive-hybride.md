@@ -41,7 +41,7 @@ faq:
       multicloud sans être hybride, et l'inverse."
 ---
 
-Dans [la fiche précédente](/drafts/comprendre-le-cloud-public), on a posé ce
+Dans [la fiche précédente](/fiches/comprendre-le-cloud-public), on a posé ce
 qu'était le cloud public. À savoir, de l'infrastructure mutualisée, pilotée par
 API et facturée à l'usage. Le mot « public » y faisait déjà un peu de bruit et
 c'est normal.
@@ -313,7 +313,7 @@ dans le coin 😉.
 
 D'ici là, je vous invite :
 
-- [à relire la fiche sur le cloud public](/drafts/comprendre-le-cloud-public) si
+- [à relire la fiche sur le cloud public](/fiches/comprendre-le-cloud-public) si
   le vocabulaire de base est encore frais ;
 - [à (re)commencer le cours sur Docker et Docker Compose](/cours/docker-et-docker-compose/),
   parce que le conteneur reste le format qui vous rendra ces choix réversibles.
