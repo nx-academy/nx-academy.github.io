@@ -76,14 +76,22 @@ série `cloud` (rayon « Cloud public » sur `/fiches/`), 4 fiches et 2 articl
 qui se citent en chaîne. Prépare le terrain du cours « Mettez vos applications
 en production ».
 
-| Mois         | Type    | Titre                                                       | Status    |
-| ------------ | ------- | ----------------------------------------------------------- | --------- |
-| Juillet 2026 | Fiche   | Qu'est-ce que le cloud public ? (pilier)                    | brouillon |
-| Juillet 2026 | Fiche   | Cloud public, privé, hybride : quelles différences ?        | brouillon |
-| Octobre      | Fiche   | IaaS, PaaS, SaaS : quelles différences et comment choisir ? | à faire   |
-| Novembre     | Fiche   | Comment déployer un conteneur Docker dans le cloud ?        | à faire   |
-| Décembre     | Article | Le cloud public coûte-t-il vraiment moins cher ?            | à faire   |
-| Janvier 2027 | Article | Cloud souverain : de quoi parle-t-on vraiment ?             | à faire   |
+| Mois         | Type    | Titre                                                       | Status                |
+| ------------ | ------- | ----------------------------------------------------------- | --------------------- |
+| Août 2026    | Fiche   | Qu'est-ce que le cloud public ? (pilier)                    | **DONE** (05/08/2026) |
+| Août 2026    | Fiche   | Cloud public, privé, hybride : quelles différences ?        | **DONE** (12/08/2026) |
+| Octobre      | Fiche   | IaaS, PaaS, SaaS : quelles différences et comment choisir ? | brouillon             |
+| Novembre     | Fiche   | Comment déployer un conteneur Docker dans le cloud ?        | brouillon             |
+| Décembre     | Article | Le cloud public coûte-t-il vraiment moins cher ?            | brouillon             |
+| Janvier 2027 | Article | Cloud souverain : de quoi parle-t-on vraiment ?             | brouillon             |
+
+Les quatre brouillons sont écrits et vivent dans `src/pages/drafts/`
+(`iaas-paas-saas`, `deployer-conteneur-docker-dans-le-cloud`,
+`le-cloud-est-il-vraiment-moins-cher`, `cloud-souverain`). Il leur manque leurs
+visuels. Publier = déplacer le fichier vers `src/pages/fiches/` ou
+`src/pages/articles/`, ajuster `publishedDate` et basculer les liens
+`/drafts/` : la checklist par contenu est dans
+[cluster-cloud-public.md](./cluster-cloud-public.md).
 
 ## Le Recap
 
