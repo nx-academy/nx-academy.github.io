@@ -5,13 +5,18 @@ interface Props extends News {}
 import ParagraphSmall from "../components/ParagraphSmall.astro";
 import ParagraphExtraSmall from "../components/ParagraphExtraSmall.astro";
 import ParagraphLarge from "../components/ParagraphLarge.astro";
+import { newsContext } from "../utils/news";
 
-const { content, published, slug, title } = Astro.props;
+const { content, context, lecture, published, slug, title } = Astro.props;
+
+// La carte est une accroche : elle s'en tient au contexte et renvoie vers
+// /feed, seul endroit où la lecture est donnée en entier.
+const summary = newsContext({ content, context, lecture });
 ---
 
 <a class="wrapper" href={`/feed#${slug}`}>
   <ParagraphLarge content={title} />
-  <ParagraphSmall content={content} />
+  <ParagraphSmall content={summary} />
   <ParagraphExtraSmall content={published.toLocaleDateString("FR-fr")} />
 </a>
 

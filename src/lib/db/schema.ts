@@ -44,9 +44,22 @@ const dateColumn = customType<{ data: Date; driverData: string }>({
 // mapping Drizzle (un INTEGER PRIMARY KEY SQLite est déjà un alias de rowid).
 // L'ajouter produirait un AUTOINCREMENT que les tables existantes n'ont pas.
 
+// Le schéma appartient à nx-mcp, qui est le seul à écrire en base : ses
+// migrations vivent dans `nx_ai/turso_service/migrations/`. Ce fichier n'en est
+// qu'un miroir en lecture seule, à tenir à jour à la main après chaque
+// migration appliquée là-bas. Ne jamais pousser de DDL depuis ce dépôt.
+
 export const NewsFeed = sqliteTable("NewsFeed", {
   id: integer("id").primaryKey(),
+  // Ancien format d'avant août 2026, conservé le temps que `context` prenne le
+  // relais partout. La colonne est supprimée par une migration ultérieure.
   content: text("content").notNull(),
+  // Le résumé factuel de la source. Nullable seulement parce que la colonne a
+  // été ajoutée après coup : en pratique elle est toujours remplie.
+  context: text("context"),
+  // Le commentaire de l'auteur. `null` veut dire « entrée de l'ancien format » —
+  // c'est une information, pas une donnée manquante à combler.
+  lecture: text("lecture"),
   published: dateColumn("published").notNull(),
   slug: text("slug").notNull(),
   title: text("title").notNull(),

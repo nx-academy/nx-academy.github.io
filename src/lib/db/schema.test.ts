@@ -38,3 +38,21 @@ describe("Colonne date du schéma", () => {
     );
   });
 });
+
+/**
+ * Garde-fou sur le miroir : ces colonnes existent en base depuis la migration
+ * `001_news_context_lecture` de nx-mcp, propriétaire du schéma. Si elles
+ * disparaissent d'ici sans migration correspondante là-bas, le Feed retombe en
+ * silence sur l'ancien format.
+ */
+describe("Miroir de la table NewsFeed", () => {
+  it("déclare les colonnes du format context / lecture", () => {
+    expect(NewsFeed.context.name).toBe("context");
+    expect(NewsFeed.lecture.name).toBe("lecture");
+  });
+
+  it("les garde nullables — une lecture absente veut dire ancien format", () => {
+    expect(NewsFeed.context.notNull).toBe(false);
+    expect(NewsFeed.lecture.notNull).toBe(false);
+  });
+});
