@@ -18,26 +18,23 @@ Trois principes qui guident à peu près toutes les décisions :
 Gestionnaire de paquets : **npm uniquement** (`package-lock.json`, Node 24). Ni
 bun ni yarn — bun a été essayé, ça n'a pas marché.
 
-| Commande                  | Effet                                                      |
-| ------------------------- | ---------------------------------------------------------- |
-| `npm run dev`             | Serveur local sur `localhost:4321`, base de données locale |
-| `npm run stagging`        | Idem, mais contre la base Turso distante (`--remote`)      |
-| `npm run build`           | `astro check && astro build --remote`                      |
-| `npm run check`           | `astro check` seul, sans toucher à la base                 |
-| `npm test`                | Vitest                                                     |
-| `npm run prettier:check`  | Ce que la CI vérifie                                       |
-| `npm run prettier:format` | À lancer avant de commiter                                 |
-| `npm run optimize-images` | `raw/` → `public/images/` en `.webp`                       |
-| `npm run db:push-schema`  | Pousse le schéma Astro DB vers la base distante            |
+| Commande                  | Effet                                      |
+| ------------------------- | ------------------------------------------ |
+| `npm run dev`             | Serveur local sur `localhost:4321`         |
+| `npm run build`           | `astro check && astro build`               |
+| `npm run check`           | `astro check` seul, sans toucher à la base |
+| `npm test`                | Vitest                                     |
+| `npm run prettier:check`  | Ce que la CI vérifie                       |
+| `npm run prettier:format` | À lancer avant de commiter                 |
+| `npm run optimize-images` | `raw/` → `public/images/` en `.webp`       |
 
 Quelques précisions utiles :
 
-- `npm run build` a besoin de `ASTRO_DB_REMOTE_URL` et `ASTRO_DB_APP_TOKEN`
-  (voir `.example.env`) à cause du `--remote`. **Sans ces variables, le build
-  échoue : utiliser `npm run check` puis `npm run dev` pour vérifier son
-  travail, et le signaler plutôt que de contourner.**
-- `stagging` est bien orthographié comme ça dans `package.json`. Ne pas le
-  renommer au passage : ça casserait les habitudes et la CI.
+- La base est lue au build via `TURSO_DATABASE_URL` et `TURSO_AUTH_TOKEN` (voir
+  `.example.env`). **Sans ces variables, les lectures retombent sur les fixtures
+  de `src/lib/db/fixtures.ts`** : `npm run dev` et `npm run check` restent
+  utilisables hors ligne. Si un build distant échoue faute de secrets, le
+  signaler plutôt que de contourner.
 - Pas d'ESLint dans ce projet. **Prettier est la seule autorité de formatage**,
   et il est bloquant en CI — y compris sur les fichiers `.md`. Config dans
   `.prettierrc` : `printWidth: 80`, `proseWrap: "always"`.
@@ -69,7 +66,7 @@ Le reste :
 | `src/data/`       | Données statiques en TS : `series.ts`, `quiz.ts`, `news.ts`…                                |
 | `src/types/`      | Types des frontmatters et des données                                                       |
 | `src/utils/`      | Logique métier, un dossier par util, test colocalisé                                        |
-| `db/`             | Schéma Astro DB (`config.ts`) et seed                                                       |
+| `src/lib/db/`     | Accès Turso : miroir du schéma, requêtes et fixtures de repli                               |
 | `raw/`            | Images sources, avant optimisation                                                          |
 | `docs/`           | Notes éditoriales et techniques, en français                                                |
 
@@ -86,6 +83,27 @@ Le reste :
 - **Ne jamais lier un brouillon via son URL finale.** Un brouillon vit à
   `/drafts/<slug>` ; un lien vers `/fiches/<slug>` donnerait un 404 en
   production.
+
+### Base de données
+
+**Le schéma appartient à `nx-mcp`**, seul dépôt qui écrit dans Turso. Ses
+migrations versionnées vivent dans `nx_ai/turso_service/migrations/` et
+s'appliquent avec `python app.py turso migrate`.
+
+Ici, on ne fait que lire. `src/lib/db/schema.ts` est **un miroir écrit à la
+main**, à mettre à jour après chaque migration appliquée là-bas — jamais
+l'inverse. Ne pousser aucun DDL depuis ce dépôt, et ne pas ajouter
+`drizzle-kit`. Deux outils qui poussent du schéma sur la même base finissent par
+diverger.
+
+Les deux seules lectures du site passent par `src/lib/db/queries.ts`, qui
+retombe sur les fixtures quand la base n'est pas configurée.
+
+Une brève du Feed a deux blocs de texte depuis août 2026 : `context`, le résumé
+factuel de la source, et `lecture`, le commentaire. `lecture` à `null` signifie
+« entrée de l'ancien format » — c'est une information, pas un trou à combler. La
+colonne historique `content` existe encore le temps que les deux dépôts aient
+basculé. Passer par `src/utils/news/` plutôt que de lire ces champs en direct.
 
 ### Frontmatter
 

@@ -1,9 +1,19 @@
 ---
 import { getLatestNews } from "../lib/db/queries";
+import { newsContext, newsLecture } from "../utils/news";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const newsFeed = await getLatestNews();
+// Les composants affichent, ils ne calculent pas : le choix entre `context` et
+// l'ancien `content`, et la présence d'une lecture, sont tranchés ici.
+const entries = (await getLatestNews()).map((news) => ({
+  context: newsContext(news),
+  date: news.published.toLocaleDateString("FR-fr"),
+  lecture: newsLecture(news),
+  slug: news.slug,
+  title: news.title,
+  url: news.url,
+}));
 const pageTitle = "Le Feed – Veille tech, brèves et actualités développement";
 const pageDescription =
   "Une veille technologique en continu : brèves, actualités développement, sécurité, cloud, DevOps et IA. Des liens sélectionnés, résumés et contextualisés par NX Academy.";
@@ -30,13 +40,12 @@ const pageDescription =
     </div>
     <section class="feed-wrapper">
       {
-        newsFeed.map((news) => (
+        entries.map((news) => (
           <div id={news.slug} class="news-wrapper">
             <p class="news-title">{news.title}</p>
-            <p class="news-content">{news.content}</p>
-            <p class="news-date">
-              {news.published.toLocaleDateString("FR-fr")}
-            </p>
+            <p class="news-content">{news.context}</p>
+            {news.lecture && <p class="news-lecture">{news.lecture}</p>}
+            <p class="news-date">{news.date}</p>
             <a
               target="_blank"
               rel="noreferrer noopener"
@@ -91,6 +100,14 @@ const pageDescription =
 
   .news-content {
     font-size: 16px;
+  }
+
+  /* La lecture est le commentaire, pas la source : le filet la distingue du
+     résumé qui la précède. Absente des brèves d'avant août 2026. */
+  .news-lecture {
+    border-left: 2px solid var(--borderSecondary);
+    font-size: 16px;
+    padding-left: 12px;
   }
 
   .news-date {
