@@ -154,7 +154,7 @@ Petits bugs de données qui pénalisent le cluster existant :
 
 ## Vérification (au moment de la rédaction)
 
-- `npm run build` (= `astro check && astro build --remote`) passe sans erreur.
+- `npm run build` (= `astro check && astro build`) passe sans erreur.
 - Chaque nouvelle fiche apparaît dans le rayon **CI/CD** de `/fiches/`.
 - Le bloc « À lire ensuite » de chaque fiche affiche bien d'autres fiches CI/CD.
 - Liens internes en dur valides (pas de 404 vers slugs inexistants).

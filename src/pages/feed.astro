@@ -1,9 +1,9 @@
 ---
-import { db, NewsFeed, desc } from "astro:db";
+import { getLatestNews } from "../lib/db/queries";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const newsFeed = await db.select().from(NewsFeed).orderBy(desc(NewsFeed.id));
+const newsFeed = await getLatestNews();
 const pageTitle = "Le Feed – Veille tech, brèves et actualités développement";
 const pageDescription =
   "Une veille technologique en continu : brèves, actualités développement, sécurité, cloud, DevOps et IA. Des liens sélectionnés, résumés et contextualisés par NX Academy.";

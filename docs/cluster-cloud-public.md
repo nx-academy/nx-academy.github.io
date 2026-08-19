@@ -163,7 +163,7 @@ fera remonter le cloud dans leur bloc « À lire ensuite » (voir
 
 ## Vérification (au moment de la rédaction)
 
-- `npm run build` (= `astro check && astro build --remote`) passe sans erreur.
+- `npm run build` (= `astro check && astro build`) passe sans erreur.
 - Chaque nouvelle fiche apparaît dans le rayon **Cloud public** de `/fiches/`.
 - Le bloc « À lire ensuite » de chaque contenu affiche bien ses voisins cloud.
 - Liens internes en dur valides (pas de 404 vers un slug resté en draft).

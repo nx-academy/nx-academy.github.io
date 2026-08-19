@@ -1,5 +1,5 @@
 ---
-import { db, NewsFeed, NowNoteFeed, desc } from "astro:db";
+import { getLatestNews, getLatestNowNote } from "../lib/db/queries";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -38,17 +38,8 @@ const heroContent = content.filter(
   (c) => c.frontmatter.title === heroContentTitle,
 )[0];
 
-const newsFeed = await db
-  .select()
-  .from(NewsFeed)
-  .orderBy(desc(NewsFeed.id))
-  .limit(3);
-
-const nowNoteFeed = await db
-  .select()
-  .from(NowNoteFeed)
-  .orderBy(desc(NowNoteFeed.id))
-  .limit(1);
+const newsFeed = await getLatestNews(3);
+const nowNote = await getLatestNowNote();
 
 // Parcours "Commence par là" : présentation → activité récente → pratique.
 // Le récap pointe vers le plus récent pour rester à jour automatiquement.
@@ -128,7 +119,7 @@ const startHereItems = [
         </div>
       </section>
       <section class="feed-section">
-        <NowNote nowContent={nowNoteFeed[0]} />
+        {nowNote && <NowNote nowContent={nowNote} />}
         <Feed newsFeed={newsFeed} />
       </section>
     </section>
