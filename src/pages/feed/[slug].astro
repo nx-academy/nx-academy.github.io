@@ -1,0 +1,50 @@
+---
+/* La page d'une brève : le bloc d'une entrée seul dans la colonne, mêmes styles
+   que dans le flux. C'est là que mènent les lignes compactes, et c'est aussi ce
+   que vise la carte du Feed en page d'accueil — une ancre dans /feed casserait
+   dès que la brève tombe en page 2. */
+import type { Breadcrumb } from "../../types/Breadcrumb";
+import { getLatestNews } from "../../lib/db/queries";
+import { feedItems } from "../../utils/news";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import FeedEntry from "../../components/FeedEntry.astro";
+
+import "../../styles/feed.css";
+
+export async function getStaticPaths() {
+  const rows = await getLatestNews();
+
+  /* Même dérivation que le flux — contexte, source, format : une brève est
+     rendue à l'identique des deux côtés. */
+  return feedItems(rows).map((item) => ({
+    params: { slug: item.slug },
+    props: { item },
+  }));
+}
+
+const { item } = Astro.props;
+
+const pageDescription = item.context.slice(0, 300);
+
+const breadcrumbs: Breadcrumb[] = [
+  { pageName: "Accueil", pageUrl: "/" },
+  { pageName: "Le Feed", pageUrl: "/feed" },
+];
+---
+
+<BaseLayout
+  title={item.title}
+  description={pageDescription}
+  breadcrumbs={breadcrumbs}
+  pageType="article"
+  pubDate={item.published.toISOString()}
+>
+  <script is:inline src="/scripts/feed-effects.js"></script>
+
+  <main class="feed">
+    <FeedEntry item={item} as="h1" solo />
+
+    <a class="back" href="/feed">← Retour au Feed</a>
+  </main>
+</BaseLayout>

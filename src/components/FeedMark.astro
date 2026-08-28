@@ -1,0 +1,31 @@
+---
+/* La ligne de bascule, à sa place chronologique dans le flux : au-dessus les
+   brèves commentées, en dessous celles qui n'ont qu'un contexte.
+
+   Elle n'introduit aucun gabarit nouveau — même bord gauche, même filet qu'une
+   entrée, respiration plus courte. C'est ce qui lui permet d'être lisible sans
+   découper la page en deux. Formulée comme un renvoi vers un article dédié, pas
+   comme une excuse.
+
+   La date vient du flux plutôt que du texte : elle suit la position réelle de la
+   bascule, qui remonte à chaque lecture ajoutée. */
+interface Props {
+  since: Date;
+}
+
+const { since } = Astro.props;
+
+/* L'article est à écrire ; le lien est ici, et nulle part ailleurs. */
+const ARTICLE = "/articles/pourquoi-le-feed-a-change";
+
+const month = since.toLocaleDateString("fr-FR", {
+  month: "long",
+  year: "numeric",
+});
+---
+
+<p class="mark">
+  Jusqu'en {month}, les brèves n'avaient pas de lecture — <a href={ARTICLE}
+    >pourquoi j'ai changé</a
+  >
+</p>

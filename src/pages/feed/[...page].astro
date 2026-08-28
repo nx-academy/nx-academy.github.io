@@ -1,0 +1,97 @@
+---
+/* Le flux du Feed. Un seul ordre chronologique, du plus récent au plus ancien :
+   pas de section « Archives », pas de rupture de colonne. Les entrées récentes
+   sont au format complet, et au-delà de la bascule elles deviennent des lignes
+   compactes cliquables — le scroll fait comprendre le changement de format sans
+   qu'on ait à l'expliquer.
+
+   Tout ce qui se décide (l'ordre, la position de la bascule, le groupement des
+   lignes, la pagination) vient de `src/utils/news/` : la page assemble, elle ne
+   calcule pas. */
+import type { Breadcrumb } from "../../types/Breadcrumb";
+import { getLatestNews } from "../../lib/db/queries";
+import { buildFeed, isBalanced } from "../../utils/news";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import FeedEntry from "../../components/FeedEntry.astro";
+import FeedIntro from "../../components/FeedIntro.astro";
+import FeedLines from "../../components/FeedLines.astro";
+import FeedMark from "../../components/FeedMark.astro";
+import FeedPager from "../../components/FeedPager.astro";
+
+import "../../styles/feed.css";
+
+export async function getStaticPaths() {
+  const rows = await getLatestNews();
+
+  /* La règle éditoriale : une lecture n'est jamais plus courte que le contexte
+     qu'elle commente. On signale, on ne bloque pas — le contenu est écrit depuis
+     nx-mcp, un build cassé ici ne serait réparable que là-bas. */
+  const unbalanced = rows.filter((row) => !isBalanced(row));
+
+  if (unbalanced.length) {
+    console.warn(
+      `[feed] ${unbalanced.length} brève(s) dont la lecture est plus courte que le contexte :\n` +
+        unbalanced.map((row) => `  - ${row.slug}`).join("\n"),
+    );
+  }
+
+  /* La première page est /feed, les suivantes /feed/2, /feed/3… */
+  return Array.from({ length: buildFeed(rows).pages }, (_, index) => ({
+    params: { page: index === 0 ? undefined : String(index + 1) },
+  }));
+}
+
+const rows = await getLatestNews();
+const feed = buildFeed(rows, Number(Astro.params.page ?? 1));
+
+const pageTitle =
+  feed.page === 1
+    ? "Le Feed — carnet de lecture"
+    : `Le Feed — carnet de lecture (page ${feed.page})`;
+const pageDescription =
+  "Ce que je lis dans le métier, et ce que j'en retiens pour l'enseignement. Chaque entrée donne d'abord le résumé de la source, puis ma lecture.";
+
+const breadcrumbs: Breadcrumb[] =
+  feed.page === 1
+    ? []
+    : [
+        { pageName: "Accueil", pageUrl: "/" },
+        { pageName: "Le Feed", pageUrl: "/feed" },
+      ];
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  breadcrumbs={breadcrumbs}
+>
+  {
+    /* Après le script de thème de BaseLayout, avant que les entrées soient
+      analysées : les classes fx* sont posées sans flash, et l'état par défaut
+      du document reste l'état final. */
+  }
+  <script is:inline src="/scripts/feed-effects.js"></script>
+
+  <main class="feed">
+    {
+      /* Sur toutes les pages : le flux est unique, chacune en est une tranche et
+        doit s'ouvrir de la même façon. */
+    }
+    <FeedIntro />
+
+    {
+      feed.blocks.map((block) =>
+        block.kind === "entry" ? (
+          <FeedEntry item={block.item} />
+        ) : block.kind === "mark" ? (
+          <FeedMark since={block.since} />
+        ) : (
+          <FeedLines items={block.items} />
+        ),
+      )
+    }
+
+    <FeedPager page={feed.page} pages={feed.pages} />
+  </main>
+</BaseLayout>
