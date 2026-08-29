@@ -1,0 +1,47 @@
+---
+/* Pagination du flux, 12 entrées par page tous formats confondus. Même bord
+   gauche que le reste de la page : la colonne ne se rompt nulle part, du haut
+   jusqu'en bas. */
+interface Props {
+  page: number;
+  pages: number;
+}
+
+const { page, pages } = Astro.props;
+
+/* La première page reste /feed : c'est l'URL publique, elle ne bouge pas. */
+const href = (n: number) => (n === 1 ? "/feed" : `/feed/${n}`);
+const numbers = Array.from({ length: pages }, (_, index) => index + 1);
+---
+
+{
+  pages > 1 && (
+    <nav class="pager" aria-label="Pagination">
+      {page > 1 && (
+        <a class="prev" href={href(page - 1)}>
+          ← Plus récent
+        </a>
+      )}
+
+      <span class="nums">
+        {numbers.map((n) =>
+          n === page ? (
+            <span class="on" aria-current="page">
+              {n}
+            </span>
+          ) : (
+            <a href={href(n)} aria-label={`Page ${n}`}>
+              {n}
+            </a>
+          ),
+        )}
+      </span>
+
+      {page < pages && (
+        <a class="next" href={href(page + 1)}>
+          Plus ancien →
+        </a>
+      )}
+    </nav>
+  )
+}

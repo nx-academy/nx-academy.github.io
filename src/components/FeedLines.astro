@@ -1,0 +1,29 @@
+---
+/* Les brèves sans lecture, en lignes compactes. Elles restent dans la colonne de
+   lecture : ce qui signale le registre secondaire est la valeur du filet, plus
+   claire que celle du flux principal — pas un cadre, pas un fond, pas une
+   largeur différente.
+
+   Toute la ligne est le lien vers la page d'entrée dédiée. */
+import type { FeedItem } from "../utils/news";
+
+interface Props {
+  items: FeedItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<ul class="lines">
+  {
+    items.map((item) => (
+      <li>
+        <a class="row" href={`/feed/${item.slug}`}>
+          <span class="d">{item.published.toLocaleDateString("FR-fr")}</span>
+          <span class="t">{item.title}</span>
+          <span class="s">{item.source}</span>
+        </a>
+      </li>
+    ))
+  }
+</ul>

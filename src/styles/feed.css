@@ -1,0 +1,470 @@
+/* Page « Le Feed » — feuille unique, partagée par /feed, /feed/<page> et
+   /feed/<slug>. Elle vit ici plutôt que dans des <style> de composants parce que
+   les mêmes blocs sont rendus par le flux et par la page d'entrée, et que le
+   scoping Astro les couperait en deux (même raison que changelog.css).
+
+   Report du handoff « Refonte de la page Feed » (Claude Design, août 2026). Le
+   design y est décrit en tokens `--bg-1`, `--title`, `--primary`… qui sont ceux
+   du design system, PAS ceux du dépôt. Les valeurs se recoupent exactement sur
+   les trois thèmes ; voici la correspondance, pour que le prochain handoff se
+   relise sans refaire l'enquête :
+
+     --bg-1        → --backgroundColorPrimary
+     --text        → --textColor
+     --title       → --titleColor
+     --border-1    → --borderPrimary
+     --link        → --linkColor
+     --link-hover  → --linkHoverColor
+     --primary     → --linkHoverColor   ← et non --accent
+     --font-*, --transition : mêmes noms de part et d'autre
+
+   Le piège : `--primary` vaut #4effa0 / #4d4dff / #0a9396 selon le thème, soit
+   --linkHoverColor et non --accent (orange en thème sombre). Le label LECTURE
+   est donc vert en sombre, comme dans la maquette.
+
+   Tout est en tokens : dark, light et été fonctionnent sans une seule règle par
+   thème — c'est une contrainte à préserver. Aucun gris en dur : les deux valeurs
+   intermédiaires sont calculées en color-mix() à partir des tokens, ce qui est
+   précisément ce qui rend les trois thèmes gratuits.
+
+   Tout est scopé sous .feed : la feuille est globale, le site ne l'est pas. */
+
+.feed {
+  --feed-mute: color-mix(
+    in srgb,
+    var(--textColor) 70%,
+    var(--backgroundColorPrimary)
+  );
+  --feed-faint: color-mix(
+    in srgb,
+    var(--borderPrimary) 62%,
+    var(--backgroundColorPrimary)
+  );
+
+  /* Un seul bord gauche pour tout le contenu de la page : titre, chapô, dates,
+     titres d'entrées, contextes, lignes compactes et pagination démarrent au
+     même x. Aucune rupture de largeur du haut jusqu'en bas — c'est ce qui fait
+     tenir le flux unique. */
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding-bottom: 1rem;
+  color: var(--textColor);
+}
+
+/* ── FeedIntro ───────────────────────────────────────────────── */
+
+.feed .head {
+  padding: 0.5rem 0 2.6rem;
+}
+
+.feed .head .kicker {
+  color: var(--accent);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.7rem;
+  text-transform: uppercase;
+}
+
+.feed .head h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 1.6rem + 1.5vw, 2.7rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--titleColor);
+  margin: 0 0 1.1rem;
+}
+
+.feed .head .lead {
+  font-size: 1.04rem;
+  line-height: 1.65;
+  color: var(--textColor);
+  max-width: 48ch;
+  margin: 0;
+  text-wrap: pretty;
+}
+
+.feed .head .lead b {
+  color: var(--titleColor);
+  font-weight: 500;
+}
+
+/* ── FeedEntry — date, titre, contexte cité, lecture, source ──── */
+/* Aucune carte, aucune boîte : les cartes égalisent et signalent « contenu
+   interchangeable ». Ce qui sépare deux entrées est du blanc et un filet fin. */
+
+.feed .entry {
+  border-top: 1px solid var(--borderPrimary);
+  padding: 2.9rem 0 3.6rem;
+}
+
+.feed .entry .date {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--feed-mute);
+  font-variant-numeric: tabular-nums;
+  margin: 0 0 0.85rem;
+}
+
+/* Ce sont les titres qui portent le repérage au scroll. */
+.feed .entry .t {
+  font-family: var(--font-heading);
+  font-size: clamp(1.55rem, 1.2rem + 1.2vw, 2.05rem);
+  line-height: 1.16;
+  letter-spacing: -0.018em;
+  color: var(--titleColor);
+  margin: 0 0 1.7rem;
+  text-wrap: pretty;
+}
+
+/* Le filet ne dit pas « moins important », il dit « ce n'est pas de moi ».
+   Aucun label : le filet et l'atténuation suffisent à identifier le bloc. */
+.feed .ctx {
+  border-left: 2px solid var(--borderPrimary);
+  padding-left: 1.4rem;
+}
+
+.feed .ctx p {
+  margin: 0;
+  font-size: 0.93rem;
+  line-height: 1.6;
+  color: var(--feed-mute);
+  text-wrap: pretty;
+}
+
+.feed .lec {
+  margin-top: 1.9rem;
+}
+
+/* Le seul marqueur coloré de la page. */
+.feed .lec .lbl {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--linkHoverColor);
+  margin: 0 0 0.55rem;
+}
+
+.feed .lec p {
+  margin: 0;
+  font-size: 1.06rem;
+  line-height: 1.72;
+  color: var(--textColor);
+  text-wrap: pretty;
+}
+
+.feed .lec p b,
+.feed .lec p strong {
+  color: var(--titleColor);
+  font-weight: 500;
+}
+
+/* Nom du média seul : pas de verbe d'action, pas de bouton, ce n'est pas un CTA. */
+.feed .src {
+  margin: 1.9rem 0 0;
+  font-size: 0.78rem;
+  color: var(--feed-mute);
+}
+
+.feed .src a {
+  color: var(--feed-mute);
+  border-bottom: 1px solid var(--feed-faint);
+  padding-bottom: 1px;
+  transition:
+    color var(--transition),
+    border-color var(--transition);
+}
+
+.feed .src a:hover {
+  color: var(--linkHoverColor);
+  border-color: var(--linkHoverColor);
+}
+
+/* ── FeedMark — la bascule de format, à sa place chronologique ─── */
+/* Un renvoi, pas une coupure : même bord gauche, même filet qu'une entrée,
+   respiration plus courte. Rien ne découpe la page en deux, et le mot
+   « archives » n'apparaît nulle part. */
+
+.feed .mark {
+  border-top: 1px solid var(--borderPrimary);
+  padding: 1.9rem 0 2rem;
+  font-size: 0.93rem;
+  line-height: 1.55;
+  color: var(--feed-mute);
+  text-wrap: pretty;
+}
+
+.feed .mark a {
+  color: var(--feed-mute);
+  border-bottom: 1px solid var(--feed-faint);
+  padding-bottom: 1px;
+  transition:
+    color var(--transition),
+    border-color var(--transition);
+}
+
+.feed .mark a:hover {
+  color: var(--linkHoverColor);
+  border-color: var(--linkHoverColor);
+}
+
+/* ── FeedLine — brèves sans lecture : densité forte, même colonne ─ */
+/* Le filet est plus clair que celui du flux principal : c'est ce changement de
+   valeur qui signale le registre secondaire, pas un cadre, pas un fond, pas une
+   largeur différente. Les lignes restent dans la colonne de lecture. */
+
+.feed .lines {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.feed .lines li {
+  border-top: 1px solid var(--feed-faint);
+}
+
+.feed .lines .row {
+  display: grid;
+  grid-template-columns: 5.4rem minmax(0, 1fr) auto;
+  column-gap: 1.3rem;
+  align-items: baseline;
+  padding: 0.6rem 0;
+}
+
+.feed .lines .d {
+  font-family: var(--font-mono);
+  font-size: 0.71rem;
+  color: var(--feed-mute);
+  font-variant-numeric: tabular-nums;
+  transition: color var(--transition);
+}
+
+/* Écart assumé avec la maquette, qui coupait à l'ellipse sur une seule ligne :
+   les titres réels montent à 152 signes, l'ellipse les tranchait au milieu. Deux
+   lignes, donc — ce que le mobile faisait déjà. */
+.feed .lines .t {
+  font-size: 0.93rem;
+  line-height: 1.4;
+  color: var(--titleColor);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  transition: color var(--transition);
+}
+
+.feed .lines .s {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--feed-mute);
+  white-space: nowrap;
+  transition: color var(--transition);
+}
+
+/* Survol : la ligne se rallume, mais rien ne se soulève et rien ne se déplace —
+   règle de survol NX. La couleur seule bouge. */
+.feed .lines .row:hover .t {
+  color: var(--linkHoverColor);
+}
+
+.feed .lines .row:hover .d,
+.feed .lines .row:hover .s {
+  color: var(--textColor);
+}
+
+.feed .lines .row:focus-visible {
+  outline: 2px solid var(--linkHoverColor);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── FeedPager — 12 entrées par page ─────────────────────────── */
+
+.feed .pager {
+  display: flex;
+  align-items: baseline;
+  gap: 1.1rem;
+  border-top: 1px solid var(--borderPrimary);
+  margin-top: 2.6rem;
+  padding-top: 1.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+}
+
+.feed .pager .nums {
+  display: flex;
+  gap: 0.7rem;
+}
+
+.feed .pager .nums a,
+.feed .pager .prev {
+  color: var(--feed-mute);
+  transition: color var(--transition);
+}
+
+.feed .pager .nums .on {
+  color: var(--titleColor);
+}
+
+.feed .pager .next {
+  margin-left: auto;
+  color: var(--linkColor);
+  transition: color var(--transition);
+}
+
+.feed .pager .nums a:hover,
+.feed .pager .prev:hover,
+.feed .pager .next:hover {
+  color: var(--linkHoverColor);
+}
+
+/* ── Page d'entrée /feed/<slug> ──────────────────────────────── */
+/* Le bloc d'une entrée seul dans la colonne, mêmes styles. Pas de filet en tête
+   : il n'y a rien au-dessus dont il faudrait la séparer. */
+
+.feed .entry.solo {
+  border-top: 0;
+  padding-top: 0.5rem;
+}
+
+.feed .back {
+  display: block;
+  border-top: 1px solid var(--borderPrimary);
+  margin-top: 1rem;
+  padding-top: 1.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--feed-mute);
+  transition: color var(--transition);
+}
+
+.feed .back:hover {
+  color: var(--linkHoverColor);
+}
+
+@media (max-width: 700px) {
+  .feed .head {
+    padding-bottom: 2rem;
+  }
+
+  .feed .entry {
+    padding: 2.3rem 0 2.9rem;
+  }
+
+  .feed .entry .t {
+    margin-bottom: 1.4rem;
+  }
+
+  .feed .ctx {
+    padding-left: 1.1rem;
+  }
+
+  .feed .lec {
+    margin-top: 1.6rem;
+  }
+
+  .feed .lines .row {
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      "d s"
+      "t t";
+    column-gap: 1rem;
+    row-gap: 0.3rem;
+    padding: 0.8rem 0;
+  }
+
+  .feed .lines .d {
+    grid-area: d;
+  }
+
+  .feed .lines .s {
+    grid-area: s;
+    justify-self: end;
+  }
+
+  .feed .lines .t {
+    grid-area: t;
+    -webkit-line-clamp: none;
+    line-clamp: none;
+    display: block;
+  }
+}
+
+/* ── Effets au scroll (public/scripts/feed-effects.js) ────────── */
+/* Les classes fx* ne sont posées que si la fenêtre fait au moins 768 px et que
+   prefers-reduced-motion n'est pas « reduce ». Sans elles, aucune de ces règles
+   ne s'applique : l'état par défaut du document est déjà l'état final. Rien
+   n'est masqué au chargement, rien n'attend le scroll pour apparaître — sans
+   JavaScript la page est complète, lisible et identique en contenu.
+
+   Amplitude minimale : opacity et color/border-color uniquement. Pas de
+   translation, pas d'échelle, pas de flou. Un effet qu'on remarque en lisant a
+   échoué. */
+
+/* 1 · le contexte se retire une fois lu — et redevient lisible en remontant :
+   l'état est une fonction de la position, pas une mémoire. */
+.fx1 .ctx {
+  transition:
+    opacity 0.5s ease,
+    border-color 0.5s ease;
+}
+
+.fx1 .ctx.read {
+  opacity: 0.52;
+  border-color: var(--feed-faint);
+}
+
+/* 2 · le label LECTURE s'active quand son bloc occupe la zone de lecture
+   confortable. Verrouillé ensuite : c'est une destination, pas un curseur. */
+.fx2 .lec .lbl {
+  color: var(--feed-mute);
+  transition: color 0.55s ease;
+}
+
+.fx2 .lec .lbl.on {
+  color: var(--linkHoverColor);
+}
+
+/* 3 · appui sur la ligne de frontière à l'entrée à l'écran. Verrouillé : c'est
+   une annonce, elle n'a pas à se répéter. Seul endroit de la page où une
+   animation porte une vraie information — un changement de format s'annonce. */
+.fx3 .mark {
+  transition: color 0.5s ease;
+}
+
+.fx3 .mark a {
+  transition:
+    color 0.5s ease,
+    border-color 0.5s ease;
+}
+
+.fx3 .mark.on {
+  color: var(--textColor);
+}
+
+.fx3 .mark.on a {
+  color: var(--linkHoverColor);
+  border-color: var(--linkHoverColor);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fx1 .ctx,
+  .fx2 .lec .lbl,
+  .fx3 .mark,
+  .fx3 .mark a {
+    transition: none;
+  }
+
+  .fx1 .ctx.read {
+    opacity: 1;
+    border-color: var(--borderPrimary);
+  }
+
+  .fx2 .lec .lbl {
+    color: var(--linkHoverColor);
+  }
+}

@@ -1,0 +1,47 @@
+---
+/* Une brève au format complet : date, titre, contexte cité, lecture, source.
+   La hiérarchie contexte / lecture est visible sans lire — le contexte est
+   atténué et posé sur un filet vertical façon citation, la lecture est le corps
+   de texte principal. Les deux blocs gardent la même mesure, donc leurs hauteurs
+   se comparent directement : c'est ce qui rend applicable la règle éditoriale
+   « la lecture n'est jamais plus courte que le contexte ».
+
+   Le composant affiche, il ne calcule pas : la source, le contexte et la
+   présence d'une lecture sont tranchés par `src/utils/news/`. */
+import type { FeedItem } from "../utils/news";
+
+interface Props {
+  item: FeedItem;
+  /* `h1` sur /feed/<slug>, où l'entrée est seule dans la colonne. */
+  as?: "h1" | "h2";
+  solo?: boolean;
+}
+
+const { item, as = "h2", solo = false } = Astro.props;
+const Title = as;
+---
+
+<article class:list={["entry", { solo }]}>
+  <p class="date">{item.published.toLocaleDateString("FR-fr")}</p>
+  <Title class="t">{item.title}</Title>
+
+  <div class="ctx">
+    <p>{item.context}</p>
+  </div>
+
+  {
+    item.lecture && (
+      <div class="lec">
+        <p class="lbl">Lecture</p>
+        <p>{item.lecture}</p>
+      </div>
+    )
+  }
+
+  {/* Nom du média seul : pas de verbe d'action, ce n'est pas un CTA. */}
+  <p class="src">
+    Source&nbsp;: <a href={item.url} target="_blank" rel="noreferrer noopener"
+      >{item.source}</a
+    >
+  </p>
+</article>
