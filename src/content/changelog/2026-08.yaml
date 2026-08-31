@@ -3,6 +3,16 @@ year: 2026
 order: 8
 tasks:
   - kind: done
+    keep: true
+    content: |-
+      La mise à jour de mon feed de news est en cours. Ce n'est pas encore parfait de chez parfait mais je trouve la nouvelle version assez cool (ce qui me fait penser que je dois écrire un article dessus).
+  - kind: done
+    content: |-
+      <a href="/articles/le-recap-aout-2026" target="_blank">Nouveau recap en ligne </a>, qui n'est pas vraiment un recap.
+  - kind: fix
+    content: |-
+      Quelques mises à jour de dépendances (rien de bien sexy).
+  - kind: done
     content: |-
       Nouvelle fiche technique sur <a href="/fiches/reutiliser-workflow-github-actions" target="_blank">la réutilisation de workflow de GitHub Actions</a>.
   - kind: done
@@ -15,7 +25,6 @@ tasks:
     content: |-
       Le cluster Cloud public est complet côté rédaction : les quatre contenus restants sont écrits — IaaS/PaaS/SaaS, le déploiement d'un conteneur Docker dans le cloud, et deux articles de réflexion sur le coût réel et sur la souveraineté. Ils attendent leurs visuels, pour une publication étalée d'octobre à janvier.
   - kind: done
-    keep: true
     content: |-
       Nouvelle fiche technique sur <a href="/fiches/gerer-secrets-github-actions" target="_blank">la gestion des secrets dans GitHub Actions</a> : où les stocker, comment s'en servir, et les pièges dans lesquels on tombe tous une fois. Elle ferme au passage deux liens morts qui traînaient depuis la fiche sur le déploiement d'images Docker.
   - kind: fix
