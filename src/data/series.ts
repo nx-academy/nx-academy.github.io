@@ -24,7 +24,7 @@ export const SERIES: Record<string, Serie> = {
   cloud: {
     label: "Cloud public",
     blurb:
-      "Comprendre le cloud avant d'y déployer : modèles de service, public ou privé, coûts réels.",
+      "Du vocabulaire au premier déploiement : modèles de service, public ou privé, coûts réels.",
   },
   js: {
     label: "JavaScript",

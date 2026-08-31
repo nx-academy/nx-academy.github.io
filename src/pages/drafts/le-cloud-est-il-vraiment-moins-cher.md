@@ -19,7 +19,7 @@ tags:
   - Cloud
   - DevOps
 author: Thomas Dimnet
-publishedDate: 12/02/2026
+publishedDate: 12/16/2026
 
 faq:
   - question: Le cloud public est-il moins cher qu'un serveur dédié ?
