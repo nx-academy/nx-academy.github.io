@@ -2,6 +2,9 @@ month: Août
 year: 2026
 order: 8
 tasks:
+  - kind: in-progress
+    content: |-
+      Le volet pratique du cluster Cloud arrive : deux fiches qui déroulent les six étapes du déploiement d'un conteneur en ligne de commande, chez Scaleway puis chez AWS. Même plan, mêmes titres, pour pouvoir les lire côte à côte — c'est comme ça qu'on voit qu'autoriser la lecture de l'image ne demande rien d'un côté et deux rôles IAM de l'autre. Publication prévue en novembre et en décembre.
   - kind: done
     content: |-
       Nouvelle fiche technique sur <a href="/fiches/reutiliser-workflow-github-actions" target="_blank">la réutilisation de workflow de GitHub Actions</a>.
