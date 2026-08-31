@@ -1,11 +1,11 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
 
-title: "Pas de récap en août, rendez-vous en septembre"
+title: "Le récap #9 - Août 2026"
 description:
-  "Août n'aura pas eu son édition du récap : un mois chargé côté perso, le temps
-  restant passé à préparer les prochains chantiers de NX, et une actualité dev
-  au ralenti. Plutôt que de remplir pour remplir, on se retrouve en septembre."
+  "Août n'aura pas son édition du récap. LE mois a été chargé côté perso et le
+  temps restant passé à préparer les prochains chantiers de NX. Plutôt que de
+  remplir pour remplir, on se retrouve en septembre."
 
 imgAlt: Un vendeur de journaux dans un kiosque parisien, pixel art
 imgSrc: /images/articles/kiosque-journaux.webp
@@ -32,17 +32,16 @@ Autant l'annoncer tout de suite : il n'y aura pas d'édition ce mois-ci.
 
 ## Un mois sans grand-chose à trier
 
-Août a été chargé côté perso, et le peu de temps que j'ai gardé pour NX est
-parti dans la préparation des prochains chantiers — pas dans la veille. De son
-côté, l'actualité dev a tourné au ralenti : peu de sorties, et surtout peu de
-textes devant lesquels j'ai eu envie de m'arrêter. Août fait rarement autre
-chose.
+Août a été chargé côté perso. Le peu de temps que j'ai gardé pour NX est parti
+dans la préparation des prochains chantiers et pas dans la veille. De son côté,
+l'actualité dev a tourné au ralenti : peu de sorties et surtout peu de textes
+devant lesquels j'ai eu envie de m'arrêter. Août fait rarement autre chose.
 
 J'aurais pu réunir quatre liens tièdes et écrire trois lignes polies sous
-chacun. Sauf que **le récap n'a d'intérêt que s'il trie** : le jour où il
-devient l'inventaire de tout ce qui m'est passé sous les yeux, il ne vaut plus
-le temps que vous lui donnez. Publier pour tenir la cadence, c'est exactement
-l'inverse de ce que je veux faire ici.
+chacun. Sauf que **le récap n'a d'intérêt que s'il trie**. Le jour où il devient
+l'inventaire de tout ce qui m'est passé sous les yeux, il ne vaut plus le temps
+que vous lui donnez. Publier pour tenir la cadence, c'est exactement l'inverse
+de ce que je veux faire ici.
 
 Donc pas de récap en août. Le prochain sortira fin septembre et il portera quand
 même le numéro 9 : aucune édition ne se perd en route, elle se décale.
