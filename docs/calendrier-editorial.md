@@ -72,26 +72,31 @@
 ## Cluster Cloud public — juillet 2026 à janvier 2027
 
 Cadrage complet : [cluster-cloud-public.md](./cluster-cloud-public.md). Nouvelle
-série `cloud` (rayon « Cloud public » sur `/fiches/`), 4 fiches et 2 articles
+série `cloud` (rayon « Cloud public » sur `/fiches/`), 6 fiches et 2 articles
 qui se citent en chaîne. Prépare le terrain du cours « Mettez vos applications
 en production ».
 
-| Mois         | Type    | Titre                                                       | Status                |
-| ------------ | ------- | ----------------------------------------------------------- | --------------------- |
-| Août 2026    | Fiche   | Qu'est-ce que le cloud public ? (pilier)                    | **DONE** (05/08/2026) |
-| Août 2026    | Fiche   | Cloud public, privé, hybride : quelles différences ?        | **DONE** (12/08/2026) |
-| Octobre      | Fiche   | IaaS, PaaS, SaaS : quelles différences et comment choisir ? | brouillon             |
-| Novembre     | Fiche   | Comment déployer un conteneur Docker dans le cloud ?        | brouillon             |
-| Décembre     | Article | Le cloud public coûte-t-il vraiment moins cher ?            | brouillon             |
-| Janvier 2027 | Article | Cloud souverain : de quoi parle-t-on vraiment ?             | brouillon             |
+| Mois         | Type    | Titre                                                        | Status                 |
+| ------------ | ------- | ------------------------------------------------------------ | ---------------------- |
+| Août 2026    | Fiche   | Qu'est-ce que le cloud public ? (pilier)                     | **DONE** (05/08/2026)  |
+| Août 2026    | Fiche   | Cloud public, privé, hybride : quelles différences ?         | **DONE** (12/08/2026)  |
+| Octobre      | Fiche   | IaaS, PaaS, SaaS : quelles différences et comment choisir ?  | brouillon              |
+| Novembre     | Fiche   | Comment déployer un conteneur Docker dans le cloud ?         | brouillon (11/04/2026) |
+| Novembre     | Fiche   | Comment déployer un conteneur Docker sur Scaleway ?          | brouillon (11/18/2026) |
+| Décembre     | Fiche   | Comment déployer un conteneur Docker sur AWS (ECS Fargate) ? | brouillon (12/02/2026) |
+| Décembre     | Article | Le cloud public coûte-t-il vraiment moins cher ?             | brouillon (12/16/2026) |
+| Janvier 2027 | Article | Cloud souverain : de quoi parle-t-on vraiment ?              | brouillon (01/20/2027) |
 
-Les quatre brouillons sont écrits et vivent dans `src/pages/drafts/`
+Les six brouillons sont écrits et vivent dans `src/pages/drafts/`
 (`iaas-paas-saas`, `deployer-conteneur-docker-dans-le-cloud`,
+`deployer-conteneur-docker-sur-scaleway`, `deployer-conteneur-docker-sur-aws`,
 `le-cloud-est-il-vraiment-moins-cher`, `cloud-souverain`). Il leur manque leurs
-visuels. Publier = déplacer le fichier vers `src/pages/fiches/` ou
-`src/pages/articles/`, ajuster `publishedDate` et basculer les liens
-`/drafts/` : la checklist par contenu est dans
-[cluster-cloud-public.md](./cluster-cloud-public.md).
+visuels. Les deux fiches de mise en pratique sont cadrées dans
+[cluster-cloud-pratique.md](./cluster-cloud-pratique.md), et leurs commandes
+n'ont pas encore été exécutées contre une vraie API. Publier = déplacer le
+fichier vers `src/pages/fiches/` ou `src/pages/articles/`, ajuster
+`publishedDate` et basculer les liens `/drafts/` : la checklist par contenu est
+dans [cluster-cloud-public.md](./cluster-cloud-public.md).
 
 ## Le Recap
 

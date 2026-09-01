@@ -326,9 +326,15 @@ conteneur dans le cloud, c'est publier une image, donner au service le droit de
 la lire, lui décrire son port et ses variables, puis lui apprendre à savoir si
 elle va bien**.
 
-Cette fiche ferme la boucle ouverte il y a plusieurs mois avec Docker. Dans la
-suite de la série, on quitte la technique pour les deux questions qu'on se pose
-juste avant de signer :
+Cette fiche ferme la boucle ouverte il y a plusieurs mois avec Docker. Elle
+reste volontairement sans fournisseur, alors les deux suivantes déroulent
+exactement ces six étapes en ligne de commande, d'abord
+[chez Scaleway](/drafts/deployer-conteneur-docker-sur-scaleway), ensuite
+[chez AWS](/drafts/deployer-conteneur-docker-sur-aws). Lues côte à côte, elles
+montrent où les fournisseurs se ressemblent — et où ils divergent vraiment.
+
+Après quoi on quittera la technique pour les deux questions qu'on se pose juste
+avant de signer :
 [est-ce que le cloud coûte vraiment moins cher](/drafts/le-cloud-est-il-vraiment-moins-cher)
 et [ce que veut dire « souverain »](/drafts/cloud-souverain). Restez dans le
 coin 😉.
