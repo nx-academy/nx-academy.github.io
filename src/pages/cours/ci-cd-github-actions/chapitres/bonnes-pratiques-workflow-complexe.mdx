@@ -16,6 +16,8 @@ sectionTitle: Partie 2 - Découvrez les GitHub Actions
 id: 4
 ---
 
+import Screencast from "../../../../components/Screencast.astro";
+
 <article>
 
 # Suivez les bonnes pratiques en créeant un workflow complexe
@@ -55,11 +57,11 @@ Le premier élément qui rentre en ligne de compte est si le repository est publ
 ou privé. Souvenez-vous, les repositories publics sont ceux dont le code source
 est visible par tous. Par exemple, le code de ce cours est public.
 
-<br>
+<br />
 
 ![En-tête GitHub du repository public nx-academy du cours avec ses onglets Code, Issues, Actions](/images/cours-ci-cd-github-actions/repository-publique-du-cours.webp)
 
-<br>
+<br />
 
 Si le repository est public, les workflows exécutés seront gratuits. Vous avez
 bien lu. Vous n’avez rien à payer si vous exécutez des workflows sur un
@@ -77,11 +79,11 @@ compte. Par exemple, dans le cadre d’un compte gratuit d’utilisateur, il ser
 mois. Pour votre information, je m’appuie
 [sur la documentation officielle des GitHub Actions](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
 
-<br>
+<br />
 
 ![Grille tarifaire GitHub : plans Free, Team et Enterprise avec leurs minutes CI/CD mensuelles](/images/cours-ci-cd-github-actions/github-actions-prix.webp)
 
-<br>
+<br />
 
 Une fois que vous avez dépassé cette limite, vous serez facturé par minutes
 d'exécution. Il est important de souligner ici que deux éléments peuvent influer
@@ -100,16 +102,16 @@ va appliquer un coefficient multiplicateur : le “Minute multipliers”.
 - Sur MacOS, ce coefficient est de 10. Autrement dit, 1 000 minutes, vous seront
   consommés comme étant 10 000 minutes.
 
-<br>
+<br />
 
 Une fois ce nombre de minutes gratuit dépassé, vous serez facturé à la minute
 d'exécution. Jetez un œil à la capture d’écran ci-dessous.
 
-<br>
+<br />
 
 ![Tableau des tarifs GitHub Actions à la minute selon le système d'exploitation et le nombre de vCPU](/images/cours-ci-cd-github-actions/paiement-gh-actions.webp)
 
-<br>
+<br />
 
 Cette capture vous montre le système de tarification des GitHub Actions. C’est
 un système de tarification assez “classique” de Cloud Computing où vous payez à
@@ -132,7 +134,7 @@ On va s’intéresser maintenant à la partie gestion des erreurs et débogage.
 
 ---
 
-<br>
+<br />
 
 ![Pixel art d'un enfant concentré assemblant un puzzle sur une table en bois](/images/cours-ci-cd-github-actions/enfant-puzzle.webp)
 
@@ -167,7 +169,7 @@ développeur. C’est quelque chose qui s'acquiert avec le temps et l’expérie
 Cela dit, il est possible d'accélérer l’apprentissage de cette compétence en
 suivant une méthodologie simple et structurée.
 
-<br>
+<br />
 
 Cette méthode est composée de quatre étapes :
 
@@ -183,7 +185,7 @@ Cette méthode est composée de quatre étapes :
     vous avez bien résolu le bug et aussi si vous n’en avez pas ajouté de
     nouveaux.
 
-<br>
+<br />
 
 Dans le cadre des GitHub Actions, ce sont les logs émis par les actions
 elles-mêmes qui vont vous permettre de résoudre ce bug. Pour rappel, un log, ou
@@ -191,11 +193,11 @@ journal d’événement en français, est du texte émis par un programme ou un
 service. Un log contient des informations comme la date et l’heure (à laquelle
 un événement a eu lieu) ainsi que son niveau de gravité.
 
-<br>
+<br />
 
 ![Terminal affichant des logs de démarrage d'une base de données MySQL horodatés](/images/cours-ci-cd-github-actions/journal-logs.webp)
 
-<br>
+<br />
 
 Les logs fournissent des données particulièrement importantes pour déboguer. Il
 existe différents types de logs : les applications logs, les systèmes logs, etc.
@@ -208,36 +210,36 @@ Dans le cadre des GitHub Actions, quand on exécute un workflow, chaque étape
 (souvenez-vous, les steps) génère ses propres logs, comme le montre la capture
 d’écran ci-dessous.
 
-<br>
+<br />
 
 ![Détail d'un job GitHub Actions en succès montrant les logs de chaque étape, dont le checkout](/images/cours-ci-cd-github-actions/exemples-log-ci-cd.webp)
 
-<br>
+<br />
 
 Ces logs vont vous permettre d’observer le bug et d’en apprendre un peu plus sur
 celui-ci. Autrement dit, ils vont vous donner du contexte. Il est donc crucial
 de comprendre leur format et de savoir comment les interpréter. Les logs et
 erreurs seront signalisés en rouge comme le montre la capture d’écran suivante.
 
-<br>
+<br />
 
 ![Liste de commits GitHub avec des coches vertes pour les workflows réussis et des croix rouges pour ceux en échec](/images/cours-ci-cd-github-actions/workflows-erreurs.webp)
 
-<br>
+<br />
 
 Ici, par exemple, vous pouvez voir les workflows qui sont « en succès »
 (comprendre : ceux qui sont allés à leur terme) et ceux qui sont en échec.
 
-<br>
+<br />
 
 Quand un workflow est en échec, vous pouvez cliquer dessus pour avoir plus
 d’informations sur le job qui a échoué.
 
-<br>
+<br />
 
 ![Job Linting en échec dans GitHub Actions : l'étape Run linter affiche l'erreur eslint not found, exit code 127](/images/cours-ci-cd-github-actions/log-erreur.webp)
 
-<br>
+<br />
 
 Dans mon cas, en consultant les logs des GitHub Actions, je constate que le
 linter ESLint n'a pas fonctionné. C’est une information particulièrement
@@ -259,25 +261,29 @@ Pour le reproduire, vous avez deux options :
   votre ordinateur. Je n'ai pas encore eu l'occasion de l'essayer, mais si je le
   fais, je publierai certainement un article de blog à ce sujet.
 
-<br>
+<br />
 
 Il ne vous reste plus qu’à essayer de résoudre cette erreur. Prenez le temps
 nécessaire pour résoudre cette erreur, car c'est une étape importante dans votre
 apprentissage. Le screencast ci-dessous vous montre la stratégie de débogage en
 actions.
 
-<br>
+<br />
 
-<iframe src="https://player.vimeo.com/video/1140466664?h=1c8b6a9134&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 5 - Découvrez le projet fil rouge"></iframe>
+<Screencast
+  id="1140466664"
+  hash="1c8b6a9134"
+  title="Gérez et déboguez vos erreurs"
+/>
 
-<br>
+<br />
 
 Notre CI est de nouveau opérationnel. Sachez que la solution se trouve
 [sur la branche `partie-2/chapitre-2/section-2-fin`](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/tree/partie-2/chapitre-2/section-2-fin).
 
 ---
 
-<br>
+<br />
 
 ![Pixel art d'un responsable casqué présentant une affiche Safety First à des ouvriers dans une usine](/images/cours-ci-cd-github-actions/consignes-securite.webp)
 
@@ -313,17 +319,17 @@ bout de code réutilisable. Il existe deux catégories d’actions :
   communauté. Elles n’ont pas été approuvées ou vérifiées par GitHub. La qualité
   et la sécurité de ces dernières peuvent donc varier grandement.
 
-<br>
+<br />
 
 D’une manière générale, je vous invite à vous servir des actions officielles
 autant que possible. Vous pouvez en trouver
 [la majeure partie sur ce repository](https://github.com/actions/).
 
-<br>
+<br />
 
 ![Profil GitHub vérifié de l'organisation GitHub Actions avec ses dépôts officiels épinglés comme starter-workflows et setup-node](/images/cours-ci-cd-github-actions/github-actions-repo-officiel.webp)
 
-<br>
+<br />
 
 Si vous décidez de passer par une action de la communauté, pensez bien à
 vérifier l’auteur et à lire le code source de l’action en question. Pensez aussi
@@ -337,11 +343,11 @@ stocker par exemple des clés d’API, des tokens, des mots de passe, etc.
 Vous pouvez les ajouter en vous rendant sur l’onglet Secrets and variables de la
 page Settings de votre repository.
 
-<br>
+<br />
 
 ![Page GitHub Actions secrets and variables des Settings du dépôt, sans aucun secret enregistré](/images/cours-ci-cd-github-actions/github-secrets.webp)
 
-<br>
+<br />
 
 Puis, vous pouvez y accéder directement dans vos actions GitHub.
 
@@ -359,7 +365,7 @@ autour de ces notions pour 2024. Je mettrais à jour ce cours à ce moment 🙂.
 
 ---
 
-<br>
+<br />
 
 ![Pixel art d'un opérateur supervisant depuis un pupitre une grande usine aux nombreuses cuves et tuyauteries](/images/cours-ci-cd-github-actions/construction-usine-complexe.webp)
 
@@ -405,7 +411,7 @@ Ce workflow est composé de deux jobs. Ils ont chacun une étape (steps) et
 tournent sur des VM utilisant la dernière version d’ubuntu. À votre avis, que
 veut dire la propriété needs ?
 
-<br>
+<br />
 
 ---
 
@@ -413,7 +419,7 @@ veut dire la propriété needs ?
 
 ---
 
-<br>
+<br />
 
 La propriété needs permet de définir des dépendances entre des jobs au sein d’un
 même workflow. Autrement dit, needs vous permet de spécifier qu’un job ne peut
@@ -423,18 +429,22 @@ se lancer tant que le job dont il dépend n’est pas terminé. Si le premier jo
 Je vais profiter du screencast ci-dessous pour reprendre ces informations et
 vous faire créer quelques exemples de workflow complexes. À tout de suite !
 
-<br>
+<br />
 
-<iframe src="https://player.vimeo.com/video/1140466727?h=358f16483d&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 5 - Découvrez le projet fil rouge"></iframe>
+<Screencast
+  id="1140466727"
+  hash="358f16483d"
+  title="Créez un workflow complexe"
+/>
 
-<br>
+<br />
 
 Le code correspond à la fin de ce screencast se trouve
 [sur la branche `partie-2/chapitre-2/section-4-fin`](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/tree/partie-2/chapitre-2/section-4-fin).
 
 ---
 
-<br>
+<br />
 
 ![Pixel art d'un enfant pliant un avion en papier jaune sur une table près d'une fenêtre](/images/misc/enfant-avion-papier.webp)
 
@@ -446,18 +456,22 @@ que nous essayons de résoudre dans ce chapitre. N’oubliez pas de vous
 positionner
 [sur la branche `partie-2/chapitre-2/section-4-fin`](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/tree/partie-2/chapitre-2/section-4-fin).
 
-<br>
+<br />
 
-<iframe src="https://player.vimeo.com/video/1140466792?h=5d618fb56d&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 5 - Découvrez le projet fil rouge"></iframe>
+<Screencast
+  id="1140466792"
+  hash="5d618fb56d"
+  title="Exercez-vous — Créez un workflow complexe"
+/>
 
-<br>
+<br />
 
 Le code source contenant la solution de cet exercice se trouve
 [sur la branche `partie-2/chapitre-2-fin`](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/tree/partie-2/chapitre-2-fin).
 
 ---
 
-<br>
+<br />
 
 ![Pixel art d'un jeune vendeur de journaux criant Extra ! dans un mégaphone au coin d'une rue](/images/misc/vendeur-journaux.webp)
 
@@ -473,6 +487,7 @@ Le code source contenant la solution de cet exercice se trouve
   Analysez les logs de votre CI, tentez de le reproduire et essayez ensuite de
   le corriger.
 - Tirez parti de la parallélisation des jobs pour faire des jobs plus courts et
-dédiés seulement à certaines tâches. Utilisez la propriété needs pour signaler
-une dépendance entre plusieurs jobs.
+  dédiés seulement à certaines tâches. Utilisez la propriété needs pour signaler
+  une dépendance entre plusieurs jobs.
+
 </article>

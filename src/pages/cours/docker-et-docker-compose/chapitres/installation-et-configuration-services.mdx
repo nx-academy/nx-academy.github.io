@@ -15,6 +15,8 @@ sectionTitle: Partie 3 - Développez dans un environnement ISO Prod
 id: 7
 ---
 
+import Screencast from "../../../../components/Screencast.astro";
+
 <article>
 
 # Installez et configurez des services avec docker compose
@@ -61,7 +63,7 @@ installer et configurer la base de données.
 
 ---
 
-<br>
+<br />
 
 ![Une femme en train de paramétrer un ordinateur, pixel art](/images/cours-docker-et-docker-compose/femme-configuration-ordinateur.webp)
 
@@ -85,21 +87,21 @@ C’est en anglais mais l’auteur explique bien les différences entre ces
 différentes architectures de CPU. Pour voir si une image est compatible avec les
 architectures ARM, il est important de regarder la partie tags de vos images.
 
-<br>
+<br />
 
 ![Page DockerHub de l'image officielle mongo, onglet Tags affichant les versions, architectures et tailles des images](/images/cours-docker-et-docker-compose/dockerhub-mongo-home.webp)
 
-<br>
+<br />
 
 Par exemple, les deux images ci-dessous sont compatibles avec les architectures
 AMD et ARM. Vous pouvez aussi voir que la deuxième image (`4.4.20-rc0`) est
 compatible avec les serveurs Windows.
 
-<br>
+<br />
 
 ![Recherche du tag 2.2 sur DockerHub pour mongo, le seul résultat 2.2.7 n'est disponible qu'en architecture amd64](/images/cours-docker-et-docker-compose/dockerhub-mongo-search.webp)
 
-<br>
+<br />
 
 Quand je recherche une version de de Mongo, ici la version 2.2.7, je ne vois pas
 l’architecture ARM. Cette image n’est donc pas compatible avec les puces M1, M2,
@@ -110,22 +112,22 @@ d’images Docker n'étaient plus compatibles, les images Alpine par exemple. Le
 choses ont depuis heureusement évolué mais de nombreux logiciels restent
 incompatibles avec les puces. Ce qui est un réel problème !
 
-<br>
+<br />
 
 **Nous utiliserons ici l’image Mongo 3.7.9.**
 
-<br>
+<br />
 
 ![Recherche du tag 3.7.9 sur DockerHub pour mongo, disponible en architectures linux amd64 et arm64](/images/cours-docker-et-docker-compose/dockerhub-mongo-3.webp)
 
-<br>
+<br />
 
 Prenez un peu le temps
 [de lire la documentation](https://hub.docker.com/_/mongo). Elle contient pas
 mal d’informations sur comment la configurer et les variables d’environnement à
 ajouter. Elle vous donne aussi des snippets de fichier docker-compose.
 
-<br>
+<br />
 
 ```yml
 # Use root/example as user/password credentials
@@ -150,7 +152,7 @@ services:
       ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
 ```
 
-<br>
+<br />
 
 Dans le snippet de code ci-dessus, le service qui nous intéresse est le premier
 : `mongo`. Le deuxième service correspond à une interface d’administration de la
@@ -160,11 +162,11 @@ Amusez à créer un fichier docker-compose et à y copier/coller ce snippet de
 code. Tapez ensuite la commande `docker-compose up` et ouvrez votre navigateur
 avec l’url [http://localhost:8081](http://localhost:8081/).
 
-<br>
+<br />
 
 ![Interface Mongo Express listant les bases de données admin, config et local avec des boutons View et Del](/images/cours-docker-et-docker-compose/mongo-express-admin.webp)
 
-<br>
+<br />
 
 Vous vous demandez peut-être pourquoi vous n’avez pas besoin d’utiliser la
 commande `docker-compose build`. En fait, cette commande vous permet de builder
@@ -177,7 +179,7 @@ allait faire un peu de redite dans cette partie.
 
 ---
 
-<br>
+<br />
 
 ![Une femme en train de sauvegarder un document sur une disquette, pixel art](/images/cours-docker-et-docker-compose/femme-ordinateur-disquette.webp)
 
@@ -215,7 +217,7 @@ volumes entrent en jeu !
 
 Reprenons encore une fois notre docker-compose de WordPress.
 
-<br>
+<br />
 
 ```yml
 services:
@@ -236,29 +238,29 @@ volumes:
   db_data:
 ```
 
-<br>
+<br />
 
 Regardez les deux dernières lignes. Ce docker-compose crée un volume appelé
 `db_data`. Le rôle de ce volume va être de persister l’information de la base de
 données du services db.
 
-<br>
+<br />
 
 Ce volume est attaché au service `db` grâce à la propriété :
 
-<br>
+<br />
 
 ```yml
 volumes:
   - db_data:/var/lib/mysql
 ```
 
-<br>
+<br />
 
 Pour retrouver des informations concernant un volume, utilisez la commande
 `docker volume ls`.
 
-<br>
+<br />
 
 ```yml
 docker volume ls
@@ -295,13 +297,13 @@ faaf97dab41a77e1b7f48ed65e978e0c1eb5385d2a15ba14011daee7812aa547 local
 test_db_data local 	vscode
 ```
 
-<br>
+<br />
 
 Puis, si je veux avoir des informations concernant un volume en particulier, par
 exemple `test_db_data`, j’utilise la commande
 `docker volume inspect test_db_data`.
 
-<br>
+<br />
 
 ```bash
 docker volume inspect test_db_data
@@ -324,13 +326,13 @@ docker volume inspect test_db_data
 ]
 ```
 
-<br>
+<br />
 
 **En pratique, j’utilise relativement peu cette commande, sauf quand je souhaite
 déboguer un projet**. Cela dit, ça vous permet de savoir que ça existe en plus
 de vous donner une petite piqûre de rappel sur les commandes de docker 😉.
 
-<br>
+<br />
 
 J’en profite pour vous donner quelques ressources à lire pour approfondir les
 notions de volumes et de stateful vs stateless :
@@ -347,7 +349,7 @@ notions de volumes et de stateful vs stateless :
 
 ---
 
-<br>
+<br />
 
 ![Un enfant en train de s'entrainer à faire un avion en papier, pixel art](/images/cours-docker-et-docker-compose/enfant-avion-papier.webp)
 
@@ -357,18 +359,22 @@ Pour rappel,
 [voici la problématique](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/4)
 que nous essayons de résoudre dans ce chapitre.
 
-<br>
+<br />
 
-<iframe src="https://player.vimeo.com/video/1096177208?h=67818b6603&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 14 - Exercez-vous - Installez et configurez des services avec docker-compose"></iframe>
+<Screencast
+  id="1096177208"
+  hash="67818b6603"
+  title="Exercez-vous — Installez et configurez des services avec docker-compose"
+/>
 
-<br>
+<br />
 
 Le code source contenant la solution de cet exercice se trouve
 [sur la branche `partie-3/chapitre-1-fin`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-3/chapitre-1-fin).
 
 ---
 
-<br>
+<br />
 
 ![Un vendeur de journaux dans la rue, pixel art](/images/cours-docker-et-docker-compose/vendeur-journaux.webp)
 

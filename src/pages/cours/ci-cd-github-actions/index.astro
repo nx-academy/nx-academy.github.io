@@ -7,7 +7,7 @@ import CourseLandingLayout from "../../../layouts/CourseLandingLayout.astro";
 import { GITHUB_ACTIONS_TESTIMONIALS } from "../../../data/testimonials.ts";
 
 const courseChapters = Object.values(
-  import.meta.glob("./chapitres/*.md", { eager: true }),
+  import.meta.glob("./chapitres/*.mdx", { eager: true }),
 ) as Chapter[];
 let cheatsheets = Object.values(
   import.meta.glob("../../fiches/*.md", { eager: true }),

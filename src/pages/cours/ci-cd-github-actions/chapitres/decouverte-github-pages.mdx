@@ -15,6 +15,8 @@ sectionTitle: Partie 3 - Mettez en place une pipeline CI/CD avec GitHub Pages et
 id: 5
 ---
 
+import Screencast from "../../../../components/Screencast.astro";
+
 <article>
 
 # Initiez-vous à GitHub Pages
@@ -38,11 +40,11 @@ derniers chapitres seront moins denses et moins compliqués que les précédents
 Bien sûr il y aura quelques nouveautés mais elles seront en moindre quantité que
 dans les chapitres précédents.
 
-<br>
+<br />
 
 ![Capture de la page d'accueil de GitHub Pages, titrée « Websites for you and your projects »](/images/cours-ci-cd-github-actions/home-github-pages.webp)
 
-<br>
+<br />
 
 On va commencer par s’intéresser à GitHub Pages.
 
@@ -86,7 +88,7 @@ pour prendre un peu d’avance 🙂.
 
 ---
 
-<br>
+<br />
 
 ![Un homme attablé lisant un manuel d'instructions marqué « Manual » avec un pictogramme d'information, pixel art](/images/cours-ci-cd-github-actions/homme-lecture-instruction.webp)
 
@@ -126,11 +128,11 @@ fonctionnalités classiques d’un blog simplement, à savoir d’ajouter des
 catégories et des tags et de mettre en place un système de gestion de
 commentaires via Disqus.
 
-<br>
+<br />
 
 ![Capture de la page d'accueil de Jekyll : « Transform your plain text into static websites and blogs »](/images/cours-ci-cd-github-actions/home-jekyll.webp)
 
-<br>
+<br />
 
 Pour l’avoir personnellement utilisé il y a quelques années, Jekyll est une
 solution solide pour réaliser un blog. Cela dit, je trouve que passer par Medium
@@ -148,7 +150,7 @@ même un site vitrine.
 
 ---
 
-<br>
+<br />
 
 ![Un homme devant un écran affichant une fenêtre de préférences avec des options à configurer, pixel art](/images/cours-ci-cd-github-actions/configuration-ordinateur.webp)
 
@@ -178,17 +180,17 @@ Cela vous permettra de voir les différences entre elles.
 
 Vous allez voir comment le faire via le screencast ci-dessous.
 
-<br>
+<br />
 
-<iframe src="https://player.vimeo.com/video/1140466891?h=2c7d882f9d&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 5 - Découvrez le projet fil rouge"></iframe>
+<Screencast id="1140466891" hash="2c7d882f9d" title="Configurez GitHub Pages" />
 
-<br>
+<br />
 
 Vous devriez maintenant être prêt pour résoudre la problématique de ce chapitre.
 
 ---
 
-<br>
+<br />
 
 ![Un enfant attablé pliant un avion en papier jaune près d'une fenêtre, pixel art](/images/misc/enfant-avion-papier.webp)
 
@@ -199,18 +201,22 @@ Pour rappel,
 que nous essayons de résoudre dans ce chapitre. Pensez-bien à vous positionner
 [sur la branche `partie-3/chapitre-1-debut`](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/tree/partie-3/chapitre-1-debut).
 
-<br>
+<br />
 
-<iframe src="https://player.vimeo.com/video/1140466942?h=24a5fb300f&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 5 - Découvrez le projet fil rouge"></iframe>
+<Screencast
+  id="1140466942"
+  hash="24a5fb300f"
+  title="Exercez-vous — Initiez-vous à GitHub Pages"
+/>
 
-<br>
+<br />
 
 Le code source contenant la solution de cet exercice se trouve
 [sur la branche `partie-3/chapitre-1-fin`](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/tree/partie-3/chapitre-1-fin).
 
 ---
 
-<br>
+<br />
 
 ![Un jeune vendeur de journaux criant dans un porte-voix dans une rue de ville, pixel art](/images/misc/vendeur-journaux.webp)
 
@@ -222,7 +228,8 @@ Le code source contenant la solution de cet exercice se trouve
 - GitHub Pages peut vous permettre d’héberger votre portfolio, votre
   documentation, votre blog et même une landing page dédiée à un événement.
 - Par défaut, le domaine qui vous est assigné par GitHub est
-nomDeDomaine.GitHub.io. En ajoutant un CNAME et en faisant quelques
-configurations côtés DNS, vous pouvez le transformer en un nom de domaine plus «
-classique ».
+  nomDeDomaine.GitHub.io. En ajoutant un CNAME et en faisant quelques
+  configurations côtés DNS, vous pouvez le transformer en un nom de domaine plus
+  « classique ».
+
 </article>

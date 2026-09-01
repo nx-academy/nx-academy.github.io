@@ -16,6 +16,8 @@ sectionTitle: Partie 2 - Créez une API REST avec Docker et docker-compose
 id: 4
 ---
 
+import Screencast from "../../../../components/Screencast.astro";
+
 <article>
 
 # Créez votre premier Dockerfile
@@ -41,11 +43,11 @@ précise.
 
 Le schéma ci-dessous montre un enchaînement d’instructions assez courant.
 
-<br>
+<br />
 
 ![Le schéma d'une suite d'instructions d'un Dockerfile](/images/cours-docker-et-docker-compose/schema-instructions-docker.webp)
 
-<br>
+<br />
 
 Essayez de voir ça comme un voyage à l’étranger. Le point de départ est le
 moment où vous préparez le départ depuis chez vous. Vous sortez vos affaires de
@@ -74,7 +76,7 @@ C’est ce qu’on appelle
 
 ---
 
-<br>
+<br />
 
 ![Une manageneuse en train de donner des instructions à une salariée, pixel art](/images/cours-docker-et-docker-compose/manageuse-instructions.webp)
 
@@ -84,7 +86,7 @@ Commencez par regarder le Dockerfile ci-dessous. Pour votre information, ce
 snippet, ou morceau de code en français, se trouve
 [sur ce gist Github](https://gist.github.com/tdimnet/96a5d87fea9955c7824a99534821047a).
 
-<br>
+<br />
 
 ```dockerfile
 # Je récupère une image ubuntu 18
@@ -100,23 +102,23 @@ WORKDIR /app
 CMD [ "echo", "hello, world" ]
 ```
 
-<br>
+<br />
 
 Créez un fichier appelé Dockerfile dans le dossier du projet fil rouge. Votre
 arborescence devrait ressembler à ça. Recopiez le code ci-dessus dans ce
 fichier.
 
-<br>
+<br />
 
 ![Une capture d'écran de l'arborescence du projet sous VsCode](/images/cours-docker-et-docker-compose/arborescence-projet.webp)
 
-<br>
+<br />
 
 Je vais maintenant vous demander de lancer deux commandes. Pas d’inquiètude, je
 vous expliquerais juste après ce qu’elles font. Cela dit, n’oubliez pas
 d’utiliser `--help`, par exemple `docker image –help`.
 
-<br>
+<br />
 
 ```bash
 # Commande 1
@@ -126,7 +128,7 @@ docker image build . -t my-first-app
 docker container run my-first-app
 ```
 
-<br>
+<br />
 
 Vous devriez normalement voir s’afficher dans votre console _hello, world_.
 **Vous venez, sans le savoir, de builder votre image Docker à partir d’un
@@ -150,16 +152,20 @@ et vous donner quelques exemples.
 
 À tout de suite !
 
-<br>
+<br />
 
-<iframe src="https://player.vimeo.com/video/1096176132?h=b8ae3c080a&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 8 - Ajoutez des instructions sur votre Dockerfile"></iframe>
+<Screencast
+  id="1096176132"
+  hash="b8ae3c080a"
+  title="Ajoutez des instructions sur votre Dockerfile"
+/>
 
-<br>
+<br />
 
 Vous venez de voir comment construire (builder) et lancer notre image. Je vous
 ai aussi présenté les quatre instructions de notre Dockerfile.
 
-<br>
+<br />
 
 Voici un récapitulatif de ce que je viens de vous dire.
 
@@ -184,7 +190,7 @@ Voici un récapitulatif de ce que je viens de vous dire.
   lance mon conteneur, `docker container run my-first-app ls | grep app` par
   exemple.
 
-<br>
+<br />
 
 Bon, ça fait pas mal de choses ! Si vous voyez que tout ne rentre pas du premier
 coup, je vous invite à revenir sur ce chapitre dans quelques jours ou après
@@ -195,7 +201,7 @@ par étape.
 
 ---
 
-<br>
+<br />
 
 ![Une enfant en train de choisir une paire de baskets, pixel art](/images/cours-docker-et-docker-compose/ado-choix-basket.webp)
 
@@ -218,7 +224,7 @@ installés sur votre image. **Embarquer peu de librairies est non seulement util
 pour le temps de build et la taille de l’image mais aussi pour la sécurité**.
 Qui dit moins de librairies dit moins de librairies à devoir mettre à jour.
 
-<br>
+<br />
 
 Ok, maintenant, tapez la commande :
 
@@ -233,7 +239,7 @@ que j’utilise assez régulièrement, en plus des commandes
 `docker image ls` avant de passer à la suite, vous ne devriez plus avoir
 d’images sur votre ordinateur.
 
-<br>
+<br />
 
 Lancez ensuite ces deux commandes :
 
@@ -243,7 +249,7 @@ docker image pull node
 docker image pull node:alpine
 ```
 
-<br>
+<br />
 
 Maintenant, lancez la commande docker image ls. Vous devriez avoir un résultat
 similaire au mien :
@@ -261,7 +267,7 @@ correspond [à la distribution Alpine Linux](https://www.alpinelinux.org/). Il
 s’agit d’une distribution Linux particulièrement petite. D’ailleurs, vous pouvez
 faire un essai.
 
-<br>
+<br />
 
 Tapez dans votre terminal la commande :
 
@@ -272,7 +278,7 @@ docker container run -ti node bash
 Cette commande lance le conteneur Docker de l’image Node et vous lance dans un
 terminal bash.
 
-<br>
+<br />
 
 Vous devriez avoir un résultat similaire.
 
@@ -283,7 +289,7 @@ root@530bbeb24740:/#
 Tapez maintenant `git`. Vous verrez que la documentation de git apparaît. Tapez
 `exit` pour sortir du conteneur.
 
-<br>
+<br />
 
 Pour l’image alpine, les commandes sont légèrement différentes.
 
@@ -298,7 +304,7 @@ Essayez de taper git maintenant. Vous devriez avoir la réponse
 `bin/sh: git: not found`. **Et oui, git n’est pas installé par défaut sur les
 images alpine !** Vous pouvez taper exit pour sortir du conteneur.
 
-<br>
+<br />
 
 Nous allons travailler, pour le moment, avec une image type buster-slim où
 Buster avec une image d’une distribution Debian et slim est une version
@@ -314,7 +320,7 @@ buster-slim_ pour commencer. Cela va vous permettre de construire votre image et
 de rendre fonctionnel votre projet. Je m’occupe généralement de l’optimisation
 dans un deuxième.
 
-<br>
+<br />
 
 Si le sujet vous intéresse dès maintenant, deux fiches techniques
 approfondissent l’allègement des images :
@@ -353,7 +359,7 @@ langage. Actuellement, j’utiliserais donc l’image `node:18.15-buster-slim`.
 
 ---
 
-<br>
+<br />
 
 ![Un enfant en train de s'entrainer à faire un avion en papier, pixel art](/images/cours-docker-et-docker-compose/enfant-avion-papier.webp)
 
@@ -367,18 +373,22 @@ contenu dans le fichier `app.js`.
 
 Amusez-vous bien !
 
-<br>
+<br />
 
-<iframe src="https://player.vimeo.com/video/1096176274?h=a18d7b939e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 9 - Exercez vous - Créez votre premier Dockerfile"></iframe>
+<Screencast
+  id="1096176274"
+  hash="a18d7b939e"
+  title="Exercez-vous — Créez votre premier Dockerfile"
+/>
 
-<br>
+<br />
 
 Le code source contenant la solution de cet exercice se trouve
 [sur la branche `partie-2/chapitre-1-fin`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-1-fin).
 
 ---
 
-<br>
+<br />
 
 ![Un vendeur de journaux dans la rue, pixel art](/images/cours-docker-et-docker-compose/vendeur-journaux.webp)
 

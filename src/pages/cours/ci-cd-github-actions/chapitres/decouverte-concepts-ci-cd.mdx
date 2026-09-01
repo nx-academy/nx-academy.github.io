@@ -59,11 +59,11 @@ alors elle arrête l'exécution des prochaines tâches. Vous recevrez souvent un
 mail pour vous avertir que le CI a détecté une erreur et n’est pas allé au bout
 de son exécution.
 
-<br>
+<br />
 
 ![Capture GitHub d'une liste de commits avec une infobulle « Some checks were not successful » : un check de linting en échec parmi les jobs](/images/cours-ci-cd-github-actions/exemple-erreur-github-action.webp)
 
-<br>
+<br />
 
 **Le Déploiement Continu (CD) s’intéresse lui à la mise en production**. On
 appelle ça aussi la livraison. Une fois que les modifications de votre code ont
@@ -81,7 +81,7 @@ qu’il faudra prévoir des plans de retour en arrière. Il est important de pre
 
 ---
 
-<br>
+<br />
 
 ![Un homme penché sur un grand plan d'usine bleu étalé sur une table, pixel art](/images/cours-ci-cd-github-actions/plan-usine.webp)
 
@@ -100,15 +100,15 @@ Ruby, etc. Cela ne marchera pas forcément avec des langages plus “exotiques�
 mais globalement, vous ne devriez pas avoir de difficultés à faire tourner votre
 code.
 
-<br>
+<br />
 
 Le plus souvent, un pipeline CI/CD suit le schéma suivant.
 
-<br>
+<br />
 
 ![Schéma d'une pipeline : du code et du commit vers l'intégration continue (build, tests unitaires et d'intégration) puis la livraison continue (review, staging, production)](/images/cours-ci-cd-github-actions/schema-pipeline.webp)
 
-<br>
+<br />
 
 Je trouve ce schéma assez visuel et compréhensible. On y retrouve bien la
 séparation entre l’intégration continue et le déploiement continu. Vous y
@@ -155,7 +155,7 @@ On peut décomposer une pipeline en 5 grandes étapes :
   vérifier que tout se passe bien avec des outils de surveillance. Je vous
   prépare un cours dessus 🙂.
 
-<br>
+<br />
 
 Sachez qu’il peut s’ajouter d’autres étapes complémentaires. Par exemple, si
 votre projet utilise un linter type ESLint, vous aurez tout intérêt à placer le
@@ -165,15 +165,15 @@ possible - Faire tourner des pipelines prend du temps et coûte de l’argent.
 Après les tests, vous vous occuperez souvent de la partie Docker. À savoir,
 builder puis publier l’image.
 
-<br>
+<br />
 
 L’image suivante propose une représentation graphique des pipelines CI/CD.
 
-<br>
+<br />
 
 ![Boucle infinie du cycle CI/CD : plan, code, build, test, release, deploy, operate et monitor](/images/cours-ci-cd-github-actions/cycle-ci-cd.webp)
 
-<br>
+<br />
 
 Ce schéma me plait particulièrement parce qu’il montre bien le côté répétitif
 d’une pipeline de déploiement. À chaque fois que vous apportez une modification
@@ -188,7 +188,7 @@ découvrirez ensuite les problématiques résolues par ces technologies.
 
 ---
 
-<br>
+<br />
 
 ![Une vieille berline orange des années 1980 côte à côte avec une voiture blanche moderne, pixel art](/images/cours-ci-cd-github-actions/voitures-1980-2024.webp)
 
@@ -212,11 +212,11 @@ Pour rappel,
   principalement utilisé la commande scp. Cette commande est disponible sur
   MacOS et Linux.
 
-<br>
+<br />
 
 ![Capture d'un terminal affichant la page du manuel (man) de la commande scp, OpenSSH secure file copy](/images/cours-ci-cd-github-actions/manuel-commande-scp.webp)
 
-<br>
+<br />
 
 Pour être honnête, ce ne sont pas des méthodes très conseillées aujourd’hui.
 J’ai tendance à appeler ça “des méthodes à la papa”. Ce sont des méthodes
@@ -254,7 +254,7 @@ connaissances en pipeline de déploiements. La bonne nouvelle, c’est qu’une 
 que vous avez compris les principes de bases, vous pouvez vous en sortir assez
 vite.
 
-<br>
+<br />
 
 **Parlons maintenant un peu des inconvénients**. Je pense sincèrement que les
 avantages des pipelines de déploiement compensent largement les inconvénients.
@@ -277,14 +277,14 @@ Je vois trois principaux inconvénients :
   exemple) et les clés d’API. Nous verrons dans la partie 2 quelques bonnes
   pratiques à respecter niveau sécurité 🙂.
 
-<br>
+<br />
 
 Voilà pour les avantages et les inconvénients des pipelines CI/CD. On va
 maintenant regarder de plus près quelques CI Servers connues.
 
 ---
 
-<br>
+<br />
 
 ![Trois voitures, jaune, rouge et bleue, exposées dans un hall de concession automobile, pixel art](/images/cours-ci-cd-github-actions/concession-voitures.webp)
 
@@ -315,7 +315,7 @@ Travis CI, GitLab CI et bien sûr GitHub Actions.
 
 ---
 
-<br>
+<br />
 
 ![Un vendeur de journaux dans une rue, pixel art](/images/misc/vendeur-journaux.webp)
 
