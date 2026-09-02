@@ -1,0 +1,7 @@
+month: Septembre
+year: 2026
+order: 9
+tasks:
+  - kind: done
+    content: |-
+      Nouvelle fiche technique sur <a href="/fiches/iaas-paas-saas" target="_blank">le IaaS, PaaS et Saas</a>.
