@@ -4,9 +4,9 @@ layout: ../../layouts/CheatSheetsLayout.astro
 title: "IaaS, PaaS, SaaS, quelles différences et comment choisir ?"
 description:
   "IaaS, PaaS ou SaaS ? On compare les trois modèles de service du cloud avec un
-  tableau qui gère quoi en terme de matériel, réseau, OS, runtime,
-  application, données. On voit aussi ce qu'on gagne et ce qu'on perd en montant
-  d'une couche."
+  tableau qui gère quoi en terme de matériel, réseau, OS, runtime, application,
+  données. On voit aussi ce qu'on gagne et ce qu'on perd en montant d'une
+  couche."
 
 imgAlt:
   Trois parts de pizza alignées, la première crue, la deuxième dans un carton de
@@ -44,8 +44,8 @@ faq:
 ---
 
 Dans [la fiche précédente](/fiches/difference-cloud-public-prive-hybride), on a
-répondu à une question de propriété. À savoir, **chez qui** tourne votre application, sur
-du matériel mutualisé ou dédié. Aujourd'hui, on change d'axe.
+répondu à une question de propriété. À savoir, **chez qui** tourne votre
+application, sur du matériel mutualisé ou dédié. Aujourd'hui, on change d'axe.
 
 La question est plutôt **jusqu'où le fournisseur s'occupe de votre pile ?**
 
@@ -54,16 +54,16 @@ documentations (sans que, souvent, personne prenne la peine de les définir) :
 **IaaS, PaaS, SaaS**. Infrastructure, plateforme, logiciel, le tout « as a
 service », c'est-à-dire loué à la demande.
 
-Pour info, ces trois modèles ne s'opposent pas. Ils décrivent trois **hauteurs** sur une
-même pile technique, et le seul vrai critère qui les sépare, c'est la ligne où
-s'arrête la responsabilité du fournisseur et où commence la vôtre.
+Pour info, ces trois modèles ne s'opposent pas. Ils décrivent trois **hauteurs**
+sur une même pile technique, et le seul vrai critère qui les sépare, c'est la
+ligne où s'arrête la responsabilité du fournisseur et où commence la vôtre.
 
 ---
 
 ## La métaphore de la pizza pour poser l'intuition
 
-Avant le vocabulaire, l'image. Bon, ok, Elle est un peu éculée dans le milieu, mais elle
-marche tellement bien que ce serait dommage de s'en priver.
+Avant le vocabulaire, l'image. Bon, ok, Elle est un peu éculée dans le milieu,
+mais elle marche tellement bien que ce serait dommage de s'en priver.
 
 <br>
 
@@ -96,8 +96,8 @@ secondes, et vous les payez à la seconde ou au gigaoctet.
 
 <br>
 
-Ce que le fournisseur prend en charge s'arrête à l'hyperviseur (on reviendra sur ce terme bientôt). **Tout
-ce qui est au-dessus est à vous.** Concrètement :
+Ce que le fournisseur prend en charge s'arrête à l'hyperviseur (on reviendra sur
+ce terme bientôt). **Tout ce qui est au-dessus est à vous.** Concrètement :
 
 - le système d'exploitation, son installation et surtout ses mises à jour de
   sécurité ;
@@ -116,9 +116,9 @@ virtuelle partout.
 
 <br>
 
-**Le IaaS se choisit pour une contrainte, pas par défaut**. Si
-vous ne savez pas nommer la raison précise qui vous oblige à administrer un OS,
-c'est probablement que la couche du dessus vous ira le mieux.
+**Le IaaS se choisit pour une contrainte, pas par défaut**. Si vous ne savez pas
+nommer la raison précise qui vous oblige à administrer un OS, c'est probablement
+que la couche du dessus vous ira le mieux.
 
 ---
 
@@ -131,10 +131,10 @@ meurt.
 
 <br>
 
-La frontière se déplace donc franchement. C'est maintenant le fournisseur gère maintenant l'OS,
-les correctifs de sécurité, le runtime et l'équilibrage de charge. Il vous reste
-l'application et les données. Un déploiement se résume souvent à pousser sur une
-branche.
+La frontière se déplace donc franchement. C'est maintenant le fournisseur gère
+maintenant l'OS, les correctifs de sécurité, le runtime et l'équilibrage de
+charge. Il vous reste l'application et les données. Un déploiement se résume
+souvent à pousser sur une branche.
 
 <br>
 
@@ -159,9 +159,9 @@ propres à chaque plateforme, la porte de sortie est plus étroite qu'en IaaS.
 
 ## SaaS — vous louez le logiciel
 
-Le **software as a service**, c'est le bout de la chaîne. C'est un logiciel fini,
-exploité par son éditeur, auquel vous accédez par un navigateur ou une API. Vous
-n'apportez plus que **vos données et vos utilisateurs**.
+Le **software as a service**, c'est le bout de la chaîne. C'est un logiciel
+fini, exploité par son éditeur, auquel vous accédez par un navigateur ou une
+API. Vous n'apportez plus que **vos données et vos utilisateurs**.
 
 <br>
 
@@ -170,10 +170,10 @@ rien dessus. C'est une erreur, pour deux raisons.
 
 <br>
 
-D'abord parce que **vous en consommez déjà énormément** sans le formuler ainsi. 
-Votre outil de tickets, votre messagerie d'équipe, votre
-service d'envoi d'e-mails transactionnels, votre outil de facturation. Chacun est une dépendance de
-production au même titre qu'une base de données.
+D'abord parce que **vous en consommez déjà énormément** sans le formuler ainsi.
+Votre outil de tickets, votre messagerie d'équipe, votre service d'envoi
+d'e-mails transactionnels, votre outil de facturation. Chacun est une dépendance
+de production au même titre qu'une base de données.
 
 <br>
 
@@ -268,25 +268,26 @@ fiche.
 
 <br>
 
-Le **serverless**, ou fonction as a service. Vous livrez une fonction (du code), elle
-s'exécute à la demande et vous ne payez que ses millisecondes d'exécution. Sur
-le papier c'est l'aboutissement de la logique ; en pratique, le démarrage à
+Le **serverless**, ou fonction as a service. Vous livrez une fonction (du code),
+elle s'exécute à la demande et vous ne payez que ses millisecondes d'exécution.
+Sur le papier c'est l'aboutissement de la logique ; en pratique, le démarrage à
 froid, la difficulté à reproduire l'environnement en local et l'attachement très
-fort au fournisseur en font un choix à faire les yeux ouverts. J'ai hâte de pouvoir vous faire des fiches sur ce modèle.
+fort au fournisseur en font un choix à faire les yeux ouverts. J'ai hâte de
+pouvoir vous faire des fiches sur ce modèle.
 
 <br>
 
 Ce qu'il faut en retenir -> **le trio IaaS/PaaS/SaaS reste un bon outil de
 lecture, pas une classification exacte du marché**. Quand un service ne rentre
-dans aucune case, posez-lui simplement la question du tableau, à savoir jusqu'où va sa
-responsabilité et où commence la vôtre. Vous saurez alors le situer.
+dans aucune case, posez-lui simplement la question du tableau, à savoir jusqu'où
+va sa responsabilité et où commence la vôtre. Vous saurez alors le situer.
 
 <hr>
 
-Et voilà, le trio est démonté ! Pour résumer en une phrase. **IaaS, PaaS et
-SaaS ne décrivent pas trois technologies mais trois hauteurs de délégation sur
-une même pile et à chaque étage gagné en confort, on cède un peu de contrôle
-et un peu de réversibilité**.
+Et voilà, le trio est démonté ! Pour résumer en une phrase. **IaaS, PaaS et SaaS
+ne décrivent pas trois technologies mais trois hauteurs de délégation sur une
+même pile et à chaque étage gagné en confort, on cède un peu de contrôle et un
+peu de réversibilité**.
 
 Dans la prochaine fiche, on arrête de parler de modèles et on met les mains dans
 le cambouis :
