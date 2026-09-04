@@ -13,7 +13,6 @@ imgSrc: /images/articles/pico-8-ou-pygame.webp
 kind: Articles
 author: Thomas Dimnet
 serie: gamedev
-author: Thomas
 publishedDate: 07/20/2026
 
 tags:
@@ -182,11 +181,7 @@ Quel que soit votre choix, j'ai de quoi vous lancer pas à pas :
 
 - Côté PICO-8 : [découvrir l'outil](/articles/decouvrir-pico-8), puis
   [le prendre en main](/fiches/prendre-en-main-pico-8) et enfin
-<<<<<<< HEAD
-  [créer un premier jeu simple](/drafts/premier-jeu-simple-pico-8).
-=======
   [créer un premier jeu simple](/fiches/premier-jeu-simple-pico-8).
->>>>>>> d220d89 (Publie la fiche « Créer un premier jeu simple avec PICO-8 »)
 - Côté Pygame : [comment bien débuter avec Pygame](/fiches/intro-a-pygame).
 
 Quoi qu'il arrive, le meilleur outil reste celui avec lequel vous finissez vos
