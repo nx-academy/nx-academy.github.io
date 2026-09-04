@@ -20,7 +20,7 @@ tags:
   - Cloud
   - Production
 level: Intermédiaire
-publishedDate: 11/02/2026
+publishedDate: 09/02/2026
 
 faq:
   - question: Quelle est la différence entre IaaS, PaaS et SaaS ?
