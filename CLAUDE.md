@@ -47,7 +47,7 @@ Quelques précisions utiles :
 ```
 src/pages/articles/<slug>.md              → /articles/<slug>
 src/pages/fiches/<slug>.md                → /fiches/<slug>
-src/pages/cours/<cours>/chapitres/*.md    → /cours/<cours>/chapitres/<slug>
+src/pages/cours/<cours>/chapitres/*.mdx   → /cours/<cours>/chapitres/<slug>
 src/pages/drafts/<slug>.md                → /drafts/<slug>  (exclu du sitemap)
 ```
 
@@ -80,6 +80,13 @@ Le reste :
   est le modèle à suivre.
 - **Images** : déposer la source dans `raw/<catégorie>/`, lancer
   `npm run optimize-images`, puis référencer `/images/<catégorie>/<nom>.webp`.
+- **Vidéos** : jamais d'iframe à la main. Un screencast s'écrit
+  `<Screencast id="…" hash="…" title="…" />` — le `title` décrit la vidéo aux
+  lecteurs d'écran, il est obligatoire et propre à chaque screencast. Seuls les
+  chapitres sont en `.mdx` (c'est ce qui permet d'y importer un composant) ;
+  articles, fiches et brouillons restent en `.md`. `src/utils/screencast/`
+  décide de l'URL d'embed : `dnt=1` chez Vimeo, `youtube-nocookie.com` chez
+  YouTube.
 - **Ne jamais lier un brouillon via son URL finale.** Un brouillon vit à
   `/drafts/<slug>` ; un lien vers `/fiches/<slug>` donnerait un 404 en
   production.

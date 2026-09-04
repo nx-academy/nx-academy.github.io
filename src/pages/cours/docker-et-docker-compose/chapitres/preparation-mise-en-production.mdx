@@ -15,6 +15,8 @@ sectionTitle: Partie 3 - Développez dans un environnement ISO Prod
 id: 9
 ---
 
+import Screencast from "../../../../components/Screencast.astro";
+
 <article>
 
 # Préparez votre application pour la production
@@ -47,11 +49,11 @@ qui distingue un environnement de développement d’un environnement de product
 ? Si la réponse ne vous vient pas comme ça, ce n’est pas grave. Faites une
 recherche rapide sur Internet.
 
-<br>
+<br />
 
 ![Mème Docker : "It works on my machine", "Then we'll ship your machine", "And that is how Docker was born"](/images/cours-docker-et-docker-compose/meme-docker.webp)
 
-<br>
+<br />
 
 C’est bon, vous avez trouvé ?
 
@@ -77,7 +79,7 @@ C’est le moment de privilégier des distributions telles
 [que des images alpines](https://www.docker.com/blog/how-to-use-the-alpine-docker-official-image/).
 Sachez qu’il existe deux approches pour optimiser ses images Docker.
 
-<br>
+<br />
 
 En complément de ce chapitre, la fiche
 [Comment optimiser une image Docker ?](/fiches/optimisation-images-docker/)
@@ -86,7 +88,7 @@ installation, réduction du nombre de layers, `.dockerignore`).
 
 ---
 
-<br>
+<br />
 
 ![Le même homme habillé dans différents contextes (au bureau en costume, à la maison en jean, en short à la plage), pixel art](/images/cours-docker-et-docker-compose/homme-versatile.webp)
 
@@ -98,7 +100,7 @@ Dockerfile. Un fichier `dev.Dockerfile`, `stagging.Dockerfile` et
 `prod.Dockerfile`. Ce genre d’approche va vous permettre d’avoir un fichier bien
 écrit par environnement.
 
-<br>
+<br />
 
 Par exemple, mon fichier `prod.Dockerfile` pourrait ressembler à ça :
 
@@ -117,11 +119,11 @@ COPY . .
 CMD ["node", "server.js"]
 ```
 
-<br>
+<br />
 
 Et mon dev.Dockerfile à ça :
 
-<br>
+<br />
 
 ```dockerfile
 FROM node:18
@@ -139,7 +141,7 @@ COPY . .
 CMD ["nodemon", "server.js"]
 ```
 
-<br>
+<br />
 
 C’est une approche qui peut sembler assez logique, cela dit, ce n’est pas
 forcément une bonne pratique (c’est même
@@ -154,13 +156,13 @@ exécuter certaines commandes en fonction de votre environnement. Par exemple,
 ajoute uniquement les fichiers contenus dans le dossier public pour notre
 web-app ou utilise la commande `npm run build` plutôt que `npm ci`.
 
-<br>
+<br />
 
 Mais du coup, le multi-staging, c’est quoi ?
 
 ---
 
-<br>
+<br />
 
 ![Une homme en train de couper une part de cake, pixel art](/images/cours-docker-et-docker-compose/coupe-cake.webp)
 
@@ -172,7 +174,7 @@ l’image sur laquelle vous souhaitez travailler. Grâce au multi-staging, vous
 aurez plusieurs instructions `FROM` à l’intérieur de vos fichiers Dockerfile.
 Par exemple :
 
-<br>
+<br />
 
 ```dockerfile
 FROM golang:1.16
@@ -188,7 +190,7 @@ COPY --from=0 /go/src/github.com/alexellis/href-counter/app ./
 CMD ["./app"]
 ```
 
-<br>
+<br />
 
 J’ai repris cet exemple de la documentation officielle de Docker. Regardez
 l’avant dernière instruction :
@@ -200,11 +202,11 @@ nombre magique, 0, qui se balade dans notre Dockerfile. Ce n’est pas forcémen
 l’idéal pour s’y référer. **La bonne nouvelle, c’est qu’on va pouvoir donner des
 noms à ces étapes**.
 
-<br>
+<br />
 
 Si on reprend l’exemple précédent :
 
-<br>
+<br />
 
 ```dockerfile
 FROM golang:1.16 AS builder
@@ -220,7 +222,7 @@ COPY --from=builder /go/src/github.com/alexellis/href-counter/app ./
 CMD ["./app"]
 ```
 
-<br>
+<br />
 
 Regardez la première instruction : `FROM golang:1.16 AS builder`. On donne un
 nom précis à cette étape, à savoir builder. Le mot AS est utilisé pour donner un
@@ -228,14 +230,14 @@ alias. Puis, plus dans le Dockerfile, on peut s’y référer via l’option
 `COPY --from=builder /go/src/github.com/alexellis/href-counter/app ./`.
 **L’étape 0 est maintenant identifiée comme l’étape builder**.
 
-<br>
+<br />
 
 Notre projet fil rouge comprend deux fichiers Dockerfile : un pour le front-end
 et l’autre pour le back-end. On va profiter de cette section pour faire le
 multi-stage de notre web-app. Voici le format qu’elle aura à la fin du
 screencast.
 
-<br>
+<br />
 
 ```dockerfile
 FROM node:12.22-buster-slim AS base
@@ -254,11 +256,11 @@ FROM nginx:1.17 AS prod
 COPY --from=build /web/build /usr/share/nginx/html
 ```
 
-<br>
+<br />
 
 Et voici le fichier docker-compose :
 
-<br>
+<br />
 
 ```yml
 version: "3"
@@ -300,20 +302,24 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: example
 ```
 
-<br>
+<br />
 
 On se retrouve tout de suite pour le screencast !
 
-<br>
+<br />
 
-<iframe src="https://player.vimeo.com/video/1096178184?h=a9aa670684&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 18 - Découpez votre image web avec le multi staging"></iframe>
+<Screencast
+  id="1096178184"
+  hash="a9aa670684"
+  title="Découpez votre image web avec le multi staging"
+/>
 
-<br>
+<br />
 
 Le code source correspond à la fin du screencast se trouve
 [sur la branche `partie-3/chapitre-3/section-3`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-3/chapitre-3/section-3).
 
-<br>
+<br />
 
 Le multi-staging mérite à lui seul une fiche de référence : retrouvez-la dans
 [Comment faire un multi-stage build ?](/fiches/bien-faire-multi-stage-build/),
@@ -321,7 +327,7 @@ avec les pièges à éviter et le nommage des stages.
 
 ---
 
-<br>
+<br />
 
 ![Un enfant en train de s'entrainer à faire un avion en papier, pixel art](/images/cours-docker-et-docker-compose/enfant-avion-papier.webp)
 
@@ -331,18 +337,22 @@ Pour rappel,
 [voici la problématique](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/issues/6)
 que nous essayons de résoudre dans ce chapitre.
 
-<br>
+<br />
 
-<iframe src="https://player.vimeo.com/video/1096178331?h=15dd6930ff&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 19 - Exercez-vous - Préparez votre application pour la production"></iframe>
+<Screencast
+  id="1096178331"
+  hash="15dd6930ff"
+  title="Exercez-vous — Préparez votre application pour la production"
+/>
 
-<br>
+<br />
 
 Le code source contenant la solution de cet exercice se trouve
 [sur la branche partie-3/chapitre-3-fin](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-3/chapitre-3-fin).
 
 ---
 
-<br>
+<br />
 
 ![Un vendeur de journaux dans la rue, pixel art](/images/cours-docker-et-docker-compose/vendeur-journaux.webp)
 
@@ -362,7 +372,7 @@ Le code source contenant la solution de cet exercice se trouve
 
 ---
 
-<br>
+<br />
 
 ![Un homme en train de lire une histoire sur un fauteuil, pixel art](/images/cours-docker-et-docker-compose/lecture-histoire.webp)
 
@@ -380,7 +390,7 @@ devriez être capable :
   docker-compose.yml ;
 - de mettre les mains dans le cambouis en cas de problèmes avec Docker.
 
-<br>
+<br />
 
 Sachez que je n'ai pas parlé :
 
@@ -392,7 +402,7 @@ Sachez que je n'ai pas parlé :
   détaille déjà le workflow `build → tag → push → pull → run`). C’est l’un des
   prochains cours que je prépare 😊.
 
-<br>
+<br />
 
 Vous vous demandez peut-être maintenant quelle(s) suite(s) donner à ce cours. Je
 pense qu'il y en a plusieurs :
@@ -407,7 +417,7 @@ mail.
 
 Codez bien !
 
-<br>
+<br />
 
 ![Une mosaïque de développeurs en train de coder, pixel art](/images/cours-docker-et-docker-compose/mosaique-developpeurs.webp)
 

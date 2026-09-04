@@ -15,6 +15,8 @@ sectionTitle: Partie 2 - Créez une API REST avec Docker et docker-compose
 id: 5
 ---
 
+import Screencast from "../../../../components/Screencast.astro";
+
 <article>
 
 # Créez votre premier docker compose
@@ -52,7 +54,7 @@ dépendances et des services tiers (base de données, caching). Je trouve qu’i
 a toujours quelque chose de très satisfaisant de pouvoir lancer son
 infrastructure rapidement et sans se prendre la tête.
 
-<br>
+<br />
 
 Ça vous dit pas de voir un exemple dès maintenant ?
 
@@ -62,7 +64,7 @@ ce code [sur ce repository Github](https://github.com/docker/awesome-compose).
 Il contient de nombreux exemples de fichiers docker-compose. N’hésitez surtout
 pas à y jeter un œil !
 
-<br>
+<br />
 
 ```yml
 services:
@@ -97,7 +99,7 @@ volumes:
   db_data:
 ```
 
-<br>
+<br />
 
 Je ne vais pas rentrer dès maintenant dans le détail de toutes les propriétés du
 fichier. J’ai d’abord envie de vous montrer la construction de votre
@@ -109,11 +111,11 @@ Docker Compose va se charger de récupérer les images de
 commande s’est un peu calmée, ouvrez votre navigateur et rendez-vous sur
 http://localhost. Vous devriez avoir un écran similaire au mien ci-dessous.
 
-<br>
+<br />
 
 ![Une capture d'écran de la page d'installation de WordPress](/images/cours-docker-et-docker-compose/wordpress-installer.webp)
 
-<br>
+<br />
 
 Si vous avez déjà installé WordPress sur votre ordinateur, vous savez à quel
 point cette étape est chiante (oui, le mot est lancé) ! Vous devez passer par
@@ -136,7 +138,7 @@ un peu le fichier docker-compose en détails avant de s’amuser à faire le not
 
 ---
 
-<br>
+<br />
 
 ![Un enfant en train de batir un chateau en lego, pixel art](/images/cours-docker-et-docker-compose/enfant-chateau-lego.webp)
 
@@ -144,7 +146,7 @@ un peu le fichier docker-compose en détails avant de s’amuser à faire le not
 
 Reprenons le fichier docker-compose précédent.
 
-<br>
+<br />
 
 ```yml
 services:
@@ -179,7 +181,7 @@ volumes:
   db_data:
 ```
 
-<br>
+<br />
 
 Ce fichier est écrit [en Yaml](https://fr.wikipedia.org/wiki/YAML). Vous pouvez
 aussi bien écrire `docker-compose.yml` et `docker-compose.yaml`. J’ai tendance à
@@ -226,7 +228,7 @@ wordpress ; il est plus “simple”. Il contient quatre propriétés :
   d'environnement qui trainent dans votre code. Nous verrons ça ensemble très
   bientôt.
 
-<br>
+<br />
 
 Ces quatre propriétés sont très courantes. Elles reviennent dans beaucoup de
 fichiers docker-compose. Habituez-vous à les voir et à comprendre leur sens.
@@ -237,7 +239,7 @@ propriétés
 **Pour info, j’ai tapé _docker compose file reference_ dans mon moteur de
 recherche**. Comme vous pouvez le constater, il existe beaucoup de propriétés.
 
-<br>
+<br />
 
 Regardons maintenant le service db. Il contient 6 propriétés dont certaines que
 nous venons de voir.
@@ -287,7 +289,7 @@ On va maintenant s’attaquer à créer le Docker Compose de notre projet.
 
 ---
 
-<br>
+<br />
 
 ![Une femme asiatique en train de brancher une rallonge électrique, pixel art](/images/cours-docker-et-docker-compose/femme-asiatique-rallonge.webp)
 
@@ -297,7 +299,7 @@ Pensez bien à vous positionner
 [sur la branche `partie-2/chapitre-2-debut`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-2-debut)
 avant de passer à la suite.
 
-<br>
+<br />
 
 J’ai ajouté et modifié quelques fichiers, notamment :
 
@@ -308,18 +310,22 @@ J’ai ajouté et modifié quelques fichiers, notamment :
 - Le fichier `app.js` qui importe une API Rest et vous retourne le message
   hello, world quand vous vous rendez sur la route /.
 
-<br>
+<br />
 
 Je vous invite à suivre le screencast ci-dessous dans lequel vous allez voir
 comment travailler avec des images locales, les commandes et propriétés à
 connaître. Cela va me permettre de vous montrer une manière de travailler avec
 Docker. Vous trouverez un résumé après le screencast des éléments essentiels.
 
-<br>
+<br />
 
-<iframe src="https://player.vimeo.com/video/1096176378?h=ef4af8e282&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 10 - Faites le lien entre votre Dockerfile et votre docker-compose"></iframe>
+<Screencast
+  id="1096176378"
+  hash="ef4af8e282"
+  title="Faites le lien entre votre Dockerfile et votre docker-compose"
+/>
 
-<br>
+<br />
 
 Voici les éléments essentiels à retenir de cette vidéo :
 
@@ -343,7 +349,7 @@ Votre code devrait maintenant correspondre
 
 ---
 
-<br>
+<br />
 
 ![Un enfant en train de s'entrainer à faire un avion en papier, pixel art](/images/cours-docker-et-docker-compose/enfant-avion-papier.webp)
 
@@ -358,11 +364,15 @@ problématique la plus claire possible mais si vous pensez qu’elle n’est pas
 totalement claire, je vous invite à créer une issue sur le repository
 Curriculum.
 
-<br>
+<br />
 
-<iframe src="https://player.vimeo.com/video/1096176550?h=5c923c0f5e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 11 - Exercez-vous - Créez votre premier docker-compose"></iframe>
+<Screencast
+  id="1096176550"
+  hash="5c923c0f5e"
+  title="Exercez-vous — Créez votre premier docker-compose"
+/>
 
-<br>
+<br />
 
 Le code source contenant la solution de cet exercice se trouve
 [sur la branche `partie-2/chapitre-2-fin`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-2-fin).
@@ -373,7 +383,7 @@ c’est qu’on va voir ça ensemble dès le prochain chapitre.
 
 ---
 
-<br>
+<br />
 
 ![Un vendeur de journaux dans la rue, pixel art](/images/cours-docker-et-docker-compose/vendeur-journaux.webp)
 
