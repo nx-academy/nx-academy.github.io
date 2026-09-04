@@ -261,8 +261,7 @@ loin tout de suite, j'ai préparé deux fiches techniques pour démarrer pas à 
 et premiers pas), puis
 [créer un premier jeu simple](/fiches/premier-jeu-simple-pico-8). Et si vous
 hésitez encore avec un autre outil, j'ai aussi comparé
-[PICO-8 et Pygame](/articles/pico-8-ou-pygame).
--->
+[PICO-8 et Pygame](/articles/pico-8-ou-pygame). -->
 
 Je m'apprête également à participer à une nouvelle game jam :
 [la Retro Recreation Jam](https://itch.io/jam/retro-recreation-2026). Elle

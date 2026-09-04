@@ -3,10 +3,10 @@ layout: ../../layouts/CheatSheetsLayout.astro
 
 title: Créer un premier jeu simple avec PICO-8
 description:
-  "Tutoriel PICO-8 pour débutants : créez votre premier mini-jeu en Lua.
-  Déplacer un personnage avec btn(), dessiner avec circfill() et spr(), ramasser
-  des objets, gérer un score et coder une collision simple. Code commenté pas à
-  pas."
+  "Tutoriel PICO-8 pour débutants où vous allez créer votre premier mini-jeu en
+  Lua. Déplacer un personnage avec btn(), dessiner avec circfill() et spr(),
+  ramasser des objets, gérer un score et coder une collision simple. Le code est
+  commenté pas à pas."
 
 imgAlt:
   Un petit personnage pixel qui ramasse une pièce dorée à l'écran, pixel art
@@ -59,32 +59,43 @@ howTo:
 ---
 
 Dans la fiche précédente, on a vu
-[comment prendre en main PICO-8](/fiches/prendre-en-main-pico-8) : l'installer,
-naviguer entre les éditeurs et lancer une cartouche. Mais un cercle qui bouge
-tout seul, ce n'est pas encore un jeu.
+[comment prendre en main PICO-8](/fiches/prendre-en-main-pico-8). Je vous ai
+montré comment l'installer, comment naviguer entre les éditeurs et lancer une
+cartouche. Mais un cercle qui bouge tout seul, c'est sympa mais ce n'est pas
+encore un jeu.
 
-**Aujourd'hui, on en fait un vrai.** Petit, mais complet : vous déplacez un
-personnage, des pièces apparaissent à l'écran, et chaque pièce ramassée fait
+**Aujourd'hui, on en fait un vrai.** Petit certes, mais complet. Vous allez voir
+comment déplacer un personnage, faire apparaître des pièces à l'écran et faire
 grimper votre score. On va le construire ensemble, étape par étape, en partant
 de zéro.
 
 Je vous montre tout le code en Lua, commenté. Recopiez-le au fur et à mesure
 dans l'éditeur de code de PICO-8 (`ESC` depuis le shell), tapez `run` après
-chaque étape, et regardez le jeu prendre vie.
+chaque étape et regardez le jeu prendre vie.
+
+Pour info, il est possible que j'essaye de rajouter un screencast plus tard sur
+cette fiche, histoire de la rendre plus sympa.
+
+---
 
 ## Ce qu'on va construire
 
-Un mini-jeu de collecte. Les règles tiennent en une phrase : déplacez un carré
-avec les flèches, touchez la pièce, marquez un point, une nouvelle pièce
-apparaît. Simple, mais il contient déjà presque tout ce qui fait un jeu :
-entrées, état, affichage, collisions et score.
+On va faire ensemble Un mini-jeu de collecte. Les règles tiennent en une phrase.
+Déplacez un carré avec les flèches, touchez la pièce, marquez un point, une
+nouvelle pièce apparaît. Simple, mais il contient déjà presque tout ce qui fait
+un jeu, à savoir gestion des entrées, de l'état, de l'affichage, des collisions
+et du score.
 
-On avance en quatre étapes :
+<br>
+
+On va le faire en quatre étapes :
 
 1. Afficher et déplacer le joueur.
 2. Faire apparaître une pièce.
 3. Détecter la collision et compter les points.
 4. Afficher le score.
+
+---
 
 ## Étape 1 — Afficher et déplacer le joueur
 
@@ -122,6 +133,8 @@ notre joueur.
 > Astuce : en PICO-8, `player.x -= 2` est un raccourci pour
 > `player.x = player.x - 2`. Pratique pour économiser des tokens (souvenez-vous,
 > une cartouche est limitée à 8192 tokens).
+
+---
 
 ## Étape 2 — Faire apparaître une pièce
 
