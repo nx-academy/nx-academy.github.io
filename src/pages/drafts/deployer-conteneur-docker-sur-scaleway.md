@@ -20,7 +20,7 @@ tags:
   - Docker
   - Production
 level: Intermédiaire
-publishedDate: 11/18/2026
+publishedDate: 09/23/2026
 
 faq:
   - question: Comment déployer un conteneur Docker sur Scaleway ?

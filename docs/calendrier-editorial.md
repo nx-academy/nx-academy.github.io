@@ -24,16 +24,16 @@
 
 ## Fiches techniques prévues
 
-| Mois      | Sujet de la fiche technique                               | status   |
-| --------- | --------------------------------------------------------- | -------- |
-| Mai       | Comment (bien) utiliser les volumes Docker ?              | **DONE** |
-| Juin      | Qu'est-ce qu'un registry Docker ?                         | **DONE** |
-| Juillet   | Comment optimiser son image Docker ?                      | **DONE** |
-| Août      | Comment faire un multi stagging ?                         | **DONE** |
-| Septembre | Quand et comment déclencher un workflow GitHub Actions ?  | **DONE** |
-| Octobre   | Qu'est-ce qu'un artefact dans GitHub Actions ?            | **DONE** |
-| Novembre  | Comment déployer une image Docker depuis GitHub Actions ? | **DONE** |
-| Décembre  | Comment optimiser vos workflows GitHub Actions ?          | **DONE** |
+| Mois      | Sujet de la fiche technique                               | status                         |
+| --------- | --------------------------------------------------------- | ------------------------------ |
+| Mai       | Comment (bien) utiliser les volumes Docker ?              | **DONE**                       |
+| Juin      | Qu'est-ce qu'un registry Docker ?                         | **DONE**                       |
+| Juillet   | Comment optimiser son image Docker ?                      | **DONE**                       |
+| Août      | Comment faire un multi stagging ?                         | **DONE**                       |
+| Septembre | Quand et comment déclencher un workflow GitHub Actions ?  | **DONE**                       |
+| Octobre   | Qu'est-ce qu'un artefact dans GitHub Actions ?            | **DONE**                       |
+| Novembre  | Comment déployer une image Docker depuis GitHub Actions ? | **DONE**                       |
+| Décembre  | Comment optimiser vos workflows GitHub Actions ?          | brouillon, prévu le 09/09/2026 |
 
 **Idées de fiches techniques complémentaires** :
 
@@ -69,34 +69,67 @@
 - Pourquoi le travail d'informaticien est en train de redevenir passionant ?
 - Personne n'aime l'eau tiède
 
-## Cluster Cloud public — juillet 2026 à janvier 2027
+## Cluster Cloud public — août à octobre 2026
 
-Cadrage complet : [cluster-cloud-public.md](./cluster-cloud-public.md). Nouvelle
-série `cloud` (rayon « Cloud public » sur `/fiches/`), 6 fiches et 2 articles
-qui se citent en chaîne. Prépare le terrain du cours « Mettez vos applications
-en production ».
+Cadrage complet : [cluster-cloud-public.md](./cluster-cloud-public.md). Nouvelle
+série `cloud` (rayon « Cloud public » sur `/fiches/`), 6 fiches et 2 articles
+qui se citent en chaîne. Prépare le terrain du cours « Mettez vos applications
+en production ».
 
-| Mois         | Type    | Titre                                                        | Status                 |
-| ------------ | ------- | ------------------------------------------------------------ | ---------------------- |
-| Août 2026    | Fiche   | Qu'est-ce que le cloud public ? (pilier)                     | **DONE** (05/08/2026)  |
-| Août 2026    | Fiche   | Cloud public, privé, hybride : quelles différences ?         | **DONE** (12/08/2026)  |
-| Octobre      | Fiche   | IaaS, PaaS, SaaS : quelles différences et comment choisir ?  | brouillon              |
-| Novembre     | Fiche   | Comment déployer un conteneur Docker dans le cloud ?         | brouillon (11/04/2026) |
-| Novembre     | Fiche   | Comment déployer un conteneur Docker sur Scaleway ?          | brouillon (11/18/2026) |
-| Décembre     | Fiche   | Comment déployer un conteneur Docker sur AWS (ECS Fargate) ? | brouillon (12/02/2026) |
-| Décembre     | Article | Le cloud public coûte-t-il vraiment moins cher ?             | brouillon (12/16/2026) |
-| Janvier 2027 | Article | Cloud souverain : de quoi parle-t-on vraiment ?              | brouillon (01/20/2027) |
+> Replanifié le 5 septembre 2026. Le cluster s'étalait jusqu'en janvier 2027,
+> soit **après** le cours de décembre qu'il est censé préparer, et à une cadence
+> de 0,5 publication par semaine là où le rythme réel de juin à août tournait
+> autour de 2,5. Tout est ramené sur septembre-octobre. Dates du tableau au
+> format français ; dans les frontmatters, elles s'écrivent `MM/DD/YYYY`.
 
-Les six brouillons sont écrits et vivent dans `src/pages/drafts/`
-(`iaas-paas-saas`, `deployer-conteneur-docker-dans-le-cloud`,
+| Date       | Type    | Titre                                                        | Status    |
+| ---------- | ------- | ------------------------------------------------------------ | --------- |
+| 05/08/2026 | Fiche   | Qu'est-ce que le cloud public ? (pilier)                     | **DONE**  |
+| 12/08/2026 | Fiche   | Cloud public, privé, hybride : quelles différences ?         | **DONE**  |
+| 02/09/2026 | Fiche   | IaaS, PaaS, SaaS : quelles différences et comment choisir ?  | **DONE**  |
+| 16/09/2026 | Fiche   | Comment déployer un conteneur Docker dans le cloud ?         | brouillon |
+| 23/09/2026 | Fiche   | Comment déployer un conteneur Docker sur Scaleway ?          | brouillon |
+| 28/09/2026 | Fiche   | Comment déployer un conteneur Docker sur AWS (ECS Fargate) ? | brouillon |
+| 30/09/2026 | Article | Le cloud public coûte-t-il vraiment moins cher ?             | brouillon |
+| 05/10/2026 | Article | Cloud souverain : de quoi parle-t-on vraiment ?              | brouillon |
+
+Les cinq brouillons restants sont écrits et vivent dans `src/pages/drafts/`
+(`deployer-conteneur-docker-dans-le-cloud`,
 `deployer-conteneur-docker-sur-scaleway`, `deployer-conteneur-docker-sur-aws`,
 `le-cloud-est-il-vraiment-moins-cher`, `cloud-souverain`). Il leur manque leurs
 visuels. Les deux fiches de mise en pratique sont cadrées dans
 [cluster-cloud-pratique.md](./cluster-cloud-pratique.md), et leurs commandes
 n'ont pas encore été exécutées contre une vraie API. Publier = déplacer le
 fichier vers `src/pages/fiches/` ou `src/pages/articles/`, ajuster
-`publishedDate` et basculer les liens `/drafts/` : la checklist par contenu est
+`publishedDate` et basculer les liens `/drafts/` : la checklist par contenu est
 dans [cluster-cloud-public.md](./cluster-cloud-public.md).
+
+## Planning de publication — septembre et octobre 2026
+
+Deux publications par semaine, lundi et mercredi : les deux jours les plus
+fréquents des trois derniers mois, et la cadence qui vide le backlog avant
+novembre. Les dix brouillons du dépôt y sont tous placés. Ils sont rédigés, mais
+**aucun n'a son visuel** — c'est le seul vrai goulot de ce calendrier.
+
+| Date       | Contenu                                   | Cluster | Pourquoi à cette place                      |
+| ---------- | ----------------------------------------- | ------- | ------------------------------------------- |
+| 07/09/2026 | `github-actions-vs-gitlab-ci`             | CI/CD   | ferme un 404 en production                  |
+| 09/09/2026 | `optimiser-workflows-github-actions`      | CI/CD   | ferme le second 404                         |
+| 14/09/2026 | `premier-jeu-simple-pico-8`               | gamedev | trois liens `/drafts/` en attente           |
+| 15/09/2026 | `l-atelier-presentation`                  | atelier | ouvre la série « L'atelier »                |
+| 16/09/2026 | `deployer-conteneur-docker-dans-le-cloud` | cloud   | déjà cité par `iaas-paas-saas`              |
+| 21/09/2026 | `top-10-jeux-pico-8`                      | gamedev |                                             |
+| 23/09/2026 | `deployer-conteneur-docker-sur-scaleway`  | cloud   | dérouler les commandes contre l'API d'abord |
+| 28/09/2026 | `deployer-conteneur-docker-sur-aws`       | cloud   | idem                                        |
+| 30/09/2026 | `le-cloud-est-il-vraiment-moins-cher`     | cloud   |                                             |
+| 05/10/2026 | `cloud-souverain`                         | cloud   | ferme le cluster, deux mois avant le cours  |
+
+`l-atelier-presentation` tombe un mardi et non un lundi : le lundi 14 est déjà
+pris par `premier-jeu-simple-pico-8`. C'est la seule semaine à trois
+publications du planning, ce qui reste dans le rythme habituel.
+
+Reste hors planning : le récap de septembre, à sortir fin septembre comme les
+précédents.
 
 ## Le Recap
 

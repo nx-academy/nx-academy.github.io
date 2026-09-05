@@ -2,6 +2,12 @@ month: Septembre
 year: 2026
 order: 9
 tasks:
+  - kind: in-progress
+    content: |-
+      J'ai repris mon calendrier éditorial. Les dix contenus qui attendaient en brouillon étaient programmés jusqu'en janvier 2027 — soit après le cours de décembre qu'ils sont censés préparer. Tout est ramené sur septembre et octobre, à deux publications par semaine : le rythme que je tiens réellement depuis juin. Il ne me manque plus que les visuels.
+  - kind: in-progress
+    content: |-
+      Deux liens morts traînent encore sur des fiches CI/CD parmi les plus visitées, vers des fiches restées en brouillon. Le second est apparu tout seul en publiant la fiche sur la réutilisation des workflows en août. Les deux brouillons concernés ouvrent le planning de septembre : ça les fermera.
   - kind: done
     content: |-
       Nouvelle fiche technique sur <a href="/fiches/iaas-paas-saas" target="_blank">le IaaS, PaaS et Saas</a>.

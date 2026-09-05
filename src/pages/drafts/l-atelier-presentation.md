@@ -18,7 +18,7 @@ tags:
   - L'atelier
 author: Thomas Dimnet
 draft: false
-publishedDate: 07/28/2026
+publishedDate: 09/15/2026
 ---
 
 Depuis quelques mois, je fais l’essentiel de NX depuis ma tablette. Les news
