@@ -18,6 +18,10 @@ serie: gamedev
 level: Débutant
 publishedDate: 06/23/2026
 
+tags:
+  - Game dev
+  - PICO-8
+
 faq:
   - question: Comment installer PICO-8 ?
     answer:
@@ -268,7 +272,7 @@ et lancer une cartouche. La prochaine étape logique, c'est de transformer ce
 cercle qui bouge tout seul en un vrai petit jeu où **vous** contrôlez l'action.
 
 C'est exactement le programme de la fiche suivante :
-[créer un premier jeu simple avec PICO-8](/drafts/premier-jeu-simple-pico-8). On
+[créer un premier jeu simple avec PICO-8](/fiches/premier-jeu-simple-pico-8). On
 y gère les entrées clavier, on affiche un score et on ramasse des objets.
 
 ## Ressources

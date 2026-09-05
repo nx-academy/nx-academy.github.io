@@ -3,10 +3,10 @@ layout: ../../layouts/CheatSheetsLayout.astro
 
 title: Créer un premier jeu simple avec PICO-8
 description:
-  "Tutoriel PICO-8 pour débutants : créez votre premier mini-jeu en Lua.
-  Déplacer un personnage avec btn(), dessiner avec circfill() et spr(), ramasser
-  des objets, gérer un score et coder une collision simple. Code commenté pas à
-  pas."
+  "Tutoriel PICO-8 pour débutants où vous allez créer votre premier mini-jeu en
+  Lua. Déplacer un personnage avec btn(), dessiner avec circfill() et spr(),
+  ramasser des objets, gérer un score et coder une collision simple. Le code est
+  commenté pas à pas."
 
 imgAlt:
   Un petit personnage pixel qui ramasse une pièce dorée à l'écran, pixel art
@@ -14,8 +14,14 @@ imgSrc: /images/cheatsheets/premier-jeu-simple-pico-8.webp
 
 author: Thomas Dimnet
 kind: Fiche technique
+serie: gamedev
 level: Débutant
-publishedDate: 06/17/2026
+publishedDate: 09/06/2026
+
+tags:
+  - Game dev
+  - PICO-8
+  - Lua
 
 faq:
   - question: Faut-il déjà savoir coder pour faire un jeu PICO-8 ?
@@ -53,41 +59,60 @@ howTo:
 ---
 
 Dans la fiche précédente, on a vu
-[comment prendre en main PICO-8](/drafts/prendre-en-main-pico-8) : l'installer,
-naviguer entre les éditeurs et lancer une cartouche. Mais un cercle qui bouge
-tout seul, ce n'est pas encore un jeu.
+[comment prendre en main PICO-8](/fiches/prendre-en-main-pico-8). Je vous ai
+montré comment l'installer, comment naviguer entre les éditeurs et lancer une
+cartouche. Mais un cercle qui bouge tout seul, c'est sympa mais ce n'est pas
+encore un jeu.
 
-**Aujourd'hui, on en fait un vrai.** Petit, mais complet : vous déplacez un
-personnage, des pièces apparaissent à l'écran, et chaque pièce ramassée fait
+**Aujourd'hui, on en fait un vrai.** Petit certes, mais complet. Vous allez voir
+comment déplacer un personnage, faire apparaître des pièces à l'écran et faire
 grimper votre score. On va le construire ensemble, étape par étape, en partant
 de zéro.
 
 Je vous montre tout le code en Lua, commenté. Recopiez-le au fur et à mesure
 dans l'éditeur de code de PICO-8 (`ESC` depuis le shell), tapez `run` après
-chaque étape, et regardez le jeu prendre vie.
+chaque étape et regardez le jeu prendre vie.
+
+Pour info, il est possible que j'essaye de rajouter un screencast plus tard sur
+cette fiche, histoire de la rendre plus sympa.
+
+---
 
 ## Ce qu'on va construire
 
-Un mini-jeu de collecte. Les règles tiennent en une phrase : déplacez un carré
-avec les flèches, touchez la pièce, marquez un point, une nouvelle pièce
-apparaît. Simple, mais il contient déjà presque tout ce qui fait un jeu :
-entrées, état, affichage, collisions et score.
+On va faire ensemble Un mini-jeu de collecte. Les règles tiennent en une phrase.
+Déplacez un carré avec les flèches, touchez la pièce, marquez un point, une
+nouvelle pièce apparaît. Simple, mais il contient déjà presque tout ce qui fait
+un jeu, à savoir gestion des entrées, de l'état, de l'affichage, des collisions
+et du score.
 
-On avance en quatre étapes :
+<br>
+
+On va le faire en quatre étapes :
 
 1. Afficher et déplacer le joueur.
 2. Faire apparaître une pièce.
 3. Détecter la collision et compter les points.
 4. Afficher le score.
 
+---
+
 ## Étape 1 — Afficher et déplacer le joueur
 
+![Capture d'écran d'un jeu PICO-8 avec un carré bleu](/images/cheatsheets/afficher-deplace.webp)
+
 On commence par poser le joueur au centre de l'écran et le faire bouger avec les
-flèches du clavier. La fonction clé ici, c'est `btn(b)` : elle renvoie `true`
+flèches du clavier. La fonction clé ici, c'est `btn(b)`. Elle renvoie `true`
 quand le bouton `b` est enfoncé.
 
-PICO-8 numérote les boutons directionnels ainsi : `0` = gauche, `1` = droite,
-`2` = haut, `3` = bas.
+PICO-8 numérote les boutons directionnels ainsi :
+
+- `0` = gauche,
+- `1` = droite,
+- `2` = haut,
+- et `3` = bas.
+
+<br>
 
 ```lua
 function _init()
@@ -110,17 +135,21 @@ function _draw()
 end
 ```
 
-Tapez `run`. Vous contrôlez maintenant un petit carré avec les flèches. On tient
+Tapez `run`. Vous contrôlez maintenant un petit carré avec les flèches. On a
 notre joueur.
 
 > Astuce : en PICO-8, `player.x -= 2` est un raccourci pour
 > `player.x = player.x - 2`. Pratique pour économiser des tokens (souvenez-vous,
 > une cartouche est limitée à 8192 tokens).
 
+---
+
 ## Étape 2 — Faire apparaître une pièce
 
-Ajoutons un objet à ramasser. On lui donne une position, et on le dessine sous
-forme de petit cercle jaune avec `circfill(x, y, rayon, couleur)`.
+![Capture d'écran d'un jeu PICO-8 avec un carré bleu et une pièce](/images/cheatsheets/faire-apparaitre-pièce.webp)
+
+On va maintenant ajouter un objet à ramasser. On va lui donner une position et
+dessiner sous forme de petit cercle jaune avec `circfill(x, y, rayon, couleur)`.
 
 Pour placer la pièce à un endroit aléatoire, on utilise `rnd(n)` qui renvoie un
 nombre aléatoire entre 0 et `n`, et `flr()` qui arrondit à l'entier inférieur.
@@ -150,14 +179,18 @@ function _draw()
 end
 ```
 
-Relancez avec `run` : une pièce jaune apparaît. Mais pour l'instant, on lui
-passe au travers sans rien déclencher. C'est l'objet de l'étape suivante.
+Relancez avec `run`. Une pièce jaune apparaît. Mais pour l'instant, on lui passe
+au travers sans rien déclencher. C'est l'objet de l'étape suivante.
+
+---
 
 ## Étape 3 — Détecter la collision et compter les points
 
-Voici le cœur du jeu : savoir quand le joueur touche la pièce. La méthode la
-plus simple ici, c'est de mesurer la **distance** entre les deux. Si elle est
-inférieure à un petit seuil, c'est qu'ils se touchent.
+![Capture d'écran d'un jeu PICO-8 avec un carré bleu, une pièce et un score affiché à l'écran](/images/cheatsheets/collision-point.webp)
+
+Voici le cœur du jeu où il faut savoir quand le joueur touche la pièce. La
+méthode la plus simple ici, c'est de mesurer la **distance** entre les deux. Si
+elle est inférieure à un petit seuil, c'est qu'ils se touchent.
 
 On déclare un `score` dans `_init()`, et dès qu'il y a contact, on incrémente le
 score et on fait réapparaître une pièce ailleurs.
@@ -187,30 +220,22 @@ function _update()
     spawn_coin() -- une nouvelle pièce apparaît
   end
 end
-```
 
-(Le `_draw()` ne change pas par rapport à l'étape 2.)
+function _draw()
+	cls()
+	rectfill(
+		player.x,player.y,
+		player.x+6,player.y+6,
+		12
+	)
+	print(score) -- J'affiche le score ici
+	circfill(coin.x,coin.y,3,10)
+end
+```
 
 Tapez `run`. Désormais, chaque fois que votre carré touche la pièce, elle
 disparaît et réapparaît ailleurs. Le jeu est jouable ! Il ne manque plus qu'à
 voir son score.
-
-## Étape 4 — Afficher le score
-
-Dernière touche : afficher le score à l'écran avec
-`print(texte, x, y, couleur)`. On l'ajoute dans `_draw()`, par-dessus le reste.
-
-```lua
-function _draw()
-  cls(1)
-  rectfill(player.x, player.y, player.x + 6, player.y + 6, 12)
-  circfill(coin.x, coin.y, 3, 10)
-  print("score: " .. score, 4, 4, 7) -- en haut à gauche, en blanc
-end
-```
-
-L'opérateur `..` colle deux morceaux de texte ensemble (la concaténation en
-Lua). On affiche donc « score: 0 », puis « score: 1 », et ainsi de suite.
 
 ## Le code complet
 
@@ -247,7 +272,7 @@ function _draw()
   cls(1)
   rectfill(player.x, player.y, player.x + 6, player.y + 6, 12)
   circfill(coin.x, coin.y, 3, 10)
-  print("score: " .. score, 4, 4, 7)
+  print(score)
 end
 ```
 
@@ -284,7 +309,7 @@ de pistes s'ouvrent pour vous entraîner :
 
 Si vous découvrez tout juste l'outil, (re)lisez d'abord
 [l'article de découverte de PICO-8](/articles/decouvrir-pico-8) et la fiche
-[prendre en main PICO-8](/drafts/prendre-en-main-pico-8). Et si vous venez
+[prendre en main PICO-8](/fiches/prendre-en-main-pico-8). Et si vous venez
 plutôt de Python, jetez un œil à [ma fiche sur Pygame](/fiches/intro-a-pygame) :
 vous retrouverez exactement le même pattern update/draw.
 

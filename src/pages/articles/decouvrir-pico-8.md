@@ -255,15 +255,13 @@ PICO-8.
 bon moment**. L'outil a quelque chose d'addictif. Il permet d'avoir très
 rapidement d'un prototype jouable.
 
-<!--
 Du coup, je compte bien creuser le sujet ici sur NX. Si vous voulez aller plus
 loin tout de suite, j'ai préparé deux fiches techniques pour démarrer pas à pas
 : [comment prendre en main PICO-8](/fiches/prendre-en-main-pico-8) (installation
 et premiers pas), puis
-[créer un premier jeu simple](/drafts/premier-jeu-simple-pico-8). Et si vous
+[créer un premier jeu simple](/fiches/premier-jeu-simple-pico-8). Et si vous
 hésitez encore avec un autre outil, j'ai aussi comparé
-[PICO-8 et Pygame](/articles/pico-8-ou-pygame).
--->
+[PICO-8 et Pygame](/articles/pico-8-ou-pygame). -->
 
 Je m'apprête également à participer à une nouvelle game jam :
 [la Retro Recreation Jam](https://itch.io/jam/retro-recreation-2026). Elle
