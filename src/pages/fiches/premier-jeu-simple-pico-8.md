@@ -105,10 +105,11 @@ On commence par poser le joueur au centre de l'écran et le faire bouger avec le
 flèches du clavier. La fonction clé ici, c'est `btn(b)`. Elle renvoie `true`
 quand le bouton `b` est enfoncé.
 
-PICO-8 numérote les boutons directionnels ainsi : 
+PICO-8 numérote les boutons directionnels ainsi :
+
 - `0` = gauche,
 - `1` = droite,
-- `2` = haut, 
+- `2` = haut,
 - et `3` = bas.
 
 <br>
@@ -147,8 +148,8 @@ notre joueur.
 
 ![Capture d'écran d'un jeu PICO-8 avec un carré bleu et une pièce](/images/cheatsheets/faire-apparaitre-pièce.webp)
 
-Ajoutons un objet à ramasser. On lui donne une position, et on le dessine sous
-forme de petit cercle jaune avec `circfill(x, y, rayon, couleur)`.
+On va maintenant ajouter un objet à ramasser. On va lui donner une position et
+dessiner sous forme de petit cercle jaune avec `circfill(x, y, rayon, couleur)`.
 
 Pour placer la pièce à un endroit aléatoire, on utilise `rnd(n)` qui renvoie un
 nombre aléatoire entre 0 et `n`, et `flr()` qui arrondit à l'entier inférieur.
@@ -178,14 +179,18 @@ function _draw()
 end
 ```
 
-Relancez avec `run` : une pièce jaune apparaît. Mais pour l'instant, on lui
-passe au travers sans rien déclencher. C'est l'objet de l'étape suivante.
+Relancez avec `run`. Une pièce jaune apparaît. Mais pour l'instant, on lui passe
+au travers sans rien déclencher. C'est l'objet de l'étape suivante.
+
+---
 
 ## Étape 3 — Détecter la collision et compter les points
 
-Voici le cœur du jeu : savoir quand le joueur touche la pièce. La méthode la
-plus simple ici, c'est de mesurer la **distance** entre les deux. Si elle est
-inférieure à un petit seuil, c'est qu'ils se touchent.
+![Capture d'écran d'un jeu PICO-8 avec un carré bleu, une pièce et un score affiché à l'écran](/images/cheatsheets/collision-point.webp)
+
+Voici le cœur du jeu où il faut savoir quand le joueur touche la pièce. La
+méthode la plus simple ici, c'est de mesurer la **distance** entre les deux. Si
+elle est inférieure à un petit seuil, c'est qu'ils se touchent.
 
 On déclare un `score` dans `_init()`, et dès qu'il y a contact, on incrémente le
 score et on fait réapparaître une pièce ailleurs.
@@ -215,30 +220,22 @@ function _update()
     spawn_coin() -- une nouvelle pièce apparaît
   end
 end
-```
 
-(Le `_draw()` ne change pas par rapport à l'étape 2.)
+function _draw()
+	cls()
+	rectfill(
+		player.x,player.y,
+		player.x+6,player.y+6,
+		12
+	)
+	print(score) -- J'affiche le score ici
+	circfill(coin.x,coin.y,3,10)
+end
+```
 
 Tapez `run`. Désormais, chaque fois que votre carré touche la pièce, elle
 disparaît et réapparaît ailleurs. Le jeu est jouable ! Il ne manque plus qu'à
 voir son score.
-
-## Étape 4 — Afficher le score
-
-Dernière touche : afficher le score à l'écran avec
-`print(texte, x, y, couleur)`. On l'ajoute dans `_draw()`, par-dessus le reste.
-
-```lua
-function _draw()
-  cls(1)
-  rectfill(player.x, player.y, player.x + 6, player.y + 6, 12)
-  circfill(coin.x, coin.y, 3, 10)
-  print("score: " .. score, 4, 4, 7) -- en haut à gauche, en blanc
-end
-```
-
-L'opérateur `..` colle deux morceaux de texte ensemble (la concaténation en
-Lua). On affiche donc « score: 0 », puis « score: 1 », et ainsi de suite.
 
 ## Le code complet
 
@@ -275,7 +272,7 @@ function _draw()
   cls(1)
   rectfill(player.x, player.y, player.x + 6, player.y + 6, 12)
   circfill(coin.x, coin.y, 3, 10)
-  print("score: " .. score, 4, 4, 7)
+  print(score)
 end
 ```
 
