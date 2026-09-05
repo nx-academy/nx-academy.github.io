@@ -99,12 +99,19 @@ On va le faire en quatre étapes :
 
 ## Étape 1 — Afficher et déplacer le joueur
 
+![Capture d'écran d'un jeu PICO-8 avec un carré bleu](/images/cheatsheets/afficher-deplace.webp)
+
 On commence par poser le joueur au centre de l'écran et le faire bouger avec les
-flèches du clavier. La fonction clé ici, c'est `btn(b)` : elle renvoie `true`
+flèches du clavier. La fonction clé ici, c'est `btn(b)`. Elle renvoie `true`
 quand le bouton `b` est enfoncé.
 
-PICO-8 numérote les boutons directionnels ainsi : `0` = gauche, `1` = droite,
-`2` = haut, `3` = bas.
+PICO-8 numérote les boutons directionnels ainsi : 
+- `0` = gauche,
+- `1` = droite,
+- `2` = haut, 
+- et `3` = bas.
+
+<br>
 
 ```lua
 function _init()
@@ -127,7 +134,7 @@ function _draw()
 end
 ```
 
-Tapez `run`. Vous contrôlez maintenant un petit carré avec les flèches. On tient
+Tapez `run`. Vous contrôlez maintenant un petit carré avec les flèches. On a
 notre joueur.
 
 > Astuce : en PICO-8, `player.x -= 2` est un raccourci pour
@@ -137,6 +144,8 @@ notre joueur.
 ---
 
 ## Étape 2 — Faire apparaître une pièce
+
+![Capture d'écran d'un jeu PICO-8 avec un carré bleu et une pièce](/images/cheatsheets/faire-apparaitre-pièce.webp)
 
 Ajoutons un objet à ramasser. On lui donne une position, et on le dessine sous
 forme de petit cercle jaune avec `circfill(x, y, rayon, couleur)`.
