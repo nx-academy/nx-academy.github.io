@@ -12,7 +12,7 @@ imgSrc: /images/articles/top-10-jeux-pico-8.webp
 
 kind: Articles
 author: Thomas Dimnet
-publishedDate: 06/17/2026
+publishedDate: 09/21/2026
 
 tags:
   - Game dev

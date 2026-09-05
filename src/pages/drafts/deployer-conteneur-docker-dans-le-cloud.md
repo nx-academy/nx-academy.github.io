@@ -22,7 +22,7 @@ tags:
   - CI/CD
   - Production
 level: Intermédiaire
-publishedDate: 11/04/2026
+publishedDate: 09/16/2026
 
 faq:
   - question: Comment déployer un conteneur Docker dans le cloud ?

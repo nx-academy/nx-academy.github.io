@@ -15,7 +15,7 @@ imgSrc: /images/cheatsheets/premier-jeu-simple-pico-8.webp
 author: Thomas Dimnet
 kind: Fiche technique
 level: Débutant
-publishedDate: 06/17/2026
+publishedDate: 09/14/2026
 
 faq:
   - question: Faut-il déjà savoir coder pour faire un jeu PICO-8 ?
