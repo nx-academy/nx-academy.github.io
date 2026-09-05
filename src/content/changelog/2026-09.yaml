@@ -2,6 +2,9 @@ month: Septembre
 year: 2026
 order: 9
 tasks:
+  - kind: in-progress
+    content: |-
+      J'ai écrit l'article de rentrée, publication prévue le 7 septembre : <a href="/drafts/point-etape-rentree-2026" target="_blank">un point d'étape à mi-parcours</a>, sur ce que le semestre a changé et sur les projets qui arrivent enfin sur NX.
   - kind: done
     content: |-
       Nouvelle fiche technique sur <a href="/fiches/iaas-paas-saas" target="_blank">le IaaS, PaaS et Saas</a>.
