@@ -16,7 +16,7 @@ author: Thomas Dimnet
 kind: Fiche technique
 serie: gamedev
 level: Débutant
-publishedDate: 09/05/2026
+publishedDate: 09/06/2026
 
 tags:
   - Game dev
