@@ -16,7 +16,7 @@ author: Thomas Dimnet
 kind: Fiche technique
 serie: cicd
 level: Débutant
-publishedDate: 07/07/2026
+publishedDate: 09/07/2026
 ---
 
 On continue notre série sur les CI/CD. Après avoir vu comment
