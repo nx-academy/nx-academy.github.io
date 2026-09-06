@@ -5,3 +5,9 @@ tasks:
   - kind: done
     content: |-
       Nouvelle fiche technique sur <a href="/fiches/iaas-paas-saas" target="_blank">le IaaS, PaaS et Saas</a>.
+  - kind: fix
+    content: |-
+      J'ai fait quelques fixes de lien sur les articles et fiches techniques en lien avec Pico-8. J'avais quelques liens morts.
+  - kind: done
+    content: |-
+      Nouvelle fiche technique sur <a href="/fiches/premier-jeu-simple-pico-8" target="_blank">la création d'un premier jeu simple avec PICO-8</a>.
