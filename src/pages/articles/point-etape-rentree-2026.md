@@ -17,7 +17,7 @@ tags:
   - NX Academy
   - Bilan
 author: Thomas Dimnet
-publishedDate: 09/07/2026
+publishedDate: 09/08/2026
 ---
 
 Le milieu de l’année tombe en juin. Chez moi, il tombe en septembre. J’enseigne
