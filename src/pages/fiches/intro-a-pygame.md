@@ -15,6 +15,11 @@ kind: Fiche technique
 serie: gamedev
 level: Débutant
 publishedDate: 03/07/2026
+
+tags:
+  - Game dev
+  - Pygame
+  - Python
 ---
 
 Si vous avez lu [mon bilan](/articles/review-nx-2025) ou mes
