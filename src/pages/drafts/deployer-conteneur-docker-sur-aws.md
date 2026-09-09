@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: "Comment déployer un conteneur Docker sur AWS (ECS Fargate) ?"
@@ -13,6 +13,7 @@ imgAlt:
 imgSrc: /images/cheatsheets/deployer-conteneur-docker-sur-aws.webp
 
 author: Thomas Dimnet
+github: tdimnet
 kind: Fiche technique
 serie: cloud
 tags:

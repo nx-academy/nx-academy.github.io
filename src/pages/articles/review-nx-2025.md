@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/BlogPostLayout.astro
 
 title: "Bilan 2025 de NX Academy"
@@ -16,6 +16,7 @@ tags:
   - NX Academy
   - Bilan
 author: Thomas Dimnet
+github: tdimnet
 publishedDate: 12/27/2025
 ---
 

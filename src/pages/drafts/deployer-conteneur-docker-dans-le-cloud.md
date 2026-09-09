@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: "Comment déployer un conteneur Docker dans le cloud ?"
@@ -14,6 +14,7 @@ imgAlt:
 imgSrc: /images/cheatsheets/deployer-conteneur-docker-dans-le-cloud.webp
 
 author: Thomas Dimnet
+github: tdimnet
 kind: Fiche technique
 serie: cloud
 tags:

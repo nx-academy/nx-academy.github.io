@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: Qu'est-ce qu'un artefact GitHub Actions ?
@@ -11,6 +11,7 @@ imgAlt: Des colis posés sur une étagère, pixel art
 imgSrc: /images/cheatsheets/colis-etagere.webp
 
 author: Thomas Dimnet
+github: tdimnet
 kind: Fiche technique
 serie: cicd
 level: Débutant

@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: Comprendre la fonction CSS Clamp
@@ -14,6 +14,7 @@ kind: Fiche technique
 serie: css
 level: Intermédiaire
 author: Thomas Dimnet
+github: tdimnet
 publishedDate: 07/17/2024
 ---
 

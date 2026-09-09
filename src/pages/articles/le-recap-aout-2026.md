@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/BlogPostLayout.astro
 
 title: "Le récap #9 - Août 2026"
@@ -17,6 +17,7 @@ tags:
   - Veille
   - Le Récap
 author: Thomas Dimnet
+github: tdimnet
 publishedDate: 08/31/2026
 ---
 

@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: "Comment déployer une image Docker depuis GitHub Actions ?"
@@ -14,6 +14,7 @@ imgAlt:
 imgSrc: /images/cheatsheets/deployer-image-docker-github-actions.webp
 
 author: Thomas Dimnet
+github: tdimnet
 kind: Fiche technique
 serie: cicd
 tags:

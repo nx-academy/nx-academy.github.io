@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/BlogPostLayout.astro
 
 title: "Le récap #3 - Juin 2025"
@@ -18,6 +18,7 @@ tags:
   - Veille
   - Le Récap
 author: Thomas Dimnet
+github: tdimnet
 publishedDate: 06/27/2025
 ---
 

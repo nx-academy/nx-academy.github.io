@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: "Comment bien gérer les secrets en Docker ?"
@@ -12,6 +12,7 @@ imgAlt:
 imgSrc: /images/cheatsheets/secrets-docker.webp
 
 author: Thomas Dimnet
+github: tdimnet
 kind: Fiche technique
 serie: docker
 tags:

@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/BlogPostLayout.astro
 
 title: "PICO-8 ou Pygame : quel outil pour créer votre premier jeu ?"
@@ -12,6 +12,7 @@ imgSrc: /images/articles/pico-8-ou-pygame.webp
 
 kind: Articles
 author: Thomas Dimnet
+github: tdimnet
 serie: gamedev
 publishedDate: 07/20/2026
 

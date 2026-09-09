@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: "Docker Swarm : déployer sur un cluster"
@@ -13,6 +13,7 @@ imgAlt:
 imgSrc: /images/cheatsheets/docker-swarm.webp
 
 author: Thomas Dimnet
+github: tdimnet
 kind: Fiche technique
 serie: docker
 tags:

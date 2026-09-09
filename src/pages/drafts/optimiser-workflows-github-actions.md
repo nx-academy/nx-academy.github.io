@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: "Comment optimiser vos workflows GitHub Actions ?"
@@ -13,6 +13,7 @@ imgAlt:
 imgSrc: /images/cheatsheets/optimiser-workflows-github-actions.webp
 
 author: Thomas Dimnet
+github: tdimnet
 kind: Fiche technique
 serie: cicd
 level: Intermédiaire

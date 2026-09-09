@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/BlogPostLayout.astro
 
 title: "Le DevOps n'est plus l'affaire d'une équipe à part"
@@ -17,6 +17,7 @@ kind: Articles
 format: reflexion
 serie: devops
 author: Thomas Dimnet
+github: tdimnet
 publishedDate: 07/31/2026
 
 tags:

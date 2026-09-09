@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/BlogPostLayout.astro
 
 title: "Quels projets pour NX en 2026 ?"
@@ -15,6 +15,7 @@ tags:
   - NX Academy
   - Bilan
 author: Thomas Dimnet
+github: tdimnet
 publishedDate: 01/01/2026
 ---
 

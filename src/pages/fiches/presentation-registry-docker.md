@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: Qu'est-ce qu'un registry Docker?
@@ -12,6 +12,7 @@ imgAlt:
 imgSrc: /images/cheatsheets/registry-docker.webp
 
 author: Thomas Dimnet
+github: tdimnet
 kind: Fiche technique
 serie: docker
 tags:

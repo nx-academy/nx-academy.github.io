@@ -10,6 +10,7 @@ imgAlt: Deux personnes dans une cuisine séparée, pixel art
 imgSrc: /images/cheatsheets/scene-duo-ambiance.webp
 
 author: Lionel
+github: Escanor1986
 kind: Fiche technique
 serie: js
 level: Débutant

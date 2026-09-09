@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: Comment bien débuter avec Pygame ?
@@ -11,6 +11,7 @@ imgAlt: Un développeur devant de nombreux écrans, pixel art
 imgSrc: /images/cheatsheets/developpeur-devant-ecrans.webp
 
 author: Thomas Dimnet
+github: tdimnet
 kind: Fiche technique
 serie: gamedev
 level: Débutant

@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/BlogPostLayout.astro
 
 title: "Le récap #1 - Avril 2025"
@@ -16,6 +16,7 @@ tags:
   - Veille
   - Le Récap
 author: Thomas Dimnet
+github: tdimnet
 publishedDate: 04/25/2025
 ---
 

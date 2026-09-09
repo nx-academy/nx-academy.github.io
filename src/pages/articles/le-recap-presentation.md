@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/BlogPostLayout.astro
 
 title: Facilitez votre veille technologique avec Le Recap
@@ -19,6 +19,7 @@ tags:
   - Veille
   - Le Récap
 author: Thomas Dimnet
+github: tdimnet
 publishedDate: 04/25/2025
 ---
 

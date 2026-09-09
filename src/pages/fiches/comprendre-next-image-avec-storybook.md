@@ -12,6 +12,7 @@ imgAlt:
 imgSrc: /images/cheatsheets/ingenieur-pontage-pipeline.webp
 
 author: Lionel
+github: Escanor1986
 kind: Fiche technique
 serie: outils
 level: Intermédiaire

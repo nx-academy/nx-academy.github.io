@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/BlogPostLayout.astro
 
 title: ChatGPT devient son meilleur ami, découvrez pourquoi
@@ -17,6 +17,7 @@ tags:
   - IA
   - ChatGPT
 author: Thomas Dimnet
+github: tdimnet
 publishedDate: 02/09/2025
 ---
 

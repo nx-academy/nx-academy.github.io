@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/BlogPostLayout.astro
 
 title: Ne plus se dédoubler
@@ -18,6 +18,7 @@ tags:
   - IA
   - Développeur
 author: Thomas Dimnet
+github: tdimnet
 publishedDate: 07/14/2026
 ---
 

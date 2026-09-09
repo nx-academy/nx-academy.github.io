@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: "GitHub Actions vs GitLab CI : quelles différences ?"
@@ -13,6 +13,7 @@ imgAlt:
 imgSrc: /images/cheatsheets/github-actions-vs-gitlab-ci.webp
 
 author: Thomas Dimnet
+github: tdimnet
 kind: Fiche technique
 serie: cicd
 level: Débutant

@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: Comment optimiser une image Docker ?
@@ -10,6 +10,7 @@ imgAlt: Une vendeuse asiatique utilisant un balance dans un magasin, pixel art
 imgSrc: /images/cheatsheets/magasin-chinois.webp
 
 author: Thomas Dimnet
+github: tdimnet
 kind: Fiche technique
 serie: docker
 tags:

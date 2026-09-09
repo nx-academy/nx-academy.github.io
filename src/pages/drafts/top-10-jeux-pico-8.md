@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/BlogPostLayout.astro
 
 title: "Les 10 jeux PICO-8 les plus connus (et pourquoi ils sont cultes)"
@@ -12,7 +12,10 @@ imgSrc: /images/articles/top-10-jeux-pico-8.webp
 
 kind: Articles
 author: Thomas Dimnet
+github: tdimnet
+
 publishedDate: 09/21/2026
+
 
 tags:
   - Game dev

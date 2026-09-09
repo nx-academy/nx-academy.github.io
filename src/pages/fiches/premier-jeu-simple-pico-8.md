@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: Créer un premier jeu simple avec PICO-8
@@ -13,6 +13,7 @@ imgAlt:
 imgSrc: /images/cheatsheets/premier-jeu-simple-pico-8.webp
 
 author: Thomas Dimnet
+github: tdimnet
 kind: Fiche technique
 serie: gamedev
 level: Débutant

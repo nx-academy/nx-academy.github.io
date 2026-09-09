@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/BlogPostLayout.astro
 
 title: Le moine, le vape coder, le debugger et le learner
@@ -19,6 +19,7 @@ tags:
   - IA
   - Développeur
 author: Thomas Dimnet
+github: tdimnet
 publishedDate: 03/29/2025
 ---
 

@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/BlogPostLayout.astro
 
 title: "Le récap #5 - Août 2025"
@@ -18,6 +18,7 @@ tags:
   - Veille
   - Le Récap
 author: Thomas Dimnet
+github: tdimnet
 publishedDate: 08/29/2025
 ---
 

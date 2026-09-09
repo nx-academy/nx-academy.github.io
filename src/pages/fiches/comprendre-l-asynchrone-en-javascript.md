@@ -13,6 +13,7 @@ imgAlt:
 imgSrc: /images/cheatsheets/asynchrone-js.webp
 
 author: Lionel
+github: Escanor1986
 kind: Fiche technique
 serie: js
 level: Intermédiaire

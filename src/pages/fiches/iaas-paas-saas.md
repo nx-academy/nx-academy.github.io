@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: "IaaS, PaaS, SaaS, quelles différences et comment choisir ?"
@@ -14,6 +14,7 @@ imgAlt:
 imgSrc: /images/cheatsheets/iaas-paas-saas.webp
 
 author: Thomas Dimnet
+github: tdimnet
 kind: Fiche technique
 serie: cloud
 tags:
