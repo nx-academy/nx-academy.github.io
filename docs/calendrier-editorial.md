@@ -126,6 +126,7 @@ Deux points à trancher :
 - `src/pages/manifeste.astro` annonce « un cours de création de jeux vidéo avec
   PICO-8 ». Cet engagement n'apparaît nulle part ailleurs : soit on le planifie,
   soit on le retire du manifeste.
+
 ## Planning de publication — septembre et octobre 2026
 
 Deux publications par semaine, lundi et mercredi : les deux jours les plus
