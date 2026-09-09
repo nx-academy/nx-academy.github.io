@@ -20,7 +20,7 @@ tags:
   - Cloud
   - Souveraineté
 author: Thomas Dimnet
-publishedDate: 01/20/2027
+publishedDate: 10/05/2026
 
 faq:
   - question: Qu'est-ce que le cloud souverain ?

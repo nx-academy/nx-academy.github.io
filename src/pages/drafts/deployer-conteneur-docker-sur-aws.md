@@ -20,7 +20,7 @@ tags:
   - Docker
   - Production
 level: Avancé
-publishedDate: 12/02/2026
+publishedDate: 09/28/2026
 
 faq:
   - question: Comment déployer un conteneur Docker sur AWS ?

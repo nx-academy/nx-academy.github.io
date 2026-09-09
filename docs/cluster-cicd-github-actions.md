@@ -3,24 +3,29 @@
 > Cadrage éditorial (pré-rédaction). Objectif : étoffer la thématique CI/CD pour
 > renforcer le SEO, en reproduisant la recette qui fonctionne déjà pour Docker.
 
-## Où en est le cluster (août 2026)
+## Où en est le cluster (septembre 2026)
 
-Quatre des six contenus sont publiés. Le constat ci-dessous date du cadrage
+Cinq des sept contenus sont publiés. Le constat ci-dessous date du cadrage
 initial, il est conservé pour mémoire.
 
-| Slug                                   | État                            |
-| -------------------------------------- | ------------------------------- |
-| `declencher-workflow-github-actions`   | publié (10/2025)                |
-| `artefact-github-actions`              | publié (07/2026)                |
-| `deployer-image-docker-github-actions` | publié (07/2026)                |
-| `gerer-secrets-github-actions`         | publié (08/2026)                |
-| `github-actions-vs-gitlab-ci`          | **brouillon** — visuel manquant |
-| `optimiser-workflows-github-actions`   | **brouillon** — visuel manquant |
-| `reutiliser-workflow-github-actions`   | **brouillon** — visuel manquant |
+| Slug                                   | État                                        |
+| -------------------------------------- | ------------------------------------------- |
+| `declencher-workflow-github-actions`   | publié (10/2025)                            |
+| `artefact-github-actions`              | publié (07/2026)                            |
+| `deployer-image-docker-github-actions` | publié (07/2026)                            |
+| `gerer-secrets-github-actions`         | publié (08/2026)                            |
+| `reutiliser-workflow-github-actions`   | publié (10/08/2026)                         |
+| `github-actions-vs-gitlab-ci`          | **brouillon** — visuel manquant, 07/09/2026 |
+| `optimiser-workflows-github-actions`   | **brouillon** — visuel manquant, 09/09/2026 |
 
-Prochaine publication logique : `github-actions-vs-gitlab-ci`, seule fiche du
-cluster encore citée par un lien mort (depuis
-`declencher-workflow-github-actions`).
+Les deux brouillons restants sont **chacun cités par un lien mort** depuis une
+fiche en ligne : `github-actions-vs-gitlab-ci` depuis
+`declencher-workflow-github-actions`, et `optimiser-workflows-github-actions`
+depuis `reutiliser-workflow-github-actions` — ce second 404 est né en publiant
+la fiche « réutiliser » en août. Ils ouvrent donc le planning de septembre (voir
+[calendrier-editorial.md](./calendrier-editorial.md)) : les publier ferme le
+cluster CI/CD et solde le chantier n° 1 de
+[dette-editoriale.md](./dette-editoriale.md).
 
 ## Le constat
 
@@ -166,5 +171,5 @@ Petits bugs de données qui pénalisent le cluster existant :
 2. `github-actions-vs-gitlab-ci` (porte d'entrée SEO).
 3. `deployer-image-docker-github-actions` (pont, fort maillage).
 4. `gerer-secrets-github-actions` + `optimiser-workflows-github-actions`.
-5. `reutiliser-workflow-github-actions` (avancé, dernier).
+5. `reutiliser-workflow-github-actions` (avancé, dernier). — _fait, 10/08/2026_
 6. Poser le maillage croisé + corriger les incohérences de données. </content>
