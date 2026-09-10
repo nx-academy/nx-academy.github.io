@@ -24,7 +24,6 @@ github: tdimnet
 
 publishedDate: 10/05/2026
 
-
 faq:
   - question: Qu'est-ce que le cloud souverain ?
     answer:
