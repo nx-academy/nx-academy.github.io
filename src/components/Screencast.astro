@@ -1,0 +1,55 @@
+---
+import {
+  embedAllow,
+  embedUrl,
+  type ScreencastProvider,
+} from "../utils/screencast";
+
+interface Props {
+  id: string;
+  /** Décrit la vidéo aux lecteurs d'écran : obligatoire, et propre à chaque
+      screencast. C'est ce qui manquait aux iframes copiées-collées. */
+  title: string;
+  /** Légende visible. Sans elle, le titre reste dans l'attribut `title` :
+      inutile de répéter à l'écran le sous-titre qui précède déjà la vidéo. */
+  caption?: string;
+  hash?: string;
+  provider?: ScreencastProvider;
+}
+
+const { id, title, caption, hash, provider = "vimeo" } = Astro.props;
+
+const src = embedUrl({ id, hash, provider });
+---
+
+<figure class="screencast">
+  <iframe
+    src={src}
+    title={title}
+    loading="lazy"
+    allow={embedAllow(provider)}
+    allowfullscreen></iframe>
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+
+<style>
+  .screencast {
+    margin: 32px 0;
+  }
+
+  .screencast iframe {
+    aspect-ratio: 16 / 9;
+    background-color: #000;
+    border: 0;
+    border-radius: 4px;
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+
+  figcaption {
+    color: var(--textColor);
+    font-size: 14px;
+    margin-top: 8px;
+  }
+</style>

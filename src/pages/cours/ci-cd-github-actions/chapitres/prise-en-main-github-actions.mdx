@@ -15,6 +15,8 @@ sectionTitle: Partie 2 - Découvrez les GitHub Actions
 id: 3
 ---
 
+import Screencast from "../../../../components/Screencast.astro";
+
 <article>
 
 # Prenez en main les GitHub Actions
@@ -80,7 +82,7 @@ soyez pas surpris si vous voyez l’un ou l’autre.
 
 ---
 
-<br>
+<br />
 
 ![Grand-père et enfant lisant ensemble un dictionnaire sur un canapé, pixel art](/images/cours-ci-cd-github-actions/scene-famille-dictionnaire.webp)
 
@@ -105,7 +107,7 @@ Le premier terme qui va nous intéresser est le terme workflow. Un workflow,
 c’est un peu la colonne vertébrale des GitHub Actions. Ce n’est d’ailleurs pas
 pour rien qu’on crée nos Github Actions dans le dossier `.github/workflows`.
 
-<br>
+<br />
 
 Voici un workflow complet :
 
@@ -140,7 +142,7 @@ jobs:
         run: npm run lint
 ```
 
-<br>
+<br />
 
 Un workflow consiste en une combinaison de tâches à réaliser (compiler le code,
 faire tourner des tests automatisés). Il est généralement constitué d’au moins
@@ -151,18 +153,18 @@ obligatoires et name est optionnelle (mais vivement recommandé).
 name: My First Workflow
 ```
 
-<br>
+<br />
 
 Vous vous serez certainement douté mais `name` correspond au nom de votre
 workflow. Il est conseillé ici de lui donner un nom assez descriptif. Cela vous
 permettra de les identifier plus facilement.
 
-<br>
+<br />
 
 ![Des exemples de Workflow de GitHub Actions](/images/cours-ci-cd-github-actions/exemple-workflow.webp)
 
-<br>
-<br>
+<br />
+<br />
 
 ```yml
 on:
@@ -182,11 +184,11 @@ Dans l’exemple ci-dessus, notre workflow est déclenché au moment où on push
 code sur la branche `main` ou à l’ouverture d’une Pull Request sur la branche
 `main`.
 
-<br>
+<br />
 
 ---
 
-<br>
+<br />
 
 Intéressons-nous maintenant aux runners :
 
@@ -199,7 +201,7 @@ machines virtuelles qui vont fournir un runtime. Le runtime désigne ici un
 environnement d'exécution. Par exemple, Node.js est un runtime. Dans l’exemple
 ci-dessus, nous utilisons la dernière version d’Ubuntu.
 
-<br>
+<br />
 
 À l’intérieur de chacun des workflows, on va trouver les **jobs**.
 
@@ -228,11 +230,11 @@ temps à faire son cycle complet et donc de déployer plus rapidement.
 Rassurez-vous si c’est encore un peu abstrait. Je vous montrerai comment faire
 de la parallélisation de jobs dès le prochain chapitre.
 
-<br>
+<br />
 
 ---
 
-<br>
+<br />
 
 Attardons-nous maintenant sur les steps :
 
@@ -263,11 +265,11 @@ préfère la deuxième méthode. Je trouve que le code est plus lisible. Cela di
 cela peut parfois créer des jobs qui sont un peu trop dépendants entre eux et
 donc faire baisser au final la maintenabilité.
 
-<br>
+<br />
 
 ---
 
-<br>
+<br />
 
 Regardez maintenant attentivement la première steps.
 
@@ -280,22 +282,26 @@ programmation. C’est un bout de code réutilisable. Par exemple, l’action
 actions/checkout@v3 récupère le contenu d’un repository Git. Il existe plusieurs
 types d’actions. Vous les découvrirez dans le prochain chapitre.
 
-<br>
+<br />
 
 ---
 
-<br>
+<br />
 
 J’ai conscience que je viens de vous lâcher pas mal d’informations. Pour vous
 aider dans votre apprentissage, je vous ai prévu un screencast reprenant
 l’ensemble des concepts dont je viens de parler. Je vais reprendre le workflow
 complet que vous venez de voir.
 
-<br>
+<br />
 
-<iframe src="https://player.vimeo.com/video/1140466111?h=1813f59d8b&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 5 - Découvrez le projet fil rouge"></iframe>
+<Screencast
+  id="1140466111"
+  hash="1813f59d8b"
+  title="Familiarisez-vous avec le vocabulaire"
+/>
 
-<br>
+<br />
 
 Si vous découvrez ce vocabulaire pour la première fois. Je vous invite à faire
 une pause et à boire un café ou un thé. On se retrouve juste après votre pause.
@@ -303,7 +309,7 @@ Je vous montrerais comment créer votre premier workflow.
 
 ---
 
-<br>
+<br />
 
 ![Usine en construction dans un paysage verdoyant avec un bouton « BUILD », pixel art](/images/cours-ci-cd-github-actions/scene-construction-usine.webp)
 
@@ -326,11 +332,15 @@ lire la documentation et le code source des actions que vous utiliserez.
 Vous pouvez essayer de réaliser ce premier workflow de votre côté avant de
 regarder le screencast. À tout de suite !
 
-<br>
+<br />
 
-<iframe src="https://player.vimeo.com/video/1140466207?h=db5d660db7&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 5 - Découvrez le projet fil rouge"></iframe>
+<Screencast
+  id="1140466207"
+  hash="db5d660db7"
+  title="Créez un workflow simple"
+/>
 
-<br>
+<br />
 
 Le code de ce screencast se trouve sur la branche
 partie-2/chapitre-1/section-3-fin .
@@ -340,7 +350,7 @@ Maintenant que vous avez créé votre premier workflow, on va pouvoir s’intér
 
 ---
 
-<br>
+<br />
 
 ![Enfant concentré pliant un avion en papier sur une table, pixel art](/images/misc/enfant-avion-papier.webp)
 
@@ -350,18 +360,22 @@ Pour rappel, voici la problématique que nous essayons de résoudre dans ce
 chapitre. Je vous invite à utiliser la branche
 partie-2/chapitre-1/section-3-fin.
 
-<br>
+<br />
 
-<iframe src="https://player.vimeo.com/video/1140466588?h=dc6167aa60&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 5 - Découvrez le projet fil rouge"></iframe>
+<Screencast
+  id="1140466588"
+  hash="dc6167aa60"
+  title="Exercez-vous — Créez un workflow simple"
+/>
 
-<br>
+<br />
 
 Le code source contenant la solution de cet exercice se trouve sur la branche
 partie-2/chapitre-1-fin.
 
 ---
 
-<br>
+<br />
 
 ![Jeune vendeur de journaux criant dans un porte-voix dans une rue, pixel art](/images/misc/vendeur-journaux.webp)
 

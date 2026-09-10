@@ -14,6 +14,8 @@ sectionTitle: Partie 3 - Mettez en place une pipeline CI/CD avec GitHub Pages et
 id: 6
 ---
 
+import Screencast from "../../../../components/Screencast.astro";
+
 <article>
 
 # Déployez votre portfolio
@@ -86,7 +88,7 @@ officielles de Docker. Elles permettent de se connecter à dockerhub, de builder
 l’application et d’y envoyer l’application une fois buildée. Vous remarquerez
 aussi qu’on utilise des secrets GitHub.
 
-<br>
+<br />
 
 Prenons maintenant l’exemple d’une application déployée sur Heroku.
 
@@ -134,7 +136,7 @@ On va d’ailleurs en profiter pour parler un peu de déploiement !
 
 ---
 
-<br>
+<br />
 
 ![Quatre fusées de tailles et de modèles différents alignées sur leurs pas de tir, pixel art](/images/cours-ci-cd-github-actions/comparaison-fusees.webp)
 
@@ -172,7 +174,7 @@ dédié aux différentes stratégies de déploiement.
 
 ---
 
-<br>
+<br />
 
 ![Enfant concentré pliant un avion en papier sur une table, pixel art](/images/misc/enfant-avion-papier.webp)
 
@@ -182,18 +184,22 @@ Pour rappel,
 [voici la problématique](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/issues/8)
 que nous essayons de résoudre dans ce chapitre.
 
-<br>
+<br />
 
-<iframe src="https://player.vimeo.com/video/1140467031?h=d83106f4ef&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 5 - Découvrez le projet fil rouge"></iframe>
+<Screencast
+  id="1140467031"
+  hash="d83106f4ef"
+  title="Exercez-vous — Déployez votre portfolio"
+/>
 
-<br>
+<br />
 
 Le code source contenant la solution de cet exercice se trouve
 [sur la branche `partie-3/chapitre-2-fin`](https://github.com/nx-academy/Creez-des-pipelines-CI-CD-avec-les-GitHub-Actions/tree/partie-3/chapitre-2-fin).
 
 ---
 
-<br>
+<br />
 
 ![Jeune vendeur de journaux criant dans un porte-voix dans une rue, pixel art](/images/misc/vendeur-journaux.webp)
 
@@ -209,7 +215,7 @@ Le code source contenant la solution de cet exercice se trouve
 
 ---
 
-<br>
+<br />
 
 ![Un homme en train de lire une histoire sur un fauteuil, pixel art](/images/cours-docker-et-docker-compose/lecture-histoire.webp)
 
@@ -228,7 +234,7 @@ devriez être capable :
 - De savoir comment optimiser des pipelines notamment en créant plusieurs jobs.
   Vous devriez savoir comment paralléliser des jobs.
 
-<br>
+<br />
 
 Il y a certains sujets, tels que les matrix et les conditionnels, que je n’ai
 pas abordés durant le cours. Je voulais que ce premier cours dédié au CI/CD soit
@@ -236,7 +242,7 @@ pas abordés durant le cours. Je voulais que ce premier cours dédié au CI/CD s
 principalement la partie déploiement. Vous y verrez comment déployer des
 conteneurs Docker sur une infrastructure AWS. Sa sortie est prévue pour 2024.
 
-<br>
+<br />
 
 Entre temps, voici quelques sujets sur lesquels je vous invite à vous pencher :
 
@@ -251,7 +257,7 @@ Entre temps, voici quelques sujets sur lesquels je vous invite à vous pencher :
 - Essayez de déployer un portfolio sur Astro et/ou NextJS. Vous verrez que les
   étapes de la CI ne seront pas les mêmes.
 
-<br>
+<br />
 
 Comme toujours, n’hésitez pas à me faire un feedback sur le cours par mail ou
 sur Discord.

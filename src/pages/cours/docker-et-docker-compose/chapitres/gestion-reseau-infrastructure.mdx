@@ -16,6 +16,8 @@ sectionTitle: Partie 2 - Créez une API REST avec Docker et docker-compose
 id: 6
 ---
 
+import Screencast from "../../../../components/Screencast.astro";
+
 <article>
 
 # Gérez le réseau de votre infrastructure
@@ -79,7 +81,7 @@ fonctionnement des réseaux informatiques.
 - [Qu’est-ce que le modèle OSI ?](https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi/) -
   Article en anglais avec des schémas et de bonnes explications.
 
-<br>
+<br />
 
 Il est maintenant possible que vous vous posiez la question de quel(s) port(s)
 sont utilisés sur votre ordinateur (en tout cas, moi, c’est la question que je
@@ -95,7 +97,7 @@ sudo lsof -P -i TCP -s TCP:LISTEN
 netstat -aon
 ```
 
-<br>
+<br />
 
 En faisant ça sur mon ordinateur (MacOS), j’ai le résultat suivant :
 
@@ -125,7 +127,7 @@ Spotify   23548 family   58u  IPv4 0x64cf0533e8f5e44d  	0t0  TCP *:57621 (LISTEN
 Spotify   23548 family   63u  IPv4 0x64cf0533e956244d  	0t0  TCP *:50896 (LISTEN)
 ```
 
-<br>
+<br />
 
 Vous pouvez voir que Spotify occupe deux ports, respectivement le 57621 et le
 50896, que Dropbox en a 4, etc. Pour votre information, je suis tombé
@@ -138,7 +140,7 @@ ordinateur de communiquer, notamment avec le monde extérieur.
 
 ---
 
-<br>
+<br />
 
 ![Une femme en train de montrer un place de bateau vide dans un port, pixel art](/images/cours-docker-et-docker-compose/femme-port.webp)
 
@@ -183,7 +185,7 @@ des schémas et des procédures.
 Bon, si l’on reprend l’exemple de notre docker-compose pour WordPress du
 chapitre précédent, il devrait faire beaucoup sens.
 
-<br>
+<br />
 
 ```yml
 services:
@@ -206,7 +208,7 @@ services:
     # [...]
 ```
 
-<br>
+<br />
 
 Vous pouvez voir que :
 
@@ -219,20 +221,20 @@ Normalement, tout devrait commencer à se connecter dans votre tête 🙂. Si ce
 n’est pas le cas, n’hésitez pas à ouvrir une issue sur notre Github pour
 demander des précisions ou plus d’explications.
 
-<br>
+<br />
 
 Ici, on reste sur l’essentiel : ouvrir et raccorder des ports. Docker gère en
 réalité tout un système de réseaux (bridge, host, overlay, DNS interne…) que
 vous pouvez approfondir dans la fiche
 [Comment bien gérer les réseaux Docker ?](/fiches/bien-gerer-reseaux-docker/).
 
-<br>
+<br />
 
 Passons maintenant aux variables d'environnement.
 
 ---
 
-<br>
+<br />
 
 ![Une homme asiatique en train de se préparer un burger, pixel art](/images/cours-docker-et-docker-compose/burger-homme-cuisine.webp)
 
@@ -240,14 +242,14 @@ Passons maintenant aux variables d'environnement.
 
 Avez-vous déjà vu ce genre de choses traîner dans votre code ?
 
-<br>
+<br />
 
 ```javascript
 const PORT = process.env.PORT;
 const DB_URL = process.env.DB_URL;
 ```
 
-<br>
+<br />
 
 ```python
 import os
@@ -257,7 +259,7 @@ PORT = os.environ.get("PORT")
 DB_URL = os.environ.get("DB_URL")
 ```
 
-<br>
+<br />
 
 Le premier snippet de code est du JavaScript, le deuxième du Python. **Ces deux
 snippets vous montrent comment récupérer des variables d'environnement**. Les
@@ -279,7 +281,7 @@ bien être
 Si je tape cette commande dans mon conteneur Docker, j’obtiens ce type de
 résultat.
 
-<br>
+<br />
 
 ```bash
 root@1a8c6f91c8ab:/api# env
@@ -298,7 +300,7 @@ _=/usr/bin/env
 root@1a8c6f91c8ab:/api#
 ```
 
-<br>
+<br />
 
 Il y a pas mal d’informations intéressantes ici. Par exemple, vous pouvez voir
 que la version de Node utilisée est située dans les variables d'environnement.
@@ -308,17 +310,21 @@ vous pouvez lire les premières parties, il est plutôt intéressant 🙂. La bo
 nouvelle, c’est que vous avez déjà vu dans les snippets de code du chapitre
 précédent comment ajouter des variables d'environnement.
 
-<br>
+<br />
 
 Je vous propose qu’on fasse une petite pause sur le texte et qu’on regarde
 comment ajouter des variables d'environnement dans le screencast ci-dessous. À
 tout de suite !
 
-<br>
+<br />
 
-<iframe src="https://player.vimeo.com/video/1096176773?h=512071f632&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 12 - Ajoutez des variables d_environnement à votre conteneur"></iframe>
+<Screencast
+  id="1096176773"
+  hash="512071f632"
+  title="Ajoutez des variables d’environnement à votre conteneur"
+/>
 
-<br>
+<br />
 
 Pour récapituler, vous pouvez soit :
 
@@ -335,14 +341,14 @@ Pour récapituler, vous pouvez soit :
   votre fichier Dockerfile**. En pratique, je vous déconseille de le faire. Ce
   n’est pas forcément une bonne pratique, notamment niveau sécurité.
 
-<br>
+<br />
 
 Votre code devrait maintenant correspondre à celui
 [de la branche `partie-2/chapitre-3/section-3`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-3/section-3).
 
 ---
 
-<br>
+<br />
 
 ![Un enfant en train de s'entrainer à faire un avion en papier, pixel art](/images/cours-docker-et-docker-compose/enfant-avion-papier.webp)
 
@@ -353,18 +359,22 @@ Pour rappel,
 que nous essayons de résoudre dans ce chapitre. Pensez bien
 [à partir de la branche `partie-2/chapitre-3/section-3`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-3/section-3).
 
-<br>
+<br />
 
-<iframe src="https://player.vimeo.com/video/1096177015?h=1ec05b12f6&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 13 - Exercez-vous - Gérez le réseau de votre infrastructure"></iframe>
+<Screencast
+  id="1096177015"
+  hash="1ec05b12f6"
+  title="Exercez-vous — Gérez le réseau de votre infrastructure"
+/>
 
-<br>
+<br />
 
 Le code source contenant la solution de cet exercice se trouve
 [sur la branche `partie-2/chapitre-3-fin`](https://github.com/nx-academy/Conteneurisez-vos-applications-avec-Docker/tree/partie-2/chapitre-3-fin).
 
 ---
 
-<br>
+<br />
 
 ![Un vendeur de journaux dans la rue, pixel art](/images/cours-docker-et-docker-compose/vendeur-journaux.webp)
 

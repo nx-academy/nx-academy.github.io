@@ -16,7 +16,9 @@ sectionTitle: Partie 1 - Initiez-vous à Docker et au projet fil rouge
 id: 2
 ---
 
-<artice>
+import Screencast from "../../../../components/Screencast.astro";
+
+<article>
 
 # Installez et configurez Docker Desktop
 
@@ -52,7 +54,7 @@ tiré du blog officiel de Docker.
 
 ---
 
-<br>
+<br />
 
 ![Personne devant un vieil ordinateur affichant une fenêtre "Installing software" avec une barre de progression, pixel art](/images/cours-docker-et-docker-compose/installation-logiciel.webp)
 
@@ -62,9 +64,13 @@ Dans ce screencast, vous allez voir comment installer Docker sur macOS. Vous
 verrez où et comment installer Docker Desktop, quelques commandes de base et
 vous en profiterez pour lancer votre premier conteneur.
 
-<iframe src="https://player.vimeo.com/video/1096175462?h=1c484564b2&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 1 - Installez Docker Desktop sur Mac"></iframe>
+<Screencast
+  id="1096175462"
+  hash="1c484564b2"
+  title="Installez Docker Desktop sur macOS"
+/>
 
-<br>
+<br />
 
 Félicitations, Docker Desktop est maintenant prêt à l’emploi sur votre
 ordinateur. La commande `docker run hello-world` est l’une des nombreuses
@@ -74,7 +80,7 @@ l’image ayant le nom _hello-world_. Cette image est hébergée
 
 ---
 
-<br>
+<br />
 
 ![Personne devant un vieil ordinateur affichant une fenêtre "Installing software" avec une barre de progression, pixel art](/images/cours-docker-et-docker-compose/installation-logiciel.webp)
 
@@ -84,7 +90,11 @@ N’ayant actuellement pas d’ordinateur sur Windows me permettant de faire tou
 Docker, je vous partage ce tuto Youtube. Dès que j’aurais un moyen simple de le
 faire, je mettrais à jour ce cours.
 
-<iframe src="https://www.youtube.com/embed/SYMPIdMC2qo" frameborder="0"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<Screencast
+  provider="youtube"
+  id="SYMPIdMC2qo"
+  title="Installez Docker Desktop sur Windows"
+/>
 
 Félicitations, Docker Desktop est maintenant prêt à l’emploi sur votre
 ordinateur. La commande `docker run hello-world` est l’une des nombreuses
@@ -94,7 +104,7 @@ l’image ayant le nom _hello-world_. Cette image est hébergée
 
 ---
 
-<br>
+<br />
 
 ![Silhouette encapuchonnée de dos devant trois écrans verts affichant du code et un écran de connexion, pixel art](/images/cours-docker-et-docker-compose/hacker-sombre.webp)
 
@@ -152,7 +162,7 @@ pour apprendre comment une commande fonctionne. Vous pouvez aussi avoir plus
 d’informations sur une commande en particulier via la docker `COMMAND --help`
 (c.f. la dernière ligne du bout de code ci-dessus).
 
-<br>
+<br />
 
 Vous avez précédemment lancé la commande docker run hello-world. Pour afficher
 l’aide de cette commande, tapez `docker run –help`. Vous devriez avoir un
@@ -189,7 +199,7 @@ juste savoir que ça existe et comment accéder à cette information. Comme la
 description le précise, la commande `docker run` permet de lancer une commande
 dans un nouveau conteneur.
 
-<br>
+<br />
 
 La partie Usage est particulièrement importante : elle vous permet de voir ce
 qui est requis et optionnel à votre commande.
@@ -198,7 +208,7 @@ qui est requis et optionnel à votre commande.
 Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 ```
 
-<br>
+<br />
 
 - `[OPTIONS]` est optionnelle. Ce sont toutes les options que vous allez pouvoir
   passer à Docker et plus précisément, dans le cas ci-dessus, à une image
@@ -216,7 +226,7 @@ Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
   à savoir lancer un conteneur avec une image my-image où la commande pour
   lancer le projet est npm run dev.
 
-<br>
+<br />
 
 À ce stade du cours, il est possible que vous soyez encore perdu entre les
 images et les conteneurs. C’est parfaitement normal. On passe tous par cette
@@ -244,7 +254,11 @@ aider à accélérer votre apprentissage.
 On va se faire un premier screencast où je vais reprendre les notions dont je
 viens de parler. Vous verrez ensuite d’autres commandes de base de Docker.
 
-<iframe src="https://player.vimeo.com/video/1096175522?h=14cca2c1bf&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 2 - Appréhendez la ligne de commande de Docker"></iframe>
+<Screencast
+  id="1096175522"
+  hash="14cca2c1bf"
+  title="Appréhendez la ligne de commande de Docker"
+/>
 
 Maintenant que vous avez pris en main l’interface en ligne de commandes de
 Docker (le CLI), vous allez apprendre à récupérer une image Node.js depuis
@@ -252,7 +266,7 @@ DockerHub.
 
 ---
 
-<br>
+<br />
 
 ![Une femme afro-américiane en train de choisir un produit dans un magasin, pixel art](/images/cours-docker-et-docker-compose/choix-produit-magasin.webp)
 
@@ -264,11 +278,11 @@ surpris si je vous parle de Dockerhub. Allez
 [sur Dockerhub](https://hub.docker.com/) et tapez _Node_ dans la barre de
 recherche. Vous devriez avoir des résultats similaires à l’image ci-dessous.
 
-<br>
+<br />
 
 ![La page de recherche de DockerHub quand vous tapez Node.JS dans la barre de recherche](/images/cours-docker-et-docker-compose/dockerhub-node.webp)
 
-<br>
+<br />
 
 Vous voyez le texte écrit en vert (en espérant que vous ne soyez pas daltonien
 😀) : “Docker Official Image”. **Quand vous choisissez votre image sur
@@ -276,20 +290,20 @@ DockerHub, essayez de privilégier les images officielles**. C’est un signe de
 qualité (et de sécurité), autrement dit, vous pouvez y aller les yeux fermés.
 D’ailleurs, le site de DockerHub l’explique lui aussi :
 
-<br>
+<br />
 
 ![Une capture d'écran montrant les avantages des images officielles selon Docker](/images/cours-docker-et-docker-compose/avantages-image-officielle-docker.webp)
 
-<br>
+<br />
 
 Cliquez sur la page de Node, vous devriez là encore avoir un résultat similaire
 à l’image ci-dessous.
 
-<br>
+<br />
 
 ![Une capture d'écran de l'image officielle de Node.JS sur DockerHub](/images/cours-docker-et-docker-compose/image-officielle-node-js.webp)
 
-<br>
+<br />
 
 Il y a beaucoup d’informations affichées à l’écran mais celle qui m’intéresse
 est située en haut à droite : `docker pull node`. **Cette commande va vous
@@ -301,7 +315,7 @@ avez déjà récupéré cette image au préalable.
 Pour consulter les images présentes sur votre ordinateur, tapez la commande
 `docker image ls`.
 
-<br>
+<br />
 
 ```bash
 docker image ls
@@ -311,7 +325,7 @@ node      	latest	c080a37e3dd2   18 hours ago	949MB
 hello-world   latest	46331d942d63   12 months ago   9.14kB
 ```
 
-<br>
+<br />
 
 J’ai deux images sur mon ordinateur : `node` et `hello-world`. J’ai leur taille,
 le nom du repository et leur tag. Sachez que nous reviendrons sur la notion de
@@ -322,11 +336,15 @@ tag d’ici peu de temps 😉.
 Le screencast ci-dessous reprend ce que je viens de faire mais en vidéo. Encore
 une fois, cela devrait vous permettre d’apprendre un peu plus vite.
 
-<iframe src="https://player.vimeo.com/video/1096175632?h=22fce4fbb8&amp;title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 3 - Récupérez une image NodeJS"></iframe>
+<Screencast
+  id="1096175632"
+  hash="22fce4fbb8"
+  title="Récupérez une image Node.js"
+/>
 
 ---
 
-<br>
+<br />
 
 ![Un afro-américain en train de faire du vélo pour la première fois, pixel art](/images/cours-docker-et-docker-compose/enfant-velo-debutant.webp)
 
@@ -334,7 +352,7 @@ une fois, cela devrait vous permettre d’apprendre un peu plus vite.
 
 Commencez par taper la commande `docker container –help` dans votre terminal.
 
-<br>
+<br />
 
 ```bash
 docker container --help
@@ -363,7 +381,7 @@ de chacune de ces commandes avec le _--help_. Pour être tout à fait honnête, 
 trouve la documentation du CLI de Docker particulièrement bien fournie et
 claire.
 
-<br>
+<br />
 
 On va maintenant lancer notre premier conteneur Node.js. Vérifiez que vous avez
 bien l’image de Node sur votre ordinateur via la commande docker image ls. Puis,
@@ -388,7 +406,7 @@ afficher le contenu du répertoire bin, tapez `docker container run node ls bin`
 Si vous connaissez un peu linux et la ligne de commandes, vous ne devriez pas
 être trop perdu.
 
-<br>
+<br />
 
 Admettons maintenant que vous souhaitez connaître la version de node de votre
 conteneur Docker. Vous pouvez le faire via la commande
@@ -403,7 +421,7 @@ v19.8.1
 Vous verrez dans le projet fil rouge et les prochaines parties comment tirer
 parti de ces commandes. Concentrez-vous pour l’instant sur les commandes 🙂.
 
-<br>
+<br />
 
 Bon, dernière commande pour la route : `docker container ls`. Cette commande va
 vous permettre d’afficher vos conteneurs. Votre résultat devrait être similaire
@@ -458,7 +476,11 @@ vous permettra de prendre un peu d’avance sur les prochains chapitres.
 
 Le screencast ci-dessous reprend ce que je viens de faire mais en vidéo.
 
-<iframe src="https://player.vimeo.com/video/1096175756?h=c66b49952f&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" title="Screencast 4 - Lancez et manipulez votre conteneur NodeJS"></iframe>
+<Screencast
+  id="1096175756"
+  hash="c66b49952f"
+  title="Lancez et manipulez votre conteneur Node.js"
+/>
 
 Vous voici arrivé au terme de ce chapitre. Ce chapitre est clairement l’un des
 plus denses du cours. Je vous invite à revenir dessus une fois que vous aurez
@@ -468,7 +490,7 @@ fait pas sens immédiatement ou si vous oubliez certains éléments. C’est nor
 
 ---
 
-<br>
+<br />
 
 ![Un vendeur de journaux dans la rue, pixel art](/images/cours-docker-et-docker-compose/vendeur-journaux.webp)
 
