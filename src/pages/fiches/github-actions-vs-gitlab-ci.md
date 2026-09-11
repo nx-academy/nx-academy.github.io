@@ -3,9 +3,8 @@ layout: ../../layouts/CheatSheetsLayout.astro
 
 title: "Quelles sont les différences entre GitHub Actions vs GitLab CI ?"
 description:
-  "GitHub Actions ou GitLab CI ? On compare les deux outils de CI/CD : syntaxe
-  des workflows, runners, tarification et écosystème. Et surtout, on voit lequel
-  choisir selon votre contexte, exemples à l'appui."
+  "GitHub Actions ou GitLab CI ? Dans cette fiche, on compare les deux outils de CI/CD, en regardant la syntaxe
+  des workflows, les runners, la tarification et leur écosystème."
 
 imgAlt:
   Deux chaînes de montage automatisées côte à côte, l'une aux couleurs de
@@ -23,51 +22,52 @@ publishedDate: 09/11/2026
 On continue notre série sur les CI/CD. Après avoir vu comment
 [déclencher un workflow](/fiches/declencher-workflow-github-actions) et à quoi
 servent [les artefacts](/fiches/artefact-github-actions), on prend un peu de
-hauteur aujourd'hui avec une question qui revient _tout le temps_ :
+hauteur aujourd'hui avec une question  _récurrente_ :
 
-**GitHub Actions ou GitLab CI, c'est quoi la différence ? Et lequel choisir ?**
+**C'est quoi la différence entre les GitHub Actions ou GitLab CI ? Lequel choisir ?**
 
-Les deux sont des outils de CI/CD, les deux tournent sur des fichiers YAML, les
-deux automatisent vos tests et vos déploiements… alors forcément, on se demande
-s'ils se valent, s'ils se ressemblent, et sur lequel miser.
+Globalement, les deux sont des outils de CI/CD. Ils tournent sur des fichiers YAML et automatisent vos tests et vos déploiements. Alors forcément, on est en droit de se demander
+s'ils se valent, s'ils se ressemblent et sur lequel miser.
 
-Dans cette fiche, on va comparer les deux point par point, puis je vous donnerai
-ma grille de décision. Et vous allez voir : une fois qu'on a compris leur
+Dans cette fiche, on va comparer les deux point par point. Je vous donnerai ensuite
+ma grille de décision. Vous allez voir qu'une fois qu'on a compris leur
 philosophie respective, le choix devient souvent évident.
 
 ---
 
 ## Le point commun : même besoin, deux philosophies
 
-Avant de lister les différences, posons les bases. GitHub Actions et GitLab CI
-répondent **au même besoin** : automatiser ce qui se passe entre le moment où
+Avant de lister les différences, on va poser les bases. GitHub Actions et GitLab CI
+répondent **au même besoin**, à savoir automatiser ce qui se passe entre le moment où
 vous poussez du code et le moment où il arrive en production (tests, build,
 déploiement).
 
 <br>
 
-Mais ils ne l'abordent pas de la même manière :
+Cela dit, ils ne l'abordent pas de la même manière :
 
 - **GitHub Actions** est né comme un système **événementiel et modulaire**,
   greffé sur GitHub. On réagit à des événements (`push`, `pull_request`…) et on
   assemble des briques réutilisables piochées dans une immense marketplace.
 - **GitLab CI** est un **composant intégré** d'une plateforme DevOps unique.
-  GitLab, c'est le dépôt Git, la CI/CD, le registry, le suivi de tickets… le
-  tout dans une seule application. La CI/CD y est pensée comme un **pipeline**
+  GitLab, c'est le dépôt Git, la CI/CD, le registry, le suivi de tickets, etc. Le
+  tout tourne dans une seule application (Gitlab). La CI/CD y est pensée comme un **pipeline**
   découpé en étapes (_stages_).
 
 <br>
 
-Cette différence de départ explique presque toutes les autres. Déroulons-les.
+Cette différence de départ explique presque toutes les autres.
+
+---
 
 ## La syntaxe : `on:` contre `stages:`
 
-C'est la première chose qu'on remarque. Le fichier de config ne vit pas au même
+C'est souvent la première chose qu'on remarque : le fichier de config ne vit pas au même
 endroit et ne se structure pas pareil.
 
 <br>
 
-Chez **GitHub Actions**, vos workflows vivent dans le dossier
+Avec les **GitHub Actions**, vos workflows vivent dans le dossier
 `.github/workflows/` (vous pouvez en avoir plusieurs). Chaque workflow part d'un
 événement déclencheur, puis décrit des _jobs_ composés de _steps_ :
 
@@ -92,9 +92,9 @@ jobs:
 
 <br>
 
-Chez **GitLab CI**, tout tient dans un seul fichier `.gitlab-ci.yml` à la racine
+Avec **GitLab CI**, tout tient dans un seul fichier : `.gitlab-ci.yml`. Il se trouve à la racine
 du dépôt. On y déclare des _stages_ (les grandes étapes du pipeline), puis des
-_jobs_ que l'on range dans ces stages :
+_jobs_ que l'on range dans ces stages.
 
 ```yml
 # .gitlab-ci.yml
@@ -113,12 +113,14 @@ test:
 
 <br>
 
-Vous voyez la nuance de philosophie :
+Vous voyez la nuance de philosophie ?
 
 - GitHub Actions raisonne **« quel événement déclenche quoi »** et adore les
   actions prêtes à l'emploi (`uses: actions/checkout@v4`) ;
 - GitLab CI raisonne **« quelles étapes s'enchaînent »** et exécute surtout des
   `script:` bruts dans une image Docker que vous choisissez.
+
+---
 
 ## Les runners : hébergés ou auto-gérés
 
