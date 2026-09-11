@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/BlogPostLayout.astro
 
 title: Point d’étape de rentrée
@@ -17,6 +17,7 @@ tags:
   - NX Academy
   - Bilan
 author: Thomas Dimnet
+github: tdimnet
 publishedDate: 09/08/2026
 ---
 

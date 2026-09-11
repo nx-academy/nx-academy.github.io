@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: "Qu'est-ce que le cloud public ?"
@@ -14,6 +14,7 @@ imgAlt:
 imgSrc: /images/cheatsheets/comprendre-le-cloud-public.webp
 
 author: Thomas Dimnet
+github: tdimnet
 kind: Fiche technique
 serie: cloud
 tags:

@@ -22,6 +22,7 @@ interface Props {
     publishedDate?: string;
     faq?: FaqItem[];
     howTo?: HowToData;
+    github?: string;
   };
   headings: Heading[];
 }
@@ -48,6 +49,7 @@ const {
     publishedDate,
     faq,
     howTo,
+    github,
   },
   headings,
 } = Astro.props;
@@ -150,6 +152,7 @@ const breadCrumbs: Breadcrumb[] = [
           chips={chips}
           imgSrc={imgSrc}
           imgAlt={imgAlt}
+          github={github}
         />
 
         <div class="prose" data-prose>

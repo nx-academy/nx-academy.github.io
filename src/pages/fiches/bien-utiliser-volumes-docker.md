@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: Comment (bien) utiliser les volumes Docker ?
@@ -10,6 +10,7 @@ imgAlt: Une femme en train de brancher une clé USB dans un ordinateur, pixel ar
 imgSrc: /images/cheatsheets/femme-cle-usb.webp
 
 author: Thomas Dimnet
+github: tdimnet
 kind: Fiche technique
 serie: docker
 level: Intermédiaire

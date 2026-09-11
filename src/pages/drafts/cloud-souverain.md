@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/BlogPostLayout.astro
 
 title: "Cloud souverain : de quoi parle-t-on vraiment ?"
@@ -20,6 +20,8 @@ tags:
   - Cloud
   - Souveraineté
 author: Thomas Dimnet
+github: tdimnet
+
 publishedDate: 10/05/2026
 
 faq:

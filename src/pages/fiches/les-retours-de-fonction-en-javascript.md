@@ -18,6 +18,7 @@ kind: Fiche technique
 serie: js
 level: Débutant
 author: Oumar
+github: OumarYanni
 publishedDate: 10/18/2024
 ---
 

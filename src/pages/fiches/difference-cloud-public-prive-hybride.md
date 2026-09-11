@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: "Cloud public, privé, hybride : quelles différences ?"
@@ -13,6 +13,7 @@ imgAlt:
 imgSrc: /images/cheatsheets/difference-cloud-public-prive-hybride.webp
 
 author: Thomas Dimnet
+github: tdimnet
 kind: Fiche technique
 serie: cloud
 tags:

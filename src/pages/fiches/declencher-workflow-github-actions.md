@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: Quand et comment déclencher un workflow GitHub Actions ?
@@ -15,6 +15,7 @@ imgAlt:
 imgSrc: /images/cheatsheets/usine-tapis-roulant.webp
 
 author: Thomas Dimnet
+github: tdimnet
 kind: Fiche technique
 serie: cicd
 level: Débutant

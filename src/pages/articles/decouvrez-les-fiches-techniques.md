@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/BlogPostLayout.astro
 
 title: Découvrez les fiches techniques
@@ -16,6 +16,7 @@ tags:
   - NX Academy
   - Fiches techniques
 author: Thomas Dimnet
+github: tdimnet
 publishedDate: 08/24/2024
 ---
 

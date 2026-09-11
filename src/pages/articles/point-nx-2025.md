@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/BlogPostLayout.astro
 
 title: On fait le bilan ?
@@ -16,6 +16,7 @@ tags:
   - NX Academy
   - Bilan
 author: Thomas Dimnet
+github: tdimnet
 publishedDate: 01/25/2025
 ---
 

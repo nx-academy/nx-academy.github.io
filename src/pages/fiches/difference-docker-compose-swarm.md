@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: "Docker, Docker Compose et Docker Swarm : quelles différences ?"
@@ -13,6 +13,7 @@ imgAlt:
 imgSrc: /images/cheatsheets/docker-compose-swarm.webp
 
 author: Thomas Dimnet
+github: tdimnet
 kind: Fiche technique
 serie: docker
 tags:

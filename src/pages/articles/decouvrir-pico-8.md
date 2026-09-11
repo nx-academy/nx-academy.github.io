@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/BlogPostLayout.astro
 
 title: "Découvrir PICO-8, la fantasy console pour créer des jeux"
@@ -16,6 +16,7 @@ kind: Articles
 format: reflexion
 serie: gamedev
 author: Thomas Dimnet
+github: tdimnet
 publishedDate: 06/17/2026
 
 tags:

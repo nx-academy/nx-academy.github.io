@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: "Comment gérer les secrets dans GitHub Actions ?"
@@ -12,6 +12,7 @@ imgAlt:
 imgSrc: /images/cheatsheets/gerer-secrets-github-actions.webp
 
 author: Thomas Dimnet
+github: tdimnet
 kind: Fiche technique
 serie: cicd
 level: Intermédiaire

@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/BlogPostLayout.astro
 
 title: Bienvenue sur la V2
@@ -15,6 +15,7 @@ serie: nx
 tags:
   - NX Academy
 author: Thomas Dimnet
+github: tdimnet
 publishedDate: 03/21/2024
 ---
 

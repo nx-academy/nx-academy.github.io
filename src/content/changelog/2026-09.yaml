@@ -21,3 +21,6 @@ tasks:
   - kind: done
     content: |-
       Nouvelle fiche technique sur <a href="/fiches/premier-jeu-simple-pico-8" target="_blank">la création d'un premier jeu simple avec PICO-8</a>.
+  - kind: fix
+    content: |-
+      Les photos de profil affichées sur les articles et fiches techniques correspondent désormais à leurs auteurs.

@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/BlogPostLayout.astro
 
 title: "Le cloud public coûte-t-il vraiment moins cher ?"
@@ -19,6 +19,8 @@ tags:
   - Cloud
   - DevOps
 author: Thomas Dimnet
+github: tdimnet
+
 publishedDate: 09/30/2026
 
 faq:

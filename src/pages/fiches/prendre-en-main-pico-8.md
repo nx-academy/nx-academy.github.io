@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: Comment prendre en main PICO-8 ? Installation et premiers pas
@@ -13,6 +13,7 @@ imgAlt:
 imgSrc: /images/cheatsheets/prendre-en-main-pico-8.webp
 
 author: Thomas Dimnet
+github: tdimnet
 kind: Fiche technique
 serie: gamedev
 level: Débutant

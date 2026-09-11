@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/BlogPostLayout.astro
 
 title: Comment je suis tombé dans le développement de jeux vidéo
@@ -16,6 +16,7 @@ tags:
   - Game dev
   - Carnet de bord
 author: Thomas Dimnet
+github: tdimnet
 publishedDate: 04/01/2026
 ---
 

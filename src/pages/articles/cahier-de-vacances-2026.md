@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/BlogPostLayout.astro
 
 title: Le cahier de vacances du développeur (édition 2026)
@@ -20,6 +20,7 @@ tags:
   - Formation
   - Été
 author: Thomas Dimnet
+github: tdimnet
 publishedDate: 07/17/2026
 ---
 

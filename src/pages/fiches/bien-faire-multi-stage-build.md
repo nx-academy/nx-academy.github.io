@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: Comment faire un multi-stage build ?
@@ -13,6 +13,7 @@ imgAlt:
 imgSrc: /images/cheatsheets/scene-immeuble.webp
 
 author: Thomas Dimnet
+github: tdimnet
 kind: Fiche technique
 serie: docker
 tags:

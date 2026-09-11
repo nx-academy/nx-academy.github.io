@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/BlogPostLayout.astro
 
 title: "L’atelier : NX depuis une tablette"
@@ -17,6 +17,7 @@ tags:
   - NX Academy
   - L'atelier
 author: Thomas Dimnet
+github: tdimnet
 draft: false
 publishedDate: 09/15/2026
 ---

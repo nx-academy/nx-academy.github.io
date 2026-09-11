@@ -1,4 +1,4 @@
----
+﻿---
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: "Comment bien gérer les réseaux Docker ?"
@@ -13,6 +13,7 @@ imgAlt:
 imgSrc: /images/cheatsheets/reseaux-docker.webp
 
 author: Thomas Dimnet
+github: tdimnet
 kind: Fiche technique
 serie: docker
 tags:
