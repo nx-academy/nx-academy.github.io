@@ -1,7 +1,7 @@
 ﻿---
 layout: ../../layouts/CheatSheetsLayout.astro
 
-title: "GitHub Actions vs GitLab CI : quelles différences ?"
+title: "Quelles sont les différences entre GitHub Actions vs GitLab CI ?"
 description:
   "GitHub Actions ou GitLab CI ? On compare les deux outils de CI/CD : syntaxe
   des workflows, runners, tarification et écosystème. Et surtout, on voit lequel
@@ -17,7 +17,7 @@ github: tdimnet
 kind: Fiche technique
 serie: cicd
 level: Débutant
-publishedDate: 09/07/2026
+publishedDate: 09/11/2026
 ---
 
 On continue notre série sur les CI/CD. Après avoir vu comment
