@@ -3,8 +3,9 @@ layout: ../../layouts/CheatSheetsLayout.astro
 
 title: "Quelles sont les différences entre GitHub Actions vs GitLab CI ?"
 description:
-  "GitHub Actions ou GitLab CI ? Dans cette fiche, on compare les deux outils de CI/CD, en regardant la syntaxe
-  des workflows, les runners, la tarification et leur écosystème."
+  "GitHub Actions ou GitLab CI ? Dans cette fiche, on compare les deux outils de
+  CI/CD, en regardant la syntaxe des workflows, les runners, la tarification et
+  leur écosystème."
 
 imgAlt:
   Deux chaînes de montage automatisées côte à côte, l'une aux couleurs de
@@ -16,31 +17,33 @@ github: tdimnet
 kind: Fiche technique
 serie: cicd
 level: Débutant
-publishedDate: 09/11/2026
+publishedDate: 09/12/2026
 ---
 
 On continue notre série sur les CI/CD. Après avoir vu comment
 [déclencher un workflow](/fiches/declencher-workflow-github-actions) et à quoi
 servent [les artefacts](/fiches/artefact-github-actions), on prend un peu de
-hauteur aujourd'hui avec une question  _récurrente_ :
+hauteur aujourd'hui avec une question _récurrente_ :
 
-**C'est quoi la différence entre les GitHub Actions ou GitLab CI ? Lequel choisir ?**
+**C'est quoi la différence entre les GitHub Actions ou GitLab CI ? Lequel
+choisir ?**
 
-Globalement, les deux sont des outils de CI/CD. Ils tournent sur des fichiers YAML et automatisent vos tests et vos déploiements. Alors forcément, on est en droit de se demander
-s'ils se valent, s'ils se ressemblent et sur lequel miser.
+Globalement, les deux sont des outils de CI/CD. Ils tournent sur des fichiers
+YAML et automatisent vos tests et vos déploiements. Alors forcément, on est en
+droit de se demander s'ils se valent, s'ils se ressemblent et sur lequel miser.
 
-Dans cette fiche, on va comparer les deux point par point. Je vous donnerai ensuite
-ma grille de décision. Vous allez voir qu'une fois qu'on a compris leur
+Dans cette fiche, on va comparer les deux point par point. Je vous donnerai
+ensuite ma grille de décision. Vous allez voir qu'une fois qu'on a compris leur
 philosophie respective, le choix devient souvent évident.
 
 ---
 
 ## Le point commun : même besoin, deux philosophies
 
-Avant de lister les différences, on va poser les bases. GitHub Actions et GitLab CI
-répondent **au même besoin**, à savoir automatiser ce qui se passe entre le moment où
-vous poussez du code et le moment où il arrive en production (tests, build,
-déploiement).
+Avant de lister les différences, on va poser les bases. GitHub Actions et GitLab
+CI répondent **au même besoin**, à savoir automatiser ce qui se passe entre le
+moment où vous poussez du code et le moment où il arrive en production (tests,
+build, déploiement).
 
 <br>
 
@@ -50,9 +53,9 @@ Cela dit, ils ne l'abordent pas de la même manière :
   greffé sur GitHub. On réagit à des événements (`push`, `pull_request`…) et on
   assemble des briques réutilisables piochées dans une immense marketplace.
 - **GitLab CI** est un **composant intégré** d'une plateforme DevOps unique.
-  GitLab, c'est le dépôt Git, la CI/CD, le registry, le suivi de tickets, etc. Le
-  tout tourne dans une seule application (Gitlab). La CI/CD y est pensée comme un **pipeline**
-  découpé en étapes (_stages_).
+  GitLab, c'est le dépôt Git, la CI/CD, le registry, le suivi de tickets, etc.
+  Le tout tourne dans une seule application (Gitlab). La CI/CD y est pensée
+  comme un **pipeline** découpé en étapes (_stages_).
 
 <br>
 
@@ -62,8 +65,8 @@ Cette différence de départ explique presque toutes les autres.
 
 ## La syntaxe : `on:` contre `stages:`
 
-C'est souvent la première chose qu'on remarque : le fichier de config ne vit pas au même
-endroit et ne se structure pas pareil.
+C'est souvent la première chose qu'on remarque : le fichier de config ne vit pas
+au même endroit et ne se structure pas pareil.
 
 <br>
 
@@ -92,9 +95,9 @@ jobs:
 
 <br>
 
-Avec **GitLab CI**, tout tient dans un seul fichier : `.gitlab-ci.yml`. Il se trouve à la racine
-du dépôt. On y déclare des _stages_ (les grandes étapes du pipeline), puis des
-_jobs_ que l'on range dans ces stages.
+Avec **GitLab CI**, tout tient dans un seul fichier : `.gitlab-ci.yml`. Il se
+trouve à la racine du dépôt. On y déclare des _stages_ (les grandes étapes du
+pipeline), puis des _jobs_ que l'on range dans ces stages.
 
 ```yml
 # .gitlab-ci.yml
@@ -122,27 +125,29 @@ Vous voyez la nuance de philosophie ?
 
 ---
 
-## Les runners : hébergés ou auto-gérés
+## Les runners, hébergés ou auto-gérés
 
-Un runner, c'est la machine qui exécute votre pipeline. Là encore, deux
-approches.
+Pour info, on appelle un runner une machine qui exécute votre pipeline et là
+encore, il y a deux approches.
 
 <br>
 
 **GitHub Actions** fournit des runners hébergés prêts à l'emploi
-(`ubuntu-latest`, `windows-latest`, `macos-latest`). Vous ne gérez rien, vous
-choisissez juste l'OS via `runs-on`. Vous pouvez aussi brancher vos propres
-_self-hosted runners_ si besoin.
+(`ubuntu-latest`, `windows-latest`, `macos-latest`). Vous ne gérez rien. Vous
+choisissez simplement l'OS via `runs-on`. Sachez que vous pouvez aussi brancher
+vos propres _self-hosted runners_ si besoin.
 
-**GitLab CI** fonctionne avec des _GitLab Runners_. Sur GitLab.com, des runners
-partagés sont disponibles, mais la culture GitLab pousse davantage à **héberger
-ses propres runners** — ce qui est un vrai atout quand on veut tout maîtriser en
-interne (entreprise, données sensibles, matériel spécifique).
+**GitLab CI** fonctionne avec des _GitLab Runners_. Sur GitLab.com, il existe
+des runners partagés mais la culture GitLab pousse davantage à **héberger ses
+propres runners**. Cela peut être est un vrai atout notamment on veut tout
+maîtriser en interne (entreprise, données sensibles, matériel spécifique).
 
 <br>
 
-À retenir : sortir des runners hébergés est plus « naturel » côté GitLab, alors
-que côté GitHub on reste souvent sur les runners fournis par défaut.
+Si je résume, sortir des runners hébergés est plus « naturel » côté GitLab,
+alors que côté GitHub on reste souvent sur les runners fournis par défaut.
+
+---
 
 ## L'écosystème : marketplace contre plateforme intégrée
 
@@ -151,14 +156,17 @@ C'est peut-être la différence la plus structurante au quotidien.
 <br>
 
 **GitHub Actions** s'appuie sur une
-[marketplace gigantesque](https://github.com/marketplace?type=actions) : des
-milliers d'actions réutilisables pour à peu près tout (déployer sur AWS, publier
-sur npm, envoyer un message Slack…). Vous assemblez, vous ne réinventez pas.
+[marketplace gigantesque](https://github.com/marketplace?type=actions). Il
+existe des milliers d'actions réutilisables pour à peu près tout (déployer sur
+Scaleway, publier sur npm, envoyer un message Slack…). Vous assemblez et vous ne
+réinventez pas.
 
-**GitLab CI** mise sur l'intégration : comme tout est dans la même plateforme
+**GitLab CI** mise sur l'intégration. Comme tout est dans la même plateforme
 (registry d'images, environnements, _review apps_, sécurité…), beaucoup de
 choses fonctionnent « d'office » sans dépendre d'une brique externe. On
 mutualise plutôt via le mot-clé `include:` et des templates de pipeline.
+
+---
 
 ## Tableau récapitulatif
 
@@ -177,18 +185,18 @@ Pour y voir clair en un coup d'œil :
 
 ## Alors, lequel choisir ?
 
-Bonne nouvelle : dans l'immense majorité des cas, **le choix est déjà fait pour
-vous par l'endroit où vit votre code**. On ne migre pas son dépôt de GitHub vers
-GitLab juste pour changer d'outil de CI.
+Dans l'immense majorité des cas, **le choix est déjà fait pour vous par
+l'endroit où vit votre code**. On ne migre pas son dépôt de GitHub vers GitLab
+juste pour changer d'outil de CI.
 
 <br>
 
-Voici ma grille de décision :
+Cela dit, si cela peut vous aider, voici ma grille de décision :
 
 - **Votre code est sur GitHub** → GitHub Actions, sans hésiter. C'est intégré,
-  gratuit sur les dépôts publics, et l'écosystème d'actions vous fera gagner un
+  gratuit sur les dépôts publics et l'écosystème d'actions vous fera gagner un
   temps fou.
-- **Votre code est sur GitLab**, ou vous cherchez une **plateforme DevOps
+- **Votre code est sur GitLab** OU vous cherchez une **plateforme DevOps
   unique** (souvent auto-hébergée en entreprise) → GitLab CI, tout aussi
   naturellement.
 - **Vous avez un besoin fort de self-hosting** et de tout maîtriser en interne
@@ -204,12 +212,14 @@ adapté à votre contexte.** Les deux sont d'excellents outils. Le vrai critère
 c'est où vit votre code et à quel point vous voulez héberger vous-même votre
 infrastructure.
 
+---
+
 ## Astuce bonus - Les concepts se transfèrent
 
-Voici une chose rassurante : **ce que vous apprenez sur l'un vous sert sur
-l'autre**. Jobs, runners, artefacts, cache, variables d'environnement,
-déclenchement sur événement… les concepts fondamentaux sont les mêmes des deux
-côtés. Seule la syntaxe change.
+Dans tous les cas, **ce que vous apprenez sur l'un vous sert sur l'autre**.
+Jobs, runners, artefacts, cache, variables d'environnement, déclenchement sur
+événement… les concepts fondamentaux sont les mêmes des deux côtés. Seule la
+syntaxe change.
 
 <br>
 
@@ -224,7 +234,7 @@ traduire du YAML :
 <br>
 
 Bref, ne voyez pas ces deux outils comme deux mondes étanches. Maîtriser la
-logique CI/CD, c'est ce qui compte — l'outil n'est qu'un support.
+logique CI/CD, c'est ce qui compte. Au final, l'outil n'est qu'un support.
 
 <hr>
 
