@@ -14,6 +14,9 @@ tasks:
       J'ai écrit l'article de rentrée, publication prévue le 7 septembre : <a href="/drafts/point-etape-rentree-2026" target="_blank">un point d'étape à mi-parcours</a>, sur ce que le semestre a changé et sur les projets qui arrivent enfin sur NX.
   - kind: done
     content: |-
+      Nouvelle fiche technique sur <a href="/fiches/github-actions-vs-gitlab-ci#les-runners-hébergés-ou-auto-gérés" target="_blank">la différence entre Gitlab CI et les GitHub Actions</a>.
+  - kind: done
+    content: |-
       Nouvelle fiche technique sur <a href="/fiches/iaas-paas-saas" target="_blank">le IaaS, PaaS et Saas</a>.
   - kind: fix
     content: |-
