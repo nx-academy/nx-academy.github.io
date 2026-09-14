@@ -15,8 +15,8 @@ initial, il est conservé pour mémoire.
 | `deployer-image-docker-github-actions` | publié (07/2026)                            |
 | `gerer-secrets-github-actions`         | publié (08/2026)                            |
 | `reutiliser-workflow-github-actions`   | publié (10/08/2026)                         |
-| `github-actions-vs-gitlab-ci`          | **brouillon** — visuel manquant, 07/09/2026 |
-| `optimiser-workflows-github-actions`   | **brouillon** — visuel manquant, 09/09/2026 |
+| `github-actions-vs-gitlab-ci`          | publié (12/09/2026)                         |
+| `optimiser-workflows-github-actions`   | publié (15/09/2026)                         |
 
 Les deux brouillons restants sont **chacun cités par un lien mort** depuis une
 fiche en ligne : `github-actions-vs-gitlab-ci` depuis

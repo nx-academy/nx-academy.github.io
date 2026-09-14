@@ -17,7 +17,7 @@ github: tdimnet
 kind: Fiche technique
 serie: cicd
 level: Intermédiaire
-publishedDate: 09/09/2026
+publishedDate: 09/15/2026
 ---
 
 Au début, on est juste content que notre workflow tourne. Puis vient le moment
