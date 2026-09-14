@@ -2,6 +2,9 @@ month: Septembre
 year: 2026
 order: 9
 tasks:
+  - kind: done
+    content: |-
+      Dernier fiche technique (avant quelque temps) sur <a href="/fiches/optimiser-workflows-github-actions" target="_blank">les GitHub Actions</a>. Au programme, je vous parle d'optmisation de workflows !
   - kind: in-progress
     content: |-
       J'ai repris mon calendrier éditorial. Les dix contenus qui attendaient en brouillon étaient programmés jusqu'en janvier 2027 — soit après le cours de décembre qu'ils sont censés préparer. Tout est ramené sur septembre et octobre, à deux publications par semaine : le rythme que je tiens réellement depuis juin. Il ne me manque plus que les visuels.

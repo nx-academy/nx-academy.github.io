@@ -3,10 +3,10 @@ layout: ../../layouts/CheatSheetsLayout.astro
 
 title: "Comment optimiser vos workflows GitHub Actions ?"
 description:
-  "Vos workflows GitHub Actions sont lents ? Découvrez comment les accélérer avec
-  le cache des dépendances, les matrices de test en parallèle, le concurrency pour annuler
-  les runs obsolètes, les jobs conditionnels et timeouts. Des pipelines plus rapides
-  et surtout moins gourmands."
+  "Vos workflows GitHub Actions sont lents ? Découvrez comment les accélérer
+  avec le cache des dépendances, les matrices de test en parallèle, le
+  concurrency pour annuler les runs obsolètes, les jobs conditionnels et
+  timeouts. Des pipelines plus rapides et surtout moins gourmands."
 
 imgAlt:
   Un tapis roulant d'usine accéléré avec des rouages bien huilés, pixel art
@@ -24,9 +24,9 @@ Au début, on est souvent content que notre workflow tourne. Puis vient le momen
 où on attend 6 minutes à chaque push pour un simple `npm test` et là, on
 commence à trouver le temps long et plus personne n'aime la CI.
 
-Un workflow lent, ce n'est pas seulement un confort en moins. C'est un **feedback plus
-lent** (vous attendez avant de savoir si votre code passe) et **plus de minutes
-consommées** sur votre quota GitHub Actions.
+Un workflow lent, ce n'est pas seulement un confort en moins. C'est un
+**feedback plus lent** (vous attendez avant de savoir si votre code passe) et
+**plus de minutes consommées** sur votre quota GitHub Actions.
 
 Dans cette fiche, on va voir les leviers les plus efficaces pour **accélérer vos
 workflows GitHub Actions** sans rien sacrifier. C'est un peu l'équivalent CI/CD
@@ -39,7 +39,8 @@ cherche à faire pareil, mais en moins de temps.
 ## Levier n°1 - Mettre en cache les dépendances
 
 C'est de loin le gain le plus rentable. À chaque run, réinstaller toutes vos
-dépendances depuis zéro, c'est du temps perdu et de l'argent jeté par les fenêtres.. Le cache permet de les réutiliser d'un run à l'autre.
+dépendances depuis zéro, c'est du temps perdu et de l'argent jeté par les
+fenêtres.. Le cache permet de les réutiliser d'un run à l'autre.
 
 <br>
 
@@ -81,7 +82,8 @@ tant que le `package-lock.json` n'a pas changé.
 ## Levier n°2 - Paralléliser avec une matrice
 
 Vous devez tester votre code sur plusieurs versions de Node ? Ne les enchaînez
-pas les unes après les autres, lancez-les plutôt **en parallèle** avec une matrice.
+pas les unes après les autres, lancez-les plutôt **en parallèle** avec une
+matrice.
 
 ```yml
 jobs:
@@ -101,9 +103,10 @@ jobs:
 
 <br>
 
-GitHub va créer **trois jobs en parallèle**, un par version. Vous
-testez du coup trois configurations dans le temps d'une seule. C'est aussi valable pour
-tester plusieurs OS, plusieurs versions de Python, etc. C'est un peu l'idéal pour les libs.
+GitHub va créer **trois jobs en parallèle**, un par version. Vous testez du coup
+trois configurations dans le temps d'une seule. C'est aussi valable pour tester
+plusieurs OS, plusieurs versions de Python, etc. C'est un peu l'idéal pour les
+libs.
 
 ---
 
