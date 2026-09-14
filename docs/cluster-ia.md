@@ -158,13 +158,177 @@ Le champ `serie: ia` est **indispensable** pour apparaître dans le rayon IA de
 
 ### Extensions possibles, hors périmètre
 
-- Une fiche **RAG**, qui serait la suite naturelle de `comprendre-les-agents-ia`
-  et de la fiche coût. Volontairement hors cluster v1 : six contenus techniques
-  d'un coup, c'est déjà la taille du cluster cloud.
-- Un **quiz IA**. Pas faisable en l'état : `src/data/quiz.ts` restreint `topic`
-  à `"Docker" | "CI/CD"`, il faut d'abord élargir le type. Même chantier que
-  celui laissé ouvert par le cluster cloud — autant le faire une seule fois,
-  pour les deux.
+Le RAG et le quiz, évoqués au cadrage initial, sont repris dans « Sujets
+potentiels » ci-dessous, avec le reste des pistes relevées depuis.
+
+## Sujets potentiels — v2, non arbitrés
+
+> Relevés le 14 septembre 2026, puis validés sur le principe par Thomas. Aucun
+> n'est planifié, aucun n'a d'ordre. Cette liste existe pour ne pas rouvrir la
+> discussion à chaque publication.
+
+Le motif observé sur Docker, CI/CD et cloud : ce qui porte le cluster, ce ne
+sont pas les définitions, ce sont les **comparatifs décisionnels** et les
+**fiches-ponts entre deux clusters**. Les définitions servent de pilier interne.
+La liste ci-dessous est classée selon cette grille, **pas** selon un volume de
+recherche : on n'a pas de données de volume et on n'en invente pas.
+
+### Les trois premières, si le cluster v1 tient
+
+| Slug                                        | Titre                                               | level         | Rôle                       |
+| ------------------------------------------- | --------------------------------------------------- | ------------- | -------------------------- |
+| `fine-tuning-ou-rag`                        | Fine-tuning ou RAG : lequel choisir ?               | Intermédiaire | Comparatif décisionnel     |
+| `tester-une-application-qui-utilise-un-llm` | Comment tester une application qui utilise un LLM ? | Avancé        | **Pont IA ↔ CI/CD**       |
+| `injection-de-prompt`                       | Qu'est-ce qu'une injection de prompt ?              | Intermédiaire | Sécurité, requête montante |
+
+**`fine-tuning-ou-rag`** — La question que tout le monde se pose au moment de
+brancher un modèle sur ses propres données. Une décision, pas une définition, et
+les deux approches ne bougent pas — seuls les outils changent. Structurellement,
+c'est le `iaas-paas-saas` du cluster IA : un tableau « qui fait quoi », puis une
+section « lequel selon votre contexte ». Si on n'en garde qu'une, c'est
+celle-là.
+
+**`tester-une-application-qui-utilise-un-llm`** — La fiche-pont manquante,
+pendant exact de ce que `deployer-image-docker-github-actions` fait entre Docker
+et CI/CD. Deux vraies douleurs : tester du non déterministe, et ne pas faire
+exploser la facture en lançant des appels de modèle à chaque push. Le cluster
+GitHub Actions fournit déjà la moitié du contenu.
+
+**`injection-de-prompt`** — Prolonge la ligne sécurité du site
+(`gerer-secrets-github-actions`, `bien-gerer-secrets-docker`). La phrase qui la
+justifie est déjà dans l'angle de `comprendre-le-protocole-mcp` : un serveur MCP
+est du code qui tourne avec vos droits. Le Feed a de la matière.
+
+### La chaîne RAG, si on va là
+
+`qu-est-ce-qu-un-embedding` → `qu-est-ce-que-le-rag` →
+`base-de-donnees-vectorielle`
+
+Deux exact-match forts (« embedding », « base vectorielle ») pour des termes
+employés partout et définis nulle part, et une troisième fiche qui se raccroche
+au cluster cloud par l'infra (où ça tourne, ce que ça coûte). Mais c'est +3
+fiches sur un cluster qui en compte déjà 5 : une v2 entière, pas un ajout.
+`fine-tuning-ou-rag` en est la porte d'entrée naturelle.
+
+### Deux candidats à trancher en écrivant la v1
+
+- **`llm-local-ou-api`** — « Faire tourner un LLM en local ou passer par une
+  API ? ». Comparatif décisionnel et pont vers Docker et cloud (un modèle dans
+  un conteneur, la question du GPU, coût fixe contre coût à l'usage). Réserve :
+  la partie « ce qui tourne sur une machine normale » se périme vite. Tenable
+  seulement en restant sur la méthode et les ordres de grandeur, comme la fiche
+  coût.
+- **`mcp-ou-api`** — bon exact-match émergent, mais ça peut rester une section
+  de `comprendre-le-protocole-mcp`. À décider en écrivant cette fiche, pas
+  avant.
+
+### Articles
+
+Trois figurent déjà dans [calendrier-editorial.md](./calendrier-editorial.md)
+sans être rattachés à quoi que ce soit. Les passer en `serie: ia` les sort de
+l'isolement :
+
+- **« Les coulisses de NX : comment fonctionne la génération de quiz par
+  IA ? »** (idées BONUS) — le contenu le plus différenciant possible sur l'IA :
+  un vrai système, de vrais prompts, un vrai coût, de vrais ratés. Zéro
+  concurrence par construction. Nourrit la fiche coût et la fiche agents.
+- **« Les coulisses de NX : comment fonctionne mon système de news
+  automatisé ? »** (idées BONUS) — même famille, compagnon naturel de la fiche
+  MCP.
+- **« L'IA va-t-elle tuer Internet ? »** (prévu octobre) — porte d'entrée grand
+  public vers le cluster.
+- **L'IA et l'enseignement** — pas au calendrier. Angle que Thomas est à peu
+  près seul à pouvoir tenir, et le Feed a la brève sur l'heure d'IA au programme
+  de seconde.
+
+### Écartés, et pourquoi
+
+- **Comparatifs de fournisseurs** (« OpenAI vs Anthropic vs Mistral ») : gros
+  volume, et exactement ce qu'interdit « Ce que ce cluster n'écrit pas » —
+  classement, prix et noms de modèles, à corriger tous les mois.
+- **« Comment écrire un bon prompt ? »** : saturé, et aucun angle NX dessus.
+- **« Comment bien utiliser les projets OpenAI ? »** (prévu septembre au
+  calendrier) : fonctionnalité d'un produit d'un fournisseur, renommable sans
+  préavis. Soit un billet daté assumé hors cluster, soit à retourner en fiche
+  sur l'organisation du contexte, qui est le vrai sujet en dessous.
+
+### Quiz
+
+Toujours pas faisable en l'état : `src/data/quiz.ts` restreint `topic` à
+`"Docker" | "CI/CD"`, il faut d'abord élargir le type. Même chantier que celui
+laissé ouvert par le cluster cloud — autant le faire une seule fois, pour les
+deux.
+
+## Le volet pratique
+
+> Ouvert le 14 septembre 2026 : « en dehors de la théorie, il faudra qu'on
+> regarde pour faire aussi de la pratique ». Rien n'est cadré ici, on pose le
+> vocabulaire et les pièges avant de s'engager.
+
+### « Créer sa propre IA » recouvre trois choses très différentes
+
+C'est la première chose à trancher, parce que les trois n'ont ni le même coût,
+ni le même public, ni la même honnêteté possible.
+
+| Niveau | Ce qu'on fait                                 | Faisable ?              | Où c'est déjà traité             |
+| ------ | --------------------------------------------- | ----------------------- | -------------------------------- |
+| 1      | Construire une application autour d'un modèle | Oui, c'est le quotidien | `creer-un-premier-agent-ia` (v1) |
+| 2      | Spécialiser un modèle existant (fine-tuning)  | Oui, GPU loué à l'heure | Rien                             |
+| 3      | Entraîner un modèle de langage depuis zéro    | Oui, en tout petit      | Rien                             |
+
+**Niveau 2** — on part d'un modèle ouvert de petite taille et on l'ajuste sur un
+jeu de données maison (LoRA / QLoRA). C'est ce que les gens veulent dire, la
+plupart du temps, par « mon IA ». Le coût réel se compte en heures de GPU loué,
+et le vrai travail n'est pas l'entraînement mais **la construction du jeu de
+données** — ce qui est, pédagogiquement, une excellente nouvelle.
+
+**Niveau 3** — reproduire un modèle du marché est hors de portée de qui que ce
+soit hors de quelques entreprises, et il faut le dire sans détour. En revanche,
+entraîner un **tout petit** modèle de langage sur un corpus minuscule est
+faisable en quelques heures sur du matériel ordinaire. Ça ne sert à rien en
+production et ça explique tout : tokens, poids, fonction de perte,
+surapprentissage. C'est le seul moyen de vraiment comprendre la fiche pilier.
+
+> **Le piège à ne jamais commettre sur ce sujet** : un titre qui promet le
+> niveau 3 pour un contenu qui fait le niveau 2. C'est l'erreur la plus répandue
+> du web francophone sur l'IA, et c'est exactement ce que la ligne éditoriale du
+> site interdit.
+
+### Le format : plutôt un projet qu'une fiche
+
+[point-etape-rentree-2026](../src/pages/articles/point-etape-rentree-2026.md)
+annonce deux à trois projets d'ici la fin de l'année, et précise que la
+définition de ce qu'est un projet viendra avec les premiers, fin septembre. Un
+projet IA est un bon candidat pour le premier ou le deuxième — et l'article dit
+aussi pourquoi : « un projet suppose qu'il existe déjà, quelque part, de quoi
+répondre aux questions qu'il soulève ». Le cluster v1 est précisément cette
+base. Proposé avant, le projet devient un tutoriel qu'on recopie.
+
+Découpage qui tient le mieux, à valider :
+
+- **le projet guidé fait le niveau 2** — une application qui marche, puis un
+  modèle spécialisé sur des données qu'on a construites soi-même ;
+- **le niveau 3 devient un article**, en registre carnet : le récit de ce qu'on
+  apprend en entraînant un modèle minuscule, pas un tutoriel à suivre. C'est un
+  texte dont la valeur est l'expérience, pas la reproductibilité.
+
+### Un deuxième cluster ? Non — un volet
+
+Le précédent existe dans le dépôt :
+[cluster-cloud-pratique.md](./cluster-cloud-pratique.md) est un document séparé,
+adossé au cluster cloud, qui **garde la même série**. On fera pareil :
+`docs/cluster-ia-pratique.md` le jour où ça démarre, `serie: ia` conservée. Deux
+séries IA couperaient le maillage en deux et videraient le rayon `/fiches` de sa
+moitié la plus utile.
+
+### À trancher le moment venu
+
+- Quel niveau pour le projet guidé (recommandation ci-dessus : le 2).
+- Quel modèle ouvert et quel jeu de données — idéalement des données NX, pour
+  rester dans la logique « coulisses » qui marche.
+- Si le projet attend le cours « Développez des applications IA » ou s'il le
+  précède. Le cluster cloud a montré qu'un cluster qui sort **après** le cours
+  qu'il prépare ne sert à rien.
 
 ## Maillage interne
 
