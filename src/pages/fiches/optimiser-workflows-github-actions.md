@@ -3,10 +3,10 @@ layout: ../../layouts/CheatSheetsLayout.astro
 
 title: "Comment optimiser vos workflows GitHub Actions ?"
 description:
-  "Vos workflows GitHub Actions sont lents ? Découvrez comment les accélérer :
-  cache des dépendances, matrices de test en parallèle, concurrency pour annuler
-  les runs obsolètes, jobs conditionnels et timeouts. Des pipelines plus rapides
-  et moins gourmands."
+  "Vos workflows GitHub Actions sont lents ? Découvrez comment les accélérer avec
+  le cache des dépendances, les matrices de test en parallèle, le concurrency pour annuler
+  les runs obsolètes, les jobs conditionnels et timeouts. Des pipelines plus rapides
+  et surtout moins gourmands."
 
 imgAlt:
   Un tapis roulant d'usine accéléré avec des rouages bien huilés, pixel art
@@ -20,11 +20,11 @@ level: Intermédiaire
 publishedDate: 09/15/2026
 ---
 
-Au début, on est juste content que notre workflow tourne. Puis vient le moment
-où on attend 6 minutes à chaque push pour un simple `npm test`… et là, on
-commence à trouver le temps long.
+Au début, on est souvent content que notre workflow tourne. Puis vient le moment
+où on attend 6 minutes à chaque push pour un simple `npm test` et là, on
+commence à trouver le temps long et plus personne n'aime la CI.
 
-Un workflow lent, ce n'est pas qu'un confort en moins : c'est un **feedback plus
+Un workflow lent, ce n'est pas seulement un confort en moins. C'est un **feedback plus
 lent** (vous attendez avant de savoir si votre code passe) et **plus de minutes
 consommées** sur votre quota GitHub Actions.
 
@@ -34,11 +34,12 @@ de la fiche
 [Comment optimiser une image Docker ?](/fiches/optimisation-images-docker) : on
 cherche à faire pareil, mais en moins de temps.
 
+---
+
 ## Levier n°1 - Mettre en cache les dépendances
 
 C'est de loin le gain le plus rentable. À chaque run, réinstaller toutes vos
-dépendances depuis zéro, c'est du temps perdu. Le cache permet de les réutiliser
-d'un run à l'autre.
+dépendances depuis zéro, c'est du temps perdu et de l'argent jeté par les fenêtres.. Le cache permet de les réutiliser d'un run à l'autre.
 
 <br>
 
@@ -75,10 +76,12 @@ vous-même quoi mettre en cache et avec quelle clé :
 La clé basée sur `hashFiles(...)` garantit qu'on recharge le cache uniquement
 tant que le `package-lock.json` n'a pas changé.
 
+---
+
 ## Levier n°2 - Paralléliser avec une matrice
 
 Vous devez tester votre code sur plusieurs versions de Node ? Ne les enchaînez
-pas les unes après les autres : lancez-les **en parallèle** avec une matrice.
+pas les unes après les autres, lancez-les plutôt **en parallèle** avec une matrice.
 
 ```yml
 jobs:
@@ -98,14 +101,16 @@ jobs:
 
 <br>
 
-GitHub va créer **trois jobs en parallèle**, un par version. Résultat : vous
-testez trois configurations dans le temps d'une seule. C'est aussi valable pour
-tester plusieurs OS, plusieurs versions de Python, etc.
+GitHub va créer **trois jobs en parallèle**, un par version. Vous
+testez du coup trois configurations dans le temps d'une seule. C'est aussi valable pour
+tester plusieurs OS, plusieurs versions de Python, etc. C'est un peu l'idéal pour les libs.
+
+---
 
 ## Levier n°3 - Annuler les runs obsolètes avec `concurrency`
 
 Voici un gaspillage classique : vous poussez trois commits d'affilée sur une PR,
-et GitHub lance trois workflows complets… alors que seul le dernier vous
+et GitHub lance trois workflows complets alors que seul le dernier vous
 intéresse.
 
 <br>
@@ -124,6 +129,8 @@ concurrency:
 Traduction : « pour un même workflow sur une même branche, garde seulement le
 run le plus récent et annule les autres ». Vous économisez des minutes sans rien
 perdre d'utile.
+
+---
 
 ## Levier n°4 - Ne lancer que ce qui est nécessaire
 
@@ -159,9 +166,11 @@ deploy:
 
 Ici, le déploiement ne se lance que sur la branche `main`, jamais sur une PR.
 
+---
+
 ## Levier n°5 - Poser des garde-fous
 
-Deux réglages simples qui évitent les mauvaises surprises :
+Ces deux réglages simples peuvent vous éviter des mauvaises surprises :
 
 - `timeout-minutes` empêche un job bloqué de tourner (et de consommer vos
   minutes) pendant des heures :
@@ -183,6 +192,8 @@ strategy:
   matrix:
     node: [18, 20, 22]
 ```
+
+---
 
 ## Bonus - Le cache pour vos images Docker
 
