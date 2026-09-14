@@ -2,6 +2,9 @@ month: Septembre
 year: 2026
 order: 9
 tasks:
+  - kind: done
+    content: |-
+      Le thème été n'est plus proposé dans le sélecteur : il ne reste que le clair et le sombre. Ses styles dorment dans le dépôt, prêts à ressortir quand la saison reviendra.
   - kind: in-progress
     content: |-
       J'ai repris mon calendrier éditorial. Les dix contenus qui attendaient en brouillon étaient programmés jusqu'en janvier 2027 — soit après le cours de décembre qu'ils sont censés préparer. Tout est ramené sur septembre et octobre, à deux publications par semaine : le rythme que je tiens réellement depuis juin. Il ne me manque plus que les visuels.
