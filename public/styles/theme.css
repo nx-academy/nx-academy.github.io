@@ -132,7 +132,9 @@ html.theme-light {
   --articleLinkHoverColor: #4d4dffcc;
 }
 
-/* Thème été : plage, sable et mer */
+/* Thème été : plage, sable et mer.
+   Désactivé : plus aucun sélecteur ne pose la classe « theme-summer ».
+   Les variables sont conservées pour pouvoir le réactiver. */
 html.theme-summer {
   --backgroundColorPrimary: #fdf6e3;
   --backgroundColorSecondary: #f4e7c5;

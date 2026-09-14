@@ -94,13 +94,6 @@ const isActive = (href: string) => path === href || path.startsWith(href + "/");
           stroke-width="1.5"
           stroke-linecap="round"></path>
       </svg>
-      <svg
-        class="summer-icon"
-        viewBox="0 0 512 512"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <use xlink:href="#beach-icon"></use>
-      </svg>
     </button>
 
     <button
@@ -214,19 +207,6 @@ const isActive = (href: string) => path === href || path.startsWith(href + "/");
               ></path>
             </svg>
           </button>
-          <button
-            type="button"
-            data-theme="theme-summer"
-            aria-label="Thème été"
-          >
-            <svg
-              class="summer-toggle-icon"
-              viewBox="0 0 512 512"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <use xlink:href="#beach-icon"></use>
-            </svg>
-          </button>
         </div>
 
         <ul class="hd-ov-social">
@@ -264,11 +244,6 @@ const isActive = (href: string) => path === href || path.startsWith(href + "/");
         </ul>
       </div>
     </nav>
-  </div>
-
-  <div class="summer-waves" aria-hidden="true">
-    <div class="wave wave-1"></div>
-    <div class="wave wave-2"></div>
   </div>
 </header>
 
@@ -711,7 +686,7 @@ const isActive = (href: string) => path === href || path.startsWith(href + "/");
     }
   }
 
-  /* Décor de vagues — uniquement en thème été */
+  /* Décor de vagues — uniquement en thème été (désactivé, CSS conservé) */
   .summer-waves {
     display: none;
   }
@@ -790,7 +765,10 @@ const isActive = (href: string) => path === href || path.startsWith(href + "/");
     document.querySelectorAll<HTMLButtonElement>(".hd-ov-themes button"),
   );
 
-  const THEMES = ["theme-light", "theme-dark", "theme-summer"];
+  // « theme-summer » est désactivé : ses styles restent dans le dépôt
+  // (public/styles/theme.css et le bloc <style> ci-dessus), mais le thème
+  // n'est plus proposé ni applicable.
+  const THEMES = ["theme-light", "theme-dark"];
 
   function currentTheme(): string {
     const root = document.documentElement;
