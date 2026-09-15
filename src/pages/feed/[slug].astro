@@ -5,7 +5,7 @@
    dès que la brève tombe en page 2. */
 import type { Breadcrumb } from "../../types/Breadcrumb";
 import { getLatestNews } from "../../lib/db/queries";
-import { feedItems } from "../../utils/news";
+import { feedDescription, feedItems } from "../../utils/news";
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import FeedEntry from "../../components/FeedEntry.astro";
@@ -25,7 +25,7 @@ export async function getStaticPaths() {
 
 const { item } = Astro.props;
 
-const pageDescription = item.context.slice(0, 300);
+const pageDescription = feedDescription(item);
 
 const breadcrumbs: Breadcrumb[] = [
   { pageName: "Accueil", pageUrl: "/" },

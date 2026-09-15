@@ -15,7 +15,9 @@ type NowNote = typeof NowNoteFeed.$inferSelect;
 
 /* Les slugs reprennent exactement ce que produit `slugify_title()` côté nx-mcp
    — sans accent ni point — pour que le repli local ressemble à la base réelle.
-   `lecture: null` marque les entrées d'avant août 2026. */
+   `lecture: null` marque les entrées d'avant août 2026, et la dernière entrée
+   porte des paragraphes séparés par une ligne vide — comme en base, pour que le
+   rendu du Feed se vérifie hors ligne. */
 export const newsFixtures: News[] = [
   {
     id: 1,
@@ -60,9 +62,9 @@ export const newsFixtures: News[] = [
     content:
       "Une faille critique corrigée dans OpenSSL 3.2.1. Cet article explore les nouveautés et leurs impacts pour les développeurs Security.",
     context:
-      "Une faille critique corrigée dans OpenSSL 3.2.1, avec une mise à jour recommandée sans attendre.",
+      "Une faille critique corrigée dans OpenSSL 3.2.1, avec une mise à jour recommandée sans attendre.\n\nLes principales distributions ont publié leurs paquets dans la foulée.",
     lecture:
-      "Rien d’exotique ici, mais un bon rappel : la chaîne de dépendances TLS reste l’endroit où l’on retarde le plus les mises à jour.",
+      "Rien d’exotique ici, mais un bon rappel : la chaîne de dépendances TLS reste l’endroit où l’on retarde le plus les mises à jour.\n\nCelles qui coûtent le moins à appliquer sont aussi celles qu’on repousse le plus volontiers, faute d’en voir passer les conséquences.",
     published: new Date("2025-08-01"),
     slug: "une-faille-critique-corrigee-dans-openssl-321",
     title: "Une faille critique corrigée dans OpenSSL 3.2.1",

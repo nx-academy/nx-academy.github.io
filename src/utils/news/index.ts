@@ -3,7 +3,8 @@
    `context` — le résumé factuel de la source — accompagné d'une `lecture`, le
    commentaire de l'auteur. Les deux colonnes coexistent en base tant que des
    entrées de l'ancien format y vivent, donc c'est ici, et pas dans les
-   composants, qu'on décide ce qui s'affiche.
+   composants, qu'on décide ce qui s'affiche — y compris le découpage en
+   paragraphes, que la base stocke mais que HTML ne rend pas tout seul.
    Le schéma appartient à nx-mcp : ce dépôt ne fait que lire. */
 
 import type { News } from "../../types/News";
@@ -23,6 +24,19 @@ export const newsContext = ({ content, context }: NewsBody): string =>
 export const newsLecture = ({ lecture }: NewsBody): string | null =>
   lecture?.trim() || null;
 
+/** Le découpage d'un bloc de texte en paragraphes. Les brèves sont rédigées
+    depuis nx-mcp avec une ligne vide entre les blocs, et la base les stocke
+    fidèlement — mais HTML réduit toute suite de blancs à une espace, donc le
+    texte arrivait d'un seul tenant. On rend cette structure ici plutôt qu'avec
+    un `white-space: pre-line` en CSS : celui-ci afficherait aussi les retours
+    simples, qui ne sont qu'une mise en forme de la source, pas une intention.
+    Un texte sans ligne vide reste un paragraphe unique. */
+export const newsParagraphs = (text: string): string[] =>
+  text
+    .split(/\n\s*\n/)
+    .map((block) => block.trim().replace(/\s*\n\s*/g, " "))
+    .filter(Boolean);
+
 /* ────────────────────────────────────────────────────────────────────────────
    Le flux de /feed
    ──────────────────────────────────────────────────────────────────────────── */
@@ -37,10 +51,11 @@ export type NewsRow = NewsBody & {
   url: string;
 };
 
-/** Une brève prête à afficher : plus rien à décider côté composant. */
+/** Une brève prête à afficher : plus rien à décider côté composant, pas même
+    le découpage en paragraphes. */
 export type FeedItem = {
-  context: string;
-  lecture: string | null;
+  context: string[];
+  lecture: string[] | null;
   published: Date;
   slug: string;
   source: string;
@@ -136,15 +151,25 @@ export const isBalanced = (news: NewsBody): boolean => {
 export const feedItems = (rows: NewsRow[]): FeedItem[] =>
   [...rows]
     .sort((a, b) => b.published.getTime() - a.published.getTime())
-    .map((row) => ({
-      context: newsContext(row),
-      lecture: newsLecture(row),
-      published: row.published,
-      slug: row.slug,
-      source: newsSource(row.url),
-      title: row.title,
-      url: row.url,
-    }));
+    .map((row) => {
+      const lecture = newsLecture(row);
+
+      return {
+        context: newsParagraphs(newsContext(row)),
+        lecture: lecture === null ? null : newsParagraphs(lecture),
+        published: row.published,
+        slug: row.slug,
+        source: newsSource(row.url),
+        title: row.title,
+        url: row.url,
+      };
+    });
+
+/** La méta-description d'une page de brève : le contexte remis à plat sur une
+    ligne. Les paragraphes sont une affaire de rendu — une balise `description`
+    n'en a pas. */
+export const feedDescription = (item: FeedItem, max = 300): string =>
+  item.context.join(" ").slice(0, max);
 
 /**
  * Le flux d'une page de /feed : un seul ordre chronologique, du plus récent au
