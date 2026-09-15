@@ -3,10 +3,13 @@ import { it, expect, describe } from "vitest";
 import type { NewsBody, NewsRow } from "./index";
 import {
   buildFeed,
+  feedDescription,
+  feedItems,
   isBalanced,
   isFullEntry,
   newsContext,
   newsLecture,
+  newsParagraphs,
   newsSource,
 } from "./index";
 
@@ -73,6 +76,36 @@ describe("newsLecture", () => {
   });
 });
 
+describe("newsParagraphs", () => {
+  it("coupe sur les lignes vides", () => {
+    expect(newsParagraphs("Premier bloc.\n\nSecond bloc.")).toEqual([
+      "Premier bloc.",
+      "Second bloc.",
+    ]);
+  });
+
+  it("rend un paragraphe unique pour un texte d'un seul tenant", () => {
+    expect(newsParagraphs("Tout d'une traite.")).toEqual([
+      "Tout d'une traite.",
+    ]);
+  });
+
+  it("recolle les retours simples à l'intérieur d'un paragraphe", () => {
+    expect(newsParagraphs("Une phrase\ncoupée en deux.")).toEqual([
+      "Une phrase coupée en deux.",
+    ]);
+  });
+
+  it("absorbe les lignes vides multiples ou seulement blanches", () => {
+    expect(newsParagraphs("Un.\n\n\n  \n\nDeux.")).toEqual(["Un.", "Deux."]);
+  });
+
+  it("ne rend aucun paragraphe pour un texte vide", () => {
+    expect(newsParagraphs("")).toEqual([]);
+    expect(newsParagraphs("\n  \n")).toEqual([]);
+  });
+});
+
 describe("newsSource", () => {
   it("nomme les médias déjà cités", () => {
     expect(newsSource("https://uxdesign.cc/ai-can-fake-your-portfolio")).toBe(
@@ -117,6 +150,41 @@ describe("isBalanced", () => {
   it("tient une brève sans lecture pour conforme", () => {
     // Elle n'est pas déséquilibrée, elle est d'un autre format.
     expect(isBalanced(news({ context: "Un contexte." }))).toBe(true);
+  });
+});
+
+describe("feedItems", () => {
+  it("découpe le contexte et la lecture en paragraphes", () => {
+    const [item] = feedItems([
+      {
+        ...row(1, "Ma lecture.\n\nEt sa suite."),
+        context: "Le résumé.\n\nSa seconde moitié.",
+      },
+    ]);
+
+    expect(item.context).toEqual(["Le résumé.", "Sa seconde moitié."]);
+    expect(item.lecture).toEqual(["Ma lecture.", "Et sa suite."]);
+  });
+
+  it("garde une lecture absente à null plutôt qu'à une liste vide", () => {
+    expect(feedItems([row(1)])[0].lecture).toBeNull();
+  });
+});
+
+describe("feedDescription", () => {
+  it("remet les paragraphes à plat sur une ligne", () => {
+    const [item] = feedItems([
+      { ...row(1), context: "Le résumé.\n\nSa seconde moitié." },
+    ]);
+
+    expect(feedDescription(item)).toBe("Le résumé. Sa seconde moitié.");
+  });
+
+  it("coupe au-delà de la longueur demandée", () => {
+    const [item] = feedItems([{ ...row(1), context: "a".repeat(400) }]);
+
+    expect(feedDescription(item)).toHaveLength(300);
+    expect(feedDescription(item, 10)).toHaveLength(10);
   });
 });
 

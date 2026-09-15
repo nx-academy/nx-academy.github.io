@@ -6,8 +6,9 @@
    se comparent directement : c'est ce qui rend applicable la règle éditoriale
    « la lecture n'est jamais plus courte que le contexte ».
 
-   Le composant affiche, il ne calcule pas : la source, le contexte et la
-   présence d'une lecture sont tranchés par `src/utils/news/`. */
+   Le composant affiche, il ne calcule pas : la source, le contexte, le
+   découpage en paragraphes et la présence d'une lecture sont tranchés par
+   `src/utils/news/`. */
 import type { FeedItem } from "../utils/news";
 
 interface Props {
@@ -26,14 +27,16 @@ const Title = as;
   <Title class="t">{item.title}</Title>
 
   <div class="ctx">
-    <p>{item.context}</p>
+    {item.context.map((paragraph) => <p>{paragraph}</p>)}
   </div>
 
   {
     item.lecture && (
       <div class="lec">
         <p class="lbl">Lecture</p>
-        <p>{item.lecture}</p>
+        {item.lecture.map((paragraph) => (
+          <p>{paragraph}</p>
+        ))}
       </div>
     )
   }

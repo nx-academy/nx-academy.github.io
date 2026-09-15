@@ -134,6 +134,20 @@
   text-wrap: pretty;
 }
 
+/* Les paragraphes viennent du texte de la brève, pas d'une mise en forme
+   décidée ici : l'écart les sépare sans creuser le bloc, la mesure reste la
+   même de part et d'autre. */
+.feed .ctx p + p,
+.feed .lec p + p {
+  margin-top: 0.95rem;
+}
+
+/* Le label n'est pas un paragraphe de texte — son écart au premier est déjà
+   posé par sa propre marge basse. */
+.feed .lec .lbl + p {
+  margin-top: 0;
+}
+
 .feed .lec {
   margin-top: 1.9rem;
 }
