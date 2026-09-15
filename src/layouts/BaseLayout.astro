@@ -58,7 +58,9 @@ const { pathname } = Astro.url
 
     <script is:inline>
       (function() {
-        const validTheme = ["theme-light", "theme-dark", "theme-summer"]
+        // « theme-summer » est désactivé : une valeur devenue invalide en
+        // localStorage retombe sur la préférence système.
+        const validTheme = ["theme-light", "theme-dark"]
         const userTheme = localStorage.getItem("theme")
 
         if (validTheme.includes(userTheme)) {
