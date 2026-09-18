@@ -1,9 +1,10 @@
 # Agents autonomes et semi-autonomes sur NX
 
-> Cadrage écrit en septembre 2026, avant d'implémenter quoi que ce soit. Ce
-> document répond à trois questions : ce qu'est un agent dans le contexte de NX,
-> où vivent les déclencheurs, et lesquels valent la peine d'être écrits. **Aucun
-> agent de ce catalogue n'existe à ce jour** — c'est une intention, pas un
+> Cadrage écrit en septembre 2026. Ce document répond à trois questions : ce
+> qu'est un agent dans le contexte de NX, où vivent les déclencheurs, et
+> lesquels valent la peine d'être écrits. **Aucune Routine n'est branchée à ce
+> jour** et seul le premier agent a sa doctrine écrite
+> (`.claude/skills/tags-audit/`) : le catalogue est une intention, pas un
 > inventaire.
 
 ## Ce qu'est un agent, ici
@@ -291,9 +292,9 @@ que `relevanceScore()` sait exploiter et qui ne fonctionne pas aujourd'hui.
 
 ### La marche à suivre
 
-1. Écrire `.claude/skills/tags-audit/SKILL.md` : vocabulaire fermé, obligation
-   de proposer avant d'écrire, interdiction d'inventer un tag qui n'existe nulle
-   part ailleurs.
+1. Écrire `.claude/skills/tags-audit/SKILL.md` — fait : vocabulaire fermé,
+   obligation de proposer avant d'écrire, interdiction d'inventer un tag qui
+   n'existe nulle part ailleurs.
 2. Créer la Routine **sans cron**, et la déclencher à la main. Regarder passer
    deux ou trois PR, ajuster le skill.
 3. Ne lui donner un horaire qu'une fois la confiance établie — mensuel suffit,
