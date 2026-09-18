@@ -134,8 +134,8 @@ Un chapitre de cours : `layout: ../../../../layouts/ChapterLayout.astro`,
 `nextChapterLink` / `previousChapterLink` (le slug seul, pas l'URL complète).
 
 Le champ `serie` doit être **une clé existante de `src/data/series.ts`** :
-`docker`, `gamedev`, `cicd`, `cloud`, `js`, `css`, `outils`. L'ordre des clés
-dans ce fichier détermine l'ordre d'affichage des rayons sur `/fiches`.
+`docker`, `gamedev`, `cicd`, `cloud`, `ia`, `js`, `css`, `outils`. L'ordre des
+clés dans ce fichier détermine l'ordre d'affichage des rayons sur `/fiches`.
 
 ## Rédaction
 

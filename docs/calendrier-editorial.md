@@ -127,6 +127,34 @@ Deux points à trancher :
   PICO-8 ». Cet engagement n'apparaît nulle part ailleurs : soit on le planifie,
   soit on le retire du manifeste.
 
+## Cluster IA — novembre à décembre 2026
+
+Cadrage complet : [cluster-ia.md](./cluster-ia.md). Nouvelle série `ia` (rayon
+« IA » sur `/fiches`), 5 fiches et 2 articles. Angle : l'IA expliquée à
+quelqu'un qui sait déjà déployer un conteneur et lire une facture cloud. Prépare
+le terrain du cours « Développez des applications IA », qui figure dans les
+idées de cours plus haut.
+
+> Cadré le 14 septembre 2026. Trois arbitrages pris à ce moment-là : pas de
+> nouveau format « dossier » (un cluster avec une porte d'entrée suffit),
+> l'actualité IA de la rentrée va dans Le Récap de septembre et dans le Feed, et
+> **rien ne se publie avant que le backlog de septembre-octobre ait ses
+> visuels**. Écrire ne coûte rien à la file d'attente, publier si.
+
+| Date        | Type    | Titre                                                   | Status           |
+| ----------- | ------- | ------------------------------------------------------- | ---------------- |
+| 02/11/2026  | Article | L'IA vue depuis la prod (porte d'entrée)                | brouillon        |
+| 09/11/2026  | Fiche   | Qu'est-ce qu'un LLM et comment ça marche ? (pilier)     | brouillon        |
+| 16/11/2026  | Fiche   | Tokens, contexte et coût : comment estimer la facture ? | à écrire         |
+| 23/11/2026  | Fiche   | Qu'est-ce qu'un agent IA ?                              | à écrire         |
+| 30/11/2026  | Fiche   | Qu'est-ce que le protocole MCP ?                        | à écrire         |
+| 07/12/2026  | Fiche   | Comment créer un premier agent IA ?                     | à écrire         |
+| _à définir_ | Article | Réflexion — angle à trancher                            | réservé à Thomas |
+
+Le 07/12 est le point de friction : c'est la semaine du cours « Mettez vos
+applications en production ». Si les deux se marchent dessus, la fiche-pont
+glisse en janvier.
+
 ## Planning de publication — septembre et octobre 2026
 
 Deux publications par semaine, lundi et mercredi : les deux jours les plus

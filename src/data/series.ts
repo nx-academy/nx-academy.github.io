@@ -26,6 +26,11 @@ export const SERIES: Record<string, Serie> = {
     blurb:
       "Du vocabulaire au premier déploiement : modèles de service, public ou privé, coûts réels.",
   },
+  ia: {
+    label: "IA",
+    blurb:
+      "Ce qu'il y a sous le capot : tokens, contexte, agents, protocole MCP, et ce que tout ça coûte vraiment.",
+  },
   js: {
     label: "JavaScript",
     blurb:
