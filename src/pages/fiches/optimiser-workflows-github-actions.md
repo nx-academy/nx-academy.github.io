@@ -16,6 +16,8 @@ author: Thomas Dimnet
 github: tdimnet
 kind: Fiche technique
 serie: cicd
+tags:
+  - Image
 level: Intermédiaire
 publishedDate: 09/15/2026
 ---
