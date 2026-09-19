@@ -13,6 +13,9 @@ imgSrc: /images/cheatsheets/serveur-parisien.webp
 
 kind: Fiche technique
 serie: outils
+tags:
+  - Réseau
+  - Sécurité
 level: Débutant
 author: Yacine
 github: yaswecan

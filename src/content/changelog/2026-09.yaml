@@ -33,3 +33,6 @@ tasks:
   - kind: fix
     content: |-
       Les photos de profil affichées sur les articles et fiches techniques correspondent désormais à leurs auteurs.
+  - kind: fix
+    content: |-
+      Ajout de tags sur trois fiches techniques (<a href="/fiches/gerer-secrets-github-actions" target="_blank">secrets GitHub Actions</a>, <a href="/fiches/comprendre-les-proxys-et-reverse-proxys" target="_blank">proxys et reverse proxys</a>, <a href="/fiches/optimiser-workflows-github-actions" target="_blank">optimisation des workflows GitHub Actions</a>) pour que le bloc « À lire ensuite » puisse enfin rapprocher des fiches de rayons différents.
