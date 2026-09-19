@@ -146,7 +146,7 @@ idées de cours plus haut.
 | 02/11/2026  | Article | L'IA vue depuis la prod (porte d'entrée)                | brouillon        |
 | 09/11/2026  | Fiche   | Qu'est-ce qu'un LLM et comment ça marche ? (pilier)     | brouillon        |
 | 16/11/2026  | Fiche   | Tokens, contexte et coût : comment estimer la facture ? | brouillon        |
-| 23/11/2026  | Fiche   | Qu'est-ce qu'un agent IA ?                              | à écrire         |
+| 23/11/2026  | Fiche   | Qu'est-ce qu'un agent IA ?                              | brouillon        |
 | 30/11/2026  | Fiche   | Qu'est-ce que le protocole MCP ?                        | à écrire         |
 | 07/12/2026  | Fiche   | Comment créer un premier agent IA ?                     | à écrire         |
 | _à définir_ | Article | Réflexion — angle à trancher                            | réservé à Thomas |
