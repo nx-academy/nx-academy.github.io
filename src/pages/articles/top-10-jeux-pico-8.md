@@ -14,7 +14,7 @@ kind: Articles
 author: Thomas Dimnet
 github: tdimnet
 
-publishedDate: 09/21/2026
+publishedDate: 09/20/2026
 
 tags:
   - Game dev
