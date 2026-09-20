@@ -3,9 +3,9 @@ layout: ../../layouts/BlogPostLayout.astro
 
 title: "Les 10 jeux PICO-8 les plus connus (et pourquoi ils sont cultes)"
 description:
-  "De Celeste à POOM en passant par Slipways : découvrez 10 jeux PICO-8
+  "De Celeste à POOM en passant par Slipways, découvrez 10 jeux PICO-8
   emblématiques, ce qui les rend marquants et où y jouer dans votre navigateur.
-  Le tour d'horizon idéal pour explorer la console fantastique."
+  Le tour d'horizon idéal pour explorer la fantasy console."
 
 imgAlt: Une étagère de cartouches de jeux rétro colorées, pixel art
 imgSrc: /images/articles/top-10-jeux-pico-8.webp
