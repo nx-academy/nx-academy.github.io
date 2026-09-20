@@ -45,17 +45,21 @@ communauté arrive à faire tenir dans 128×128 pixels et 16 couleurs. Et
 croyez-moi, on tombe vite sur des pépites.
 
 Du coup, je me suis dit qu'un petit tour d'horizon des jeux les plus marquants
-de la console s'imposait. Que vous cherchiez de l'inspiration avant de coder, ou
-simplement de quoi jouer cinq minutes, vous devriez trouver votre bonheur ici.
+de la console s'imposait. Que vous cherchiez de l'inspiration avant de coder ou
+simplement de quoi jouer cinq minutes (au bureau 😅), vous devriez trouver votre bonheur ici.
 
-Petite précision avant de commencer : « le plus connu » reste forcément un peu
+Petite précision avant de commencer. « Le plus connu » reste forcément un peu
 subjectif. Disons que cette liste rassemble des jeux qui ont marqué la
 communauté, soit par leur succès, soit par leur prouesse technique. Un seul fait
-l'unanimité en tête, et vous le devinez sans doute déjà…
+l'unanimité en tête et vous le devinez sans doute déjà…
 
-## 1. Celeste Classic — le prototype devenu légende
+---
 
-Impossible de commencer ailleurs. **Celeste Classic** a été développé en
+## Celeste Classic, le prototype devenu légende
+
+![Le début de Celeste Classic tournant sur Pico-8](/images/articles/pico8-celeste.webp)
+
+Impossible de commencer par autre chose. **Celeste Classic** a été développé en
 seulement quatre jours par Maddy Thorson et Noel Berry, en 2015, lors d'une game
 jam. Ce petit platformer de précision (grimper une montagne, ramasser des
 fraises) est devenu le prototype du Celeste commercial sorti en 2018, l'un des
@@ -66,22 +70,34 @@ C'est l'exemple parfait de ce que je raconte dans
 À [jouer absolument](https://maddymakesgamesinc.itch.io/celesteclassic), ne
 serait-ce que pour mesurer le chemin parcouru.
 
-## 2. Celeste Classic 2 : Lani's Trek — la suite anniversaire
+---
+
+## Celeste Classic 2 : Lani's Trek, la suite anniversaire
+
+![Le début de Celeste Classic 2 tournant sur Pico-8](/images/articles/pico8-celeste-2.webp)
 
 Pour fêter les trois ans de Celeste, l'équipe a remis ça en 2021 avec **Lani's
-Trek**, lui aussi taillé dans PICO-8. On y suit une nouvelle héroïne, Lani, qui
+Trek**, lui aussi crée avec PICO-8. On y suit une nouvelle héroïne, Lani, qui
 troque le dash de Madeline contre un grappin. Même exigence, nouvelles
 sensations. On le trouve chez
 [le même studio](https://maddymakesgamesinc.itch.io).
 
-## 3. POOM — Doom qui tourne dans une console fantastique
+---
+
+## POOM ou Doom qui tourne dans PICO-8
+
+![Poom, le demake de Doom tournant sur Pico-8](/images/articles/pico8-poom.webp)
 
 Là, on est dans la pure prouesse technique. **POOM**, de freds72 et Paranoid
 Cactus (2021), est un _demake_ de Doom qui tourne… dans PICO-8. Oui, un FPS avec
 moteur de rendu maison, dans 8192 tokens. Quand on connaît les contraintes de la
 machine, ça force le respect. À [tester ici](https://freds72.itch.io/poom).
 
-## 4. Slipways — le prototype qui est devenu un vrai jeu Steam
+---
+
+## Slipways, le prototype qui est devenu un vrai jeu Steam
+
+![Slipways, le 4x spatial sur Pico-8](/images/articles/pico-8-slipways.webp)
 
 **Slipways**, de Jakub Wasilewski (studio Beetlewing), a d'abord vu le jour
 comme cartouche PICO-8 avant de devenir un jeu de stratégie spatiale complet,
@@ -89,47 +105,63 @@ salué à sa sortie en 2021. La version d'origine, rebaptisée _Slipways Classic
 reste [jouable gratuitement](https://krajzeg.itch.io/slipways). Encore une belle
 illustration du prototypage dont je parle souvent.
 
-## 5. Dank Tomb — un jeu d'aventure d'une ambition folle
+---
+
+## Dank Tomb, un jeu d'aventure d'une ambition folle
+
+![Dank Tomb sur Pico-8](/images/articles/pico8-dank-tomb.webp)
 
 Toujours signé Jakub Wasilewski (oui, le même que Slipways !), **Dank Tomb**
 (2018) est un jeu d'aventure et d'énigmes inspiré de Tomb Raider. Sa marque de
 fabrique : une gestion de la lumière et des ombres bluffante… avec seulement 16
 couleurs à disposition. À [explorer ici](https://krajzeg.itch.io/dank-tomb).
 
-## 6. The Tower of Archeos — le roguelike qu'on relance sans fin
+---
+
+## The Tower of Archeos — le roguelike qu'on relance sans fin
 
 **The Tower of Archeos**, de Benjamin Soulé, est un roguelike-puzzle malin où
 l'on descend une tour étage par étage en enchaînant les combos. Le genre de jeu
 « juste une partie de plus » qui vous garde bien plus longtemps que prévu. C'est
 exactement le format court et rejouable pour lequel PICO-8 brille.
 
-## 7. UFO Swamp Odyssey — la balade contemplative
+---
+
+## UFO Swamp Odyssey — la balade contemplative
 
 Changement d'ambiance avec **UFO Swamp Odyssey**, de Paranoid Cactus : un
 platformer doux et atmosphérique, souvent cité pour son ambiance reposante et
 son feeling très soigné. La preuve qu'on peut faire dans la poésie, même sous
 contrainte.
 
-## 8. Just One Boss — tout un jeu dans un seul combat
+---
+
+## Just One Boss — tout un jeu dans un seul combat
 
 Le concept de **Just One Boss**, de bridgs (2019), tient dans son titre : un
 unique boss, mais qui se transforme et se réinvente au fil de l'affrontement. La
 finition est exemplaire, et c'est une vraie leçon de _game feel_. À
 [affronter ici](https://aylanonsense.itch.io/just-one-boss).
 
-## 9. Air Delivery — facteur sur des îles volantes
+---
+
+## Air Delivery — facteur sur des îles volantes
 
 **Air Delivery**, de pianoman373, vous met dans la peau d'un livreur qui
 distribue le courrier d'île en île dans le ciel. Un platformer-aventure
 charmant, parfait pour découvrir ce que l'on peut raconter en quelques
 cartouches. À [récupérer ici](https://pianoman373.itch.io/air-delivery).
 
-## 10. Pico Racer — l'arcade à l'ancienne
+---
+
+## Pico Racer — l'arcade à l'ancienne
 
 On termine sur une note nostalgique avec **Pico Racer**, de kometbomb (2016), un
 jeu de course pseudo-3D dans l'esprit d'OutRun et Pole Position. Simple,
 nerveux, diablement efficace : exactement ce qu'on attend d'un jeu d'arcade. À
 [essayer ici](https://kometbomb.itch.io/pico-racer).
+
+---
 
 ## Le récap en un tableau
 
@@ -146,7 +178,9 @@ nerveux, diablement efficace : exactement ce qu'on attend d'un jeu d'arcade. À
 | UFO Swamp Odyssey    | Platformer            | Paranoid Cactus               |
 | Just One Boss        | Boss-rush             | bridgs                        |
 | Air Delivery         | Platformer / aventure | pianoman373                   |
-| Pico Racer           | Course arcade         | kometbomb                     |
+| Pico Racer           | Course arcade         | kometbomb                     |\
+
+---
 
 ## Comment dénicher d'autres pépites ?
 
