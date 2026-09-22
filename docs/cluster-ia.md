@@ -81,8 +81,8 @@ Le champ `serie: ia` est **indispensable** pour apparaître dans le rayon IA de
 | --- | ------- | ----------------------------- | ------------------------------------------------------- | ------------- | ----------------------------- | -------------------- |
 | 1   | Article | `l-ia-vue-depuis-la-prod`     | L'IA vue depuis la prod                                 | —             | **Porte d'entrée** du dossier | Brouillon 14/09/2026 |
 | 2   | Fiche   | `comprendre-les-llm`          | Qu'est-ce qu'un LLM et comment ça marche ?              | Débutant      | **Pilier SEO**                | Brouillon 14/09/2026 |
-| 3   | Fiche   | `tokens-contexte-et-cout`     | Tokens, contexte et coût : comment estimer la facture ? | Intermédiaire | Le coût, en méthode           | À écrire             |
-| 4   | Fiche   | `comprendre-les-agents-ia`    | Qu'est-ce qu'un agent IA ?                              | Intermédiaire | Requête exact-match           | À écrire             |
+| 3   | Fiche   | `tokens-contexte-et-cout`     | Tokens, contexte et coût : comment estimer la facture ? | Intermédiaire | Le coût, en méthode           | Brouillon 19/09/2026 |
+| 4   | Fiche   | `comprendre-les-agents-ia`    | Qu'est-ce qu'un agent IA ?                              | Intermédiaire | Requête exact-match           | Brouillon 19/09/2026 |
 | 5   | Fiche   | `comprendre-le-protocole-mcp` | Qu'est-ce que le protocole MCP ?                        | Intermédiaire | Différenciant (nx-mcp)        | À écrire             |
 | 6   | Fiche   | `creer-un-premier-agent-ia`   | Comment créer un premier agent IA ?                     | Avancé        | **Pont IA ↔ Docker/cloud**   | À écrire             |
 | 7   | Article | _à définir_                   | _réflexion, angle à trancher_                           | —             | **Réservé à Thomas**          | À cadrer             |
