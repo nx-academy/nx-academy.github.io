@@ -166,7 +166,13 @@ const breadCrumbs: Breadcrumb[] = [
         {
           isArticle && (
             <>
-              <AuthorCard author={author} />
+              {github === "tdimnet" && (
+                <AuthorCard
+                  author={author}
+                  ctaHref="/fiches"
+                  ctaLabel="Voir toutes les fiches"
+                />
+              )}
               <RelatedContent currentUrl={currentUrl} source="articles" />
             </>
           )

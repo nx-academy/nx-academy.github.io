@@ -162,11 +162,15 @@ const breadCrumbs: Breadcrumb[] = [
         <ShareButtons title={title} />
         <p class="article-signoff">Codez bien !</p>
         <Faq items={faq} />
-        <AuthorCard
-          author={author}
-          ctaHref="/fiches"
-          ctaLabel="Voir toutes les fiches"
-        />
+        {
+          github === "tdimnet" && (
+            <AuthorCard
+              author={author}
+              ctaHref="/fiches"
+              ctaLabel="Voir toutes les fiches"
+            />
+          )
+        }
         <RelatedContent currentUrl={currentUrl} source="fiches" />
       </article>
     </section>
