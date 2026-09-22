@@ -120,6 +120,7 @@ description: "…"
 imgAlt: "…"
 imgSrc: /images/cheatsheets/<slug>.webp
 author: Thomas Dimnet
+github: tdimnet
 kind: Fiche technique
 serie: cicd
 level: Intermédiaire
