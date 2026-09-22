@@ -118,16 +118,18 @@ couleurs à disposition. À [explorer ici](https://krajzeg.itch.io/dank-tomb).
 
 ---
 
-## The Tower of Archeos — le roguelike qu'on relance sans fin
+## The Tower of Archeos, le roguelike qu'on relance sans fin
+
+![Dank Tomb sur Pico-8](/images/articles/pico8-tower-archeos.webp)
 
 **The Tower of Archeos**, de Benjamin Soulé, est un roguelike-puzzle malin où
 l'on descend une tour étage par étage en enchaînant les combos. Le genre de jeu
 « juste une partie de plus » qui vous garde bien plus longtemps que prévu. C'est
-exactement le format court et rejouable pour lequel PICO-8 brille.
+exactement le format court et rejouable pour lequel PICO-8 brille. À [jouer ici](https://www.lexaloffle.com/bbs/?tid=1907&autoplay=1).
 
 ---
 
-## UFO Swamp Odyssey — la balade contemplative
+## UFO Swamp Odyssey, la balade contemplative
 
 Changement d'ambiance avec **UFO Swamp Odyssey**, de Paranoid Cactus : un
 platformer doux et atmosphérique, souvent cité pour son ambiance reposante et
