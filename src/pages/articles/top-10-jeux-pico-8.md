@@ -120,7 +120,7 @@ couleurs à disposition. À [explorer ici](https://krajzeg.itch.io/dank-tomb).
 
 ## The Tower of Archeos, le roguelike qu'on relance sans fin
 
-![Dank Tomb sur Pico-8](/images/articles/pico8-tower-archeos.webp)
+![Tower of Archeos sur Pico-8](/images/articles/pico-8-tower-archeos.webp)
 
 **The Tower of Archeos**, de Benjamin Soulé, est un roguelike-puzzle malin où
 l'on descend une tour étage par étage en enchaînant les combos. Le genre de jeu
@@ -131,23 +131,29 @@ exactement le format court et rejouable pour lequel PICO-8 brille. À [jouer ici
 
 ## UFO Swamp Odyssey, la balade contemplative
 
+![UFO Swamp Odyssey sur Pico-8](/images/articles/pico8-ufo-swamp-odissey.webp)
+
 Changement d'ambiance avec **UFO Swamp Odyssey**, de Paranoid Cactus : un
 platformer doux et atmosphérique, souvent cité pour son ambiance reposante et
 son feeling très soigné. La preuve qu'on peut faire dans la poésie, même sous
-contrainte.
+contrainte. À [tester ici](https://www.lexaloffle.com/bbs/?pid=77254).
 
 ---
 
-## Just One Boss — tout un jeu dans un seul combat
+## Just One Boss, tout un jeu dans un seul combat
+
+![Just One Boss sur Pico-8](/images/articles/pico8-just-one-boss.webp)
 
 Le concept de **Just One Boss**, de bridgs (2019), tient dans son titre : un
 unique boss, mais qui se transforme et se réinvente au fil de l'affrontement. La
-finition est exemplaire, et c'est une vraie leçon de _game feel_. À
+finition est exemplaire et c'est une vraie leçon de _game feel_. À
 [affronter ici](https://aylanonsense.itch.io/just-one-boss).
 
 ---
 
-## Air Delivery — facteur sur des îles volantes
+## Air Delivery ou le facteur sur des îles volantes
+
+![Just One Boss sur Pico-8](/images/articles/pico8-air-delivery.webp)
 
 **Air Delivery**, de pianoman373, vous met dans la peau d'un livreur qui
 distribue le courrier d'île en île dans le ciel. Un platformer-aventure
@@ -156,7 +162,9 @@ cartouches. À [récupérer ici](https://pianoman373.itch.io/air-delivery).
 
 ---
 
-## Pico Racer — l'arcade à l'ancienne
+## Pico Racer, l'arcade à l'ancienne
+
+![Just One Boss sur Pico-8](/images/articles/pico8-pico-racer.webp)
 
 On termine sur une note nostalgique avec **Pico Racer**, de kometbomb (2016), un
 jeu de course pseudo-3D dans l'esprit d'OutRun et Pole Position. Simple,
