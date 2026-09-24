@@ -4,6 +4,9 @@ order: 9
 tasks:
   - kind: done
     content: |-
+      Petit article un peu chill <a href="/articles/top-10-jeux-pico-8" target="_blank">sur les 10 meilleurs jeux de PICO-8</a>. Bonne découverte et jouez bien !
+  - kind: done
+    content: |-
       Dernier fiche technique (avant quelque temps) sur <a href="/fiches/optimiser-workflows-github-actions" target="_blank">les GitHub Actions</a>. Au programme, je vous parle d'optmisation de workflows !
   - kind: done
     content: |-
