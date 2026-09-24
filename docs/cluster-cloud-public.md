@@ -18,10 +18,10 @@
 
 Le [calendrier éditorial](./calendrier-editorial.md) prévoit par ailleurs un
 cours **« Mettez vos applications en production »** encore à faire. Ce cluster
-lui sert de terrain préparé : quand le cours sortira, huit contenus pointeront
+lui sert de terrain préparé : quand le cours sortira, sept contenus pointeront
 déjà vers lui.
 
-## Le cluster (8 contenus)
+## Le cluster (7 contenus)
 
 > Étendu en août 2026 : les contenus 7 et 8 sont deux fiches de mise en pratique
 > adossées à la fiche-pont, cadrées à part dans
@@ -38,16 +38,15 @@ Le champ `serie: cloud` est **indispensable** pour apparaître dans le rayon
 Cloud public de `/fiches/` (`src/data/series.ts`) et alimenter le bloc « À lire
 ensuite » (`src/utils/relatedContent/`, poids `serie` = +3, `tag` partagé = +1).
 
-| #   | Type    | Slug                                      | Titre                                                        | level         | Rôle                        | État              |
-| --- | ------- | ----------------------------------------- | ------------------------------------------------------------ | ------------- | --------------------------- | ----------------- |
-| 1   | Fiche   | `comprendre-le-cloud-public`              | Qu'est-ce que le cloud public ?                              | Débutant      | **Pilier** / porte d'entrée | Publié 05/08/2026 |
-| 2   | Fiche   | `difference-cloud-public-prive-hybride`   | Cloud public, privé, hybride : quelles différences ?         | Débutant      | Comparatif (fort volume)    | Publié 12/08/2026 |
-| 3   | Fiche   | `iaas-paas-saas`                          | IaaS, PaaS, SaaS : quelles différences et comment choisir ?  | Intermédiaire | Requête exact-match         | Publié 02/09/2026 |
-| 4   | Fiche   | `deployer-conteneur-docker-dans-le-cloud` | Comment déployer un conteneur Docker dans le cloud ?         | Intermédiaire | **Pont Docker ↔ CI/CD**    | Prévu 16/09/2026  |
-| 5   | Article | `le-cloud-est-il-vraiment-moins-cher`     | Le cloud public coûte-t-il vraiment moins cher ?             | —             | Réflexion / coûts           | Prévu 30/09/2026  |
-| 6   | Article | `cloud-souverain`                         | Cloud souverain : de quoi parle-t-on vraiment ?              | —             | Réflexion / souveraineté    | Prévu 05/10/2026  |
-| 7   | Fiche   | `deployer-conteneur-docker-sur-scaleway`  | Comment déployer un conteneur Docker sur Scaleway ?          | Intermédiaire | Mise en pratique            | Prévu 23/09/2026  |
-| 8   | Fiche   | `deployer-conteneur-docker-sur-aws`       | Comment déployer un conteneur Docker sur AWS (ECS Fargate) ? | Avancé        | Mise en pratique            | Prévu 28/09/2026  |
+| #   | Type    | Slug                                      | Titre                                                       | level         | Rôle                        | État              |
+| --- | ------- | ----------------------------------------- | ----------------------------------------------------------- | ------------- | --------------------------- | ----------------- |
+| 1   | Fiche   | `comprendre-le-cloud-public`              | Qu'est-ce que le cloud public ?                             | Débutant      | **Pilier** / porte d'entrée | Publié 05/08/2026 |
+| 2   | Fiche   | `difference-cloud-public-prive-hybride`   | Cloud public, privé, hybride : quelles différences ?        | Débutant      | Comparatif (fort volume)    | Publié 12/08/2026 |
+| 3   | Fiche   | `iaas-paas-saas`                          | IaaS, PaaS, SaaS : quelles différences et comment choisir ? | Intermédiaire | Requête exact-match         | Publié 02/09/2026 |
+| 4   | Fiche   | `deployer-conteneur-docker-dans-le-cloud` | Comment déployer un conteneur Docker dans le cloud ?        | Intermédiaire | **Pont Docker ↔ CI/CD**    | Prévu 28/09/2026  |
+| 5   | Article | `le-cloud-est-il-vraiment-moins-cher`     | Le cloud public coûte-t-il vraiment moins cher ?            | —             | Réflexion / coûts           | Prévu 12/10/2026  |
+| 6   | Article | `cloud-souverain`                         | Cloud souverain : de quoi parle-t-on vraiment ?             | —             | Réflexion / souveraineté    | Prévu 14/10/2026  |
+| 7   | Fiche   | `deployer-conteneur-docker-sur-scaleway`  | Comment déployer un conteneur Docker sur Scaleway ?         | Intermédiaire | Mise en pratique            | Prévu 05/10/2026  |
 
 ### Détail des angles
 
@@ -108,15 +107,9 @@ ensuite » (`src/utils/relatedContent/`, poids `serie` = +3, `tag` partagé = +
    projet, et l'étape 6 offre la mise à l'échelle à zéro. Porte la ligne de
    transparence sur l'employeur de Thomas.
 
-8. **`deployer-conteneur-docker-sur-aws`** — La mise en pratique n° 2, mêmes six
-   titres, chez ECS sur Fargate. Points saillants, en miroir exact de la
-   précédente : l'étape 2 devient la plus longue de la fiche (rôle d'exécution
-   vs rôle de tâche) et l'étape 6 n'offre pas le zéro. App Runner ferme en
-   astuce bonus comme l'équivalent direct de la fiche Scaleway.
-
-   > Le détail du cadrage — pourquoi deux fiches plutôt qu'un comparatif,
-   > pourquoi ECS plutôt qu'App Runner, et la réserve « commandes non exécutées
-   > » — est dans [`cluster-cloud-pratique.md`](./cluster-cloud-pratique.md).
+   > Une fiche AWS (ECS Fargate) était prévue en miroir ; elle a été abandonnée
+   > le 24/09/2026. Le détail du cadrage et la réserve « commandes non exécutées
+   > » sont dans [`cluster-cloud-pratique.md`](./cluster-cloud-pratique.md).
 
 ## Maillage interne (le cœur de la valeur SEO)
 
@@ -137,8 +130,7 @@ difference-cloud-*-hybride   iaas-paas-saas          le-cloud-est-il-moins-cher
                 ▼                                               │
    deployer-conteneur-docker-dans-le-cloud ─────────────────────┘
                 │
-                ├─► deployer-conteneur-docker-sur-scaleway  ◄─┐  (les deux fiches
-                ├─► deployer-conteneur-docker-sur-aws ────────┘   se citent)
+                ├─► deployer-conteneur-docker-sur-scaleway
                 │
                 ├─► /fiches/presentation-registry-docker         (cluster Docker)
                 ├─► /fiches/deployer-image-docker-github-actions (cluster CI/CD)
@@ -239,14 +231,13 @@ pas la repayer.
 
 **Qui pointe vers qui, aujourd'hui :**
 
-| Contenu publié                            | Liens `/drafts/` à basculer le jour où le contenu sort                                                  |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| ~~`iaas-paas-saas`~~ _(sorti le 02/09)_   | ~~depuis `deployer-conteneur-docker-dans-le-cloud` (× 2)~~ — fait                                       |
-| `deployer-conteneur-docker-dans-le-cloud` | depuis `iaas-paas-saas` (× 1, ligne 294) — **seul lien `/drafts/` restant côté publié**                 |
-| `deployer-conteneur-docker-sur-scaleway`  | depuis `deployer-conteneur-docker-dans-le-cloud`, depuis `deployer-conteneur-docker-sur-aws` (× 2)      |
-| `deployer-conteneur-docker-sur-aws`       | depuis `deployer-conteneur-docker-dans-le-cloud`, depuis `deployer-conteneur-docker-sur-scaleway` (× 2) |
-| `le-cloud-est-il-vraiment-moins-cher`     | depuis `deployer-conteneur-docker-dans-le-cloud`, depuis `cloud-souverain`                              |
-| `cloud-souverain`                         | depuis `deployer-conteneur-docker-dans-le-cloud`                                                        |
+| Contenu publié                            | Liens `/drafts/` à basculer le jour où le contenu sort                                  |
+| ----------------------------------------- | --------------------------------------------------------------------------------------- |
+| ~~`iaas-paas-saas`~~ _(sorti le 02/09)_   | ~~depuis `deployer-conteneur-docker-dans-le-cloud` (× 2)~~ — fait                       |
+| `deployer-conteneur-docker-dans-le-cloud` | depuis `iaas-paas-saas` (× 1, ligne 294) — **seul lien `/drafts/` restant côté publié** |
+| `deployer-conteneur-docker-sur-scaleway`  | depuis `deployer-conteneur-docker-dans-le-cloud`                                        |
+| `le-cloud-est-il-vraiment-moins-cher`     | depuis `deployer-conteneur-docker-dans-le-cloud`, depuis `cloud-souverain`              |
+| `cloud-souverain`                         | depuis `deployer-conteneur-docker-dans-le-cloud`                                        |
 
 Le plus simple reste de lancer, après chaque déplacement :
 

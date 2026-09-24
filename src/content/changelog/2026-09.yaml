@@ -2,6 +2,9 @@ month: Septembre
 year: 2026
 order: 9
 tasks:
+  - kind: fix
+    content: |-
+      Trois liens de <a href="/articles/top-10-jeux-pico-8" target="_blank">l'article sur les jeux PICO-8</a> pointaient vers des brouillons déjà publiés. C'est réparé.
   - kind: done
     content: |-
       Petit article un peu chill <a href="/articles/top-10-jeux-pico-8" target="_blank">sur les 10 meilleurs jeux de PICO-8</a>. Bonne découverte et jouez bien !

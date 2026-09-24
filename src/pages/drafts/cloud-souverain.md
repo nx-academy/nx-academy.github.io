@@ -22,7 +22,7 @@ tags:
 author: Thomas Dimnet
 github: tdimnet
 
-publishedDate: 10/05/2026
+publishedDate: 10/14/2026
 
 faq:
   - question: Qu'est-ce que le cloud souverain ?

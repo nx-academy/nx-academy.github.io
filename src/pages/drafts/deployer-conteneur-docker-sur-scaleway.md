@@ -21,7 +21,7 @@ tags:
   - Docker
   - Production
 level: Intermédiaire
-publishedDate: 09/23/2026
+publishedDate: 10/05/2026
 
 faq:
   - question: Comment déployer un conteneur Docker sur Scaleway ?
@@ -82,16 +82,12 @@ fournisseur. C'était voulu : les noms changent d'un service à l'autre, les
 étapes non.
 
 On passe à la pratique. **Les six mêmes étapes, dans le même ordre, chez
-Scaleway**, avec Serverless Containers et la ligne de commande. La fiche
-suivante fera exactement le même parcours
-[chez AWS](/drafts/deployer-conteneur-docker-sur-aws) : vous pourrez comparer
-étape par étape.
+Scaleway**, avec Serverless Containers et la ligne de commande.
 
 <br>
 
-Une précision d'usage : **je travaille chez Scaleway**. J'ai écrit les deux
-fiches de la même main et avec les mêmes réserves, mais autant que vous le
-sachiez en lisant celle-ci.
+Une précision d'usage : **je travaille chez Scaleway**. NX reste un projet
+indépendant, mais autant que vous le sachiez en lisant cette fiche.
 
 <br>
 
@@ -351,11 +347,6 @@ Et voilà, votre image tourne chez Scaleway ! Pour résumer en une phrase :
 **poussez l'image sur un namespace du registry, créez le conteneur dans le même
 projet avec son port et ses variables, déclarez sa route de santé, puis bornez
 la mise à l'échelle des deux côtés**.
-
-L'étape 2 aura été la plus courte de toutes — rien à faire. Gardez-la en tête :
-c'est exactement celle qui occupe le plus de place dans
-[la fiche AWS](/drafts/deployer-conteneur-docker-sur-aws), et la comparaison est
-instructive.
 
 D'ici là, je vous invite :
 
