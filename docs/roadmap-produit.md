@@ -215,6 +215,38 @@ vouloir dire la réécrire à la main. C'est ce qui rend « en sortir plus, et p
 souvent » réellement possible, et c'est exactement ce qui a marché pour le
 changelog.
 
+#### Le pilote : « Mettez vos applications en production »
+
+Décidé le 24 septembre 2026. Le cours de décembre se fera **au nouveau format**,
+et il est le pilote désigné du modèle. Trois raisons, et la première suffirait :
+
+- **C'est le seul cours qui n'est pas encore écrit.** Aucun chapitre, aucun
+  screencast, aucune URL publiée : le modèle se teste à coût de migration nul.
+  C'est exactement l'endroit bon marché qu'on cherchait pour le valider.
+- **Son sujet est déjà couvert par le catalogue.** Le cluster cloud (5 fiches et
+  2 articles, complet au 14/10), le cluster CI/CD (7 fiches) et la série Docker
+  (8 fiches) portent l'essentiel de ce qu'une mise en production suppose.
+- **Les projets en sont déjà le fil rouge.** Projet 1 conteneurise, projet 2
+  construit et publie l'image depuis GitHub Actions. Un projet 3 qui déploie
+  cette image dans le cloud complète la chaîne — et « mettre en production »,
+  c'est précisément cette chaîne. La formation n'est pas un chantier à côté des
+  projets : **c'est le contenant que les trois premiers projets remplissent.**
+
+La règle « zéro prérequis externe » tiendra pour ce projet 3 à partir du
+05/10/2026, date de publication de `deployer-conteneur-docker-sur-scaleway`. Pas
+avant.
+
+**Le risque à regarder en face : la date.** Le cours est calé en décembre dans
+[`calendrier-editorial.md`](./calendrier-editorial.md), et il dépend maintenant
+d'une chaîne qui n'est pas commencée — passe objectifs sur les énoncés, écriture
+des deux projets, décision sur le modèle de formation, puis conception de la
+formation elle-même. Deux issues, à trancher quand les projets auront avancé :
+décaler le cours en janvier-février, ou réduire le périmètre de la première
+formation pour tenir décembre. Ne pas choisir revient à décaler sans le dire.
+
+Les bases restent à poser avec Thomas — fil rouge, découpage en projets, fiches
+mobilisées. Séance dédiée, pas encore ouverte.
+
 ---
 
 ## Écarté, et pourquoi

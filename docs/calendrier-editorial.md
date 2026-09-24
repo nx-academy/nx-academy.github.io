@@ -15,12 +15,12 @@
 
 ## Cours prévus
 
-| Mois      | Cours                                                 | status     |
-| --------- | ----------------------------------------------------- | ---------- |
-| Juin      | Conteneurisez vos applications avec Docker            | **DONE**   |
-| Septembre | Maîtrisez les pipelines CI/CD avec les GitHub Actions | _en cours_ |
-| Décembre  | Mettez vos applications en production                 | à faire    |
-| TBD       | Monitorez vos applications avec Datadog               | à faire    |
+| Mois      | Cours                                                 | status                                                                                                       |
+| --------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| Juin      | Conteneurisez vos applications avec Docker            | **DONE**                                                                                                     |
+| Septembre | Maîtrisez les pipelines CI/CD avec les GitHub Actions | _en cours_                                                                                                   |
+| Décembre  | Mettez vos applications en production                 | **nouveau format** — pilote des formations, dépend des projets, date à confirmer (voir `roadmap-produit.md`) |
+| 2027      | Monitorez vos applications                            | cluster à cadrer d'abord — voir « Cluster Monitoring » plus bas                                              |
 
 **Idées de cours complémentaires** :
 
@@ -130,6 +130,88 @@ Deux points à trancher :
   PICO-8 ». Cet engagement n'apparaît nulle part ailleurs : soit on le planifie,
   soit on le retire du manifeste.
 
+## Mini-cluster « déboguer un conteneur » — octobre à novembre 2026
+
+Ouvert le 24/09/2026. Trois contenus dans la série `docker` existante, pas une
+nouvelle série. Le sujet n'a aujourd'hui **aucune couverture** alors que c'est
+une des questions les plus posées, et Docker est déjà le rayon le mieux classé
+du site : c'est le meilleur endroit où ajouter.
+
+Le découpage tient parce que chaque contenu répond à une question réellement
+différente, et pas à une tranche de la même :
+
+| Contenu                                          | Type    | La question                                                                                                                                         |
+| ------------------------------------------------ | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Pourquoi mon conteneur ne démarre pas ? (pilier) | Fiche   | le conteneur **ne tourne pas** : codes de sortie, `logs`, `inspect`, boucles de redémarrage, `ENTRYPOINT` contre `CMD`, permissions, port déjà pris |
+| Comment déboguer un conteneur qui tourne ?       | Fiche   | il **tourne mais se comporte mal** : `exec`, `attach`, une image sans shell, inspection du réseau                                                   |
+| 10 techniques de débogage Docker                 | Article | la porte d'entrée qui renvoie vers les deux fiches                                                                                                  |
+
+L'article listicle vient **en dernier**, pas en premier : il n'a d'intérêt que
+s'il a deux fiches vers lesquelles pointer. C'est le même montage que
+`top-10-jeux-pico-8`, qui fonctionne parce que les fiches gamedev existaient
+déjà.
+
+**Angle mis en attente : « débogage Docker contre Podman ».** La fiche
+`difference-docker-podman` sort le 30/09 et n'est pas encore en ligne. Écrire
+une comparaison de débogage avant de voir ce qu'elle couvre, c'est se garantir
+un doublon — et sur ce terrain précis les deux outils partagent l'essentiel de
+l'outillage, la vraie différence étant le rootless. À reprendre une fois la
+fiche Podman publiée, s'il reste quelque chose à dire.
+
+## Cluster Monitoring — 2027, à cadrer
+
+Piste ouverte le 24 septembre 2026. Aucun contenu à ce jour : `monitoring`,
+`observabilité`, `tracing` et `Datadog` n'apparaissent dans le corpus publié
+qu'en mentions de passage, jamais comme sujet. Nouvelle clé de série à créer
+dans `src/data/series.ts`.
+
+**Sa place dans la chaîne est ce qui le rend évident.** Le site déroule déjà
+construire une image → automatiser → déployer → mettre en production. Observer
+est le maillon suivant, et le dernier qui manque pour que l'arc soit complet. Ce
+n'est donc pas une île : c'est une suite, et elle vient **après** la formation «
+Mise en production », pas avant.
+
+### La structure : reprendre le partage du cluster cloud
+
+Le cluster cloud a déjà résolu le problème du fournisseur, et le résultat est
+documenté dans [cluster-cloud-pratique.md](./cluster-cloud-pratique.md) : une
+**fiche-pont qui ne nomme personne** (« les noms changent d'un service à
+l'autre, les six étapes, non »), puis un **volet pratique** dans un document
+séparé, avec un fournisseur nommé et la même clé de série.
+
+On reprend ce partage tel quel :
+
+- **Le cluster** porte les concepts, sans fournisseur : les trois piliers
+  (métriques, logs, traces), ce qu'est le tracing distribué, SLI et SLO,
+  l'alerting, le coût de la cardinalité. Le véhicule technique neutre est
+  **OpenTelemetry**, qui est le standard et que Datadog ingère — ce qui permet
+  d'être concret sans être du contenu de marque.
+- **Le volet pratique**, document séparé, met tout ça en œuvre chez Datadog.
+
+Ce partage n'est pas qu'une précaution éditoriale : les requêtes durables sont
+les requêtes de concept (« différence logs métriques traces », « c'est quoi le
+tracing »). Sur les requêtes de produit, la documentation de l'éditeur sera
+toujours devant. Le pilier neutre est donc **aussi** le meilleur pari de
+référencement ; un partenariat aide par les liens entrants, pas par le
+classement sur les termes de marque.
+
+### Deux points à trancher avant d'écrire
+
+- **Le conflit d'employeur.** Le même réflexe qui a fait retirer la fiche AWS le
+  24/09 s'applique ici, en sens inverse : Thomas a travaillé chez Datadog et
+  travaille aujourd'hui chez Scaleway. À vérifier avant de s'engager, pas après.
+- **Le partenariat serait une première.** NX n'a ni publicité, ni tracking, ni
+  relation commerciale. Un cluster partenaire est une catégorie nouvelle : la
+  règle de divulgation s'écrit **avant** le premier contenu. Sans ça, c'est la
+  crédibilité éditoriale — le seul actif réel du site — qui paie.
+
+### Le projet monitoring vient en quatrième
+
+Un projet d'observabilité suppose une application **en production** à observer,
+donc le projet 3. La règle « zéro prérequis externe » impose l'ordre : projet 1
+conteneurise, 2 automatise, 3 déploie, **4 observe**. C'est aussi, dans l'ordre,
+le fil rouge des deux formations.
+
 ## Cluster IA — novembre à décembre 2026
 
 Cadrage complet : [cluster-ia.md](./cluster-ia.md). Nouvelle série `ia` (rayon
@@ -168,20 +250,30 @@ novembre.
 > même temps que deux fiches Docker qui remplacent la fiche AWS retirée. Les
 > deux fiches cloud prévues les 16 et 23/09 avaient glissé faute de visuel : le
 > planning repart du lundi 28/09 et alterne cloud et Docker.
+>
+> **Étendu à octobre le 24/09/2026.** Le planning s'arrêtait au 14/10 : douze
+> contenus sur les quatorze semaines restant avant fin décembre, soit 0,9 par
+> semaine pour un objectif de 1 à 3. Les semaines du 19 et du 26/10 étaient
+> vides. Quatre créneaux ajoutés, en alternant atelier et fiche pour ne pas
+> empiler quatre textes de la même série.
 
-| Date       | Contenu                                   | Cluster | Status / pourquoi à cette place                      |
-| ---------- | ----------------------------------------- | ------- | ---------------------------------------------------- |
-| 07/09/2026 | `github-actions-vs-gitlab-ci`             | CI/CD   | **DONE**                                             |
-| 09/09/2026 | `optimiser-workflows-github-actions`      | CI/CD   | **DONE**                                             |
-| 14/09/2026 | `premier-jeu-simple-pico-8`               | gamedev | **DONE**                                             |
-| 15/09/2026 | `l-atelier-presentation`                  | atelier | **DONE**                                             |
-| 21/09/2026 | `top-10-jeux-pico-8`                      | gamedev | **DONE**                                             |
-| 28/09/2026 | `deployer-conteneur-docker-dans-le-cloud` | cloud   | ferme le dernier lien `/drafts/` de `iaas-paas-saas` |
-| 30/09/2026 | `difference-docker-podman`                | docker  | remplace la fiche AWS, retirée le 24/09              |
-| 05/10/2026 | `deployer-conteneur-docker-sur-scaleway`  | cloud   | dérouler les commandes contre l'API d'abord          |
-| 07/10/2026 | `difference-docker-swarm-kubernetes`      | docker  | suite de la fiche Podman                             |
-| 12/10/2026 | `le-cloud-est-il-vraiment-moins-cher`     | cloud   |                                                      |
-| 14/10/2026 | `cloud-souverain`                         | cloud   | ferme le cluster, sept semaines avant le cours       |
+| Date       | Contenu                                         | Cluster | Status / pourquoi à cette place                            |
+| ---------- | ----------------------------------------------- | ------- | ---------------------------------------------------------- |
+| 07/09/2026 | `github-actions-vs-gitlab-ci`                   | CI/CD   | **DONE**                                                   |
+| 09/09/2026 | `optimiser-workflows-github-actions`            | CI/CD   | **DONE**                                                   |
+| 14/09/2026 | `premier-jeu-simple-pico-8`                     | gamedev | **DONE**                                                   |
+| 15/09/2026 | `l-atelier-presentation`                        | atelier | **DONE**                                                   |
+| 21/09/2026 | `top-10-jeux-pico-8`                            | gamedev | **DONE**                                                   |
+| 28/09/2026 | `deployer-conteneur-docker-dans-le-cloud`       | cloud   | ferme le dernier lien `/drafts/` de `iaas-paas-saas`       |
+| 30/09/2026 | `difference-docker-podman`                      | docker  | remplace la fiche AWS, retirée le 24/09                    |
+| 05/10/2026 | `deployer-conteneur-docker-sur-scaleway`        | cloud   | dérouler les commandes contre l'API d'abord                |
+| 07/10/2026 | `difference-docker-swarm-kubernetes`            | docker  | suite de la fiche Podman                                   |
+| 12/10/2026 | `le-cloud-est-il-vraiment-moins-cher`           | cloud   |                                                            |
+| 14/10/2026 | `cloud-souverain`                               | cloud   | ferme le cluster, sept semaines avant le cours             |
+| 19/10/2026 | Atelier — comment fonctionne Le Récap ?         | atelier | à écrire ; déjà listé en article bonus, aucune recherche   |
+| 21/10/2026 | Fiche — lancer ses tests dans un pipeline       | CI/CD   | à écrire ; le cas d'usage le plus courant, zéro couverture |
+| 26/10/2026 | Atelier — le système de news automatisé         | atelier | à écrire ; déjà listé en article bonus                     |
+| 28/10/2026 | Fiche — pourquoi mon conteneur ne démarre pas ? | docker  | à écrire ; pilier du mini-cluster débogage, voir plus bas  |
 
 Les dates sont reportées dans le `publishedDate` de chaque brouillon. Le jour de
 la publication, il reste à déplacer le fichier, basculer les liens `/drafts/`
