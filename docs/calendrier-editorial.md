@@ -42,8 +42,12 @@
 **Idées de fiches techniques complémentaires** :
 
 - GitHub Actions versus GitLab CI
-- GitHub Actions versus Travis CI
-- GitHub Actions versus Jenkins
+- ~~GitHub Actions versus Travis CI~~ — **écarté le 24/09/2026** : Travis est
+  moribond, et une fiche de comparaison avec un outil qui meurt est du contenu
+  mince qui vieillira mal.
+- ~~GitHub Actions versus Jenkins~~ — **écarté le 24/09/2026**, même raison de
+  fond : le public de NX ne migre pas depuis Jenkins. À rouvrir si une demande
+  réelle apparaît.
 - Docker verus Podman
 - Migrer de Docker (Swarm) vers Kube
 
@@ -129,6 +133,64 @@ Deux points à trancher :
 - `src/pages/manifeste.astro` annonce « un cours de création de jeux vidéo avec
   PICO-8 ». Cet engagement n'apparaît nulle part ailleurs : soit on le planifie,
   soit on le retire du manifeste.
+
+## La série Atelier
+
+Ouverte le 15/09/2026 avec
+[`l-atelier-presentation`](../src/pages/articles/l-atelier-presentation.md), et
+annoncée dans l'article de rentrée comme « une nouvelle série d'articles » sur
+les décisions techniques de NX. **Un seul article publié à ce jour.**
+
+Les quatre articles « coulisses de NX » listés en bonus plus haut appartiennent
+en réalité à cette série — ils ont été notés avant qu'elle existe. Deux d'entre
+eux sont désormais planifiés (19/10 et 26/10). À traiter comme des articles
+d'atelier, pas comme des bonus isolés.
+
+Deux sujets s'ajoutent, nés du travail du 24/09/2026 :
+
+- pourquoi NX passe des cours aux formations, et ce que les modèles changent à
+  la façon d'apprendre ;
+- « j'ai supprimé ma roadmap » — quinze mois de plan qui décrivait une migration
+  abandonnée, avec un chantier utile bloqué derrière. Registre carnet.
+
+**Question ouverte : l'atelier est aujourd'hui un tag, pas une série.** Les
+articles portent `serie: nx` et `tags: [NX Academy, L'atelier]`. Avec cinq ou
+six articles à venir, il faut décider s'il prend sa propre clé dans
+`src/data/series.ts` ou s'il reste sous `nx`. Voir aussi
+[dette-editoriale.md](./dette-editoriale.md), section 3.
+
+C'est enfin **le contenu le moins érodé par les modèles de langage** : il tient
+à une installation réelle que personne d'autre ne peut décrire. Raison de plus
+pour ne pas le laisser à une publication tous les six mois.
+
+## Cluster « développement assisté par IA » — janvier-février 2027
+
+Piste ouverte le 24/09/2026, **écartée pour 2026** et reportée au début 2027,
+pour trois raisons :
+
+- **collision de calendrier** : le cluster IA occupe novembre et décembre
+  entiers. Deux clusters IA en parallèle coupent le rayon `ia` en deux au moment
+  précis où il se remplit ;
+- **l'angle n'est pas libre tant que le sol n'est pas posé.** Un cluster sur le
+  développement assisté qui repose sur « c'est quoi un token, un agent, MCP »
+  est bien plus solide qu'un cluster qui flotte. Le cluster IA est ce sol ;
+- **c'est le sujet le plus écrit du web francophone**. Y entrer sans angle
+  distinctif, c'est être invisible. L'angle distinctif de NX existe déjà, et
+  c'est l'atelier : une installation réelle, racontée de l'intérieur.
+
+En attendant, la demande sur le sujet est servie par les articles d'atelier — ce
+qui est aussi la bonne répartition de charge : l'atelier est léger à produire,
+un cluster de fiches ne l'est pas.
+
+## Décembre 2026 — ralentissement assumé
+
+Après le 07/12, le planning est vide et **c'est un choix**, pas un oubli. Il y a
+le cours « mise en production », le Récap de décembre, les fêtes, et le bilan
+annuel qui sort début janvier comme les années précédentes.
+
+Le rythme sur les 14 semaines du 28/09 au 31/12 ressort à environ 1,3 contenu
+par semaine — le bas de la fourchette visée de 1 à 3. Les deux premiers projets,
+s'ils sortent d'ici là, s'ajoutent par-dessus.
 
 ## Mini-cluster « déboguer un conteneur » — octobre à novembre 2026
 
