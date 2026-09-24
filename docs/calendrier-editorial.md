@@ -1,4 +1,8 @@
-# Calendrier éditorial NX Academy – Avril à Décembre 2025
+# Calendrier éditorial NX Academy
+
+> Document vivant, ouvert en avril 2025. Il couvre aujourd'hui jusqu'à
+> décembre 2026. Les sections datées plus anciennes sont conservées pour
+> mémoire.
 
 **Rythme mensuel** :
 

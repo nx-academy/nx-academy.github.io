@@ -18,7 +18,7 @@ est frais. **Souple par principe** : c'est une proposition, pas un passage
 obligé.
 
 La mécanique complète du changelog (schéma, fichiers, rendu) est documentée dans
-`docs/changelog-migration-content-collections.md` — s'y référer en cas de doute.
+`docs/changelog-data-collection.md` — s'y référer en cas de doute.
 
 ## Étape 1 — Juger si une entrée est pertinente
 
