@@ -135,6 +135,57 @@ Sept blocs, dans cet ordre.
 - un titre en question. Les fiches en ont le monopole ; un projet s'intitule par
   son livrable.
 
+## Concevoir pour des lecteurs qui utiliseront l'IA
+
+Noté le 24 septembre 2026. **Ce chantier n'est pas ouvert** — il l'est au moment
+d'écrire les énoncés définitifs, pas avant. La note est ici pour qu'il ne se
+perde pas.
+
+Une partie des lecteurs fera le projet avec un modèle. Le leur interdire serait
+à la fois inapplicable et malhonnête. La bonne réponse n'est pas de lutter,
+c'est de **placer dans le parcours des questions qu'un modèle ne peut pas
+traiter à la place du lecteur**, pour que le modèle mental se construise quand
+même.
+
+Trois leviers, par ordre de robustesse :
+
+1. **La prédiction avant l'action.** Demander au lecteur de s'engager sur une
+   réponse avant de mesurer : « avant de construire, à votre avis, quelle est la
+   part des dépendances de développement dans la taille de l'image ? » Puis il
+   mesure. **L'écart entre sa prédiction et le résultat est le moment où il
+   apprend**, et un modèle ne peut pas s'engager à sa place — il peut donner la
+   bonne réponse, ce qui ne produit précisément aucun écart.
+2. **L'observation de son propre système.** « Lancez `docker history` sur
+   _votre_ image : quelle couche pèse le plus, et pourquoi celle-là ? » La
+   réponse dépend de son build. Pour la faire traiter par un modèle, il faut
+   d'abord avoir regardé — ce qui est déjà l'essentiel.
+3. **La panne provoquée.** « Supprimez le volume, relancez. Que se passe-t-il ?
+   » Expliquer un échec construit davantage que produire un succès, et l'échec
+   est le sien.
+
+Ce que ça ajoute à l'anatomie décrite plus haut : **chaque étape porte une
+question posée avant l'action et une vérification faite après**. La liste «
+comment savoir que c'est fini » reste, elle vérifie le livrable ; les questions
+d'étape, elles, vérifient la compréhension.
+
+### Partir des objectifs d'apprentissage
+
+Conséquence directe, et c'est une correction de méthode à faire sur ce document
+: **les deux énoncés ci-dessous ont été écrits en partant des contraintes**,
+parce que les contraintes se lisent directement dans le catalogue de fiches.
+C'est un raccourci commode, mais l'ordre est inversé.
+
+L'ordre juste est celui de la conception à rebours : **objectif d'apprentissage
+→ critère de réussite → contrainte qui l'impose → étape**. « Image sous 150 Mo »
+est une contrainte ; l'objectif derrière est « comprendre qu'une image est un
+empilement de couches, et que ce qu'on y met y reste ». Les deux ne produisent
+pas les mêmes questions d'étape, et c'est l'objectif qui doit gouverner.
+
+Les énoncés qui suivent sont donc un **premier jet** : la structure et les
+prérequis tiennent, la progression est à refaire depuis les objectifs. Cette
+passe est le vrai travail restant avant de passer la main au visuel — davantage
+que la mesure des seuils, qui pourrait d'ailleurs bouger après elle.
+
 ## La correction
 
 Elle vit dans un dépôt sous `github.com/nx-academy`, **un commit par étape**, et
@@ -367,8 +418,11 @@ Git est une version.
 
 - **Le dépôt de correction** : un dépôt par projet, ou un dépôt unique avec une
   branche par projet ? Un par projet se lit mieux, un seul se maintient mieux.
+- **La passe « objectifs d'apprentissage »** sur les deux énoncés, décrite
+  ci-dessus. C'est le premier arbitrage, et il conditionne les autres.
 - **Les seuils chiffrés** (150 Mo, trois minutes) sont à mesurer réellement
-  avant publication. Un seuil faux décrédibilise tout l'énoncé.
+  avant publication. Un seuil faux décrédibilise tout l'énoncé. À faire
+  **après** la passe objectifs, qui peut déplacer les étapes concernées.
 - **Le projet 1 exige-t-il d'avoir suivi le cours ?** La rédaction actuelle dit
   non, mais le prérequis de chapitre en étape 1 dit presque oui. À clarifier
   dans le brief.
