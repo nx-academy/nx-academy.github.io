@@ -15,6 +15,10 @@ author: Thomas Dimnet
 github: tdimnet
 kind: Fiche technique
 serie: cicd
+tags:
+  - Sécurité
+  - Production
+  - Cloud
 level: Intermédiaire
 publishedDate: 08/03/2026
 ---
