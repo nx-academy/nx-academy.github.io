@@ -72,7 +72,7 @@
 ## Cluster Cloud public — août à octobre 2026
 
 Cadrage complet : [cluster-cloud-public.md](./cluster-cloud-public.md). Nouvelle
-série `cloud` (rayon « Cloud public » sur `/fiches/`), 6 fiches et 2 articles
+série `cloud` (rayon « Cloud public » sur `/fiches/`), 5 fiches et 2 articles
 qui se citent en chaîne. Prépare le terrain du cours « Mettez vos applications
 en production ».
 
@@ -157,7 +157,7 @@ glisse en janvier.
 
 Deux publications par semaine, lundi et mercredi : les deux jours les plus
 fréquents des trois derniers mois, et la cadence qui vide le backlog avant
-novembre. Les neuf brouillons du dépôt y sont tous placés. Ils sont rédigés,
+novembre. Les onze brouillons du dépôt y sont tous placés. Ils sont rédigés,
 mais **aucun n'a son visuel** — c'est le seul vrai goulot de ce calendrier.
 
 | Date       | Contenu                                   | Cluster | Pourquoi à cette place                      |
@@ -169,8 +169,10 @@ mais **aucun n'a son visuel** — c'est le seul vrai goulot de ce calendrier.
 | 16/09/2026 | `deployer-conteneur-docker-dans-le-cloud` | cloud   | déjà cité par `iaas-paas-saas`              |
 | 21/09/2026 | `top-10-jeux-pico-8`                      | gamedev |                                             |
 | 23/09/2026 | `deployer-conteneur-docker-sur-scaleway`  | cloud   | dérouler les commandes contre l'API d'abord |
+| 28/09/2026 | `difference-docker-podman`                | docker  | remplace la fiche AWS, retirée le 24/09     |
 | 30/09/2026 | `le-cloud-est-il-vraiment-moins-cher`     | cloud   |                                             |
 | 05/10/2026 | `cloud-souverain`                         | cloud   | ferme le cluster, deux mois avant le cours  |
+| 07/10/2026 | `difference-docker-swarm-kubernetes`      | docker  | suite de la fiche Podman                    |
 
 `l-atelier-presentation` tombe un mardi et non un lundi : le lundi 14 est déjà
 pris par `premier-jeu-simple-pico-8`. C'est la seule semaine à trois
