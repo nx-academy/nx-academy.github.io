@@ -2,7 +2,8 @@
 layout: ../../layouts/CheatSheetsLayout.astro
 
 title: "Docker Swarm et Kubernetes, quelles différences ?"
-description: "Deux orchestrateurs de conteneurs, deux philosophies. Swarm mise sur la
+description:
+  "Deux orchestrateurs de conteneurs, deux philosophies. Swarm mise sur la
   simplicité et le fichier Compose, Kubernetes sur un modèle complet et un
   écosystème immense. On compare les deux pour savoir lequel choisir."
 

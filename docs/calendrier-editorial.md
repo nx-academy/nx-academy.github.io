@@ -82,25 +82,26 @@ en production ».
 > autour de 2,5. Tout est ramené sur septembre-octobre. Dates du tableau au
 > format français ; dans les frontmatters, elles s'écrivent `MM/DD/YYYY`.
 
-| Date       | Type    | Titre                                                       | Status    |
-| ---------- | ------- | ----------------------------------------------------------- | --------- |
-| 05/08/2026 | Fiche   | Qu'est-ce que le cloud public ? (pilier)                    | **DONE**  |
-| 12/08/2026 | Fiche   | Cloud public, privé, hybride : quelles différences ?        | **DONE**  |
-| 02/09/2026 | Fiche   | IaaS, PaaS, SaaS : quelles différences et comment choisir ? | **DONE**  |
-| 16/09/2026 | Fiche   | Comment déployer un conteneur Docker dans le cloud ?        | brouillon |
-| 23/09/2026 | Fiche   | Comment déployer un conteneur Docker sur Scaleway ?         | brouillon |
-| 30/09/2026 | Article | Le cloud public coûte-t-il vraiment moins cher ?            | brouillon |
-| 05/10/2026 | Article | Cloud souverain : de quoi parle-t-on vraiment ?             | brouillon |
+| Date       | Type    | Titre                                                       | Status   |
+| ---------- | ------- | ----------------------------------------------------------- | -------- |
+| 05/08/2026 | Fiche   | Qu'est-ce que le cloud public ? (pilier)                    | **DONE** |
+| 12/08/2026 | Fiche   | Cloud public, privé, hybride : quelles différences ?        | **DONE** |
+| 02/09/2026 | Fiche   | IaaS, PaaS, SaaS : quelles différences et comment choisir ? | **DONE** |
+| 28/09/2026 | Fiche   | Comment déployer un conteneur Docker dans le cloud ?        | prêt     |
+| 05/10/2026 | Fiche   | Comment déployer un conteneur Docker sur Scaleway ?         | prêt     |
+| 12/10/2026 | Article | Le cloud public coûte-t-il vraiment moins cher ?            | prêt     |
+| 14/10/2026 | Article | Cloud souverain : de quoi parle-t-on vraiment ?             | prêt     |
 
 Les quatre brouillons restants sont écrits et vivent dans `src/pages/drafts/`
 (`deployer-conteneur-docker-dans-le-cloud`,
 `deployer-conteneur-docker-sur-scaleway`, `le-cloud-est-il-vraiment-moins-cher`,
-`cloud-souverain`). Il leur manque leurs visuels. La fiche de mise en pratique
-est cadrée dans [cluster-cloud-pratique.md](./cluster-cloud-pratique.md), et ses
-commandes n'ont pas encore été exécutées contre une vraie API. Publier =
-déplacer le fichier vers `src/pages/fiches/` ou `src/pages/articles/`, ajuster
-`publishedDate` et basculer les liens `/drafts/` : la checklist par contenu est
-dans [cluster-cloud-public.md](./cluster-cloud-public.md).
+`cloud-souverain`). Leurs visuels sont arrivés le 24/09/2026. La fiche de mise
+en pratique est cadrée dans
+[cluster-cloud-pratique.md](./cluster-cloud-pratique.md), et ses commandes n'ont
+pas encore été exécutées contre une vraie API. Publier = déplacer le fichier
+vers `src/pages/fiches/` ou `src/pages/articles/`, ajuster `publishedDate` et
+basculer les liens `/drafts/` : la checklist par contenu est dans
+[cluster-cloud-public.md](./cluster-cloud-public.md).
 
 ## Série Game dev — PICO-8
 
@@ -157,29 +158,33 @@ glisse en janvier.
 
 Deux publications par semaine, lundi et mercredi : les deux jours les plus
 fréquents des trois derniers mois, et la cadence qui vide le backlog avant
-novembre. Les onze brouillons du dépôt y sont tous placés. Ils sont rédigés,
-mais **aucun n'a son visuel** — c'est le seul vrai goulot de ce calendrier.
+novembre.
 
-| Date       | Contenu                                   | Cluster | Pourquoi à cette place                      |
-| ---------- | ----------------------------------------- | ------- | ------------------------------------------- |
-| 07/09/2026 | `github-actions-vs-gitlab-ci`             | CI/CD   | ferme un 404 en production                  |
-| 09/09/2026 | `optimiser-workflows-github-actions`      | CI/CD   | ferme le second 404                         |
-| 14/09/2026 | `premier-jeu-simple-pico-8`               | gamedev | trois liens `/drafts/` en attente           |
-| 15/09/2026 | `l-atelier-presentation`                  | atelier | ouvre la série « L'atelier »                |
-| 16/09/2026 | `deployer-conteneur-docker-dans-le-cloud` | cloud   | déjà cité par `iaas-paas-saas`              |
-| 21/09/2026 | `top-10-jeux-pico-8`                      | gamedev |                                             |
-| 23/09/2026 | `deployer-conteneur-docker-sur-scaleway`  | cloud   | dérouler les commandes contre l'API d'abord |
-| 28/09/2026 | `difference-docker-podman`                | docker  | remplace la fiche AWS, retirée le 24/09     |
-| 30/09/2026 | `le-cloud-est-il-vraiment-moins-cher`     | cloud   |                                             |
-| 05/10/2026 | `cloud-souverain`                         | cloud   | ferme le cluster, deux mois avant le cours  |
-| 07/10/2026 | `difference-docker-swarm-kubernetes`      | docker  | suite de la fiche Podman                    |
+> Replanifié le 24/09/2026. Les visuels du backlog sont arrivés ce jour-là, en
+> même temps que deux fiches Docker qui remplacent la fiche AWS retirée. Les
+> deux fiches cloud prévues les 16 et 23/09 avaient glissé faute de visuel : le
+> planning repart du lundi 28/09 et alterne cloud et Docker.
 
-`l-atelier-presentation` tombe un mardi et non un lundi : le lundi 14 est déjà
-pris par `premier-jeu-simple-pico-8`. C'est la seule semaine à trois
-publications du planning, ce qui reste dans le rythme habituel.
+| Date       | Contenu                                   | Cluster | Status / pourquoi à cette place                      |
+| ---------- | ----------------------------------------- | ------- | ---------------------------------------------------- |
+| 07/09/2026 | `github-actions-vs-gitlab-ci`             | CI/CD   | **DONE**                                             |
+| 09/09/2026 | `optimiser-workflows-github-actions`      | CI/CD   | **DONE**                                             |
+| 14/09/2026 | `premier-jeu-simple-pico-8`               | gamedev | **DONE**                                             |
+| 15/09/2026 | `l-atelier-presentation`                  | atelier | **DONE**                                             |
+| 21/09/2026 | `top-10-jeux-pico-8`                      | gamedev | **DONE**                                             |
+| 28/09/2026 | `deployer-conteneur-docker-dans-le-cloud` | cloud   | ferme le dernier lien `/drafts/` de `iaas-paas-saas` |
+| 30/09/2026 | `difference-docker-podman`                | docker  | remplace la fiche AWS, retirée le 24/09              |
+| 05/10/2026 | `deployer-conteneur-docker-sur-scaleway`  | cloud   | dérouler les commandes contre l'API d'abord          |
+| 07/10/2026 | `difference-docker-swarm-kubernetes`      | docker  | suite de la fiche Podman                             |
+| 12/10/2026 | `le-cloud-est-il-vraiment-moins-cher`     | cloud   |                                                      |
+| 14/10/2026 | `cloud-souverain`                         | cloud   | ferme le cluster, sept semaines avant le cours       |
+
+Les dates sont reportées dans le `publishedDate` de chaque brouillon. Le jour de
+la publication, il reste à déplacer le fichier, basculer les liens `/drafts/`
+qui pointent vers lui et passer la ligne en **DONE**.
 
 Reste hors planning : le récap de septembre, à sortir fin septembre comme les
-précédents.
+précédents. Le cluster IA démarre ensuite le 02/11, sans chevauchement.
 
 ## Le Recap
 

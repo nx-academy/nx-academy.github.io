@@ -20,16 +20,16 @@ tags:
   - Sécurité
   - Production
 level: Intermédiaire
-publishedDate: 09/28/2026
+publishedDate: 09/30/2026
 
 faq:
   - question: Quelle est la différence entre Docker et Podman ?
     answer:
       "Docker passe par un démon, un service qui tourne en permanence avec les
-      droits root et qui lance les conteneurs pour vous. Podman n'a pas de
-      démon chaque commande lance directement ses conteneurs, et par défaut
-      sans les droits root. Les images, les registries et la plupart des
-      commandes sont les mêmes."
+      droits root et qui lance les conteneurs pour vous. Podman n'a pas de démon
+      chaque commande lance directement ses conteneurs, et par défaut sans les
+      droits root. Les images, les registries et la plupart des commandes sont
+      les mêmes."
   - question: Podman peut-il remplacer Docker ?
     answer:
       "Pour construire des images et faire tourner des conteneurs, oui la ligne

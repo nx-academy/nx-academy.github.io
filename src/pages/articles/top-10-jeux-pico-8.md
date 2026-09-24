@@ -204,9 +204,9 @@ permet, lui, de jouer à tout ça dans le navigateur.
 
 Et si toutes ces pépites vous donnent envie de créer la vôtre, je vous invite à
 suivre le fil : [découvrez PICO-8](/articles/decouvrir-pico-8), puis
-[prenez l'outil en main](/drafts/prendre-en-main-pico-8) et lancez-vous avec
-[votre premier jeu simple](/drafts/premier-jeu-simple-pico-8). Si vous venez de
-Python, j'ai aussi comparé [PICO-8 et Pygame](/drafts/pico-8-ou-pygame) pour
+[prenez l'outil en main](/fiches/prendre-en-main-pico-8) et lancez-vous avec
+[votre premier jeu simple](/fiches/premier-jeu-simple-pico-8). Si vous venez de
+Python, j'ai aussi comparé [PICO-8 et Pygame](/articles/pico-8-ou-pygame) pour
 vous aider à choisir par où commencer.
 
 Allez, à vous de jouer. Et codez bien !

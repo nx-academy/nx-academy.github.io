@@ -52,7 +52,7 @@ Convention de frontmatter : identique à celle du cluster (voir
 
 | #   | Slug                                     | Titre                                               | level         | publishedDate |
 | --- | ---------------------------------------- | --------------------------------------------------- | ------------- | ------------- |
-| 7   | `deployer-conteneur-docker-sur-scaleway` | Comment déployer un conteneur Docker sur Scaleway ? | Intermédiaire | 11/18/2026    |
+| 7   | `deployer-conteneur-docker-sur-scaleway` | Comment déployer un conteneur Docker sur Scaleway ? | Intermédiaire | 10/05/2026    |
 
 **Tags : `Cloud`, `Docker`, `Production`.** Volontairement les mêmes que la
 fiche-pont, et **pas de tag `Scaleway`** :

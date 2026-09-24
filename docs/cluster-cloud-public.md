@@ -43,10 +43,10 @@ ensuite » (`src/utils/relatedContent/`, poids `serie` = +3, `tag` partagé = +
 | 1   | Fiche   | `comprendre-le-cloud-public`              | Qu'est-ce que le cloud public ?                             | Débutant      | **Pilier** / porte d'entrée | Publié 05/08/2026 |
 | 2   | Fiche   | `difference-cloud-public-prive-hybride`   | Cloud public, privé, hybride : quelles différences ?        | Débutant      | Comparatif (fort volume)    | Publié 12/08/2026 |
 | 3   | Fiche   | `iaas-paas-saas`                          | IaaS, PaaS, SaaS : quelles différences et comment choisir ? | Intermédiaire | Requête exact-match         | Publié 02/09/2026 |
-| 4   | Fiche   | `deployer-conteneur-docker-dans-le-cloud` | Comment déployer un conteneur Docker dans le cloud ?        | Intermédiaire | **Pont Docker ↔ CI/CD**    | Prévu 16/09/2026  |
-| 5   | Article | `le-cloud-est-il-vraiment-moins-cher`     | Le cloud public coûte-t-il vraiment moins cher ?            | —             | Réflexion / coûts           | Prévu 30/09/2026  |
-| 6   | Article | `cloud-souverain`                         | Cloud souverain : de quoi parle-t-on vraiment ?             | —             | Réflexion / souveraineté    | Prévu 05/10/2026  |
-| 7   | Fiche   | `deployer-conteneur-docker-sur-scaleway`  | Comment déployer un conteneur Docker sur Scaleway ?         | Intermédiaire | Mise en pratique            | Prévu 23/09/2026  |
+| 4   | Fiche   | `deployer-conteneur-docker-dans-le-cloud` | Comment déployer un conteneur Docker dans le cloud ?        | Intermédiaire | **Pont Docker ↔ CI/CD**    | Prévu 28/09/2026  |
+| 5   | Article | `le-cloud-est-il-vraiment-moins-cher`     | Le cloud public coûte-t-il vraiment moins cher ?            | —             | Réflexion / coûts           | Prévu 12/10/2026  |
+| 6   | Article | `cloud-souverain`                         | Cloud souverain : de quoi parle-t-on vraiment ?             | —             | Réflexion / souveraineté    | Prévu 14/10/2026  |
+| 7   | Fiche   | `deployer-conteneur-docker-sur-scaleway`  | Comment déployer un conteneur Docker sur Scaleway ?         | Intermédiaire | Mise en pratique            | Prévu 05/10/2026  |
 
 ### Détail des angles
 
