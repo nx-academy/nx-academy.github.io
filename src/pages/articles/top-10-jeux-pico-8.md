@@ -180,7 +180,7 @@ nerveux, diablement efficace : exactement ce qu'on attend d'un jeu d'arcade. À
 <br>
 
 | **Jeu**              | **Genre**             | **Créateur·rice**             |
-| -------------------- | --------------------- | ----------------------------- | --- |
+| -------------------- | --------------------- | ----------------------------- |
 | Celeste Classic      | Platformer précision  | Maddy Thorson & Noel Berry    |
 | Celeste Classic 2    | Platformer précision  | Maddy Makes Games             |
 | POOM                 | FPS (demake de Doom)  | freds72 & Paranoid Cactus     |
@@ -190,7 +190,7 @@ nerveux, diablement efficace : exactement ce qu'on attend d'un jeu d'arcade. À
 | UFO Swamp Odyssey    | Platformer            | Paranoid Cactus               |
 | Just One Boss        | Boss-rush             | bridgs                        |
 | Air Delivery         | Platformer / aventure | pianoman373                   |
-| Pico Racer           | Course arcade         | kometbomb                     | \   |
+| Pico Racer           | Course arcade         | kometbomb                     |
 
 ---
 
