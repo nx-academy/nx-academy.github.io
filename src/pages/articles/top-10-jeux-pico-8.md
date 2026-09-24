@@ -46,7 +46,8 @@ croyez-moi, on tombe vite sur des pépites.
 
 Du coup, je me suis dit qu'un petit tour d'horizon des jeux les plus marquants
 de la console s'imposait. Que vous cherchiez de l'inspiration avant de coder ou
-simplement de quoi jouer cinq minutes (au bureau 😅), vous devriez trouver votre bonheur ici.
+simplement de quoi jouer cinq minutes (au bureau 😅), vous devriez trouver votre
+bonheur ici.
 
 Petite précision avant de commencer. « Le plus connu » reste forcément un peu
 subjectif. Disons que cette liste rassemble des jeux qui ont marqué la
@@ -125,7 +126,8 @@ couleurs à disposition. À [explorer ici](https://krajzeg.itch.io/dank-tomb).
 **The Tower of Archeos**, de Benjamin Soulé, est un roguelike-puzzle malin où
 l'on descend une tour étage par étage en enchaînant les combos. Le genre de jeu
 « juste une partie de plus » qui vous garde bien plus longtemps que prévu. C'est
-exactement le format court et rejouable pour lequel PICO-8 brille. À [jouer ici](https://www.lexaloffle.com/bbs/?tid=1907&autoplay=1).
+exactement le format court et rejouable pour lequel PICO-8 brille. À
+[jouer ici](https://www.lexaloffle.com/bbs/?tid=1907&autoplay=1).
 
 ---
 
@@ -178,7 +180,7 @@ nerveux, diablement efficace : exactement ce qu'on attend d'un jeu d'arcade. À
 <br>
 
 | **Jeu**              | **Genre**             | **Créateur·rice**             |
-| -------------------- | --------------------- | ----------------------------- |
+| -------------------- | --------------------- | ----------------------------- | --- |
 | Celeste Classic      | Platformer précision  | Maddy Thorson & Noel Berry    |
 | Celeste Classic 2    | Platformer précision  | Maddy Makes Games             |
 | POOM                 | FPS (demake de Doom)  | freds72 & Paranoid Cactus     |
@@ -188,14 +190,14 @@ nerveux, diablement efficace : exactement ce qu'on attend d'un jeu d'arcade. À
 | UFO Swamp Odyssey    | Platformer            | Paranoid Cactus               |
 | Just One Boss        | Boss-rush             | bridgs                        |
 | Air Delivery         | Platformer / aventure | pianoman373                   |
-| Pico Racer           | Course arcade         | kometbomb                     |\
+| Pico Racer           | Course arcade         | kometbomb                     | \   |
 
 ---
 
 ## Comment dénicher d'autres pépites ?
 
 Cette liste n'est qu'un point de départ. La meilleure façon d'explorer, c'est
-d'utiliser **SPLORE**, le navigateur de jeux intégré à PICO-8 : tapez `splore`
+d'utiliser **SPLORE**, le navigateur de jeux intégré à PICO-8. Tapez `splore`
 dans le shell et parcourez les cartouches de la communauté directement depuis la
 console. Le [BBS officiel de Lexaloffle](https://www.lexaloffle.com/bbs/?cat=7)
 permet, lui, de jouer à tout ça dans le navigateur.
