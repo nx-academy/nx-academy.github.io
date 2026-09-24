@@ -130,8 +130,7 @@ d'autres. Trois architectures coexistent très bien :
    agent est souvent celui qu'on n'écrit pas.
 2. **Un modèle appelé depuis `nx-mcp`** — le dépôt est en Python et a déjà les
    mains sur Turso et NewsAPI. Une boucle maison y est parfaitement viable ;
-   `docs/plan-fonctionnalites.md` en décrit déjà deux, le RAG de l'auto-Récap et
-   l'auto-génération de quiz.
+   c'est déjà le cas du RAG de l'auto-Récap et de l'auto-génération de quiz.
 3. **Un harnais existant** — la boucle, les outils fichiers, git, le client MCP
    et le modèle de permissions sont fournis ; il ne reste qu'à écrire la
    doctrine.
@@ -195,10 +194,10 @@ ingrate, parfaite à déléguer.
 
 ### 6. Le générateur de quiz
 
-12 quiz pour 27 fiches, et `docs/plan-fonctionnalites.md` marque le chantier
-« en beta » depuis plusieurs mois. Une fiche publiée déclenche une PR ajoutant
-son entrée dans `src/data/quiz.ts` ; `astro check` attrape les erreurs de
-typage, la relecture juge la pertinence pédagogique.
+12 quiz pour 27 fiches, et l'ancienne roadmap marquait le chantier « en beta »
+depuis plusieurs mois. Une fiche publiée déclenche une PR ajoutant son entrée
+dans `src/data/quiz.ts` ; `astro check` attrape les erreurs de typage, la
+relecture juge la pertinence pédagogique.
 
 ## Ce qui n'est pas un agent
 

@@ -19,7 +19,7 @@ tasks:
       Ajout du temps de lecture sur les articles et les cours.
   - kind: done
     content: |-
-      Alors, ce n'est pas vraiment une feature mais j'ai mis à jour <a href="https://github.com/nx-academy/nx-academy.github.io/blob/main/docs/plan-fonctionnalites.md" target="_blank">les fonctionnalités</a> sur lesquelles je vais travailler jusqu'en décembre ainsi que <a href="https://github.com/nx-academy/nx-academy.github.io/blob/main/docs/calendrier-editorial.md" target="_blank">le calendrier édito</a>. Pour info, je vais bientôt sortir une page roadmap publique pour vous tenir au courant de mes futurs plans.
+      Alors, ce n'est pas vraiment une feature mais j'ai mis à jour <a href="https://github.com/nx-academy/nx-academy.github.io/blob/main/docs/roadmap-produit.md" target="_blank">les fonctionnalités</a> sur lesquelles je vais travailler jusqu'en décembre ainsi que <a href="https://github.com/nx-academy/nx-academy.github.io/blob/main/docs/calendrier-editorial.md" target="_blank">le calendrier édito</a>. Pour info, je vais bientôt sortir une page roadmap publique pour vous tenir au courant de mes futurs plans.
   - kind: in-progress
     content: |-
       Finalisation du système de RAG pour Le Recap. L'agent est maintenant capable de scrapper un article, de le résumer et de créer un fichier markdown accepté par Astro. Il y a encore un peu de clean à faire mais c'est bientôt terminé !
