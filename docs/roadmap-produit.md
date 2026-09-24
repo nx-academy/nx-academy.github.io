@@ -158,6 +158,63 @@ dont certaines étapes sont leurs chapitres actuels, aux mêmes URLs. Les
 formations suivantes s'assemblent sans chapitres. Le modèle se valide là où il
 est bon marché, et rien de publié ne meurt.
 
+#### Décision différée, et son déclencheur
+
+**Arrêté le 24 septembre 2026 : on ne tranche pas maintenant.** Le déclencheur
+est la publication des deux premiers projets. Ce n'est pas un report de confort
+— les projets vont produire trois informations qu'on n'a pas encore, et dont
+chacune change la réponse :
+
+- **ce que coûte réellement un projet** (le journal de
+  [`projets.md`](./projets.md)), donc si une formation peut raisonnablement en
+  contenir un ;
+- **si un projet tient sans son cours**, c'est-à-dire si le lecteur arrive au
+  bout en n'ayant que des fiches derrière lui ;
+- **si une chaîne de projets tient**, puisque le second reprend le livrable du
+  premier — c'est le même mécanisme qu'une formation, en plus petit.
+
+Trois objectifs sont posés pour la suite, et ils ne se contredisent pas :
+publier **plus souvent**, avec de **meilleurs résultats de référencement**, et
+en tenant compte de **ce que les modèles de langage changent à la façon
+d'apprendre**.
+
+Sur le référencement, une nuance à ne pas s'inventer : une page de formation qui
+se contente de lister des liens n'apporte pas de contenu indexable. Son gain est
+indirect — c'est une page pivot, elle resserre le maillage et elle peut viser
+des requêtes que le site n'adresse aujourd'hui que par `/cours` (« apprendre
+Docker », « formation Docker »). Le contenu indexable continue de venir des
+fiches.
+
+#### Ce que les modèles changent, et ce qu'ils ne changent pas
+
+C'est un critère de conception, pas une intention.
+
+Un modèle répond désormais très bien à « comment faire un multi-stage build ».
+La valeur d'un contenu qui explique **comment faire** s'érode donc, lentement
+mais sûrement. Ce qu'un modèle ne donne pas : **l'ordre** — quoi apprendre
+quand, et pourquoi dans ce sens —, **la contrainte** qui oblige à faire
+réellement, et **le critère** qui dit que c'est réussi. Il fera volontiers le
+projet à la place du lecteur ; il ne lui dira pas qu'il a triché.
+
+Autrement dit, les deux formats les moins érodés sont précisément **le projet**
+— dont toute la valeur est dans l'énoncé, pas dans la réponse — et **la prose de
+liaison d'une formation**, qui suppose de savoir ce qu'il y a au catalogue et ce
+que le lecteur vient de faire.
+
+Il y a là une ironie utile : la prose de liaison est la partie qu'on voudrait
+générer, et c'est celle dont la valeur humaine est la plus haute. Ce n'est pas
+une raison de ne pas l'outiller, c'en est une de **la dériver de la structure
+plutôt que de la faire inventer**. Le générateur connaît l'étape précédente,
+l'étape suivante et l'écart entre les deux : c'est une tâche contrainte, du même
+ordre que le changelog, avec le même garde-fou — on propose, Thomas valide. Le
+dépôt a déjà deux précédents dans `.claude/skills/`.
+
+Le vrai gain n'est d'ailleurs pas la vitesse d'écriture. C'est que **la prose
+devient une fonction de la structure** : réordonner une formation cesse de
+vouloir dire la réécrire à la main. C'est ce qui rend « en sortir plus, et plus
+souvent » réellement possible, et c'est exactement ce qui a marché pour le
+changelog.
+
 ---
 
 ## Écarté, et pourquoi
