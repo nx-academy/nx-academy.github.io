@@ -3,10 +3,10 @@ layout: ../../layouts/CheatSheetsLayout.astro
 
 title: "Comment déployer un conteneur Docker dans le cloud ?"
 description:
-  "Votre image est sur un registry, il reste à la faire tourner. On déroule le
-  déploiement d'un conteneur Docker sur un service managé : authentification au
+  "Maintenant que votre image est sur un registry, il vous reste à la faire tourner. On déroule le
+  déploiement d'un conteneur Docker sur un service managé (authentification au
   registry, variables d'environnement, port exposé, healthcheck, mise à
-  l'échelle et coût à l'usage."
+  l'échelle et coût à l'usage)."
 
 imgAlt:
   Un conteneur maritime soulevé par une grue et posé sur un socle lumineux au
@@ -23,7 +23,7 @@ tags:
   - CI/CD
   - Production
 level: Intermédiaire
-publishedDate: 09/28/2026
+publishedDate: 09/27/2026
 
 faq:
   - question: Comment déployer un conteneur Docker dans le cloud ?
