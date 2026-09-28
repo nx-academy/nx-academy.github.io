@@ -2,6 +2,9 @@ month: Septembre
 year: 2026
 order: 9
 tasks:
+  - kind: done
+    content: |-
+      Fiche technique sur le <a href="/fiches/deployer-conteneur-docker-dans-le-cloud#le-point-de-départ-une-image-pas-un-dépôt" target="_blank">déploiement d'images Docker dans le Cloud</a>.
   - kind: fix
     content: |-
       Trois liens de <a href="/articles/top-10-jeux-pico-8" target="_blank">l'article sur les jeux PICO-8</a> pointaient vers des brouillons déjà publiés. C'est réparé.

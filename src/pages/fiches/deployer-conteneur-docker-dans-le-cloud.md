@@ -3,10 +3,10 @@ layout: ../../layouts/CheatSheetsLayout.astro
 
 title: "Comment déployer un conteneur Docker dans le cloud ?"
 description:
-  "Maintenant que votre image est sur un registry, il vous reste à la faire tourner. On déroule le
-  déploiement d'un conteneur Docker sur un service managé (authentification au
-  registry, variables d'environnement, port exposé, healthcheck, mise à
-  l'échelle et coût à l'usage)."
+  "Maintenant que votre image est sur un registry, il vous reste à la faire
+  tourner. On déroule le déploiement d'un conteneur Docker sur un service
+  managé (authentification au registry, variables d'environnement, port exposé,
+  healthcheck, mise à l'échelle et coût à l'usage)."
 
 imgAlt:
   Un conteneur maritime soulevé par une grue et posé sur un socle lumineux au
@@ -119,7 +119,7 @@ gagner des soirées entières.
 
 ---
 
-## Étape 1 - Publier l'image sur un registry
+## Étape 1 : Publier l'image sur un registry
 
 Le registry doit être joignable depuis le service cloud. Deux options, et le
 choix est plus structurant qu'il n'en a l'air.
@@ -146,7 +146,7 @@ au cloud sur ce registry.
 
 ---
 
-## Étape 2 - Autoriser le service à lire l'image
+## Étape 2 : Autoriser le service à lire l'image
 
 C'est l'étape qu'on oublie, et c'est de loin la cause numéro un des premiers
 déploiements qui échouent. Le service doit avoir **le droit de lire** votre
@@ -173,7 +173,7 @@ appliqués de l'autre côté de la chaîne.
 
 ---
 
-## Étape 3 - Créer le service à partir de l'image
+## Étape 3 : Créer le service à partir de l'image
 
 C'est le cœur de l'affaire, et c'est étonnamment court. Vous donnez au
 fournisseur l'adresse complète de l'image, les ressources allouées et le port
@@ -208,7 +208,7 @@ Les deux erreurs :
 
 ---
 
-## Étape 4 - Déclarer les variables d'environnement
+## Étape 4 : Déclarer les variables d'environnement
 
 En local, votre fichier `.env` remplit ce rôle et vous n'y pensez plus. Dans le
 cloud, il n'existe pas — et c'est très bien, il n'a jamais eu vocation à être
@@ -237,7 +237,7 @@ démarrage, il ne le relit jamais ensuite.
 
 ---
 
-## Étape 5 - Brancher un healthcheck
+## Étape 5 : Brancher un healthcheck
 
 Sans healthcheck, le service sait seulement que votre processus est lancé. Ce
 n'est pas la même chose que **prêt à répondre**, et cette nuance coûte cher au
@@ -263,7 +263,7 @@ coupure et une minute d'erreurs 502** à chaque mise en production.
 
 ---
 
-## Étape 6 - Vérifier, puis borner la mise à l'échelle
+## Étape 6 : Vérifier, puis borner la mise à l'échelle
 
 Le premier démarrage se lit dans les journaux, et il faut vraiment prendre les
 deux minutes nécessaires. C'est là que se voient la variable manquante, le port
@@ -292,7 +292,7 @@ dont on parlait dans
 
 ---
 
-## Astuce bonus - Service managé ou orchestrateur ?
+## Astuce bonus : Service managé ou orchestrateur ?
 
 La question tombe toujours à ce moment-là : et Kubernetes dans tout ça ? Ou
 [Docker Swarm](/fiches/decouvrir-docker-swarm), dont on a déjà parlé ?
