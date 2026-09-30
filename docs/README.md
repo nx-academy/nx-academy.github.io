@@ -20,14 +20,16 @@ qu'il décrit un mécanisme en place.
 
 ## Éditorial
 
-| Document                                                           | Statut  | De quoi ça parle                                                      |
-| ------------------------------------------------------------------ | ------- | --------------------------------------------------------------------- |
-| [calendrier-editorial.md](./calendrier-editorial.md)               | vivant  | Le rythme, les cours prévus, le planning de publication à la semaine. |
-| [dette-editoriale.md](./dette-editoriale.md)                       | vivant  | Ce qui est cassé et qu'il faut réparer : liens morts, maillage abîmé. |
-| [cluster-cicd-github-actions.md](./cluster-cicd-github-actions.md) | cadrage | Le cluster CI/CD, sept contenus, la recette Docker rejouée.           |
-| [cluster-cloud-public.md](./cluster-cloud-public.md)               | cadrage | Le cluster cloud, du vocabulaire au premier déploiement.              |
-| [cluster-cloud-pratique.md](./cluster-cloud-pratique.md)           | cadrage | Le volet pratique du cluster cloud, chez Scaleway.                    |
-| [cluster-ia.md](./cluster-ia.md)                                   | cadrage | Le cluster IA, la technique sous les articles d'usage déjà en ligne.  |
+| Document                                                                   | Statut    | De quoi ça parle                                                      |
+| -------------------------------------------------------------------------- | --------- | --------------------------------------------------------------------- |
+| [calendrier-editorial.md](./calendrier-editorial.md)                       | vivant    | Le rythme, les cours prévus, le planning de publication à la semaine. |
+| [dette-editoriale.md](./dette-editoriale.md)                               | vivant    | Ce qui est cassé et qu'il faut réparer : liens morts, maillage abîmé. |
+| [cluster-cicd-github-actions.md](./cluster-cicd-github-actions.md)         | cadrage   | Le cluster CI/CD, sept contenus, la recette Docker rejouée.           |
+| [cluster-cloud-public.md](./cluster-cloud-public.md)                       | cadrage   | Le cluster cloud, du vocabulaire au premier déploiement.              |
+| [cluster-cloud-pratique.md](./cluster-cloud-pratique.md)                   | cadrage   | Le volet pratique du cluster cloud, chez Scaleway.                    |
+| [cluster-ia.md](./cluster-ia.md)                                           | cadrage   | Le cluster IA, la technique sous les articles d'usage déjà en ligne.  |
+| [refonte-articles-sans-le-savoir.md](./refonte-articles-sans-le-savoir.md) | cadrage   | Diagnostic et nouveaux plans des deux articles « sans le savoir ».    |
+| [voix-et-pedagogie.md](./voix-et-pedagogie.md)                             | référence | D'où vient le skill `pedagogie-nx` et comment il s'améliore.          |
 
 ## Technique
 
@@ -38,8 +40,8 @@ qu'il décrit un mécanisme en place.
 ## Ce qui n'est pas ici
 
 - Les **règles de rédaction** vivent dans les skills du dépôt
-  (`.claude/skills/typo-francaise`, `typo-anglaise`, `changelog`), chargées
-  seulement quand elles servent.
+  (`.claude/skills/typo-francaise`, `pedagogie-nx`, `typo-anglaise`,
+  `changelog`), chargées seulement quand elles servent.
 - Les **conventions de code et l'architecture** vivent dans
   [`CLAUDE.md`](../CLAUDE.md), lu à chaque session.
 - Le **schéma de la base** appartient à `nx-mcp`. Ici on ne fait que lire.
