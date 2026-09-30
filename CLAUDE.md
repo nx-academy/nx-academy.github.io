@@ -63,7 +63,7 @@ Le reste :
 | ----------------- | ------------------------------------------------------------------------------------------- |
 | `src/components/` | Composants `.astro` (+ 3 îlots React)                                                       |
 | `src/layouts/`    | `BaseLayout`, `BlogPostLayout`, `CheatSheetsLayout`, `ChapterLayout`, `CourseLandingLayout` |
-| `src/data/`       | Données statiques en TS : `series.ts`, `quiz.ts`, `news.ts`…                                |
+| `src/data/`       | Données statiques en TS : `series.ts`, `quiz.ts`, `testimonials.ts`                         |
 | `src/types/`      | Types des frontmatters et des données                                                       |
 | `src/utils/`      | Logique métier, un dossier par util, test colocalisé                                        |
 | `src/lib/db/`     | Accès Turso : miroir du schéma, requêtes et fixtures de repli                               |

@@ -324,6 +324,14 @@ moitié la plus utile.
 ### À trancher le moment venu
 
 - Quel niveau pour le projet guidé (recommandation ci-dessus : le 2).
+- **Corrigé le 24/09/2026 : le projet IA ne peut être ni le premier ni le
+  deuxième.** [`projets.md`](./projets.md) a posé la règle « zéro prérequis
+  externe » — un projet ne sort pas tant qu'une de ses étapes s'appuie sur un
+  contenu absent du site. Les six fiches de ce cluster sont en brouillon jusqu'à
+  décembre. Le projet IA est donc le troisième ou le quatrième, **pas avant
+  janvier 2027**. Le paragraphe « le format : plutôt un projet qu'une fiche »
+  ci-dessus garde son analyse des trois niveaux, mais son hypothèse de
+  calendrier ne tient plus.
 - Quel modèle ouvert et quel jeu de données — idéalement des données NX, pour
   rester dans la logique « coulisses » qui marche.
 - Si le projet attend le cours « Développez des applications IA » ou s'il le

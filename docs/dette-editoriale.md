@@ -116,3 +116,26 @@ volontaire. À reprendre quand le cluster CI/CD sera complet.
 - Le bloc « À lire ensuite » d'une fiche Docker propose au moins une fiche
   CI/CD, et inversement.
 - `npm run build` et `npm run prettier:check` passent.
+
+## 3. Clés de série utilisées mais non déclarées
+
+**Priorité : basse.** Relevé le 24/09/2026 en comptant le catalogue.
+
+Trois clés apparaissent dans des frontmatters sans exister dans
+[`src/data/series.ts`](../src/data/series.ts) :
+
+| Clé      | Contenus | Quoi                                              |
+| -------- | -------- | ------------------------------------------------- |
+| `veille` | 10       | les Récaps                                        |
+| `nx`     | 8        | les articles méta et de coulisses, dont l'atelier |
+| `devops` | 1        | isolée, ressemble à une clé posée une seule fois  |
+
+L'impact est limité : `SERIES` ne sert qu'aux rayons de `/fiches` et de
+`/drafts`, et ce sont des articles. `relatedContent` compare des chaînes, donc
+le rapprochement fonctionne quand même. Mais ces clés n'ont ni libellé ni ordre
+déclaré, et rien n'empêche une faute de frappe de créer une quatrième série
+fantôme.
+
+Deux décisions à prendre ensemble : replier `devops` sur une clé existante, et
+trancher si l'atelier vit sous `nx` ou sous sa propre clé — voir « La série
+Atelier » dans le [calendrier](./calendrier-editorial.md).
