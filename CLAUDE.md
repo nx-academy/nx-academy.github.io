@@ -143,6 +143,9 @@ Les règles d'écriture vivent dans les skills du dépôt, pas ici :
 
 - **`.claude/skills/typo-francaise`** — typographie française et registre
   carnet. S'applique par défaut à tout texte destiné au site.
+- **`.claude/skills/pedagogie-nx`** — la façon d'enseigner et d'écrire de
+  Thomas : le problème avant la définition, montrer plutôt que décrire, rendre
+  la main au lecteur. S'applique avec `typo-francaise` à tout contenu du site.
 - **`.claude/skills/typo-anglaise`** — uniquement pour les supports anglophones.
   Ne pas l'appliquer au contenu du site.
 - **`.claude/skills/changelog`** — proposer une entrée de changelog au moment de
