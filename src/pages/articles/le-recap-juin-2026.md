@@ -2,9 +2,10 @@
 layout: ../../layouts/BlogPostLayout.astro
 
 title: "Le récap #7 - Juin 2026"
-description: "Le récap est de retour ! Au sommaire de cette édition de juin :
-faut-il encore apprendre à coder en 2026, qui seront les seniors de 2035 à
-l'heure de l'IA, Frontend Masters qui devient Master.dev et la sortie d'Astro 7."
+description:
+  "Le récap est de retour ! Au sommaire de cette édition de juin : faut-il
+  encore apprendre à coder en 2026, qui seront les seniors de 2035 à l'heure de
+  l'IA, Frontend Masters qui devient Master.dev et la sortie d'Astro 7."
 
 imgAlt: Un vendeur de journaux dans un kiosque parisien, pixel art
 imgSrc: /images/articles/kiosque-journaux.webp

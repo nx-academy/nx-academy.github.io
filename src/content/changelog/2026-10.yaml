@@ -1,0 +1,7 @@
+month: Octobre
+year: 2026
+order: 10
+tasks:
+  - kind: fix
+    content: |-
+      Mise à jour de quelques dépendances, dont Astro. Le nouveau parseur YAML, plus strict, m'a obligé à reprendre le frontmatter de quelques articles et chapitres.

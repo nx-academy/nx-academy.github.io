@@ -2,9 +2,10 @@
 layout: ../../layouts/BlogPostLayout.astro
 
 title: "Le récap #6 - Septembre 2025"
-description: "Au sommaire de cette édition de septembre, une collecte pour
-libérer JavaScript d'Oracle, des packages npm compris, la future de jQuery 4 et
-la fermeture d'une école."
+description:
+  "Au sommaire de cette édition de septembre, une collecte pour libérer
+  JavaScript d'Oracle, des packages npm compris, la future de jQuery 4 et la
+  fermeture d'une école."
 
 imgAlt: Un vendeur de journaux dans un kiosque parisien, pixel art
 imgSrc: /images/articles/kiosque-journaux.webp
