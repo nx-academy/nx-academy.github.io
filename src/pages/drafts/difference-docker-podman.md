@@ -20,7 +20,7 @@ tags:
   - Sécurité
   - Production
 level: Intermédiaire
-publishedDate: 10/17/2026
+publishedDate: 10/16/2026
 
 faq:
   - question: Quelle est la différence entre Docker et Podman ?
