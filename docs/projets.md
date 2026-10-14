@@ -191,13 +191,24 @@ que la mesure des seuils, qui pourrait d'ailleurs bouger après elle.
 
 ## La correction
 
-Elle vit dans un dépôt sous `github.com/nx-academy`, **un commit par étape**, et
-pas dans la page.
+Elle vit dans du code, **un dossier par étape**, et pas dans la page.
 
 Trois raisons, dans l'ordre d'importance : le code ne pourrit pas dans du
 Markdown non testé ; le lecteur ne peut pas copier la page entière d'un bloc ;
-et il obtient un diff par étape, ce qui est la bonne granularité pour comparer
+et il obtient un état par étape, ce qui est la bonne granularité pour comparer
 sa solution à une autre.
+
+**Décidé le 14/10/2026** : les corrections des premiers projets vivent dans ce
+dépôt, sous `projets-corrections/<slug>/etape-<n>/` — hors de `src/pages/`, pour
+qu'Astro ne les publie pas. Chaque dossier contient l'état complet de
+l'application à la fin de l'étape ; le diff d'une étape est celui entre deux
+dossiers voisins.
+
+Pourquoi pas un commit par étape, comme prévu au départ : le dépôt squash-merge
+ses PR, et les commits d'étape seraient fondus en un seul sur `main`. Le dossier
+par étape est aussi plus simple à lire et à maintenir. Un dépôt dédié (en
+submodule ou en subrepo) reste possible plus tard ; garder les corrections ici
+au début permet aussi de les avoir sous la main en travaillant sur le site.
 
 Le lien se mérite : il arrive après la liste de vérifications, pas avant.
 
@@ -219,7 +230,7 @@ kind: Projet
 serie: docker
 level: Intermédiaire
 duree: Une soirée
-repo: https://github.com/nx-academy/<dépôt-de-correction>
+correction: https://github.com/nx-academy/nx-academy.github.io/tree/main/projets-corrections/<slug>
 prerequis:
   - /fiches/optimisation-images-docker
   - /cours/docker-et-docker-compose/chapitres/creation-premier-docker-compose
@@ -283,9 +294,12 @@ l'API, aucun secret n'est dans l'image, et l'image est livrée sur un registry
 pour le projet 2.
 
 Réutiliser l'application du cours est un choix : elle est connue du lecteur,
-elle existe déjà, et il n'y a pas une seconde application à maintenir. Le
-lecteur qui n'a pas suivi le cours clone le dépôt et se débrouille — c'est un
-projet.
+elle existe déjà, et il n'y a pas une seconde application à maintenir.
+
+**Le cours Docker est un prérequis obligatoire** (décidé le 14/10/2026). Le
+projet ne le rejoue pas, il part de là où le cours s'arrête. C'est aussi une
+donnée pour la réflexion sur les formations : un projet adossé à un cours, c'est
+déjà une formation en petit.
 
 ### Ce qu'il faut savoir avant
 
@@ -483,17 +497,16 @@ Git est une version.
 
 ## Ce qui reste à trancher
 
-- **Le dépôt de correction** : un dépôt par projet, ou un dépôt unique avec une
-  branche par projet ? Un par projet se lit mieux, un seul se maintient mieux.
+- ~~**Le dépôt de correction**~~ — **tranché le 14/10/2026** : dans ce dépôt, un
+  dossier par étape. Voir « la correction ».
 - **La passe « objectifs d'apprentissage »** : **faite pour le projet 1** le
   14/10/2026, reste à faire pour le projet 2.
 - **Les seuils chiffrés** (150 Mo, trois minutes) sont à mesurer réellement
   avant publication. Un seuil faux décrédibilise tout l'énoncé. Le seuil
   **absolu** est retenu pour le projet 1 (décision du 14/10/2026) : il reste à
   le mesurer sur l'application du fil rouge.
-- **Le projet 1 exige-t-il d'avoir suivi le cours ?** La rédaction actuelle dit
-  non, mais le prérequis de chapitre en étape 1 dit presque oui. À clarifier
-  dans le brief.
+- ~~**Le projet 1 exige-t-il d'avoir suivi le cours ?**~~ — **tranché le
+  14/10/2026** : oui, c'est un prérequis obligatoire. Voir le brief.
 - **L'ordre de publication** par rapport au planning de
   [`calendrier-editorial.md`](./calendrier-editorial.md), qui court déjà
   jusqu'au 14 octobre.
