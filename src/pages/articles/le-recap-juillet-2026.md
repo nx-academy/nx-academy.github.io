@@ -2,10 +2,11 @@
 layout: ../../layouts/BlogPostLayout.astro
 
 title: "Le récap #8 - Juillet 2026"
-description: "Au sommaire de cette édition de juillet : un banc d'essai de
-frameworks front, l'histoire de Java en documentaire, l'IA qui rebat les cartes
-de l'emploi des jeunes, une arnaque au faux entretien technique côté sécurité, et
-un bonus htmx sur le travail avec l'IA."
+description:
+  "Au sommaire de cette édition de juillet : un banc d'essai de frameworks
+  front, l'histoire de Java en documentaire, l'IA qui rebat les cartes de
+  l'emploi des jeunes, une arnaque au faux entretien technique côté sécurité, et
+  un bonus htmx sur le travail avec l'IA."
 
 imgAlt: Un vendeur de journaux dans un kiosque parisien, pixel art
 imgSrc: /images/articles/kiosque-journaux.webp

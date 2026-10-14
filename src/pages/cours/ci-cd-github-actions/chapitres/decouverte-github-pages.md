@@ -2,16 +2,19 @@
 layout: ../../../../layouts/ChapterLayout.astro
 
 title: Initiez-vous à GitHub Pages
-description: "Découvrez GitHub Pages : hébergez gratuitement un site statique,
-explorez ses cas d’usage et apprenez à le configurer ou à l’intégrer dans une
-pipeline CI/CD GitHub Actions."
+description:
+  "Découvrez GitHub Pages : hébergez gratuitement un site statique, explorez ses
+  cas d’usage et apprenez à le configurer ou à l’intégrer dans une pipeline
+  CI/CD GitHub Actions."
 
 previousChapterLink: bonnes-pratiques-workflow-complexe
 nextChapterLink: deploiement-portfolio
 
 chapterNumber: 1
 sectionNumber: 3
-sectionTitle: Partie 3 - Mettez en place une pipeline CI/CD avec GitHub Pages et les GitHub Actions
+sectionTitle:
+  Partie 3 - Mettez en place une pipeline CI/CD avec GitHub Pages et les GitHub
+  Actions
 id: 5
 ---
 

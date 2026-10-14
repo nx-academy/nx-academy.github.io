@@ -2,8 +2,9 @@
 layout: ../../layouts/BlogPostLayout.astro
 
 title: "Quels projets pour NX en 2026 ?"
-description: "Tour d’horizon des projets NX pour 2026 : nouveaux cours, projets
-pédagogiques, évolution vers un média tech et expérimentations autour de l’IA."
+description:
+  "Tour d’horizon des projets NX pour 2026 : nouveaux cours, projets
+  pédagogiques, évolution vers un média tech et expérimentations autour de l’IA."
 
 imgAlt: Une bande de dévelloppeurs en train de jouer sur un télé, pixel art
 imgSrc: /images/articles/dev-fetes-fin-annee.webp
