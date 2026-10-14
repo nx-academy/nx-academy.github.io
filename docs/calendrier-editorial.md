@@ -96,9 +96,9 @@ en production ».
 | 12/08/2026 | Fiche   | Cloud public, privé, hybride : quelles différences ?        | **DONE** |
 | 02/09/2026 | Fiche   | IaaS, PaaS, SaaS : quelles différences et comment choisir ? | **DONE** |
 | 28/09/2026 | Fiche   | Comment déployer un conteneur Docker dans le cloud ?        | prêt     |
-| 05/10/2026 | Fiche   | Comment déployer un conteneur Docker sur Scaleway ?         | prêt     |
-| 12/10/2026 | Article | Le cloud public coûte-t-il vraiment moins cher ?            | prêt     |
-| 14/10/2026 | Article | Cloud souverain : de quoi parle-t-on vraiment ?             | prêt     |
+| 19/10/2026 | Fiche   | Comment déployer un conteneur Docker sur Scaleway ?         | prêt     |
+| 26/10/2026 | Article | Le cloud public coûte-t-il vraiment moins cher ?            | prêt     |
+| 28/10/2026 | Article | Cloud souverain : de quoi parle-t-on vraiment ?             | prêt     |
 
 Les quatre brouillons restants sont écrits et vivent dans `src/pages/drafts/`
 (`deployer-conteneur-docker-dans-le-cloud`,
@@ -143,7 +143,7 @@ les décisions techniques de NX. **Un seul article publié à ce jour.**
 
 Les quatre articles « coulisses de NX » listés en bonus plus haut appartiennent
 en réalité à cette série — ils ont été notés avant qu'elle existe. Deux d'entre
-eux sont désormais planifiés (19/10 et 26/10). À traiter comme des articles
+eux sont désormais planifiés (04/11 et 18/11). À traiter comme des articles
 d'atelier, pas comme des bonus isolés.
 
 Deux sujets s'ajoutent, nés du travail du 24/09/2026 :
@@ -214,7 +214,7 @@ s'il a deux fiches vers lesquelles pointer. C'est le même montage que
 déjà.
 
 **Angle mis en attente : « débogage Docker contre Podman ».** La fiche
-`difference-docker-podman` sort le 30/09 et n'est pas encore en ligne. Écrire
+`difference-docker-podman` sort le 16/10 et n'est pas encore en ligne. Écrire
 une comparaison de débogage avant de voir ce qu'elle couvre, c'est se garantir
 un doublon — et sur ce terrain précis les deux outils partagent l'essentiel de
 l'outillage, la vraie différence étant le rootless. À reprendre une fois la
@@ -302,7 +302,7 @@ Le 07/12 est le point de friction : c'est la semaine du cours « Mettez vos
 applications en production ». Si les deux se marchent dessus, la fiche-pont
 glisse en janvier.
 
-## Planning de publication — septembre et octobre 2026
+## Planning de publication — septembre à novembre 2026
 
 Deux publications par semaine, lundi et mercredi : les deux jours les plus
 fréquents des trois derniers mois, et la cadence qui vide le backlog avant
@@ -318,6 +318,13 @@ novembre.
 > semaine pour un objectif de 1 à 3. Les semaines du 19 et du 26/10 étaient
 > vides. Quatre créneaux ajoutés, en alternant atelier et fiche pour ne pas
 > empiler quatre textes de la même série.
+>
+> **Replanifié le 14/10/2026**, au retour d'une pause de deux semaines. Rien
+> n'est sorti entre le 30/09 et le 14/10 : la publication est manuelle, et les
+> dates des brouillons ne publient rien d'elles-mêmes. L'ordre est conservé,
+> tout glisse de deux semaines. Podman sort un vendredi pour rattraper un
+> créneau ; les quatre contenus à écrire passent sur les mercredis de novembre,
+> libres, puisque le cluster IA garde ses lundis.
 
 | Date       | Contenu                                         | Cluster | Status / pourquoi à cette place                            |
 | ---------- | ----------------------------------------------- | ------- | ---------------------------------------------------------- |
@@ -327,22 +334,24 @@ novembre.
 | 15/09/2026 | `l-atelier-presentation`                        | atelier | **DONE**                                                   |
 | 21/09/2026 | `top-10-jeux-pico-8`                            | gamedev | **DONE**                                                   |
 | 28/09/2026 | `deployer-conteneur-docker-dans-le-cloud`       | cloud   | ferme le dernier lien `/drafts/` de `iaas-paas-saas`       |
-| 30/09/2026 | `difference-docker-podman`                      | docker  | remplace la fiche AWS, retirée le 24/09                    |
-| 05/10/2026 | `deployer-conteneur-docker-sur-scaleway`        | cloud   | dérouler les commandes contre l'API d'abord                |
-| 07/10/2026 | `difference-docker-swarm-kubernetes`            | docker  | suite de la fiche Podman                                   |
-| 12/10/2026 | `le-cloud-est-il-vraiment-moins-cher`           | cloud   |                                                            |
-| 14/10/2026 | `cloud-souverain`                               | cloud   | ferme le cluster, sept semaines avant le cours             |
-| 19/10/2026 | Atelier — comment fonctionne Le Récap ?         | atelier | à écrire ; déjà listé en article bonus, aucune recherche   |
-| 21/10/2026 | Fiche — lancer ses tests dans un pipeline       | CI/CD   | à écrire ; le cas d'usage le plus courant, zéro couverture |
-| 26/10/2026 | Atelier — le système de news automatisé         | atelier | à écrire ; déjà listé en article bonus                     |
-| 28/10/2026 | Fiche — pourquoi mon conteneur ne démarre pas ? | docker  | à écrire ; pilier du mini-cluster débogage, voir plus bas  |
+| 16/10/2026 | `difference-docker-podman`                      | docker  | remplace la fiche AWS, retirée le 24/09                    |
+| 19/10/2026 | `deployer-conteneur-docker-sur-scaleway`        | cloud   | dérouler les commandes contre l'API d'abord                |
+| 21/10/2026 | `difference-docker-swarm-kubernetes`            | docker  | suite de la fiche Podman                                   |
+| 26/10/2026 | `le-cloud-est-il-vraiment-moins-cher`           | cloud   |                                                            |
+| 28/10/2026 | `cloud-souverain`                               | cloud   | ferme le cluster                                           |
+| 04/11/2026 | Atelier — comment fonctionne Le Récap ?         | atelier | à écrire ; déjà listé en article bonus, aucune recherche   |
+| 11/11/2026 | Fiche — lancer ses tests dans un pipeline       | CI/CD   | à écrire ; le cas d'usage le plus courant, zéro couverture |
+| 18/11/2026 | Atelier — le système de news automatisé         | atelier | à écrire ; déjà listé en article bonus                     |
+| 25/11/2026 | Fiche — pourquoi mon conteneur ne démarre pas ? | docker  | à écrire ; pilier du mini-cluster débogage, voir plus bas  |
 
 Les dates sont reportées dans le `publishedDate` de chaque brouillon. Le jour de
 la publication, il reste à déplacer le fichier, basculer les liens `/drafts/`
 qui pointent vers lui et passer la ligne en **DONE**.
 
-Reste hors planning : le récap de septembre, à sortir fin septembre comme les
-précédents. Le cluster IA démarre ensuite le 02/11, sans chevauchement.
+Le cluster IA démarre le 02/11 et garde ses lundis jusqu'au 07/12 : en novembre,
+le rythme passe donc à deux contenus par semaine. Si c'est trop avec le
+démarrage des projets, un des deux ateliers est le premier à pouvoir glisser en
+décembre.
 
 ## Le Recap
 

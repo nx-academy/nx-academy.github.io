@@ -230,7 +230,7 @@ et il est le pilote désigné du modèle. Trois raisons, et la première suffira
   screencast, aucune URL publiée : le modèle se teste à coût de migration nul.
   C'est exactement l'endroit bon marché qu'on cherchait pour le valider.
 - **Son sujet est déjà couvert par le catalogue.** Le cluster cloud (5 fiches et
-  2 articles, complet au 14/10), le cluster CI/CD (7 fiches) et la série Docker
+  2 articles, complet au 28/10), le cluster CI/CD (7 fiches) et la série Docker
   (8 fiches) portent l'essentiel de ce qu'une mise en production suppose.
 - **Les projets en sont déjà le fil rouge.** Projet 1 conteneurise, projet 2
   construit et publie l'image depuis GitHub Actions. Un projet 3 qui déploie
@@ -239,7 +239,7 @@ et il est le pilote désigné du modèle. Trois raisons, et la première suffira
   projets : **c'est le contenant que les trois premiers projets remplissent.**
 
 La règle « zéro prérequis externe » tiendra pour ce projet 3 à partir du
-05/10/2026, date de publication de `deployer-conteneur-docker-sur-scaleway`. Pas
+19/10/2026, date de publication de `deployer-conteneur-docker-sur-scaleway`. Pas
 avant.
 
 **Le risque à regarder en face : la date.** Le cours est calé en décembre dans
