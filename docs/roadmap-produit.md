@@ -217,6 +217,12 @@ changelog.
 
 #### Le pilote : « Mettez vos applications en production »
 
+> **Déprioritisé le 14 octobre 2026.** Les projets passent avant le cours : ils
+> sont le déclencheur de la décision sur les formations, et rien n'est commencé
+> à mi-octobre. Le cours reste le pilote désigné, mais il ne tient plus
+> décembre. Nouvelle date à fixer quand les deux premiers projets seront
+> publiés.
+
 Décidé le 24 septembre 2026. Le cours de décembre se fera **au nouveau format**,
 et il est le pilote désigné du modèle. Trois raisons, et la première suffirait :
 

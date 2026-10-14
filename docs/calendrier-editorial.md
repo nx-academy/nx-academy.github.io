@@ -15,12 +15,12 @@
 
 ## Cours prévus
 
-| Mois      | Cours                                                 | status                                                                                                       |
-| --------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| Juin      | Conteneurisez vos applications avec Docker            | **DONE**                                                                                                     |
-| Septembre | Maîtrisez les pipelines CI/CD avec les GitHub Actions | _en cours_                                                                                                   |
-| Décembre  | Mettez vos applications en production                 | **nouveau format** — pilote des formations, dépend des projets, date à confirmer (voir `roadmap-produit.md`) |
-| 2027      | Monitorez vos applications                            | cluster à cadrer d'abord — voir « Cluster Monitoring » plus bas                                              |
+| Mois      | Cours                                                 | status                                                                                                          |
+| --------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| Juin      | Conteneurisez vos applications avec Docker            | **DONE**                                                                                                        |
+| Septembre | Maîtrisez les pipelines CI/CD avec les GitHub Actions | _en cours_                                                                                                      |
+| Décembre  | Mettez vos applications en production                 | **déprioritisé le 14/10/2026** — les projets passent d'abord, nouvelle date à fixer (voir `roadmap-produit.md`) |
+| 2027      | Monitorez vos applications                            | cluster à cadrer d'abord — voir « Cluster Monitoring » plus bas                                                 |
 
 **Idées de cours complémentaires** :
 
@@ -346,17 +346,17 @@ précédents. Le cluster IA démarre ensuite le 02/11, sans chevauchement.
 
 ## Le Recap
 
-| Mois      | Objectif                          | status     |
-| --------- | --------------------------------- | ---------- |
-| Avril     | Recap                             | **DONE**   |
-| Mai       | Recap                             | **DONE**   |
-| Juin      | Recap + relai cours Docker        | **DONE**   |
-| Juillet   | Recap                             | _en cours_ |
-| Août      | Recap + teaser cours CI/CD        | à faire    |
-| Septembre | Recap + relai cours CI/CD         | à faire    |
-| Octobre   | Recap                             | à faire    |
-| Novembre  | Recap + teaser cours mise en prod | à faire    |
-| Décembre  | Recap + relai cours mis en prod   | à faire    |
+| Mois      | Objectif                          | status   |
+| --------- | --------------------------------- | -------- |
+| Avril     | Recap                             | **DONE** |
+| Mai       | Recap                             | **DONE** |
+| Juin      | Recap + relai cours Docker        | **DONE** |
+| Juillet   | Recap                             | **DONE** |
+| Août      | Recap + teaser cours CI/CD        | **DONE** |
+| Septembre | Recap + relai cours CI/CD         | **DONE** |
+| Octobre   | Recap                             | à faire  |
+| Novembre  | Recap + teaser cours mise en prod | à faire  |
+| Décembre  | Recap + relai cours mis en prod   | à faire  |
 
 ## Le menu - format LinkedIn
 
