@@ -358,6 +358,25 @@ précédents. Le cluster IA démarre ensuite le 02/11, sans chevauchement.
 | Novembre  | Recap + teaser cours mise en prod | à faire  |
 | Décembre  | Recap + relai cours mis en prod   | à faire  |
 
+### Le Récap s'appuie sur le Feed
+
+Décidé le 14/10/2026, après le récap de septembre. Plus les brèves sortent
+souvent via `nx-mcp`, plus le Récap devient l'endroit où l'on **met en avant les
+principales actualités du mois** et où l'on raconte ce qu'elles disent mises
+bout à bout. Une brève dit ce qui s'est passé ; le Récap dit ce que ça raconte.
+
+Conséquences :
+
+- la veille se fait au fil du mois, dans le Feed ; la fin du mois devient un
+  travail de tri et de liaison, pas de recherche ;
+- la table des liens de récap garde ce qui ne mérite pas une brève mais compte
+  pour le Récap (un lien en passant, une vidéo à recommander) ;
+- à surveiller : ne pas recopier les `lecture` du Feed mot pour mot. Résumer,
+  renvoyer vers la brève, et garder la place pour le fil rouge.
+
+Outillage manquant : lister les brèves d'un mois donné dans `nx-mcp`
+(`list_news` ne renvoie que les plus récentes).
+
 ## Le menu - format LinkedIn
 
 **A faire avant** : template à designer sur Canvas
