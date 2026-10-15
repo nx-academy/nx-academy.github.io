@@ -186,15 +186,29 @@ prérequis tiennent, la progression est à refaire depuis les objectifs. Cette
 passe est le vrai travail restant avant de passer la main au visuel — davantage
 que la mesure des seuils, qui pourrait d'ailleurs bouger après elle.
 
+**Mise à jour du 14/10/2026** : la passe est faite pour le projet 1, dont les
+étapes partent désormais de leurs objectifs. Le projet 2 reste un premier jet.
+
 ## La correction
 
-Elle vit dans un dépôt sous `github.com/nx-academy`, **un commit par étape**, et
-pas dans la page.
+Elle vit dans du code, **un dossier par étape**, et pas dans la page.
 
 Trois raisons, dans l'ordre d'importance : le code ne pourrit pas dans du
 Markdown non testé ; le lecteur ne peut pas copier la page entière d'un bloc ;
-et il obtient un diff par étape, ce qui est la bonne granularité pour comparer
+et il obtient un état par étape, ce qui est la bonne granularité pour comparer
 sa solution à une autre.
+
+**Décidé le 14/10/2026** : les corrections des premiers projets vivent dans ce
+dépôt, sous `projets-corrections/<slug>/etape-<n>/` — hors de `src/pages/`, pour
+qu'Astro ne les publie pas. Chaque dossier contient l'état complet de
+l'application à la fin de l'étape ; le diff d'une étape est celui entre deux
+dossiers voisins.
+
+Pourquoi pas un commit par étape, comme prévu au départ : le dépôt squash-merge
+ses PR, et les commits d'étape seraient fondus en un seul sur `main`. Le dossier
+par étape est aussi plus simple à lire et à maintenir. Un dépôt dédié (en
+submodule ou en subrepo) reste possible plus tard ; garder les corrections ici
+au début permet aussi de les avoir sous la main en travaillant sur le site.
 
 Le lien se mérite : il arrive après la liste de vérifications, pas avant.
 
@@ -216,7 +230,7 @@ kind: Projet
 serie: docker
 level: Intermédiaire
 duree: Une soirée
-repo: https://github.com/nx-academy/<dépôt-de-correction>
+correction: https://github.com/nx-academy/nx-academy.github.io/tree/main/projets-corrections/<slug>
 prerequis:
   - /fiches/optimisation-images-docker
   - /cours/docker-et-docker-compose/chapitres/creation-premier-docker-compose
@@ -275,13 +289,17 @@ exactement celle des clusters existants, donc une recette déjà éprouvée.
 On repart de l'application du fil rouge du cours Docker — React, Node, MongoDB,
 que le lecteur a déjà en main. Le cours l'a fait tourner. Ici, personne ne tient
 la main, et cinq contraintes s'ajoutent. À la fin, `docker compose up` démarre
-tout, l'image de l'API pèse moins d'un tiers de ce qu'elle pesait, la base n'est
-joignable que par l'API, et aucun secret n'est dans l'image.
+tout, l'image de l'API pèse moins de 150 Mo, la base n'est joignable que par
+l'API, aucun secret n'est dans l'image, et l'image est livrée sur un registry
+pour le projet 2.
 
 Réutiliser l'application du cours est un choix : elle est connue du lecteur,
-elle existe déjà, et il n'y a pas une seconde application à maintenir. Le
-lecteur qui n'a pas suivi le cours clone le dépôt et se débrouille — c'est un
-projet.
+elle existe déjà, et il n'y a pas une seconde application à maintenir.
+
+**Le cours Docker est un prérequis obligatoire** (décidé le 14/10/2026). Le
+projet ne le rejoue pas, il part de là où le cours s'arrête. C'est aussi une
+donnée pour la réflexion sur les formations : un projet adossé à un cours, c'est
+déjà une formation en petit.
 
 ### Ce qu'il faut savoir avant
 
@@ -297,23 +315,86 @@ projet.
 
 Sept prérequis, tous publiés. La règle est tenue.
 
+### L'objectif
+
+**Passer de « ça tourne » à « c'est bien fait », et savoir justifier chaque
+choix.** Le fil rouge du cours fait marcher l'application ; le projet la fait
+bien faire. Chaque étape correspond à une propriété d'une conteneurisation saine
+: reproductible, légère, durable, cloisonnée, sans fuite, livrable.
+
+Objectifs posés le 14/10/2026, en conception à rebours : objectif
+d'apprentissage, puis critère, puis contrainte. À revoir une fois le projet
+réellement déroulé.
+
 ### Les étapes
 
-1. **Tout démarre en une commande.** `docker compose up` lève les trois services
-   et l'application répond. _Contrainte_ : aucune dépendance installée sur la
-   machine hôte, pas même Node.
-2. **L'image de l'API passe sous les 150 Mo.** _Contrainte_ : multi-stage
-   obligatoire, et les dépendances de développement n'existent pas dans l'image
-   finale. Le point de comparaison est la taille mesurée à l'étape 1.
-3. **Les données survivent à `docker compose down`.** _Contrainte_ : un volume
-   nommé, pas un montage de répertoire hôte.
-4. **La base n'est plus joignable depuis la machine hôte.** _Contrainte_ : plus
-   aucun port de MongoDB publié ; seule l'API la joint, par le réseau.
-5. **Aucun secret dans l'image ni dans le dépôt.** _Contrainte_ :
-   `docker history` sur l'image finale ne révèle rien, et le dépôt n'a aucune
-   chaîne sensible dans son historique.
-6. **L'image est poussée sur un registry.** _Contrainte_ : taguée autrement que
-   `latest`.
+Chaque étape porte son objectif, son critère, sa contrainte, une question posée
+**avant** l'action et une vérification faite **après** (voir « concevoir pour
+des lecteurs qui utiliseront l'IA »).
+
+1. **Tout démarre en une commande.**
+   - _Objectif_ : l'environnement d'exécution vit dans l'image, pas sur la
+     machine ; Compose décrit un système — des services et leurs dépendances —,
+     pas une suite de commandes.
+   - _Critère_ : `docker compose up` lève les trois services et l'application
+     répond.
+   - _Contrainte_ : aucune dépendance installée sur la machine hôte, pas même
+     Node.
+   - _Avant_ : « Qu'est-ce qui fait tourner l'application sur votre machine
+     aujourd'hui, et qui ne sera pas dans le conteneur ? »
+   - _Après_ : arrêter MongoDB pendant que l'API tourne. Que se passe-t-il ?
+2. **L'image de l'API passe sous les 150 Mo.**
+   - _Objectif_ : une image est un empilement de couches, ce qu'on y met y
+     reste, et le contexte de build part entièrement au démon.
+   - _Critère_ : `docker images` affiche moins de 150 Mo pour l'API.
+   - _Contrainte_ : multi-stage obligatoire, et les dépendances de développement
+     n'existent pas dans l'image finale. Le point de comparaison est la taille
+     mesurée à l'étape 1.
+   - _Avant_ : « À votre avis, quelle part de la taille vient des dépendances de
+     développement ? » Le lecteur s'engage sur un chiffre, puis il mesure.
+   - _Après_ : `docker history` sur _votre_ image. Quelle couche pèse le plus,
+     et pourquoi celle-là ?
+3. **Les données survivent à `docker compose down`.**
+   - _Objectif_ : le conteneur est jetable, les données ne le sont pas ; leurs
+     cycles de vie sont séparés.
+   - _Critère_ : après `down` puis `up`, les données sont là.
+   - _Contrainte_ : un volume nommé, pas un montage de répertoire hôte.
+   - _Avant_ : « Après `docker compose down`, où sont vos données ? »
+   - _Après_ : `docker compose down -v`, puis relancer. Qu'est-ce qui a disparu,
+     et pourquoi ?
+4. **La base n'est plus joignable depuis la machine hôte.**
+   - _Objectif_ : sur un réseau Docker, les services se joignent par leur nom ;
+     publier un port vers l'hôte n'est pas la même chose qu'être joignable sur
+     le réseau interne. Chaque port publié est de la surface d'attaque.
+   - _Critère_ : une connexion à MongoDB depuis l'hôte échoue, et l'application
+     fonctionne toujours.
+   - _Contrainte_ : plus aucun port de MongoDB publié ; seule l'API la joint,
+     par le réseau.
+   - _Avant_ : « Si vous retirez le port publié de MongoDB, l'API pourra-t-elle
+     encore la joindre ? »
+   - _Après_ : `docker network inspect`. Qui est sur quel réseau ?
+5. **Aucun secret dans l'image ni dans le dépôt.**
+   - _Objectif_ : distinguer ce qui entre dans l'image au build de ce qui arrive
+     à l'exécution ; une couche ne s'efface pas, l'historique Git non plus.
+     L'étape réinvestit volontairement la notion de couche de l'étape 2.
+   - _Critère_ : `docker history` sur l'image finale ne révèle rien, et le dépôt
+     n'a aucune chaîne sensible dans son historique.
+   - _Contrainte_ : les secrets arrivent à l'exécution, jamais au build.
+   - _Avant_ : « Si vous supprimez le `.env` dans une instruction suivante du
+     Dockerfile, est-il encore dans l'image ? »
+   - _Après_ : retrouver, dans _votre_ historique d'image ou de dépôt, le
+     dernier endroit où un secret aurait pu rester.
+6. **L'image est livrée.**
+   - _Objectif_ : une image est un artefact versionné, qu'un autre doit pouvoir
+     récupérer et retrouver à l'identique. C'est la charnière avec le projet 2,
+     qui consomme précisément cette image.
+   - _Critère_ : un `docker pull` d'un tag précis fonctionne depuis une autre
+     machine.
+   - _Contrainte_ : taguée autrement que `latest`.
+   - _Avant_ : « Si deux personnes poussent `latest` le même jour, quelle
+     version tourne en production ? »
+   - _Après_ : tirer l'image par son tag sur une autre machine, et vérifier que
+     c'est bien celle qu'on a construite.
 
 ### Les pièges
 
@@ -333,7 +414,7 @@ Sept prérequis, tous publiés. La règle est tenue.
 - `docker compose down && docker compose up`, les données sont là.
 - Une connexion à MongoDB depuis l'hôte échoue.
 - `docker history` ne montre aucun secret.
-- `docker pull` de l'image depuis une autre machine fonctionne.
+- `docker pull` de l'image, par son tag, depuis une autre machine fonctionne.
 
 ### Pour aller plus loin
 
@@ -416,16 +497,16 @@ Git est une version.
 
 ## Ce qui reste à trancher
 
-- **Le dépôt de correction** : un dépôt par projet, ou un dépôt unique avec une
-  branche par projet ? Un par projet se lit mieux, un seul se maintient mieux.
-- **La passe « objectifs d'apprentissage »** sur les deux énoncés, décrite
-  ci-dessus. C'est le premier arbitrage, et il conditionne les autres.
+- ~~**Le dépôt de correction**~~ — **tranché le 14/10/2026** : dans ce dépôt, un
+  dossier par étape. Voir « la correction ».
+- **La passe « objectifs d'apprentissage »** : **faite pour le projet 1** le
+  14/10/2026, reste à faire pour le projet 2.
 - **Les seuils chiffrés** (150 Mo, trois minutes) sont à mesurer réellement
-  avant publication. Un seuil faux décrédibilise tout l'énoncé. À faire
-  **après** la passe objectifs, qui peut déplacer les étapes concernées.
-- **Le projet 1 exige-t-il d'avoir suivi le cours ?** La rédaction actuelle dit
-  non, mais le prérequis de chapitre en étape 1 dit presque oui. À clarifier
-  dans le brief.
+  avant publication. Un seuil faux décrédibilise tout l'énoncé. Le seuil
+  **absolu** est retenu pour le projet 1 (décision du 14/10/2026) : il reste à
+  le mesurer sur l'application du fil rouge.
+- ~~**Le projet 1 exige-t-il d'avoir suivi le cours ?**~~ — **tranché le
+  14/10/2026** : oui, c'est un prérequis obligatoire. Voir le brief.
 - **L'ordre de publication** par rapport au planning de
   [`calendrier-editorial.md`](./calendrier-editorial.md), qui court déjà
   jusqu'au 14 octobre.
