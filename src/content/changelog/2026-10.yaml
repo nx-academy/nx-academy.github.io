@@ -4,6 +4,9 @@ order: 10
 tasks:
   - kind: done
     content: |-
+      Sortie de la fiche sur <a href="/fiches/difference-docker-podman" target="_blank">les différences entre Docker et Podman</a>. Clairement, Octobre n'est un peun gros moi pour NX ^^.
+  - kind: done
+    content: |-
       Sortie du <a href="/articles/le-recap-septembre-2026" target="_blank">récap #10 (septembre 2026)</a>, avec un peu de retard et un fil rouge : l'IA qui parle de ses propres risques.
   - kind: fix
     content: |-
