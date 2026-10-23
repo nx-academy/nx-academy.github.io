@@ -155,6 +155,9 @@ Les règles d'écriture vivent dans les skills du dépôt, pas ici :
 
 - **Tout passe par une PR vers `main`**, squash-mergée. Jamais de commit direct
   sur `main`.
+- **Claude demande avant de créer une branche, de commiter ou de pousser** : il
+  propose le nom de branche et le message de commit, Thomas valide. Thomas ouvre
+  et merge les PR lui-même.
 - Messages de commit : une phrase en français, à l'impératif ou à l'infinitif.
   Par exemple `Publie la fiche « Comment gérer les secrets… »` ou
   `Migrer le changelog vers une data collection YAML`. Le `(#NNN)` visible dans

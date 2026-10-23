@@ -102,28 +102,41 @@ janvier 2027.**
 
 ## L'anatomie d'une page projet
 
-Sept blocs, dans cet ordre.
+Huit blocs, dans cet ordre.
+
+> **Ajusté le 23/10/2026** après la première maquette de la page projet (ajout
+> du starter, consigne explicite par étape, correction par étape). Cette
+> anatomie suivra les maquettes suivantes : elle décrit l'état actuel, pas une
+> règle figée.
 
 1. **Le brief** — trois lignes : ce qu'on construit, à quoi ça sert. Plus le
    résultat visible, capture ou sortie de terminal.
-2. **Ce qu'il faut savoir avant** — la liste des fiches et chapitres prérequis,
+2. **Le starter** — le point de départ à récupérer : un `.zip` servi par le
+   site, et une commande pour copier le dossier (`degit`). La page montre son
+   arborescence en quelques lignes. C'est l'étape 0 de la correction.
+3. **Ce qu'il faut savoir avant** — la liste des fiches et chapitres prérequis,
    en dur. C'est à la fois le maillage interne et le test de la règle ci-dessus.
-3. **Les étapes** — quatre à six, chacune formulée comme **un résultat à
-   atteindre**, jamais comme une suite de commandes : « à la fin de cette étape,
-   `docker compose up` démarre l'application et sa base, et l'application répond
-   sur le port 8080 ». Chaque étape porte trois choses : son objectif, sa
-   contrainte — ce qu'on s'interdit — et le lien vers la fiche qui répond.
-4. **Les pièges** — trois ou quatre, ce qui va casser. Sans donner la
+4. **Les étapes** — quatre à six, chacune formulée comme **un résultat à
+   atteindre**, jamais comme une suite de commandes. Côté lecteur, une étape se
+   lit dans cet ordre : **la consigne** (une ou deux phrases à l'impératif : ce
+   qu'il faut faire, pas comment), **avant de commencer** (la question de
+   prédiction), **c'est réussi quand** (le critère observable), **la règle** (la
+   contrainte), **pour vérifier** (la question d'après), puis la fiche qui
+   répond et **la correction de l'étape**, repliée. L'objectif d'apprentissage
+   sert à concevoir l'étape ; sur la page, il se réduit à une ligne « pourquoi
+   cette étape ».
+5. **Les pièges** — trois ou quatre, ce qui va casser. Sans donner la
    réparation, ou en renvoyant à la fiche.
-5. **Comment savoir que c'est fini** — une liste de vérifications que le lecteur
+6. **Comment savoir que c'est fini** — une liste de vérifications que le lecteur
    fait seul, chacune observable. C'est ce qui remplace la correction
    automatique que le site ne peut pas avoir : pas de compte, pas de backend, et
    c'est très bien ainsi
    ([`l-atelier-presentation`](../src/pages/articles/l-atelier-presentation.md)
    l'assume déjà).
-6. **Pour aller plus loin** — deux ou trois extensions, non guidées, sans
+7. **Pour aller plus loin** — deux ou trois extensions, non guidées, sans
    correction.
-7. **La correction** — un lien, en bas de page, après la liste de vérifications.
+8. **La correction complète** — un bloc visible en bas de page, qui renvoie à la
+   suite des dossiers, du starter à la dernière étape.
 
 ### Ce qu'un projet ne contient jamais
 
@@ -210,7 +223,18 @@ par étape est aussi plus simple à lire et à maintenir. Un dépôt dédié (en
 submodule ou en subrepo) reste possible plus tard ; garder les corrections ici
 au début permet aussi de les avoir sous la main en travaillant sur le site.
 
-Le lien se mérite : il arrive après la liste de vérifications, pas avant.
+**Le starter est l'étape 0** (décidé le 23/10/2026) : `etape-0/` contient le
+code de l'application sans aucun fichier propre au sujet du projet (pour le
+projet 1 : aucun Dockerfile, aucun fichier Compose). La chaîne `etape-0` →
+`etape-<n>` raconte alors tout le projet, et le diff de l'étape 1 montre
+exactement ce que le lecteur a dû ajouter. Le `.zip` du starter est généré au
+build et servi par le site, GitHub ne sachant pas zipper un sous-dossier.
+
+**Une correction par étape, et elle se mérite quand même** : chaque étape
+propose la sienne — le diff depuis l'étape précédente et le dossier complet —,
+repliée, **après** sa question « pour vérifier ». Le lecteur la voit au moment
+où il en a besoin, mais seulement une fois l'étape tentée. La correction
+complète reste en bas de page.
 
 ## Routage et métadonnées
 
@@ -286,20 +310,36 @@ exactement celle des clusters existants, donc une recette déjà éprouvée.
 
 ### Le brief
 
-On repart de l'application du fil rouge du cours Docker — React, Node, MongoDB,
-que le lecteur a déjà en main. Le cours l'a fait tourner. Ici, personne ne tient
-la main, et cinq contraintes s'ajoutent. À la fin, `docker compose up` démarre
-tout, l'image de l'API pèse moins de 150 Mo, la base n'est joignable que par
-l'API, aucun secret n'est dans l'image, et l'image est livrée sur un registry
-pour le projet 2.
+Le lecteur part d'un **starter** : une application React, Node et MongoDB,
+fournie sans aucun fichier Docker. Personne ne tient la main, et six contraintes
+s'ajoutent. À la fin, `docker compose up` démarre tout, l'image de l'API pèse
+moins de 150 Mo, la base n'est joignable que par l'API, aucun secret n'est dans
+l'image, et l'image est livrée sur un registry pour le projet 2.
 
-Réutiliser l'application du cours est un choix : elle est connue du lecteur,
-elle existe déjà, et il n'y a pas une seconde application à maintenir.
+Le starter garde l'histoire du fil rouge du cours Docker (« My MOOCs », une
+liste de cours), sans ses fichiers Docker, et le projet ne dépend pas de l'état
+dans lequel le lecteur a laissé le cours (décidé le 23/10/2026, après la
+première maquette).
 
-**Le cours Docker est un prérequis obligatoire** (décidé le 14/10/2026). Le
-projet ne le rejoue pas, il part de là où le cours s'arrête. C'est aussi une
-donnée pour la réflexion sur les formations : un projet adossé à un cours, c'est
-déjà une formation en petit.
+**Mais le code du fil rouge ne peut pas servir tel quel** (constaté le
+23/10/2026 sur la branche `full-project` de
+`nx-academy/Conteneurisez-vos-applications-avec-Docker`) : l'API se connecte à
+MongoDB sans y lire ni écrire (deux routes, `/` et `/greetings`), le front est
+le gabarit de Create React App, et les versions sont datées (Node 12,
+`react-scripts` 3.1.1, Mongoose 4, MongoDB 3.7.9). L'étape 3 n'aurait rien à
+vérifier, et le starter ne démarrerait sans doute pas sur un Node récent. Seul
+`.example.env`, qui porte déjà deux secrets, est réutilisable tel quel.
+
+Piste retenue pour la suite : un starter **neuf mais fidèle à l'histoire** — une
+API Express (Node 22, MongoDB 8) avec une route pour lister les cours et une
+pour en ajouter, un front React (Vite) qui les affiche et en ajoute, un
+`.env.example` avec le mot de passe de la base et une clé d'API, aucun fichier
+Docker.
+
+**Le cours Docker est un prérequis obligatoire** (décidé le 14/10/2026) pour les
+notions : le projet ne les réexplique pas. C'est aussi une donnée pour la
+réflexion sur les formations : un projet adossé à un cours, c'est déjà une
+formation en petit.
 
 ### Ce qu'il faut savoir avant
 
@@ -328,11 +368,15 @@ réellement déroulé.
 
 ### Les étapes
 
-Chaque étape porte son objectif, son critère, sa contrainte, une question posée
-**avant** l'action et une vérification faite **après** (voir « concevoir pour
-des lecteurs qui utiliseront l'IA »).
+Chaque étape porte sa consigne, son objectif, son critère, sa contrainte, une
+question posée **avant** l'action et une vérification faite **après** (voir «
+concevoir pour des lecteurs qui utiliseront l'IA »). L'ordre ci-dessous est
+celui de la conception ; la page les présente dans l'ordre de lecture décrit
+dans « l'anatomie d'une page projet ».
 
 1. **Tout démarre en une commande.**
+   - _Consigne_ : écrire les Dockerfile du front et de l'API, puis un
+     `docker-compose.yml` qui lance le front, l'API et MongoDB ensemble.
    - _Objectif_ : l'environnement d'exécution vit dans l'image, pas sur la
      machine ; Compose décrit un système — des services et leurs dépendances —,
      pas une suite de commandes.
@@ -344,6 +388,9 @@ des lecteurs qui utiliseront l'IA »).
      aujourd'hui, et qui ne sera pas dans le conteneur ? »
    - _Après_ : arrêter MongoDB pendant que l'API tourne. Que se passe-t-il ?
 2. **L'image de l'API passe sous les 150 Mo.**
+   - _Consigne_ : noter la taille de l'image de l'API, puis réécrire son
+     Dockerfile pour que l'image finale ne contienne que ce qui sert à
+     l'exécution.
    - _Objectif_ : une image est un empilement de couches, ce qu'on y met y
      reste, et le contexte de build part entièrement au démon.
    - _Critère_ : `docker images` affiche moins de 150 Mo pour l'API.
@@ -355,6 +402,8 @@ des lecteurs qui utiliseront l'IA »).
    - _Après_ : `docker history` sur _votre_ image. Quelle couche pèse le plus,
      et pourquoi celle-là ?
 3. **Les données survivent à `docker compose down`.**
+   - _Consigne_ : faire en sorte que les données de MongoDB soient conservées
+     quand les conteneurs sont supprimés puis recréés.
    - _Objectif_ : le conteneur est jetable, les données ne le sont pas ; leurs
      cycles de vie sont séparés.
    - _Critère_ : après `down` puis `up`, les données sont là.
@@ -363,6 +412,8 @@ des lecteurs qui utiliseront l'IA »).
    - _Après_ : `docker compose down -v`, puis relancer. Qu'est-ce qui a disparu,
      et pourquoi ?
 4. **La base n'est plus joignable depuis la machine hôte.**
+   - _Consigne_ : couper tout accès à MongoDB depuis la machine, sans casser la
+     connexion entre l'API et la base.
    - _Objectif_ : sur un réseau Docker, les services se joignent par leur nom ;
      publier un port vers l'hôte n'est pas la même chose qu'être joignable sur
      le réseau interne. Chaque port publié est de la surface d'attaque.
@@ -374,6 +425,8 @@ des lecteurs qui utiliseront l'IA »).
      encore la joindre ? »
    - _Après_ : `docker network inspect`. Qui est sur quel réseau ?
 5. **Aucun secret dans l'image ni dans le dépôt.**
+   - _Consigne_ : sortir les secrets (mot de passe de la base, clés) de l'image
+     et du dépôt ; ils sont fournis au lancement.
    - _Objectif_ : distinguer ce qui entre dans l'image au build de ce qui arrive
      à l'exécution ; une couche ne s'efface pas, l'historique Git non plus.
      L'étape réinvestit volontairement la notion de couche de l'étape 2.
@@ -385,6 +438,8 @@ des lecteurs qui utiliseront l'IA »).
    - _Après_ : retrouver, dans _votre_ historique d'image ou de dépôt, le
      dernier endroit où un secret aurait pu rester.
 6. **L'image est livrée.**
+   - _Consigne_ : donner une version à l'image de l'API et la publier sur un
+     registry, pour que quelqu'un d'autre puisse la récupérer.
    - _Objectif_ : une image est un artefact versionné, qu'un autre doit pouvoir
      récupérer et retrouver à l'identique. C'est la charnière avec le projet 2,
      qui consomme précisément cette image.
@@ -495,8 +550,41 @@ Git est une version.
 
 ---
 
+## Où on en est
+
+Point au 23/10/2026, pour reprendre le travail dans une autre session ou sur une
+autre machine.
+
+- **Maquette de la page projet et de l'index `/projets`** :
+  https://claude.ai/artifact/PNZdfk1xj2sw7TTcVY7eC2 (privée, visible depuis le
+  compte de Thomas). Elle intègre le starter, les consignes par étape et la
+  correction par étape. C'est la piste retenue : la page se dessine avec cette
+  maquette plutôt qu'avec Claude Design.
+- **Proposé, pas encore dans la maquette** : rendre la checklist « comment
+  savoir que c'est fini » flottante. Sur desktop, la colonne « Le parcours »
+  devient collante (CSS seul) avec une version compacte de la checklist ; sur
+  mobile, une barre fixe « Vérifications 2/6 » déplie la liste (un `<details>`,
+  sans JavaScript de plus). Les cases cochées sont gardées dans le navigateur
+  (`localStorage`), rien n'est envoyé.
+- **Prochaine étape** : écrire le starter neuf « My MOOCs » dans
+  `projets-corrections/conteneuriser-application-full-stack/etape-0/`, sur une
+  branche dédiée. Reste à décider si Claude écrit aussi les corrections des
+  étapes 1 à 6, que Thomas testerait avec Docker (Docker n'était pas accessible
+  depuis le terminal de Claude sur la machine utilisée le 23/10).
+- **Design system** : le projet Claude Design « NX Academy Design System »
+  (https://claude.ai/design/p/c6abd391-4a82-4d44-a479-fe83bb80e90f) a été remis
+  à jour le 15/10/2026. Il ne connaît pas encore le thème automne (PR #413), et
+  la question d'ajouter dans `theme.css` des alias vers ses noms de tokens est
+  ouverte.
+
 ## Ce qui reste à trancher
 
+- **Le starter du projet 1** : l'écrire (voir le brief du projet 1 : le code du
+  fil rouge est trop mince et trop daté pour servir tel quel), puis vérifier
+  qu'il démarre sans rien d'autre que Node. L'arborescence de la maquette est
+  indicative.
+- **La génération du `.zip` du starter** au build : un script, ou une étape de
+  la CI de déploiement.
 - ~~**Le dépôt de correction**~~ — **tranché le 14/10/2026** : dans ce dépôt, un
   dossier par étape. Voir « la correction ».
 - **La passe « objectifs d'apprentissage »** : **faite pour le projet 1** le
