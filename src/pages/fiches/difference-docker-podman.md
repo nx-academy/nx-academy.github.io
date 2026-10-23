@@ -4,8 +4,8 @@ layout: ../../layouts/CheatSheetsLayout.astro
 title: "Docker et Podman, quelles différences ?"
 description:
   "Podman se présente comme un remplaçant de Docker. Mêmes commandes, mêmes
-  images, mais pas de démon et pas de root : on regarde ce qui change vraiment,
-  ce qui coince, et dans quels cas la bascule vaut le coup."
+  images, mais pas de démon et pas de root. On regarde ce qui change vraiment,
+  ce qui coince et dans quels cas la bascule vaut le coup."
 
 imgAlt:
   Deux grues portuaires côte à côte qui soulèvent le même conteneur, l'une
@@ -20,7 +20,7 @@ tags:
   - Sécurité
   - Production
 level: Intermédiaire
-publishedDate: 10/16/2026
+publishedDate: 10/23/2026
 
 faq:
   - question: Quelle est la différence entre Docker et Podman ?
