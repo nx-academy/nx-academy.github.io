@@ -1,0 +1,114 @@
+---
+// Le tapis de feuilles au-dessus du footer, avec le hérisson qui dort dedans
+// et l'écureuil qui passe de temps en temps. Il s'épaissit au fil de la saison.
+import {
+  CARPET,
+  HEDGEHOG_ASLEEP,
+  HEDGEHOG_POSITION,
+  SQUIRREL_FRAMES,
+} from "../data/autumn";
+import type { CarpetLeaf, LeafColor, LeafShape } from "../types/Autumn";
+import { autumnProgress, carpetLayers, leafSize, PIXEL } from "../utils/season";
+
+const { behind, inFront } = carpetLayers(autumnProgress(new Date()));
+
+const toUse = (leaf: CarpetLeaf) => {
+  const { width, height } = leafSize(leaf.shape);
+  const w = width * PIXEL;
+  const h = height * PIXEL;
+  return {
+    href: `#au-${leaf.shape}-${leaf.color}`,
+    width: w,
+    height: h,
+    transform: `translate(${leaf.x} ${leaf.y}) rotate(${leaf.rotation} ${w / 2} ${h / 2})`,
+  };
+};
+
+const hedgehog = {
+  ...HEDGEHOG_POSITION,
+  width: HEDGEHOG_ASLEEP[0].length * PIXEL,
+  height: HEDGEHOG_ASLEEP.length * PIXEL,
+};
+
+const squirrel = {
+  width: SQUIRREL_FRAMES[0][0].length,
+  height: SQUIRREL_FRAMES[0].length,
+};
+
+const landing: { shape: LeafShape; color: LeafColor }[] = [
+  { shape: "oval", color: "gold" },
+  { shape: "maple", color: "ember" },
+  { shape: "oval", color: "ochre" },
+];
+---
+
+<div class="au-ground au-deco">
+  <!-- Le message de départ du hérisson, posé au-dessus du tapis -->
+  <div class="au-toast au-toast-ground" role="status" hidden></div>
+
+  <svg
+    aria-hidden="true"
+    class="au-carpet"
+    viewBox={`0 0 ${CARPET.width} ${CARPET.height}`}
+    preserveAspectRatio="xMidYMax slice"
+  >
+    <rect class="au-soil" x="0" y="88" width={CARPET.width} height="40"></rect>
+    {behind.map((leaf) => <use {...toUse(leaf)} />)}
+    <g transform={`translate(${hedgehog.x} ${hedgehog.y})`}>
+      <g class="au-hh-move">
+        <g class="au-breathe">
+          <use
+            class="au-hh-sprite"
+            href="#au-hedgehog"
+            width={hedgehog.width}
+            height={hedgehog.height}></use>
+        </g>
+        <text class="au-zz" x="52" y="-2">z</text>
+        <text class="au-zz au-zz-2" x="58" y="-8">z</text>
+        <text class="au-hh-alert" x="54" y="-6" text-anchor="middle"></text>
+      </g>
+    </g>
+    {inFront.map((leaf) => <use {...toUse(leaf)} />)}
+    <!-- Zone de clic posée par-dessus les feuilles qui recouvrent le hérisson -->
+    <rect
+      class="au-hh-hit"
+      x={hedgehog.x - 6}
+      y={hedgehog.y - 12}
+      width={hedgehog.width + 14}
+      height={hedgehog.height + 14}></rect>
+  </svg>
+
+  {
+    landing.map((leaf, i) => {
+      const { width, height } = leafSize(leaf.shape);
+      return (
+        <span class:list={["au-land", `au-land-${i + 1}`]} aria-hidden="true">
+          <svg viewBox={`0 0 ${width} ${height}`}>
+            <use
+              href={`#au-${leaf.shape}-${leaf.color}`}
+              width={width}
+              height={height}
+            />
+          </svg>
+        </span>
+      );
+    })
+  }
+
+  <span class="au-squirrel" aria-hidden="true">
+    <span class="au-hop">
+      <svg viewBox={`0 0 ${squirrel.width} ${squirrel.height}`}>
+        {
+          SQUIRREL_FRAMES.map((_, i) => (
+            <use
+              class={`au-frame-${i + 1}`}
+              href={`#au-squirrel-${i + 1}`}
+              width={squirrel.width}
+              height={squirrel.height}
+            />
+          ))
+        }
+      </svg>
+    </span>
+  </span>
+</div>

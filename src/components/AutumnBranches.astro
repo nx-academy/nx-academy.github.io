@@ -1,0 +1,62 @@
+---
+// Branches du thème d'automne, sous le header. Grandes sur l'accueil, petites
+// et limitées aux marges ailleurs. Elles se dégarnissent d'un build à l'autre.
+import { BRANCH_LEFT, BRANCH_RIGHT } from "../data/autumn";
+import {
+  autumnProgress,
+  branchLeaves,
+  branchRects,
+  PIXEL,
+} from "../utils/season";
+
+interface Props {
+  variant: "large" | "small";
+}
+
+const { variant } = Astro.props;
+const progress = autumnProgress(new Date());
+
+const branches = [
+  { side: "left", branch: BRANCH_LEFT },
+  { side: "right", branch: BRANCH_RIGHT },
+].map(({ side, branch }) => ({
+  side,
+  viewBox: `0 0 ${branch.width} ${branch.height}`,
+  rects: branchRects(branch.curves),
+  leaves: branchLeaves(branch.leaves, progress),
+}));
+---
+
+<div
+  class:list={["au-branches", "au-deco", `au-branches-${variant}`]}
+  aria-hidden="true"
+>
+  {
+    branches.map(({ side, viewBox, rects, leaves }) => (
+      <svg class:list={["au-branch", `au-branch-${side}`]} viewBox={viewBox}>
+        {rects.map((rect) => (
+          <rect
+            x={rect.x}
+            y={rect.y}
+            width={rect.width}
+            height={PIXEL}
+            class={rect.className}
+          />
+        ))}
+        {leaves.map((leaf) => (
+          <use
+            href={leaf.href}
+            x={leaf.x}
+            y={leaf.y}
+            width={leaf.width}
+            height={leaf.height}
+            class:list={[
+              "au-bleaf",
+              leaf.flutter && `au-flutter-${leaf.flutter}`,
+            ]}
+          />
+        ))}
+      </svg>
+    ))
+  }
+</div>

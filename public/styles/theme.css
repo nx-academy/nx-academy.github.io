@@ -132,6 +132,95 @@ html.theme-light {
   --articleLinkHoverColor: #4d4dffcc;
 }
 
+/* Thème d'automne : une saison posée par-dessus clair ou sombre, du 1er
+   octobre au 30 novembre (voir src/utils/season). La classe « season-autumn »
+   est posée par le script inline de BaseLayout. Contrastes vérifiés : tous
+   les textes passent le niveau AA. */
+html.season-autumn.theme-light {
+  --backgroundColorPrimary: #faf3e6;
+  --backgroundColorSecondary: #f1e4cc;
+
+  --backgroundColorMobileNav: rgba(250, 243, 230, 0.92);
+
+  --borderPrimary: #e2cfae;
+  --borderSecondary: #9c3f12;
+
+  --accent: #9c3f12;
+
+  --titleColor: #3b2a1e;
+  --textColor: #5c4a3b;
+
+  --linkColor: #3b2a1e;
+  --linkHoverColor: #9c3f12;
+
+  --burgerColor: #3b2a1e;
+  --burgerHoverColor: #9c3f12;
+
+  --buttonColorPrimary: #9c3f12;
+  --buttonColorPrimaryHover: #9c3f12cc;
+  --buttonColorPrimaryText: #faf3e6;
+
+  --buttonColorSecondary: #4f6b2a;
+  --buttonColorSecondaryHover: #4f6b2acc;
+  --buttonColorSecondaryText: #faf3e6;
+
+  --codeBackgroundColor: #3b2a1e;
+  --codeTextColor: #f6d58e;
+
+  --articleLinkColor: #9c3f12;
+  --articleLinkHoverColor: #4f6b2a;
+
+  --quiz-title-right: #4f6b2a;
+  --quiz-title-wrong: #b3261e;
+
+  --au-branch-hi: #7a5a40;
+  --au-branch: #5a3f2b;
+  --au-branch-lo: #3b2a1e;
+}
+
+/* Automne sombre : sous-bois la nuit */
+html.season-autumn.theme-dark {
+  --backgroundColorPrimary: #17130f;
+  --backgroundColorSecondary: #231c15;
+
+  --backgroundColorMobileNav: rgba(23, 19, 15, 0.92);
+
+  --borderPrimary: #3d3127;
+  --borderSecondary: #f08a4b;
+
+  --accent: #f08a4b;
+
+  --titleColor: #f3e6cf;
+  --textColor: #cdbba3;
+
+  --linkColor: #f3e6cf;
+  --linkHoverColor: #f08a4b;
+
+  --burgerColor: #f3e6cf;
+  --burgerHoverColor: #f08a4b;
+
+  --buttonColorPrimary: #f08a4b;
+  --buttonColorPrimaryHover: #f08a4baa;
+  --buttonColorPrimaryText: #17130f;
+
+  --buttonColorSecondary: #b5cf7a;
+  --buttonColorSecondaryHover: #b5cf7aaa;
+  --buttonColorSecondaryText: #17130f;
+
+  --codeBackgroundColor: #f6d58e;
+  --codeTextColor: #17130f;
+
+  --articleLinkColor: #f08a4b;
+  --articleLinkHoverColor: #b5cf7a;
+
+  --quiz-title-right: #b5cf7a;
+  --quiz-title-wrong: #ff7a6b;
+
+  --au-branch-hi: #9a7656;
+  --au-branch: #7a5b43;
+  --au-branch-lo: #4f3a2a;
+}
+
 /* Thème été : plage, sable et mer.
    Désactivé : plus aucun sélecteur ne pose la classe « theme-summer ».
    Les variables sont conservées pour pouvoir le réactiver. */

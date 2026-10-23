@@ -3,6 +3,10 @@ name: Deploy NX Website to GH Pages
 on:
   push:
     branches: ["main"]
+  # Chaque lundi à 5 h UTC : fait avancer le thème d'automne (branches qui se
+  # dégarnissent, tapis qui s'épaissit) même sans merge. Voir src/utils/season.
+  schedule:
+    - cron: "0 5 * * 1"
   workflow_dispatch:
 
 permissions:

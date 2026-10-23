@@ -1,0 +1,196 @@
+---
+// Les deux easter eggs du thème d'automne, à la souris seulement :
+// - un clic sur une branche décroche la feuille la plus proche ;
+// - un clic sur le hérisson le réveille, au troisième il s'en va.
+// Seule partie du décor qui a besoin de JavaScript côté client.
+---
+
+<div class="au-toast au-toast-top" role="status" hidden></div>
+
+<script>
+  const reducedMotion = () =>
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Deux messages, chacun près de ce qui le déclenche : en haut pour les
+  // branches, au-dessus du tapis pour le hérisson (cf. AutumnGround).
+  const $toastTop = document.querySelector<HTMLElement>(".au-toast-top");
+  const $toastGround = document.querySelector<HTMLElement>(".au-toast-ground");
+  const toastTimers = new Map<HTMLElement, number>();
+
+  function showToast($toast: HTMLElement | null, message: string) {
+    if (!$toast) return;
+    $toast.textContent = message;
+    $toast.hidden = false;
+    window.clearTimeout(toastTimers.get($toast));
+    toastTimers.set(
+      $toast,
+      window.setTimeout(() => {
+        $toast.hidden = true;
+      }, 3500),
+    );
+  }
+
+  /* ---- Branches ---- */
+
+  // Position et taille calculées depuis les attributs de la feuille et
+  // l'échelle de la branche : la feuille décrochée garde sa taille exacte.
+  function leafRect(svg: SVGSVGElement, leaf: SVGUseElement): DOMRect {
+    const box = svg.getBoundingClientRect();
+    const viewBox = svg.viewBox.baseVal;
+    const scale = box.width / viewBox.width;
+    const x = Number(leaf.getAttribute("x"));
+    const y = Number(leaf.getAttribute("y"));
+    const width = Number(leaf.getAttribute("width"));
+    const height = Number(leaf.getAttribute("height"));
+    const mirrored = svg.classList.contains("au-branch-right");
+    return new DOMRect(
+      box.left + (mirrored ? viewBox.width - x - width : x) * scale,
+      box.top + y * scale,
+      width * scale,
+      height * scale,
+    );
+  }
+
+  function dropLeaf(svg: SVGSVGElement, leaf: SVGUseElement) {
+    const rect = leafRect(svg, leaf);
+    leaf.classList.add("au-gone");
+
+    const width = leaf.getAttribute("width");
+    const height = leaf.getAttribute("height");
+    const $leaf = document.createElement("span");
+    $leaf.className = "au-dropped";
+    Object.assign($leaf.style, {
+      left: `${rect.left + window.scrollX}px`,
+      top: `${rect.top + window.scrollY}px`,
+      width: `${rect.width}px`,
+      height: `${rect.height}px`,
+    });
+    $leaf.innerHTML = `<svg viewBox="0 0 ${width} ${height}"><use href="${leaf.getAttribute("href")}" width="${width}" height="${height}"/></svg>`;
+    document.body.appendChild($leaf);
+
+    const frames = reducedMotion()
+      ? [{ opacity: 1 }, { opacity: 0, transform: "translateY(12px)" }]
+      : [
+          { transform: "translate(0, 0)" },
+          { transform: "translate(22px, 110px) scaleX(-1)" },
+          { transform: "translate(-16px, 230px)" },
+          { transform: "translate(18px, 350px) scaleX(-1)", opacity: 1 },
+          { transform: "translate(-4px, 470px)", opacity: 0 },
+        ];
+    $leaf.animate(frames, {
+      duration: reducedMotion() ? 400 : 3800,
+      easing: "linear",
+    }).onfinish = () => $leaf.remove();
+
+    if (!document.querySelector(".au-bleaf:not(.au-gone)")) {
+      showToast($toastTop, "L’arbre est prêt pour l’hiver.");
+    }
+  }
+
+  document.querySelectorAll<SVGSVGElement>(".au-branch").forEach((svg) => {
+    svg.addEventListener("click", (event) => {
+      const leaves = Array.from(
+        svg.querySelectorAll<SVGUseElement>(".au-bleaf:not(.au-gone)"),
+      );
+      let nearest: SVGUseElement | undefined;
+      let best = Infinity;
+      for (const leaf of leaves) {
+        const rect = leafRect(svg, leaf);
+        const distance = Math.hypot(
+          rect.left + rect.width / 2 - event.clientX,
+          rect.top + rect.height / 2 - event.clientY,
+        );
+        if (distance < best) {
+          best = distance;
+          nearest = leaf;
+        }
+      }
+      if (nearest) dropLeaf(svg, nearest);
+    });
+  });
+
+  /* ---- Le hérisson : un clic le réveille, trois le font partir ---- */
+
+  const $hit = document.querySelector<SVGRectElement>(".au-hh-hit");
+  const $move = document.querySelector<SVGGElement>(".au-hh-move");
+  const $sprite = document.querySelector<SVGUseElement>(".au-hh-sprite");
+  const $alert = document.querySelector<SVGTextElement>(".au-hh-alert");
+
+  if ($hit && $move && $sprite && $alert) {
+    let clicks = 0;
+    let sleepTimer: number | undefined;
+
+    const sleep = () => {
+      clicks = 0;
+      $move.classList.remove("au-awake");
+      $sprite.setAttribute("href", "#au-hedgehog");
+      $alert.style.visibility = "";
+    };
+
+    const leave = () => {
+      $hit.style.display = "none";
+      let frames: Keyframe[];
+      if (reducedMotion()) {
+        frames = [{ opacity: 1 }, { opacity: 0 }];
+      } else {
+        // Un sursaut sur place, puis il file à droite en sautillant
+        frames = [
+          { transform: "translate(0px, 0px)", offset: 0 },
+          { transform: "translate(0px, -10px)", offset: 0.1 },
+          { transform: "translate(0px, 0px)", offset: 0.2 },
+        ];
+        for (let i = 1; i <= 12; i++) {
+          frames.push({
+            transform: `translate(${i * 75}px, ${i % 2 ? -6 : 0}px)`,
+            // Math.min : 0.2 + 0.8 tombe à 1.0000000000000002, refusé
+            offset: Math.min(1, 0.2 + (i * 0.8) / 12),
+          });
+        }
+      }
+      $move.animate(frames, {
+        duration: reducedMotion() ? 500 : 2600,
+        easing: "linear",
+        fill: "forwards",
+      }).onfinish = () =>
+        showToast($toastGround, "Le hérisson est parti dormir ailleurs.");
+    };
+
+    $hit.addEventListener("click", () => {
+      clicks++;
+      window.clearTimeout(sleepTimer);
+      $move.classList.add("au-awake");
+      $sprite.setAttribute("href", "#au-hedgehog-awake");
+      $alert.textContent = "!".repeat(clicks);
+      $alert.style.visibility = "visible";
+
+      if (clicks >= 3) {
+        leave();
+        return;
+      }
+
+      if (!reducedMotion()) {
+        const frames =
+          clicks === 1
+            ? [
+                { transform: "translate(0px, 0px)" },
+                { transform: "translate(0px, -8px)" },
+                { transform: "translate(0px, 0px)" },
+              ]
+            : [
+                { transform: "translate(0px, 0px)" },
+                { transform: "translate(-4px, -4px)" },
+                { transform: "translate(4px, 0px)" },
+                { transform: "translate(-4px, -4px)" },
+                { transform: "translate(0px, 0px)" },
+              ];
+        $move.animate(frames, {
+          duration: clicks === 1 ? 320 : 420,
+          easing: `steps(${frames.length})`,
+        });
+      }
+
+      // Sans nouveau clic, il se rendort
+      sleepTimer = window.setTimeout(sleep, 3000);
+    });
+  }
+</script>
