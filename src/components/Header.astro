@@ -1,5 +1,15 @@
 ---
+import { LEAF_SPRITES } from "../data/autumn";
+import { spriteRects } from "../utils/season";
+
 const path = Astro.url.pathname;
+
+// Icône du thème d'automne : la feuille d'érable du décor, en currentColor
+const mapleIcon = spriteRects(LEAF_SPRITES.maple, {
+  a: "leaf",
+  b: "vein",
+  s: "leaf",
+});
 
 const navItems = [
   { key: "fiches", label: "Fiches techniques", href: "/fiches" },
@@ -27,74 +37,98 @@ const isActive = (href: string) => path === href || path.startsWith(href + "/");
       <a href="/quiz">Quiz</a>
     </nav>
 
-    <button class="theme-btn" type="button" aria-label="Changer le thème">
-      <svg
-        class="moon-icon"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.7"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        xmlns="http://www.w3.org/2000/svg"
+    <div class="theme-controls">
+      <button
+        class="season-btn"
+        type="button"
+        data-season-toggle
+        aria-pressed="false"
+        aria-label="Thème d'automne"
       >
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-      </svg>
-      <svg
-        class="sun-icon"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M8 22H16"
+        <svg viewBox="0 0 9 9" shape-rendering="crispEdges" aria-hidden="true">
+          {
+            mapleIcon.map((rect) => (
+              <rect
+                x={rect.x}
+                y={rect.y}
+                width={rect.width}
+                height="1"
+                class={rect.className}
+              />
+            ))
+          }
+        </svg>
+      </button>
+
+      <button class="theme-btn" type="button" aria-label="Changer le thème">
+        <svg
+          class="moon-icon"
+          viewBox="0 0 24 24"
+          fill="none"
           stroke="currentColor"
-          stroke-width="1.5"
+          stroke-width="1.7"
           stroke-linecap="round"
-          stroke-linejoin="round"></path>
-        <path
-          d="M5 19H19"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"></path>
-        <path
-          d="M2 16H22"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"></path>
-        <path
-          d="M12 6C8.68629 6 6 8.68629 6 12C6 13.5217 6.56645 14.911 7.5 15.9687H16.5C17.4335 14.911 18 13.5217 18 12C18 8.68629 15.3137 6 12 6Z"
-          stroke="currentColor"
-          stroke-width="1.5"></path>
-        <path
-          d="M12 2V3"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"></path>
-        <path
-          d="M22 12L21 12"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"></path>
-        <path
-          d="M3 12L2 12"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"></path>
-        <path
-          d="M19.0708 4.92969L18.678 5.32252"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"></path>
-        <path
-          d="M5.32178 5.32227L4.92894 4.92943"
-          stroke="currentColor"
-          stroke-width="1.5"
-          stroke-linecap="round"></path>
-      </svg>
-    </button>
+          stroke-linejoin="round"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg
+          class="sun-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8 22H16"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <path
+            d="M5 19H19"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <path
+            d="M2 16H22"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <path
+            d="M12 6C8.68629 6 6 8.68629 6 12C6 13.5217 6.56645 14.911 7.5 15.9687H16.5C17.4335 14.911 18 13.5217 18 12C18 8.68629 15.3137 6 12 6Z"
+            stroke="currentColor"
+            stroke-width="1.5"></path>
+          <path
+            d="M12 2V3"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"></path>
+          <path
+            d="M22 12L21 12"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"></path>
+          <path
+            d="M3 12L2 12"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"></path>
+          <path
+            d="M19.0708 4.92969L18.678 5.32252"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"></path>
+          <path
+            d="M5.32178 5.32227L4.92894 4.92943"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"></path>
+        </svg>
+      </button>
+    </div>
 
     <button
       class="burger"
@@ -205,6 +239,31 @@ const isActive = (href: string) => path === href || path.startsWith(href + "/");
               <path
                 d="M12 3v1.5M12 19.5V21M3 12h1.5M19.5 12H21M5.6 5.6l1 1M17.4 17.4l1 1M18.4 5.6l-1 1M6.6 17.4l-1 1"
               ></path>
+            </svg>
+          </button>
+          <button
+            class="season-toggle"
+            type="button"
+            data-season-toggle
+            aria-pressed="false"
+            aria-label="Thème d'automne"
+          >
+            <svg
+              viewBox="0 0 9 9"
+              shape-rendering="crispEdges"
+              aria-hidden="true"
+            >
+              {
+                mapleIcon.map((rect) => (
+                  <rect
+                    x={rect.x}
+                    y={rect.y}
+                    width={rect.width}
+                    height="1"
+                    class={rect.className}
+                  />
+                ))
+              }
             </svg>
           </button>
         </div>
@@ -325,19 +384,24 @@ const isActive = (href: string) => path === href || path.startsWith(href + "/");
     fill: currentColor;
   }
 
-  .theme-btn {
+  /* Masqués sur mobile : le choix de thème passe par le sélecteur de l'overlay */
+  .theme-controls {
+    display: none;
+    gap: 8px;
+    margin-left: auto;
+  }
+
+  .theme-btn,
+  .season-btn {
     align-items: center;
     background: none;
     border: 1px solid var(--borderPrimary);
     border-radius: 999px;
     color: var(--linkColor);
     cursor: pointer;
-    /* Masqué sur mobile : le choix de thème passe par le sélecteur de l'overlay */
-    display: none;
+    display: flex;
     height: 34px;
     justify-content: center;
-    margin-left: auto;
-    margin-right: 24px;
     padding: 0;
     transition:
       color 0.3s ease,
@@ -345,7 +409,8 @@ const isActive = (href: string) => path === href || path.startsWith(href + "/");
     width: 34px;
   }
 
-  .theme-btn:hover {
+  .theme-btn:hover,
+  .season-btn:hover {
     color: var(--linkHoverColor);
     border-color: var(--linkHoverColor);
   }
@@ -353,6 +418,41 @@ const isActive = (href: string) => path === href || path.startsWith(href + "/");
   .theme-btn svg {
     height: 20px;
     width: 20px;
+  }
+
+  /* Le bouton d'automne n'existe que pendant la saison */
+  .season-btn,
+  .hd-ov-themes .season-toggle {
+    display: none;
+  }
+
+  :global(html.season-available) .season-btn {
+    display: flex;
+  }
+
+  :global(html.season-available) .hd-ov-themes .season-toggle {
+    display: grid;
+  }
+
+  .season-btn[aria-pressed="true"] {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .season-btn svg,
+  .season-toggle svg {
+    height: 18px;
+    width: 18px;
+  }
+
+  .season-btn rect,
+  .season-toggle rect {
+    fill: currentColor;
+  }
+
+  .season-btn .vein,
+  .season-toggle .vein {
+    opacity: 0.55;
   }
 
   .burger {
@@ -675,9 +775,8 @@ const isActive = (href: string) => path === href || path.startsWith(href + "/");
       gap: 2rem;
     }
 
-    .theme-btn {
+    .theme-controls {
       display: flex;
-      margin-right: 0;
     }
 
     .burger,
@@ -761,8 +860,12 @@ const isActive = (href: string) => path === href || path.startsWith(href + "/");
   const $body = document.body as HTMLBodyElement;
 
   const $themeBtn = document.querySelector(".theme-btn") as HTMLElement;
+  // [data-theme] : la feuille d'automne vit dans le même groupe, mais elle a
+  // son propre état (cf. syncSeasonButtons) que syncThemeButtons écraserait.
   const $themeButtons = Array.from(
-    document.querySelectorAll<HTMLButtonElement>(".hd-ov-themes button"),
+    document.querySelectorAll<HTMLButtonElement>(
+      ".hd-ov-themes button[data-theme]",
+    ),
   );
 
   // « theme-summer » est désactivé : ses styles restent dans le dépôt
@@ -803,6 +906,35 @@ const isActive = (href: string) => path === href || path.startsWith(href + "/");
   });
 
   syncThemeButtons(currentTheme());
+
+  // Thème d'automne : une saison posée par-dessus clair ou sombre. Le couper
+  // vaut pour l'année en cours (cf. le script inline de BaseLayout).
+  const $seasonButtons = Array.from(
+    document.querySelectorAll<HTMLButtonElement>("[data-season-toggle]"),
+  );
+
+  function syncSeasonButtons() {
+    const isAutumn =
+      document.documentElement.classList.contains("season-autumn");
+    $seasonButtons.forEach((btn) => {
+      btn.setAttribute("aria-pressed", String(isAutumn));
+    });
+  }
+
+  $seasonButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const isAutumn =
+        document.documentElement.classList.toggle("season-autumn");
+      if (isAutumn) {
+        localStorage.removeItem("season");
+      } else {
+        localStorage.setItem("season", `classic-${new Date().getFullYear()}`);
+      }
+      syncSeasonButtons();
+    });
+  });
+
+  syncSeasonButtons();
 
   function setMenu(isOpen: boolean) {
     $burger.classList.toggle("active", isOpen);

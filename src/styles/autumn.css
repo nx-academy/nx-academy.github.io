@@ -1,0 +1,553 @@
+/* Décor du thème d'automne, en pixel art.
+   Généré au build seulement autour de la saison (src/utils/season), et
+   affiché seulement quand html porte « season-autumn ». Les couleurs du site
+   et les tons des branches vivent dans public/styles/theme.css. */
+
+:root {
+  --au-gold: #e8a33d;
+  --au-gold-d: #b8741f;
+  --au-ember: #d9622b;
+  --au-ember-d: #a3431a;
+  --au-ochre: #c08a2e;
+  --au-ochre-d: #8c6118;
+  --au-brown: #8a5a2b;
+  --au-brown-d: #5e3a19;
+  --au-rust: #9c3f12;
+  --au-rust-d: #6e2a0b;
+  --au-eye: #1c120c;
+  --au-hh-spike: #5e3a19;
+  --au-hh-body: #8a5a2b;
+  --au-hh-face: #e8cfa6;
+  --au-sq-tail: #c0602a;
+  --au-sq-body: #a8541f;
+  --au-sq-ear: #7a3a14;
+  --au-sq-belly: #e8cfa6;
+}
+
+.au-deco {
+  display: none;
+}
+
+html.season-autumn .au-deco {
+  display: block;
+}
+
+.au-sprites {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.au-deco svg,
+.au-dropped svg {
+  shape-rendering: crispEdges;
+}
+
+/* ---- Couleurs des sprites ---- */
+.au-gold-a {
+  fill: var(--au-gold);
+}
+.au-gold-b {
+  fill: var(--au-gold-d);
+}
+.au-ember-a {
+  fill: var(--au-ember);
+}
+.au-ember-b {
+  fill: var(--au-ember-d);
+}
+.au-ochre-a {
+  fill: var(--au-ochre);
+}
+.au-ochre-b {
+  fill: var(--au-ochre-d);
+}
+.au-brown-a {
+  fill: var(--au-brown);
+}
+.au-brown-b {
+  fill: var(--au-brown-d);
+}
+.au-rust-a {
+  fill: var(--au-rust);
+}
+.au-rust-b {
+  fill: var(--au-rust-d);
+}
+.au-stem {
+  fill: var(--au-branch);
+}
+.au-eye {
+  fill: var(--au-eye);
+}
+.au-hh-spike {
+  fill: var(--au-hh-spike);
+}
+.au-hh-body {
+  fill: var(--au-hh-body);
+}
+.au-hh-face {
+  fill: var(--au-hh-face);
+}
+.au-sq-tail {
+  fill: var(--au-sq-tail);
+}
+.au-sq-body {
+  fill: var(--au-sq-body);
+}
+.au-sq-ear {
+  fill: var(--au-sq-ear);
+}
+.au-sq-belly {
+  fill: var(--au-sq-belly);
+}
+.au-b-hi {
+  fill: var(--au-branch-hi);
+}
+.au-b-mid {
+  fill: var(--au-branch);
+}
+.au-b-lo {
+  fill: var(--au-branch-lo);
+}
+
+/* ---- Branches ---- */
+.au-branches {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.au-branch {
+  position: absolute;
+  /* Collées sous le header, malgré sa marge basse */
+  top: -1.5rem;
+  height: auto;
+}
+
+/* Seuls le bois et les feuilles captent le clic (easter egg) */
+.au-branch rect,
+.au-branch use {
+  pointer-events: auto;
+}
+
+.au-branch-left {
+  left: 0;
+}
+
+.au-branch-right {
+  right: 0;
+  transform: scaleX(-1);
+}
+
+/* Accueil : grandes branches, avec la place réservée sous le header */
+html.season-autumn .au-branches-large {
+  height: clamp(90px, 15vw, 200px);
+}
+
+.au-branches-large .au-branch-left {
+  width: min(46vw, 520px);
+}
+
+.au-branches-large .au-branch-right {
+  width: min(34vw, 380px);
+}
+
+/* Ailleurs : de petites branches dans les marges des écrans larges, pour ne
+   jamais recouvrir un titre ou le fil d'Ariane */
+.au-branches-small {
+  height: 0;
+}
+
+.au-branches-small .au-branch {
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  .au-branches-small .au-branch {
+    display: block;
+  }
+
+  /* Jamais plus large que la marge, pour ne pas toucher au contenu */
+  .au-branches-small .au-branch-left {
+    width: min(calc((100vw - 1100px) / 2 - 10px), 300px);
+  }
+
+  .au-branches-small .au-branch-right {
+    width: min(calc((100vw - 1100px) / 2 - 30px), 220px);
+  }
+}
+
+.au-bleaf {
+  transform-box: fill-box;
+  transform-origin: 50% 0;
+}
+
+.au-bleaf.au-gone {
+  visibility: hidden;
+}
+
+.au-flutter-fast {
+  animation: au-flutter 4.2s steps(1) infinite;
+}
+
+.au-flutter-slow {
+  animation: au-flutter 6.4s steps(1) -2.5s infinite;
+}
+
+@keyframes au-flutter {
+  0%,
+  78% {
+    transform: none;
+  }
+  84% {
+    transform: rotate(-4deg);
+  }
+  92% {
+    transform: rotate(3deg);
+  }
+}
+
+/* Feuille décrochée d'un clic */
+.au-dropped {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.au-dropped svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ---- Chute dans les marges, seulement quand elles existent ---- */
+.au-fall {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+html.season-autumn .au-fall {
+  display: none;
+}
+
+@media (min-width: 1300px) {
+  html.season-autumn .au-fall {
+    display: block;
+  }
+}
+
+.au-fall-leaf {
+  position: absolute;
+  top: 0;
+  animation: au-fall var(--d) linear var(--delay) infinite;
+}
+
+.au-fall-leaf.au-left {
+  left: calc(var(--x) * ((100vw - 1100px) / 2 - 30px));
+}
+
+.au-fall-leaf.au-right {
+  right: calc(var(--x) * ((100vw - 1100px) / 2 - 30px));
+}
+
+.au-sway {
+  display: block;
+  animation: au-sway 4s steps(8) infinite alternate;
+}
+
+.au-flip {
+  display: block;
+  animation: au-flip 2s steps(1) infinite;
+}
+
+.au-fall svg {
+  display: block;
+}
+
+@keyframes au-fall {
+  from {
+    transform: translateY(-8vh);
+  }
+  to {
+    transform: translateY(108vh);
+  }
+}
+
+@keyframes au-sway {
+  from {
+    transform: translateX(-20px);
+  }
+  to {
+    transform: translateX(24px);
+  }
+}
+
+@keyframes au-flip {
+  0% {
+    transform: none;
+  }
+  50% {
+    transform: scaleX(-1);
+  }
+}
+
+/* ---- Tapis de feuilles, au-dessus du footer ---- */
+.au-ground {
+  position: relative;
+  margin-top: 4rem;
+  overflow-x: clip;
+}
+
+html.season-autumn .footer-wrapper {
+  margin-top: 0;
+  border-top: 0;
+  background: var(--backgroundColorSecondary);
+}
+
+.au-carpet {
+  display: block;
+  width: 100%;
+  height: 120px;
+  margin-bottom: -1px;
+}
+
+.au-soil {
+  fill: var(--backgroundColorSecondary);
+}
+
+/* Le hérisson */
+.au-breathe {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: au-breathe 3.2s steps(1) infinite;
+}
+
+@keyframes au-breathe {
+  50% {
+    transform: scaleY(1.07);
+  }
+}
+
+.au-zz {
+  font-family: var(--font-display);
+  font-size: 12px;
+  fill: var(--textColor);
+  opacity: 0;
+  animation: au-zz 4.8s linear infinite;
+}
+
+.au-zz-2 {
+  font-size: 9px;
+  animation-delay: -2.4s;
+}
+
+@keyframes au-zz {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0);
+  }
+  20% {
+    opacity: 0.8;
+  }
+  70% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(8px, -22px);
+  }
+}
+
+.au-hh-hit {
+  fill: transparent;
+  cursor: pointer;
+}
+
+.au-hh-alert {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  fill: var(--accent);
+  visibility: hidden;
+}
+
+.au-hh-move.au-awake .au-breathe {
+  animation: none;
+}
+
+.au-hh-move.au-awake .au-zz {
+  display: none;
+}
+
+/* Feuilles qui se posent sur le tapis en arrivant en bas de page */
+.au-land {
+  position: absolute;
+  bottom: 64px;
+  width: 20px;
+  height: 28px;
+}
+
+.au-land svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.au-land-1 {
+  left: 18%;
+}
+
+.au-land-2 {
+  left: 37%;
+  width: 36px;
+  height: 36px;
+}
+
+.au-land-3 {
+  left: 82%;
+}
+
+@supports (animation-timeline: view()) {
+  .au-land {
+    animation: au-land linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 45%;
+  }
+
+  @keyframes au-land {
+    from {
+      transform: translate(-30px, -220px);
+      opacity: 0;
+    }
+    25% {
+      opacity: 1;
+      transform: translate(20px, -160px) scaleX(-1);
+    }
+    50% {
+      transform: translate(-16px, -100px);
+    }
+    75% {
+      transform: translate(12px, -40px) scaleX(-1);
+    }
+    to {
+      transform: none;
+      opacity: 1;
+    }
+  }
+}
+
+/* L'écureuil traverse de temps en temps, avec une pause au milieu */
+.au-squirrel {
+  position: absolute;
+  left: 0;
+  bottom: 62px;
+  width: 64px;
+  height: 40px;
+  transform: translateX(-90px);
+  animation: au-cross 45s linear 8s infinite;
+}
+
+.au-squirrel svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.au-hop {
+  display: block;
+  animation: au-hop 0.36s steps(1) infinite;
+}
+
+.au-frame-1 {
+  animation: au-frame 0.36s steps(1) infinite;
+}
+
+.au-frame-2 {
+  animation: au-frame 0.36s steps(1) -0.18s infinite;
+}
+
+@keyframes au-cross {
+  0% {
+    transform: translateX(-90px);
+  }
+  7% {
+    transform: translateX(46vw);
+  }
+  11% {
+    transform: translateX(46vw);
+  }
+  18% {
+    transform: translateX(calc(100vw + 90px));
+  }
+  100% {
+    transform: translateX(calc(100vw + 90px));
+  }
+}
+
+@keyframes au-hop {
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes au-frame {
+  50% {
+    opacity: 0;
+  }
+}
+
+.au-toast {
+  left: 50%;
+  max-width: calc(100vw - 32px);
+  padding: 10px 16px;
+  border-radius: var(--radius-md);
+  background: var(--titleColor);
+  color: var(--backgroundColorPrimary);
+  font-family: var(--font-display);
+  transform: translateX(-50%);
+}
+
+.au-toast[hidden] {
+  display: none;
+}
+
+/* Feuilles de la branche : en haut de l'écran, sous le header */
+.au-toast-top {
+  position: fixed;
+  top: 96px;
+  z-index: 1001;
+}
+
+/* Hérisson : juste au-dessus du tapis, là où on vient de cliquer */
+.au-toast-ground {
+  position: absolute;
+  bottom: 112px;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+/* ---- Moins de mouvement : le décor reste, immobile ---- */
+@media (prefers-reduced-motion: reduce) {
+  .au-bleaf,
+  .au-fall-leaf,
+  .au-sway,
+  .au-flip,
+  .au-land,
+  .au-breathe,
+  .au-zz,
+  .au-squirrel,
+  .au-squirrel * {
+    animation: none;
+  }
+
+  html.season-autumn .au-fall,
+  .au-squirrel,
+  .au-zz {
+    display: none;
+  }
+}

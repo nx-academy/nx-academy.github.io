@@ -1,0 +1,58 @@
+---
+// Les sprites du thème d'automne, déclarés une fois par page et réutilisés
+// par <use> dans les branches, la chute et le tapis.
+import "../styles/autumn.css";
+
+import {
+  HEDGEHOG_ASLEEP,
+  HEDGEHOG_AWAKE,
+  HEDGEHOG_CLASSES,
+  LEAF_COLORS,
+  LEAF_SPRITES,
+  SQUIRREL_CLASSES,
+  SQUIRREL_FRAMES,
+} from "../data/autumn";
+import type { LeafShape, SpriteRows } from "../types/Autumn";
+import { leafClasses, spriteRects } from "../utils/season";
+
+type Sprite = { id: string; rows: SpriteRows; classes: Record<string, string> };
+
+const shapes = Object.keys(LEAF_SPRITES) as LeafShape[];
+
+const sprites: Sprite[] = [
+  ...shapes.flatMap((shape) =>
+    LEAF_COLORS.map((color) => ({
+      id: `au-${shape}-${color}`,
+      rows: LEAF_SPRITES[shape],
+      classes: leafClasses(color),
+    })),
+  ),
+  { id: "au-hedgehog", rows: HEDGEHOG_ASLEEP, classes: HEDGEHOG_CLASSES },
+  { id: "au-hedgehog-awake", rows: HEDGEHOG_AWAKE, classes: HEDGEHOG_CLASSES },
+  ...SQUIRREL_FRAMES.map((rows, i) => ({
+    id: `au-squirrel-${i + 1}`,
+    rows,
+    classes: SQUIRREL_CLASSES,
+  })),
+];
+---
+
+<svg class="au-sprites" aria-hidden="true" focusable="false">
+  <defs>
+    {
+      sprites.map(({ id, rows, classes }) => (
+        <symbol id={id} viewBox={`0 0 ${rows[0].length} ${rows.length}`}>
+          {spriteRects(rows, classes).map((rect) => (
+            <rect
+              x={rect.x}
+              y={rect.y}
+              width={rect.width}
+              height="1"
+              class={rect.className}
+            />
+          ))}
+        </symbol>
+      ))
+    }
+  </defs>
+</svg>

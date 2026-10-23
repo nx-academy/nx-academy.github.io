@@ -1,0 +1,106 @@
+---
+// Feuilles qui tombent dans les marges latérales, jamais sur le texte. Leur
+// nombre suit la saison : la chute culmine mi-octobre / début novembre.
+import type { LeafColor, LeafShape } from "../types/Autumn";
+import {
+  autumnProgress,
+  fallingLeafCount,
+  leafSize,
+  PIXEL,
+} from "../utils/season";
+
+type FallingLeaf = {
+  side: "left" | "right";
+  /** Position dans la marge, de 0 (bord) à 1 (contenu). */
+  x: number;
+  duration: number;
+  delay: number;
+  shape: LeafShape;
+  color: LeafColor;
+};
+
+// Dans l'ordre où elles disparaissent en fin de saison : la dernière en tête
+const LEAVES: FallingLeaf[] = [
+  {
+    side: "left",
+    x: 0.25,
+    duration: 21,
+    delay: -2,
+    shape: "oval",
+    color: "gold",
+  },
+  {
+    side: "right",
+    x: 0.65,
+    duration: 19,
+    delay: -16,
+    shape: "maple",
+    color: "ochre",
+  },
+  {
+    side: "left",
+    x: 0.7,
+    duration: 26,
+    delay: -14,
+    shape: "maple",
+    color: "ember",
+  },
+  {
+    side: "right",
+    x: 0.3,
+    duration: 23,
+    delay: -6,
+    shape: "oval",
+    color: "brown",
+  },
+  {
+    side: "left",
+    x: 0.45,
+    duration: 18,
+    delay: -9,
+    shape: "oval",
+    color: "ochre",
+  },
+  {
+    side: "right",
+    x: 0.5,
+    duration: 28,
+    delay: -21,
+    shape: "oval",
+    color: "ember",
+  },
+];
+
+const count = fallingLeafCount(autumnProgress(new Date()), LEAVES.length);
+const leaves = LEAVES.slice(0, count).map((leaf) => {
+  const { width, height } = leafSize(leaf.shape);
+  return { ...leaf, width, height };
+});
+---
+
+<div class="au-fall au-deco" aria-hidden="true">
+  {
+    leaves.map((leaf) => (
+      <span
+        class:list={["au-fall-leaf", `au-${leaf.side}`]}
+        style={`--x: ${leaf.x}; --d: ${leaf.duration}s; --delay: ${leaf.delay}s`}
+      >
+        <span class="au-sway">
+          <span class="au-flip">
+            <svg
+              width={leaf.width * PIXEL}
+              height={leaf.height * PIXEL}
+              viewBox={`0 0 ${leaf.width} ${leaf.height}`}
+            >
+              <use
+                href={`#au-${leaf.shape}-${leaf.color}`}
+                width={leaf.width}
+                height={leaf.height}
+              />
+            </svg>
+          </span>
+        </span>
+      </span>
+    ))
+  }
+</div>

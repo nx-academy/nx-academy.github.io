@@ -18,6 +18,11 @@ import "@fontsource/pixelify-sans";
 import "@fontsource/space-grotesk";
 import '@fontsource-variable/inter';
 
+import AutumnBranches from "../components/AutumnBranches.astro"
+import AutumnEasterEggs from "../components/AutumnEasterEggs.astro"
+import AutumnFall from "../components/AutumnFall.astro"
+import AutumnGround from "../components/AutumnGround.astro"
+import AutumnSprites from "../components/AutumnSprites.astro"
 import Breadcrumbs from "../components/Breadcrumbs.astro"
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
@@ -25,9 +30,14 @@ import ResumeSnackbar from "../components/ResumeSnackbar"
 import ScrollToTopButton from "../components/ScrollToTopButton.astro"
 import Seo from "../components/Seo.astro"
 import SvgIcons from "../components/SvgIcons.astro"
+import { AUTUMN_END, AUTUMN_START, shouldRenderAutumn } from "../utils/season"
 
 const { title, description, breadcrumbs, image, imageAlt, pubDate, pageType, author, noindex, schemas } = Astro.props
 const { pathname } = Astro.url
+
+// Le décor d'automne n'est généré qu'autour de la saison ; le script inline
+// décide ensuite, chez le lecteur, s'il s'affiche.
+const autumnDecor = shouldRenderAutumn(new Date())
 ---
 
 <html lang="fr">
@@ -56,7 +66,7 @@ const { pathname } = Astro.url
       schemas={schemas}
     />
 
-    <script is:inline>
+    <script is:inline define:vars={{ autumnStart: AUTUMN_START, autumnEnd: AUTUMN_END }}>
       (function() {
         // « theme-summer » est désactivé : une valeur devenue invalide en
         // localStorage retombe sur la préférence système.
@@ -68,6 +78,20 @@ const { pathname } = Astro.url
         } else {
           const isDarkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
           document.documentElement.className = isDarkTheme ? "theme-dark" : "theme-light"
+        }
+
+        // Thème d'automne, par-dessus clair ou sombre. Actif par défaut pendant
+        // la saison ; le couper vaut pour l'année en cours seulement.
+        const now = new Date()
+        const year = now.getFullYear()
+        const start = new Date(year, autumnStart.month, autumnStart.day)
+        const end = new Date(year, autumnEnd.month, autumnEnd.day + 1)
+
+        if (now >= start && now < end) {
+          document.documentElement.classList.add("season-available")
+          if (localStorage.getItem("season") !== "classic-" + year) {
+            document.documentElement.classList.add("season-autumn")
+          }
         }
       }())
     </script>
@@ -87,16 +111,21 @@ const { pathname } = Astro.url
     <a class="skip-link" href="#main-content">Aller au contenu</a>
     <div class="page-wrapper">
       <SvgIcons />
+      {autumnDecor && <AutumnSprites />}
       <Header />
+      {autumnDecor && <AutumnBranches variant={pathname === "/" ? "large" : "small"} />}
       {
         pathname !== "/" && <Breadcrumbs breadcrumbs={breadcrumbs} />
       }
       <div id="main-content" tabindex="-1" style="flex: 1;">
         <slot />
       </div>
+      {autumnDecor && <AutumnGround />}
       <Footer />
       <ScrollToTopButton />
       <ResumeSnackbar client:load />
+      {autumnDecor && <AutumnFall />}
+      {autumnDecor && <AutumnEasterEggs />}
     </div>
   </body>
 </html>

@@ -3,6 +3,10 @@ year: 2026
 order: 10
 tasks:
   - kind: done
+    keep: true
+    content: |-
+      NX passe en mode automne jusqu'au 30 novembre : des couleurs de sous-bois en clair comme en sombre, des branches et des feuilles en pixel art, et un tapis de feuilles au-dessus du footer. L'arbre se dégarnit un peu chaque semaine. Et il paraît qu'un hérisson dort quelque part dans les feuilles…
+  - kind: done
     content: |-
       Sortie de la fiche sur <a href="/fiches/difference-docker-podman" target="_blank">les différences entre Docker et Podman</a>. Clairement, Octobre n'est un peun gros moi pour NX ^^.
   - kind: done

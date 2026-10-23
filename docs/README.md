@@ -31,9 +31,10 @@ qu'il décrit un mécanisme en place.
 
 ## Technique
 
-| Document                                                       | Statut    | De quoi ça parle                                                 |
-| -------------------------------------------------------------- | --------- | ---------------------------------------------------------------- |
-| [changelog-data-collection.md](./changelog-data-collection.md) | référence | Comment marche le changelog en YAML, et comment ajouter un mois. |
+| Document                                                       | Statut    | De quoi ça parle                                                       |
+| -------------------------------------------------------------- | --------- | ---------------------------------------------------------------------- |
+| [changelog-data-collection.md](./changelog-data-collection.md) | référence | Comment marche le changelog en YAML, et comment ajouter un mois.       |
+| [theme-automne.md](./theme-automne.md)                         | référence | Le thème d'automne : calendrier, saison qui avance, pixel art, pièges. |
 
 ## Ce qui n'est pas ici
 
