@@ -550,6 +550,33 @@ Git est une version.
 
 ---
 
+## Où on en est
+
+Point au 23/10/2026, pour reprendre le travail dans une autre session ou sur une
+autre machine.
+
+- **Maquette de la page projet et de l'index `/projets`** :
+  https://claude.ai/artifact/PNZdfk1xj2sw7TTcVY7eC2 (privée, visible depuis le
+  compte de Thomas). Elle intègre le starter, les consignes par étape et la
+  correction par étape. C'est la piste retenue : la page se dessine avec cette
+  maquette plutôt qu'avec Claude Design.
+- **Proposé, pas encore dans la maquette** : rendre la checklist « comment
+  savoir que c'est fini » flottante. Sur desktop, la colonne « Le parcours »
+  devient collante (CSS seul) avec une version compacte de la checklist ; sur
+  mobile, une barre fixe « Vérifications 2/6 » déplie la liste (un `<details>`,
+  sans JavaScript de plus). Les cases cochées sont gardées dans le navigateur
+  (`localStorage`), rien n'est envoyé.
+- **Prochaine étape** : écrire le starter neuf « My MOOCs » dans
+  `projets-corrections/conteneuriser-application-full-stack/etape-0/`, sur une
+  branche dédiée. Reste à décider si Claude écrit aussi les corrections des
+  étapes 1 à 6, que Thomas testerait avec Docker (Docker n'était pas accessible
+  depuis le terminal de Claude sur la machine utilisée le 23/10).
+- **Design system** : le projet Claude Design « NX Academy Design System »
+  (https://claude.ai/design/p/c6abd391-4a82-4d44-a479-fe83bb80e90f) a été remis
+  à jour le 15/10/2026. Il ne connaît pas encore le thème automne (PR #413), et
+  la question d'ajouter dans `theme.css` des alias vers ses noms de tokens est
+  ouverte.
+
 ## Ce qui reste à trancher
 
 - **Le starter du projet 1** : l'écrire (voir le brief du projet 1 : le code du
