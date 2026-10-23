@@ -80,6 +80,9 @@ Le reste :
   est le modèle à suivre.
 - **Images** : déposer la source dans `raw/<catégorie>/`, lancer
   `npm run optimize-images`, puis référencer `/images/<catégorie>/<nom>.webp`.
+- **Thème d'automne** (1er octobre – 30 novembre) : une classe `season-autumn`
+  posée sur `<html>` par-dessus `theme-light` / `theme-dark`, et un décor généré
+  au build. Voir `docs/theme-automne.md` avant d'y toucher.
 - **Ne jamais lier un brouillon via son URL finale.** Un brouillon vit à
   `/drafts/<slug>` ; un lien vers `/fiches/<slug>` donnerait un 404 en
   production.
