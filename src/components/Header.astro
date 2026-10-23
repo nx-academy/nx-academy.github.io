@@ -860,8 +860,12 @@ const isActive = (href: string) => path === href || path.startsWith(href + "/");
   const $body = document.body as HTMLBodyElement;
 
   const $themeBtn = document.querySelector(".theme-btn") as HTMLElement;
+  // [data-theme] : la feuille d'automne vit dans le même groupe, mais elle a
+  // son propre état (cf. syncSeasonButtons) que syncThemeButtons écraserait.
   const $themeButtons = Array.from(
-    document.querySelectorAll<HTMLButtonElement>(".hd-ov-themes button"),
+    document.querySelectorAll<HTMLButtonElement>(
+      ".hd-ov-themes button[data-theme]",
+    ),
   );
 
   // « theme-summer » est désactivé : ses styles restent dans le dépôt
