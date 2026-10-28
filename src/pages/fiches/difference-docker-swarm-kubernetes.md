@@ -45,18 +45,19 @@ faq:
 
 Dans
 [la fiche sur Docker, Compose et Swarm](/fiches/difference-docker-compose-swarm),
-on s'était arrêtés au dernier niveau : l'orchestration ou quand une seule machine
-ne suffit plus. Et on avait glissé, entre parenthèses, « ou un orchestrateur
-comme Kubernetes ».
+on s'était arrêtés au dernier niveau : l'orchestration ou quand une seule
+machine ne suffit plus. Et on avait glissé, entre parenthèses, « ou un
+orchestrateur comme Kubernetes ».
 
 Cette parenthèse mérite sa propre fiche. Parce que dès qu'on s'intéresse à
-l'orchestration, la question arrive très vite. Que choisir entre **Swarm ou Kubernetes** ? Les
-réponses qu'on trouve en ligne vont de « Swarm est mort » à « Kubernetes, c'est
-de l'usine à gaz ». Les deux sont exagérées.
+l'orchestration, la question arrive très vite. Que choisir entre **Swarm ou
+Kubernetes** ? Les réponses qu'on trouve en ligne vont de « Swarm est mort » à
+« Kubernetes, c'est de l'usine à gaz ». Les deux sont exagérées.
 
-Dans cette fiche, on compare les deux sur ce qui compte vraiment. On va parler de prise en
-main, du modèle, de l'exploitation au quotidien et de l'écosystème. **Vous allez voir
-que la bonne réponse dépend moins des outils que de votre équipe.**
+Dans cette fiche, on compare les deux sur ce qui compte vraiment. On va parler
+de prise en main, du modèle, de l'exploitation au quotidien et de l'écosystème.
+**Vous allez voir que la bonne réponse dépend moins des outils que de votre
+équipe.**
 
 ---
 
@@ -73,16 +74,18 @@ Dans les deux cas, on retrouve les mêmes idées.
 - **un état souhaité**, vous décrivez ce que vous voulez (trois répliques de
   telle image, exposées sur tel port) et l'orchestrateur se charge d'y arriver ;
 - **une boucle de réconciliation** ; si un conteneur tombe ou si une machine
-  disparaît, l'orchestrateur constate l'écart et relance ce qu'il faut ailleurs ;
+  disparaît, l'orchestrateur constate l'écart et relance ce qu'il faut ailleurs
+  ;
 - **des mises à jour progressives** ; on remplace les conteneurs un par un, sans
   coupure de service ;
 - **un réseau et des secrets partagés** à l'échelle du cluster.
 
 <br>
 
-Là où ils divergent, c'est sur la philosophie. **Swarm prolonge Docker**. C'est le même
-outil, le même vocabulaire, le même fichier. **Kubernetes repart d'une page blanche**
-avec son propre modèle, pensé pour tout couvrir, quitte à tout rendre explicite.
+Là où ils divergent, c'est sur la philosophie. **Swarm prolonge Docker**. C'est
+le même outil, le même vocabulaire, le même fichier. **Kubernetes repart d'une
+page blanche** avec son propre modèle, pensé pour tout couvrir, quitte à tout
+rendre explicite.
 
 ---
 
@@ -122,8 +125,8 @@ docker stack deploy -c docker-compose.yml mon-app
 <br>
 
 Et c'est tout ! Le réseau entre les machines, la répartition de charge, la
-publication du port sur tous les nœuds (le _routing mesh_), c'est Swarm s'en occupe
-pour vous sans configuration supplémentaire.
+publication du port sur tous les nœuds (le _routing mesh_), c'est Swarm s'en
+occupe pour vous sans configuration supplémentaire.
 
 <br>
 
@@ -141,8 +144,8 @@ l'orchestration.
 
 <br>
 
-Son approche est différente. **Tout est un objet**, ils sont décrits en YAML et envoyés à
-une API centrale. Chaque objet a un rôle précis :
+Son approche est différente. **Tout est un objet**, ils sont décrits en YAML et
+envoyés à une API centrale. Chaque objet a un rôle précis :
 
 - le **Pod**, la plus petite unité, un ou plusieurs conteneurs qui vivent
   ensemble ;
@@ -196,8 +199,8 @@ kubectl apply -f api.yaml
 <br>
 
 C'est plus long et c'est voulu. Là où Swarm devine, Kubernetes vous demande de
-(tout) préciser. Chaque morceau est remplaçable, extensible et pilotable par l'API.
-
+(tout) préciser. Chaque morceau est remplaçable, extensible et pilotable par
+l'API.
 
 C'est ce qui permet, par exemple :
 
@@ -205,8 +208,9 @@ C'est ce qui permet, par exemple :
   Autoscaler_) que Swarm ne propose pas ;
 - des **sondes de santé** distinctes pour savoir si un conteneur est vivant,
   prêt à recevoir du trafic, ou encore en train de démarrer ;
-- des **ressources sur mesure**. On peut, par exemple, apprendre à Kubernetes à gérer une base
-  de données ou un certificat comme n'importe quel objet (les _operators_).
+- des **ressources sur mesure**. On peut, par exemple, apprendre à Kubernetes à
+  gérer une base de données ou un certificat comme n'importe quel objet (les
+  _operators_).
 
 <br>
 
@@ -278,7 +282,7 @@ mon équipe a-t-elle besoin et qui va s'en occuper ? »**
 
 <br>
 
-**Kubernetes a du sens si :*
+\*_Kubernetes a du sens si :_
 
 - vous avez beaucoup de services, plusieurs équipes, ou une charge qui varie
   fortement ;
@@ -289,9 +293,10 @@ mon équipe a-t-elle besoin et qui va s'en occuper ? »**
 
 <br>
 
-Mon conseil ici : **Choisissez l'outil que votre équipe sait faire tourner à trois
-heures du matin**. Un cluster Swarm bien compris vaut mieux qu'un Kubernetes que
-personne ne maîtrise. Et si vous hésitez encore, rappelez-vous que
+Mon conseil ici : **Choisissez l'outil que votre équipe sait faire tourner à
+trois heures du matin**. Un cluster Swarm bien compris vaut mieux qu'un
+Kubernetes que personne ne maîtrise. Et si vous hésitez encore, rappelez-vous
+que
 [Docker Compose sur un seul serveur](/fiches/difference-docker-compose-swarm)
 couvre bien plus de projets qu'on ne le croit.
 
@@ -325,10 +330,10 @@ fichier que vous connaissez déjà.
 
 Et voilà, vous avez maintenant de quoi trancher !
 
-Pour résumer en une phrase :
-**Swarm prolonge Docker Compose sur plusieurs machines avec un minimum d'effort,
-Kubernetes offre un modèle bien plus complet et un écosystème immense, au prix
-d'une vraie complexité à apprendre et à exploiter**.
+Pour résumer en une phrase : **Swarm prolonge Docker Compose sur plusieurs
+machines avec un minimum d'effort, Kubernetes offre un modèle bien plus complet
+et un écosystème immense, au prix d'une vraie complexité à apprendre et à
+exploiter**.
 
 En attendant d'y voir plus clair sur votre propre cas, je vous invite :
 
