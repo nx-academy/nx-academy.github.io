@@ -45,32 +45,32 @@ faq:
 
 Dans
 [la fiche sur Docker, Compose et Swarm](/fiches/difference-docker-compose-swarm),
-on s'était arrêtés au dernier niveau  l'orchestration, quand une seule machine
+on s'était arrêtés au dernier niveau : l'orchestration ou quand une seule machine
 ne suffit plus. Et on avait glissé, entre parenthèses, « ou un orchestrateur
 comme Kubernetes ».
 
 Cette parenthèse mérite sa propre fiche. Parce que dès qu'on s'intéresse à
-l'orchestration, la question arrive très vite  **Swarm ou Kubernetes ** Et les
+l'orchestration, la question arrive très vite. Que choisir entre **Swarm ou Kubernetes** ? Les
 réponses qu'on trouve en ligne vont de « Swarm est mort » à « Kubernetes, c'est
 de l'usine à gaz ». Les deux sont exagérées.
 
-Dans cette fiche, on compare les deux sur ce qui compte vraiment  la prise en
-main, le modèle, l'exploitation au quotidien et l'écosystème. Vous allez voir
-que la bonne réponse dépend moins des outils que de votre équipe.
+Dans cette fiche, on compare les deux sur ce qui compte vraiment. On va parler de prise en
+main, du modèle, de l'exploitation au quotidien et de l'écosystème. **Vous allez voir
+que la bonne réponse dépend moins des outils que de votre équipe.**
 
 ---
 
 ## Le même problème, deux réponses
 
 Commençons par ce qui les rapproche. Swarm et Kubernetes répondent exactement au
-même besoin  **faire tourner des conteneurs sur un ensemble de machines comme si
+même besoin. **Faire tourner des conteneurs sur un ensemble de machines comme si
 elles n'en formaient qu'une**.
 
 <br>
 
-Dans les deux cas, on retrouve les mêmes idées 
+Dans les deux cas, on retrouve les mêmes idées.
 
-- **un état souhaité**  vous décrivez ce que vous voulez (trois répliques de
+- **un état souhaité** : vous décrivez ce que vous voulez (trois répliques de
   telle image, exposées sur tel port), et l'orchestrateur se charge d'y arriver 
 - **une boucle de réconciliation**  si un conteneur tombe ou si une machine
   disparaît, l'orchestrateur constate l'écart et relance ce qu'il faut ailleurs 
