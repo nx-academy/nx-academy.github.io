@@ -20,7 +20,7 @@ tags:
   - Orchestration
   - Production
 level: Intermédiaire
-publishedDate: 10/21/2026
+publishedDate: 10/28/2026
 
 faq:
   - question: Quelle est la différence entre Docker Swarm et Kubernetes ?
