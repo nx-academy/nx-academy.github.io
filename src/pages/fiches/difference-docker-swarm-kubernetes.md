@@ -210,9 +210,9 @@ C'est ce qui permet, par exemple :
 
 <br>
 
-Le revers, c'est la courbe d'apprentissage. Et surtout l'exploitation  **un
+Le revers, c'est la courbe d'apprentissage. Et surtout l'exploitation ! **Un
 cluster Kubernetes, c'est un plan de contrôle à maintenir** (serveur d'API, base
-etcd, ordonnanceur…), à mettre à jour plusieurs fois par an. C'est pour ça que
+etcd, ordonnanceur…) et à mettre à jour plusieurs fois par an. C'est pour ça que
 la plupart des équipes passent par un Kubernetes managé, que tous les grands
 fournisseurs cloud proposent.
 
@@ -221,25 +221,25 @@ fournisseurs cloud proposent.
 ## L'écosystème, le vrai écart
 
 Sur le papier, les deux outils font l'essentiel du même travail. **La vraie
-différence se trouve autour.**
+différence se trouve au niveau de l'écosystème.**
 
 <br>
 
-Kubernetes a attiré à peu près tout l'écosystème 
+Kubernetes a attiré à peu près tout l'écosystème :
 
 - **Helm**, pour empaqueter et installer des applications entières en une
-  commande 
+  commande ;
 - des outils de déploiement continu qui synchronisent le cluster avec un dépôt
-  Git 
+  Git ;
 - la supervision, les journaux, le maillage de services… presque tout
-  l'outillage récent se pense d'abord pour Kubernetes 
-- des offres managées chez tous les fournisseurs, et une large majorité des
+  l'outillage récent se pense d'abord pour Kubernetes ;
+- des offres managées chez tous les fournisseurs et une large majorité des
   offres d'emploi qui mentionnent l'orchestration.
 
 <br>
 
-Swarm, lui, est toujours maintenu, et il tourne très bien en production. Mais
-**il évolue peu**, et sa communauté s'est réduite. Ce n'est pas un problème si
+Swarm, lui, est toujours maintenu et il tourne très bien en production. Mais
+**il évolue peu** et sa communauté s'est réduite. Ce n'est pas un problème si
 vos besoins sont couverts aujourd'hui. Ça le devient si vous comptez sur des
 outils tiers qui n'existent que pour Kubernetes.
 
@@ -261,35 +261,35 @@ outils tiers qui n'existent que pour Kubernetes.
 
 ---
 
-## Alors, lequel choisir 
+## Alors, lequel choisir ?
 
-La question à se poser n'est pas « lequel est le meilleur  » mais **« de quoi
-mon équipe a-t-elle besoin, et qui va s'en occuper  »**
+La question à se poser n'est pas « lequel est le meilleur ? » mais **« de quoi
+mon équipe a-t-elle besoin et qui va s'en occuper ? »**
 
 <br>
 
-**Swarm a du sens si **
+**Swarm a du sens si :**
 
-- vous êtes une petite équipe, sans personne dédiée à l'infrastructure 
+- vous êtes une petite équipe, sans personne dédiée à l'infrastructure ;
 - votre application tient sur quelques machines et ne change pas d'échelle
-  brutalement 
+  brutalement ;
 - vous utilisez déjà Docker Compose et vous voulez passer à plusieurs serveurs
   sans tout réapprendre.
 
 <br>
 
-**Kubernetes a du sens si **
+**Kubernetes a du sens si :*
 
 - vous avez beaucoup de services, plusieurs équipes, ou une charge qui varie
-  fortement 
-- vous avez besoin de mise à l'échelle automatique ou d'outils de l'écosystème 
-- vous pouvez vous appuyer sur une offre managée, ou sur des gens dont c'est le
-  métier 
+  fortement ;
+- vous avez besoin de mise à l'échelle automatique ou d'outils de l'écosystème ;
+- vous pouvez vous appuyer sur une offre managée ou sur des gens dont c'est le
+  métier ;
 - vous visez des postes où Kubernetes est demandé — autant l'apprendre.
 
 <br>
 
-Mon conseil  **Choisissez l'outil que votre équipe sait faire tourner à trois
+Mon conseil ici : **Choisissez l'outil que votre équipe sait faire tourner à trois
 heures du matin**. Un cluster Swarm bien compris vaut mieux qu'un Kubernetes que
 personne ne maîtrise. Et si vous hésitez encore, rappelez-vous que
 [Docker Compose sur un seul serveur](/fiches/difference-docker-compose-swarm)
@@ -323,17 +323,19 @@ fichier que vous connaissez déjà.
 
 <hr>
 
-Et voilà, vous avez maintenant de quoi trancher  Pour résumer en une phrase 
+Et voilà, vous avez maintenant de quoi trancher !
+
+Pour résumer en une phrase :
 **Swarm prolonge Docker Compose sur plusieurs machines avec un minimum d'effort,
 Kubernetes offre un modèle bien plus complet et un écosystème immense, au prix
 d'une vraie complexité à apprendre et à exploiter**.
 
-En attendant d'y voir plus clair sur votre propre cas, je vous invite 
+En attendant d'y voir plus clair sur votre propre cas, je vous invite :
 
 - [à relire la fiche sur Docker Swarm](/fiches/decouvrir-docker-swarm) si vous
-  voulez tester l'orchestration en conditions réelles 
+  voulez tester l'orchestration en conditions réelles ;
 - [à découvrir Podman](/drafts/difference-docker-podman), qui fait le pont entre
-  les conteneurs locaux et les pods de Kubernetes 
+  les conteneurs locaux et les pods de Kubernetes ;
 - [à (re)commencer le cours sur Docker et Docker Compose](/cours/docker-et-docker-compose/)
   si ce n'est pas déjà fait.
 
