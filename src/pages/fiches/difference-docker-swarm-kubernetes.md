@@ -70,25 +70,25 @@ elles n'en formaient qu'une**.
 
 Dans les deux cas, on retrouve les mêmes idées.
 
-- **un état souhaité** : vous décrivez ce que vous voulez (trois répliques de
-  telle image, exposées sur tel port), et l'orchestrateur se charge d'y arriver 
-- **une boucle de réconciliation**  si un conteneur tombe ou si une machine
-  disparaît, l'orchestrateur constate l'écart et relance ce qu'il faut ailleurs 
-- **des mises à jour progressives**  on remplace les conteneurs un par un, sans
-  coupure de service 
+- **un état souhaité**, vous décrivez ce que vous voulez (trois répliques de
+  telle image, exposées sur tel port) et l'orchestrateur se charge d'y arriver ;
+- **une boucle de réconciliation** ; si un conteneur tombe ou si une machine
+  disparaît, l'orchestrateur constate l'écart et relance ce qu'il faut ailleurs ;
+- **des mises à jour progressives** ; on remplace les conteneurs un par un, sans
+  coupure de service ;
 - **un réseau et des secrets partagés** à l'échelle du cluster.
 
 <br>
 
-Là où ils divergent, c'est sur la philosophie. **Swarm prolonge Docker**  même
-outil, même vocabulaire, même fichier. **Kubernetes repart d'une page blanche**
+Là où ils divergent, c'est sur la philosophie. **Swarm prolonge Docker**. C'est le même
+outil, le même vocabulaire, le même fichier. **Kubernetes repart d'une page blanche**
 avec son propre modèle, pensé pour tout couvrir, quitte à tout rendre explicite.
 
 ---
 
-## Docker Swarm  l'orchestration sans quitter Docker
+## Docker Swarm ou l'orchestration sans quitter Docker
 
-Swarm est intégré au moteur Docker depuis 2016. Il n'y a rien à installer  si
+Swarm est intégré au moteur Docker depuis 2016. Il n'y a rien à installer ! Si
 Docker tourne sur vos machines, Swarm aussi. Si vous l'avez manqué, on l'a vu en
 détail dans [la fiche dédiée à Docker Swarm](/fiches/decouvrir-docker-swarm).
 
@@ -103,7 +103,7 @@ docker swarm join --token <jeton> <ip-du-manager>:2377
 <br>
 
 Pour déployer une application, on reprend le fichier Compose qu'on connaît déjà,
-avec une section `deploy` en plus 
+avec une section `deploy` en plus :
 
 ```yaml
 services:
@@ -121,19 +121,19 @@ docker stack deploy -c docker-compose.yml mon-app
 
 <br>
 
-Et c'est tout. Le réseau entre les machines, la répartition de charge, la
-publication du port sur tous les nœuds (le _routing mesh_)  Swarm s'en occupe
-sans configuration supplémentaire.
+Et c'est tout ! Le réseau entre les machines, la répartition de charge, la
+publication du port sur tous les nœuds (le _routing mesh_), c'est Swarm s'en occupe
+pour vous sans configuration supplémentaire.
 
 <br>
 
 **Sa force, c'est ce qu'il n'exige pas.** Une personne qui connaît Docker
 Compose est opérationnelle sur Swarm en une après-midi. Le cluster lui-même se
-résume à quelques machines Docker, sans composant à part à maintenir.
+résume à quelques machines Docker sans composant à part à maintenir.
 
 ---
 
-## Kubernetes  un modèle complet
+## Kubernetes, un modèle complet
 
 Kubernetes a été publié par Google en 2014, puis confié à la _Cloud Native
 Computing Foundation_ (CNCF). C'est aujourd'hui le standard de fait de
@@ -141,20 +141,20 @@ l'orchestration.
 
 <br>
 
-Son approche est différente  **tout est un objet**, décrit en YAML et envoyé à
-une API centrale. Chaque objet a un rôle précis 
+Son approche est différente. **Tout est un objet**, ils sont décrits en YAML et envoyés à
+une API centrale. Chaque objet a un rôle précis :
 
 - le **Pod**, la plus petite unité, un ou plusieurs conteneurs qui vivent
-  ensemble 
+  ensemble ;
 - le **Deployment**, qui maintient un nombre donné de pods identiques et gère
-  leurs mises à jour 
-- le **Service**, qui donne une adresse stable à un groupe de pods 
-- l'**Ingress**, qui expose des services vers l'extérieur, en HTTP 
+  leurs mises à jour ;
+- le **Service**, qui donne une adresse stable à un groupe de pods ;
+- l'**Ingress**, qui expose des services vers l'extérieur, en HTTP ;
 - les **ConfigMap** et **Secret**, pour la configuration.
 
 <br>
 
-La même application qu'au-dessus, version Kubernetes 
+La même application qu'au-dessus, version Kubernetes :
 
 ```yaml
 apiVersion: apps/v1
@@ -195,15 +195,17 @@ kubectl apply -f api.yaml
 
 <br>
 
-C'est plus long, et c'est voulu. Là où Swarm devine, Kubernetes vous demande de
-préciser. Chaque morceau est remplaçable, extensible et pilotable par l'API.
-C'est ce qui permet, par exemple 
+C'est plus long et c'est voulu. Là où Swarm devine, Kubernetes vous demande de
+(tout) préciser. Chaque morceau est remplaçable, extensible et pilotable par l'API.
+
+
+C'est ce qui permet, par exemple :
 
 - la **mise à l'échelle automatique** selon la charge (le _Horizontal Pod
-  Autoscaler_), que Swarm ne propose pas 
+  Autoscaler_) que Swarm ne propose pas ;
 - des **sondes de santé** distinctes pour savoir si un conteneur est vivant,
-  prêt à recevoir du trafic, ou encore en train de démarrer 
-- des **ressources sur mesure**  on peut apprendre à Kubernetes à gérer une base
+  prêt à recevoir du trafic, ou encore en train de démarrer ;
+- des **ressources sur mesure**. On peut, par exemple, apprendre à Kubernetes à gérer une base
   de données ou un certificat comme n'importe quel objet (les _operators_).
 
 <br>
