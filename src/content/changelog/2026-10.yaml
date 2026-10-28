@@ -4,6 +4,9 @@ order: 10
 tasks:
   - kind: done
     content: |-
+      Sortie d'une nouvelle fiche technique <a href="fiches/difference-docker-swarm-kubernetes" target="_blank">sur les différences entre Kubernetes et Docker Swarm</a>.
+  - kind: done
+    content: |-
       Sortie d'une nouvelle fiche technique <a href="/fiches/deployer-conteneur-docker-sur-scaleway" target="_blank">sur Scaleway et Docker</a>.
   - kind: done
     keep: true
