@@ -4,8 +4,8 @@ layout: ../../layouts/BlogPostLayout.astro
 title: "Le cloud public coûte-t-il vraiment moins cher ?"
 description:
   "Le paiement à l'usage promet de ne payer que ce qu'on consomme. En pratique,
-  la facture surprend souvent. Ce qui coûte vraiment, ce que l'auto-hébergement
-  cache en face, et pourquoi la bonne question n'est pas celle du prix."
+  la facture surprend souvent. Et la bonne question n'était pas celle du prix,
+  mais plus de l'utilisation ?"
 
 imgAlt:
   Une facture qui se déroule interminablement depuis un écran d'ordinateur,
@@ -45,14 +45,15 @@ faq:
 ---
 
 Il y a quelques mois, j'ai reçu une facture cloud à 40 € pour un mois où je
-n'avais, de mon point de vue, rien fait. Pas de nouveau service, pas de pic de
-trafic, pas de projet lancé.
+n'avais, de mon point de vue, rien fait. Pas de nouveau service ou pas de pic de
+trafic.
 
-J'ai fini par trouver. Un environnement de test monté un soir pour vérifier une
-idée, laissé en marche. La machine était éteinte depuis longtemps — mais son
-disque, son adresse IP réservée et ses sauvegardes automatiques, non.
+Après quelques recherches, j'ai fini par trouver. C'était Un environnement de test que j'avais monté un soir pour vérifier une
+idée. La machine était éteinte depuis longtemps mais son
+disque, son adresse IP réservée et ses sauvegardes automatiques existaient
+toujours.
 
-Ce n'était pas une grosse somme. C'était surtout une bonne illustration de ce
+Ce n'était pas une grosse somme mais c'est surtout une bonne illustration de ce
 que le paiement à l'usage fait vraiment : **il ne supprime pas le coût, il le
 rend invisible jusqu'au relevé**.
 
