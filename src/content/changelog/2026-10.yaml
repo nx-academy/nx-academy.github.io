@@ -2,6 +2,9 @@ month: Octobre
 year: 2026
 order: 10
 tasks:
+  - kind: fix
+    content: |-
+      Deuxième run de mises à jour de dépendences pour le mois.
   - kind: done
     content: |-
       Sortie d'une nouvelle fiche technique <a href="fiches/difference-docker-swarm-kubernetes" target="_blank">sur les différences entre Kubernetes et Docker Swarm</a>.
