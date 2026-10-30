@@ -21,7 +21,7 @@ tags:
 author: Thomas Dimnet
 github: tdimnet
 
-publishedDate: 10/26/2026
+publishedDate: 10/30/2026
 
 faq:
   - question: Le cloud public est-il moins cher qu'un serveur dédié ?
