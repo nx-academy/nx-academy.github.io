@@ -62,27 +62,25 @@ rend invisible jusqu'au relevé**.
 ## La promesse est réelle, mais elle est conditionnelle
 
 Il faut rendre au cloud ce qui lui appartient. Ne payer que ce qu'on consomme,
-c'est une vraie rupture, et pour certains profils c'est imbattable.
+c'est une vraie rupture et pour certaines situations, c'est juste imbattable.
 
-Un projet qui démarre, dont personne ne sait s'il aura dix ou dix mille
-utilisateurs, n'a aucune raison d'immobiliser de l'argent dans du matériel. Une
-charge saisonnière, un site qui prend trois fois son trafic en décembre, une
-campagne qui dure six semaines : dans tous ces cas, le cloud gagne sans discuter
-parce qu'il fait payer le pic sans faire payer le reste de l'année.
+Prenons l'exemple d'un projet qui démarre et dont personne ne sait s'il aura dix ou dix mille
+utilisateurs. Il n'y ici a aucune raison d'immobiliser de l'argent dans du matériel. Une
+charge saisonnière ou un site qui prend trois fois son trafic en décembre sont des cas typiques où le cloud gagne sans discuter.
+Tout simplement parce qu'il fait payer le pic sans faire payer le reste de l'année.
 
-Mais cette promesse a une condition qu'on énonce rarement : **elle suppose que
+Mais cette promesse a une condition qu'on énonce rarement. **Elle suppose que
 la consommation baisse quand l'activité baisse**. Or dans beaucoup
 d'installations, elle ne baisse jamais. Les environnements de test tournent la
-nuit, les instances sont dimensionnées pour le pic et y restent, les sauvegardes
+nuit, les instances sont dimensionnées pour le pic et y restent et, comme pour moi dans mon exemple ci-dessus les sauvegardes
 s'accumulent. On paie alors un modèle élastique sur une consommation
-parfaitement rigide, ce qui est la pire des deux options.
+parfaitement rigide. C'est la pire des deux options.
 
 ---
 
 ## Ce qui coûte vraiment n'est pas ce qu'on regarde
 
-Quand on compare deux offres, on regarde le prix de la machine. C'est presque
-toujours la mauvaise ligne.
+Ce qu'il ne faut pas c'est comparer deux offres en regardant uniquement le prix de la machine.
 
 **Les frais de sortie de données** sont le poste le plus sous-estimé. Faire
 entrer des données ne coûte rien ; les faire sortir, si. Tant qu'on sert des
@@ -91,18 +89,18 @@ images ou de la vidéo, cette ligne peut dépasser tout le reste. Elle a aussi u
 effet de bord bien pratique pour le fournisseur : plus vos données sont
 volumineuses, plus les déplacer ailleurs coûte cher.
 
-**Ce qui reste facturé à l'arrêt**, ensuite — mes 40 €. Une machine éteinte ne
+**Ce qui reste facturé à l'arrêt**. Une machine éteinte ne
 consomme plus de calcul, mais son disque persiste, son adresse réservée reste
-réservée, ses instantanés dorment quelque part. Chacun de ces postes est
-dérisoire pris isolément, et c'est exactement ce qui les rend durables.
+réservée et ses snapshots dorment quelque part. Chacun de ces postes est
+dérisoire pris isolément mais c'est exactement ce qui les rend durables.
 
-**Le sur-dimensionnement**, enfin, et c'est le plus fréquent. On choisit une
+**Le sur-dimensionnement**. L'idée, c'est qu'on choisit une
 taille d'instance au démarrage, sans mesure, en prenant large « pour être
 tranquille ». Personne ne revient jamais dessus. J'ai vu des applications
 tourner des années sur quatre fois les ressources qu'elles utilisaient
 réellement, simplement parce que le sujet n'appartenait à personne.
 
-C'est le vrai problème, d'ailleurs. **Le coût du cloud n'a pas de
+C'est le vrai problème d'ailleurs. **Le coût du cloud n'a pas de
 propriétaire.** Une commande de serveur passait par une validation, une
 signature, un budget. Un service créé en trois clics ne passe par rien du tout.
 
