@@ -4,8 +4,8 @@ layout: ../../layouts/BlogPostLayout.astro
 title: "Le cloud public coûte-t-il vraiment moins cher ?"
 description:
   "Le paiement à l'usage promet de ne payer que ce qu'on consomme. En pratique,
-  la facture surprend souvent. Ce qui coûte vraiment, ce que l'auto-hébergement
-  cache en face, et pourquoi la bonne question n'est pas celle du prix."
+  la facture surprend souvent. Et la bonne question n'était pas celle du prix,
+  mais plus de l'utilisation ?"
 
 imgAlt:
   Une facture qui se déroule interminablement depuis un écran d'ordinateur,
@@ -21,7 +21,7 @@ tags:
 author: Thomas Dimnet
 github: tdimnet
 
-publishedDate: 10/26/2026
+publishedDate: 10/30/2026
 
 faq:
   - question: Le cloud public est-il moins cher qu'un serveur dédié ?
@@ -45,14 +45,15 @@ faq:
 ---
 
 Il y a quelques mois, j'ai reçu une facture cloud à 40 € pour un mois où je
-n'avais, de mon point de vue, rien fait. Pas de nouveau service, pas de pic de
-trafic, pas de projet lancé.
+n'avais, de mon point de vue, rien fait. Pas de nouveau service ou pas de pic de
+trafic.
 
-J'ai fini par trouver. Un environnement de test monté un soir pour vérifier une
-idée, laissé en marche. La machine était éteinte depuis longtemps — mais son
-disque, son adresse IP réservée et ses sauvegardes automatiques, non.
+Après quelques recherches, j'ai fini par trouver. C'était Un environnement de
+test que j'avais monté un soir pour vérifier une idée. La machine était éteinte
+depuis longtemps mais son disque, son adresse IP réservée et ses sauvegardes
+automatiques existaient toujours.
 
-Ce n'était pas une grosse somme. C'était surtout une bonne illustration de ce
+Ce n'était pas une grosse somme mais c'est surtout une bonne illustration de ce
 que le paiement à l'usage fait vraiment : **il ne supprime pas le coût, il le
 rend invisible jusqu'au relevé**.
 
@@ -61,27 +62,28 @@ rend invisible jusqu'au relevé**.
 ## La promesse est réelle, mais elle est conditionnelle
 
 Il faut rendre au cloud ce qui lui appartient. Ne payer que ce qu'on consomme,
-c'est une vraie rupture, et pour certains profils c'est imbattable.
+c'est une vraie rupture et pour certaines situations, c'est juste imbattable.
 
-Un projet qui démarre, dont personne ne sait s'il aura dix ou dix mille
-utilisateurs, n'a aucune raison d'immobiliser de l'argent dans du matériel. Une
-charge saisonnière, un site qui prend trois fois son trafic en décembre, une
-campagne qui dure six semaines : dans tous ces cas, le cloud gagne sans discuter
-parce qu'il fait payer le pic sans faire payer le reste de l'année.
+Prenons l'exemple d'un projet qui démarre et dont personne ne sait s'il aura dix
+ou dix mille utilisateurs. Il n'y ici a aucune raison d'immobiliser de l'argent
+dans du matériel. Une charge saisonnière ou un site qui prend trois fois son
+trafic en décembre sont des cas typiques où le cloud gagne sans discuter. Tout
+simplement parce qu'il fait payer le pic sans faire payer le reste de l'année.
 
-Mais cette promesse a une condition qu'on énonce rarement : **elle suppose que
-la consommation baisse quand l'activité baisse**. Or dans beaucoup
-d'installations, elle ne baisse jamais. Les environnements de test tournent la
-nuit, les instances sont dimensionnées pour le pic et y restent, les sauvegardes
-s'accumulent. On paie alors un modèle élastique sur une consommation
-parfaitement rigide, ce qui est la pire des deux options.
+Mais cette promesse a une condition qu'on énonce rarement. **Elle suppose que la
+consommation baisse quand l'activité baisse**. Or dans beaucoup d'installations,
+elle ne baisse jamais. Les environnements de test tournent la nuit, les
+instances sont dimensionnées pour le pic et y restent et, comme pour moi dans
+mon exemple ci-dessus les sauvegardes s'accumulent. On paie alors un modèle
+élastique sur une consommation parfaitement rigide. C'est la pire des deux
+options.
 
 ---
 
 ## Ce qui coûte vraiment n'est pas ce qu'on regarde
 
-Quand on compare deux offres, on regarde le prix de la machine. C'est presque
-toujours la mauvaise ligne.
+Ce qu'il ne faut pas c'est comparer deux offres en regardant uniquement le prix
+de la machine.
 
 **Les frais de sortie de données** sont le poste le plus sous-estimé. Faire
 entrer des données ne coûte rien ; les faire sortir, si. Tant qu'on sert des
@@ -90,36 +92,36 @@ images ou de la vidéo, cette ligne peut dépasser tout le reste. Elle a aussi u
 effet de bord bien pratique pour le fournisseur : plus vos données sont
 volumineuses, plus les déplacer ailleurs coûte cher.
 
-**Ce qui reste facturé à l'arrêt**, ensuite — mes 40 €. Une machine éteinte ne
-consomme plus de calcul, mais son disque persiste, son adresse réservée reste
-réservée, ses instantanés dorment quelque part. Chacun de ces postes est
-dérisoire pris isolément, et c'est exactement ce qui les rend durables.
+**Ce qui reste facturé à l'arrêt**. Une machine éteinte ne consomme plus de
+calcul, mais son disque persiste, son adresse réservée reste réservée et ses
+snapshots dorment quelque part. Chacun de ces postes est dérisoire pris
+isolément mais c'est exactement ce qui les rend durables.
 
-**Le sur-dimensionnement**, enfin, et c'est le plus fréquent. On choisit une
-taille d'instance au démarrage, sans mesure, en prenant large « pour être
-tranquille ». Personne ne revient jamais dessus. J'ai vu des applications
-tourner des années sur quatre fois les ressources qu'elles utilisaient
-réellement, simplement parce que le sujet n'appartenait à personne.
+**Le sur-dimensionnement**. L'idée, c'est qu'on choisit une taille d'instance au
+démarrage, sans mesure, en prenant large « pour être tranquille ». Personne ne
+revient jamais dessus. J'ai vu des applications tourner des années sur quatre
+fois les ressources qu'elles utilisaient réellement, simplement parce que le
+sujet n'appartenait à personne.
 
-C'est le vrai problème, d'ailleurs. **Le coût du cloud n'a pas de
-propriétaire.** Une commande de serveur passait par une validation, une
-signature, un budget. Un service créé en trois clics ne passe par rien du tout.
+C'est le vrai problème d'ailleurs. **Le coût du cloud n'a pas de propriétaire.**
+Une commande de serveur passait par une validation, une signature, un budget. Un
+service créé en trois clics ne passe par rien du tout.
 
 ---
 
 ## En face, l'auto-hébergement n'est pas gratuit non plus
 
-La comparaison honnête ne s'arrête pas au prix de la machine, dans un sens comme
-dans l'autre. Un serveur dédié affiche un tarif mensuel très bas et c'est
-souvent avec ce chiffre qu'on argumente contre le cloud. Ce chiffre est
-incomplet.
+Encore une fois, dans un sens comme dans l'autre, la comparaison honnête ne
+s'arrête pas au prix de la machine. Un serveur dédié affiche un tarif mensuel
+très bas et c'est souvent avec ce chiffre qu'on argumente contre le cloud. Ce
+chiffre est incomplet.
 
 Il manque l'astreinte, c'est-à-dire quelqu'un qui répond quand le disque lâche à
 3 h du matin. Il manque le remplacement du matériel, qui n'attend pas votre
 trésorerie. Il manque le temps d'équipe passé à mettre à jour des systèmes,
 gérer des sauvegardes et les tester. Il manque, surtout, **les compétences**, et
-le fait qu'elles ne sont pas interchangeables : deux personnes qui savent
-exploiter du matériel, ça se recrute, ça se garde, et ça ne se remplace pas en
+le fait qu'elles ne sont pas interchangeables. Deux personnes qui savent
+exploiter du matériel, ça se recrute, ça se garde et ça ne se remplace pas en
 une semaine.
 
 Le cloud ne fait pas disparaître ce travail. Il le remplace par une ligne de

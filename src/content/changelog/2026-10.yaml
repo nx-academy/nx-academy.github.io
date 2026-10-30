@@ -2,6 +2,9 @@ month: Octobre
 year: 2026
 order: 10
 tasks:
+  - kind: done
+    content: |-
+      Sortie d'un nouvel article <a href="/articles/le-cloud-est-il-vraiment-moins-cher" target="_blank">dédiée à la différence entre Cloud Public et Cloud Privé</a>.
   - kind: fix
     content: |-
       Deuxième run de mises à jour de dépendences pour le mois.
