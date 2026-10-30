@@ -108,8 +108,7 @@ signature, un budget. Un service créé en trois clics ne passe par rien du tout
 
 ## En face, l'auto-hébergement n'est pas gratuit non plus
 
-La comparaison honnête ne s'arrête pas au prix de la machine, dans un sens comme
-dans l'autre. Un serveur dédié affiche un tarif mensuel très bas et c'est
+Encore une fois, dans un sens comme dans l'autre, la comparaison honnête ne s'arrête pas au prix de la machine. Un serveur dédié affiche un tarif mensuel très bas et c'est
 souvent avec ce chiffre qu'on argumente contre le cloud. Ce chiffre est
 incomplet.
 
@@ -117,8 +116,8 @@ Il manque l'astreinte, c'est-à-dire quelqu'un qui répond quand le disque lâch
 3 h du matin. Il manque le remplacement du matériel, qui n'attend pas votre
 trésorerie. Il manque le temps d'équipe passé à mettre à jour des systèmes,
 gérer des sauvegardes et les tester. Il manque, surtout, **les compétences**, et
-le fait qu'elles ne sont pas interchangeables : deux personnes qui savent
-exploiter du matériel, ça se recrute, ça se garde, et ça ne se remplace pas en
+le fait qu'elles ne sont pas interchangeables. Deux personnes qui savent
+exploiter du matériel, ça se recrute, ça se garde et ça ne se remplace pas en
 une semaine.
 
 Le cloud ne fait pas disparaître ce travail. Il le remplace par une ligne de
