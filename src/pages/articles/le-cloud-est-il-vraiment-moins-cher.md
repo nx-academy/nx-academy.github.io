@@ -48,10 +48,10 @@ Il y a quelques mois, j'ai reçu une facture cloud à 40 € pour un mois où je
 n'avais, de mon point de vue, rien fait. Pas de nouveau service ou pas de pic de
 trafic.
 
-Après quelques recherches, j'ai fini par trouver. C'était Un environnement de test que j'avais monté un soir pour vérifier une
-idée. La machine était éteinte depuis longtemps mais son
-disque, son adresse IP réservée et ses sauvegardes automatiques existaient
-toujours.
+Après quelques recherches, j'ai fini par trouver. C'était Un environnement de
+test que j'avais monté un soir pour vérifier une idée. La machine était éteinte
+depuis longtemps mais son disque, son adresse IP réservée et ses sauvegardes
+automatiques existaient toujours.
 
 Ce n'était pas une grosse somme mais c'est surtout une bonne illustration de ce
 que le paiement à l'usage fait vraiment : **il ne supprime pas le coût, il le
@@ -64,23 +64,26 @@ rend invisible jusqu'au relevé**.
 Il faut rendre au cloud ce qui lui appartient. Ne payer que ce qu'on consomme,
 c'est une vraie rupture et pour certaines situations, c'est juste imbattable.
 
-Prenons l'exemple d'un projet qui démarre et dont personne ne sait s'il aura dix ou dix mille
-utilisateurs. Il n'y ici a aucune raison d'immobiliser de l'argent dans du matériel. Une
-charge saisonnière ou un site qui prend trois fois son trafic en décembre sont des cas typiques où le cloud gagne sans discuter.
-Tout simplement parce qu'il fait payer le pic sans faire payer le reste de l'année.
+Prenons l'exemple d'un projet qui démarre et dont personne ne sait s'il aura dix
+ou dix mille utilisateurs. Il n'y ici a aucune raison d'immobiliser de l'argent
+dans du matériel. Une charge saisonnière ou un site qui prend trois fois son
+trafic en décembre sont des cas typiques où le cloud gagne sans discuter. Tout
+simplement parce qu'il fait payer le pic sans faire payer le reste de l'année.
 
-Mais cette promesse a une condition qu'on énonce rarement. **Elle suppose que
-la consommation baisse quand l'activité baisse**. Or dans beaucoup
-d'installations, elle ne baisse jamais. Les environnements de test tournent la
-nuit, les instances sont dimensionnées pour le pic et y restent et, comme pour moi dans mon exemple ci-dessus les sauvegardes
-s'accumulent. On paie alors un modèle élastique sur une consommation
-parfaitement rigide. C'est la pire des deux options.
+Mais cette promesse a une condition qu'on énonce rarement. **Elle suppose que la
+consommation baisse quand l'activité baisse**. Or dans beaucoup d'installations,
+elle ne baisse jamais. Les environnements de test tournent la nuit, les
+instances sont dimensionnées pour le pic et y restent et, comme pour moi dans
+mon exemple ci-dessus les sauvegardes s'accumulent. On paie alors un modèle
+élastique sur une consommation parfaitement rigide. C'est la pire des deux
+options.
 
 ---
 
 ## Ce qui coûte vraiment n'est pas ce qu'on regarde
 
-Ce qu'il ne faut pas c'est comparer deux offres en regardant uniquement le prix de la machine.
+Ce qu'il ne faut pas c'est comparer deux offres en regardant uniquement le prix
+de la machine.
 
 **Les frais de sortie de données** sont le poste le plus sous-estimé. Faire
 entrer des données ne coûte rien ; les faire sortir, si. Tant qu'on sert des
@@ -89,28 +92,29 @@ images ou de la vidéo, cette ligne peut dépasser tout le reste. Elle a aussi u
 effet de bord bien pratique pour le fournisseur : plus vos données sont
 volumineuses, plus les déplacer ailleurs coûte cher.
 
-**Ce qui reste facturé à l'arrêt**. Une machine éteinte ne
-consomme plus de calcul, mais son disque persiste, son adresse réservée reste
-réservée et ses snapshots dorment quelque part. Chacun de ces postes est
-dérisoire pris isolément mais c'est exactement ce qui les rend durables.
+**Ce qui reste facturé à l'arrêt**. Une machine éteinte ne consomme plus de
+calcul, mais son disque persiste, son adresse réservée reste réservée et ses
+snapshots dorment quelque part. Chacun de ces postes est dérisoire pris
+isolément mais c'est exactement ce qui les rend durables.
 
-**Le sur-dimensionnement**. L'idée, c'est qu'on choisit une
-taille d'instance au démarrage, sans mesure, en prenant large « pour être
-tranquille ». Personne ne revient jamais dessus. J'ai vu des applications
-tourner des années sur quatre fois les ressources qu'elles utilisaient
-réellement, simplement parce que le sujet n'appartenait à personne.
+**Le sur-dimensionnement**. L'idée, c'est qu'on choisit une taille d'instance au
+démarrage, sans mesure, en prenant large « pour être tranquille ». Personne ne
+revient jamais dessus. J'ai vu des applications tourner des années sur quatre
+fois les ressources qu'elles utilisaient réellement, simplement parce que le
+sujet n'appartenait à personne.
 
-C'est le vrai problème d'ailleurs. **Le coût du cloud n'a pas de
-propriétaire.** Une commande de serveur passait par une validation, une
-signature, un budget. Un service créé en trois clics ne passe par rien du tout.
+C'est le vrai problème d'ailleurs. **Le coût du cloud n'a pas de propriétaire.**
+Une commande de serveur passait par une validation, une signature, un budget. Un
+service créé en trois clics ne passe par rien du tout.
 
 ---
 
 ## En face, l'auto-hébergement n'est pas gratuit non plus
 
-Encore une fois, dans un sens comme dans l'autre, la comparaison honnête ne s'arrête pas au prix de la machine. Un serveur dédié affiche un tarif mensuel très bas et c'est
-souvent avec ce chiffre qu'on argumente contre le cloud. Ce chiffre est
-incomplet.
+Encore une fois, dans un sens comme dans l'autre, la comparaison honnête ne
+s'arrête pas au prix de la machine. Un serveur dédié affiche un tarif mensuel
+très bas et c'est souvent avec ce chiffre qu'on argumente contre le cloud. Ce
+chiffre est incomplet.
 
 Il manque l'astreinte, c'est-à-dire quelqu'un qui répond quand le disque lâche à
 3 h du matin. Il manque le remplacement du matériel, qui n'attend pas votre
