@@ -1,0 +1,11 @@
+month: Novemmbre
+year: 2026
+order: 11
+tasks:
+  - kind: done
+    content: |-
+      Sortie d'un nouvel article <a href="/articles/cloud-souverain" target="_blank">dédiée au Cloud souverain</a>.
+  - kind: in-progress
+    content: |-
+      J'avance (tranquillement) sur les projets. Je pense sortir le premier la semaine prochaine.
+
