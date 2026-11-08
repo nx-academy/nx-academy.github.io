@@ -50,134 +50,135 @@ faq:
       celle d'une équipe séparée."
 ---
 
-## Le prix de la vitesse
-
-Sur NX, je déploie souvent. Le site, le serveur MCP, tout tourne sur des jobs
-automatisés pour build mon code, le tester et le déployer. **Je code plus vite
-depuis que je m'appuie sur l'IA pour designer, écrire, développer**. Résultat :
-je pousse plus souvent. Et pourtant, je n'ai presque jamais de rollback à faire.
-Le site tient, le serveur MCP tourne en continu.
-
-Ce n'est pas un hasard. **À force de développer, de faire du DevOps et de casser
-deux-trois prods au passage, j'ai fini par intégrer certains réflexes**. Ma CI
-fait son travail et mes environnements ressemblent à la prod.
-
 Un collègue, chez Scaleway, construit en ce moment une plateforme d'exercices.
-L'idée est bonne (vraiment bonne). Mais il a tout vibe codé, et à chaque
-modification, il pousse directement en prod. Pas d'environnement de dev, pas de
-test avant. Résultat : sa facture grimpe, son environnement est instable et il
-perd du temps à comprendre pourquoi ça casse.
+L'idée est bonne (vraiment bonne), et il a tout codé en _vibe coding_. Cela dit,
+il y a un détail qui coince : à chaque modification, il pousse directement en
+prod. Pas d'environnement de dev, pas de test avant. Résultat, sa facture
+grimpe, son environnement est instable et il passe un temps fou à comprendre
+pourquoi ça casse.
 
-Je ne le juge pas. J'ai été exactement à sa place. À mes débuts, je poussais
-direct en prod. Mes réflexes ne sont pas tombés du ciel, ils sont sortis de ces
-ratés-là.
+Je ne le juge pas, loin de là. **À mes débuts, je faisais exactement la même
+chose**, et mes réflexes actuels ne sont pas tombés du ciel : ils viennent de
+ces ratés-là (et de deux ou trois prods cassées au passage). Aujourd'hui, sur
+NX, je déploie souvent. Le site et le serveur MCP passent par des jobs
+automatisés qui buildent, testent et déploient mon code. Je code plus vite
+depuis que je m'appuie sur l'IA, donc je pousse plus souvent, et pourtant je
+n'ai presque jamais de rollback à faire.
 
-Vous vous reconnaissez peut-être dans l'un des deux profils. Même outil (l'IA),
-même vitesse de production. Mais un seul des deux a la boîte à outils pour
-l'encaisser.
-
----
-
-## La vitesse ne dispense pas de la rigueur
-
-On pourrait croire l'inverse. Que l'IA rend tout la partie DevOps et tests
-has-been. Puisqu'elle écrit le code à votre place, les tests, la CI, les
-environnements iso-prod deviennent des détails de plomberie qu'on peut ignorer.
-
-C'est l'inverse qui est vrai.
-
-**Avant, produire du code prenait du temps**. Ce temps servait de garde-fou
-naturel. On réfléchissait plus longtemps avant de pousser, parce que chaque
-ligne coûtait cher à écrire. Ce frein a disparu. **L'IA écrit vite (parfois trop
-vite) et rien ne vous empêche de pousser une modification en quelques secondes
-après l'avoir générée.**
-
-Sans CI pour vérifier automatiquement, sans environnement de test qui ressemble
-à la prod, vous ne faites que déplacer le problème. Vous ne le résolvez plus en
-amont (en réfléchissant avant d'écrire), vous le découvrez en aval (en prod,
-devant les utilisateurs, ou devant la facture).
-
-**Plus on va vite, plus la rigueur en amont compte. Pas moins.**
+Même outil, même vitesse de production, deux résultats très différents. **Mon
+objectif, avec cet article, est de vous montrer pourquoi l'IA rend les bases du
+DevOps plus importantes, et pas moins**, et par quoi commencer si vous n'avez
+jamais mis les mains dedans.
 
 ---
 
-## Les quelques briques qui changent tout
+## L'IA a supprimé un garde-fou dont on ne parlait jamais
 
-Pas besoin de tout savoir. Une brique suffit à condition de commencer par la
-bonne.
+On pourrait croire l'inverse. Puisque l'IA écrit le code à votre place, les
+tests, la CI et les environnements de test ressembleraient à de la plomberie
+dont on peut se passer. Pour être honnête, je comprends ce raisonnement, mais je
+pense qu'il est faux.
 
-**Un environnement de dev et de test iso-prod.** Le même OS, les mêmes versions,
-la même architecture réseau que ce qui tourne en vrai. Sans ça, "ça marche chez
-moi" redevient la norme sauf que maintenant, c'est l'IA qui vous le dit avec
-assurance, pas un collègue qui doute. Reproduire la prod, c'est le point de
-départ. Le reste vient répondre à cette exigence.
+Pendant longtemps, écrire du code prenait du temps. Ce temps jouait un rôle
+qu'on ne lui attribuait pas : il servait de garde-fou. Comme chaque ligne
+coûtait cher à écrire, on réfléchissait avant de pousser. **Avec l'IA, ce frein
+a disparu** : une modification peut être générée et poussée en quelques secondes
+(parfois sans avoir vraiment été relue, soyons honnêtes).
 
-**Une CI qui vérifie avant vous.** Reproduire la prod ne sert à rien si vous ne
-rejouez pas la vérification à chaque modification. La CI, c'est ça : le filet
-systématique qui attrape ce que l'IA (ou vous) laisse passer tels qu'un test
-cassé, un lint qui hurle, une régression silencieuse. Pas pour la couverture
-parfaite. Pour que rien ne touche la prod sans être repassé au même tamis.
-
-**Des notions de cloud public.** Un environnement qui ressemble à la prod tourne
-quelque part. Savoir déployer, comprendre les briques de base (compute,
-stockage, réseau), c'est ce qui vous évite de dépendre d'un tutoriel généré ou
-d'une IA qui invente une configuration plausible mais fausse.
-
-**Un minimum de sécurité réseau.** Et dès que vous reproduisez le réseau, vous
-butez sur la question : qu'est-ce qui doit être isolé, qu'est-ce qui doit être
-exposé et pourquoi ? Un VPC mal configuré, un port ouvert par erreur, une IA qui
-propose une solution "qui marche" sans isoler ce qui doit l'être. Ce n'est pas
-de la paranoïa. C'est savoir ce que vous exposez.
-
-Quatre briques, mais une seule porte d'entrée. Prenez l'iso-prod au sérieux, et
-les trois autres suivent — dans l'ordre, au moment où vous en avez besoin.
+Autrement dit, le problème n'a pas disparu, il s'est déplacé. Avant, on le
+réglait en amont, en réfléchissant avant d'écrire. Sans CI ni environnement de
+test, on le découvre en aval : en prod, devant les utilisateurs, ou devant la
+facture. **Plus vous allez vite, plus il vous faut quelque chose qui vérifie à
+votre place.**
 
 ---
 
-## Donner à l'IA le bon bac à sable
+## Par quoi commencer : quatre briques, dans un ordre précis
 
-Il y a quelque chose qu'on oublie souvent. l'IA ne travaille pas dans le vide.
-Elle travaille dans votre environnement avec vos outils et vos contraintes.
+Vous n'avez pas besoin de devenir SRE. Vous avez besoin de quelques briques, et
+surtout de les prendre dans le bon ordre. Pour chacune, je vous propose de vous
+poser la question que je pose souvent dans mes cours : à quel problème est-ce
+que ça répond ?
 
-Une IA à qui vous donnez accès à un environnement de test iso-prod, avec une CI
-qui valide chaque modification, va itérer plus vite et plus juste. Elle peut se
-tromper, se corriger, retester, mais sans risque, parce que le filet est là. Une
-IA à qui vous ne donnez que la prod comme terrain de jeu fait pareil : elle
-itère, elle se trompe, elle corrige. Sauf que chaque erreur, c'est un incident
-réel.
+**1. Un environnement de dev et de test iso-prod.** Le problème : « ça marche
+chez moi, mais pas en prod ». Un environnement iso-prod reproduit fidèlement la
+production (même OS, mêmes versions, même architecture réseau). Sans lui, vous
+retombez dans ce problème, sauf que cette fois, c'est l'IA qui vous assure que
+tout fonctionne, et avec beaucoup d'aplomb. **C'est la brique par laquelle je
+vous conseille de commencer**, parce que les trois autres en découlent.
 
-**Ce n'est pas l'IA qui manque de rigueur. C'est l'environnement qu'on lui donne
-qui n'en a pas.**
+**2. Une CI qui vérifie avant vous.** Le problème : un environnement iso-prod ne
+sert pas à grand-chose si personne ne rejoue les vérifications à chaque
+modification. La CI fait ce travail. Elle attrape ce que l'IA (ou vous) laisse
+passer : un test cassé, un lint qui hurle, une régression silencieuse. L'idée
+n'est pas d'atteindre une couverture de tests parfaite, c'est de faire en sorte
+que rien n'arrive en prod sans être passé par le même tamis.
 
-C'est là que la boîte à outils DevOps change de rôle. Elle n'est plus seulement
-pour vous. Elle devient l'environnement de travail de l'IA elle-même. Plus il
-est solide, plus elle peut y être utile.
+**3. Des notions de cloud public.** Le problème : votre environnement iso-prod
+tourne forcément quelque part. Savoir déployer et comprendre les briques de base
+(compute, stockage, réseau), c'est ce qui vous évite de dépendre d'un tutoriel
+généré, ou d'une IA qui vous propose une configuration plausible mais fausse.
+
+**4. Un minimum de sécurité réseau.** Le problème : dès que vous reproduisez le
+réseau de la prod, vous devez décider ce qui est isolé et ce qui est exposé, et
+pourquoi. Un VPC mal configuré ou un port ouvert par erreur arrivent vite,
+surtout quand l'IA propose une solution « qui marche » sans isoler ce qui doit
+l'être. Ce n'est pas de la paranoïa, c'est savoir ce que vous exposez.
+
+Vous l'aurez compris, **l'iso-prod est la porte d'entrée** : prenez-la au
+sérieux, et vous rencontrerez les trois autres briques au moment où vous en
+aurez besoin.
+
+---
+
+## L'environnement que vous donnez à l'IA compte autant que le vôtre
+
+Il y a un point qu'on oublie souvent : l'IA ne travaille pas dans le vide. Elle
+travaille dans votre environnement, avec vos outils et vos contraintes.
+
+Donnez-lui un environnement iso-prod et une CI qui valide chaque modification,
+et elle va itérer plus vite et plus juste. Elle peut se tromper, se corriger et
+retester sans risque, parce que le filet est là. Donnez-lui uniquement la prod
+comme terrain de jeu, et elle fera exactement la même chose (se tromper,
+corriger, retester), sauf que chaque erreur deviendra un incident réel.
+
+**Le manque de rigueur ne vient donc pas de l'IA, mais de l'environnement qu'on
+lui donne.** C'est là que la boîte à outils DevOps change de rôle : elle ne sert
+plus seulement à vous, elle devient l'environnement de travail de l'IA
+elle-même.
 
 ---
 
 ## Ce n'est plus un métier à part
 
-Pendant longtemps, le DevOps a été vu comme une spécialité. Un métier à côté,
-avec ses propres experts, sa propre équipe, ses propres tickets. Vous codiez,
-quelqu'un d'autre déployait, un troisième surveillait la prod.
+Pendant longtemps, le DevOps a été vu comme une spécialité, avec ses experts,
+son équipe et ses tickets. Vous codiez, quelqu'un d'autre déployait, et une
+troisième personne surveillait la prod.
 
-**Cette séparation s'efface.** Pas parce que le métier de SRE ou de DevOps
-disparaît, mais parce que ses réflexes cessent d'être l'affaire d'une équipe à
-part pour devenir l'affaire de chaque développeur qui ship du code
-régulièrement.
+**Je pense que cette séparation est en train de s'effacer.** Pas parce que les
+métiers de DevOps ou de SRE disparaissent (je ne le crois pas), mais parce que
+leurs réflexes deviennent l'affaire de chaque développeur qui pousse du code
+régulièrement. L'IA accélère ce mouvement : elle permet de produire seul ce qui
+demandait plusieurs personnes il y a encore deux ans. Les équipes se resserrent,
+les rôles se combinent, et vous héritez d'une partie de ce qui appartenait hier
+au DevOps, souvent sans avoir eu le temps de l'apprendre correctement.
 
-L'IA accélère ce mouvement plus qu'elle ne le freine. Elle vous permet de
-produire seul ce qui demandait plusieurs personnes il y a encore deux ans.
-Mécaniquement, les équipes se resserrent, les rôles se combinent, et le
-développeur d'aujourd'hui hérite d'une partie de ce qui appartenait hier au
-DevOps ou au SRE (souvent sans avoir eu le temps de l'apprendre correctement).
+Pour faire simple, voici ce que je vous conseille :
 
-Vous n'avez pas besoin d'avoir passé une décennie en SRE pour vous en sortir.
-Vous avez besoin de connaître les quelques bases qui évitent la facture surprise
-ou l'incident du vendredi soir, parce que, de plus en plus, il n'y aura personne
-d'autre pour les connaître à votre place.
+- **commencez par l'iso-prod** sur un projet perso ou un petit projet en
+  entreprise, même imparfait ;
+- **ajoutez une CI minimale** qui lance vos tests et votre lint à chaque push,
+  et itérez dessus ;
+- **déployez au moins une fois vous-même** sur un cloud public, pour voir les
+  briques de base (compute, stockage, réseau) ;
+- **avant d'exposer quoi que ce soit, demandez-vous ce qui doit l'être**, et
+  pourquoi.
 
-Je prépare des fiches techniques sur ces sujets (CI, environnements iso-prod,
-bases du cloud, sécurité réseau) pour NX. Peut-être un cours, si le format s'y
-prête. En attendant, si une seule chose est à retenir : **la vitesse ne remplace
-jamais la rigueur. Elle la rend juste plus urgente.**
+---
+
+Vous voilà arrivé au bout de cet article. Je prépare des fiches techniques sur
+chacun de ces sujets (CI, environnements iso-prod, bases du cloud, sécurité
+réseau) pour NX, et peut-être un cours si le format s'y prête. Si vous vous êtes
+reconnu dans le profil de mon collègue (ou dans le mien, il y a quelques
+années), n'hésitez pas à me dire par quelle brique vous allez commencer. On se
+retrouve très vite sur NX :)
