@@ -167,8 +167,7 @@ aussi contribuer dessus.
 Pour ce projet, un bon exercice est de proposer la même base du projet mais avec
 un autre framework, tel qu’Angular ou Vue. Il est possible que je travaille
 dessus en 2024. Cela dit, si le chantier vous intéresse et que vous aimeriez y
-prendre part, n’hésitez surtout pas à me contacter via Discord ou en ouvrant une
-issue sur le projet.
+prendre part, n’hésitez surtout pas à ouvrir une issue sur le projet.
 
 Autre chose. Si vous voyez des erreurs ou si quelque chose ne vous semble pas
 clair dans le cours (ça peut toujours arriver). Je vous invite à créer

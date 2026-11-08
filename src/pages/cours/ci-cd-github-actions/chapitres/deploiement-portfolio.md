@@ -257,7 +257,7 @@ Entre temps, voici quelques sujets sur lesquels je vous invite à vous pencher :
 <br>
 
 Comme toujours, n’hésitez pas à me faire un feedback sur le cours par mail ou
-sur Discord.
+sur LinkedIn.
 
 Codez bien !
 

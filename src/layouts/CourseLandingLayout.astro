@@ -324,31 +324,33 @@ const schemas = faqSchema ? [courseSchema, faqSchema] : [courseSchema];
       </div>
     </section>
 
-    <!-- Témoignages -->
-    <section class="sec">
-      <p class="sec-kicker">Ils l'ont suivi</p>
-      <h2>Ce qu'en disent les apprenants</h2>
-      <div class="tcards">
-        {
-          courseTestimonials.map((testimonial) => (
-            <div class="tcard">
-              <p class="quote">« {testimonial.content} »</p>
-              <div class="who">
-                <img
-                  class="ava"
-                  src={testimonial.picture}
-                  alt={`${testimonial.name} - ${testimonial.job}`}
-                />
-                <div>
-                  <b>{testimonial.name}</b>
-                  <span>{testimonial.job}</span>
+    <!-- Témoignages (masqués s'il n'y en a aucun) -->
+    {
+      courseTestimonials.length > 0 && (
+        <section class="sec">
+          <p class="sec-kicker">Ils l'ont suivi</p>
+          <h2>Ce qu'en disent les apprenants</h2>
+          <div class="tcards">
+            {courseTestimonials.map((testimonial) => (
+              <div class="tcard">
+                <p class="quote">« {testimonial.content} »</p>
+                <div class="who">
+                  <img
+                    class="ava"
+                    src={testimonial.picture}
+                    alt={`${testimonial.name} - ${testimonial.job}`}
+                  />
+                  <div>
+                    <b>{testimonial.name}</b>
+                    <span>{testimonial.job}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))
-        }
-      </div>
-    </section>
+            ))}
+          </div>
+        </section>
+      )
+    }
 
     <!-- FAQ -->
     <section class="sec">
